@@ -12,7 +12,6 @@
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="FontSize" Value="15" />
-        <Setter Property="FontFamily" Value="{DynamicResource FontFamily}" />
         <Setter Property="Padding" Value="20,8" />
         <Setter Property="Template">
             <ControlTemplate>
@@ -151,7 +150,7 @@
                     <Setter Property="Foreground" Value="{DynamicResource PrimaryColor}" />
                 </Style>
                 <Style Selector="^ /template/ Border">
-                    <Setter Property="Background" Value="{DynamicResource CardBackgroundColor}" />
+                    <Setter Property="Background" Value="{DynamicResource GlassCardBackgroundColor}" />
                     <Setter Property="BorderBrush" Value="{DynamicResource PrimaryColor}" />
                     <Setter Property="RenderTransform">
                         <Setter.Value>
@@ -186,7 +185,7 @@
                     <Setter Property="Foreground" Value="{DynamicResource AccentColor}" />
                 </Style>
                 <Style Selector="^ /template/ Border">
-                    <Setter Property="Background" Value="{DynamicResource CardBackgroundColor}" />
+                    <Setter Property="Background" Value="{DynamicResource GlassCardBackgroundColor}" />
                     <Setter Property="BorderBrush" Value="{DynamicResource AccentColor}" />
                     <Setter Property="RenderTransform">
                         <Setter.Value>
@@ -195,7 +194,7 @@
                     </Setter>
                 </Style>
                 <Style Selector="^.Icon /template/ Border">
-                    <Setter Property="Background" Value="{DynamicResource CardBackgroundColor}" />
+                    <Setter Property="Background" Value="{DynamicResource GlassCardBackgroundColor}" />
                     <Setter Property="BorderBrush" Value="{DynamicResource AccentColor}" />
                     <Setter Property="RenderTransform">
                         <Setter.Value>
@@ -478,7 +477,7 @@
         <Style Selector="^.WindowControlsButton">
             <Setter Property="BorderThickness" Value="0" />
             <Setter Property="Width" Value="46" />
-            <Setter Property="Height" Value="31" />
+            <Setter Property="Height" Value="32" />
             <Setter Property="CornerRadius" Value="0" />
             <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
             <Setter Property="Background" Value="{DynamicResource BackgroundColor}" />

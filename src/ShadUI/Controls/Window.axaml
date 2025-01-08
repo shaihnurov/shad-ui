@@ -11,6 +11,7 @@
 
     <ControlTheme x:Key="WindowTheme" TargetType="controls:Window">
         <Setter Property="Margin" Value="0" />
+        <Setter Property="FontFamily" Value="{DynamicResource FontFamily}" />
         <Setter Property="TransparencyLevelHint" Value="Transparent" />
         <Setter Property="SystemDecorations" Value="{OnPlatform Full, Linux=None, x:TypeArguments=SystemDecorations}" />
         <Setter Property="ExtendClientAreaChromeHints" Value="NoChrome" />
@@ -62,7 +63,6 @@
                                                 <controls:GlassCard
                                                     Name="PART_TitleBarBackground"
                                                     IsVisible="{TemplateBinding ShowTitlebarBackground}"
-                                                    BorderThickness="0,0,0,1"
                                                     CornerRadius="0"
                                                     IsAnimated="False" />
                                                 <DockPanel LastChildFill="True">
@@ -141,7 +141,7 @@
                                                   ItemsSource="{TemplateBinding MenuItems}" />
                                         </Panel>
                                         <Border Name="PART_BottomBorder"
-                                                BorderBrush="{DynamicResource BorderBrush}" />
+                                                BorderBrush="{DynamicResource BorderColor}" />
                                     </StackPanel>
                                 </Panel>
                                 <ContentPresenter
@@ -240,7 +240,7 @@
 
         <Style Selector="^ /template/ controls|GlassCard#PART_TitleBarBackground">
             <Setter Property="Height" Value="32" />
-            <Setter Property="Background" Value="{DynamicResource CardBackgroundColor}"></Setter>
+            <Setter Property="Background" Value="{DynamicResource GlassCardBackgroundColor}" />
         </Style>
         <Style Selector="^ /template/ StackPanel#PART_ButtonsPanel">
             <Setter Property="Height" Value="32" />

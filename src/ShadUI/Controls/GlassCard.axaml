@@ -3,8 +3,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="clr-namespace:ShadUI.Controls">
     <ControlTheme x:Key="GlassCardStyle" TargetType="controls:GlassCard">
-        <Setter Property="BorderBrush" Value="{DynamicResource GlassBorderBrush}" />
-        <Setter Property="Background" Value="{DynamicResource GlassCardBackground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderColor}" />
+        <Setter Property="Background" Value="{DynamicResource GlassCardBackgroundColor}" />
         <Setter Property="Padding" Value="20" />
         <Setter Property="Template">
             <ControlTemplate>
@@ -46,51 +46,6 @@
                 </Panel>
             </ControlTemplate>
         </Setter>
-        <Style Selector="^.Control">
-            <Setter Property="IsAnimated" Value="False" />
-            <Setter Property="Padding" Value="0" />
-        </Style>
-        <Style Selector="^.Discrete">
-            <Setter Property="BorderBrush" Value="{DynamicResource ControlBorderBrush}" />
-            <Setter Property="Padding" Value="0" />
-        </Style>
-        <Style Selector="^.Control /template/ Border#PART_BorderCard">
-            <Setter Property="Background" Value="{DynamicResource ControlGlassCardBackground}" />
-            <Setter Property="Opacity" Value="{DynamicResource ControlGlassOpacity}" />
-        </Style>
-        <Style Selector="^.Discrete /template/ Border#PART_BorderCard">
-            <Setter Property="Background" Value="{DynamicResource GlassCardBackground}" />
-            <Setter Property="Opacity" Value="{DynamicResource DiscreteControlGlassOpacity}" />
-        </Style>
-        <Style Selector="^.Primary /template/ Border#PART_ClipBorder">
-            <Setter Property="BorderBrush" Value="{DynamicResource AccentColor0}" />
-        </Style>
-        <Style Selector="^[IsOpaque=True] /template/ Border#PART_BorderCard">
-            <Setter Property="Opacity" Value="1" />
-            <Setter Property="Background" Value="{DynamicResource GlassCardOpaqueBackground}" />
-        </Style>
-        <Style Selector="^[IsInteractive=True]:pointerover /template/ Border#PART_ClipBorder">
-            <Setter Property="BorderBrush" Value="{DynamicResource PrimaryColor50}" />
-        </Style>
-        <Style Selector="^.Primary[IsInteractive=True]:pointerover /template/ Border#PART_ClipBorder">
-            <Setter Property="BorderBrush" Value="{DynamicResource AccentColor50}" />
-        </Style>
-        <Style Selector="^[IsInteractive=True]:pointerdown /template/ Border#PART_ClipBorder">
-            <Setter Property="BorderBrush" Value="{DynamicResource PrimaryColor}" />
-        </Style>
-        <Style Selector="^.Primary[IsInteractive=True]:pointerdown /template/ Border#PART_ClipBorder">
-            <Setter Property="BorderBrush" Value="{DynamicResource AccentColor}" />
-        </Style>
-        <Style Selector="^.Accent /template/ Border#PART_BorderCard">
-            <Setter Property="Background" Value="{DynamicResource AccentColor25}" />
-        </Style>
-        <Style Selector="^.Primary /template/ Border#PART_BorderCard">
-            <Setter Property="Background" Value="{DynamicResource PrimaryColor25}" />
-        </Style>
-        <Style Selector="^.PrimaryOpaque /template/ Border#PART_BorderCard">
-            <Setter Property="Opacity" Value="1" />
-            <Setter Property="Background" Value="{DynamicResource PrimaryColor}" />
-        </Style>
         <Style Selector="^[IsVisible=True] /template/ Panel#RootPanel">
             <Setter Property="Opacity" Value="1" />
         </Style>

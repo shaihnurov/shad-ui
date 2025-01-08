@@ -5,20 +5,23 @@
 
     <Color x:Key="BackgroundColor">Transparent</Color>
     <Color x:Key="ForegroundColor">#18181B</Color>
-    <Color x:Key="CardBackgroundColor">#F4F4F4</Color>
     <Color x:Key="MutedColor">#E4E4E4</Color>
+    
+    <Color x:Key="BorderColor">#EBEBEB</Color>
+
+    <!-- glass card styles -->
+    <system:Double x:Key="GlassOpacity">0.48</system:Double>
+    <Color x:Key="GlassCardBackgroundColor">#FDFEFEFE</Color>
+    <Color x:Key="GlassCardOpaqueBackgroundColor">#fcfcfc</Color>
     
     <Color x:Key="DangerColor">#DC2626</Color>
     <Color x:Key="DangerForegroundColor">#FAFAFA</Color>
 
     <Color x:Key="StrongBackgroundColor">#fcfcfc</Color>
     <Color x:Key="LightBackgroundColor">Transparent</Color>
-    <Color x:Key="GlassCardBackgroundColor">#fdfefefe</Color>
-    <Color x:Key="GlassCardOpaqueBackgroundColor">#fcfcfc</Color>
     <Color x:Key="ControlTouchBackgroundColor">#FFFFFF</Color>
     <Color x:Key="DialogBackgroundColor">Gray</Color>
 
-    <Color x:Key="BorderBrushColor">#ebebeb</Color>
     <Color x:Key="ControlBorderBrushColor">#cecece</Color>
     <Color x:Key="MediumBorderBrushColor">#e2e2e2</Color>
     <Color x:Key="LightBorderBrushColor">#f1f1f1</Color>
@@ -42,11 +45,5 @@
 
     <system:Boolean x:Key="IsDark">False</system:Boolean>
     <system:Boolean x:Key="IsLight">True</system:Boolean>
-
-    <system:Double x:Key="GlassOpacity">0.48</system:Double>
-
-    <system:Double x:Key="ControlGlassOpacity">0.05</system:Double>
-    <system:Double x:Key="DiscreteControlGlassOpacity">0.4</system:Double>
-    <Color x:Key="ControlGlassCardBackground">#fd111111</Color>
 
 </ResourceDictionary>
