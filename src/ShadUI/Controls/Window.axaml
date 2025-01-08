@@ -1,0 +1,251 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:ShadUI.Controls"
+    xmlns:icons="clr-namespace:ShadUI.Contents">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceInclude Source="avares://ShadUI/Styles/Button.axaml" />
+        <ResourceInclude Source="avares://ShadUI/Styles/Constants.axaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <ControlTheme x:Key="WindowTheme" TargetType="controls:Window">
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="TransparencyLevelHint" Value="Transparent" />
+        <Setter Property="SystemDecorations" Value="{OnPlatform Full, Linux=None, x:TypeArguments=SystemDecorations}" />
+        <Setter Property="ExtendClientAreaChromeHints" Value="NoChrome" />
+        <Setter Property="ExtendClientAreaTitleBarHeightHint" Value="-1" /> <!-- use -1 to trigger top border cursor -->
+        <Setter Property="ExtendClientAreaToDecorationsHint" Value="True" />
+        <Setter Property="TextElement.Foreground" Value="{DynamicResource Text}" />
+        <Setter Property="FlowDirection" Value="{DynamicResource FlowDirectionPrimary}" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Margin="{TemplateBinding Margin}"
+                        ClipToBounds="True"
+                        CornerRadius="{OnPlatform '0', Linux='10', x:TypeArguments=CornerRadius}">
+                    <VisualLayerManager Name="PART_VisualLayerManager" IsHitTestVisible="True">
+                        <VisualLayerManager.ChromeOverlayLayer>
+                            <ItemsControl
+                                ItemsSource="{Binding Hosts, RelativeSource={RelativeSource AncestorType={x:Type controls:Window}}}">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <Panel />
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                            </ItemsControl>
+                        </VisualLayerManager.ChromeOverlayLayer>
+                        <Panel x:Name="PART_Root">
+                            <controls:BaseBackground
+                                Name="PART_Background"
+                                ShaderFile="{TemplateBinding BackgroundShaderFile}"
+                                ForceSoftwareRendering="{TemplateBinding BackgroundForceSoftwareRendering}" />
+                            
+                            <!-- use this panel to prevent flicker when switching dark or light mode -->
+                            <Panel Background="White"
+                                   IsVisible="{DynamicResource IsLight}"
+                                   Opacity="0.1" /> 
+
+                            <DockPanel LastChildFill="True">
+                                <Panel DockPanel.Dock="Top">
+                                    <Panel.Styles>
+                                        <Style
+                                            Selector="controls|Window[ShowBottomBorder=True] /template/ Border#PART_BottomBorder">
+                                            <Setter Property="BorderThickness" Value="0,0,0,1" />
+                                        </Style>
+                                        <Style
+                                            Selector="controls|Window[ShowBottomBorder=False] /template/ Border#PART_BottomBorder">
+                                            <Setter Property="BorderThickness" Value="0,0,0,0" />
+                                        </Style>
+                                    </Panel.Styles>
+                                    <StackPanel>
+                                        <LayoutTransformControl Name="PART_LayoutTransform" RenderTransformOrigin="0%,0%">
+                                            <Panel>
+                                                <controls:GlassCard
+                                                    Name="PART_TitleBarBackground"
+                                                    IsVisible="{TemplateBinding ShowTitlebarBackground}"
+                                                    BorderThickness="0,0,0,1"
+                                                    CornerRadius="0"
+                                                    IsAnimated="False" />
+                                                <DockPanel LastChildFill="True">
+                                                    <StackPanel VerticalAlignment="Center"
+                                                                DockPanel.Dock="Right"
+                                                                Orientation="Horizontal"
+                                                                Spacing="7">
+                                                        <StackPanel.Styles>
+                                                            <Style Selector="PathIcon">
+                                                                <Setter Property="Height" Value="10" />
+                                                                <Setter Property="Width" Value="10" />
+                                                            </Style>
+                                                        </StackPanel.Styles>
+                                                        <ItemsControl
+                                                            ItemsSource="{TemplateBinding RightWindowTitleBarControls}">
+                                                            <ItemsControl.ItemsPanel>
+                                                                <ItemsPanelTemplate>
+                                                                    <StackPanel
+                                                                        FlowDirection="{DynamicResource FlowDirectionOpposite}"
+                                                                        Orientation="Horizontal" />
+                                                                </ItemsPanelTemplate>
+                                                            </ItemsControl.ItemsPanel>
+                                                        </ItemsControl>
+                                                        <StackPanel
+                                                            Name="PART_ButtonsPanel"
+                                                            VerticalAlignment="Stretch"
+                                                            Orientation="Horizontal">
+                                                            <Button Name="PART_MinimizeButton"
+                                                                    Classes="Basic WindowControlsButton"
+                                                                    IsVisible="{TemplateBinding CanMinimize}">
+                                                                <PathIcon Name="MinimizeIcon"
+                                                                          Data="{x:Static icons:Icons.WindowMinimize}" />
+                                                            </Button>
+                                                            <Button Name="PART_MaximizeButton"
+                                                                    Classes="Basic WindowControlsButton"
+                                                                    IsVisible="{TemplateBinding CanMaximize}">
+                                                                <PathIcon Name="MaximizeIcon"
+                                                                          IsHitTestVisible="False"
+                                                                          Data="{x:Static icons:Icons.WindowMaximize}" />
+                                                            </Button>
+                                                            <Button Name="PART_CloseButton"
+                                                                    Classes="Basic WindowControlsButton Close">
+                                                                <PathIcon Name="CloseIcon"
+                                                                          Foreground="{Binding Foreground, ElementName=PART_CloseButton}"
+                                                                          Data="{x:Static icons:Icons.WindowClose}" />
+                                                            </Button>
+                                                        </StackPanel>
+                                                    </StackPanel>
+                                                    <StackPanel
+                                                        VerticalAlignment="Center"
+                                                        IsHitTestVisible="False"
+                                                        Orientation="Horizontal"
+                                                        Spacing="10">
+                                                        <ContentPresenter
+                                                            HorizontalAlignment="Left"
+                                                            Content="{TemplateBinding LogoContent}"
+                                                            IsHitTestVisible="False" />
+                                                        <TextBlock
+                                                            VerticalAlignment="Center"
+                                                            FontSize="{TemplateBinding TitleFontSize}"
+                                                            FontWeight="{TemplateBinding TitleFontWeight}"
+                                                            IsHitTestVisible="False"
+                                                            Text="{TemplateBinding Title}" />
+                                                    </StackPanel>
+                                                </DockPanel>
+                                            </Panel>
+                                        </LayoutTransformControl>
+                                        <Panel IsVisible="{TemplateBinding IsMenuVisible}">
+                                            <controls:GlassCard CornerRadius="0" BorderThickness="0" Margin="0,0,0,0"
+                                                                IsVisible="{TemplateBinding ShowTitlebarBackground}" />
+                                            <controls:GlassCard CornerRadius="13" Margin="10,2,10,10"
+                                                                Name="AlternativeGlassMenuBackground" />
+                                            <Menu Name="PART_Menu" IsEnabled="{TemplateBinding IsMenuVisible}"
+                                                  ItemsSource="{TemplateBinding MenuItems}" />
+                                        </Panel>
+                                        <Border Name="PART_BottomBorder"
+                                                BorderBrush="{DynamicResource BorderBrush}" />
+                                    </StackPanel>
+                                </Panel>
+                                <ContentPresenter
+                                    x:Name="PART_ContentPresenter"
+                                    HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                    VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                    Content="{TemplateBinding Content}"
+                                    ContentTemplate="{TemplateBinding ContentTemplate}"
+                                    CornerRadius="10"
+                                    IsHitTestVisible="True" />
+                            </DockPanel>
+                        </Panel>
+                    </VisualLayerManager>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^[ShowTitlebarBackground=False] /template/ Menu#PART_Menu">
+            <Setter Property="Margin" Value="10,0,0,7" />
+        </Style>
+        <Style Selector="^[ShowTitlebarBackground=True] /template/ controls|GlassCard#AlternativeGlassMenuBackground">
+            <Setter Property="IsVisible" Value="False" />
+        </Style>
+        <Style Selector="^[WindowState=Maximized] /template/ PathIcon#MaximizeIcon">
+            <Setter Property="Data" Value="{x:Static icons:Icons.WindowRestore}" />
+        </Style>
+        <Style Selector="^[WindowState=Normal] /template/ PathIcon#MaximizeIcon">
+            <Setter Property="Data" Value="{x:Static icons:Icons.WindowMaximize}" />
+        </Style>
+        <Style Selector="^[IsTitleBarVisible=True]">
+            <Style Selector="^[TitleBarAnimationEnabled=True]">
+                <Style Selector="^ /template/ LayoutTransformControl#PART_LayoutTransform">
+                    <Style.Animations>
+                        <Animation Easing="{StaticResource MenuEasing}"
+                                   FillMode="Forward"
+                                   Duration="{StaticResource MediumAnimationDuration}">
+                            <KeyFrame Cue="0%">
+                                <Setter Property="ScaleTransform.ScaleY" Value="0" />
+                                <Setter Property="IsVisible" Value="True" />
+                            </KeyFrame>
+                            <KeyFrame Cue="100%">
+                                <Setter Property="ScaleTransform.ScaleY" Value="1" />
+                            </KeyFrame>
+                        </Animation>
+                    </Style.Animations>
+                </Style>
+            </Style>
+            <Style Selector="^[IsActive=False]">
+                <Style Selector="^ /template/ PathIcon#MinimizeIcon">
+                    <Setter Property="Opacity" Value="0.5" />
+                </Style>
+                <Style Selector="^ /template/ PathIcon#MaximizeIcon">
+                    <Setter Property="Opacity" Value="0.5" />
+                </Style>
+                <Style Selector="^ /template/ PathIcon#CloseIcon">
+                    <Setter Property="Opacity" Value="0.5" />
+                </Style>
+            </Style>
+            <Style Selector="^[TitleBarAnimationEnabled=False]">
+                <Style Selector="^ /template/ LayoutTransformControl#PART_LayoutTransform">
+                    <Setter Property="IsVisible" Value="True" />
+                </Style>
+            </Style>
+            <Style Selector="^[IsActive=True]">
+                <Style Selector="^ /template/ Button#PART_CloseButton">
+                    <Style Selector="^:pointerover">
+                        <Setter Property="Foreground" Value="#FFFFFF" />
+                    </Style>
+                </Style>
+            </Style>
+        </Style>
+        <Style Selector="^[IsTitleBarVisible=False]">
+            <Style Selector="^[TitleBarAnimationEnabled=True]">
+                <Style Selector="^ /template/ LayoutTransformControl#PART_LayoutTransform">
+                    <Style.Animations>
+                        <Animation Easing="{StaticResource MenuEasing}"
+                                   FillMode="Forward"
+                                   Duration="{StaticResource MediumAnimationDuration}">
+                            <KeyFrame Cue="0%">
+                                <Setter Property="ScaleTransform.ScaleY" Value="1" />
+                            </KeyFrame>
+                            <KeyFrame Cue="100%">
+                                <Setter Property="ScaleTransform.ScaleY" Value="0" />
+                                <Setter Property="IsVisible" Value="False" />
+                            </KeyFrame>
+                        </Animation>
+                    </Style.Animations>
+                </Style>
+            </Style>
+            <Style Selector="^[TitleBarAnimationEnabled=False]">
+                <Style Selector="^ /template/ LayoutTransformControl#PART_LayoutTransform">
+                    <Setter Property="IsVisible" Value="False" />
+                </Style>
+            </Style>
+        </Style>
+
+        <Style Selector="^ /template/ controls|GlassCard#PART_TitleBarBackground">
+            <Setter Property="Height" Value="32" />
+            <Setter Property="Background" Value="#FFFFFF"></Setter>
+        </Style>
+        <Style Selector="^ /template/ StackPanel#PART_ButtonsPanel">
+            <Setter Property="Height" Value="32" />
+        </Style>
+    </ControlTheme>
+    <ControlTheme x:Key="{x:Type controls:Window}"
+                  BasedOn="{StaticResource WindowTheme}"
+                  TargetType="controls:Window" />
+</ResourceDictionary>

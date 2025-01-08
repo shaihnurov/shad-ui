@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <GenerateDocumentationFile>True</GenerateDocumentationFile>
+        <Version>0.0.1</Version>
+        <FileVersion>0.0.1</FileVersion>
+        <AssemblyVersion>0.0.1</AssemblyVersion>
+        <Nullable>enable</Nullable>
+        <LangVersion>latest</LangVersion>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <IsPackable>true</IsPackable>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageVersion>0.0.0-alpha1</PackageVersion>
+        <PackageDescription>Avalonia-based UI Library inspired by shadcn forked from Suki UI Library</PackageDescription>
+        <PackageTags>avalonia;avaloniaui;ui;theme;shadui</PackageTags>
+        <PackageProjectUrl>https://github.com/accntech/shad-ui.git</PackageProjectUrl>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Avalonia" Version="11.2.3"/>
+        <PackageReference Include="Avalonia.Skia" Version="11.2.1"/>
+        <PackageReference Include="SkiaSharp" Version="2.88.8"/>
+        <PackageReference Include="Avalonia.Controls.DataGrid" Version="11.2.3"/>
+        <PackageReference Include="Avalonia.Themes.Simple" Version="11.2.3"/>
+    </ItemGroup>
+    
+    <ItemGroup>
+        <EmbeddedResource Include="Contents\Loading\*.sksl"/>
+        <EmbeddedResource Include="Contents\Shader\*.sksl"/>
+    </ItemGroup>
+
+</Project>

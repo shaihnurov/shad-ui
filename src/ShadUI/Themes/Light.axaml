@@ -1,0 +1,45 @@
+﻿<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=netstandard">
+    <Color x:Key="BackgroundColor">Transparent</Color>
+    <Color x:Key="StrongBackgroundColor">#fcfcfc</Color>
+    <Color x:Key="LightBackgroundColor">Transparent</Color>
+    <Color x:Key="CardBackgroundColor">White</Color>
+    <Color x:Key="GlassCardBackgroundColor">#fdfefefe</Color>
+    <Color x:Key="GlassCardOpaqueBackgroundColor">#fcfcfc</Color>
+    <Color x:Key="ControlTouchBackgroundColor">#FFFFFF</Color>
+    <Color x:Key="DialogBackgroundColor">Gray</Color>
+
+    <Color x:Key="BorderBrushColor">#ebebeb</Color>
+    <Color x:Key="ControlBorderBrushColor">#cecece</Color>
+    <Color x:Key="MediumBorderBrushColor">#e2e2e2</Color>
+    <Color x:Key="LightBorderBrushColor">#f1f1f1</Color>
+    <Color x:Key="MenuBorderBrushColor">#d7d7d7</Color>
+    <Color x:Key="GlassBorderBrushColor">#e3e3e7</Color>
+
+    <Color x:Key="TextColor">#222222</Color>
+    <Color x:Key="LowTextColor">#555555</Color>
+    <Color x:Key="DisabledTextColor">#ABABAB</Color>
+
+    <BoxShadows x:Key="LowShadow">0 0 3 0 #eaeaea</BoxShadows>
+    <BoxShadows x:Key="SwitchShadow">0 1 5 0 #aaaaaa</BoxShadows>
+    <BoxShadows x:Key="SmallPopupShadow">0 0 2 0 DimGray</BoxShadows>
+    <BoxShadows x:Key="PopupShadow">1 1 8 0 LightGray</BoxShadows>
+    <BoxShadows x:Key="BigPopupShadow">1 4 17 0 #999999</BoxShadows>
+
+    <LinearGradientBrush x:Key="PopupGradientBrush" StartPoint="0%,0%" EndPoint="100%,100%">
+        <GradientStop Color="#03111111" Offset="0" />
+        <GradientStop Color="#02111111" Offset="1" />
+    </LinearGradientBrush>
+
+    <system:Boolean x:Key="IsDark">False</system:Boolean>
+    <system:Boolean x:Key="IsLight">True</system:Boolean>
+
+    <system:Double x:Key="GlassOpacity">0.48</system:Double>
+
+    <system:Double x:Key="ControlGlassOpacity">0.05</system:Double>
+    <system:Double x:Key="DiscreteControlGlassOpacity">0.4</system:Double>
+    <Color x:Key="ControlGlassCardBackground">#fd111111</Color>
+
+</ResourceDictionary>

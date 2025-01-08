@@ -1,0 +1,102 @@
+﻿<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:ShadUI.Controls">
+    <ControlTheme x:Key="GlassCardStyle" TargetType="controls:GlassCard">
+        <Setter Property="BorderBrush" Value="{DynamicResource GlassBorderBrush}" />
+        <Setter Property="Background" Value="{DynamicResource GlassCardBackground}" />
+        <Setter Property="Padding" Value="20" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Panel Name="RootPanel" Opacity="0">
+                    <Border Name="PART_BorderCard" RenderTransformOrigin="50%,50%"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            ClipToBounds="{TemplateBinding ClipToBounds}"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            Opacity="{DynamicResource GlassOpacity}">
+                        <Border.Transitions>
+                            <Transitions>
+                                <DoubleTransition Property="Width" Duration="0:0:0.5" Easing="QuadraticEaseOut" />
+                                <DoubleTransition Property="Height" Duration="0:0:0.5" Easing="QuadraticEaseOut" />
+                            </Transitions>
+                        </Border.Transitions>
+                        <Border.Transitions>
+                            <Transitions>
+                                <BrushTransition Property="BorderBrush" Duration="0:0:0.15" />
+                                <DoubleTransition Property="Opacity" Duration="0:0:0.15" />
+                            </Transitions>
+                        </Border.Transitions>
+                    </Border>
+                    <Border Name="PART_ClipBorder"
+                            Background="{DynamicResource PrimaryColor0}"
+                            BorderBrush="{DynamicResource PrimaryColor0}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            ClipToBounds="{TemplateBinding ClipToBounds}"
+                            CornerRadius="{TemplateBinding CornerRadius}">
+                        <Border.Transitions>
+                            <Transitions>
+                                <BrushTransition Property="BorderBrush" Duration="0:0:0.15" />
+                            </Transitions>
+                        </Border.Transitions>
+                        <ContentPresenter Name="PART_CP" Margin="{TemplateBinding Padding}"
+                                          Content="{TemplateBinding Content}" />
+                    </Border>
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^.Control">
+            <Setter Property="IsAnimated" Value="False" />
+            <Setter Property="Padding" Value="0" />
+        </Style>
+        <Style Selector="^.Discrete">
+            <Setter Property="BorderBrush" Value="{DynamicResource ControlBorderBrush}" />
+            <Setter Property="Padding" Value="0" />
+        </Style>
+        <Style Selector="^.Control /template/ Border#PART_BorderCard">
+            <Setter Property="Background" Value="{DynamicResource ControlGlassCardBackground}" />
+            <Setter Property="Opacity" Value="{DynamicResource ControlGlassOpacity}" />
+        </Style>
+        <Style Selector="^.Discrete /template/ Border#PART_BorderCard">
+            <Setter Property="Background" Value="{DynamicResource GlassCardBackground}" />
+            <Setter Property="Opacity" Value="{DynamicResource DiscreteControlGlassOpacity}" />
+        </Style>
+        <Style Selector="^.Primary /template/ Border#PART_ClipBorder">
+            <Setter Property="BorderBrush" Value="{DynamicResource AccentColor0}" />
+        </Style>
+        <Style Selector="^[IsOpaque=True] /template/ Border#PART_BorderCard">
+            <Setter Property="Opacity" Value="1" />
+            <Setter Property="Background" Value="{DynamicResource GlassCardOpaqueBackground}" />
+        </Style>
+        <Style Selector="^[IsInteractive=True]:pointerover /template/ Border#PART_ClipBorder">
+            <Setter Property="BorderBrush" Value="{DynamicResource PrimaryColor50}" />
+        </Style>
+        <Style Selector="^.Primary[IsInteractive=True]:pointerover /template/ Border#PART_ClipBorder">
+            <Setter Property="BorderBrush" Value="{DynamicResource AccentColor50}" />
+        </Style>
+        <Style Selector="^[IsInteractive=True]:pointerdown /template/ Border#PART_ClipBorder">
+            <Setter Property="BorderBrush" Value="{DynamicResource PrimaryColor}" />
+        </Style>
+        <Style Selector="^.Primary[IsInteractive=True]:pointerdown /template/ Border#PART_ClipBorder">
+            <Setter Property="BorderBrush" Value="{DynamicResource AccentColor}" />
+        </Style>
+        <Style Selector="^.Accent /template/ Border#PART_BorderCard">
+            <Setter Property="Background" Value="{DynamicResource AccentColor25}" />
+        </Style>
+        <Style Selector="^.Primary /template/ Border#PART_BorderCard">
+            <Setter Property="Background" Value="{DynamicResource PrimaryColor25}" />
+        </Style>
+        <Style Selector="^.PrimaryOpaque /template/ Border#PART_BorderCard">
+            <Setter Property="Opacity" Value="1" />
+            <Setter Property="Background" Value="{DynamicResource PrimaryColor}" />
+        </Style>
+        <Style Selector="^[IsVisible=True] /template/ Panel#RootPanel">
+            <Setter Property="Opacity" Value="1" />
+        </Style>
+        <Style Selector="^[IsVisible=False] /template/ Panel#RootPanel">
+            <Setter Property="Opacity" Value="0" />
+        </Style>
+    </ControlTheme>
+    <ControlTheme x:Key="{x:Type controls:GlassCard}" BasedOn="{StaticResource GlassCardStyle}" TargetType="controls:GlassCard" />
+</ResourceDictionary>
