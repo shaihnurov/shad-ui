@@ -478,36 +478,25 @@
         <Style Selector="^.WindowControlsButton">
             <Setter Property="BorderThickness" Value="0" />
             <Setter Property="Width" Value="46" />
-            <Setter Property="Height" Value="32" />
+            <Setter Property="Height" Value="31" />
             <Setter Property="CornerRadius" Value="0" />
-            <Setter Property="Foreground" Value="{DynamicResource TextColor}" />
-            <Setter Property="Background" Value="{DynamicResource PrimaryColor0}" />
+            <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
+            <Setter Property="Background" Value="{DynamicResource BackgroundColor}" />
             <Setter Property="Padding" Value="0" />
             <Setter Property="Transitions">
                 <Transitions>
-                    <BrushTransition Property="Background" Duration="0.01" />
+                    <BrushTransition Property="Background" Duration="0.001" />
                 </Transitions>
             </Setter>
             <Style Selector="^:pointerover">
-                <Setter Property="Background" Value="{DynamicResource PrimaryColor25}" />
+                <Setter Property="Background" Value="{DynamicResource MutedColor}" />
             </Style>
             <Style Selector="^.Close">
-                <Setter Property="Background" Value="{DynamicResource AccentColor0}" />
+                <Setter Property="Background" Value="{DynamicResource BackgroundColor}" />
                 <Style Selector="^:pointerover">
-                    <Setter Property="Background" Value="#C42B1C" />
+                    <Setter Property="Background" Value="{DynamicResource DangerColor}" />
                 </Style>
             </Style>
-        </Style>
-        <Style Selector="^.Large">
-            <Setter Property="FontSize" Value="18" />
-            <Setter Property="Padding" Value="30,12" />
-            <Setter Property="CornerRadius" Value="9" />
-        </Style>
-        <Style Selector="^.Icon">
-            <Setter Property="CornerRadius" Value="100" />
-            <Setter Property="Width" Value="40" />
-            <Setter Property="Height" Value="40" />
-            <Setter Property="Padding" Value="0" />
         </Style>
     </ControlTheme>
     <ControlTheme x:Key="{x:Type Button}"

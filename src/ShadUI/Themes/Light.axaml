@@ -2,10 +2,17 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:system="clr-namespace:System;assembly=netstandard">
+
     <Color x:Key="BackgroundColor">Transparent</Color>
+    <Color x:Key="ForegroundColor">#18181B</Color>
+    <Color x:Key="CardBackgroundColor">#F4F4F4</Color>
+    <Color x:Key="MutedColor">#E4E4E4</Color>
+    
+    <Color x:Key="DangerColor">#DC2626</Color>
+    <Color x:Key="DangerForegroundColor">#FAFAFA</Color>
+
     <Color x:Key="StrongBackgroundColor">#fcfcfc</Color>
     <Color x:Key="LightBackgroundColor">Transparent</Color>
-    <Color x:Key="CardBackgroundColor">White</Color>
     <Color x:Key="GlassCardBackgroundColor">#fdfefefe</Color>
     <Color x:Key="GlassCardOpaqueBackgroundColor">#fcfcfc</Color>
     <Color x:Key="ControlTouchBackgroundColor">#FFFFFF</Color>

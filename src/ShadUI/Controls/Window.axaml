@@ -16,8 +16,7 @@
         <Setter Property="ExtendClientAreaChromeHints" Value="NoChrome" />
         <Setter Property="ExtendClientAreaTitleBarHeightHint" Value="-1" /> <!-- use -1 to trigger top border cursor -->
         <Setter Property="ExtendClientAreaToDecorationsHint" Value="True" />
-        <Setter Property="TextElement.Foreground" Value="{DynamicResource Text}" />
-        <Setter Property="FlowDirection" Value="{DynamicResource FlowDirectionPrimary}" />
+        <Setter Property="TextElement.Foreground" Value="{DynamicResource ForegroundColor}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Border Margin="{TemplateBinding Margin}"
@@ -82,7 +81,6 @@
                                                             <ItemsControl.ItemsPanel>
                                                                 <ItemsPanelTemplate>
                                                                     <StackPanel
-                                                                        FlowDirection="{DynamicResource FlowDirectionOpposite}"
                                                                         Orientation="Horizontal" />
                                                                 </ItemsPanelTemplate>
                                                             </ItemsControl.ItemsPanel>
@@ -92,12 +90,14 @@
                                                             VerticalAlignment="Stretch"
                                                             Orientation="Horizontal">
                                                             <Button Name="PART_MinimizeButton"
+                                                                    Margin="0,0,0,1"
                                                                     Classes="Basic WindowControlsButton"
                                                                     IsVisible="{TemplateBinding CanMinimize}">
                                                                 <PathIcon Name="MinimizeIcon"
                                                                           Data="{x:Static icons:Icons.WindowMinimize}" />
                                                             </Button>
                                                             <Button Name="PART_MaximizeButton"
+                                                                    Margin="0,0,0,1"
                                                                     Classes="Basic WindowControlsButton"
                                                                     IsVisible="{TemplateBinding CanMaximize}">
                                                                 <PathIcon Name="MaximizeIcon"
@@ -105,6 +105,7 @@
                                                                           Data="{x:Static icons:Icons.WindowMaximize}" />
                                                             </Button>
                                                             <Button Name="PART_CloseButton"
+                                                                    Margin="0,0,0,1"
                                                                     Classes="Basic WindowControlsButton Close">
                                                                 <PathIcon Name="CloseIcon"
                                                                           Foreground="{Binding Foreground, ElementName=PART_CloseButton}"
@@ -207,7 +208,7 @@
             <Style Selector="^[IsActive=True]">
                 <Style Selector="^ /template/ Button#PART_CloseButton">
                     <Style Selector="^:pointerover">
-                        <Setter Property="Foreground" Value="#FFFFFF" />
+                        <Setter Property="Foreground" Value="{DynamicResource DangerForegroundColor}" />
                     </Style>
                 </Style>
             </Style>
@@ -239,7 +240,7 @@
 
         <Style Selector="^ /template/ controls|GlassCard#PART_TitleBarBackground">
             <Setter Property="Height" Value="32" />
-            <Setter Property="Background" Value="#FFFFFF"></Setter>
+            <Setter Property="Background" Value="{DynamicResource CardBackgroundColor}"></Setter>
         </Style>
         <Style Selector="^ /template/ StackPanel#PART_ButtonsPanel">
             <Setter Property="Height" Value="32" />
