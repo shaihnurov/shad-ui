@@ -5,10 +5,10 @@
         <Color x:Key="BackgroundGray">#fafafa</Color>
         <Color x:Key="BorderGray">#ebebeb</Color>
 
-        <Color x:Key="ThemeAccentColor">#0063bb</Color>
-        <Color x:Key="ThemeAccentColor2">#0063bb</Color>
-        <Color x:Key="ThemeAccentColor3">#0063bb</Color>
-        <Color x:Key="ThemeAccentColor4">#003f8e</Color>
+        <Color x:Key="ThemeSecondaryColor">#0063bb</Color>
+        <Color x:Key="ThemeSecondaryColor2">#0063bb</Color>
+        <Color x:Key="ThemeSecondaryColor3">#0063bb</Color>
+        <Color x:Key="ThemeSecondaryColor4">#003f8e</Color>
         <Color x:Key="ThemeAccentBadgeColor">#300063bb</Color>
 
         <Color x:Key="ThemeCardColor">#FFFFFF</Color>
@@ -59,9 +59,9 @@
         <SolidColorBrush x:Key="HighlightHoverBrush" Color="{DynamicResource HighlightHoverColor}" />
         <SolidColorBrush x:Key="HighlightForegroundBrush" Color="{DynamicResource HighlightForegroundColor}" />
         <SolidColorBrush x:Key="ThemeAccentBrush" Color="{DynamicResource PrimaryColor}" />
-        <SolidColorBrush x:Key="ThemeAccentBrush2" Color="{DynamicResource ThemeAccentColor2}" />
-        <SolidColorBrush x:Key="ThemeAccentBrush3" Color="{DynamicResource ThemeAccentColor3}" />
-        <SolidColorBrush x:Key="ThemeAccentBrush4" Color="{DynamicResource ThemeAccentColor4}" />
+        <SolidColorBrush x:Key="ThemeAccentBrush2" Color="{DynamicResource ThemeSecondaryColor2}" />
+        <SolidColorBrush x:Key="ThemeAccentBrush3" Color="{DynamicResource ThemeSecondaryColor3}" />
+        <SolidColorBrush x:Key="ThemeAccentBrush4" Color="{DynamicResource ThemeSecondaryColor4}" />
         <SolidColorBrush x:Key="ThemeAccentBadgeBrush" Color="{DynamicResource ThemeAccentBadgeColor}" />
         <SolidColorBrush x:Key="ErrorBrush" Color="{DynamicResource ErrorColor}" />
         <SolidColorBrush x:Key="ErrorLowBrush" Color="{DynamicResource ErrorLowColor}" />
@@ -83,10 +83,10 @@
                          Color="#BD202C" />
         <SolidColorBrush x:Key="DatePickerFlyoutPresenterHighlightFill"
                          Opacity="0.4"
-                         Color="{DynamicResource ThemeAccentColor}" />
+                         Color="{DynamicResource ThemeSecondaryColor}" />
         <SolidColorBrush x:Key="TimePickerFlyoutPresenterHighlightFill"
                          Opacity="0.4"
-                         Color="{DynamicResource ThemeAccentColor}" />
+                         Color="{DynamicResource ThemeSecondaryColor}" />
         <SolidColorBrush x:Key="ThemeControlTransparentBrush" Color="Transparent" />
     </Style.Resources>
 </Style>

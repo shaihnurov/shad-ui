@@ -5,6 +5,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="clr-namespace:ShadUI.Controls;assembly=ShadUI"
     xmlns:contents="clr-namespace:ShadUI.Contents;assembly=ShadUI"
+    xmlns:extensions="clr-namespace:ShadUI.Extensions;assembly=ShadUI"
     mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
     x:Class="ShadUI.Demo.Views.MainWindow"
     Icon="/Assets/avalonia-logo.ico"
@@ -16,7 +17,12 @@
     </controls:Window.LogoContent>
     <StackPanel VerticalAlignment="Center" Spacing="5" HorizontalAlignment="Center">
         <TextBlock Text="Welcome to ShadUI!" />
-        <Button Content="Click Me!" Classes="Flat" />
+        <Button Content="Primary" extensions:Button.ShowProgress="True" />
+        <Button Content="Primary Disabled" IsEnabled="False" />
+        <Button Content="Secondary" extensions:Button.ShowProgress="True" Classes="Secondary"/>
+        <Button Content="Destructive" extensions:Button.ShowProgress="True" Classes="Destructive"/>
+        <Button Content="Outline" extensions:Button.ShowProgress="True" Classes="Outline"/>
+        <Button Content="Ghost" extensions:Button.ShowProgress="True" Classes="Ghost"/>
     </StackPanel>
 
 </controls:Window>

@@ -14,7 +14,7 @@ public class ProgressToContentConverter : IValueConverter
     public object? Convert(object? value, Type targetType, object? parameter,
         CultureInfo culture)
     {
-        if ((bool) value)
+        if (value is true)
             return new Loading { LoadingStyle = LoadingStyle.Simple };
 
         return new Panel();

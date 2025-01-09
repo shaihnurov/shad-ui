@@ -192,8 +192,10 @@ public class BaseTheme : Styles
     {
         SetColorWithOpacities("PrimaryColor", colorTheme.Primary);
         SetResource("PrimaryDarkColor", colorTheme.PrimaryDark);
-        SetColorWithOpacities("AccentColor", colorTheme.Accent);
+        SetForeground("PrimaryForegroundColor", colorTheme.Primary);
+        SetColorWithOpacities("SecondaryColor", colorTheme.Accent);
         SetResource("AccentDarkColor", colorTheme.AccentDark);
+        SetForeground("SecondaryForegroundColor", colorTheme.Accent);
         ActiveColorTheme = colorTheme;
         OnColorThemeChanged?.Invoke(ActiveColorTheme);
     }
@@ -212,6 +214,12 @@ public class BaseTheme : Styles
         SetResource($"{baseName}3", baseColor.WithAlpha(0.03));
         SetResource($"{baseName}1", baseColor.WithAlpha(0.005));
         SetResource($"{baseName}0", baseColor.WithAlpha(0.00));
+    }
+
+    private void SetForeground(string name, Color color)
+    {
+        var luminance = (0.299 * color.R + 0.587 * color.G + 0.114 * color.B) / 255;
+        SetResource(name, luminance > 0.5 ? Color.Parse("#18181B"): Color.Parse("#FAFAFA"));
     }
 
     private void SetResource(string name, Color color) =>

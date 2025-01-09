@@ -22,8 +22,8 @@ public static class Shadcn
                 Source = new Uri("avares://ShadUI/Themes/Shadcn/BlackWhiteTheme.axaml")
             });
 
-        var whiteTheme = new ColorTheme("White", new Color(255, 255, 255, 255), new Color(255, 255, 255, 255));
-        var blackTheme = new ColorTheme("Black", new Color(255, 9, 9, 11), new Color(255, 9, 9, 11));
+        var whiteTheme = new ColorTheme("White", new Color(255, 255, 255, 255), new Color(255, 209, 209, 209));
+        var blackTheme = new ColorTheme("Black", new Color(255, 9, 9, 11), new Color(255, 57, 57, 59));
 
         BaseTheme.GetInstance().AddColorThemes([whiteTheme, blackTheme]);
 

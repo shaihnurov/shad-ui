@@ -14,34 +14,9 @@
     <Color x:Key="GlassCardBackgroundColor">#49AAAAAA</Color>
     <Color x:Key="GlassCardOpaqueBackgroundColor">#333333</Color>
     
-    <Color x:Key="DangerColor">#C82323</Color>
-    <Color x:Key="DangerForegroundColor">#FAFAFA</Color>
-
-    <Color x:Key="StrongBackgroundColor">#353535</Color>
-    <Color x:Key="LightBackgroundColor">Transparent</Color>
-    <Color x:Key="ControlTouchBackgroundColor">#505050</Color>
-    <Color x:Key="DialogBackgroundColor">#000000</Color>
-
-    <Color x:Key="ControlBorderBrushColor">#606060</Color>
-    <Color x:Key="MediumBorderBrushColor">#555555</Color>
-    <Color x:Key="LightBorderBrushColor">#454545</Color>
-    <Color x:Key="MenuBorderBrushColor">#454545</Color>
-    <Color x:Key="GlassBorderBrushColor">#252729</Color>
-
-    <Color x:Key="TextColor">#edffffff</Color>
-    <Color x:Key="LowTextColor">#caffffff</Color>
-    <Color x:Key="DisabledTextColor">#ca727272</Color>
-
-    <BoxShadows x:Key="LowShadow">0 0 3 0 #353535</BoxShadows>
-    <BoxShadows x:Key="SwitchShadow">0 1 5 0 #555555</BoxShadows>
-    <BoxShadows x:Key="SmallPopupShadow">0 0 4 1 #101010</BoxShadows>
-    <BoxShadows x:Key="PopupShadow">1 1 14 1 #101010</BoxShadows>
-    <BoxShadows x:Key="BigPopupShadow">1 4 17 0 #111111</BoxShadows>
-
-    <LinearGradientBrush x:Key="PopupGradientBrush" StartPoint="0%,0%" EndPoint="100%,100%">
-        <GradientStop Color="#03111111" Offset="0" />
-        <GradientStop Color="#02111111" Offset="1" />
-    </LinearGradientBrush>
+    <Color x:Key="DestructiveColor">#C82323</Color>
+    <Color x:Key="DestructiveColor75">#BFC82323</Color>
+    <Color x:Key="DestructiveForegroundColor">#FAFAFA</Color>
 
     <system:Boolean x:Key="IsDark">True</system:Boolean>
     <system:Boolean x:Key="IsLight">False</system:Boolean>
