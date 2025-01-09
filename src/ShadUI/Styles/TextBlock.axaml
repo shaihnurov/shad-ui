@@ -2,35 +2,34 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <ControlTheme x:Key="TextBlockStyle" TargetType="TextBlock">
-        <Setter Property="FontSize" Value="14" />
-        <Setter Property="Foreground" Value="{DynamicResource TextColor}" />
-        <Style Selector="^.h4">
-            <Setter Property="Margin" Value="0 7 0 10" />
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
+
+        <Style Selector="^.ExtraSmall">
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="LineHeight" Value="16" />
+        </Style>
+        <Style Selector="^.Small">
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="LineHeight" Value="20" />
+        </Style>
+        <Style Selector="^.Basic">
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="LineHeight" Value="24" />
+        </Style>
+        <Style Selector="^.Large">
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="LineHeight" Value="28" />
+        </Style>
+        <Style Selector="^.ExtraLarge">
             <Setter Property="FontSize" Value="20" />
-        </Style>
-        <Style Selector="^.h3">
-            <Setter Property="Margin" Value="0 10 0 15" />
-            <Setter Property="FontWeight" Value="SemiBold" />
-            <Setter Property="FontSize" Value="25" />
-        </Style>
-        <Style Selector="^.h2">
-            <Setter Property="Margin" Value="0 12 0 20" />
-            <Setter Property="FontWeight" Value="SemiBold" />
-            <Setter Property="FontSize" Value="30" />
-        </Style>
-        <Style Selector="^.h1">
-            <Setter Property="Margin" Value="0 20 0 30" />
-            <Setter Property="FontWeight" Value="SemiBold" />
-            <Setter Property="FontSize" Value="40" />
-        </Style>
-        <Style Selector="^.Caption">
-            <Setter Property="Foreground" Value="{DynamicResource ThemeControlHighBrush}" />
+            <Setter Property="LineHeight" Value="28" />
         </Style>
         <Style Selector="^.Primary">
             <Setter Property="Foreground" Value="{DynamicResource PrimaryColor}" />
         </Style>
         <Style Selector="^.Accent">
-            <Setter Property="Foreground" Value="{DynamicResource AccentColor}" />
+            <Setter Property="Foreground" Value="{DynamicResource SecondaryColor}" />
         </Style>
     </ControlTheme>
     <ControlTheme x:Key="{x:Type TextBlock}"
