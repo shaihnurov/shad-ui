@@ -13,7 +13,7 @@
     <!-- glass card styles -->
     <system:Double x:Key="GlassOpacity">0.48</system:Double>
     <Color x:Key="GlassCardBackgroundColor">#FDFEFEFE</Color>
-    <Color x:Key="GlassCardOpaqueBackgroundColor">#fcfcfc</Color>
+    <Color x:Key="GlassCardOpaqueBackgroundColor">#FCFCFC</Color>
     
     <Color x:Key="DestructiveColor">#DC2626</Color>
     <Color x:Key="DestructiveColor75">#BFDC2626</Color>

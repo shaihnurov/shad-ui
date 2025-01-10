@@ -5,7 +5,7 @@
     xmlns:icons="clr-namespace:ShadUI.Contents">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceInclude Source="avares://ShadUI/Controls/Button.axaml" />
+        <ResourceInclude Source="avares://ShadUI/Controls/WindowButton.axaml" />
         <ResourceInclude Source="avares://ShadUI/Controls/Constants.axaml" />
     </ResourceDictionary.MergedDictionaries>
 
