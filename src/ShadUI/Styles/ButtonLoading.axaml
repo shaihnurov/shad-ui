@@ -7,13 +7,13 @@
     </Style>
 
     <Style Selector="Button.Secondary controls|Loading">
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundColor}" />
+        <Setter Property="Foreground" Value="{DynamicResource SecondaryForegroundColor}" />
     </Style>
 
     <Style Selector="Button.Destructive controls|Loading">
         <Setter Property="Foreground" Value="{DynamicResource DestructiveForegroundColor}" />
     </Style>
-    
+
     <Style Selector="Button.Outline controls|Loading">
         <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
     </Style>

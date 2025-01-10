@@ -1,9 +1,0 @@
-half4 main() {
-    half4 o = vec4(1);
-
-    o.r = 0.95;
-    o.g = 0.95;
-    o.b = 0.95;
-
-    return o;
-}

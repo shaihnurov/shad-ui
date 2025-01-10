@@ -7,7 +7,6 @@ using System.Text;
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Styling;
-using ShadUI.Extensions;
 using ShadUI.Themes;
 using SkiaSharp;
 
@@ -134,14 +133,9 @@ public class BaseEffect
     internal SKShader ToShaderWithUniforms(float timeSeconds, ThemeVariant activeVariant, Rect bounds,
         float animationScale, float alpha = 1f)
     {
-        var theme = BaseTheme.GetInstance();
+        var theme = ShadTheme.GetInstance();
         if (theme is null) throw new InvalidOperationException("No Theme Instance is available.");
-        if (theme.ActiveColorTheme is null) throw new InvalidOperationException("No ActiveColorTheme is available.");
 
-        // Update allocated color arrays.
-        theme.ActiveColorTheme.Background.ToFloatArrayNonAlloc(_backgroundAlloc);
-        theme.ActiveColorTheme.BackgroundAccent.ToFloatArrayNonAlloc(_backgroundAccentAlloc);
-        theme.ActiveColorTheme.BackgroundPrimary.ToFloatArrayNonAlloc(_backgroundPrimaryAlloc);
         _boundsAlloc[0] = (float) bounds.Width;
         _boundsAlloc[1] = (float) bounds.Height;
 

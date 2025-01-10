@@ -4,5 +4,4 @@ namespace ShadUI.Controls;
 
 public class WindowButton : Button
 {
-    
 }

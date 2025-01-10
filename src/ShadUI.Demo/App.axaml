@@ -4,15 +4,7 @@
     xmlns:themes="clr-namespace:ShadUI.Themes;assembly=ShadUI"
     x:Class="ShadUI.Demo.App"
     RequestedThemeVariant="Default">
-    <Application.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceInclude Source="avares://ShadUI/Controls/Index.axaml" />
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-    </Application.Resources>
     <Application.Styles>
-        <FluentTheme />
-        <themes:BaseTheme ThemeColor="Blue"/> 
+        <themes:ShadTheme />
     </Application.Styles>
 </Application>

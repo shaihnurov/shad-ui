@@ -1,10 +1,8 @@
 using System;
 using System.Diagnostics;
-using Avalonia;
 using Avalonia.Media;
 using Avalonia.Platform;
 using Avalonia.Rendering.Composition;
-using Avalonia.Rendering.SceneGraph;
 using Avalonia.Skia;
 using Avalonia.Styling;
 using ShadUI.Themes;
@@ -15,9 +13,7 @@ namespace ShadUI.Utilities.Effects;
 public abstract class EffectDrawBase : CompositionCustomVisualHandler
 {
     public static readonly object StartAnimations = new(),
-        StopAnimations = new(),
-        EnableForceSoftwareRendering = new(),
-        DisableForceSoftwareRendering = new();
+        StopAnimations = new();
 
     private BaseEffect? _effect;
 
@@ -52,8 +48,6 @@ public abstract class EffectDrawBase : CompositionCustomVisualHandler
 
     protected ThemeVariant ActiveVariant { get; private set; }
 
-    protected ColorTheme ActiveTheme { get; private set; }
-
     protected float AnimationSeconds => (float) _animationTick.Elapsed.TotalSeconds;
 
     private readonly Stopwatch _animationTick = new();
@@ -62,11 +56,8 @@ public abstract class EffectDrawBase : CompositionCustomVisualHandler
     protected EffectDrawBase(bool invalidateRect = true)
     {
         _invalidateRect = invalidateRect;
-        var theme = BaseTheme.GetInstance();
+        var theme = ShadTheme.GetInstance();
         theme.OnBaseThemeChanged += v => ActiveVariant = v;
-        ActiveVariant = theme.ActiveBaseTheme;
-        theme.OnColorThemeChanged += t => ActiveTheme = t;
-        ActiveTheme = theme.ActiveColorTheme!;
     }
 
     public override void OnRender(ImmediateDrawingContext context)
@@ -120,9 +111,6 @@ public abstract class EffectDrawBase : CompositionCustomVisualHandler
     /// </summary>
     protected abstract void RenderSoftware(SKCanvas canvas, SKRect rect);
 
-    protected SKShader? EffectWithUniforms(float alpha = 1f) =>
-        EffectWithUniforms(Effect, alpha);
-
     protected SKShader? EffectWithUniforms(BaseEffect? effect, float alpha = 1f) =>
         effect?.ToShaderWithUniforms(AnimationSeconds, ActiveVariant, GetRenderBounds(), AnimationSpeedScale, alpha);
 
@@ -136,12 +124,4 @@ public abstract class EffectDrawBase : CompositionCustomVisualHandler
     protected virtual void EffectChanged(BaseEffect? oldValue, BaseEffect? newValue)
     {
     }
-
-    public virtual void Dispose()
-    {
-    }
-
-    public virtual bool Equals(ICustomDrawOperation other) => false;
-
-    public virtual bool HitTest(Point p) => false;
 }

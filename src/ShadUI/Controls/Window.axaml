@@ -11,17 +11,19 @@
 
     <ControlTheme x:Key="WindowTheme" TargetType="controls:Window">
         <Setter Property="Margin" Value="0" />
+        <Setter Property="Background" Value="{DynamicResource WindowBackgroundColor}" />
         <Setter Property="FontFamily" Value="{DynamicResource FontFamily}" />
         <Setter Property="TransparencyLevelHint" Value="Transparent" />
         <Setter Property="SystemDecorations" Value="{OnPlatform Full, Linux=None, x:TypeArguments=SystemDecorations}" />
         <Setter Property="ExtendClientAreaChromeHints" Value="NoChrome" />
-        <Setter Property="ExtendClientAreaTitleBarHeightHint" Value="-1" /> <!-- use -1 to trigger top border cursor -->
+        <!-- use -1 to trigger top border cursor -->
+        <Setter Property="ExtendClientAreaTitleBarHeightHint" Value="-1" />
         <Setter Property="ExtendClientAreaToDecorationsHint" Value="True" />
         <Setter Property="TextElement.Foreground" Value="{DynamicResource ForegroundColor}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Border Margin="{TemplateBinding Margin}"
-                        ClipToBounds="True"
+                        ClipToBounds="True" Background="{TemplateBinding Background}"
                         CornerRadius="{OnPlatform '0', Linux='10', x:TypeArguments=CornerRadius}">
                     <VisualLayerManager Name="PART_VisualLayerManager" IsHitTestVisible="True">
                         <VisualLayerManager.ChromeOverlayLayer>
@@ -35,16 +37,6 @@
                             </ItemsControl>
                         </VisualLayerManager.ChromeOverlayLayer>
                         <Panel x:Name="PART_Root">
-                            <controls:BaseBackground
-                                Name="PART_Background"
-                                ShaderFile="{TemplateBinding BackgroundShaderFile}"
-                                ForceSoftwareRendering="{TemplateBinding BackgroundForceSoftwareRendering}" />
-                            
-                            <!-- use this panel to prevent flicker when switching dark or light mode -->
-                            <Panel Background="White"
-                                   IsVisible="{DynamicResource IsLight}"
-                                   Opacity="0.1" /> 
-
                             <DockPanel LastChildFill="True">
                                 <Panel DockPanel.Dock="Top">
                                     <Panel.Styles>
@@ -58,13 +50,14 @@
                                         </Style>
                                     </Panel.Styles>
                                     <StackPanel>
-                                        <LayoutTransformControl Name="PART_LayoutTransform" RenderTransformOrigin="0%,0%">
+                                        <LayoutTransformControl Name="PART_LayoutTransform"
+                                                                RenderTransformOrigin="0%,0%">
                                             <Panel>
-                                                <controls:GlassCard
+                                                <Border
                                                     Name="PART_TitleBarBackground"
-                                                    IsVisible="{TemplateBinding ShowTitlebarBackground}"
-                                                    CornerRadius="0"
-                                                    IsAnimated="False" />
+                                                    Opacity="0.10"
+                                                    Background="{DynamicResource CardBackgroundColor}"
+                                                    IsVisible="{TemplateBinding ShowTitlebarBackground}" />
                                                 <DockPanel LastChildFill="True">
                                                     <StackPanel VerticalAlignment="Center"
                                                                 DockPanel.Dock="Right"
@@ -90,20 +83,21 @@
                                                             VerticalAlignment="Stretch"
                                                             Orientation="Horizontal">
                                                             <controls:WindowButton Name="PART_MinimizeButton"
-                                                                    Margin="0,0,0,1"
-                                                                    IsVisible="{TemplateBinding CanMinimize}">
+                                                                Margin="0,0,0,1"
+                                                                IsVisible="{TemplateBinding CanMinimize}">
                                                                 <PathIcon Name="MinimizeIcon"
                                                                           Data="{x:Static icons:Icons.WindowMinimize}" />
                                                             </controls:WindowButton>
                                                             <controls:WindowButton Name="PART_MaximizeButton"
-                                                                    Margin="0,0,0,1"
-                                                                    IsVisible="{TemplateBinding CanMaximize}">
+                                                                Margin="0,0,0,1"
+                                                                IsVisible="{TemplateBinding CanMaximize}">
                                                                 <PathIcon Name="MaximizeIcon"
                                                                           IsHitTestVisible="False"
                                                                           Data="{x:Static icons:Icons.WindowMaximize}" />
                                                             </controls:WindowButton>
-                                                            <controls:WindowButton Name="PART_CloseButton" Classes="Close"
-                                                                    Margin="0,0,0,1">
+                                                            <controls:WindowButton Name="PART_CloseButton"
+                                                                Classes="Close"
+                                                                Margin="0,0,0,1">
                                                                 <PathIcon Name="CloseIcon"
                                                                           Foreground="{Binding Foreground, ElementName=PART_CloseButton}"
                                                                           Data="{x:Static icons:Icons.WindowClose}" />
@@ -237,7 +231,7 @@
 
         <Style Selector="^ /template/ controls|GlassCard#PART_TitleBarBackground">
             <Setter Property="Height" Value="32" />
-            <Setter Property="Background" Value="{DynamicResource GlassCardBackgroundColor}" />
+            <Setter Property="Background" Value="{DynamicResource CardBackgroundColor}" />
         </Style>
         <Style Selector="^ /template/ StackPanel#PART_ButtonsPanel">
             <Setter Property="Height" Value="32" />

@@ -122,33 +122,9 @@ public class Window : Avalonia.Controls.Window
         set => SetValue(CanMoveProperty, value);
     }
 
-    public static readonly StyledProperty<string?> BackgroundShaderFileProperty =
-        AvaloniaProperty.Register<Window, string?>(nameof(BackgroundShaderFile));
-
-    /// <inheritdoc cref="BaseBackground.ShaderFile" />
-    public string? BackgroundShaderFile
-    {
-        get => GetValue(BackgroundShaderFileProperty);
-        set => SetValue(BackgroundShaderFileProperty, value);
-    }
-
     public static readonly StyledProperty<Avalonia.Controls.Controls> RightWindowTitleBarControlsProperty =
         AvaloniaProperty.Register<Window, Avalonia.Controls.Controls>(nameof(RightWindowTitleBarControls),
             new Avalonia.Controls.Controls());
-
-    public static readonly StyledProperty<bool> BackgroundForceSoftwareRenderingProperty =
-        AvaloniaProperty.Register<Window, bool>(nameof(BackgroundForceSoftwareRendering));
-
-    /// <summary>
-    ///     Forces the background of the window to utilise software rendering.
-    ///     This prevents use of any advanced effects or animations and provides only a flat background colour that changes
-    ///     with the theme.
-    /// </summary>
-    public bool BackgroundForceSoftwareRendering
-    {
-        get => GetValue(BackgroundForceSoftwareRenderingProperty);
-        set => SetValue(BackgroundForceSoftwareRenderingProperty, value);
-    }
 
     /// <summary>
     ///     Controls that are displayed on the right side of the title bar,
@@ -216,7 +192,7 @@ public class Window : Avalonia.Controls.Window
             if (e.NameScope.Get<Button>("PART_CloseButton") is { } close)
                 close.Click += (_, _) => Close();
 
-            if (e.NameScope.Get<GlassCard>("PART_TitleBarBackground") is { } titleBar)
+            if (e.NameScope.Get<Control>("PART_TitleBarBackground") is { } titleBar)
             {
                 titleBar.PointerPressed += OnTitleBarPointerPressed;
                 titleBar.DoubleTapped += OnMaximizeButtonClicked;

@@ -61,7 +61,7 @@
             </Transitions>
         </Setter>
 
-        <!--  Nested Selectors For Basic Button  -->
+        <!--  Nested Selectors For Default Button  -->
         <Style Selector="^ /template/ TextBlock">
             <Setter Property="FontSize" Value="{DynamicResource SmallFontSize}" />
             <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundColor}" />
@@ -132,6 +132,22 @@
         <Style Selector="^.Secondary">
             <Setter Property="Background" Value="{DynamicResource SecondaryColor}" />
             <Setter Property="Foreground" Value="{DynamicResource SecondaryForegroundColor}" />
+            <Style Selector="^ /template/ TextBlock">
+                <Setter Property="Foreground" Value="{DynamicResource SecondaryForegroundColor}" />
+                <Setter Property="Transitions">
+                    <Transitions>
+                        <BrushTransition Property="Foreground" Duration="0:0:0.3" />
+                    </Transitions>
+                </Setter>
+            </Style>
+            <Style Selector="^ /template/ ContentPresenter">
+                <Setter Property="Foreground" Value="{DynamicResource SecondaryForegroundColor}" />
+                <Setter Property="Transitions">
+                    <Transitions>
+                        <BrushTransition Property="Foreground" Duration="0:0:0.3" />
+                    </Transitions>
+                </Setter>
+            </Style>
             <Style Selector="^:pointerover /template/ Border#RootBorder">
                 <Setter Property="Background" Value="{DynamicResource SecondaryColor75}" />
             </Style>
@@ -169,7 +185,7 @@
             <Style Selector="^:pointerover /template/ Border#RootBorder">
                 <Setter Property="Background" Value="{DynamicResource DestructiveColor75}" />
             </Style>
-            
+
             <Style Selector="^:pressed">
                 <Style Selector="^.Icon /template/ Border">
                     <Setter Property="RenderTransform">
@@ -180,7 +196,7 @@
                 </Style>
             </Style>
         </Style>
-        
+
         <!--  Outline  -->
         <Style Selector="^.Outline">
             <Setter Property="Background" Value="{DynamicResource BackgroundColor}" />
@@ -254,6 +270,7 @@
                 </Style>
             </Style>
         </Style>
+
     </ControlTheme>
     <ControlTheme x:Key="{x:Type Button}"
                   BasedOn="{StaticResource ButtonStyle}"

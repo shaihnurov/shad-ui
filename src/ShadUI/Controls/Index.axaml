@@ -2,11 +2,18 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
+    <ResourceDictionary.ThemeDictionaries>
+        <ResourceInclude x:Key="Light" Source="/Themes/Light.axaml" />
+        <ResourceInclude x:Key="Dark" Source="/Themes/Dark.axaml" />
+    </ResourceDictionary.ThemeDictionaries>
+
     <ResourceDictionary.MergedDictionaries>
+        <StyleInclude Source="avares://ShadUI/Styles/ButtonLoading.axaml" />
         <ResourceInclude Source="avares://ShadUI/Controls/Button.axaml" />
         <ResourceInclude Source="avares://ShadUI/Controls/Constants.axaml" />
         <ResourceInclude Source="avares://ShadUI/Controls/TextBlock.axaml" />
         <ResourceInclude Source="avares://ShadUI/Controls/Window.axaml" />
         <ResourceInclude Source="avares://ShadUI/Controls/WindowButton.axaml" />
     </ResourceDictionary.MergedDictionaries>
+
 </ResourceDictionary>

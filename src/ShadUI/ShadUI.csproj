@@ -28,7 +28,6 @@
     
     <ItemGroup>
         <EmbeddedResource Include="Contents\Loading\*.sksl"/>
-        <EmbeddedResource Include="Contents\Shader\*.sksl"/>
     </ItemGroup>
 
 </Project>

@@ -58,8 +58,9 @@ public class Loading : Control
         _customVisual = comp.CreateCustomVisual(visualHandler);
         ElementComposition.SetElementChildVisual(this, _customVisual);
         _customVisual.SendHandlerMessage(EffectDrawBase.StartAnimations);
+
         if (Foreground is null)
-            this[!ForegroundProperty] = new DynamicResourceExtension("PrimaryColor");
+            this[!ForegroundProperty] = new DynamicResourceExtension("PrimaryForegroundColor");
         if (Foreground is ImmutableSolidColorBrush brush)
             brush.Color.ToFloatArrayNonAlloc(_color);
         _customVisual.SendHandlerMessage(_color);

@@ -1,25 +1,25 @@
 ﻿<ResourceDictionary
     xmlns="https://github.com/avaloniaui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:system="clr-namespace:System;assembly=netstandard">
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-    <Color x:Key="BackgroundColor">Transparent</Color>
+    <!-- basic colors -->
     <Color x:Key="ForegroundColor">#18181B</Color>
-    <Color x:Key="InverseForegroundColor">#FAFAFA</Color>
+    <Color x:Key="BackgroundColor">Transparent</Color>
     <Color x:Key="MutedColor">#E4E4E4</Color>
-    
+    <Color x:Key="CardBackgroundColor">#7F18181B</Color>
+    <Color x:Key="WindowBackgroundColor">#FFFFFF</Color>
     <Color x:Key="BorderColor">#E4E4E7</Color>
 
-    <!-- glass card styles -->
-    <system:Double x:Key="GlassOpacity">0.48</system:Double>
-    <Color x:Key="GlassCardBackgroundColor">#FDFEFEFE</Color>
-    <Color x:Key="GlassCardOpaqueBackgroundColor">#FCFCFC</Color>
-    
+    <Color x:Key="PrimaryColor">#09090B</Color>
+    <Color x:Key="PrimaryColor75">#BF09090B</Color>
+    <Color x:Key="PrimaryForegroundColor">#FAFAFA</Color>
+
+    <Color x:Key="SecondaryColor">#18181B</Color>
+    <Color x:Key="SecondaryColor75">#BF18181B</Color>
+    <Color x:Key="SecondaryForegroundColor">#FAFAFA</Color>
+
     <Color x:Key="DestructiveColor">#DC2626</Color>
     <Color x:Key="DestructiveColor75">#BFDC2626</Color>
     <Color x:Key="DestructiveForegroundColor">#FAFAFA</Color>
-
-    <system:Boolean x:Key="IsDark">False</system:Boolean>
-    <system:Boolean x:Key="IsLight">True</system:Boolean>
 
 </ResourceDictionary>

@@ -5,7 +5,6 @@ using Avalonia.Data.Core.Plugins;
 using Avalonia.Markup.Xaml;
 using ShadUI.Demo.Views;
 using ShadUI.Themes;
-using ShadUI.Themes.Shadcn;
 
 namespace ShadUI.Demo;
 
@@ -27,7 +26,6 @@ public partial class App : Application
         }
 
         base.OnFrameworkInitializationCompleted();
-        Shadcn.Configure(BaseTheme.GetInstance().ActiveBaseTheme);
     }
 
     private void DisableAvaloniaDataAnnotationValidation()

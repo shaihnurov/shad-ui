@@ -53,5 +53,6 @@
             <Setter Property="Opacity" Value="0" />
         </Style>
     </ControlTheme>
-    <ControlTheme x:Key="{x:Type controls:GlassCard}" BasedOn="{StaticResource GlassCardStyle}" TargetType="controls:GlassCard" />
+    <ControlTheme x:Key="{x:Type controls:GlassCard}" BasedOn="{StaticResource GlassCardStyle}"
+                  TargetType="controls:GlassCard" />
 </ResourceDictionary>
