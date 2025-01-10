@@ -5,6 +5,9 @@ using Avalonia.Styling;
 
 namespace ShadUI.Themes;
 
+/// <summary>
+///    The main theme for the application.
+/// </summary>
 public class ShadTheme : Styles
 {
     /// <summary>
@@ -15,6 +18,9 @@ public class ShadTheme : Styles
 
     private readonly Application _app;
 
+    /// <summary>
+    /// Returns a new instance of the <see cref="ShadTheme"/> class.
+    /// </summary>
     public ShadTheme()
     {
         AvaloniaXamlLoader.Load(this);

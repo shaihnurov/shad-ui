@@ -16,6 +16,7 @@
         <PackageDescription>Avalonia-based UI Library inspired by shadcn forked from Suki UI Library</PackageDescription>
         <PackageTags>avalonia;avaloniaui;ui;theme;shadui</PackageTags>
         <PackageProjectUrl>https://github.com/accntech/shad-ui.git</PackageProjectUrl>
+        
     </PropertyGroup>
 
     <ItemGroup>
@@ -30,4 +31,7 @@
         <EmbeddedResource Include="Contents\Loading\*.sksl"/>
     </ItemGroup>
 
+    <ItemGroup>
+        <None Include="../../README.md" Pack="true" PackagePath=""/>
+    </ItemGroup>
 </Project>

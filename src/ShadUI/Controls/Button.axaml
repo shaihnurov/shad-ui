@@ -32,7 +32,7 @@
                     <StackPanel HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                 Orientation="Horizontal">
                         <Viewbox Margin="0,-5"
-                                 Width="{TemplateBinding extensions:Button.ShowProgress, Converter={StaticResource WidthConverter}}"
+                                 Width="{TemplateBinding extensions:ButtonExt.ShowProgress, Converter={StaticResource WidthConverter}}"
                                  Height="24">
                             <Viewbox.Transitions>
                                 <Transitions>
@@ -40,7 +40,7 @@
                                 </Transitions>
                             </Viewbox.Transitions>
                             <ContentPresenter
-                                Content="{TemplateBinding extensions:Button.ShowProgress, Converter={x:Static converters:ProgressToContentConverter.Instance}}" />
+                                Content="{TemplateBinding extensions:ButtonExt.ShowProgress, Converter={x:Static converters:ProgressToContentConverter.Instance}}" />
                         </Viewbox>
                         <ContentPresenter
                             HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"

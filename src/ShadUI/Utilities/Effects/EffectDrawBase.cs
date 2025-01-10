@@ -10,17 +10,30 @@ using SkiaSharp;
 
 namespace ShadUI.Utilities.Effects;
 
+/// <summary>
+/// Effect drawing base class.
+/// </summary>
 public abstract class EffectDrawBase : CompositionCustomVisualHandler
 {
-    public static readonly object StartAnimations = new(),
-        StopAnimations = new();
+    /// <summary>
+    /// Represents the start of animations.
+    /// </summary>
+    public static readonly object StartAnimations = new();
+
+    /// <summary>
+    /// Represents the stop of animations.
+    /// </summary>
+    public static readonly object StopAnimations = new();
 
     private BaseEffect? _effect;
 
-    public BaseEffect? Effect
+    /// <summary>
+    /// Returns the current effect.
+    /// </summary>
+    protected BaseEffect? Effect
     {
         get => _effect;
-        set
+        private set
         {
             var old = _effect;
             if (Equals(old, value)) return;
@@ -31,6 +44,9 @@ public abstract class EffectDrawBase : CompositionCustomVisualHandler
 
     private bool _animationEnabled;
 
+    /// <summary>
+    /// Gets or sets whether animations are enabled.
+    /// </summary>
     public bool AnimationEnabled
     {
         get => _animationEnabled;
@@ -42,17 +58,33 @@ public abstract class EffectDrawBase : CompositionCustomVisualHandler
         }
     }
 
+    /// <summary>
+    /// Gets or sets whether to force software rendering.
+    /// </summary>
     public bool ForceSoftwareRendering { get; set; }
 
+    /// <summary>
+    /// The scale of the animation speed.
+    /// </summary>
     protected float AnimationSpeedScale { get; set; } = 0.1f;
 
-    protected ThemeVariant ActiveVariant { get; private set; }
+    /// <summary>
+    /// The active theme variant.
+    /// </summary>
+    protected ThemeVariant ActiveVariant { get; private set; } = ThemeVariant.Light;
 
+    /// <summary>
+    /// The seconds elapsed since the start of the animation.
+    /// </summary>
     protected float AnimationSeconds => (float) _animationTick.Elapsed.TotalSeconds;
 
     private readonly Stopwatch _animationTick = new();
     private readonly bool _invalidateRect;
 
+    /// <summary>
+    /// Returns a new instance of the <see cref="EffectDrawBase"/> class.
+    /// </summary>
+    /// <param name="invalidateRect"></param>
     protected EffectDrawBase(bool invalidateRect = true)
     {
         _invalidateRect = invalidateRect;
@@ -60,6 +92,11 @@ public abstract class EffectDrawBase : CompositionCustomVisualHandler
         theme.OnBaseThemeChanged += v => ActiveVariant = v;
     }
 
+    /// <summary>
+    /// Called whenever the effect is changed.
+    /// </summary>
+    /// <param name="context"></param>
+    /// <exception cref="InvalidOperationException"></exception>
     public override void OnRender(ImmediateDrawingContext context)
     {
         var leaseFeature = context.TryGetFeature<ISkiaSharpApiLeaseFeature>();
@@ -73,6 +110,10 @@ public abstract class EffectDrawBase : CompositionCustomVisualHandler
             Render(lease.SkCanvas, rect);
     }
 
+    /// <summary>
+    /// Called when a message is received.
+    /// </summary>
+    /// <param name="message"></param>
     public override void OnMessage(object message)
     {
         if (message == StartAnimations)
@@ -90,6 +131,9 @@ public abstract class EffectDrawBase : CompositionCustomVisualHandler
         }
     }
 
+    /// <summary>
+    /// Called every frame to update the animation.
+    /// </summary>
     public override void OnAnimationFrameUpdate()
     {
         if (!AnimationEnabled) return;
@@ -111,16 +155,40 @@ public abstract class EffectDrawBase : CompositionCustomVisualHandler
     /// </summary>
     protected abstract void RenderSoftware(SKCanvas canvas, SKRect rect);
 
+    /// <summary>
+    /// Returns the shader with the effect and uniforms.
+    /// </summary>
+    /// <param name="effect"></param>
+    /// <param name="alpha"></param>
+    /// <returns></returns>
     protected SKShader? EffectWithUniforms(BaseEffect? effect, float alpha = 1f) =>
         effect?.ToShaderWithUniforms(AnimationSeconds, ActiveVariant, GetRenderBounds(), AnimationSpeedScale, alpha);
 
+    /// <summary>
+    /// Returns the shader with the effect and custom uniforms.
+    /// </summary>
+    /// <param name="uniformFactory"></param>
+    /// <param name="alpha"></param>
+    /// <returns></returns>
     protected SKShader? EffectWithCustomUniforms(Func<SKRuntimeEffect, SKRuntimeEffectUniforms> uniformFactory, float alpha = 1f) =>
         EffectWithCustomUniforms(Effect, uniformFactory, alpha);
 
+    /// <summary>
+    /// Returns the shader with the effect and custom uniforms.
+    /// </summary>
+    /// <param name="effect"></param>
+    /// <param name="uniformFactory"></param>
+    /// <param name="alpha"></param>
+    /// <returns></returns>
     protected SKShader? EffectWithCustomUniforms(BaseEffect? effect, Func<SKRuntimeEffect, SKRuntimeEffectUniforms> uniformFactory,
         float alpha = 1f) =>
         effect?.ToShaderWithCustomUniforms(uniformFactory, AnimationSeconds, GetRenderBounds(), AnimationSpeedScale, alpha);
 
+    /// <summary>
+    /// Called whenever the effect is changed.
+    /// </summary>
+    /// <param name="oldValue"></param>
+    /// <param name="newValue"></param>
     protected virtual void EffectChanged(BaseEffect? oldValue, BaseEffect? newValue)
     {
     }

@@ -31,7 +31,11 @@ public class BaseEffect
         "uniform vec3 iBase;"
     };
 
-    private static readonly List<BaseEffect> LoadedEffects = [];
+    /// <summary>
+    ///     Represents an SKSL shader that ShadUI can handle and pass relevant uniforms into.
+    /// </summary>
+    // ReSharper disable once CollectionNeverUpdated.Global
+    public static readonly List<BaseEffect> LoadedEffects = [];
 
     private readonly string _rawShaderString;
     private readonly string _shaderString;
@@ -118,11 +122,22 @@ public class BaseEffect
         LoadedEffects.Clear();
     }
 
+    /// <summary>
+    ///     Returns if the object is equal to another object.
+    /// </summary>
+    /// <param name="obj"></param>
+    /// <returns></returns>
     public override bool Equals(object? obj)
     {
         if (obj is not BaseEffect effect) return false;
         return effect._shaderString == _shaderString;
     }
+
+    /// <summary>
+    ///     Returns the hash code of the shader string.
+    /// </summary>
+    /// <returns></returns>
+    public override int GetHashCode() => _shaderString.GetHashCode();
 
     private static readonly float[] White = { 0.95f, 0.95f, 0.95f };
     private readonly float[] _backgroundAlloc = new float[3];

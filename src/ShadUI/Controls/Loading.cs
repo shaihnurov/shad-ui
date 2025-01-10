@@ -13,20 +13,35 @@ using SkiaSharp;
 
 namespace ShadUI.Controls;
 
+/// <summary>
+///     Loading indicator.
+/// </summary>
 public class Loading : Control
 {
+    /// <summary>
+    ///     The style of the loading indicator.
+    /// </summary>
     public static readonly StyledProperty<LoadingStyle> LoadingStyleProperty =
         AvaloniaProperty.Register<Loading, LoadingStyle>(nameof(LoadingStyle));
 
+    /// <summary>
+    ///     Gets or sets the value of the <see cref="LoadingStyleProperty" />.
+    /// </summary>
     public LoadingStyle LoadingStyle
     {
         get => GetValue(LoadingStyleProperty);
         set => SetValue(LoadingStyleProperty, value);
     }
 
+    /// <summary>
+    ///     The foreground color of the loading indicator.
+    /// </summary>
     public static readonly StyledProperty<IBrush?> ForegroundProperty =
         AvaloniaProperty.Register<Loading, IBrush?>(nameof(Foreground));
 
+    /// <summary>
+    ///     Gets or sets the value of the <see cref="ForegroundProperty" />.
+    /// </summary>
     public IBrush? Foreground
     {
         get => GetValue(ForegroundProperty);
@@ -43,12 +58,19 @@ public class Loading : Control
 
     private CompositionCustomVisual? _customVisual;
 
+    /// <summary>
+    ///     Loading indicator.
+    /// </summary>
     public Loading()
     {
         Width = 50;
         Height = 50;
     }
 
+    /// <summary>
+    ///     Called when attached to the visual tree.
+    /// </summary>
+    /// <param name="e">The element</param>
     protected override void OnAttachedToVisualTree(VisualTreeAttachmentEventArgs e)
     {
         base.OnAttachedToVisualTree(e);
@@ -76,6 +98,10 @@ public class Loading : Control
 
     private readonly float[] _color = new float[3];
 
+    /// <summary>
+    ///     Called when a property changes.
+    /// </summary>
+    /// <param name="change"></param>
     protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)
     {
         base.OnPropertyChanged(change);
@@ -94,15 +120,26 @@ public class Loading : Control
         }
     }
 
+    /// <summary>
+    /// The <see cref="EffectDrawBase" /> for the <see cref="Loading"/> indicator.
+    /// </summary>
     public class LoadingEffectDraw : EffectDrawBase
     {
         private float[] _color = { 1.0f, 0f, 0f };
 
+        /// <summary>
+        /// The <see cref="LoadingEffectDraw" /> for the <see cref="Loading"/> indicator.
+        /// </summary>
         public LoadingEffectDraw()
         {
             AnimationSpeedScale = 2f;
         }
 
+        /// <summary>
+        /// Renders the effect to the canvas.
+        /// </summary>
+        /// <param name="canvas"></param>
+        /// <param name="rect"></param>
         protected override void Render(SKCanvas canvas, SKRect rect)
         {
             using var mainShaderPaint = new SKPaint();
@@ -118,14 +155,21 @@ public class Loading : Control
             }
         }
 
-        // I'm not really sure how to render this properly in software fallback scenarios.
-        // This is likely to cause issues with the previewer.
-        // Might be worth just drawing a circle or something...
+        /// <summary>
+        ///     Called when the software renderer is used.
+        /// </summary>
+        /// <param name="canvas"></param>
+        /// <param name="rect"></param>
+        /// <exception cref="NotImplementedException"></exception>
         protected override void RenderSoftware(SKCanvas canvas, SKRect rect)
         {
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        ///     Called when a message is received.
+        /// </summary>
+        /// <param name="message"></param>
         public override void OnMessage(object message)
         {
             base.OnMessage(message);
