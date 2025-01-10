@@ -5,7 +5,7 @@ namespace ShadUI.Extensions;
 public static class Button
 {
     public static readonly AttachedProperty<bool> ShowProgressProperty =
-        AvaloniaProperty.RegisterAttached<Avalonia.Controls.Button, bool>("ShowProgress", typeof(Avalonia.Controls.Button), false);
+        AvaloniaProperty.RegisterAttached<Avalonia.Controls.Button, bool>("ShowProgress", typeof(Avalonia.Controls.Button));
 
     public static bool GetShowProgress(Avalonia.Controls.Button textBox) => textBox.GetValue(ShowProgressProperty);
 

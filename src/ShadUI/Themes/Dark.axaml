@@ -1,7 +1,6 @@
 ﻿<ResourceDictionary
     xmlns="https://github.com/avaloniaui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:system="clr-namespace:System;assembly=netstandard">
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <!-- basic colors -->
     <Color x:Key="ForegroundColor">#FAFAFA</Color>
@@ -10,8 +9,7 @@
     <Color x:Key="CardBackgroundColor">#7F2C2C30</Color>
     <Color x:Key="WindowBackgroundColor">#09090B</Color>
     <Color x:Key="BorderColor">#353535</Color>
-    
-    <!-- glass card styles -->
+
     <Color x:Key="PrimaryColor">#FAFAFA</Color>
     <Color x:Key="PrimaryColor75">#BFFAFAFA</Color>
     <Color x:Key="PrimaryForegroundColor">#18181B</Color>

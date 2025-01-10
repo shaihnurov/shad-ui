@@ -19,10 +19,10 @@
         <TextBlock Text="Welcome to ShadUI!" />
         <Button Content="Primary" extensions:Button.ShowProgress="True" />
         <Button Content="Primary Disabled" IsEnabled="False" />
-        <Button Content="Secondary" extensions:Button.ShowProgress="True" Classes="Secondary"/>
-        <Button Content="Destructive" extensions:Button.ShowProgress="True" Classes="Destructive"/>
-        <Button Content="Outline" extensions:Button.ShowProgress="True" Classes="Outline"/>
-        <Button Content="Ghost" extensions:Button.ShowProgress="True" Classes="Ghost"/>
+        <Button Content="Secondary" extensions:Button.ShowProgress="True" Classes="Secondary" />
+        <Button Content="Destructive" extensions:Button.ShowProgress="True" Classes="Destructive" />
+        <Button Content="Outline" extensions:Button.ShowProgress="True" Classes="Outline" />
+        <Button Content="Ghost" extensions:Button.ShowProgress="True" Classes="Ghost" />
     </StackPanel>
 
 </controls:Window>

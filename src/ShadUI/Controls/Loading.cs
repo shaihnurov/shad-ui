@@ -16,7 +16,7 @@ namespace ShadUI.Controls;
 public class Loading : Control
 {
     public static readonly StyledProperty<LoadingStyle> LoadingStyleProperty =
-        AvaloniaProperty.Register<Loading, LoadingStyle>(nameof(LoadingStyle), LoadingStyle.Simple);
+        AvaloniaProperty.Register<Loading, LoadingStyle>(nameof(LoadingStyle));
 
     public LoadingStyle LoadingStyle
     {

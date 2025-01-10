@@ -69,7 +69,7 @@ public class Window : Avalonia.Controls.Window
     }
 
     public static readonly StyledProperty<bool> IsMenuVisibleProperty =
-        AvaloniaProperty.Register<Window, bool>(nameof(IsMenuVisible), false);
+        AvaloniaProperty.Register<Window, bool>(nameof(IsMenuVisible));
 
     public bool IsMenuVisible
     {
