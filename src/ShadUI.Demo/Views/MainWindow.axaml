@@ -11,7 +11,6 @@
     Icon="/Assets/avalonia-logo.ico"
     TitleFontWeight="SemiBold"
     Title="ShadUI.Demo">
-
     <controls:Window.LogoContent>
         <PathIcon Margin="8,8,0,8" Width="14" Height="14" Data="{x:Static contents:Icons.Logo}" />
     </controls:Window.LogoContent>

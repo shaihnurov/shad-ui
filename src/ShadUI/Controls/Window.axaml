@@ -55,8 +55,6 @@
                                             <Panel>
                                                 <Border
                                                     Name="PART_TitleBarBackground"
-                                                    Opacity="0.10"
-                                                    Background="{DynamicResource CardBackgroundColor}"
                                                     IsVisible="{TemplateBinding ShowTitlebarBackground}" />
                                                 <DockPanel LastChildFill="True">
                                                     <StackPanel VerticalAlignment="Center"
@@ -123,11 +121,7 @@
                                                 </DockPanel>
                                             </Panel>
                                         </LayoutTransformControl>
-                                        <Panel IsVisible="{TemplateBinding IsMenuVisible}">
-                                            <controls:GlassCard CornerRadius="0" BorderThickness="0" Margin="0,0,0,0"
-                                                                IsVisible="{TemplateBinding ShowTitlebarBackground}" />
-                                            <controls:GlassCard CornerRadius="13" Margin="10,2,10,10"
-                                                                Name="AlternativeGlassMenuBackground" />
+                                        <Panel IsVisible="{TemplateBinding IsMenuVisible}" Background="{DynamicResource CardBackgroundColor}">
                                             <Menu Name="PART_Menu" IsEnabled="{TemplateBinding IsMenuVisible}"
                                                   ItemsSource="{TemplateBinding MenuItems}" />
                                         </Panel>
@@ -152,9 +146,6 @@
 
         <Style Selector="^[ShowTitlebarBackground=False] /template/ Menu#PART_Menu">
             <Setter Property="Margin" Value="10,0,0,7" />
-        </Style>
-        <Style Selector="^[ShowTitlebarBackground=True] /template/ controls|GlassCard#AlternativeGlassMenuBackground">
-            <Setter Property="IsVisible" Value="False" />
         </Style>
         <Style Selector="^[WindowState=Maximized] /template/ PathIcon#MaximizeIcon">
             <Setter Property="Data" Value="{x:Static icons:Icons.WindowRestore}" />
@@ -229,7 +220,7 @@
             </Style>
         </Style>
 
-        <Style Selector="^ /template/ controls|GlassCard#PART_TitleBarBackground">
+        <Style Selector="^ /template/ Border#PART_TitleBarBackground">
             <Setter Property="Height" Value="32" />
             <Setter Property="Background" Value="{DynamicResource CardBackgroundColor}" />
         </Style>
