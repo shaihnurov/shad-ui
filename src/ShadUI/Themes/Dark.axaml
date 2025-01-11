@@ -2,6 +2,10 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceInclude Source="avares://ShadUI/Controls/Index.axaml" />
+    </ResourceDictionary.MergedDictionaries>
+    
     <!-- basic colors -->
     <Color x:Key="ForegroundColor">#FAFAFA</Color>
     <Color x:Key="BackgroundColor">Transparent</Color>
@@ -10,8 +14,11 @@
     <Color x:Key="WindowBackgroundColor">#09090B</Color>
     <Color x:Key="BorderColor">#353535</Color>
 
+    <Color x:Key="SidebarBackground">#09090B</Color>
+
     <Color x:Key="PrimaryColor">#FAFAFA</Color>
     <Color x:Key="PrimaryColor75">#BFFAFAFA</Color>
+    <Color x:Key="PrimaryColor10">#19FAFAFA</Color>
     <Color x:Key="PrimaryForegroundColor">#18181B</Color>
 
     <Color x:Key="SecondaryColor">#2C2C30</Color>

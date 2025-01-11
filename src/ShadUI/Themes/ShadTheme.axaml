@@ -4,6 +4,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Styles.Resources>
         <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceInclude Source="avares://ShadUI/Controls/Index.axaml" />
+            </ResourceDictionary.MergedDictionaries>
             <ResourceDictionary.ThemeDictionaries>
                 <ResourceInclude x:Key="Light" Source="/Themes/Light.axaml" />
                 <ResourceInclude x:Key="Dark" Source="/Themes/Dark.axaml" />
@@ -11,5 +14,5 @@
         </ResourceDictionary>
     </Styles.Resources>
     <SimpleTheme />
-    <StyleInclude Source="avares://ShadUI/Styles/ButtonLoading.axaml" />
+    <StyleInclude Source="avares://ShadUI/Styles/Index.axaml" />
 </Styles>

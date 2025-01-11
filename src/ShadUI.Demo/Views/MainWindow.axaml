@@ -5,7 +5,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="clr-namespace:ShadUI.Controls;assembly=ShadUI"
     xmlns:contents="clr-namespace:ShadUI.Contents;assembly=ShadUI"
-    xmlns:extensions="clr-namespace:ShadUI.Extensions;assembly=ShadUI"
+    xmlns:icons="clr-namespace:LucideAvalonia;assembly=LucideAvalonia"
     mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
     x:Class="ShadUI.Demo.Views.MainWindow"
     Icon="/Assets/avalonia-logo.ico"
@@ -14,14 +14,46 @@
     <controls:Window.LogoContent>
         <PathIcon Margin="8,8,0,8" Width="14" Height="14" Data="{x:Static contents:Icons.Logo}" />
     </controls:Window.LogoContent>
-    <StackPanel VerticalAlignment="Center" Spacing="5" HorizontalAlignment="Center">
-        <TextBlock Text="Welcome to ShadUI!" />
-        <Button Content="Primary" extensions:ButtonExt.ShowProgress="True" />
-        <Button Content="Primary Disabled" IsEnabled="False" />
-        <Button Content="Secondary" extensions:ButtonExt.ShowProgress="True" Classes="Secondary" />
-        <Button Content="Destructive" extensions:ButtonExt.ShowProgress="True" Classes="Destructive" />
-        <Button Content="Outline" extensions:ButtonExt.ShowProgress="True" Classes="Outline" />
-        <Button Content="Ghost" extensions:ButtonExt.ShowProgress="True" Classes="Ghost" />
-    </StackPanel>
+
+    <controls:SidebarMenu>
+        <controls:SidebarMenu.HeaderContent>
+            <!-- Header Content -->
+        </controls:SidebarMenu.HeaderContent>
+        <controls:SidebarMenu.Items>
+            <controls:SidebarMenuItem Header="Dashboard" Classes="Compact">
+                <controls:SidebarMenuItem.Icon>
+                    <icons:Lucide Icon="LayoutDashboard" StrokeThickness="1.5" Width="16" Height="16"
+                                  StrokeBrush="{DynamicResource ForegroundColor}" />
+                </controls:SidebarMenuItem.Icon>
+            </controls:SidebarMenuItem>
+            <controls:SidebarMenuItem Header="Themes" Classes="Compact">
+                <controls:SidebarMenuItem.Icon>
+                    <icons:Lucide Icon="Palette" StrokeThickness="1.5" Width="16" Height="16"
+                                  StrokeBrush="{DynamicResource ForegroundColor}" />
+                </controls:SidebarMenuItem.Icon>
+            </controls:SidebarMenuItem>
+            <controls:SidebarMenuItem Header="Typography" Classes="Compact">
+                <controls:SidebarMenuItem.Icon>
+                    <icons:Lucide Icon="TypeOutline" StrokeThickness="1.5" Width="16" Height="16"
+                                  StrokeBrush="{DynamicResource ForegroundColor}" />
+                </controls:SidebarMenuItem.Icon>
+            </controls:SidebarMenuItem>
+            <controls:SidebarMenuItem Header="Buttons" Classes="Compact">
+                <controls:SidebarMenuItem.Icon>
+                    <icons:Lucide Icon="MousePointerClick" StrokeThickness="1.5" Width="16" Height="16"
+                                  StrokeBrush="{DynamicResource ForegroundColor}" />
+                </controls:SidebarMenuItem.Icon>
+            </controls:SidebarMenuItem>
+            <controls:SidebarMenuItem Header="Settings" Classes="Compact">
+                <controls:SidebarMenuItem.Icon>
+                    <icons:Lucide Icon="Settings" StrokeThickness="1.5" Width="16" Height="16"
+                                  StrokeBrush="{DynamicResource ForegroundColor}" />
+                </controls:SidebarMenuItem.Icon>
+            </controls:SidebarMenuItem>
+        </controls:SidebarMenu.Items>
+        <controls:SidebarMenu.FooterContent>
+            <!-- Footer Content -->
+        </controls:SidebarMenu.FooterContent>
+    </controls:SidebarMenu>
 
 </controls:Window>

@@ -1,8 +1,8 @@
 <Application
+    x:Class="ShadUI.Demo.App"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:themes="clr-namespace:ShadUI.Themes;assembly=ShadUI"
-    x:Class="ShadUI.Demo.App"
     RequestedThemeVariant="Default">
     <Application.Resources>
         <ResourceDictionary>
