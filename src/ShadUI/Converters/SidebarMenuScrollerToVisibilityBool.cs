@@ -10,8 +10,14 @@ namespace ShadUI.Converters
     /// </summary>
     public class SidebarMenuScrollerToVisibilityBool : IMultiValueConverter
     {
+        /// <summary>
+        /// Returns the up instance of the <see cref="SidebarMenuScrollerToVisibilityBool"/>.
+        /// </summary>
         public static SidebarMenuScrollerToVisibilityBool Up { get; } = new((x,y) => x > y);
 
+        /// <summary>
+        /// Returns the down instance of the <see cref="SidebarMenuScrollerToVisibilityBool"/>.
+        /// </summary>
         public static SidebarMenuScrollerToVisibilityBool Down { get; } = new((x, y) => x < y);
 
         private readonly Func<double, double, bool> _converter;
