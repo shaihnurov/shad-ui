@@ -3,6 +3,8 @@ using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Data.Core.Plugins;
 using Avalonia.Markup.Xaml;
+using Microsoft.Extensions.DependencyInjection;
+using ShadUI.Demo.ViewModels;
 using ShadUI.Demo.Views;
 
 namespace ShadUI.Demo;
@@ -16,13 +18,18 @@ public class App : Application
 
     public override void OnFrameworkInitializationCompleted()
     {
-        if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
-        {
-            // Avoid duplicate validations from both Avalonia and the CommunityToolkit. 
-            // More info: https://docs.avaloniaui.net/docs/guides/development-guides/data-validation#manage-validationplugins
-            DisableAvaloniaDataAnnotationValidation();
-            desktop.MainWindow = new MainWindow();
-        }
+        if (ApplicationLifetime is not IClassicDesktopStyleApplicationLifetime desktop) return;
+
+        DisableAvaloniaDataAnnotationValidation();
+
+        var serviceCollection = new ServiceCollection();
+        serviceCollection.AddServices();
+
+        var serviceProvider = serviceCollection.BuildServiceProvider();
+
+        var viewModel = serviceProvider.GetRequiredService<MainWindowViewModel>();
+        viewModel.Initialize();
+        desktop.MainWindow = new MainWindow { DataContext = viewModel };
 
         base.OnFrameworkInitializationCompleted();
     }

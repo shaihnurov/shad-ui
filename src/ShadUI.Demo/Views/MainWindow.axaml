@@ -6,45 +6,68 @@
     xmlns:controls="clr-namespace:ShadUI.Controls;assembly=ShadUI"
     xmlns:contents="clr-namespace:ShadUI.Contents;assembly=ShadUI"
     xmlns:icons="clr-namespace:LucideAvalonia;assembly=LucideAvalonia"
+    xmlns:viewModels="clr-namespace:ShadUI.Demo.ViewModels"
+    xmlns:views="clr-namespace:ShadUI.Demo.Views"
     mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
     x:Class="ShadUI.Demo.Views.MainWindow"
+    x:DataType="viewModels:MainWindowViewModel"
+    Width="1024" Height="768"
     Icon="/Assets/avalonia-logo.ico"
     TitleFontWeight="SemiBold"
     Title="ShadUI.Demo">
+    <controls:Window.DataTemplates>
+        <DataTemplate DataType="{x:Type viewModels:DashboardViewModel}">
+            <views:DashboardPage />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModels:ThemesViewModel}">
+            <views:ThemesPage />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModels:TypographyViewModel}">
+            <views:TypographyPage />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModels:ButtonsViewModel}">
+            <views:ButtonsPage />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModels:SettingsViewModel}">
+            <views:SettingsPage />
+        </DataTemplate>
+    </controls:Window.DataTemplates>
     <controls:Window.LogoContent>
         <PathIcon Margin="8,8,0,8" Width="14" Height="14" Data="{x:Static contents:Icons.Logo}" />
     </controls:Window.LogoContent>
-
     <controls:SidebarMenu>
+        <controls:SidebarMenu.BodyContent>
+            <TransitioningContentControl Content="{Binding SelectedPage}" />
+        </controls:SidebarMenu.BodyContent>
         <controls:SidebarMenu.HeaderContent>
-            <!-- Header Content -->
+            <controls:RoundedImage CornerRadius="40" Margin="30,10,30,30" Width="80" Height="80" Source="../Assets/user.jpg" />
         </controls:SidebarMenu.HeaderContent>
         <controls:SidebarMenu.Items>
-            <controls:SidebarMenuItem Header="Dashboard" Classes="Compact">
+            <controls:SidebarMenuItem Header="Dashboard" Classes="Compact" Command="{Binding OpenDashboardCommand}">
                 <controls:SidebarMenuItem.Icon>
                     <icons:Lucide Icon="LayoutDashboard" StrokeThickness="1.5" Width="16" Height="16"
                                   StrokeBrush="{DynamicResource ForegroundColor}" />
                 </controls:SidebarMenuItem.Icon>
             </controls:SidebarMenuItem>
-            <controls:SidebarMenuItem Header="Themes" Classes="Compact">
+            <controls:SidebarMenuItem Header="Themes" Classes="Compact" Command="{Binding OpenThemesCommand}">
                 <controls:SidebarMenuItem.Icon>
                     <icons:Lucide Icon="Palette" StrokeThickness="1.5" Width="16" Height="16"
                                   StrokeBrush="{DynamicResource ForegroundColor}" />
                 </controls:SidebarMenuItem.Icon>
             </controls:SidebarMenuItem>
-            <controls:SidebarMenuItem Header="Typography" Classes="Compact">
+            <controls:SidebarMenuItem Header="Typography" Classes="Compact" Command="{Binding OpenTypographyCommand}">
                 <controls:SidebarMenuItem.Icon>
                     <icons:Lucide Icon="TypeOutline" StrokeThickness="1.5" Width="16" Height="16"
                                   StrokeBrush="{DynamicResource ForegroundColor}" />
                 </controls:SidebarMenuItem.Icon>
             </controls:SidebarMenuItem>
-            <controls:SidebarMenuItem Header="Buttons" Classes="Compact">
+            <controls:SidebarMenuItem Header="Buttons" Classes="Compact" Command="{Binding OpenButtonsCommand}">
                 <controls:SidebarMenuItem.Icon>
                     <icons:Lucide Icon="MousePointerClick" StrokeThickness="1.5" Width="16" Height="16"
                                   StrokeBrush="{DynamicResource ForegroundColor}" />
                 </controls:SidebarMenuItem.Icon>
             </controls:SidebarMenuItem>
-            <controls:SidebarMenuItem Header="Settings" Classes="Compact">
+            <controls:SidebarMenuItem Header="Settings" Classes="Compact" Command="{Binding OpenSettingsCommand}">
                 <controls:SidebarMenuItem.Icon>
                     <icons:Lucide Icon="Settings" StrokeThickness="1.5" Width="16" Height="16"
                                   StrokeBrush="{DynamicResource ForegroundColor}" />
