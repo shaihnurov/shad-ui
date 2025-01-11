@@ -16,13 +16,13 @@
         <PackageDescription>Avalonia-based UI Library inspired by shadcn forked from Suki UI Library</PackageDescription>
         <PackageTags>avalonia;avaloniaui;ui;theme;shadui</PackageTags>
         <PackageProjectUrl>https://github.com/accntech/shad-ui.git</PackageProjectUrl>
-        
+
     </PropertyGroup>
 
     <ItemGroup>
         <PackageReference Include="Avalonia" Version="11.2.3"/>
-        <PackageReference Include="Avalonia.Skia" Version="11.2.1"/>
-        <PackageReference Include="SkiaSharp" Version="2.88.8"/>
+        <PackageReference Include="Avalonia.Skia" Version="11.2.3"/>
+        <PackageReference Include="SkiaSharp" Version="2.88.9"/>
         <PackageReference Include="Avalonia.Controls.DataGrid" Version="11.2.3"/>
         <PackageReference Include="Avalonia.Themes.Simple" Version="11.2.3"/>
     </ItemGroup>
@@ -34,10 +34,5 @@
     <ItemGroup>
         <None Include="../../README.md" Pack="true" PackagePath=""/>
     </ItemGroup>
-
-    <ItemGroup>
-      <Reference Include="LucideAvalonia">
-        <HintPath>C:\Users\ogie\.nuget\packages\lucideavalonia\1.6.1\lib\net8.0\LucideAvalonia.dll</HintPath>
-      </Reference>
-    </ItemGroup>
+    
 </Project>
