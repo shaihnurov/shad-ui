@@ -30,7 +30,7 @@
         </controls:SidebarMenu>
     </Design.PreviewWith>
     <ControlTheme x:Key="SidebarMenuStyle" TargetType="controls:SidebarMenu">
-        <Setter Property="Background" Value="{DynamicResource SidebarBackground}" />
+        <Setter Property="Background" Value="{DynamicResource SidebarBackgroundColor}" />
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
         <Setter Property="Template">
             <ControlTemplate>

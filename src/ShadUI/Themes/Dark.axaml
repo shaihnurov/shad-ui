@@ -14,7 +14,8 @@
     <Color x:Key="WindowBackgroundColor">#09090B</Color>
     <Color x:Key="BorderColor">#353535</Color>
 
-    <Color x:Key="SidebarBackground">#09090B</Color>
+    <Color x:Key="TitleBarBackgroundColor">#09090B</Color>
+    <Color x:Key="SidebarBackgroundColor">#09090B</Color>
 
     <Color x:Key="PrimaryColor">#FAFAFA</Color>
     <Color x:Key="PrimaryColor75">#BFFAFAFA</Color>

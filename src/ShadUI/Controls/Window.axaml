@@ -50,8 +50,7 @@
                                         </Style>
                                     </Panel.Styles>
                                     <StackPanel>
-                                        <LayoutTransformControl Name="PART_LayoutTransform"
-                                                                RenderTransformOrigin="0%,0%">
+                                        <LayoutTransformControl Name="PART_LayoutTransform" RenderTransformOrigin="0%,0%">
                                             <Panel>
                                                 <Border
                                                     Name="PART_TitleBarBackground"
@@ -222,7 +221,7 @@
 
         <Style Selector="^ /template/ Border#PART_TitleBarBackground">
             <Setter Property="Height" Value="32" />
-            <Setter Property="Background" Value="{DynamicResource CardBackgroundColor}" />
+            <Setter Property="Background" Value="{DynamicResource TitleBarBackgroundColor}" />
         </Style>
         <Style Selector="^ /template/ StackPanel#PART_ButtonsPanel">
             <Setter Property="Height" Value="32" />
