@@ -5,6 +5,7 @@
     </Design.PreviewWith>
     <SimpleTheme />
     <StyleInclude Source="avares://ShadUI/Styles/ButtonLoading.axaml" />
-    <StyleInclude Source="avares://ShadUI/Styles/ScrollBarStyle.axaml" />
+    <StyleInclude Source="avares://ShadUI/Styles/Card.axaml" />
+    <StyleInclude Source="avares://ShadUI/Styles/ScrollBar.axaml" />
     <StyleInclude Source="avares://ShadUI/Styles/ScrollViewer.axaml" />
 </Styles>
