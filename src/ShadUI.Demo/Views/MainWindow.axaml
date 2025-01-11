@@ -12,7 +12,7 @@
     x:Class="ShadUI.Demo.Views.MainWindow"
     x:DataType="viewModels:MainWindowViewModel"
     Width="1024" Height="768"
-    Icon="/Assets/avalonia-logo.ico"
+    Icon="/Assets/favicon.ico"
     TitleFontWeight="SemiBold"
     Title="ShadUI.Demo">
     <controls:Window.DataTemplates>
