@@ -3,8 +3,11 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="clr-namespace:ShadUI.Demo.Controls"
+    xmlns:viewModels="clr-namespace:ShadUI.Demo.ViewModels"
     mc:Ignorable="d" d:DesignWidth="800"
-    x:Class="ShadUI.Demo.Views.TypographyPage">
+    x:Class="ShadUI.Demo.Views.TypographyPage"
+    x:DataType="viewModels:TypographyViewModel">
     <ScrollViewer>
         <Panel Margin="48 24" MaxWidth="670">
             <StackPanel Spacing="32">
@@ -12,88 +15,86 @@
                     <TextBlock Classes="h3" Text="Typography" />
                     <TextBlock Classes="p" Text="Styles for headings, paragraphs, lists...etc" />
                 </StackPanel>
-                <StackPanel Spacing="8">
-                    <TextBlock Text="h1" Classes="h4" />
-                    <Separator Margin="0" />
-                    <Border Classes="Card Bordered" Padding="48">
-                        <TextBlock TextWrapping="Wrap" Classes="h1" Text="Taxing Laughter: The Joke Tax Chronicles" />
-                    </Border>
-                </StackPanel>
-                <StackPanel Spacing="8">
-                    <TextBlock Text="h2" Classes="h4" />
-                    <Separator Margin="0" />
-                    <Border Classes="Card Bordered" Padding="48">
-                        <TextBlock TextWrapping="Wrap" Classes="h2" Text="The People of the Kingdom" />
-                    </Border>
-                </StackPanel>
-                <StackPanel Spacing="8">
-                    <TextBlock Text="h3" Classes="h4" />
-                    <Separator Margin="0" />
-                    <Border Classes="Card Bordered" Padding="48">
-                        <TextBlock TextWrapping="Wrap" Classes="h3" Text="The Joke Tax" />
-                    </Border>
-                </StackPanel>
-                <StackPanel Spacing="8">
-                    <TextBlock Text="h4" Classes="h4" />
-                    <Separator Margin="0" />
-                    <Border Classes="Card Bordered" Padding="48">
-                        <TextBlock TextWrapping="Wrap" Classes="h4" Text="People stopped telling jokes" />
-                    </Border>
-                </StackPanel>
-                <StackPanel Spacing="8">
-                    <TextBlock Text="p" Classes="h4" />
-                    <Separator Margin="0" />
-                    <Border Classes="Card Bordered" Padding="48">
-                        <TextBlock TextWrapping="Wrap" Classes="p"
-                                   Text="The king, seeing how much happier his subjects were, realized the error of his ways and repealed the joke tax." />
-                    </Border>
-                </StackPanel>
-                <StackPanel Spacing="8">
-                    <TextBlock Text="Lead" Classes="h4" />
-                    <Separator Margin="0" />
-                    <Border Classes="Card Bordered" Padding="48">
-                        <TextBlock TextWrapping="Wrap" Classes="Lead"
-                                   Text="A modal dialog that interrupts the user with important content and expects a response." />
-                    </Border>
-                </StackPanel>
-                <StackPanel Spacing="8">
-                    <TextBlock Text="Large" Classes="h3" />
-                    <Separator Margin="0" />
-                    <Border Classes="Card Bordered" Padding="48">
-                        <TextBlock TextWrapping="Wrap" TextAlignment="Center" Classes="Large"
-                                   Text="Are you absolutely sure?" />
-                    </Border>
-                </StackPanel>
-                <StackPanel Spacing="8">
-                    <TextBlock Text="Small" Classes="h3" />
-                    <Separator Margin="0" />
-                    <Border Classes="Card Bordered" Padding="48">
-                        <TextBlock TextWrapping="Wrap" TextAlignment="Center" Classes="Small" Text="Email address" />
-                    </Border>
-                </StackPanel>
-                <StackPanel Spacing="8">
-                    <TextBlock Text="Caption" Classes="h3" />
-                    <Separator Margin="0" />
-                    <Border Classes="Card Bordered" Padding="48">
-                        <TextBlock TextWrapping="Wrap" TextAlignment="Center" Classes="Caption" Text="Username" />
-                    </Border>
-                </StackPanel>
-                <StackPanel Spacing="8">
-                    <TextBlock Text="Muted" Classes="h3" />
-                    <Separator Margin="0" />
-                    <Border Classes="Card Bordered" Padding="48">
-                        <TextBlock TextWrapping="Wrap" TextAlignment="Center" Classes="Small Muted"
-                                   Text="Enter your email address" />
-                    </Border>
-                </StackPanel>
-                <StackPanel Spacing="8">
-                    <TextBlock Text="Error" Classes="h3" />
-                    <Separator Margin="0" />
-                    <Border Classes="Card Bordered" Padding="48">
-                        <TextBlock TextWrapping="Wrap" TextAlignment="Center" Classes="Caption Error"
-                                   Text="Invalid email address" />
-                    </Border>
-                </StackPanel>
+                <controls:ControlBlock
+                    Title="h1"
+                    Code="{Binding H1Code}"
+                    Language="xaml"
+                    CodeBlockHeight="100">
+                    <TextBlock TextWrapping="Wrap" Classes="h1" Text="Taxing Laughter: The Joke Tax Chronicles" />
+                </controls:ControlBlock>
+                <controls:ControlBlock
+                    Title="h2"
+                    Code="{Binding H2Code}"
+                    Language="xaml"
+                    CodeBlockHeight="100">
+                    <TextBlock TextWrapping="Wrap" Classes="h2" Text="The People of the Kingdom" />
+                </controls:ControlBlock>
+                <controls:ControlBlock
+                    Title="h3"
+                    Code="{Binding H3Code}"
+                    Language="xaml"
+                    CodeBlockHeight="100">
+                    <TextBlock TextWrapping="Wrap" Classes="h3" Text="The Joke Tax" />
+                </controls:ControlBlock>
+                <controls:ControlBlock
+                    Title="h4"
+                    Code="{Binding H4Code}"
+                    Language="xaml"
+                    CodeBlockHeight="100">
+                    <TextBlock TextWrapping="Wrap" Classes="h4" Text="People stopped telling jokes" />
+                </controls:ControlBlock>
+                <controls:ControlBlock
+                    Title="p"
+                    Code="{Binding PCode}"
+                    Language="xaml"
+                    CodeBlockHeight="100">
+                    <TextBlock TextWrapping="Wrap" Classes="p"
+                               Text="The king, seeing how much happier his subjects were, realized the error of his ways and repealed the joke tax." />
+                </controls:ControlBlock>
+                <controls:ControlBlock
+                    Title="Lead"
+                    Code="{Binding LeadCode}"
+                    Language="xaml"
+                    CodeBlockHeight="100">
+                    <TextBlock TextWrapping="Wrap" Classes="Lead"
+                               Text="A modal dialog that interrupts the user with important content and expects a response." />
+                </controls:ControlBlock>
+                <controls:ControlBlock
+                    Title="Large"
+                    Code="{Binding LargeCode}"
+                    Language="xaml"
+                    CodeBlockHeight="100">
+                    <TextBlock TextWrapping="Wrap" Classes="Large"
+                               Text="Are you absolutely sure?" />
+                </controls:ControlBlock>
+                <controls:ControlBlock
+                    Title="Small"
+                    Code="{Binding SmallCode}"
+                    Language="xaml"
+                    CodeBlockHeight="100">
+                    <TextBlock TextWrapping="Wrap" Classes="Small" Text="Email address" />
+                </controls:ControlBlock>
+                <controls:ControlBlock
+                    Title="Caption"
+                    Code="{Binding CaptionCode}"
+                    Language="xaml"
+                    CodeBlockHeight="100">
+                    <TextBlock TextWrapping="Wrap" Classes="Caption" Text="Username" />
+                </controls:ControlBlock>
+                <controls:ControlBlock
+                    Title="Muted"
+                    Code="{Binding MutedCode}"
+                    Language="xaml"
+                    CodeBlockHeight="100">
+                    <TextBlock TextWrapping="Wrap" Classes="Muted" Text="Enter your email address" />
+                </controls:ControlBlock>
+                <controls:ControlBlock
+                    Title="Error"
+                    Code="{Binding ErrorCode}"
+                    Language="xaml"
+                    CodeBlockHeight="100">
+                    <TextBlock TextWrapping="Wrap" Classes="Caption Error" Text="Invalid email address" />
+                </controls:ControlBlock>
             </StackPanel>
         </Panel>
     </ScrollViewer>
