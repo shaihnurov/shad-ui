@@ -257,7 +257,7 @@
                 </Setter>
             </Style>
             <Style Selector="^:pointerover /template/ Border#RootBorder">
-                <Setter Property="Background" Value="{DynamicResource MutedColor}" />
+                <Setter Property="Background" Value="{DynamicResource PrimaryColor10}" />
             </Style>
 
             <Style Selector="^:pressed">

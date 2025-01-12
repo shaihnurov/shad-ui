@@ -45,7 +45,7 @@
             </ControlTemplate>
         </Setter>
         <Style Selector="^:pointerover">
-            <Setter Property="Background" Value="{DynamicResource MutedColor}" />
+            <Setter Property="Background" Value="{DynamicResource PrimaryColor10}" />
         </Style>
         <Style Selector="^.Close">
             <Setter Property="Background" Value="{DynamicResource BackgroundColor}" />
