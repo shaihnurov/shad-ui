@@ -1,0 +1,53 @@
+﻿<UserControl
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" d:DesignWidth="800"
+    x:Class="ShadUI.Demo.Views.TabsPage">
+    <ScrollViewer>
+        <Panel Margin="48 24" MaxWidth="670">
+            <StackPanel Spacing="32">
+                <StackPanel>
+                    <TextBlock Classes="h3" Text="Tabs" />
+                    <TextBlock
+                        Classes="p"
+                        MaxWidth="360"
+                        TextWrapping="Wrap"
+                        HorizontalAlignment="Left"
+                        Text="A set of layered sections of content—known as tab panels—that are displayed one at a time." />
+                </StackPanel>
+                <StackPanel Spacing="8">
+                    <TextBlock Text="Basic Tab" Classes="h4" />
+                    <Separator Margin="0" />
+                    <Border Classes="Card Bordered" Padding="48">
+                        <TabControl>
+                            <TabControl.Items>
+                                <TabItem Header="Preview">
+                                    <StackPanel Spacing="8">
+                                        <TextBlock Text="h1" Classes="h4" />
+                                        <Separator Margin="0" />
+                                        <Border Classes="Card Bordered" Padding="48">
+                                            <TextBlock TextWrapping="Wrap" Classes="h1"
+                                                       Text="Taxing Laughter: The Joke Tax Chronicles" />
+                                        </Border>
+                                    </StackPanel>
+                                </TabItem>
+                                <TabItem Header="Code">
+                                    <StackPanel Spacing="8">
+                                        <TextBlock Text="h1" Classes="h4" />
+                                        <Separator Margin="0" />
+                                        <Border Classes="Card Bordered" Padding="48">
+                                            <TextBlock TextWrapping="Wrap" Classes="h1"
+                                                       Text="Taxing Laughter: The Joke Tax Chronicles" />
+                                        </Border>
+                                    </StackPanel>
+                                </TabItem>
+                            </TabControl.Items>
+                        </TabControl>
+                    </Border>
+                </StackPanel>
+            </StackPanel>
+        </Panel>
+    </ScrollViewer>
+</UserControl>

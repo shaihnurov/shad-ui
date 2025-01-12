@@ -8,7 +8,7 @@
     xmlns:icons="clr-namespace:LucideAvalonia;assembly=LucideAvalonia"
     xmlns:viewModels="clr-namespace:ShadUI.Demo.ViewModels"
     xmlns:views="clr-namespace:ShadUI.Demo.Views"
-    mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+    mc:Ignorable="d" d:DesignWidth="800"
     x:Class="ShadUI.Demo.Views.MainWindow"
     x:DataType="viewModels:MainWindowViewModel"
     Width="1024" Height="768"
@@ -27,6 +27,9 @@
         </DataTemplate>
         <DataTemplate DataType="{x:Type viewModels:ButtonsViewModel}">
             <views:ButtonsPage />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModels:TabsViewModel}">
+            <views:TabsPage />
         </DataTemplate>
         <DataTemplate DataType="{x:Type viewModels:SettingsViewModel}">
             <views:SettingsPage />
@@ -64,6 +67,12 @@
             <controls:SidebarMenuItem Header="Buttons" Classes="Compact" Command="{Binding OpenButtonsCommand}">
                 <controls:SidebarMenuItem.Icon>
                     <icons:Lucide Icon="MousePointerClick" StrokeThickness="1.5" Width="16" Height="16"
+                                  StrokeBrush="{DynamicResource ForegroundColor}" />
+                </controls:SidebarMenuItem.Icon>
+            </controls:SidebarMenuItem>
+            <controls:SidebarMenuItem Header="Tabs" Classes="Compact" Command="{Binding OpenTabsCommand}">
+                <controls:SidebarMenuItem.Icon>
+                    <icons:Lucide Icon="AppWindow" StrokeThickness="1.5" Width="16" Height="16"
                                   StrokeBrush="{DynamicResource ForegroundColor}" />
                 </controls:SidebarMenuItem.Icon>
             </controls:SidebarMenuItem>

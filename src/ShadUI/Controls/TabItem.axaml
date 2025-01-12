@@ -1,0 +1,101 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <Border Width="400" Height="400">
+            <Panel>
+                <TabControl Margin="0,0,0,200">
+                    <TabItem Header="Arch">
+                        <Border Height="100" Background="AntiqueWhite">
+                            <TextBlock FontSize="20"
+                                       Foreground="Black"
+                                       Text="Content" />
+                        </Border>
+                    </TabItem>
+                    <TabItem Header="Leaf">
+                        <Border Height="100" Background="Green" />
+                    </TabItem>
+                    <TabItem Header="Disabled" IsEnabled="False" />
+                </TabControl>
+            </Panel>
+        </Border>
+    </Design.PreviewWith>
+    <ControlTheme x:Key="TabItemStyle" TargetType="TabItem">
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="FontWeight" Value="SemiBold" />
+        <Setter Property="Foreground" Value="{DynamicResource ForegroundLeadColor}" />
+        <Setter Property="Background" Value="{DynamicResource BackgroundColor}" />
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="VerticalContentAlignment" Value="Bottom" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Name="PART_LayoutRoot"
+                        Padding="{TemplateBinding Padding}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}">
+                    <StackPanel>
+                        <ContentPresenter Name="PART_HeaderPresenter"
+                                          Padding="16,8"
+                                          HorizontalAlignment="Center"
+                                          Foreground="{TemplateBinding Foreground}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          HorizontalContentAlignment="Center"
+                                          Content="{TemplateBinding Header}"
+                                          ContentTemplate="{TemplateBinding HeaderTemplate}"
+                                          TextBlock.Foreground="{TemplateBinding Foreground}"
+                                          TextBlock.FontFamily="{TemplateBinding FontFamily}"
+                                          TextBlock.FontSize="{TemplateBinding FontSize}"
+                                          TextBlock.FontWeight="{TemplateBinding FontWeight}">
+                            <ContentPresenter.Transitions>
+                                <Transitions>
+                                    <BrushTransition Property="Foreground" Duration="0:0:0.1" />
+                                </Transitions>
+                            </ContentPresenter.Transitions>
+                        </ContentPresenter>
+                        <Border Name="PART_Underline"
+                                Height="2"
+                                Background="{DynamicResource PrimaryColor}"
+                                CornerRadius="{DynamicResource RoundedCornerRadius}"
+                                Opacity="0">
+                            <Border.Transitions>
+                                <Transitions>
+                                    <DoubleTransition Property="Opacity" Duration="0:0:0.3" />
+                                </Transitions>
+                            </Border.Transitions>
+                        </Border>
+                    </StackPanel>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:selected /template/ Border#PART_Underline">
+            <Setter Property="Opacity" Value="1" />
+        </Style>
+
+        <Style Selector="^:pointerover">
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="Foreground" Value="{DynamicResource PrimaryColor75}" />
+        </Style>
+
+        <Style Selector="^:selected">
+            <Setter Property="Foreground" Value="{DynamicResource PrimaryColor}" />
+        </Style>
+
+        <Style Selector="^[IsEnabled=False]">
+            <Setter Property="Foreground" Value="{DynamicResource MutedColor}" />
+        </Style>
+
+        <Style Selector="^[TabStripPlacement=Bottom]">
+            <Style Selector="^ /template/ ContentPresenter#PART_HeaderPresenter">
+                <Setter Property="DockPanel.Dock" Value="Bottom" />
+                <Setter Property="Margin" Value="0,0,0,0" />
+            </Style>
+            <Style Selector="^ Border#PART_Underline">
+                <Setter Property="Margin" Value="10,0,10,0" />
+            </Style>
+        </Style>
+    </ControlTheme>
+    <ControlTheme x:Key="{x:Type TabItem}"
+                  BasedOn="{StaticResource TabItemStyle}"
+                  TargetType="TabItem" />
+</ResourceDictionary>
