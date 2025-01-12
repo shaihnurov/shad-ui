@@ -5,7 +5,7 @@
     xmlns:content="clr-namespace:ShadUI.Contents;assembly=ShadUI"
     xmlns:editor="https://github.com/avaloniaui/avaloniaedit">
     <Design.PreviewWith>
-        <Border Width="500">
+        <Border Width="500" Height="250">
             <controls:CodeTextBlock>
                 <Run Text="&lt;StackPanel Spacing=&quot;8&quot;&gt;" />
                 <LineBreak />
@@ -35,7 +35,6 @@
             <FontFamily x:Key="JetbrainsFont">avares://ShadUI.Demo/Assets/Fonts#Jetbrains</FontFamily>
         </ControlTheme.Resources>
         <Setter Property="Padding" Value="8,12" />
-        <Setter Property="MaxHeight" Value="250" />
         <Setter Property="MinHeight" Value="50" />
         <Setter Property="CornerRadius" Value="{DynamicResource MediumCornerRadius}" />
         <Setter Property="Background" Value="{DynamicResource CodeBackgroundColor}" />

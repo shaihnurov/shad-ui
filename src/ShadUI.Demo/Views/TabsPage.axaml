@@ -20,41 +20,16 @@
                         HorizontalAlignment="Left"
                         Text="A set of layered sections of content—known as tab panels—that are displayed one at a time." />
                 </StackPanel>
-                <StackPanel Spacing="16">
-                    <StackPanel>
-                        <TextBlock Text="Basic Tab" Classes="h4" />
-                        <Separator Margin="0" />
-                    </StackPanel>
-                    <TabControl>
-                        <TabControl.Items>
-                            <TabItem Header="Preview">
-                                <Border Classes="Card Bordered" Padding="48">
-                                    <TabControl>
-                                        <TabControl.Items>
-                                            <TabItem Header="Preview">
-                                                <StackPanel Spacing="8">
-                                                    <TextBlock Text="h1" Classes="h4" />
-                                                    <Separator Margin="0" />
-                                                    <Border Classes="Card Bordered" Padding="48">
-                                                        <TextBlock TextWrapping="Wrap" Classes="h1"
-                                                                   Text="Taxing Laughter: The Joke Tax Chronicles" />
-                                                    </Border>
-                                                </StackPanel>
-                                            </TabItem>
-                                            <TabItem Header="Code">
-                                                <controls:CodeTextBlock Height="150" Text="{Binding H1Code}"
-                                                                        Language="xaml" />
-                                            </TabItem>
-                                        </TabControl.Items>
-                                    </TabControl>
-                                </Border>
-                            </TabItem>
-                            <TabItem Header="Code">
-                                <controls:CodeTextBlock Text="{Binding BasicTabCode}" Language="xaml" />
-                            </TabItem>
-                        </TabControl.Items>
-                    </TabControl>
-                </StackPanel>
+                <controls:ControlBlock
+                    Title="Basic Tab"
+                    Code="{Binding BasicTabCode}"
+                    Language="xaml"
+                    CodeBlockHeight="350">
+                    <controls:ControlBlock Title="h1" Code="{Binding H1Code}" Language="xaml" CodeBlockHeight="100">
+                        <TextBlock TextWrapping="Wrap" Classes="h1"
+                                   Text="Taxing Laughter: The Joke Tax Chronicles" />
+                    </controls:ControlBlock>
+                </controls:ControlBlock>
             </StackPanel>
         </Panel>
     </ScrollViewer>

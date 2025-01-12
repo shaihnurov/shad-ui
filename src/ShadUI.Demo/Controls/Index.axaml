@@ -4,5 +4,6 @@
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceInclude Source="CodeTextBlock.axaml" />
+        <ResourceInclude Source="ControlBlock.axaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

@@ -1,0 +1,34 @@
+﻿<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:ShadUI.Demo.Controls">
+    <ControlTheme x:Key="{x:Type controls:ControlBlock}"
+                  TargetType="controls:ControlBlock">
+        <Setter Property="CodeBlockHeight" Value="150" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <StackPanel Spacing="16">
+                    <StackPanel>
+                        <TextBlock Text="{TemplateBinding Title}" Classes="h4" />
+                        <Separator Margin="0" />
+                    </StackPanel>
+                    <TabControl>
+                        <TabControl.Items>
+                            <TabItem Header="Preview">
+                                <Border Classes="Card Bordered" Padding="48">
+                                    <ContentPresenter Content="{TemplateBinding Content}" />
+                                </Border>
+                            </TabItem>
+                            <TabItem Header="Code">
+                                <controls:CodeTextBlock
+                                    Height="{TemplateBinding CodeBlockHeight}"
+                                    Text="{TemplateBinding Code}"
+                                    Language="{TemplateBinding Language}" />
+                            </TabItem>
+                        </TabControl.Items>
+                    </TabControl>
+                </StackPanel>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+</ResourceDictionary>
