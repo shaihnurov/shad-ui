@@ -62,7 +62,7 @@
                             Name="PART_ClipBoardButton"
                             CornerRadius="6"
                             Padding="6"
-                            Margin="0,8,18,0"
+                            Margin="0,8,28,0"
                             Opacity="0"
                             MaxHeight="{TemplateBinding MaxHeight}"
                             Background="Transparent"
