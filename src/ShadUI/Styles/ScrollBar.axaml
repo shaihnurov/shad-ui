@@ -76,7 +76,7 @@
                 <Border Background="Transparent" UseLayoutRounding="False">
                     <Grid RowDefinitions="Auto,*,Auto">
                         <Track Grid.Row="1"
-                               IsDirectionReversed="True"
+                               IsDirectionReversed="True" 
                                Maximum="{TemplateBinding Maximum}"
                                Minimum="{TemplateBinding Minimum}"
                                Orientation="{TemplateBinding Orientation}"
@@ -85,11 +85,13 @@
                                                        Mode=TwoWay}">
                             <Track.DecreaseButton>
                                 <RepeatButton Name="PART_PageUpButton"
+                                              BorderThickness="0"
                                               Background="Transparent"
                                               Focusable="False" />
                             </Track.DecreaseButton>
                             <Track.IncreaseButton>
                                 <RepeatButton Name="PART_PageDownButton"
+                                              BorderThickness="0"
                                               Background="Transparent"
                                               Focusable="False" />
                             </Track.IncreaseButton>
@@ -113,13 +115,11 @@
                                 </Thumb.Template>
                             </Thumb>
                         </Track>
-
                     </Grid>
                 </Border>
             </ControlTemplate>
         </Setter>
     </Style>
-
     <Style Selector="ScrollBar.Stack:vertical">
         <Setter Property="HorizontalAlignment" Value="Stretch" />
         <Setter Property="Width" Value="NaN" />
@@ -187,16 +187,17 @@
                             Minimum="{TemplateBinding Minimum}"
                             Orientation="{TemplateBinding Orientation}"
                             ViewportSize="{TemplateBinding ViewportSize}"
-                            Value="{TemplateBinding Value,
-                                                       Mode=TwoWay}">
+                            Value="{TemplateBinding Value, Mode=TwoWay}">
                             <Track.DecreaseButton>
                                 <RepeatButton Name="PART_PageUpButton"
                                               Background="Transparent"
+                                              BorderThickness="0"
                                               Focusable="False" />
                             </Track.DecreaseButton>
                             <Track.IncreaseButton>
                                 <RepeatButton Name="PART_PageDownButton"
                                               Background="Transparent"
+                                              BorderThickness="0"
                                               Focusable="False" />
                             </Track.IncreaseButton>
                             <Thumb Name="thumb">

@@ -8,4 +8,6 @@
     <StyleInclude Source="avares://ShadUI/Styles/Card.axaml" />
     <StyleInclude Source="avares://ShadUI/Styles/ScrollBar.axaml" />
     <StyleInclude Source="avares://ShadUI/Styles/ScrollViewer.axaml" />
+    <StyleInclude Source="avares://ShadUI/Styles/Separator.axaml" />
+    <StyleInclude Source="avares://ShadUI/Styles/TextBlock.axaml" />
 </Styles>

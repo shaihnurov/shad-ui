@@ -11,6 +11,7 @@
         </ResourceDictionary>
     </Styles.Resources>
     <Style Selector="ScrollViewer">
+        <Setter Property="IsScrollInertiaEnabled" Value="True" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Grid ColumnDefinitions="*,Auto" RowDefinitions="*,Auto">

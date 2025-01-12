@@ -1,47 +1,41 @@
-﻿<UserControl
-    xmlns="https://github.com/avaloniaui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d" d:DesignWidth="800"
-    x:Class="ShadUI.Demo.Views.TypographyPage">
-    <ScrollViewer>
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
         <Panel Margin="48 24" MaxWidth="670">
             <StackPanel Spacing="32">
-                <StackPanel>
-                    <TextBlock Classes="h3" Text="Typography" />
-                    <TextBlock Classes="p" Text="Styles for headings, paragraphs, lists...etc" />
-                </StackPanel>
+                <StackPanel.Styles>
+                    <StyleInclude Source="Card.axaml" />
+                </StackPanel.Styles>
                 <StackPanel Spacing="8">
-                    <TextBlock Text="h1" Classes="h4" />
+                    <TextBlock Text="h1" Classes="h3" />
                     <Separator Margin="0" />
                     <Border Classes="Card Bordered" Padding="48">
                         <TextBlock TextWrapping="Wrap" Classes="h1" Text="Taxing Laughter: The Joke Tax Chronicles" />
                     </Border>
                 </StackPanel>
                 <StackPanel Spacing="8">
-                    <TextBlock Text="h2" Classes="h4" />
+                    <TextBlock Text="h2" Classes="h3" />
                     <Separator Margin="0" />
                     <Border Classes="Card Bordered" Padding="48">
                         <TextBlock TextWrapping="Wrap" Classes="h2" Text="The People of the Kingdom" />
                     </Border>
                 </StackPanel>
                 <StackPanel Spacing="8">
-                    <TextBlock Text="h3" Classes="h4" />
+                    <TextBlock Text="h3" Classes="h3" />
                     <Separator Margin="0" />
                     <Border Classes="Card Bordered" Padding="48">
                         <TextBlock TextWrapping="Wrap" Classes="h3" Text="The Joke Tax" />
                     </Border>
                 </StackPanel>
                 <StackPanel Spacing="8">
-                    <TextBlock Text="h4" Classes="h4" />
+                    <TextBlock Text="h4" Classes="h3" />
                     <Separator Margin="0" />
                     <Border Classes="Card Bordered" Padding="48">
                         <TextBlock TextWrapping="Wrap" Classes="h4" Text="People stopped telling jokes" />
                     </Border>
                 </StackPanel>
                 <StackPanel Spacing="8">
-                    <TextBlock Text="p" Classes="h4" />
+                    <TextBlock Text="p" Classes="h3" />
                     <Separator Margin="0" />
                     <Border Classes="Card Bordered" Padding="48">
                         <TextBlock TextWrapping="Wrap" Classes="p"
@@ -49,7 +43,7 @@
                     </Border>
                 </StackPanel>
                 <StackPanel Spacing="8">
-                    <TextBlock Text="Lead" Classes="h4" />
+                    <TextBlock Text="Lead" Classes="h3" />
                     <Separator Margin="0" />
                     <Border Classes="Card Bordered" Padding="48">
                         <TextBlock TextWrapping="Wrap" Classes="Lead"
@@ -82,8 +76,7 @@
                     <TextBlock Text="Muted" Classes="h3" />
                     <Separator Margin="0" />
                     <Border Classes="Card Bordered" Padding="48">
-                        <TextBlock TextWrapping="Wrap" TextAlignment="Center" Classes="Small Muted"
-                                   Text="Enter your email address" />
+                        <TextBlock TextWrapping="Wrap" TextAlignment="Center" Classes="p Muted" Text="Enter your email address" />
                     </Border>
                 </StackPanel>
                 <StackPanel Spacing="8">
@@ -96,5 +89,65 @@
                 </StackPanel>
             </StackPanel>
         </Panel>
-    </ScrollViewer>
-</UserControl>
+    </Design.PreviewWith>
+
+    <Style Selector="TextBlock.h1">
+        <Setter Property="FontSize" Value="48" />
+        <Setter Property="FontWeight" Value="ExtraBold" />
+    </Style>
+
+    <Style Selector="TextBlock.h2">
+        <Setter Property="FontSize" Value="30" />
+        <Setter Property="LineHeight" Value="36" />
+        <Setter Property="FontWeight" Value="SemiBold" />
+    </Style>
+
+    <Style Selector="TextBlock.h3">
+        <Setter Property="FontSize" Value="24" />
+        <Setter Property="LineHeight" Value="32" />
+        <Setter Property="FontWeight" Value="SemiBold" />
+    </Style>
+
+    <Style Selector="TextBlock.h4">
+        <Setter Property="FontSize" Value="20" />
+        <Setter Property="LineHeight" Value="28" />
+        <Setter Property="FontWeight" Value="SemiBold" />
+    </Style>
+
+    <Style Selector="TextBlock.p">
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="LineHeight" Value="28" />
+    </Style>
+
+    <Style Selector="TextBlock.Lead">
+        <Setter Property="FontSize" Value="20" />
+        <Setter Property="LineHeight" Value="28" />
+        <Setter Property="Foreground" Value="{DynamicResource ForegroundLeadColor}" />
+    </Style>
+
+    <Style Selector="TextBlock.Large">
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="LineHeight" Value="28" />
+        <Setter Property="FontWeight" Value="SemiBold" />
+    </Style>
+
+    <Style Selector="TextBlock.Small">
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="LineHeight" Value="14" />
+        <Setter Property="FontWeight" Value="Medium" />
+    </Style>
+
+    <Style Selector="TextBlock.Caption">
+        <Setter Property="FontSize" Value="12.8" />
+        <Setter Property="LineHeight" Value="19.2" />
+        <Setter Property="FontWeight" Value="Medium" />
+    </Style>
+
+    <Style Selector="TextBlock.Muted">
+        <Setter Property="Foreground" Value="{DynamicResource MutedColor}" />
+    </Style>
+
+    <Style Selector="TextBlock.Error">
+        <Setter Property="Foreground" Value="{DynamicResource DestructiveColor}" />
+    </Style>
+</Styles>
