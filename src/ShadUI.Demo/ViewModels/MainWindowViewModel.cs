@@ -38,7 +38,7 @@ public sealed partial class MainWindowViewModel(
     {
         SelectedPage = buttonsViewModel;
     }
-    
+
     [RelayCommand]
     private void OpenTabs()
     {

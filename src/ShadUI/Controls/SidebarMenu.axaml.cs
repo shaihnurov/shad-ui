@@ -122,7 +122,7 @@ public class SidebarMenu : SelectingItemsControl
         get => GetValue(BodyContentProperty);
         set => SetValue(BodyContentProperty, value);
     }
-    
+
     /// <summary>
     ///     Footer content.
     /// </summary>
@@ -204,14 +204,14 @@ public class SidebarMenu : SelectingItemsControl
     }
 
     /// <summary>
-    /// Updates the selection from the pointer event source.
+    ///     Updates the selection from the pointer event source.
     /// </summary>
     /// <param name="source"></param>
     /// <returns></returns>
     public bool UpdateSelectionFromPointerEvent(Control source) => UpdateSelectionFromEventSource(source);
 
     /// <summary>
-    /// Creates a new container for the item.
+    ///     Creates a new container for the item.
     /// </summary>
     /// <param name="item"></param>
     /// <param name="index"></param>
@@ -230,7 +230,7 @@ public class SidebarMenu : SelectingItemsControl
     private readonly List<SidebarMenuItem> _sideMenuItems = [];
 
     /// <summary>
-    /// Returns if the container needs.
+    ///     Returns if the container needs.
     /// </summary>
     /// <param name="item"></param>
     /// <param name="index"></param>

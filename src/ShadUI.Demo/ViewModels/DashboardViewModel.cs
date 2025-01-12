@@ -2,7 +2,7 @@
 
 namespace ShadUI.Demo.ViewModels;
 
-public sealed class DashboardViewModel: ViewModelBase
+public sealed class DashboardViewModel : ViewModelBase
 {
     public void Initialize()
     {

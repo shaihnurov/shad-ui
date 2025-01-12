@@ -1,10 +1,10 @@
 using System;
+using System.Windows.Input;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Presenters;
 using Avalonia.Controls.Primitives;
 using Avalonia.Input;
-using System.Windows.Input;
 using Avalonia.LogicalTree;
 
 namespace ShadUI.Controls;
@@ -195,10 +195,10 @@ public class SidebarMenuItem : ListBoxItem
     }
 
     /// <summary>
-    /// Returns if the menu item is enabled.
+    ///     Returns if the menu item is enabled.
     /// </summary>
     protected override bool IsEnabledCore => base.IsEnabledCore && _commandCanExecute;
-    
+
     private EventHandler? _canExecuteChangeHandler;
     private EventHandler CanExecuteChangedHandler => _canExecuteChangeHandler ??= CanExecuteChanged;
 
@@ -206,47 +206,37 @@ public class SidebarMenuItem : ListBoxItem
     {
         CanExecuteChanged(Command, CommandParameter);
     }
-    
+
     /// <summary>
-    /// Called when a property changes.
+    ///     Called when a property changes.
     /// </summary>
     /// <param name="change"></param>
     protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)
+    {
+        base.OnPropertyChanged(change);
+
+        if (change.Property == CommandProperty)
         {
-            base.OnPropertyChanged(change);
-
-            if (change.Property == CommandProperty)
+            var (oldValue, newValue) = change.GetOldAndNewValue<ICommand?>();
+            if (((ILogical) this).IsAttachedToLogicalTree)
             {
-                var (oldValue, newValue) = change.GetOldAndNewValue<ICommand?>();
-                if (((ILogical)this).IsAttachedToLogicalTree)
-                {
-                    if (oldValue != null)
-                    {
-                        oldValue.CanExecuteChanged -= CanExecuteChangedHandler;
-                    }
+                if (oldValue != null) oldValue.CanExecuteChanged -= CanExecuteChangedHandler;
 
-                    if (newValue != null)
-                    {
-                        newValue.CanExecuteChanged += CanExecuteChangedHandler;
-                    }
-                }
-                CanExecuteChanged(newValue, CommandParameter);
+                if (newValue != null) newValue.CanExecuteChanged += CanExecuteChangedHandler;
             }
-            else if (change.Property == CommandParameterProperty)
-            {
-                CanExecuteChanged(Command, change.NewValue);
-            }
+            CanExecuteChanged(newValue, CommandParameter);
         }
+        else if (change.Property == CommandParameterProperty)
+        {
+            CanExecuteChanged(Command, change.NewValue);
+        }
+    }
 
     private bool _commandCanExecute = true;
 
-    
     private void CanExecuteChanged(ICommand? command, object? parameter)
     {
-        if (!((ILogical) this).IsAttachedToLogicalTree)
-        {
-            return;
-        }
+        if (!((ILogical) this).IsAttachedToLogicalTree) return;
 
         var canExecute = command == null || command.CanExecute(parameter);
 

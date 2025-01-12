@@ -6,7 +6,7 @@
                 <TextBlock Text="Default" TextAlignment="Center" />
             </Border>
             <Border Classes="Card Bordered" Padding="20">
-                <TextBlock Text="Bordered"  TextAlignment="Center"/>
+                <TextBlock Text="Bordered" TextAlignment="Center" />
             </Border>
             <Border Classes="Card Bordered Shadowed" Padding="20">
                 <TextBlock Text="Bordered Shadow" TextAlignment="Center" />

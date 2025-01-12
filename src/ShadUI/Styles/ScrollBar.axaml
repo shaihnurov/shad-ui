@@ -76,7 +76,7 @@
                 <Border Background="Transparent" UseLayoutRounding="False">
                     <Grid RowDefinitions="Auto,*,Auto">
                         <Track Grid.Row="1"
-                               IsDirectionReversed="True" 
+                               IsDirectionReversed="True"
                                Maximum="{TemplateBinding Maximum}"
                                Minimum="{TemplateBinding Minimum}"
                                Orientation="{TemplateBinding Orientation}"

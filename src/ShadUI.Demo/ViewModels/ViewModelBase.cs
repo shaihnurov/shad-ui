@@ -5,7 +5,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace ShadUI.Demo.ViewModels;
 
-public abstract class ViewModelBase: ObservableValidator
+public abstract class ViewModelBase : ObservableValidator
 {
     private readonly Dictionary<string, string> _customErrors = new();
 

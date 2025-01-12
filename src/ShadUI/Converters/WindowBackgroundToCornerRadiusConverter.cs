@@ -6,17 +6,17 @@ using Avalonia.Data.Converters;
 namespace ShadUI.Converters;
 
 /// <summary>
-/// Converts the value of the window background to a corner radius.
+///     Converts the value of the window background to a corner radius.
 /// </summary>
 public class WindowBackgroundToCornerRadiusConverter : IValueConverter
 {
     /// <summary>
-    /// Returns the instance of the <see cref="WindowBackgroundToCornerRadiusConverter"/>.
+    ///     Returns the instance of the <see cref="WindowBackgroundToCornerRadiusConverter" />.
     /// </summary>
     public static readonly WindowBackgroundToCornerRadiusConverter Instance = new();
 
     /// <summary>
-    /// Converts the value of the window background to a corner radius.
+    ///     Converts the value of the window background to a corner radius.
     /// </summary>
     /// <param name="value"></param>
     /// <param name="targetType"></param>
@@ -35,7 +35,7 @@ public class WindowBackgroundToCornerRadiusConverter : IValueConverter
     }
 
     /// <summary>
-    /// Converts the value of corner radius to the window background.
+    ///     Converts the value of corner radius to the window background.
     /// </summary>
     /// <param name="value"></param>
     /// <param name="targetType"></param>

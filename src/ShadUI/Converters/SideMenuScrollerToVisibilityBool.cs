@@ -6,24 +6,24 @@ using Avalonia.Data.Converters;
 namespace ShadUI.Converters;
 
 /// <summary>
-/// Converts the value of the sidebar menu scroller to a visibility boolean.
+///     Converts the value of the sidebar menu scroller to a visibility boolean.
 /// </summary>
 public class SideMenuScrollerToVisibilityBool : IMultiValueConverter
 {
     /// <summary>
-    /// Visible up.
+    ///     Visible up.
     /// </summary>
     public static SideMenuScrollerToVisibilityBool Up { get; } = new((x, y) => x > y);
 
     /// <summary>
-    /// Visible down.
+    ///     Visible down.
     /// </summary>
     public static SideMenuScrollerToVisibilityBool Down { get; } = new((x, y) => x < y);
 
     private readonly Func<double, double, bool> _converter;
 
     /// <summary>
-    /// Returns the instance of the <see cref="SidebarMenuScrollerToVisibilityBool"/>.
+    ///     Returns the instance of the <see cref="SidebarMenuScrollerToVisibilityBool" />.
     /// </summary>
     /// <param name="converter"></param>
     public SideMenuScrollerToVisibilityBool(Func<double, double, bool> converter)
@@ -32,7 +32,7 @@ public class SideMenuScrollerToVisibilityBool : IMultiValueConverter
     }
 
     /// <summary>
-    /// Converts the value of the sidebar menu scroller to a visibility boolean.
+    ///     Converts the value of the sidebar menu scroller to a visibility boolean.
     /// </summary>
     /// <param name="values"></param>
     /// <param name="targetType"></param>

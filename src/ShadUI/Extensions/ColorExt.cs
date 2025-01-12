@@ -3,12 +3,12 @@ using Avalonia.Media;
 namespace ShadUI.Extensions;
 
 /// <summary>
-/// Extensions for the <see cref="Color"/> class.
+///     Extensions for the <see cref="Color" /> class.
 /// </summary>
 public static class ColorExt
 {
     /// <summary>
-    ///     Converts a standard <see cref="Color"/> to an RGB float array in the range 0-1.
+    ///     Converts a standard <see cref="Color" /> to an RGB float array in the range 0-1.
     ///     Allows recycling of an array for performance.
     /// </summary>
     /// <param name="color"></param>

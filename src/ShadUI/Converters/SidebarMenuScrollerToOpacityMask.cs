@@ -15,12 +15,12 @@ public class SidebarMenuScrollerToOpacityMask : IMultiValueConverter
     private readonly Func<double, double, IBrush?> _func;
 
     /// <summary>
-    /// Top mask.
+    ///     Top mask.
     /// </summary>
     public static SidebarMenuScrollerToOpacityMask Top { get; } = new((x, y) => x > y ? TopBrush : Brushes.White);
-    
+
     /// <summary>
-    /// Bottom mask.
+    ///     Bottom mask.
     /// </summary>
     public static SidebarMenuScrollerToOpacityMask Bottom { get; } = new((x, y) => x < y ? BottomBrush : Brushes.White);
 
@@ -47,7 +47,7 @@ public class SidebarMenuScrollerToOpacityMask : IMultiValueConverter
     };
 
     /// <summary>
-    /// Returns the instance of the <see cref="SidebarMenuScrollerToOpacityMask"/>.
+    ///     Returns the instance of the <see cref="SidebarMenuScrollerToOpacityMask" />.
     /// </summary>
     /// <param name="func"></param>
     public SidebarMenuScrollerToOpacityMask(Func<double, double, IBrush?> func)
@@ -56,7 +56,7 @@ public class SidebarMenuScrollerToOpacityMask : IMultiValueConverter
     }
 
     /// <summary>
-    /// Converts the value of the sidebar menu scroller to an opacity mask.
+    ///     Converts the value of the sidebar menu scroller to an opacity mask.
     /// </summary>
     /// <param name="values"></param>
     /// <param name="targetType"></param>

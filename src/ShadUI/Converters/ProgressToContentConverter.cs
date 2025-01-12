@@ -8,17 +8,17 @@ using ShadUI.Enums;
 namespace ShadUI.Converters;
 
 /// <summary>
-/// Convert a boolean value to a <see cref="Panel"/> or <see cref="Loading"/>.
+///     Convert a boolean value to a <see cref="Panel" /> or <see cref="Loading" />.
 /// </summary>
 public class ProgressToContentConverter : IValueConverter
 {
     /// <summary>
-    /// Returns a new instance of the <see cref="ProgressToContentConverter"/> class.
+    ///     Returns a new instance of the <see cref="ProgressToContentConverter" /> class.
     /// </summary>
     public static readonly ProgressToContentConverter Instance = new();
 
     /// <summary>
-    /// Convert a boolean value to a <see cref="Panel"/> or <see cref="Loading"/>.
+    ///     Convert a boolean value to a <see cref="Panel" /> or <see cref="Loading" />.
     /// </summary>
     /// <param name="value"></param>
     /// <param name="targetType"></param>
@@ -35,7 +35,7 @@ public class ProgressToContentConverter : IValueConverter
     }
 
     /// <summary>
-    /// Convert a <see cref="Panel"/> or <see cref="Loading"/> to a boolean value.
+    ///     Convert a <see cref="Panel" /> or <see cref="Loading" /> to a boolean value.
     /// </summary>
     /// <param name="value"></param>
     /// <param name="targetType"></param>

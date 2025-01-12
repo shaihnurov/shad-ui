@@ -50,7 +50,8 @@
                                         </Style>
                                     </Panel.Styles>
                                     <StackPanel>
-                                        <LayoutTransformControl Name="PART_LayoutTransform" RenderTransformOrigin="0%,0%">
+                                        <LayoutTransformControl Name="PART_LayoutTransform"
+                                                                RenderTransformOrigin="0%,0%">
                                             <Panel>
                                                 <Border
                                                     Name="PART_TitleBarBackground"
@@ -120,7 +121,8 @@
                                                 </DockPanel>
                                             </Panel>
                                         </LayoutTransformControl>
-                                        <Panel IsVisible="{TemplateBinding IsMenuVisible}" Background="{DynamicResource CardBackgroundColor}">
+                                        <Panel IsVisible="{TemplateBinding IsMenuVisible}"
+                                               Background="{DynamicResource CardBackgroundColor}">
                                             <Menu Name="PART_Menu" IsEnabled="{TemplateBinding IsMenuVisible}"
                                                   ItemsSource="{TemplateBinding MenuItems}" />
                                         </Panel>

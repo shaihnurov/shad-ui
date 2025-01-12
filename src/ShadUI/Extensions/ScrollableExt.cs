@@ -4,12 +4,12 @@ using Avalonia.Rendering.Composition;
 namespace ShadUI.Extensions;
 
 /// <summary>
-/// Usable extension methods for making an element scrollable.
+///     Usable extension methods for making an element scrollable.
 /// </summary>
 public static class ScrollableExt
 {
     /// <summary>
-    /// Makes the visual scrollable.
+    ///     Makes the visual scrollable.
     /// </summary>
     /// <param name="compositionVisual"></param>
     public static void MakeScrollable(CompositionVisual? compositionVisual)

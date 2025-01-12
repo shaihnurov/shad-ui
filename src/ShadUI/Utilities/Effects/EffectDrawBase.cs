@@ -11,24 +11,24 @@ using SkiaSharp;
 namespace ShadUI.Utilities.Effects;
 
 /// <summary>
-/// Effect drawing base class.
+///     Effect drawing base class.
 /// </summary>
 public abstract class EffectDrawBase : CompositionCustomVisualHandler
 {
     /// <summary>
-    /// Represents the start of animations.
+    ///     Represents the start of animations.
     /// </summary>
     public static readonly object StartAnimations = new();
 
     /// <summary>
-    /// Represents the stop of animations.
+    ///     Represents the stop of animations.
     /// </summary>
     public static readonly object StopAnimations = new();
 
     private BaseEffect? _effect;
 
     /// <summary>
-    /// Returns the current effect.
+    ///     Returns the current effect.
     /// </summary>
     protected BaseEffect? Effect
     {
@@ -45,7 +45,7 @@ public abstract class EffectDrawBase : CompositionCustomVisualHandler
     private bool _animationEnabled;
 
     /// <summary>
-    /// Gets or sets whether animations are enabled.
+    ///     Gets or sets whether animations are enabled.
     /// </summary>
     public bool AnimationEnabled
     {
@@ -59,22 +59,22 @@ public abstract class EffectDrawBase : CompositionCustomVisualHandler
     }
 
     /// <summary>
-    /// Gets or sets whether to force software rendering.
+    ///     Gets or sets whether to force software rendering.
     /// </summary>
     public bool ForceSoftwareRendering { get; set; }
 
     /// <summary>
-    /// The scale of the animation speed.
+    ///     The scale of the animation speed.
     /// </summary>
     protected float AnimationSpeedScale { get; set; } = 0.1f;
 
     /// <summary>
-    /// The active theme variant.
+    ///     The active theme variant.
     /// </summary>
     protected ThemeVariant ActiveVariant { get; private set; } = ThemeVariant.Light;
 
     /// <summary>
-    /// The seconds elapsed since the start of the animation.
+    ///     The seconds elapsed since the start of the animation.
     /// </summary>
     protected float AnimationSeconds => (float) _animationTick.Elapsed.TotalSeconds;
 
@@ -82,7 +82,7 @@ public abstract class EffectDrawBase : CompositionCustomVisualHandler
     private readonly bool _invalidateRect;
 
     /// <summary>
-    /// Returns a new instance of the <see cref="EffectDrawBase"/> class.
+    ///     Returns a new instance of the <see cref="EffectDrawBase" /> class.
     /// </summary>
     /// <param name="invalidateRect"></param>
     protected EffectDrawBase(bool invalidateRect = true)
@@ -93,7 +93,7 @@ public abstract class EffectDrawBase : CompositionCustomVisualHandler
     }
 
     /// <summary>
-    /// Called whenever the effect is changed.
+    ///     Called whenever the effect is changed.
     /// </summary>
     /// <param name="context"></param>
     /// <exception cref="InvalidOperationException"></exception>
@@ -111,7 +111,7 @@ public abstract class EffectDrawBase : CompositionCustomVisualHandler
     }
 
     /// <summary>
-    /// Called when a message is received.
+    ///     Called when a message is received.
     /// </summary>
     /// <param name="message"></param>
     public override void OnMessage(object message)
@@ -132,7 +132,7 @@ public abstract class EffectDrawBase : CompositionCustomVisualHandler
     }
 
     /// <summary>
-    /// Called every frame to update the animation.
+    ///     Called every frame to update the animation.
     /// </summary>
     public override void OnAnimationFrameUpdate()
     {
@@ -156,7 +156,7 @@ public abstract class EffectDrawBase : CompositionCustomVisualHandler
     protected abstract void RenderSoftware(SKCanvas canvas, SKRect rect);
 
     /// <summary>
-    /// Returns the shader with the effect and uniforms.
+    ///     Returns the shader with the effect and uniforms.
     /// </summary>
     /// <param name="effect"></param>
     /// <param name="alpha"></param>
@@ -165,7 +165,7 @@ public abstract class EffectDrawBase : CompositionCustomVisualHandler
         effect?.ToShaderWithUniforms(AnimationSeconds, ActiveVariant, GetRenderBounds(), AnimationSpeedScale, alpha);
 
     /// <summary>
-    /// Returns the shader with the effect and custom uniforms.
+    ///     Returns the shader with the effect and custom uniforms.
     /// </summary>
     /// <param name="uniformFactory"></param>
     /// <param name="alpha"></param>
@@ -174,7 +174,7 @@ public abstract class EffectDrawBase : CompositionCustomVisualHandler
         EffectWithCustomUniforms(Effect, uniformFactory, alpha);
 
     /// <summary>
-    /// Returns the shader with the effect and custom uniforms.
+    ///     Returns the shader with the effect and custom uniforms.
     /// </summary>
     /// <param name="effect"></param>
     /// <param name="uniformFactory"></param>
@@ -185,7 +185,7 @@ public abstract class EffectDrawBase : CompositionCustomVisualHandler
         effect?.ToShaderWithCustomUniforms(uniformFactory, AnimationSeconds, GetRenderBounds(), AnimationSpeedScale, alpha);
 
     /// <summary>
-    /// Called whenever the effect is changed.
+    ///     Called whenever the effect is changed.
     /// </summary>
     /// <param name="oldValue"></param>
     /// <param name="newValue"></param>

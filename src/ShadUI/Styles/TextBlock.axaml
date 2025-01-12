@@ -76,7 +76,8 @@
                     <TextBlock Text="Muted" Classes="h3" />
                     <Separator Margin="0" />
                     <Border Classes="Card Bordered" Padding="48">
-                        <TextBlock TextWrapping="Wrap" TextAlignment="Center" Classes="p Muted" Text="Enter your email address" />
+                        <TextBlock TextWrapping="Wrap" TextAlignment="Center" Classes="p Muted"
+                                   Text="Enter your email address" />
                     </Border>
                 </StackPanel>
                 <StackPanel Spacing="8">

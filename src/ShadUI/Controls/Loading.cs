@@ -121,14 +121,14 @@ public class Loading : Control
     }
 
     /// <summary>
-    /// The <see cref="EffectDrawBase" /> for the <see cref="Loading"/> indicator.
+    ///     The <see cref="EffectDrawBase" /> for the <see cref="Loading" /> indicator.
     /// </summary>
     public class LoadingEffectDraw : EffectDrawBase
     {
         private float[] _color = { 1.0f, 0f, 0f };
 
         /// <summary>
-        /// The <see cref="LoadingEffectDraw" /> for the <see cref="Loading"/> indicator.
+        ///     The <see cref="LoadingEffectDraw" /> for the <see cref="Loading" /> indicator.
         /// </summary>
         public LoadingEffectDraw()
         {
@@ -136,7 +136,7 @@ public class Loading : Control
         }
 
         /// <summary>
-        /// Renders the effect to the canvas.
+        ///     Renders the effect to the canvas.
         /// </summary>
         /// <param name="canvas"></param>
         /// <param name="rect"></param>

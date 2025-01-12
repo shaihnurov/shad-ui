@@ -12,7 +12,7 @@ using Avalonia.Threading;
 namespace ShadUI.Controls;
 
 /// <summary>
-///    Allows for a smooth transition between two content elements.
+///     Allows for a smooth transition between two content elements.
 /// </summary>
 public class TransitioningContent : TemplatedControl
 {
@@ -35,13 +35,13 @@ public class TransitioningContent : TemplatedControl
     }
 
     /// <summary>
-    /// The content to transition to.
+    ///     The content to transition to.
     /// </summary>
     public static readonly StyledProperty<object?> ContentProperty =
         AvaloniaProperty.Register<TransitioningContent, object?>(nameof(Content));
 
     /// <summary>
-    /// Gets or sets the content to transition to.
+    ///     Gets or sets the content to transition to.
     /// </summary>
     public object? Content
     {
@@ -134,7 +134,7 @@ public class TransitioningContent : TemplatedControl
     private CancellationTokenSource _animCancellationToken = new();
 
     /// <summary>
-    /// Called when a property changes.
+    ///     Called when a property changes.
     /// </summary>
     /// <param name="change"></param>
     protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)
@@ -145,7 +145,7 @@ public class TransitioningContent : TemplatedControl
     }
 
     /// <summary>
-    /// Called when the control template is applied.
+    ///     Called when the control template is applied.
     /// </summary>
     /// <param name="e"></param>
     protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
@@ -198,7 +198,7 @@ public class TransitioningContent : TemplatedControl
     }
 
     /// <summary>
-    /// Called when the control is unloaded.
+    ///     Called when the control is unloaded.
     /// </summary>
     /// <param name="e"></param>
     protected override void OnUnloaded(RoutedEventArgs e)

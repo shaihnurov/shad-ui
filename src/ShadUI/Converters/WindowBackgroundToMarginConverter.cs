@@ -6,17 +6,17 @@ using Avalonia.Data.Converters;
 namespace ShadUI.Converters;
 
 /// <summary>
-/// Converts the value of the window background to a margin.
+///     Converts the value of the window background to a margin.
 /// </summary>
 public class WindowBackgroundToMarginConverter : IValueConverter
 {
     /// <summary>
-    /// Returns the instance of the <see cref="WindowBackgroundToMarginConverter"/>.
+    ///     Returns the instance of the <see cref="WindowBackgroundToMarginConverter" />.
     /// </summary>
     public static readonly WindowBackgroundToMarginConverter Instance = new();
 
     /// <summary>
-    /// Converts the value of the window background to a margin.
+    ///     Converts the value of the window background to a margin.
     /// </summary>
     /// <param name="value"></param>
     /// <param name="targetType"></param>
@@ -35,7 +35,7 @@ public class WindowBackgroundToMarginConverter : IValueConverter
     }
 
     /// <summary>
-    /// Converts the value of margin to the window background.
+    ///     Converts the value of margin to the window background.
     /// </summary>
     /// <param name="value"></param>
     /// <param name="targetType"></param>
