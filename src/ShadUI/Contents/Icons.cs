@@ -61,6 +61,15 @@ public static class Icons
     ///     Cross icon.
     /// </summary>
     public static readonly StreamGeometry Cross = Parse("M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z");
-
+    
+    /// <summary>
+    /// Clipboard icon.
+    /// </summary>
+    public static readonly StreamGeometry ClipBoard = Parse("M15,2h-1c0-1.1-.9-2-2-2h-6c-1.1,0-2,.9-2,2h-1c-1.65,0-3,1.35-3,3v14c0,1.65,1.35,3,3,3h12c1.65,0,3-1.35,3-3V5c0-1.65-1.35-3-3-3ZM6,2h6v2h-6v-2ZM16,19c0,.55-.45,1-1,1H3c-.55,0-1-.45-1-1V5c0-.55.45-1,1-1h1c0,1.1.9,2,2,2h6c1.1,0,2-.9,2-2h1c.55,0,1,.45,1,1v14Z");
+      /// <summary>
+    /// Clipboard icon.
+    /// </summary>
+    public static readonly StreamGeometry ClipBoardCheck = Parse("M15,2h-1c0-1.1-.9-2-2-2h-6c-1.1,0-2,.9-2,2h-1c-1.65,0-3,1.35-3,3v14c0,1.65,1.35,3,3,3h12c1.65,0,3-1.35,3-3V5c0-1.65-1.35-3-3-3ZM6,2h6v2h-6v-2ZM16,19c0,.55-.45,1-1,1H3c-.55,0-1-.45-1-1V5c0-.55.45-1,1-1h1c0,1.1.9,2,2,2h6c1.1,0,2-.9,2-2h1c.55,0,1,.45,1,1v14ZM8,16c-.26,0-.51-.1-.71-.29l-2-2c-.39-.39-.39-1.02,0-1.41s1.02-.39,1.41,0l1.29,1.29,3.29-3.29c.39-.39,1.02-.39,1.41,0s.39,1.02,0,1.41l-4,4c-.2.2-.45.29-.71.29Z");
+    
     private static StreamGeometry Parse(string path) => StreamGeometry.Parse(path);
 }

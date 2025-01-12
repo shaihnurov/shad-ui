@@ -20,7 +20,7 @@
     </Design.PreviewWith>
     <ControlTheme x:Key="TabControlStyle" TargetType="TabControl">
         <Setter Property="Margin" Value="0" />
-        <Setter Property="Padding" Value="8" />
+        <Setter Property="Padding" Value="0,16" />
         <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
         <Setter Property="Background" Value="{DynamicResource BackgroundColor}" />
         <Setter Property="Template">

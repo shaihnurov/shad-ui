@@ -1,0 +1,94 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:ShadUI.Demo.Controls"
+    xmlns:content="clr-namespace:ShadUI.Contents;assembly=ShadUI"
+    xmlns:editor="https://github.com/avaloniaui/avaloniaedit">
+    <Design.PreviewWith>
+        <Border Width="500">
+            <controls:CodeTextBlock>
+                <Run Text="&lt;StackPanel Spacing=&quot;8&quot;&gt;" />
+                <LineBreak />
+                <Run Text="    &lt;TextBlock Text=&quot;h1&quot; Classes=&quot;h4&quot; /&gt;" />
+                <LineBreak />
+                <Run Text="    &lt;Separator Margin=&quot;0&quot; /&gt;" />
+                <LineBreak />
+                <Run
+                    Text="    &lt;Border Classes=&quot;Card Bordered&quot; Padding=&quot;48&quot;&gt;" />
+                <LineBreak />
+                <Run
+                    Text="        &lt;TextBlock TextWrapping=&quot;Wrap&quot; Classes=&quot;h1&quot;" />
+                <LineBreak />
+                <Run
+                    Text="                   Text=&quot;Taxing Laughter: The Joke Tax Chronicles&quot; /&gt;" />
+                <LineBreak />
+                <Run Text="    &lt;/Border&gt;" />
+                <LineBreak />
+                <Run Text="&lt;/StackPanel&gt;" />
+            </controls:CodeTextBlock>
+        </Border>
+    </Design.PreviewWith>
+
+    <ControlTheme x:Key="{x:Type controls:CodeTextBlock}"
+                  TargetType="controls:CodeTextBlock">
+        <ControlTheme.Resources>
+            <FontFamily x:Key="JetbrainsFont">avares://ShadUI.Demo/Assets/Fonts#Jetbrains</FontFamily>
+        </ControlTheme.Resources>
+        <Setter Property="Padding" Value="8,12" />
+        <Setter Property="MaxHeight" Value="250" />
+        <Setter Property="MinHeight" Value="50" />
+        <Setter Property="CornerRadius" Value="{DynamicResource MediumCornerRadius}" />
+        <Setter Property="Background" Value="{DynamicResource CodeBackgroundColor}" />
+        <Setter Property="Foreground" Value="{DynamicResource CodeForegroundColor}" />
+        <Setter Property="FontSize" Value="13" />
+        <Setter Property="FontWeight" Value="SemiBold" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}"
+                        Padding="{TemplateBinding Padding}">
+                    <Panel>
+                        <editor:TextEditor
+                            Margin="{TemplateBinding Padding}"
+                            Name="PART_Editor"
+                            ShowLineNumbers="True"
+                            MinHeight="{TemplateBinding MinHeight}"
+                            MaxHeight="{TemplateBinding MaxHeight}"
+                            FontFamily="{StaticResource JetbrainsFont}"
+                            HorizontalScrollBarVisibility="Auto"
+                            VerticalScrollBarVisibility="Auto" />
+                        <Button
+                            Name="PART_ClipBoardButton"
+                            CornerRadius="6"
+                            Padding="6"
+                            Margin="0,8,18,0"
+                            Opacity="0"
+                            MaxHeight="{TemplateBinding MaxHeight}"
+                            Background="Transparent"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Top">
+                            <Button.Styles>
+                                <Style Selector="Button:pointerover">
+                                    <Setter Property="Background" Value="{DynamicResource CodeForegroundColor50}" />
+                                </Style>
+                            </Button.Styles>
+                            <PathIcon Width="16"
+                                      Height="16"
+                                      Name="PART_Icon"
+                                      Foreground="{TemplateBinding Foreground}"
+                                      Data="{x:Static content:Icons.ClipBoard}" />
+                        </Button>
+                    </Panel>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^ /template/ Button#PART_ClipBoardButton">
+            <Setter Property="Background" Value="Transparent" />
+        </Style>
+        <Style Selector="^:pointerover /template/ Button#PART_ClipBoardButton">
+            <Setter Property="Opacity" Value="1" />
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>

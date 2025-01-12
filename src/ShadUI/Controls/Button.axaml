@@ -111,7 +111,7 @@
         </Style>
 
         <Style Selector="^:pointerover /template/ Border#RootBorder">
-            <Setter Property="Background" Value="{DynamicResource PrimaryColor75}" />
+            <!-- <Setter Property="Background" Value="{DynamicResource PrimaryColor75}" /> -->
             <Setter Property="Cursor" Value="Hand" />
         </Style>
 
