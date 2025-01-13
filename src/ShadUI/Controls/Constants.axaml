@@ -4,18 +4,6 @@
     xmlns:system="clr-namespace:System;assembly=netstandard">
 
     <FontFamily x:Key="FontFamily">Inter</FontFamily>
-    <system:Double x:Key="ThemeDisabledOpacity">0.5</system:Double>
-
-    <system:Double x:Key="ExtraSmallFontSize">12</system:Double>
-    <system:Double x:Key="SmallFontSize">14</system:Double>
-    <system:Double x:Key="NormalFontSize">16</system:Double>
-    <system:Double x:Key="LargeFontSize">18</system:Double>
-
-    <system:Double x:Key="ScrollBarThickness">18</system:Double>
-    <system:Double x:Key="ScrollBarThumbThickness">8</system:Double>
-
-    <system:Double x:Key="IconElementThemeHeight">20</system:Double>
-    <system:Double x:Key="IconElementThemeWidth">20</system:Double>
 
     <system:TimeSpan x:Key="LongAnimationDuration">0.5</system:TimeSpan>
     <system:TimeSpan x:Key="MediumAnimationDuration">0.35</system:TimeSpan>
@@ -28,6 +16,5 @@
     <CornerRadius x:Key="RoundedCornerRadius">999</CornerRadius>
 
     <Easing x:Key="MenuEasing">CircularEaseOut</Easing>
-    <Thickness x:Key="ThemeBorderThickness">1,1,1,1</Thickness>
 
 </ResourceDictionary>
