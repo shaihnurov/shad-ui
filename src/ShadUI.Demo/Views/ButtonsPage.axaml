@@ -157,7 +157,7 @@
                 <controls:ControlBlock
                     Title="Destructive Icon"
                     Language="xaml"
-                    Code="{Binding IconCode}"
+                    Code="{Binding DestructiveIconCode}"
                     CodeBlockHeight="400">
                     <StackPanel Spacing="8" Orientation="Horizontal" HorizontalAlignment="Center">
                         <Button Classes="DestructiveIcon">
