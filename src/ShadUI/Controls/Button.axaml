@@ -3,7 +3,13 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:converters="clr-namespace:ShadUI.Converters"
     xmlns:extensions="clr-namespace:ShadUI.Extensions">
+    <Design.PreviewWith>
+        <Border Padding="12">
+            <Button Classes="Primary" Content="Primary" />
+        </Border>
+    </Design.PreviewWith>
     <ControlTheme x:Key="ButtonStyle" TargetType="Button">
+        <Setter Property="Height" Value="36" />
         <Setter Property="FontFamily" Value="{DynamicResource FontFamily}" />
         <Setter Property="BorderBrush" Value="{DynamicResource MediumBorderBrushColor}" />
         <Setter Property="CornerRadius" Value="{DynamicResource MediumCornerRadius}" />
@@ -114,7 +120,7 @@
             <Style Selector="^ /template/ Border">
                 <Setter Property="RenderTransform">
                     <Setter.Value>
-                        <ScaleTransform ScaleX="0.98" ScaleY="0.98" />
+                        <ScaleTransform ScaleX="0.95" ScaleY="0.95" />
                     </Setter.Value>
                 </Setter>
             </Style>
@@ -140,7 +146,7 @@
         <!-- Primary -->
         <Style Selector="^.Primary">
             <Setter Property="FontSize" Value="14" />
-            <Setter Property="Padding" Value="16,12" />
+            <Setter Property="Padding" Value="16,8" />
             <Setter Property="Background" Value="{DynamicResource PrimaryColor}" />
             <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundColor}" />
             <Style Selector="^ /template/ TextBlock">
@@ -166,7 +172,7 @@
                 <Style Selector="^.IconContent /template/ Border">
                     <Setter Property="RenderTransform">
                         <Setter.Value>
-                            <ScaleTransform ScaleX="0.98" ScaleY="0.98" />
+                            <ScaleTransform ScaleX="0.95" ScaleY="0.95" />
                         </Setter.Value>
                     </Setter>
                 </Style>
@@ -176,7 +182,7 @@
         <!--  Secondary  -->
         <Style Selector="^.Secondary">
             <Setter Property="FontSize" Value="14" />
-            <Setter Property="Padding" Value="16,12" />
+            <Setter Property="Padding" Value="16,8" />
             <Setter Property="Background" Value="{DynamicResource SecondaryColor}" />
             <Setter Property="Foreground" Value="{DynamicResource SecondaryForegroundColor}" />
             <Style Selector="^ /template/ TextBlock">
@@ -202,7 +208,7 @@
                 <Style Selector="^.IconContent /template/ Border">
                     <Setter Property="RenderTransform">
                         <Setter.Value>
-                            <ScaleTransform ScaleX="0.98" ScaleY="0.98" />
+                            <ScaleTransform ScaleX="0.95" ScaleY="0.95" />
                         </Setter.Value>
                     </Setter>
                 </Style>
@@ -212,7 +218,7 @@
         <!--  Destructive  -->
         <Style Selector="^.Destructive">
             <Setter Property="FontSize" Value="14" />
-            <Setter Property="Padding" Value="16,12" />
+            <Setter Property="Padding" Value="16,8" />
             <Setter Property="Background" Value="{DynamicResource DestructiveColor}" />
             <Setter Property="Foreground" Value="{DynamicResource DestructiveForegroundColor}" />
             <Style Selector="^ /template/ TextBlock">
@@ -239,7 +245,7 @@
                 <Style Selector="^.IconContent /template/ Border">
                     <Setter Property="RenderTransform">
                         <Setter.Value>
-                            <ScaleTransform ScaleX="0.98" ScaleY="0.98" />
+                            <ScaleTransform ScaleX="0.95" ScaleY="0.95" />
                         </Setter.Value>
                     </Setter>
                 </Style>
@@ -249,7 +255,7 @@
         <!--  Outline  -->
         <Style Selector="^.Outline">
             <Setter Property="FontSize" Value="14" />
-            <Setter Property="Padding" Value="16,12" />
+            <Setter Property="Padding" Value="16,8" />
             <Setter Property="Background" Value="{DynamicResource BackgroundColor}" />
             <Setter Property="BorderThickness" Value="1" />
             <Setter Property="BorderBrush" Value="{DynamicResource BorderColor}" />
@@ -279,7 +285,7 @@
                 <Style Selector="^.IconContent /template/ Border">
                     <Setter Property="RenderTransform">
                         <Setter.Value>
-                            <ScaleTransform ScaleX="0.98" ScaleY="0.98" />
+                            <ScaleTransform ScaleX="0.95" ScaleY="0.95" />
                         </Setter.Value>
                     </Setter>
                 </Style>
@@ -289,7 +295,7 @@
         <!--  Ghost  -->
         <Style Selector="^.Ghost">
             <Setter Property="FontSize" Value="14" />
-            <Setter Property="Padding" Value="16,12" />
+            <Setter Property="Padding" Value="16,8" />
             <Setter Property="Background" Value="{DynamicResource BackgroundColor}" />
             <Setter Property="BorderBrush" Value="{DynamicResource BorderColor}" />
             <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
@@ -317,7 +323,7 @@
                 <Style Selector="^.IconContent /template/ Border">
                     <Setter Property="RenderTransform">
                         <Setter.Value>
-                            <ScaleTransform ScaleX="0.98" ScaleY="0.98" />
+                            <ScaleTransform ScaleX="0.95" ScaleY="0.95" />
                         </Setter.Value>
                     </Setter>
                 </Style>
@@ -356,7 +362,7 @@
                 <Style Selector="^.IconContent /template/ Border">
                     <Setter Property="RenderTransform">
                         <Setter.Value>
-                            <ScaleTransform ScaleX="0.98" ScaleY="0.98" />
+                            <ScaleTransform ScaleX="0.95" ScaleY="0.95" />
                         </Setter.Value>
                     </Setter>
                 </Style>
@@ -393,13 +399,13 @@
                 <Style Selector="^.IconContent /template/ Border">
                     <Setter Property="RenderTransform">
                         <Setter.Value>
-                            <ScaleTransform ScaleX="0.98" ScaleY="0.98" />
+                            <ScaleTransform ScaleX="0.95" ScaleY="0.95" />
                         </Setter.Value>
                     </Setter>
                 </Style>
             </Style>
         </Style>
-        
+
     </ControlTheme>
     <ControlTheme x:Key="{x:Type Button}"
                   BasedOn="{StaticResource ButtonStyle}"
