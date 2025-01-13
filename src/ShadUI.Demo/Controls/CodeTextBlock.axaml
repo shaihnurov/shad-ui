@@ -67,7 +67,7 @@
                             Width="36"
                             Height="36"
                             MaxHeight="{TemplateBinding MaxHeight}"
-                            HorizontalAlignment="Right" 
+                            HorizontalAlignment="Right"
                             HorizontalContentAlignment="Center"
                             VerticalContentAlignment="Center"
                             VerticalAlignment="Top">
@@ -77,9 +77,11 @@
                                 </Style>
                             </Button.Styles>
                             <extensions:ButtonExt.Icon>
-                                <PathIcon Height="10"
-                                          Foreground="{DynamicResource PrimaryForegroundColor}"
-                                          Data="{x:Static content:Icons.ClipBoard}" />
+                                <PathIcon
+                                    Name="PART_ClipBoardIcon"
+                                    Height="10"
+                                    Foreground="{DynamicResource PrimaryForegroundColor}"
+                                    Data="{x:Static content:Icons.ClipBoard}" />
                             </extensions:ButtonExt.Icon>
                         </Button>
                     </Panel>

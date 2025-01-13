@@ -24,14 +24,13 @@ public class CodeTextBlock : UserControl
             nameof(Inlines), t => t.Inlines, (t, v) => t.Inlines = v);
 
     public static readonly StyledProperty<string> LanguageProperty =
-        AvaloniaProperty.Register<CodeTextBlock, string>(nameof(Language), defaultValue: "xaml");
+        AvaloniaProperty.Register<CodeTextBlock, string>(nameof(Language), "xaml");
 
     private InlineCollection? _inlines = new();
     private Button? _clipboardButton;
     private PathIcon? _clipboardIcon;
     private Geometry? _originalIconData;
     private TextEditor? _editor;
-
 
     public string? Text
     {
@@ -59,14 +58,14 @@ public class CodeTextBlock : UserControl
         if (_clipboardButton != null) _clipboardButton.Click -= OnClipboardButtonClick;
 
         _clipboardButton = e.NameScope.Find<Button>("PART_ClipBoardButton");
-        _clipboardIcon = e.NameScope.Find<PathIcon>("PART_Icon");
+        _clipboardIcon = e.NameScope.Find<PathIcon>("PART_ClipBoardIcon");
 
         _editor = e.NameScope.Find<TextEditor>("PART_Editor");
         if (_editor != null)
         {
             var opts = new RegistryOptions(ThemeName.DarkPlus);
             var installation = _editor.InstallTextMate(opts);
-            
+
             // Get language ID based on the specified language
             var languageId = opts.GetLanguageByExtension($".{Language.ToLower()}").Id;
             installation.SetGrammar(opts.GetScopeByLanguageId(languageId));
