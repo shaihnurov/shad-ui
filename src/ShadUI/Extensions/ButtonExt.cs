@@ -30,4 +30,27 @@ public static class ButtonExt
     {
         textBox.SetValue(ShowProgressProperty, value);
     }
+
+    /// <summary>
+    ///     Add button icon.
+    /// </summary>
+    public static readonly AttachedProperty<object> IconProperty =
+        AvaloniaProperty.RegisterAttached<Button, object>("Icon", typeof(Button));
+
+    /// <summary>
+    ///     Get the value of the <see cref="IconProperty" />.
+    /// </summary>
+    /// <param name="textBox"></param>
+    /// <returns></returns>
+    public static object GetIcon(Button textBox) => textBox.GetValue(IconProperty);
+
+    /// <summary>
+    ///     Set the value of the <see cref="IconProperty" />.
+    /// </summary>
+    /// <param name="textBox"></param>
+    /// <param name="value"></param>
+    public static void SetIcon(Button textBox, object value)
+    {
+        textBox.SetValue(IconProperty, value);
+    }
 }

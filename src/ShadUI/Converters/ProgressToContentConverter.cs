@@ -10,7 +10,7 @@ namespace ShadUI.Converters;
 /// <summary>
 ///     Convert a boolean value to a <see cref="Panel" /> or <see cref="Loading" />.
 /// </summary>
-public class ProgressToContentConverter : IValueConverter
+internal class ProgressToContentConverter : IValueConverter
 {
     /// <summary>
     ///     Returns a new instance of the <see cref="ProgressToContentConverter" /> class.

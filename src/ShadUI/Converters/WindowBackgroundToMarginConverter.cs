@@ -8,7 +8,7 @@ namespace ShadUI.Converters;
 /// <summary>
 ///     Converts the value of the window background to a margin.
 /// </summary>
-public class WindowBackgroundToMarginConverter : IValueConverter
+internal class WindowBackgroundToMarginConverter : IValueConverter
 {
     /// <summary>
     ///     Returns the instance of the <see cref="WindowBackgroundToMarginConverter" />.

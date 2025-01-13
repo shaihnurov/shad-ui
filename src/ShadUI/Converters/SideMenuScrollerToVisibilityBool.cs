@@ -8,7 +8,7 @@ namespace ShadUI.Converters;
 /// <summary>
 ///     Converts the value of the sidebar menu scroller to a visibility boolean.
 /// </summary>
-public class SideMenuScrollerToVisibilityBool : IMultiValueConverter
+internal class SideMenuScrollerToVisibilityBool : IMultiValueConverter
 {
     /// <summary>
     ///     Visible up.

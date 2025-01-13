@@ -8,7 +8,7 @@ namespace ShadUI.Converters;
 /// <summary>
 ///     Converts the value of the window background to a corner radius.
 /// </summary>
-public class WindowBackgroundToCornerRadiusConverter : IValueConverter
+internal class WindowBackgroundToCornerRadiusConverter : IValueConverter
 {
     /// <summary>
     ///     Returns the instance of the <see cref="WindowBackgroundToCornerRadiusConverter" />.

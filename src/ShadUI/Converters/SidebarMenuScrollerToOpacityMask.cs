@@ -10,7 +10,7 @@ namespace ShadUI.Converters;
 /// <summary>
 ///     Converts the value of the sidebar menu scroller to an opacity mask.
 /// </summary>
-public class SidebarMenuScrollerToOpacityMask : IMultiValueConverter
+internal class SidebarMenuScrollerToOpacityMask : IMultiValueConverter
 {
     private readonly Func<double, double, IBrush?> _func;
 

@@ -8,7 +8,7 @@ namespace ShadUI.Converters;
 /// <summary>
 ///     Returns a proper foreground color based on the background color.
 /// </summary>
-public sealed class BackgroundToForegroundConverter : IValueConverter
+internal sealed class BackgroundToForegroundConverter : IValueConverter
 {
     /// <summary>
     ///     Convert a background color to a foreground color.
@@ -37,4 +37,14 @@ public sealed class BackgroundToForegroundConverter : IValueConverter
     /// <exception cref="NotImplementedException"></exception>
     public object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture) =>
         throw new NotImplementedException();
+}
+
+internal sealed class ContentToIsVisibleConverter : IValueConverter
+{
+    public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture) => value != null;
+
+    public object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
+    {
+        throw new NotImplementedException();
+    }
 }

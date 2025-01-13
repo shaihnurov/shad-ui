@@ -21,4 +21,12 @@
     <Style Selector="Button.Ghost controls|Loading">
         <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
     </Style>
+
+    <Style Selector="Button.Icon controls|Loading">
+        <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
+    </Style>
+
+    <Style Selector="Button.DestructiveIcon controls|Loading">
+        <Setter Property="Foreground" Value="{DynamicResource DestructiveForegroundColor}" />
+    </Style>
 </Styles>

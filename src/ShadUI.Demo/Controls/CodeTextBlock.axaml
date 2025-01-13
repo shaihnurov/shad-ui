@@ -3,7 +3,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="clr-namespace:ShadUI.Demo.Controls"
     xmlns:content="clr-namespace:ShadUI.Contents;assembly=ShadUI"
-    xmlns:editor="https://github.com/avaloniaui/avaloniaedit">
+    xmlns:editor="https://github.com/avaloniaui/avaloniaedit"
+    xmlns:extensions="clr-namespace:ShadUI.Extensions;assembly=ShadUI">
     <Design.PreviewWith>
         <Border Width="500" Height="250">
             <controls:CodeTextBlock>
@@ -61,23 +62,25 @@
                         <Button
                             Name="PART_ClipBoardButton"
                             CornerRadius="6"
-                            Padding="6"
                             Margin="0,8,28,0"
                             Opacity="0"
+                            Width="36"
+                            Height="36"
                             MaxHeight="{TemplateBinding MaxHeight}"
-                            Background="Transparent"
-                            HorizontalAlignment="Right"
+                            HorizontalAlignment="Right" 
+                            HorizontalContentAlignment="Center"
+                            VerticalContentAlignment="Center"
                             VerticalAlignment="Top">
                             <Button.Styles>
                                 <Style Selector="Button:pointerover">
                                     <Setter Property="Background" Value="{DynamicResource CodeForegroundColor50}" />
                                 </Style>
                             </Button.Styles>
-                            <PathIcon Width="16"
-                                      Height="16"
-                                      Name="PART_Icon"
-                                      Foreground="{TemplateBinding Foreground}"
-                                      Data="{x:Static content:Icons.ClipBoard}" />
+                            <extensions:ButtonExt.Icon>
+                                <PathIcon Height="10"
+                                          Foreground="{DynamicResource PrimaryForegroundColor}"
+                                          Data="{x:Static content:Icons.ClipBoard}" />
+                            </extensions:ButtonExt.Icon>
                         </Button>
                     </Panel>
                 </Border>

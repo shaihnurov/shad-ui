@@ -50,10 +50,10 @@
                                             Margin="7"
                                             HorizontalAlignment="Right"
                                             VerticalAlignment="Top"
-                                            Padding="9,6"
-                                            Classes="Ghost"
+                                            Classes="Icon"
                                             Cursor="Hand"
                                             DockPanel.Dock="Top"
+                                            BorderBrush="Transparent"
                                             IsVisible="{TemplateBinding SidebarToggleEnabled}">
                                         <Panel>
                                             <PathIcon Name="PART_ExpandIconLeft"
