@@ -10,7 +10,6 @@
         <ResourceInclude Source="avares://ShadUI/Controls/SidebarMenuItem.axaml" />
         <ResourceInclude Source="avares://ShadUI/Controls/TabItem.axaml" />
         <ResourceInclude Source="avares://ShadUI/Controls/TabControl.axaml" />
-        <ResourceInclude Source="avares://ShadUI/Controls/TextBlock.axaml" />
         <ResourceInclude Source="avares://ShadUI/Controls/TextBox.axaml" />
         <ResourceInclude Source="avares://ShadUI/Controls/Window.axaml" />
         <ResourceInclude Source="avares://ShadUI/Controls/WindowButton.axaml" />
