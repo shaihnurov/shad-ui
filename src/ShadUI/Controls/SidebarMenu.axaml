@@ -17,7 +17,6 @@
                               Height="13"
                               Data="{x:Static contents:Icons.Cross}" />
                 </controls:SidebarMenuItem.Icon>
-
             </controls:SidebarMenuItem>
             <controls:SidebarMenuItem Header="Header">
                 <controls:SidebarMenuItem.Icon>
@@ -47,8 +46,8 @@
                                         CornerRadius="{Binding ShowTitlebarBackground, Converter={x:Static converters:WindowBackgroundToCornerRadiusConverter.Instance}, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type controls:Window}}}" />
                                 <DockPanel Background="{TemplateBinding Background}">
                                     <Button Name="PART_SidebarToggleButton"
-                                            Margin="7"
-                                            HorizontalAlignment="Right"
+                                            Margin="8"
+                                            HorizontalAlignment="Stretch"
                                             VerticalAlignment="Top"
                                             Classes="Icon"
                                             Cursor="Hand"
@@ -118,18 +117,9 @@
             </ControlTemplate>
         </Setter>
         <Style Selector="^[IsToggleButtonVisible=False]">
-            <Style Selector="^[IsMenuExpanded=False]">
-                <Style Selector="^ /template/ Button#PART_SidebarToggleButton">
-                    <Setter Property="Opacity" Value="0" />
-                    <Setter Property="IsVisible" Value="False" />
-                </Style>
-
-            </Style>
-            <Style Selector="^[IsMenuExpanded=True]">
-                <Style Selector="^ /template/ Button#PART_SidebarToggleButton">
-                    <Setter Property="Opacity" Value="0" />
-                    <Setter Property="IsHitTestVisible" Value="False" />
-                </Style>
+            <Style Selector="^ /template/ Button#PART_SidebarToggleButton">
+                <Setter Property="Opacity" Value="0" />
+                <Setter Property="IsHitTestVisible" Value="False" />
             </Style>
         </Style>
         <Style Selector="^[IsMenuExpanded=False]">
@@ -149,6 +139,9 @@
             </Style>
             <Style Selector="^ /template/ PathIcon#PART_ExpandIconRight">
                 <Setter Property="Opacity" Value="1" />
+            </Style>
+            <Style Selector="^ /template/ Button#PART_SidebarToggleButton">
+                <Setter Property="HorizontalAlignment" Value="Right" />
             </Style>
         </Style>
         <StyleInclude Source="avares://ShadUI/Styles/ScrollViewer.axaml" />
