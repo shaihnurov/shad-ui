@@ -16,52 +16,57 @@ public sealed partial class MainWindowViewModel(
     [ObservableProperty]
     private object? _selectedPage;
 
+    private void SwitchPage(object page)
+    {
+        if (SelectedPage != page) SelectedPage = page;
+    }
+
     [RelayCommand]
     private void OpenDashboard()
     {
-        SelectedPage = dashboardViewModel;
+        SwitchPage(dashboardViewModel);
     }
 
     [RelayCommand]
     private void OpenThemes()
     {
-        SelectedPage = themesViewModel;
+        SwitchPage(themesViewModel);
     }
 
     [RelayCommand]
     private void OpenTypography()
     {
-        SelectedPage = typographyViewModel;
+        SwitchPage(typographyViewModel);
     }
 
     [RelayCommand]
     private void OpenButtons()
     {
-        SelectedPage = buttonsViewModel;
+        SwitchPage(buttonsViewModel);
     }
 
     [RelayCommand]
     private void OpenInputs()
     {
         inputViewModel.Initialize();
-        SelectedPage = inputViewModel;
+        SwitchPage(inputViewModel);
     }
 
     [RelayCommand]
     private void OpenTabs()
     {
-        SelectedPage = tabsViewModel;
+        SwitchPage(tabsViewModel);
     }
 
     [RelayCommand]
     private void OpenSettings()
     {
-        SelectedPage = settingsViewModel;
+        SwitchPage(settingsViewModel);
     }
 
     public void Initialize()
     {
-        SelectedPage = dashboardViewModel;
+        SwitchPage(dashboardViewModel);
         dashboardViewModel.Initialize();
     }
 }
