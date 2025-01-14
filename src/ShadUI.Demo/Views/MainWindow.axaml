@@ -28,6 +28,9 @@
         <DataTemplate DataType="{x:Type viewModels:ButtonsViewModel}">
             <views:ButtonsPage />
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModels:InputViewModel}">
+            <views:InputPage />
+        </DataTemplate>
         <DataTemplate DataType="{x:Type viewModels:TabsViewModel}">
             <views:TabsPage />
         </DataTemplate>
@@ -68,6 +71,12 @@
             <controls:SidebarMenuItem Header="Buttons" Classes="Compact" Command="{Binding OpenButtonsCommand}">
                 <controls:SidebarMenuItem.Icon>
                     <icons:Lucide Icon="MousePointerClick" StrokeThickness="1.5" Width="16" Height="16"
+                                  StrokeBrush="{DynamicResource ForegroundColor}" />
+                </controls:SidebarMenuItem.Icon>
+            </controls:SidebarMenuItem>
+            <controls:SidebarMenuItem Header="Inputs" Classes="Compact" Command="{Binding OpenInputsCommand}">
+                <controls:SidebarMenuItem.Icon>
+                    <icons:Lucide Icon="TextCursorInput" StrokeThickness="1.5" Width="16" Height="16"
                                   StrokeBrush="{DynamicResource ForegroundColor}" />
                 </controls:SidebarMenuItem.Icon>
             </controls:SidebarMenuItem>

@@ -11,6 +11,7 @@
     <Color x:Key="CardBackgroundColor">#09090B</Color>
     <Color x:Key="WindowBackgroundColor">#0A0A0D</Color>
     <Color x:Key="BorderColor">#353535</Color>
+    <Color x:Key="ErrorColor">#C82323</Color>
 
     <Color x:Key="TitleBarBackgroundColor">#09090B</Color>
     <Color x:Key="SidebarBackgroundColor">#09090B</Color>

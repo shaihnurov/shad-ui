@@ -140,7 +140,6 @@
 
     <Style Selector="TextBlock.Caption">
         <Setter Property="FontSize" Value="12.8" />
-        <Setter Property="LineHeight" Value="19.2" />
         <Setter Property="FontWeight" Value="Medium" />
     </Style>
 

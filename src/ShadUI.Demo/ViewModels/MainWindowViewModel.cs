@@ -8,6 +8,7 @@ public sealed partial class MainWindowViewModel(
     ThemesViewModel themesViewModel,
     TypographyViewModel typographyViewModel,
     ButtonsViewModel buttonsViewModel,
+    InputViewModel inputViewModel,
     TabsViewModel tabsViewModel,
     SettingsViewModel settingsViewModel)
     : ViewModelBase
@@ -37,6 +38,13 @@ public sealed partial class MainWindowViewModel(
     private void OpenButtons()
     {
         SelectedPage = buttonsViewModel;
+    }
+
+    [RelayCommand]
+    private void OpenInputs()
+    {
+        inputViewModel.Initialize();
+        SelectedPage = inputViewModel;
     }
 
     [RelayCommand]
