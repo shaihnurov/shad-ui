@@ -38,7 +38,7 @@
                         <converters:ContentToIsVisibleConverter x:Key="ContentConverter" />
                     </Border.Resources>
                     <StackPanel HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                Orientation="Horizontal" Spacing="4">
+                                Orientation="Horizontal">
                         <Viewbox Margin="0,-4"
                                  Classes="IconContent"
                                  Width="{TemplateBinding extensions:ButtonExt.ShowProgress, Converter={StaticResource WidthConverter}}"
