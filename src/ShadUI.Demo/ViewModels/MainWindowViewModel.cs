@@ -77,9 +77,9 @@ public sealed partial class MainWindowViewModel(
         await SwitchPage(settingsViewModel);
     }
 
-    public async Task Initialize()
+    public void Initialize()
     {
-        if (await SwitchPage(dashboardViewModel))
-            dashboardViewModel.Initialize();
+        SelectedPage = dashboardViewModel;
+        dashboardViewModel.Initialize();
     }
 }
