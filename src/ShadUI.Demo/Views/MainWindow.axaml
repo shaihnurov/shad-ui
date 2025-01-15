@@ -34,6 +34,9 @@
         <DataTemplate DataType="{x:Type viewModels:TabsViewModel}">
             <views:TabsPage />
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModels:ToggleSwitchViewModel}">
+            <views:ToggleSwitchPage />
+        </DataTemplate>
         <DataTemplate DataType="{x:Type viewModels:SettingsViewModel}">
             <views:SettingsPage />
         </DataTemplate>
@@ -83,6 +86,12 @@
             <controls:SidebarMenuItem Header="Tabs" Classes="Compact" Command="{Binding OpenTabsCommand}">
                 <controls:SidebarMenuItem.Icon>
                     <icons:Lucide Icon="AppWindow" StrokeThickness="1.5" Width="16" Height="16"
+                                  StrokeBrush="{DynamicResource ForegroundColor}" />
+                </controls:SidebarMenuItem.Icon>
+            </controls:SidebarMenuItem>
+            <controls:SidebarMenuItem Header="Switch" Classes="Compact" Command="{Binding OpenToggleSwitchCommand}">
+                <controls:SidebarMenuItem.Icon>
+                    <icons:Lucide Icon="ToggleLeft" StrokeThickness="1.5" Width="16" Height="16"
                                   StrokeBrush="{DynamicResource ForegroundColor}" />
                 </controls:SidebarMenuItem.Icon>
             </controls:SidebarMenuItem>

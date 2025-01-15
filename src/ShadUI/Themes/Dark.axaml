@@ -8,13 +8,16 @@
 
     <Color x:Key="BackgroundColor">Transparent</Color>
     <Color x:Key="MutedColor">#A0A0A9</Color>
-    <Color x:Key="CardBackgroundColor">#09090B</Color>
-    <Color x:Key="WindowBackgroundColor">#0A0A0D</Color>
     <Color x:Key="BorderColor">#353535</Color>
     <Color x:Key="ErrorColor">#C82323</Color>
 
-    <Color x:Key="TitleBarBackgroundColor">#09090B</Color>
+    <Color x:Key="CardBackgroundColor">#09090B</Color>
     <Color x:Key="SidebarBackgroundColor">#09090B</Color>
+    <Color x:Key="TitleBarBackgroundColor">#09090B</Color>
+    <Color x:Key="WindowBackgroundColor">#0A0A0D</Color>
+    
+    <Color x:Key="SwitchBackgroundColor">#27272A</Color>
+    <Color x:Key="SwitchForegroundColor">#09090B</Color>
 
     <Color x:Key="PrimaryColor">#FAFAFA</Color>
     <Color x:Key="PrimaryColor75">#BFFAFAFA</Color>

@@ -11,6 +11,7 @@ public sealed partial class MainWindowViewModel(
     ButtonsViewModel buttonsViewModel,
     InputViewModel inputViewModel,
     TabsViewModel tabsViewModel,
+    ToggleSwitchViewModel toggleSwitchViewModel,
     SettingsViewModel settingsViewModel)
     : ViewModelBase
 {
@@ -62,6 +63,12 @@ public sealed partial class MainWindowViewModel(
     private async Task OpenTabs()
     {
         await SwitchPage(tabsViewModel);
+    }
+
+    [RelayCommand]
+    private async Task OpenToggleSwitch()
+    {
+        await SwitchPage(toggleSwitchViewModel);
     }
 
     [RelayCommand]
