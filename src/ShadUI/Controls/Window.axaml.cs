@@ -330,7 +330,7 @@ public class Window : Avalonia.Controls.Window
                         (short) (ToInt32(lParam) >> 16));
                     var desiredSize = maximize.DesiredSize;
                     var buttonLeftTop = maximize.PointToScreen(FlowDirection == FlowDirection.LeftToRight
-                        ? new Point(desiredSize.Width + 12, 0)
+                        ? new Point(desiredSize.Width, 0)
                         : new Point(0, 0));
                     var x = (buttonLeftTop.X - point.X) / RenderScaling;
                     var y = (point.Y - buttonLeftTop.Y) / RenderScaling;

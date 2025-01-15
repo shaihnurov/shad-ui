@@ -2,12 +2,61 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="clr-namespace:ShadUI.Controls"
-    xmlns:icons="clr-namespace:ShadUI.Contents">
+    xmlns:icons="clr-namespace:ShadUI.Contents"
+    xmlns:converters="clr-namespace:ShadUI.Converters">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceInclude Source="avares://ShadUI/Controls/WindowButton.axaml" />
         <ResourceInclude Source="avares://ShadUI/Controls/Constants.axaml" />
     </ResourceDictionary.MergedDictionaries>
+
+    <converters:BackgroundToForegroundConverter x:Key="BackgroundToForegroundConverter" />
+    <ControlTheme x:Key="WindowButtonStyle" TargetType="Button">
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
+        <Setter Property="Background" Value="{DynamicResource BackgroundColor}" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Width" Value="46" />
+        <Setter Property="Height" Value="32" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Transitions">
+            <Transitions>
+                <BrushTransition Property="Background" Duration="0.001" />
+            </Transitions>
+        </Setter>
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border>
+                    <ContentPresenter
+                        Background="{TemplateBinding Background}"
+                        Foreground="{TemplateBinding Foreground}"
+                        Width="{TemplateBinding Width}"
+                        Height="{TemplateBinding Height}"
+                        Padding="{TemplateBinding Padding}"
+                        HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                        VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                        Content="{TemplateBinding Content}"
+                        RecognizesAccessKey="True">
+                        <ContentPresenter.Transitions>
+                            <Transitions>
+                                <DoubleTransition Property="Opacity" Duration="0:0:0.35" />
+                            </Transitions>
+                        </ContentPresenter.Transitions>
+                    </ContentPresenter>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^:pointerover">
+            <Setter Property="Background" Value="{DynamicResource PrimaryColor10}" />
+        </Style>
+        <Style Selector="^.Close">
+            <Setter Property="Background" Value="{DynamicResource BackgroundColor}" />
+            <Style Selector="^:pointerover">
+                <Setter Property="Background" Value="{DynamicResource DestructiveColor}" />
+                <Setter Property="Foreground" Value="{DynamicResource DestructiveForegroundColor}" />
+            </Style>
+        </Style>
+    </ControlTheme>
 
     <ControlTheme x:Key="WindowTheme" TargetType="controls:Window">
         <Setter Property="Margin" Value="0" />
@@ -80,26 +129,31 @@
                                                             Name="PART_ButtonsPanel"
                                                             VerticalAlignment="Stretch"
                                                             Orientation="Horizontal">
-                                                            <controls:WindowButton Name="PART_MinimizeButton"
+                                                            <Button Name="PART_MinimizeButton"
                                                                 Margin="0,0,0,1"
-                                                                IsVisible="{TemplateBinding CanMinimize}">
+                                                                IsVisible="{TemplateBinding CanMinimize}"
+                                                                Theme="{StaticResource WindowButtonStyle}">
                                                                 <PathIcon Name="MinimizeIcon"
                                                                           Data="{x:Static icons:Icons.WindowMinimize}" />
-                                                            </controls:WindowButton>
-                                                            <controls:WindowButton Name="PART_MaximizeButton"
+                                                            </Button>
+                                                            <Button
+                                                                Name="PART_MaximizeButton"
                                                                 Margin="0,0,0,1"
-                                                                IsVisible="{TemplateBinding CanMaximize}">
+                                                                Width="46"
+                                                                IsVisible="{TemplateBinding CanMaximize}"
+                                                                Theme="{StaticResource WindowButtonStyle}">
                                                                 <PathIcon Name="MaximizeIcon"
                                                                           IsHitTestVisible="False"
                                                                           Data="{x:Static icons:Icons.WindowMaximize}" />
-                                                            </controls:WindowButton>
-                                                            <controls:WindowButton Name="PART_CloseButton"
+                                                            </Button>
+                                                            <Button Name="PART_CloseButton"
                                                                 Classes="Close"
-                                                                Margin="0,0,0,1">
+                                                                Margin="0,0,0,1"
+                                                                Theme="{StaticResource WindowButtonStyle}">
                                                                 <PathIcon Name="CloseIcon"
                                                                           Foreground="{Binding Foreground, ElementName=PART_CloseButton}"
                                                                           Data="{x:Static icons:Icons.WindowClose}" />
-                                                            </controls:WindowButton>
+                                                            </Button>
                                                         </StackPanel>
                                                     </StackPanel>
                                                     <StackPanel

@@ -12,7 +12,6 @@
         <ResourceInclude Source="avares://ShadUI/Controls/TabControl.axaml" />
         <ResourceInclude Source="avares://ShadUI/Controls/TextBox.axaml" />
         <ResourceInclude Source="avares://ShadUI/Controls/Window.axaml" />
-        <ResourceInclude Source="avares://ShadUI/Controls/WindowButton.axaml" />
     </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>
