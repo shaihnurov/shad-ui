@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 
@@ -16,57 +17,62 @@ public sealed partial class MainWindowViewModel(
     [ObservableProperty]
     private object? _selectedPage;
 
-    private void SwitchPage(object page)
+    private async Task<bool> SwitchPage(object page)
     {
-        if (SelectedPage != page) SelectedPage = page;
+        await Task.Delay(200); // prevent flickering
+
+        if (SelectedPage == page) return false;
+
+        SelectedPage = page;
+        return true;
     }
 
     [RelayCommand]
-    private void OpenDashboard()
+    private async Task OpenDashboard()
     {
-        SwitchPage(dashboardViewModel);
+        await SwitchPage(dashboardViewModel);
     }
 
     [RelayCommand]
-    private void OpenThemes()
+    private async Task OpenThemes()
     {
-        SwitchPage(themesViewModel);
+        await SwitchPage(themesViewModel);
     }
 
     [RelayCommand]
-    private void OpenTypography()
+    private async Task OpenTypography()
     {
-        SwitchPage(typographyViewModel);
+        await SwitchPage(typographyViewModel);
     }
 
     [RelayCommand]
-    private void OpenButtons()
+    private async Task OpenButtons()
     {
-        SwitchPage(buttonsViewModel);
+        await SwitchPage(buttonsViewModel);
     }
 
     [RelayCommand]
-    private void OpenInputs()
+    private async Task OpenInputs()
     {
-        inputViewModel.Initialize();
-        SwitchPage(inputViewModel);
+        if (await SwitchPage(inputViewModel))
+            inputViewModel.Initialize();
     }
 
     [RelayCommand]
-    private void OpenTabs()
+    private async Task OpenTabs()
     {
-        SwitchPage(tabsViewModel);
+        await SwitchPage(tabsViewModel);
     }
 
     [RelayCommand]
-    private void OpenSettings()
+    private async Task OpenSettings()
     {
-        SwitchPage(settingsViewModel);
+        await SwitchPage(settingsViewModel);
     }
 
-    public void Initialize()
+    public async Task Initialize()
     {
-        SwitchPage(dashboardViewModel);
-        dashboardViewModel.Initialize();
+        if (await SwitchPage(dashboardViewModel))
+            dashboardViewModel.Initialize();
     }
 }
