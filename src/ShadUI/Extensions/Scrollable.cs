@@ -6,7 +6,7 @@ namespace ShadUI.Extensions;
 /// <summary>
 ///     Usable extension methods for making an element scrollable.
 /// </summary>
-public static class ScrollableExt
+public static class Scrollable
 {
     /// <summary>
     ///     Makes the visual scrollable.

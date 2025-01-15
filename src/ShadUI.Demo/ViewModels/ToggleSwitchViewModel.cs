@@ -35,7 +35,7 @@ public sealed partial class ToggleSwitchViewModel : ViewModelBase
     [ObservableProperty]
     private string _rightAlignedCode ="""
                                       <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Spacing="8">
-                                          <ToggleSwitch extensions:ToggleSwitchExt.RightAlignedContent="True">
+                                          <ToggleSwitch extensions:ToggleSwitch.RightAlignedContent="True">
                                               <ToggleSwitch.OffContent>
                                                   <TextBlock Classes="Small" Text="Airplane Mode Off" VerticalAlignment="Center" />
                                               </ToggleSwitch.OffContent>

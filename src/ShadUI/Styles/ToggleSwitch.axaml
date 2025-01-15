@@ -8,7 +8,7 @@
                     Margin="20"
                     Spacing="24">
             <ToggleSwitch OnContent="On" OffContent="Off"/>
-            <ToggleSwitch OnContent="On" OffContent="Off" extensions:ToggleSwitchExt.RightAlignedContent="True" />
+            <ToggleSwitch OnContent="On" OffContent="Off" extensions:ToggleSwitch.RightAlignedContent="True" />
             <ToggleSwitch IsEnabled="False" />
         </StackPanel>
     </Design.PreviewWith>
@@ -37,8 +37,8 @@
                             </ResourceDictionary.ThemeDictionaries>
                         </ResourceDictionary>
                     </DockPanel.Resources>
-                    <Panel DockPanel.Dock="{TemplateBinding extensions:ToggleSwitchExt.RightAlignedContent, Converter={x:Static converters:BooleanToDockConverter.Instance}}" 
-                           Margin="{TemplateBinding extensions:ToggleSwitchExt.RightAlignedContent, 
+                    <Panel DockPanel.Dock="{TemplateBinding extensions:ToggleSwitch.RightAlignedContent, Converter={x:Static converters:BooleanToDockConverter.Instance}}" 
+                           Margin="{TemplateBinding extensions:ToggleSwitch.RightAlignedContent, 
                                 Converter={x:Static converters:IsRightToMarginConverter.Instance}, ConverterParameter='8'}">
                         <ContentPresenter x:Name="PART_OffContentPresenter"
                                           HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"

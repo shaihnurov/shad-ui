@@ -37,7 +37,7 @@ public sealed partial class InputViewModel : ViewModelBase
     [ObservableProperty]
     private string _withCustomLabelCode = """
                                     <StackPanel>
-                                        <TextBox Classes="Clearable" Width="225" extensions:TextBoxExt.Label="Email"
+                                        <TextBox Classes="Clearable" Width="225" extensions:TextBox.Label="Email"
                                                  Watermark="user@example.com" />
                                     </StackPanel>
                                     """;
@@ -47,18 +47,18 @@ public sealed partial class InputViewModel : ViewModelBase
                                           <Border Classes="Card Bordered" Padding="40" HorizontalAlignment="Center">
                                               <StackPanel Spacing="16" Width="275">
                                                   <TextBox Classes="Clearable"
-                                                           extensions:TextBoxExt.Label="Email"
-                                                           extensions:TextBoxExt.Hint="This is your public display name."
+                                                           extensions:TextBox.Label="Email"
+                                                           extensions:TextBox.Hint="This is your public display name."
                                                            Watermark="user@example.com"
                                                            Text="{Binding Email, Mode=TwoWay}" />
                                                   <TextBox Classes="PasswordReveal"
-                                                           extensions:TextBoxExt.Label="Password"
+                                                           extensions:TextBox.Label="Password"
                                                            PasswordChar="•"
                                                            Watermark="Enter password"
                                                            Text="{Binding Password, Mode=TwoWay}" />
                                                   <TextBox Classes="PasswordReveal"
                                                            PasswordChar="•"
-                                                           extensions:TextBoxExt.Label="Confirm"
+                                                           extensions:TextBox.Label="Confirm"
                                                            Watermark="Confirm password"
                                                            Text="{Binding ConfirmPassword, Mode=TwoWay}" />
                                                   <Button Margin="0,20,0,0" Classes="Primary" Command="{Binding SubmitCommand}">Submit</Button>

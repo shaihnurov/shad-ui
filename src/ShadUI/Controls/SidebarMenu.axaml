@@ -100,10 +100,10 @@
                                                       IsScrollChainingEnabled="{TemplateBinding (ScrollViewer.IsScrollChainingEnabled)}"
                                                       VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}"
                                                       VerticalSnapPointsType="{TemplateBinding (ScrollViewer.VerticalSnapPointsType)}">
-                                            <StackPanel extensions:StackPanelExt.AnimatedScroll="True">
+                                            <StackPanel extensions:StackPanel.AnimatedScroll="True">
                                                 <ItemsPresenter Name="PART_ItemsPresenter"
                                                                 Margin="{TemplateBinding Padding}"
-                                                                extensions:ItemsPresenterExt.AnimatedScroll="True"
+                                                                extensions:ItemsPresenter.AnimatedScroll="True"
                                                                 ItemsPanel="{TemplateBinding ItemsPanel}" />
                                             </StackPanel>
                                         </ScrollViewer>

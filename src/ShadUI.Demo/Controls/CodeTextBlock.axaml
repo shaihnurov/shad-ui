@@ -75,13 +75,13 @@
                                     <Setter Property="Background" Value="{DynamicResource CodeForegroundColor50}" />
                                 </Style>
                             </Button.Styles>
-                            <extensions:ButtonExt.Icon>
+                            <extensions:Button.Icon>
                                 <PathIcon
                                     Name="PART_ClipBoardIcon"
                                     Height="10"
                                     Foreground="#FAFAFA"
                                     Data="{x:Static content:Icons.ClipBoard}" />
-                            </extensions:ButtonExt.Icon>
+                            </extensions:Button.Icon>
                         </Button>
                     </Panel>
                 </Border>

@@ -16,8 +16,8 @@
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
 
-        <Setter Property="extensions:ButtonExt.Icon" Value="{x:Null}" />
-        <Setter Property="extensions:ButtonExt.ShowProgress" Value="False" />
+        <Setter Property="extensions:Button.Icon" Value="{x:Null}" />
+        <Setter Property="extensions:Button.ShowProgress" Value="False" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Border Name="RootBorder"
@@ -41,7 +41,7 @@
                                 Orientation="Horizontal">
                         <Viewbox Margin="0,-4"
                                  Classes="IconContent"
-                                 Width="{TemplateBinding extensions:ButtonExt.ShowProgress, Converter={StaticResource WidthConverter}}"
+                                 Width="{TemplateBinding extensions:Button.ShowProgress, Converter={StaticResource WidthConverter}}"
                                  Height="24">
                             <Viewbox.Transitions>
                                 <Transitions>
@@ -49,19 +49,19 @@
                                 </Transitions>
                             </Viewbox.Transitions>
                             <ContentPresenter
-                                Content="{TemplateBinding extensions:ButtonExt.ShowProgress, Converter={x:Static converters:ProgressToContentConverter.Instance}}" />
+                                Content="{TemplateBinding extensions:Button.ShowProgress, Converter={x:Static converters:ProgressToContentConverter.Instance}}" />
                         </Viewbox>
                         <Viewbox Margin="-4"
                                  Height="24"
                                  Classes="IconContent"
-                                 IsVisible="{TemplateBinding extensions:ButtonExt.Icon, Converter={StaticResource ContentConverter}}"
-                                 Width="{TemplateBinding extensions:ButtonExt.ShowProgress, Converter={StaticResource InverseWidthConverter}}">
+                                 IsVisible="{TemplateBinding extensions:Button.Icon, Converter={StaticResource ContentConverter}}"
+                                 Width="{TemplateBinding extensions:Button.ShowProgress, Converter={StaticResource InverseWidthConverter}}">
                             <Viewbox.Transitions>
                                 <Transitions>
                                     <DoubleTransition Property="Width" Duration="0:0:0.3" />
                                 </Transitions>
                             </Viewbox.Transitions>
-                            <ContentPresenter Content="{TemplateBinding extensions:ButtonExt.Icon}" />
+                            <ContentPresenter Content="{TemplateBinding extensions:Button.Icon}" />
                         </Viewbox>
                         <ContentPresenter
                             HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
