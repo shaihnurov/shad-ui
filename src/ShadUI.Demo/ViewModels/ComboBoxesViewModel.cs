@@ -9,7 +9,7 @@ public sealed partial class ComboBoxesViewModel : ViewModelBase
     [ObservableProperty]
     private string _selectComboBoxCode = """
                                          <StackPanel>
-                                             <ComboBox Width="200"
+                                             <ComboBox Width="255"
                                                        HorizontalContentAlignment="Center"
                                                        SelectedIndex="0">
                                                  <ComboBoxItem>Next.js</ComboBoxItem>
@@ -24,7 +24,7 @@ public sealed partial class ComboBoxesViewModel : ViewModelBase
     [ObservableProperty]
     private string _selectComboBoxDisabledCode = """
                                                  <StackPanel Spacing="8">
-                                                     <ComboBox Width="200"
+                                                     <ComboBox Width="255"
                                                                IsEnabled="False"
                                                                HorizontalContentAlignment="Center"
                                                                SelectedIndex="0">
@@ -65,14 +65,17 @@ public sealed partial class ComboBoxesViewModel : ViewModelBase
     [ObservableProperty]
     private string _formValidationCode = """
                                          <Border Classes="Card Bordered" Padding="40" HorizontalAlignment="Center">
-                                             <StackPanel Spacing="16" Width="275">
-                                                 <ComboBox HorizontalContentAlignment="Center"
+                                             <StackPanel Spacing="16">
+                                                 <ComboBox Width="255"
                                                            SelectedIndex="0"
                                                            SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
                                                            ItemsSource="{Binding Items}"
                                                            extensions:ComboBox.Label="Select a framework"
                                                            extensions:ComboBox.Hint="Your favorite web framework" />
-                                                 <Button HorizontalAlignment="Right" Margin="0,20,0,0" Classes="Outline" Command="{Binding ClearCommand}">Clear</Button>
+                                                 <Button HorizontalAlignment="Right" Margin="0,20,0,0" Classes="Outline"
+                                                         Command="{Binding ClearCommand}">
+                                                     Clear
+                                                 </Button>
                                              </StackPanel>
                                          </Border>
                                          """;

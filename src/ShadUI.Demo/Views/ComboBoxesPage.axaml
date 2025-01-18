@@ -26,7 +26,7 @@
                     Code="{Binding SelectComboBoxCode}"
                     CodeBlockHeight="250">
                     <StackPanel Spacing="8">
-                        <ComboBox Width="200"
+                        <ComboBox Width="255"
                                   HorizontalContentAlignment="Center"
                                   SelectedIndex="0">
                             <ComboBoxItem>Next.js</ComboBoxItem>
@@ -43,7 +43,7 @@
                     Code="{Binding SelectComboBoxDisabledCode}"
                     CodeBlockHeight="250">
                     <StackPanel Spacing="8">
-                        <ComboBox Width="200"
+                        <ComboBox Width="255"
                                   IsEnabled="False"
                                   HorizontalContentAlignment="Center"
                                   SelectedIndex="0">
@@ -60,17 +60,22 @@
                     Language="xaml"
                     Code="{Binding FormValidationCode}"
                     CodeBlockHeight="275">
-                    <Border Classes="Card Bordered" Padding="40" HorizontalAlignment="Center">
-                        <StackPanel Spacing="16" Width="275">
-                            <ComboBox HorizontalContentAlignment="Center"
-                                      SelectedIndex="0"
-                                      SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
-                                      ItemsSource="{Binding Items}"
-                                      extensions:ComboBox.Label="Select a framework"
-                                      extensions:ComboBox.Hint="Your favorite web framework" />
-                            <Button HorizontalAlignment="Right" Margin="0,20,0,0" Classes="Outline" Command="{Binding ClearCommand}">Clear</Button>
-                        </StackPanel>
-                    </Border>
+                    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                        <Border Classes="Card Bordered" Padding="40" HorizontalAlignment="Center">
+                            <StackPanel Spacing="16">
+                                <ComboBox Width="255"
+                                          SelectedIndex="0"
+                                          SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
+                                          ItemsSource="{Binding Items}"
+                                          extensions:ComboBox.Label="Select a framework"
+                                          extensions:ComboBox.Hint="Your favorite web framework" />
+                                <Button HorizontalAlignment="Right" Margin="0,20,0,0" Classes="Outline"
+                                        Command="{Binding ClearCommand}">
+                                    Clear
+                                </Button>
+                            </StackPanel>
+                        </Border>
+                    </ScrollViewer>
                 </controls:ControlBlock>
             </StackPanel>
         </Panel>
