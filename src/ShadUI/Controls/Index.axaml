@@ -4,6 +4,8 @@
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceInclude Source="avares://ShadUI/Controls/Button.axaml" />
+        <ResourceInclude Source="avares://ShadUI/Controls/ComboBox.axaml" />
+        <ResourceInclude Source="avares://ShadUI/Controls/ComboBoxItem.axaml" />
         <ResourceInclude Source="avares://ShadUI/Controls/Constants.axaml" />
         <ResourceInclude Source="avares://ShadUI/Controls/DataValidationErrors.axaml" />
         <ResourceInclude Source="avares://ShadUI/Controls/SidebarMenu.axaml" />

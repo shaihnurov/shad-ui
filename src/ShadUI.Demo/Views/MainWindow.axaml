@@ -34,6 +34,9 @@
         <DataTemplate DataType="{x:Type viewModels:TabsViewModel}">
             <views:TabsPage />
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModels:ComboBoxesViewModel}">
+            <views:ComboBoxesPage />
+        </DataTemplate>
         <DataTemplate DataType="{x:Type viewModels:ToggleSwitchViewModel}">
             <views:ToggleSwitchPage />
         </DataTemplate>
@@ -86,6 +89,12 @@
             <controls:SidebarMenuItem Header="Tabs" Classes="Compact" Command="{Binding OpenTabsCommand}">
                 <controls:SidebarMenuItem.Icon>
                     <icons:Lucide Icon="AppWindow" StrokeThickness="1.5" Width="16" Height="16"
+                                  StrokeBrush="{DynamicResource ForegroundColor}" />
+                </controls:SidebarMenuItem.Icon>
+            </controls:SidebarMenuItem>
+            <controls:SidebarMenuItem Header="ComboBox" Classes="Compact" Command="{Binding OpenComboBoxesCommand}">
+                <controls:SidebarMenuItem.Icon>
+                    <icons:Lucide Icon="ChevronsUpDown" StrokeThickness="1.5" Width="16" Height="16"
                                   StrokeBrush="{DynamicResource ForegroundColor}" />
                 </controls:SidebarMenuItem.Icon>
             </controls:SidebarMenuItem>

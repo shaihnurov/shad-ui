@@ -1,0 +1,183 @@
+﻿<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:contents="clr-namespace:ShadUI.Contents"
+    xmlns:system="clr-namespace:System;assembly=netstandard"
+    xmlns:extensions="clr-namespace:ShadUI.Extensions"
+    xmlns:converters="clr-namespace:ShadUI.Converters">
+    <Design.PreviewWith>
+        <Border Height="500" Width="400" Padding="8">
+            <StackPanel Spacing="8">
+                <ComboBox Width="200"
+                          HorizontalContentAlignment="Center"
+                          SelectedIndex="0">
+                    <ComboBoxItem>Next.js</ComboBoxItem>
+                    <ComboBoxItem>SvelteKit</ComboBoxItem>
+                    <ComboBoxItem>Nuxt.js</ComboBoxItem>
+                    <ComboBoxItem>Remix</ComboBoxItem>
+                    <ComboBoxItem>Astro</ComboBoxItem>
+                </ComboBox>
+                <ComboBox Width="200"
+                          HorizontalContentAlignment="Center"
+                          SelectedIndex="0"
+                          extensions:ComboBox.Label="Disabled Selection"
+                          extensions:ComboBox.Hint="This control is currently disabled">
+                    <DataValidationErrors.Error>
+                        <system:Exception />
+                    </DataValidationErrors.Error>
+                    <ComboBoxItem>Next.js</ComboBoxItem>
+                    <ComboBoxItem>SvelteKit</ComboBoxItem>
+                    <ComboBoxItem>Nuxt.js</ComboBoxItem>
+                    <ComboBoxItem>Remix</ComboBoxItem>
+                    <ComboBoxItem>Astro</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+        </Border>
+    </Design.PreviewWith>
+    <ControlTheme x:Key="ComboBoxControlTheme" TargetType="ComboBox">
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="BorderThickness" Value="1,1,1,1" />
+        <Setter Property="CornerRadius" Value="{DynamicResource MediumCornerRadius}" />
+        <Setter Property="MinHeight" Value="36" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="PlaceholderForeground" Value="{DynamicResource MutedColor}" />
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
+        <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="FontWeight" Value="Medium" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <DataValidationErrors>
+                    <StackPanel Spacing="4">
+                        <TextBlock Name="PART_Label" Classes="Small" Margin="0,0,0,6"
+                                   Text="{TemplateBinding extensions:ComboBox.Label}"
+                                   IsVisible="{TemplateBinding extensions:ComboBox.Label, Converter={x:Static converters:StringToIsVisibleConverter.Instance}}" />
+                        <Border>
+                            <Border Name="border"
+                                    BorderBrush="{DynamicResource BorderColor}"
+                                    MinHeight="{TemplateBinding MinHeight}"
+                                    Padding="{TemplateBinding Padding}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    CornerRadius="{TemplateBinding CornerRadius}">
+                                <Border.Transitions>
+                                    <Transitions>
+                                        <BrushTransition Property="BorderBrush" Duration="0:0:0.20" />
+                                        <BrushTransition Property="Background" Duration="0:0:0.20" />
+                                    </Transitions>
+                                </Border.Transitions>
+                                <Grid ColumnDefinitions="*,Auto" Background="Transparent">
+                                    <TextBlock Name="PlaceholderTextBlock"
+                                               Grid.Column="0"
+                                               Margin="18,0,0,0"
+                                               HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                               VerticalAlignment="Center"
+                                               Foreground="{TemplateBinding PlaceholderForeground}"
+                                               IsVisible="{TemplateBinding SelectionBoxItem, Converter={x:Static ObjectConverters.IsNull}}"
+                                               Text="{TemplateBinding PlaceholderText}" />
+                                    <ContentControl Margin="18,0,0,0"
+                                                    Grid.Column="0"
+                                                    HorizontalContentAlignment="Left"
+                                                    VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                    TextBlock.Foreground="{TemplateBinding Foreground}"
+                                                    TextBlock.FontSize="{TemplateBinding FontSize}"
+                                                    TextBlock.FontWeight="{TemplateBinding FontWeight}"
+                                                    Content="{TemplateBinding SelectionBoxItem}"
+                                                    ContentTemplate="{TemplateBinding ItemTemplate}"
+                                                    Foreground="{DynamicResource ForegroundColor}" />
+                                    <Path Name="PART_Icon" 
+                                          Grid.Column="1"
+                                          Width="8"
+                                          Margin="5,0,18,0"
+                                          HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"
+                                          Data="{x:Static contents:Icons.ChevronUpDown}"
+                                          Fill="{DynamicResource MutedColor}"
+                                          Stretch="Uniform">
+                                        <Path.Transitions>
+                                            <Transitions>
+                                                <BrushTransition Property="Fill" Duration="0:0:0.20" />
+                                            </Transitions>
+                                        </Path.Transitions>
+                                    </Path>
+                                    <Popup Name="PART_Popup"
+                                           Grid.Column="0"
+                                           MaxHeight="{TemplateBinding MaxDropDownHeight}"
+                                           MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
+                                           IsLightDismissEnabled="True"
+                                           VerticalOffset="5"
+                                           IsOpen="{TemplateBinding IsDropDownOpen,Mode=TwoWay}"
+                                           PlacementTarget="{Binding #border}">
+                                        <LayoutTransformControl Name="PART_LayoutTransform"
+                                                                RenderTransformOrigin="50%, 0%">
+                                            <Border Background="{DynamicResource CardBackgroundColor}"
+                                                    BorderBrush="{DynamicResource BorderColor}"
+                                                    BorderThickness="1"
+                                                    CornerRadius="{DynamicResource MediumCornerRadius}">
+                                                <ScrollViewer
+                                                    HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
+                                                    VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
+                                                    <ItemsPresenter Name="PART_ItemsPresenter"
+                                                                    Margin="0,3,0,0"
+                                                                    TextBlock.Foreground="{TemplateBinding Foreground}"
+                                                                    TextBlock.FontSize="{TemplateBinding FontSize}"
+                                                                    TextBlock.FontWeight="{TemplateBinding FontWeight}"
+                                                                    ItemsPanel="{TemplateBinding ItemsPanel}" />
+                                                </ScrollViewer>
+                                            </Border>
+                                        </LayoutTransformControl>
+                                    </Popup>
+                                </Grid>
+                            </Border>
+                        </Border>
+                        <TextBlock Name="PART_Hint" Classes="Caption Muted"
+                                   Text="{TemplateBinding extensions:ComboBox.Hint}"
+                                   IsVisible="{TemplateBinding extensions:ComboBox.Hint, Converter={x:Static converters:StringToIsVisibleConverter.Instance}}" />
+                    </StackPanel>
+                </DataValidationErrors>
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^[IsDropDownOpen=true]">
+            <Style Selector="^ /template/ LayoutTransformControl#PART_LayoutTransform">
+                <Style.Animations>
+                    <Animation Easing="SineEaseInOut"
+                               FillMode="Forward"
+                               Duration="0:0:0.15">
+                        <KeyFrame Cue="0%">
+                            <Setter Property="ScaleTransform.ScaleY" Value="0.9" />
+                            <Setter Property="ScaleTransform.ScaleX" Value="0.9" />
+                            <Setter Property="Opacity" Value="0" />
+                        </KeyFrame>
+                        <KeyFrame Cue="100%">
+                            <Setter Property="ScaleTransform.ScaleY" Value="1" />
+                            <Setter Property="ScaleTransform.ScaleX" Value="1" />
+                            <Setter Property="Opacity" Value="1" />
+                        </KeyFrame>
+                    </Animation>
+                </Style.Animations>
+            </Style>
+        </Style>
+        <Style Selector="^:pointerover /template/ Border#border">
+            <Setter Property="Background" Value="{DynamicResource OutlineColor}" />
+        </Style>
+        <Style Selector="^:disabled /template/ Border#border">
+            <Setter Property="Opacity" Value="0.50" />
+        </Style>
+        <Style Selector="^:error">
+            <Style Selector="^/template/ Border#border">
+                <Setter Property="BorderBrush" Value="{DynamicResource ErrorColor}" />
+            </Style>
+            <Style Selector="^/template/ Path#PART_Icon">
+                <Setter Property="Fill" Value="{DynamicResource ErrorColor}" />
+            </Style>
+            <Style Selector="^/template/ TextBlock#PART_Label">
+                <Setter Property="Foreground" Value="{DynamicResource ErrorColor}" />
+            </Style>
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme
+        x:Key="{x:Type ComboBox}"
+        BasedOn="{StaticResource ComboBoxControlTheme}"
+        TargetType="ComboBox" />
+</ResourceDictionary>
