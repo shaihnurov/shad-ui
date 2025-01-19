@@ -13,6 +13,5 @@
             </ResourceDictionary.ThemeDictionaries>
         </ResourceDictionary>
     </Styles.Resources>
-    <SimpleTheme />
     <StyleInclude Source="avares://ShadUI/Styles/Index.axaml" />
 </Styles>

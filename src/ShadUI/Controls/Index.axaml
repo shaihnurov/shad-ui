@@ -10,6 +10,7 @@
         <ResourceInclude Source="avares://ShadUI/Controls/DataValidationErrors.axaml" />
         <ResourceInclude Source="avares://ShadUI/Controls/SidebarMenu.axaml" />
         <ResourceInclude Source="avares://ShadUI/Controls/SidebarMenuItem.axaml" />
+        <ResourceInclude Source="avares://ShadUI/Controls/Slider.axaml" />
         <ResourceInclude Source="avares://ShadUI/Controls/TabItem.axaml" />
         <ResourceInclude Source="avares://ShadUI/Controls/TabControl.axaml" />
         <ResourceInclude Source="avares://ShadUI/Controls/TextBox.axaml" />

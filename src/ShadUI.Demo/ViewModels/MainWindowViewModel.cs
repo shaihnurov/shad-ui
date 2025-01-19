@@ -12,6 +12,7 @@ public sealed partial class MainWindowViewModel(
     InputViewModel inputViewModel,
     TabsViewModel tabsViewModel,
     ComboBoxesViewModel comboBoxesViewModel,
+    SlidersViewModel slidersViewModel,
     ToggleSwitchViewModel toggleSwitchViewModel,
     SettingsViewModel settingsViewModel)
     : ViewModelBase
@@ -70,6 +71,12 @@ public sealed partial class MainWindowViewModel(
     private async Task OpenComboBoxes()
     {
         await SwitchPage(comboBoxesViewModel);
+    }
+    
+    [RelayCommand]
+    private async Task OpenSliders()
+    {
+        await SwitchPage(slidersViewModel);
     }
     
     [RelayCommand]
