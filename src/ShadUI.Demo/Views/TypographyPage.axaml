@@ -13,7 +13,7 @@
             <StackPanel Spacing="32">
                 <StackPanel>
                     <TextBlock Classes="h3" Text="Typography" />
-                    <TextBlock Classes="p" Text="Styles for headings, paragraphs, lists...etc" />
+                    <TextBlock Classes="p" Text="Styles for headings, paragraphs, lists...etc." />
                 </StackPanel>
                 <controls:ControlBlock
                     Title="h1"

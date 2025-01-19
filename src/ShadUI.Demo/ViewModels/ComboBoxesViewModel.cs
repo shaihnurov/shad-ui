@@ -47,7 +47,7 @@ public sealed partial class ComboBoxesViewModel : ViewModelBase
         "Astro"
     ];
 
-    private string? _selectedItem;
+    private string? _selectedItem = "Next.js";
 
     [Required(ErrorMessage = "Please select an item.")]
     public string? SelectedItem

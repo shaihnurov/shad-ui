@@ -10,7 +10,7 @@
                 <StackPanel Spacing="16">
                     <StackPanel>
                         <TextBlock Text="{TemplateBinding Title}" Classes="h4" />
-                        <Separator Margin="0" />
+                        <Separator Margin="0,8,0,0" />
                     </StackPanel>
                     <TabControl>
                         <TabControl.Items>

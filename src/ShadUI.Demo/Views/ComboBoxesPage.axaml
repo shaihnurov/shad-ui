@@ -64,7 +64,6 @@
                         <Border Classes="Card Bordered" Padding="40" HorizontalAlignment="Center">
                             <StackPanel Spacing="16">
                                 <ComboBox Width="255"
-                                          SelectedIndex="0"
                                           SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
                                           ItemsSource="{Binding Items}"
                                           extensions:ComboBox.Label="Select a framework"

@@ -15,7 +15,6 @@
                     <TextBlock Classes="h3" Text="Tabs" />
                     <TextBlock
                         Classes="p"
-                        MaxWidth="360"
                         TextWrapping="Wrap"
                         HorizontalAlignment="Left"
                         Text="A set of layered sections of content—known as tab panels—that are displayed one at a time." />
