@@ -48,4 +48,32 @@ public class Element
     /// <param name="element"></param>
     /// <returns></returns>
     public static string GetClasses(AvaloniaObject element) => element.GetValue(ClassesProperty);
+
+    /// <summary>
+    /// Gets whether the element should be focused when loaded.
+    /// </summary>
+    public static readonly AttachedProperty<bool> FocusOnLoadProperty =
+        AvaloniaProperty.RegisterAttached<Element, Control, bool>(
+            "FocusOnLoad", false, false, BindingMode.OneTime);
+
+    /// <summary>
+    /// Sets whether the element should be focused when loaded.
+    /// </summary>
+    public static void SetFocusOnLoad(AvaloniaObject element, bool value)
+    {
+        element.SetValue(FocusOnLoadProperty, value);
+        if (element is Control control)
+        {
+            control.Loaded += (_, _) =>
+            {
+                if (GetFocusOnLoad(control)) control.Focus();
+            };
+        }
+    }
+
+    /// <summary>
+    /// Gets whether the element should be focused when loaded.
+    /// </summary>
+    public static bool GetFocusOnLoad(AvaloniaObject element)
+        => element.GetValue(FocusOnLoadProperty);
 }

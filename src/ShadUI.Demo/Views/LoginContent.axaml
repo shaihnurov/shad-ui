@@ -13,7 +13,8 @@
         <TextBox Classes="Clearable"
                  extensions:TextBox.Label="Email"
                  Watermark="user@example.com"
-                 Text="{Binding Email, Mode=TwoWay}" />
+                 Text="{Binding Email, Mode=TwoWay}" 
+                 extensions:Element.FocusOnLoad="True"/>
         <TextBox Classes="PasswordReveal"
                  extensions:TextBox.Label="Password"
                  PasswordChar="•"
