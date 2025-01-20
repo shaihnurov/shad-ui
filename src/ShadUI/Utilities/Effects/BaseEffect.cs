@@ -21,7 +21,7 @@ public class BaseEffect
 {
     // Basic uniforms passed into the shader from the CPU.
     private static readonly string[] Uniforms =
-    {
+    [
         "uniform float iTime;",
         "uniform float iDark;",
         "uniform float iAlpha;",
@@ -29,7 +29,7 @@ public class BaseEffect
         "uniform vec3 iPrimary;",
         "uniform vec3 iAccent;",
         "uniform vec3 iBase;"
-    };
+    ];
 
     /// <summary>
     ///     Represents an SKSL shader that ShadUI can handle and pass relevant uniforms into.
@@ -139,7 +139,7 @@ public class BaseEffect
     /// <returns></returns>
     public override int GetHashCode() => _shaderString.GetHashCode();
 
-    private static readonly float[] White = { 0.95f, 0.95f, 0.95f };
+    private static readonly float[] White = [0.95f, 0.95f, 0.95f];
     private readonly float[] _backgroundAlloc = new float[3];
     private readonly float[] _backgroundAccentAlloc = new float[3];
     private readonly float[] _backgroundPrimaryAlloc = new float[3];
@@ -188,10 +188,5 @@ public class BaseEffect
     /// </summary>
     public override string ToString() => _rawShaderString;
 
-    private class ShaderCompilationException : Exception
-    {
-        public ShaderCompilationException(string message) : base(message)
-        {
-        }
-    }
+    private class ShaderCompilationException(string message) : Exception(message);
 }

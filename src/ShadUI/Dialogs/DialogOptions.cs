@@ -3,6 +3,9 @@ using System.Threading.Tasks;
 
 namespace ShadUI.Dialogs;
 
+/// <summary>
+///     Dialog options used to configure the dialog.
+/// </summary>
 public sealed class DialogOptions
 {
     /// <summary>
