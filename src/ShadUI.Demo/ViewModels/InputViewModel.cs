@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using ShadUI.Demo.Validators;
 
 namespace ShadUI.Demo.ViewModels;
 
@@ -116,51 +117,5 @@ public sealed partial class InputViewModel : ViewModelBase
         ConfirmPassword = string.Empty;
 
         ClearAllErrors();
-    }
-}
-
-public sealed class IsMatchWithAttribute(string matchProperty, string errorMessage = "Not match")
-    : ValidationAttribute(errorMessage)
-{
-    protected override ValidationResult? IsValid(object? value, ValidationContext validationContext)
-    {
-        var instance = validationContext.ObjectInstance;
-        var otherValue = instance.GetType().GetProperty(matchProperty)?.GetValue(instance);
-
-        return ((IComparable) value!).CompareTo(otherValue) == 0
-            ? ValidationResult.Success
-            : new ValidationResult(ErrorMessage);
-    }
-}
-
-public sealed class EmailValidationAttribute : ValidationAttribute
-{
-    private static readonly string DefaultErrorMessage = "Please enter a valid email address";
-
-    public EmailValidationAttribute() : base(DefaultErrorMessage)
-    {
-    }
-
-    protected override ValidationResult? IsValid(object? value, ValidationContext validationContext)
-    {
-        if (value is not string email)
-            return new ValidationResult(ErrorMessage);
-
-        if (string.IsNullOrWhiteSpace(email))
-            return new ValidationResult(ErrorMessage);
-
-        var atIndex = email.IndexOf('@');
-        if (atIndex <= 0 || atIndex == email.Length - 1)
-            return new ValidationResult(ErrorMessage);
-
-        var dotIndex = email.IndexOf('.', atIndex);
-        if (dotIndex == -1 || dotIndex == atIndex + 1 || dotIndex == email.Length - 1)
-            return new ValidationResult(ErrorMessage);
-
-        for (var i = 0; i < email.Length - 1; i++)
-            if (email[i] == '.' && email[i + 1] == '.')
-                return new ValidationResult(ErrorMessage);
-
-        return ValidationResult.Success;
     }
 }

@@ -6,7 +6,10 @@ using ShadUI.Dialogs;
 
 namespace ShadUI.Demo.ViewModels;
 
-public sealed partial class DialogsViewModel(DialogService dialogService) : ViewModelBase
+public sealed partial class DialogsViewModel(
+    DialogService dialogService,
+    LoginViewModel loginViewModel
+    ) : ViewModelBase
 {
     [ObservableProperty]
     private string _alertDialogCode = """
@@ -107,6 +110,17 @@ public sealed partial class DialogsViewModel(DialogService dialogService) : View
             CancelButtonText = "Cancel",
             MaxWidth = 485,
             AsyncCallback = OnSubmitAsync
+        });
+    }
+
+    [RelayCommand]
+    private void ShowCustomDialog()
+    {
+        loginViewModel.Initialize();
+        dialogService.Show(loginViewModel, new DialogOptions
+        {
+            DismissibleDialog = true,
+            Callback = result => Console.WriteLine(result ? "Login successful!" : "Login failed!")
         });
     }
 }

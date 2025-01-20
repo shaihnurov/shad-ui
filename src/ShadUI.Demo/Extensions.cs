@@ -5,6 +5,7 @@ using System.Reflection;
 using Avalonia.Data.Converters;
 using Microsoft.Extensions.DependencyInjection;
 using ShadUI.Demo.ViewModels;
+using ShadUI.Demo.Views;
 using ShadUI.Dialogs;
 
 namespace ShadUI.Demo;
@@ -46,5 +47,13 @@ public static class Extensions
         }
 
         return services;
+    }
+
+    public static IServiceProvider RegisterDialogs(this IServiceProvider service)
+    {
+        var dialogService = service.GetRequiredService<DialogService>();
+        dialogService.Register<LoginContent, LoginViewModel>(new LoginContent());
+
+        return service;
     }
 }

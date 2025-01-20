@@ -25,7 +25,9 @@ public class App : Application
         var serviceCollection = new ServiceCollection();
         serviceCollection.AddServices();
 
-        var serviceProvider = serviceCollection.BuildServiceProvider();
+        var serviceProvider = serviceCollection
+            .BuildServiceProvider()
+            .RegisterDialogs();
 
         var viewModel = serviceProvider.GetRequiredService<MainWindowViewModel>();
         viewModel.Initialize();
