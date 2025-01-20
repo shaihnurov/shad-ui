@@ -5,6 +5,7 @@ using System.Reflection;
 using Avalonia.Data.Converters;
 using Microsoft.Extensions.DependencyInjection;
 using ShadUI.Demo.ViewModels;
+using ShadUI.Dialogs;
 
 namespace ShadUI.Demo;
 
@@ -13,6 +14,7 @@ public static class Extensions
     public static void AddServices(this IServiceCollection collection)
     {
         collection.AddTransientFromNamespace("ShadUI.Demo.ViewModels", typeof(Extensions).Assembly);
+        collection.AddSingleton<DialogService>();
     }
 
     public static IServiceCollection AddTransientFromNamespace(

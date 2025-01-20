@@ -34,4 +34,7 @@
 
     <Color x:Key="OutlineColor">#BF27272A</Color>
     <Color x:Key="GhostColor">#BF27272A</Color>
+    
+    <Color x:Key="DialogOverlayColor">#000000</Color>
+    <Color x:Key="DialogBackgroundColor">#09090B</Color>
 </ResourceDictionary>

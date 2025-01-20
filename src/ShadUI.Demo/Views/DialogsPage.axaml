@@ -1,0 +1,73 @@
+﻿<UserControl
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="clr-namespace:ShadUI.Demo.Controls"
+    xmlns:viewModels="clr-namespace:ShadUI.Demo.ViewModels"
+    mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+    x:Class="ShadUI.Demo.Views.DialogsPage"
+    x:DataType="viewModels:DialogsViewModel">
+    <ScrollViewer>
+        <Panel Margin="48 24" MaxWidth="1024">
+            <StackPanel Spacing="32">
+                <StackPanel>
+                    <TextBlock Classes="h3" Text="Dialogs" />
+                    <TextBlock
+                        Classes="p"
+                        TextWrapping="Wrap"
+                        HorizontalAlignment="Left"
+                        Text="A window overlaid on either the primary window or another dialog window, rendering the content underneath inert." />
+                </StackPanel>
+                <StackPanel Spacing="8" Orientation="Vertical">
+                    <TextBlock Text="Installation" Classes="h4" />
+                    <Separator Margin="0"/>
+                    <TextBlock Classes="Small" Text="1. Add DialogHost in Window's host collection." />
+                    <controls:CodeTextBlock Language="xaml">
+                        <Run Text="&lt;controls:Window.Hosts&gt;" />
+                        <LineBreak />
+                        <Run Text="    &lt;dialogs:DialogHost /&gt;" />
+                        <LineBreak />
+                        <Run Text="    &lt;!-- Other Hosts --&gt;" />
+                        <LineBreak />
+                        <Run Text="&lt;/controls:Window.Hosts&gt;" />
+                    </controls:CodeTextBlock>
+                    <TextBlock Classes="Small" Margin="0,12,0,0" Text="2. Resolve DialogService using dependency injection framework for easy access." />
+                    <controls:CodeTextBlock Language="cs">
+                        <Run Text="public static void AddServices(this IServiceCollection collection)" />
+                        <LineBreak />
+                        <Run Text="\{" />
+                        <LineBreak />
+                        <Run Text="    //...other service injection" />
+                        <LineBreak />
+                        <Run Text="    " />
+                        <LineBreak />
+                        <Run Text="    collection.AddSingleton&lt;DialogService&gt;();" />
+                        <LineBreak />
+                        <Run Text="}" />
+                    </controls:CodeTextBlock>
+                </StackPanel>
+                <controls:ControlBlock
+                    Title="Alert Dialog"
+                    Language="cs"
+                    Code="{Binding AlertDialogCode}"
+                    CodeBlockHeight="350">
+                    <StackPanel>
+                        <Button Command="{Binding ShowDialogCommand }" Classes="Outline" Content="Show Dialog"
+                                HorizontalAlignment="Center" />
+                    </StackPanel>
+                </controls:ControlBlock>
+                <controls:ControlBlock
+                    Title="Destructive Style Dialog"
+                    Language="cs"
+                    Code="{Binding DestructiveAlertDialogCode}"
+                    CodeBlockHeight="350">
+                    <StackPanel>
+                        <Button Command="{Binding ShowDestructiveStyleDialogCommand }" Classes="Outline" Content="Show Dialog"
+                                HorizontalAlignment="Center" />
+                    </StackPanel>
+                </controls:ControlBlock>
+            </StackPanel>
+        </Panel>
+    </ScrollViewer>
+</UserControl>

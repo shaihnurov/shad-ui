@@ -8,6 +8,7 @@
     xmlns:icons="clr-namespace:LucideAvalonia;assembly=LucideAvalonia"
     xmlns:viewModels="clr-namespace:ShadUI.Demo.ViewModels"
     xmlns:views="clr-namespace:ShadUI.Demo.Views"
+    xmlns:dialogs="clr-namespace:ShadUI.Dialogs;assembly=ShadUI"
     mc:Ignorable="d" d:DesignWidth="800"
     x:Class="ShadUI.Demo.Views.MainWindow"
     x:DataType="viewModels:MainWindowViewModel"
@@ -27,6 +28,9 @@
         </DataTemplate>
         <DataTemplate DataType="{x:Type viewModels:ButtonsViewModel}">
             <views:ButtonsPage />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModels:DialogsViewModel}">
+            <views:DialogsPage />
         </DataTemplate>
         <DataTemplate DataType="{x:Type viewModels:InputViewModel}">
             <views:InputPage />
@@ -50,6 +54,9 @@
     <controls:Window.LogoContent>
         <PathIcon Margin="8,8,0,8" Width="14" Height="14" Data="{x:Static contents:Icons.Logo}" />
     </controls:Window.LogoContent>
+    <controls:Window.Hosts>
+        <dialogs:DialogHost/>
+    </controls:Window.Hosts>
     <controls:SidebarMenu>
         <controls:SidebarMenu.BodyContent>
             <TransitioningContentControl Content="{Binding SelectedPage}" />
@@ -71,7 +78,8 @@
                                   StrokeBrush="{DynamicResource ForegroundColor}" />
                 </controls:SidebarMenuItem.Icon>
             </controls:SidebarMenuItem>
-            <controls:SidebarMenuItem Header="Typography" Classes="Compact" Command="{Binding OpenTypographyCommand}">
+            <controls:SidebarMenuItem Header="Typography" Classes="Compact"
+                                      Command="{Binding OpenTypographyCommand}">
                 <controls:SidebarMenuItem.Icon>
                     <icons:Lucide Icon="TypeOutline" StrokeThickness="1.5" Width="16" Height="16"
                                   StrokeBrush="{DynamicResource ForegroundColor}" />
@@ -80,6 +88,12 @@
             <controls:SidebarMenuItem Header="Buttons" Classes="Compact" Command="{Binding OpenButtonsCommand}">
                 <controls:SidebarMenuItem.Icon>
                     <icons:Lucide Icon="MousePointerClick" StrokeThickness="1.5" Width="16" Height="16"
+                                  StrokeBrush="{DynamicResource ForegroundColor}" />
+                </controls:SidebarMenuItem.Icon>
+            </controls:SidebarMenuItem>
+            <controls:SidebarMenuItem Header="Dialogs" Classes="Compact" Command="{Binding OpenDialogsCommand}">
+                <controls:SidebarMenuItem.Icon>
+                    <icons:Lucide Icon="MessageSquare" StrokeThickness="1.5" Width="16" Height="16"
                                   StrokeBrush="{DynamicResource ForegroundColor}" />
                 </controls:SidebarMenuItem.Icon>
             </controls:SidebarMenuItem>
@@ -124,5 +138,4 @@
             <!-- Footer Content -->
         </controls:SidebarMenu.FooterContent>
     </controls:SidebarMenu>
-
 </controls:Window>

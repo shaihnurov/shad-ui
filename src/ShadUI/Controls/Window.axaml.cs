@@ -309,6 +309,8 @@ public class Window : Avalonia.Controls.Window
             : WindowState.Maximized;
     }
 
+    internal bool HasOpenDialog { get; set; }
+
     private void EnableWindowsSnapLayout(Button maximize)
     {
         var pointerOnMaxButton = false;
@@ -339,6 +341,8 @@ public class Window : Avalonia.Controls.Window
                             desiredSize.Height)
                         .Contains(new Point(x, y)))
                     {
+                        if (HasOpenDialog) return (IntPtr) 9;
+                        
                         setter?.SetValue(maximize, true);
                         pointerOnMaxButton = true;
                         handled = true;

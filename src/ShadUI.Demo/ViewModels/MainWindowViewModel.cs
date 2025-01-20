@@ -9,6 +9,7 @@ public sealed partial class MainWindowViewModel(
     ThemesViewModel themesViewModel,
     TypographyViewModel typographyViewModel,
     ButtonsViewModel buttonsViewModel,
+    DialogsViewModel dialogsViewModel,
     InputViewModel inputViewModel,
     TabsViewModel tabsViewModel,
     ComboBoxesViewModel comboBoxesViewModel,
@@ -55,6 +56,12 @@ public sealed partial class MainWindowViewModel(
     }
 
     [RelayCommand]
+    private async Task OpenDialogs()
+    {
+        await SwitchPage(dialogsViewModel);
+    }
+
+    [RelayCommand]
     private async Task OpenInputs()
     {
         if (await SwitchPage(inputViewModel))
@@ -72,13 +79,13 @@ public sealed partial class MainWindowViewModel(
     {
         await SwitchPage(comboBoxesViewModel);
     }
-    
+
     [RelayCommand]
     private async Task OpenSliders()
     {
         await SwitchPage(slidersViewModel);
     }
-    
+
     [RelayCommand]
     private async Task OpenToggleSwitch()
     {

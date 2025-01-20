@@ -1,0 +1,117 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:icons="clr-namespace:ShadUI.Contents"
+    xmlns:dialogs="clr-namespace:ShadUI.Dialogs">
+
+    <ControlTheme x:Key="SukiDialogHostTheme" TargetType="dialogs:DialogHost">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Panel>
+                    <Border Name="PART_DialogBackground"
+                            HorizontalAlignment="Stretch"
+                            IsVisible="False"
+                            VerticalAlignment="Stretch"
+                            Background="{DynamicResource DialogOverlayColor}"
+                            Opacity="0" />
+                    <Border Name="PART_TitleBar"
+                            Height="32"
+                            IsVisible="False"
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Stretch"
+                            Background="Transparent" />
+                    <Border Name="PART_DialogContent"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Background="{DynamicResource DialogBackgroundColor}"
+                            BorderThickness="1"
+                            BorderBrush="{DynamicResource BorderColor}"
+                            CornerRadius="{DynamicResource MediumCornerRadius}"
+                            ClipToBounds="False">
+                        <Border.Transitions>
+                            <Transitions>
+                                <ThicknessTransition Property="Margin" Duration="0:0:0.10">
+                                    <ThicknessTransition.Easing>
+                                        <CircularEaseOut />
+                                    </ThicknessTransition.Easing>
+                                </ThicknessTransition>
+                                <DoubleTransition Property="Opacity" Duration="0:0:0.02" />
+                                <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.10">
+                                    <TransformOperationsTransition.Easing>
+                                        <CircularEaseOut />
+                                    </TransformOperationsTransition.Easing>
+                                </TransformOperationsTransition>
+                            </Transitions>
+                        </Border.Transitions>
+                        <Panel>
+                            <Button Name="PART_CloseButton"
+                                    Width="24"
+                                    Height="24"
+                                    Margin="8"
+                                    VerticalAlignment="Top"
+                                    HorizontalAlignment="Right"
+                                    Background="{DynamicResource DialogBackgroundColor}"
+                                    CornerRadius="{DynamicResource MediumCornerRadius}"
+                                    IsVisible="{TemplateBinding Dismissible}"
+                                    HotKey="Escape">
+                                <Button.Styles>
+                                    <Style Selector="Button:pointerover">
+                                        <Setter Property="Background" Value="{DynamicResource BorderColor}" />
+                                    </Style>
+                                </Button.Styles>
+                                <PathIcon Width="10" Height="10" Foreground="{DynamicResource ForegroundColor}"
+                                          Data="{x:Static icons:Icons.WindowClose}" />
+                            </Button>
+                            <ContentControl
+                                Margin="24"
+                                KeyboardNavigation.TabNavigation="Cycle"
+                                Content="{TemplateBinding Dialog}" />
+                        </Panel>
+                    </Border>
+
+                    <Panel.Styles>
+                        <Style Selector="dialogs|DialogHost[IsDialogOpen=True]">
+                            <Style Selector="^ Border#PART_DialogBackground">
+                                <Setter Property="Opacity" Value="0.80" />
+                                <Setter Property="IsVisible" Value="True" />
+                                <Setter Property="IsHitTestVisible" Value="True" />
+                            </Style>
+                            <Style Selector="^ Border#PART_TitleBar">
+                                <Setter Property="IsVisible" Value="True" />
+                                <Setter Property="IsHitTestVisible" Value="True" />
+                            </Style>
+                            <Style Selector="^ Border#PART_DialogContent">
+                                <Setter Property="Margin" Value="0" />
+                                <Setter Property="Opacity" Value="1" />
+                                <Setter Property="IsVisible" Value="True" />
+                                <Setter Property="IsHitTestVisible" Value="True" />
+                                <Setter Property="RenderTransform" Value="scale(1)" />
+                            </Style>
+                        </Style>
+                        <Style Selector="dialogs|DialogHost[IsDialogOpen=False]">
+                            <Style Selector="^ Border#PART_DialogBackground">
+                                <Setter Property="Opacity" Value="0" />
+                                <Setter Property="IsHitTestVisible" Value="False" />
+                                <Setter Property="IsVisible" Value="False" />
+                            </Style>
+                            <Style Selector="^ Border#PART_TitleBar">
+                                <Setter Property="Opacity" Value="0" />
+                                <Setter Property="IsHitTestVisible" Value="False" />
+                                <Setter Property="IsVisible" Value="False" />
+                            </Style>
+                            <Style Selector="^ Border#PART_DialogContent">
+                                <Setter Property="Opacity" Value="0" />
+                                <Setter Property="IsHitTestVisible" Value="False" />
+                                <Setter Property="RenderTransform" Value="scale(0.70)" />
+                                <Setter Property="Margin" Value="0,50,0,0" />
+                            </Style>
+                        </Style>
+                    </Panel.Styles>
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+    <ControlTheme x:Key="{x:Type dialogs:DialogHost}"
+                  BasedOn="{StaticResource SukiDialogHostTheme}"
+                  TargetType="dialogs:DialogHost" />
+</ResourceDictionary>

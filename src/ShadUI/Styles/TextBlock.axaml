@@ -134,7 +134,6 @@
 
     <Style Selector="TextBlock.Small">
         <Setter Property="FontSize" Value="14" />
-        <Setter Property="LineHeight" Value="14" />
         <Setter Property="FontWeight" Value="Medium" />
     </Style>
 
