@@ -115,7 +115,7 @@
                 <controls:ControlBlock
                     Title="Custom Dialog"
                     Language="cs"
-                    Code="{Binding DestructiveAlertDialogCode}"
+                    Code="{Binding CustomDialogCode}"
                     CodeBlockHeight="350">
                     <StackPanel>
                         <Button Command="{Binding ShowCustomDialogCommand }" Classes="Outline"

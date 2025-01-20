@@ -9,14 +9,14 @@ namespace ShadUI.Demo.ViewModels;
 public sealed partial class DialogsViewModel(
     DialogService dialogService,
     LoginViewModel loginViewModel
-    ) : ViewModelBase
+) : ViewModelBase
 {
     [ObservableProperty]
     private string _alertDialogCode = """
                                       // Using CommunityToolkit.Mvvm
-                                      
+
                                       // ..other code
-                                      
+
                                       [RelayCommand]
                                       private void ShowDialog()
                                       {
@@ -31,7 +31,7 @@ public sealed partial class DialogsViewModel(
                                               AsyncCallback = OnSubmitAsync
                                           });
                                       }
-                                      
+
                                       // Simulate a long-running operation
                                       private static async Task OnSubmitAsync(SimpleDialogAction action)
                                       {
@@ -39,10 +39,10 @@ public sealed partial class DialogsViewModel(
                                           await Task.Delay(2000);
                                           Console.WriteLine(action);
                                       }
-                                      
+
                                       // ..rest of the code
                                       """;
-    
+
     [RelayCommand]
     private void ShowDialog()
     {
@@ -68,43 +68,44 @@ public sealed partial class DialogsViewModel(
 
     [ObservableProperty]
     private string _destructiveAlertDialogCode = """
-                                      // Using CommunityToolkit.Mvvm
+                                                 // Using CommunityToolkit.Mvvm
 
-                                      // ..other code
+                                                 // ..other code
 
-                                      [RelayCommand]
-                                      private void ShowDialog()
-                                      {
-                                          dialogService.Show(new SimpleDialogOptions
-                                          {
-                                              Title = "Are you absolutely sure?",
-                                              Message = "This action cannot be undone. This will permanently delete your account and remove your data from our servers.",
-                                              PrimaryButtonText = "Delete",
-                                              PrimaryButtonStyle = SimpleDialogButtonStyle.Destructive,
-                                              CancelButtonText = "Cancel",
-                                              MaxWidth = 485,
-                                              AsyncCallback = OnSubmitAsync
-                                          });
-                                      }
+                                                 [RelayCommand]
+                                                 private void ShowDialog()
+                                                 {
+                                                     dialogService.Show(new SimpleDialogOptions
+                                                     {
+                                                         Title = "Are you absolutely sure?",
+                                                         Message = "This action cannot be undone. This will permanently delete your account and remove your data from our servers.",
+                                                         PrimaryButtonText = "Delete",
+                                                         PrimaryButtonStyle = SimpleDialogButtonStyle.Destructive,
+                                                         CancelButtonText = "Cancel",
+                                                         MaxWidth = 485,
+                                                         AsyncCallback = OnSubmitAsync
+                                                     });
+                                                 }
 
-                                      // Simulate a long-running operation
-                                      private static async Task OnSubmitAsync(SimpleDialogAction action)
-                                      {
-                                          Console.WriteLine("Waiting for 2 seconds...");
-                                          await Task.Delay(2000);
-                                          Console.WriteLine(action);
-                                      }
+                                                 // Simulate a long-running operation
+                                                 private static async Task OnSubmitAsync(SimpleDialogAction action)
+                                                 {
+                                                     Console.WriteLine("Waiting for 2 seconds...");
+                                                     await Task.Delay(2000);
+                                                     Console.WriteLine(action);
+                                                 }
 
-                                      // ..rest of the code
-                                      """;
-    
+                                                 // ..rest of the code
+                                                 """;
+
     [RelayCommand]
     private void ShowDestructiveStyleDialog()
     {
         dialogService.Show(new SimpleDialogOptions
         {
             Title = "Are you absolutely sure?",
-            Message = "This action cannot be undone. This will permanently delete your account and remove your data from our servers.",
+            Message =
+                "This action cannot be undone. This will permanently delete your account and remove your data from our servers.",
             PrimaryButtonText = "Delete",
             PrimaryButtonStyle = SimpleDialogButtonStyle.Destructive,
             CancelButtonText = "Cancel",
@@ -112,6 +113,26 @@ public sealed partial class DialogsViewModel(
             AsyncCallback = OnSubmitAsync
         });
     }
+
+    [ObservableProperty]
+    private string _customDialogCode = """
+                                       // Using CommunityToolkit.Mvvm
+
+                                       // ..other code
+
+                                       [RelayCommand]
+                                       private void ShowCustomDialog()
+                                       {
+                                           loginViewModel.Initialize();
+                                           dialogService.Show(loginViewModel, new DialogOptions
+                                           {
+                                               DismissibleDialog = true,
+                                               Callback = result => Console.WriteLine(result ? "Login successful!" : "Login failed!")
+                                           });
+                                       }
+
+                                       // ..rest of the code
+                                       """;
 
     [RelayCommand]
     private void ShowCustomDialog()
