@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using ShadUI.Demo.ViewModels;
 using ShadUI.Demo.Views;
 using ShadUI.Dialogs;
+using ShadUI.Toasts;
 
 namespace ShadUI.Demo;
 
@@ -16,6 +17,7 @@ public static class Extensions
     {
         collection.AddTransientFromNamespace("ShadUI.Demo.ViewModels", typeof(Extensions).Assembly);
         collection.AddSingleton<DialogService>();
+        collection.AddSingleton<ToastManager>();
     }
 
     public static IServiceCollection AddTransientFromNamespace(

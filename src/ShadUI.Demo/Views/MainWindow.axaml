@@ -9,6 +9,7 @@
     xmlns:viewModels="clr-namespace:ShadUI.Demo.ViewModels"
     xmlns:views="clr-namespace:ShadUI.Demo.Views"
     xmlns:dialogs="clr-namespace:ShadUI.Dialogs;assembly=ShadUI"
+    xmlns:toasts="clr-namespace:ShadUI.Toasts;assembly=ShadUI"
     mc:Ignorable="d" d:DesignWidth="800"
     x:Class="ShadUI.Demo.Views.MainWindow"
     x:DataType="viewModels:MainWindowViewModel"
@@ -44,6 +45,9 @@
         <DataTemplate DataType="{x:Type viewModels:SlidersViewModel}">
             <views:SlidersPage />
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModels:ToastsViewModel}">
+            <views:ToastsPage />
+        </DataTemplate>
         <DataTemplate DataType="{x:Type viewModels:ToggleSwitchViewModel}">
             <views:ToggleSwitchPage />
         </DataTemplate>
@@ -55,87 +59,96 @@
         <PathIcon Margin="8,8,0,8" Width="14" Height="14" Data="{x:Static contents:Icons.Logo}" />
     </controls:Window.LogoContent>
     <controls:Window.Hosts>
-        <dialogs:DialogHost/>
+        <dialogs:DialogHost />
     </controls:Window.Hosts>
-    <controls:SidebarMenu>
-        <controls:SidebarMenu.BodyContent>
-            <TransitioningContentControl Content="{Binding SelectedPage}" />
-        </controls:SidebarMenu.BodyContent>
-        <controls:SidebarMenu.HeaderContent>
-            <controls:RoundedImage CornerRadius="40" Margin="30,10,30,30" Width="80" Height="80"
-                                   Source="../Assets/user.jpg" />
-        </controls:SidebarMenu.HeaderContent>
-        <controls:SidebarMenu.Items>
-            <controls:SidebarMenuItem Header="Dashboard" Classes="Compact" Command="{Binding OpenDashboardCommand}">
-                <controls:SidebarMenuItem.Icon>
-                    <icons:Lucide Icon="LayoutDashboard" StrokeThickness="1.5" Width="16" Height="16"
-                                  StrokeBrush="{DynamicResource ForegroundColor}" />
-                </controls:SidebarMenuItem.Icon>
-            </controls:SidebarMenuItem>
-            <controls:SidebarMenuItem Header="Themes" Classes="Compact" Command="{Binding OpenThemesCommand}">
-                <controls:SidebarMenuItem.Icon>
-                    <icons:Lucide Icon="Palette" StrokeThickness="1.5" Width="16" Height="16"
-                                  StrokeBrush="{DynamicResource ForegroundColor}" />
-                </controls:SidebarMenuItem.Icon>
-            </controls:SidebarMenuItem>
-            <controls:SidebarMenuItem Header="Typography" Classes="Compact"
-                                      Command="{Binding OpenTypographyCommand}">
-                <controls:SidebarMenuItem.Icon>
-                    <icons:Lucide Icon="TypeOutline" StrokeThickness="1.5" Width="16" Height="16"
-                                  StrokeBrush="{DynamicResource ForegroundColor}" />
-                </controls:SidebarMenuItem.Icon>
-            </controls:SidebarMenuItem>
-            <controls:SidebarMenuItem Header="Buttons" Classes="Compact" Command="{Binding OpenButtonsCommand}">
-                <controls:SidebarMenuItem.Icon>
-                    <icons:Lucide Icon="MousePointerClick" StrokeThickness="1.5" Width="16" Height="16"
-                                  StrokeBrush="{DynamicResource ForegroundColor}" />
-                </controls:SidebarMenuItem.Icon>
-            </controls:SidebarMenuItem>
-            <controls:SidebarMenuItem Header="Dialogs" Classes="Compact" Command="{Binding OpenDialogsCommand}">
-                <controls:SidebarMenuItem.Icon>
-                    <icons:Lucide Icon="MessageSquare" StrokeThickness="1.5" Width="16" Height="16"
-                                  StrokeBrush="{DynamicResource ForegroundColor}" />
-                </controls:SidebarMenuItem.Icon>
-            </controls:SidebarMenuItem>
-            <controls:SidebarMenuItem Header="Inputs" Classes="Compact" Command="{Binding OpenInputsCommand}">
-                <controls:SidebarMenuItem.Icon>
-                    <icons:Lucide Icon="TextCursorInput" StrokeThickness="1.5" Width="16" Height="16"
-                                  StrokeBrush="{DynamicResource ForegroundColor}" />
-                </controls:SidebarMenuItem.Icon>
-            </controls:SidebarMenuItem>
-            <controls:SidebarMenuItem Header="Tabs" Classes="Compact" Command="{Binding OpenTabsCommand}">
-                <controls:SidebarMenuItem.Icon>
-                    <icons:Lucide Icon="AppWindow" StrokeThickness="1.5" Width="16" Height="16"
-                                  StrokeBrush="{DynamicResource ForegroundColor}" />
-                </controls:SidebarMenuItem.Icon>
-            </controls:SidebarMenuItem>
-            <controls:SidebarMenuItem Header="ComboBox" Classes="Compact" Command="{Binding OpenComboBoxesCommand}">
-                <controls:SidebarMenuItem.Icon>
-                    <icons:Lucide Icon="ChevronsUpDown" StrokeThickness="1.5" Width="16" Height="16"
-                                  StrokeBrush="{DynamicResource ForegroundColor}" />
-                </controls:SidebarMenuItem.Icon>
-            </controls:SidebarMenuItem>
-            <controls:SidebarMenuItem Header="Sliders" Classes="Compact" Command="{Binding OpenSlidersCommand}">
-                <controls:SidebarMenuItem.Icon>
-                    <icons:Lucide Icon="SlidersHorizontal" StrokeThickness="1.5" Width="16" Height="16"
-                                  StrokeBrush="{DynamicResource ForegroundColor}" />
-                </controls:SidebarMenuItem.Icon>
-            </controls:SidebarMenuItem>
-            <controls:SidebarMenuItem Header="Switch" Classes="Compact" Command="{Binding OpenToggleSwitchCommand}">
-                <controls:SidebarMenuItem.Icon>
-                    <icons:Lucide Icon="ToggleLeft" StrokeThickness="1.5" Width="16" Height="16"
-                                  StrokeBrush="{DynamicResource ForegroundColor}" />
-                </controls:SidebarMenuItem.Icon>
-            </controls:SidebarMenuItem>
-            <controls:SidebarMenuItem Header="Settings" Classes="Compact" Command="{Binding OpenSettingsCommand}">
-                <controls:SidebarMenuItem.Icon>
-                    <icons:Lucide Icon="Settings" StrokeThickness="1.5" Width="16" Height="16"
-                                  StrokeBrush="{DynamicResource ForegroundColor}" />
-                </controls:SidebarMenuItem.Icon>
-            </controls:SidebarMenuItem>
-        </controls:SidebarMenu.Items>
-        <controls:SidebarMenu.FooterContent>
-            <!-- Footer Content -->
-        </controls:SidebarMenu.FooterContent>
-    </controls:SidebarMenu>
+    <Panel>
+        <controls:SidebarMenu>
+            <controls:SidebarMenu.BodyContent>
+                <TransitioningContentControl Content="{Binding SelectedPage}" />
+            </controls:SidebarMenu.BodyContent>
+            <controls:SidebarMenu.HeaderContent>
+                <controls:RoundedImage CornerRadius="40" Margin="30,10,30,30" Width="80" Height="80"
+                                       Source="../Assets/user.jpg" />
+            </controls:SidebarMenu.HeaderContent>
+            <controls:SidebarMenu.Items>
+                <controls:SidebarMenuItem Header="Dashboard" Classes="Compact" Command="{Binding OpenDashboardCommand}">
+                    <controls:SidebarMenuItem.Icon>
+                        <icons:Lucide Icon="LayoutDashboard" StrokeThickness="1.5" Width="16" Height="16"
+                                      StrokeBrush="{DynamicResource ForegroundColor}" />
+                    </controls:SidebarMenuItem.Icon>
+                </controls:SidebarMenuItem>
+                <controls:SidebarMenuItem Header="Themes" Classes="Compact" Command="{Binding OpenThemesCommand}">
+                    <controls:SidebarMenuItem.Icon>
+                        <icons:Lucide Icon="Palette" StrokeThickness="1.5" Width="16" Height="16"
+                                      StrokeBrush="{DynamicResource ForegroundColor}" />
+                    </controls:SidebarMenuItem.Icon>
+                </controls:SidebarMenuItem>
+                <controls:SidebarMenuItem Header="Typography" Classes="Compact"
+                                          Command="{Binding OpenTypographyCommand}">
+                    <controls:SidebarMenuItem.Icon>
+                        <icons:Lucide Icon="TypeOutline" StrokeThickness="1.5" Width="16" Height="16"
+                                      StrokeBrush="{DynamicResource ForegroundColor}" />
+                    </controls:SidebarMenuItem.Icon>
+                </controls:SidebarMenuItem>
+                <controls:SidebarMenuItem Header="Buttons" Classes="Compact" Command="{Binding OpenButtonsCommand}">
+                    <controls:SidebarMenuItem.Icon>
+                        <icons:Lucide Icon="MousePointerClick" StrokeThickness="1.5" Width="16" Height="16"
+                                      StrokeBrush="{DynamicResource ForegroundColor}" />
+                    </controls:SidebarMenuItem.Icon>
+                </controls:SidebarMenuItem>
+                <controls:SidebarMenuItem Header="Dialogs" Classes="Compact" Command="{Binding OpenDialogsCommand}">
+                    <controls:SidebarMenuItem.Icon>
+                        <icons:Lucide Icon="MessageSquare" StrokeThickness="1.5" Width="16" Height="16"
+                                      StrokeBrush="{DynamicResource ForegroundColor}" />
+                    </controls:SidebarMenuItem.Icon>
+                </controls:SidebarMenuItem>
+                <controls:SidebarMenuItem Header="Inputs" Classes="Compact" Command="{Binding OpenInputsCommand}">
+                    <controls:SidebarMenuItem.Icon>
+                        <icons:Lucide Icon="TextCursorInput" StrokeThickness="1.5" Width="16" Height="16"
+                                      StrokeBrush="{DynamicResource ForegroundColor}" />
+                    </controls:SidebarMenuItem.Icon>
+                </controls:SidebarMenuItem>
+                <controls:SidebarMenuItem Header="Tabs" Classes="Compact" Command="{Binding OpenTabsCommand}">
+                    <controls:SidebarMenuItem.Icon>
+                        <icons:Lucide Icon="AppWindow" StrokeThickness="1.5" Width="16" Height="16"
+                                      StrokeBrush="{DynamicResource ForegroundColor}" />
+                    </controls:SidebarMenuItem.Icon>
+                </controls:SidebarMenuItem>
+                <controls:SidebarMenuItem Header="ComboBox" Classes="Compact" Command="{Binding OpenComboBoxesCommand}">
+                    <controls:SidebarMenuItem.Icon>
+                        <icons:Lucide Icon="ChevronsUpDown" StrokeThickness="1.5" Width="16" Height="16"
+                                      StrokeBrush="{DynamicResource ForegroundColor}" />
+                    </controls:SidebarMenuItem.Icon>
+                </controls:SidebarMenuItem>
+                <controls:SidebarMenuItem Header="Sliders" Classes="Compact" Command="{Binding OpenSlidersCommand}">
+                    <controls:SidebarMenuItem.Icon>
+                        <icons:Lucide Icon="SlidersHorizontal" StrokeThickness="1.5" Width="16" Height="16"
+                                      StrokeBrush="{DynamicResource ForegroundColor}" />
+                    </controls:SidebarMenuItem.Icon>
+                </controls:SidebarMenuItem>
+                <controls:SidebarMenuItem Header="Switch" Classes="Compact" Command="{Binding OpenToggleSwitchCommand}">
+                    <controls:SidebarMenuItem.Icon>
+                        <icons:Lucide Icon="ToggleLeft" StrokeThickness="1.5" Width="16" Height="16"
+                                      StrokeBrush="{DynamicResource ForegroundColor}" />
+                    </controls:SidebarMenuItem.Icon>
+                </controls:SidebarMenuItem>
+                <controls:SidebarMenuItem Header="Toasts" Classes="Compact" Command="{Binding OpenToastCommand}">
+                    <controls:SidebarMenuItem.Icon>
+                        <icons:Lucide Icon="StretchHorizontal" StrokeThickness="1.5" Width="16" Height="16"
+                                      StrokeBrush="{DynamicResource ForegroundColor}" />
+                    </controls:SidebarMenuItem.Icon>
+                </controls:SidebarMenuItem>
+                <controls:SidebarMenuItem Header="Settings" Classes="Compact" Command="{Binding OpenSettingsCommand}">
+                    <controls:SidebarMenuItem.Icon>
+                        <icons:Lucide Icon="Settings" StrokeThickness="1.5" Width="16" Height="16"
+                                      StrokeBrush="{DynamicResource ForegroundColor}" />
+                    </controls:SidebarMenuItem.Icon>
+                </controls:SidebarMenuItem>
+            </controls:SidebarMenu.Items>
+            <controls:SidebarMenu.FooterContent>
+                <!-- Footer Content -->
+            </controls:SidebarMenu.FooterContent>
+        </controls:SidebarMenu>
+        <toasts:ToastHost Manager="{Binding ToastManager}" />
+    </Panel>
 </controls:Window>

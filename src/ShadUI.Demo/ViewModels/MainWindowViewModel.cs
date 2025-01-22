@@ -1,10 +1,12 @@
 using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using ShadUI.Toasts;
 
 namespace ShadUI.Demo.ViewModels;
 
 public sealed partial class MainWindowViewModel(
+    ToastManager toastManager,
     DashboardViewModel dashboardViewModel,
     ThemesViewModel themesViewModel,
     TypographyViewModel typographyViewModel,
@@ -14,10 +16,14 @@ public sealed partial class MainWindowViewModel(
     TabsViewModel tabsViewModel,
     ComboBoxesViewModel comboBoxesViewModel,
     SlidersViewModel slidersViewModel,
+    ToastsViewModel toastsViewModel,
     ToggleSwitchViewModel toggleSwitchViewModel,
     SettingsViewModel settingsViewModel)
     : ViewModelBase
 {
+    [ObservableProperty]
+    private ToastManager _toastManager = toastManager;
+    
     [ObservableProperty]
     private object? _selectedPage;
 
@@ -84,6 +90,12 @@ public sealed partial class MainWindowViewModel(
     private async Task OpenSliders()
     {
         await SwitchPage(slidersViewModel);
+    }
+
+    [RelayCommand]
+    private async Task OpenToast()
+    {
+        await SwitchPage(toastsViewModel);
     }
 
     [RelayCommand]
