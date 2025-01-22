@@ -3,8 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:contents="clr-namespace:ShadUI.Contents"
     xmlns:system="clr-namespace:System;assembly=netstandard"
-    xmlns:extensions="clr-namespace:ShadUI.Extensions"
-    xmlns:converters="clr-namespace:ShadUI.Converters">
+    xmlns:extensions="clr-namespace:ShadUI.Extensions">
     <Design.PreviewWith>
         <Border Height="500" Width="400" Padding="8">
             <StackPanel Spacing="8">
@@ -35,104 +34,104 @@
         </Border>
     </Design.PreviewWith>
     <ControlTheme x:Key="ComboBoxControlTheme" TargetType="ComboBox">
-        <Setter Property="Cursor" Value="Hand" />
         <Setter Property="BorderThickness" Value="1,1,1,1" />
         <Setter Property="CornerRadius" Value="{DynamicResource MediumCornerRadius}" />
         <Setter Property="MinHeight" Value="36" />
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderColor}" />
         <Setter Property="PlaceholderForeground" Value="{DynamicResource MutedColor}" />
-        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
         <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
+        <Setter Property="Background" Value="{DynamicResource CardBackgroundColor}" />
         <Setter Property="FontSize" Value="14" />
         <Setter Property="FontWeight" Value="Medium" />
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
         <Setter Property="Template">
             <ControlTemplate>
                 <DataValidationErrors>
                     <StackPanel Spacing="4">
                         <TextBlock Name="PART_Label" Classes="Small" Margin="0,0,0,6"
                                    Text="{TemplateBinding extensions:ComboBox.Label}"
-                                   IsVisible="{TemplateBinding extensions:ComboBox.Label, Converter={x:Static converters:StringToIsVisibleConverter.Instance}}" />
-                        <Border>
-                            <Border Name="border"
-                                    BorderBrush="{DynamicResource BorderColor}"
-                                    MinHeight="{TemplateBinding MinHeight}"
-                                    Padding="{TemplateBinding Padding}"
-                                    BorderThickness="{TemplateBinding BorderThickness}"
-                                    CornerRadius="{TemplateBinding CornerRadius}">
-                                <Border.Transitions>
-                                    <Transitions>
-                                        <BrushTransition Property="BorderBrush" Duration="0:0:0.20" />
-                                        <BrushTransition Property="Background" Duration="0:0:0.20" />
-                                    </Transitions>
-                                </Border.Transitions>
-                                <Grid ColumnDefinitions="*,Auto" Background="Transparent">
-                                    <TextBlock Name="PlaceholderTextBlock"
-                                               Grid.Column="0"
-                                               Margin="18,0,0,0"
-                                               HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                               VerticalAlignment="Center"
-                                               Foreground="{TemplateBinding PlaceholderForeground}"
-                                               IsVisible="{TemplateBinding SelectionBoxItem, Converter={x:Static ObjectConverters.IsNull}}"
-                                               Text="{TemplateBinding PlaceholderText}" />
-                                    <ContentControl Margin="18,0,0,0"
-                                                    Grid.Column="0"
-                                                    HorizontalContentAlignment="Left"
-                                                    VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                                                    TextBlock.Foreground="{TemplateBinding Foreground}"
-                                                    TextBlock.FontSize="{TemplateBinding FontSize}"
-                                                    TextBlock.FontWeight="{TemplateBinding FontWeight}"
-                                                    Content="{TemplateBinding SelectionBoxItem}"
-                                                    ContentTemplate="{TemplateBinding ItemTemplate}"
-                                                    Foreground="{DynamicResource ForegroundColor}" />
-                                    <Path Name="PART_Icon" 
-                                          Grid.Column="1"
-                                          Width="8"
-                                          Margin="5,0,18,0"
-                                          HorizontalAlignment="Center"
-                                          VerticalAlignment="Center"
-                                          Data="{x:Static contents:Icons.ChevronUpDown}"
-                                          Fill="{DynamicResource MutedColor}"
-                                          Stretch="Uniform">
-                                        <Path.Transitions>
-                                            <Transitions>
-                                                <BrushTransition Property="Fill" Duration="0:0:0.20" />
-                                            </Transitions>
-                                        </Path.Transitions>
-                                    </Path>
-                                    <Popup Name="PART_Popup"
+                                   IsVisible="{TemplateBinding extensions:ComboBox.Label, Converter={x:Static StringConverters.IsNotNullOrEmpty}}" />
+                        <Border Name="PART_Border"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                MinHeight="{TemplateBinding MinHeight}"
+                                Padding="{TemplateBinding Padding}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Background="{TemplateBinding Background}"
+                                CornerRadius="{TemplateBinding CornerRadius}">
+                            <Border.Transitions>
+                                <Transitions>
+                                    <BrushTransition Property="BorderBrush" Duration="0:0:0.20" />
+                                    <BrushTransition Property="Background" Duration="0:0:0.20" />
+                                </Transitions>
+                            </Border.Transitions>
+                            <Grid ColumnDefinitions="*,Auto" Background="Transparent">
+                                <TextBlock Name="PlaceholderTextBlock"
                                            Grid.Column="0"
-                                           MaxHeight="{TemplateBinding MaxDropDownHeight}"
-                                           MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
-                                           IsLightDismissEnabled="True"
-                                           VerticalOffset="5"
-                                           IsOpen="{TemplateBinding IsDropDownOpen,Mode=TwoWay}"
-                                           PlacementTarget="{Binding #border}">
-                                        <LayoutTransformControl Name="PART_LayoutTransform"
-                                                                RenderTransformOrigin="50%, 0%">
-                                            <Border Background="{DynamicResource CardBackgroundColor}"
-                                                    BorderBrush="{DynamicResource BorderColor}"
-                                                    BorderThickness="1"
-                                                    CornerRadius="{DynamicResource MediumCornerRadius}">
-                                                <ScrollViewer
-                                                    HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
-                                                    VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
-                                                    <ItemsPresenter Name="PART_ItemsPresenter"
-                                                                    Margin="0,3,0,0"
-                                                                    TextBlock.Foreground="{TemplateBinding Foreground}"
-                                                                    TextBlock.FontSize="{TemplateBinding FontSize}"
-                                                                    TextBlock.FontWeight="{TemplateBinding FontWeight}"
-                                                                    ItemsPanel="{TemplateBinding ItemsPanel}" />
-                                                </ScrollViewer>
-                                            </Border>
-                                        </LayoutTransformControl>
-                                    </Popup>
-                                </Grid>
-                            </Border>
+                                           Margin="18,0,0,0"
+                                           HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                           VerticalAlignment="Center"
+                                           Foreground="{TemplateBinding PlaceholderForeground}"
+                                           IsVisible="{TemplateBinding SelectionBoxItem, Converter={x:Static ObjectConverters.IsNull}}"
+                                           Text="{TemplateBinding PlaceholderText}" />
+                                <ContentControl Margin="18,0,0,0"
+                                                Grid.Column="0"
+                                                HorizontalContentAlignment="Left"
+                                                VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                TextBlock.Foreground="{TemplateBinding Foreground}"
+                                                TextBlock.FontSize="{TemplateBinding FontSize}"
+                                                TextBlock.FontWeight="{TemplateBinding FontWeight}"
+                                                Content="{TemplateBinding SelectionBoxItem}"
+                                                ContentTemplate="{TemplateBinding ItemTemplate}"
+                                                Foreground="{DynamicResource ForegroundColor}" />
+                                <Path Name="PART_Icon"
+                                      Grid.Column="1"
+                                      Width="8"
+                                      Margin="5,0,18,0"
+                                      HorizontalAlignment="Center"
+                                      VerticalAlignment="Center"
+                                      Data="{x:Static contents:Icons.ChevronUpDown}"
+                                      Fill="{DynamicResource MutedColor}"
+                                      Stretch="Uniform">
+                                    <Path.Transitions>
+                                        <Transitions>
+                                            <BrushTransition Property="Fill" Duration="0:0:0.20" />
+                                        </Transitions>
+                                    </Path.Transitions>
+                                </Path>
+                                <Popup Name="PART_Popup"
+                                       Grid.Column="0"
+                                       MaxHeight="{TemplateBinding MaxDropDownHeight}"
+                                       MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
+                                       IsLightDismissEnabled="True"
+                                       VerticalOffset="5"
+                                       IsOpen="{TemplateBinding IsDropDownOpen,Mode=TwoWay}"
+                                       PlacementTarget="{Binding #PART_Border}">
+                                    <LayoutTransformControl Name="PART_LayoutTransform"
+                                                            RenderTransformOrigin="50%, 0%">
+                                        <Border Background="{DynamicResource CardBackgroundColor}"
+                                                BorderBrush="{DynamicResource BorderColor}"
+                                                BorderThickness="1"
+                                                CornerRadius="{DynamicResource MediumCornerRadius}">
+                                            <ScrollViewer
+                                                HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
+                                                VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
+                                                <ItemsPresenter Name="PART_ItemsPresenter"
+                                                                Margin="0,3,0,0"
+                                                                TextBlock.Foreground="{TemplateBinding Foreground}"
+                                                                TextBlock.FontSize="{TemplateBinding FontSize}"
+                                                                TextBlock.FontWeight="{TemplateBinding FontWeight}"
+                                                                ItemsPanel="{TemplateBinding ItemsPanel}" />
+                                            </ScrollViewer>
+                                        </Border>
+                                    </LayoutTransformControl>
+                                </Popup>
+                            </Grid>
                         </Border>
                         <TextBlock Name="PART_Hint" Classes="Caption Muted"
                                    Text="{TemplateBinding extensions:ComboBox.Hint}"
-                                   IsVisible="{TemplateBinding extensions:ComboBox.Hint, Converter={x:Static converters:StringToIsVisibleConverter.Instance}}" />
+                                   IsVisible="{TemplateBinding extensions:ComboBox.Hint, Converter={x:Static StringConverters.IsNotNullOrEmpty}}" />
                     </StackPanel>
                 </DataValidationErrors>
             </ControlTemplate>
@@ -157,14 +156,18 @@
                 </Style.Animations>
             </Style>
         </Style>
-        <Style Selector="^:pointerover /template/ Border#border">
-            <Setter Property="Background" Value="{DynamicResource OutlineColor}" />
+        <Style Selector="^ /template/ Border#PART_Border">
+            <Style Selector="^:pointerover">
+                <Setter Property="BorderBrush" Value="{DynamicResource OutlineColor}" />
+                <Setter Property="Background" Value="{DynamicResource OutlineColor}" />
+                <Setter Property="Cursor" Value="Hand" />
+            </Style>
         </Style>
-        <Style Selector="^:disabled /template/ Border#border">
+        <Style Selector="^:disabled /template/ Border#PART_Border">
             <Setter Property="Opacity" Value="0.50" />
         </Style>
         <Style Selector="^:error">
-            <Style Selector="^/template/ Border#border">
+            <Style Selector="^/template/ Border#PART_Border">
                 <Setter Property="BorderBrush" Value="{DynamicResource ErrorColor}" />
             </Style>
             <Style Selector="^/template/ Path#PART_Icon">

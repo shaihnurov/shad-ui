@@ -5,7 +5,10 @@
     xmlns:extensions="clr-namespace:ShadUI.Extensions">
     <Design.PreviewWith>
         <Border Padding="12">
-            <Button Classes="Primary" Content="Primary" />
+            <StackPanel Spacing="8">
+                <Button Classes="Primary" Content="Primary" />
+                <Button Classes="Outline" Content="Primary" />
+            </StackPanel>
         </Border>
     </Design.PreviewWith>
     <ControlTheme x:Key="ButtonStyle" TargetType="Button">
@@ -15,7 +18,6 @@
         <Setter Property="CornerRadius" Value="{DynamicResource MediumCornerRadius}" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
-
         <Setter Property="extensions:Button.Icon" Value="{x:Null}" />
         <Setter Property="extensions:Button.ShowProgress" Value="False" />
         <Setter Property="Template">
@@ -32,16 +34,11 @@
                             <DoubleTransition Property="Opacity" Duration="0:0:0.35" />
                         </Transitions>
                     </Border.Transitions>
-                    <Border.Resources>
-                        <converters:BoolToWidthProgressConverter x:Key="WidthConverter" />
-                        <converters:BoolToInverseWidthProgressConverter x:Key="InverseWidthConverter" />
-                        <converters:ContentToIsVisibleConverter x:Key="ContentConverter" />
-                    </Border.Resources>
                     <StackPanel HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                 Orientation="Horizontal">
                         <Viewbox Margin="0,-4"
                                  Classes="IconContent"
-                                 Width="{TemplateBinding extensions:Button.ShowProgress, Converter={StaticResource WidthConverter}}"
+                                 Width="{TemplateBinding extensions:Button.ShowProgress, Converter={x:Static converters:BoolToWidthProgressConverter.Instance}}"
                                  Height="24">
                             <Viewbox.Transitions>
                                 <Transitions>
@@ -54,8 +51,8 @@
                         <Viewbox Margin="-4"
                                  Height="24"
                                  Classes="IconContent"
-                                 IsVisible="{TemplateBinding extensions:Button.Icon, Converter={StaticResource ContentConverter}}"
-                                 Width="{TemplateBinding extensions:Button.ShowProgress, Converter={StaticResource InverseWidthConverter}}">
+                                 IsVisible="{TemplateBinding extensions:Button.Icon, Converter={x:Static ObjectConverters.IsNotNull}}"
+                                 Width="{TemplateBinding extensions:Button.ShowProgress, Converter={x:Static converters:BoolToInverseWidthProgressConverter.Instance}}">
                             <Viewbox.Transitions>
                                 <Transitions>
                                     <DoubleTransition Property="Width" Duration="0:0:0.3" />
@@ -149,6 +146,14 @@
             <Setter Property="Padding" Value="16,8" />
             <Setter Property="Background" Value="{DynamicResource PrimaryColor}" />
             <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundColor}" />
+            <Style Selector="^ /template/ Border#RootBorder">
+                <Setter Property="Transitions">
+                    <Transitions>
+                        <BrushTransition Property="Background" Duration="0:0:0.2" />
+                        <BrushTransition Property="BorderBrush" Duration="0:0:0.2" />
+                    </Transitions>
+                </Setter>
+            </Style>
             <Style Selector="^ /template/ TextBlock">
                 <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundColor}" />
                 <Setter Property="Transitions">
@@ -166,7 +171,7 @@
                 </Setter>
             </Style>
             <Style Selector="^:pointerover /template/ Border#RootBorder">
-                <Setter Property="Background" Value="{DynamicResource PrimaryColor75}" />
+                <Setter Property="Background" Value="{DynamicResource PrimaryColor50}" />
             </Style>
             <Style Selector="^:pressed">
                 <Style Selector="^.IconContent /template/ Border">
@@ -185,6 +190,14 @@
             <Setter Property="Padding" Value="16,8" />
             <Setter Property="Background" Value="{DynamicResource SecondaryColor}" />
             <Setter Property="Foreground" Value="{DynamicResource SecondaryForegroundColor}" />
+            <Style Selector="^ /template/ Border#RootBorder">
+                <Setter Property="Transitions">
+                    <Transitions>
+                        <BrushTransition Property="Background" Duration="0:0:0.2" />
+                        <BrushTransition Property="BorderBrush" Duration="0:0:0.2" />
+                    </Transitions>
+                </Setter>
+            </Style>
             <Style Selector="^ /template/ TextBlock">
                 <Setter Property="Foreground" Value="{DynamicResource SecondaryForegroundColor}" />
                 <Setter Property="Transitions">
@@ -202,7 +215,7 @@
                 </Setter>
             </Style>
             <Style Selector="^:pointerover /template/ Border#RootBorder">
-                <Setter Property="Background" Value="{DynamicResource SecondaryColor75}" />
+                <Setter Property="Background" Value="{DynamicResource SecondaryColor50}" />
             </Style>
             <Style Selector="^:pressed">
                 <Style Selector="^.IconContent /template/ Border">
@@ -221,6 +234,14 @@
             <Setter Property="Padding" Value="16,8" />
             <Setter Property="Background" Value="{DynamicResource DestructiveColor}" />
             <Setter Property="Foreground" Value="{DynamicResource DestructiveForegroundColor}" />
+            <Style Selector="^ /template/ Border#RootBorder">
+                <Setter Property="Transitions">
+                    <Transitions>
+                        <BrushTransition Property="Background" Duration="0:0:0.2" />
+                        <BrushTransition Property="BorderBrush" Duration="0:0:0.2" />
+                    </Transitions>
+                </Setter>
+            </Style>
             <Style Selector="^ /template/ TextBlock">
                 <Setter Property="Foreground" Value="{DynamicResource DestructiveForegroundColor}" />
                 <Setter Property="Transitions">
@@ -238,7 +259,7 @@
                 </Setter>
             </Style>
             <Style Selector="^:pointerover /template/ Border#RootBorder">
-                <Setter Property="Background" Value="{DynamicResource DestructiveColor75}" />
+                <Setter Property="Background" Value="{DynamicResource DestructiveColor50}" />
             </Style>
 
             <Style Selector="^:pressed">
@@ -256,10 +277,18 @@
         <Style Selector="^.Outline">
             <Setter Property="FontSize" Value="14" />
             <Setter Property="Padding" Value="16,8" />
-            <Setter Property="Background" Value="{DynamicResource BackgroundColor}" />
+            <Setter Property="Background" Value="{DynamicResource CardBackgroundColor}" />
             <Setter Property="BorderThickness" Value="1" />
             <Setter Property="BorderBrush" Value="{DynamicResource BorderColor}" />
             <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
+            <Style Selector="^ /template/ Border#RootBorder">
+                <Setter Property="Transitions">
+                    <Transitions>
+                        <BrushTransition Property="Background" Duration="0:0:0.2" />
+                        <BrushTransition Property="BorderBrush" Duration="0:0:0.2" />
+                    </Transitions>
+                </Setter>
+            </Style>
             <Style Selector="^ /template/ TextBlock">
                 <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
                 <Setter Property="Transitions">
@@ -278,7 +307,7 @@
             </Style>
             <Style Selector="^:pointerover /template/ Border#RootBorder">
                 <Setter Property="Background" Value="{DynamicResource OutlineColor}" />
-                <Setter Property="BorderBrush" Value="Transparent" />
+                <Setter Property="BorderBrush" Value="{DynamicResource OutlineColor}" />
             </Style>
 
             <Style Selector="^:pressed">
@@ -296,9 +325,17 @@
         <Style Selector="^.Ghost">
             <Setter Property="FontSize" Value="14" />
             <Setter Property="Padding" Value="16,8" />
-            <Setter Property="Background" Value="{DynamicResource BackgroundColor}" />
+            <Setter Property="Background" Value="{DynamicResource CardBackgroundColor}" />
             <Setter Property="BorderBrush" Value="{DynamicResource BorderColor}" />
             <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
+            <Style Selector="^ /template/ Border#RootBorder">
+                <Setter Property="Transitions">
+                    <Transitions>
+                        <BrushTransition Property="Background" Duration="0:0:0.2" />
+                        <BrushTransition Property="BorderBrush" Duration="0:0:0.2" />
+                    </Transitions>
+                </Setter>
+            </Style>
             <Style Selector="^ /template/ TextBlock">
                 <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
                 <Setter Property="Transitions">
@@ -335,8 +372,16 @@
             <Setter Property="Width" Value="36" />
             <Setter Property="Height" Value="36" />
             <Setter Property="BorderThickness" Value="1" />
-            <Setter Property="Background" Value="{DynamicResource BackgroundColor}" />
+            <Setter Property="Background" Value="{DynamicResource CardBackgroundColor}" />
             <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
+            <Style Selector="^ /template/ Border#RootBorder">
+                <Setter Property="Transitions">
+                    <Transitions>
+                        <BrushTransition Property="Background" Duration="0:0:0.2" />
+                        <BrushTransition Property="BorderBrush" Duration="0:0:0.2" />
+                    </Transitions>
+                </Setter>
+            </Style>
             <Style Selector="^ /template/ TextBlock">
                 <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
                 <Setter Property="Transitions">
@@ -355,7 +400,7 @@
             </Style>
             <Style Selector="^:pointerover /template/ Border#RootBorder">
                 <Setter Property="Background" Value="{DynamicResource OutlineColor}" />
-                <Setter Property="BorderBrush" Value="Transparent" />
+                <Setter Property="BorderBrush" Value="{DynamicResource OutlineColor}" />
             </Style>
 
             <Style Selector="^:pressed">
@@ -375,6 +420,14 @@
             <Setter Property="Height" Value="36" />
             <Setter Property="Background" Value="{DynamicResource DestructiveColor}" />
             <Setter Property="Foreground" Value="{DynamicResource DestructiveForegroundColor}" />
+            <Style Selector="^ /template/ Border#RootBorder">
+                <Setter Property="Transitions">
+                    <Transitions>
+                        <BrushTransition Property="Background" Duration="0:0:0.2" />
+                        <BrushTransition Property="BorderBrush" Duration="0:0:0.2" />
+                    </Transitions>
+                </Setter>
+            </Style>
             <Style Selector="^ /template/ TextBlock">
                 <Setter Property="Foreground" Value="{DynamicResource DestructiveForegroundColor}" />
                 <Setter Property="Transitions">
@@ -392,7 +445,7 @@
                 </Setter>
             </Style>
             <Style Selector="^:pointerover /template/ Border#RootBorder">
-                <Setter Property="Background" Value="{DynamicResource DestructiveColor75}" />
+                <Setter Property="Background" Value="{DynamicResource DestructiveColor50}" />
             </Style>
 
             <Style Selector="^:pressed">

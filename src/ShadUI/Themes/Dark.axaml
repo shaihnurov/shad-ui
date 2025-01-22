@@ -19,15 +19,18 @@
 
     <Color x:Key="PrimaryColor">#FAFAFA</Color>
     <Color x:Key="PrimaryColor75">#BFFAFAFA</Color>
+    <Color x:Key="PrimaryColor50">#80FAFAFA</Color>
     <Color x:Key="PrimaryColor10">#19FAFAFA</Color>
     <Color x:Key="PrimaryForegroundColor">#18181B</Color>
 
     <Color x:Key="SecondaryColor">#2C2C30</Color>
     <Color x:Key="SecondaryColor75">#BF2C2C30</Color>
+    <Color x:Key="SecondaryColor50">#802C2C30</Color>
     <Color x:Key="SecondaryForegroundColor">#FAFAFA</Color>
 
     <Color x:Key="DestructiveColor">#C82323</Color>
     <Color x:Key="DestructiveColor75">#BFC82323</Color>
+    <Color x:Key="DestructiveColor50">#80C82323</Color>
     <Color x:Key="DestructiveForegroundColor">#FAFAFA</Color>
 
     <Color x:Key="OutlineColor">#BF27272A</Color>

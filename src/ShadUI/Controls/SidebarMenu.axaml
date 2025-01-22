@@ -52,7 +52,7 @@
                                             Classes="Icon"
                                             Cursor="Hand"
                                             DockPanel.Dock="Top"
-                                            BorderBrush="Transparent"
+                                            BorderBrush="{DynamicResource SidebarBackgroundColor}"
                                             IsVisible="{TemplateBinding SidebarToggleEnabled}">
                                         <Panel>
                                             <PathIcon Name="PART_ExpandIconLeft"

@@ -9,6 +9,8 @@ namespace ShadUI.Converters;
 /// </summary>
 internal class BoolToWidthProgressConverter : IValueConverter
 {
+    public static readonly BoolToWidthProgressConverter Instance = new();
+    
     /// <summary>
     ///     Convert a boolean value to a width of 40 or 0.
     /// </summary>
@@ -17,7 +19,7 @@ internal class BoolToWidthProgressConverter : IValueConverter
     /// <param name="parameter"></param>
     /// <param name="culture"></param>
     /// <returns></returns>
-    public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
+    public object Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
     {
         if (value == null)
             return 0;
@@ -43,15 +45,17 @@ internal class BoolToWidthProgressConverter : IValueConverter
 /// </summary>
 internal class BoolToInverseWidthProgressConverter : IValueConverter
 {
+    public static readonly BoolToInverseWidthProgressConverter Instance = new();
+
     /// <summary>
-    ///     Convert a boolean value to a width of 0 or 40.
+    ///     Convert a boolean value to a width of 0 or 36.
     /// </summary>
     /// <param name="value"></param>
     /// <param name="targetType"></param>
     /// <param name="parameter"></param>
     /// <param name="culture"></param>
     /// <returns></returns>
-    public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
+    public object Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
     {
         if (value == null)
             return 36;

@@ -31,14 +31,14 @@
                             MinWidth="85"
                             Margin="15,2"
                             Padding="30,15,15,15"
-                            Background="{DynamicResource BackgroundColor}"
+                            Background="Transparent"
                             CornerRadius="{DynamicResource MediumCornerRadius}">
                         <Border.Transitions>
                             <Transitions>
                                 <DoubleTransition Property="MaxHeight" Duration="0:0:1">
                                     <DoubleTransition.Easing>CubicEaseInOut</DoubleTransition.Easing>
                                 </DoubleTransition>
-                                <BrushTransition Property="Background" Duration="0:0:0.35" />
+                                <BrushTransition Property="Background" Duration="0:0:0.20" />
                                 <ThicknessTransition Property="Padding" Duration="0:0:0.35">
                                     <ThicknessTransition.Easing>CubicEaseInOut</ThicknessTransition.Easing>
                                 </ThicknessTransition>

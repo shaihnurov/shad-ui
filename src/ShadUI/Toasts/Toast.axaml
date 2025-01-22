@@ -92,6 +92,7 @@
                 <Setter Property="BorderBrush" Value="{DynamicResource BorderColor}" />
                 <Setter Property="Background" Value="{DynamicResource CardBackgroundColor}" />
                 <Style Selector="^:pointerover">
+                    <Setter Property="BorderBrush" Value="{DynamicResource GhostColor}" />
                     <Setter Property="Background" Value="{DynamicResource GhostColor}" />
                 </Style>
             </Style>
