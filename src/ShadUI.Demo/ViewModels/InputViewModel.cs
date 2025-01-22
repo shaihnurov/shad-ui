@@ -3,13 +3,17 @@ using System.ComponentModel.DataAnnotations;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using ShadUI.Demo.Validators;
+using ShadUI.Toasts;
 
 namespace ShadUI.Demo.ViewModels;
 
 public sealed partial class InputViewModel : ViewModelBase
 {
-    public InputViewModel()
+    private readonly ToastManager _toastManager;
+
+    public InputViewModel(ToastManager toastManager)
     {
+        _toastManager = toastManager;
         PropertyChanged += (_, _) => SubmitCommand.NotifyCanExecuteChanged();
         ErrorsChanged += (_, _) => SubmitCommand.NotifyCanExecuteChanged();
     }
@@ -105,7 +109,12 @@ public sealed partial class InputViewModel : ViewModelBase
 
         if (HasErrors) return;
 
-        Console.WriteLine("Success"); //TODO: Implement submit logic
+        _toastManager.CreateToast("Form submitted")
+            .WithContent("Form submitted successfully!")
+            .DismissOnClick()
+            .ShowSuccess();
+        
+        Initialize();
     }
 
     private bool CanSubmit() => !HasErrors;

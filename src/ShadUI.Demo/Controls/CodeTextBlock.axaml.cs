@@ -2,6 +2,7 @@ using System;
 using System.Threading.Tasks;
 using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Controls.Documents;
 using Avalonia.Controls.Primitives;
 using Avalonia.Interactivity;
@@ -10,6 +11,9 @@ using Avalonia.Metadata;
 using AvaloniaEdit;
 using AvaloniaEdit.TextMate;
 using ShadUI.Contents;
+using ShadUI.Demo.ViewModels;
+using ShadUI.Dialogs;
+using ShadUI.Toasts;
 using TextMateSharp.Grammars;
 
 namespace ShadUI.Demo.Controls;
@@ -109,6 +113,7 @@ public class CodeTextBlock : UserControl
             if (_clipboardIcon == null || _originalIconData == null) return;
 
             // Show feedback that text was copied
+            ShowCopyNotification();
             _clipboardIcon.Data = Icons.ClipBoardCheck;
             await Task.Delay(2000);
             _clipboardIcon.Data = _originalIconData;
@@ -119,6 +124,20 @@ public class CodeTextBlock : UserControl
         }
     }
 
+    private void ShowCopyNotification()
+    {
+        if (Application.Current?.ApplicationLifetime is not IClassicDesktopStyleApplicationLifetime desktop) return;
+        
+        var window = desktop.MainWindow as ShadUI.Controls.Window;
+        var viewModel = window?.DataContext as MainWindowViewModel;
+
+        viewModel?.ToastManager
+            .CreateToast("Code copied successfully!")
+            .WithContent("The code snippet has been copied to your clipboard and is ready to paste.")
+            .DismissOnClick()
+            .Show();
+    }
+    
     protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)
     {
         base.OnPropertyChanged(change);
