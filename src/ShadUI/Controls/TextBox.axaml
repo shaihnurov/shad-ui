@@ -189,7 +189,7 @@
                             </Border>
                             <TextBlock Name="PART_Hint" Classes="Caption Muted"
                                        Text="{TemplateBinding extensions:TextBox.Hint}"
-                                       IsVisible="{TemplateBinding extensions:TextBox.Hint, Converter={x:Static converters:StringToIsVisibleConverter.Instance}}" />
+                                       IsVisible="{TemplateBinding extensions:TextBox.Hint, Converter={x:Static StringConverters.IsNotNullOrEmpty}}" />
                         </StackPanel>
                     </DataValidationErrors>
                 </StackPanel>
