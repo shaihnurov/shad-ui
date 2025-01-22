@@ -104,6 +104,7 @@ public sealed partial class ToastsViewModel(ToastManager toastManager) : ViewMod
     {
         toastManager.CreateToast("Event has been created")
             .WithContent($"{DateTime.Now:dddd, MMMM d 'at' h:mm tt}")
+            .DismissOnClick()
             .ShowInfo();
     }
 
@@ -118,6 +119,7 @@ public sealed partial class ToastsViewModel(ToastManager toastManager) : ViewMod
                                {
                                    toastManager.CreateToast("Event has been created")
                                        .WithContent($"{DateTime.Now:dddd, MMMM d 'at' h:mm tt}")
+                                       .DismissOnClick()
                                        .ShowInfo();
                                }
                                """;
@@ -127,6 +129,7 @@ public sealed partial class ToastsViewModel(ToastManager toastManager) : ViewMod
     {
         toastManager.CreateToast("Event has been created successfully")
             .WithContent($"{DateTime.Now:dddd, MMMM d 'at' h:mm tt}")
+            .DismissOnClick()
             .ShowSuccess();
     }
 
@@ -141,6 +144,7 @@ public sealed partial class ToastsViewModel(ToastManager toastManager) : ViewMod
                                   {
                                       toastManager.CreateToast("Event has been created successfully")
                                           .WithContent($"{DateTime.Now:dddd, MMMM d 'at' h:mm tt}")
+                                          .DismissOnClick()
                                           .ShowSuccess();
                                   }
                                   """;
@@ -150,6 +154,7 @@ public sealed partial class ToastsViewModel(ToastManager toastManager) : ViewMod
     {
         toastManager.CreateToast("Event has been created with warnings")
             .WithContent($"{DateTime.Now:dddd, MMMM d 'at' h:mm tt}")
+            .DismissOnClick()
             .ShowWarning();
     }
 
@@ -164,6 +169,7 @@ public sealed partial class ToastsViewModel(ToastManager toastManager) : ViewMod
                                   {
                                       toastManager.CreateToast("Event has been created with warnings")
                                           .WithContent($"{DateTime.Now:dddd, MMMM d 'at' h:mm tt}")
+                                          .DismissOnClick()
                                           .ShowWarning();
                                   }
                                   """;
