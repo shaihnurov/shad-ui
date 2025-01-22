@@ -1,11 +1,13 @@
 using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using ShadUI.Dialogs;
 using ShadUI.Toasts;
 
 namespace ShadUI.Demo.ViewModels;
 
 public sealed partial class MainWindowViewModel(
+    DialogManager dialogManager,
     ToastManager toastManager,
     DashboardViewModel dashboardViewModel,
     ThemesViewModel themesViewModel,
@@ -21,6 +23,9 @@ public sealed partial class MainWindowViewModel(
     SettingsViewModel settingsViewModel)
     : ViewModelBase
 {
+    [ObservableProperty]
+    private DialogManager _dialogManager = dialogManager;
+    
     [ObservableProperty]
     private ToastManager _toastManager = toastManager;
     

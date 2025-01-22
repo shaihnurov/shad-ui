@@ -16,7 +16,7 @@ public static class Extensions
     public static void AddServices(this IServiceCollection collection)
     {
         collection.AddTransientFromNamespace("ShadUI.Demo.ViewModels", typeof(Extensions).Assembly);
-        collection.AddSingleton<DialogService>();
+        collection.AddSingleton<DialogManager>();
         collection.AddSingleton<ToastManager>();
     }
 
@@ -53,7 +53,7 @@ public static class Extensions
 
     public static IServiceProvider RegisterDialogs(this IServiceProvider service)
     {
-        var dialogService = service.GetRequiredService<DialogService>();
+        var dialogService = service.GetRequiredService<DialogManager>();
         dialogService.Register<LoginContent, LoginViewModel>(new LoginContent());
 
         return service;

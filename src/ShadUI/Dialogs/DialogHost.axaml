@@ -3,7 +3,6 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:icons="clr-namespace:ShadUI.Contents"
     xmlns:dialogs="clr-namespace:ShadUI.Dialogs">
-
     <ControlTheme x:Key="SukiDialogHostTheme" TargetType="dialogs:DialogHost">
         <Setter Property="Template">
             <ControlTemplate>
@@ -25,6 +24,7 @@
                             VerticalAlignment="Center"
                             Background="{DynamicResource DialogBackgroundColor}"
                             BorderThickness="1"
+                            MaxWidth="{TemplateBinding DialogMaxWidth}"
                             BorderBrush="{DynamicResource BorderColor}"
                             CornerRadius="{DynamicResource MediumCornerRadius}"
                             ClipToBounds="False">

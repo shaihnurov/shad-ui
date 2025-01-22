@@ -13,13 +13,23 @@
         <TextBox Classes="Clearable"
                  extensions:TextBox.Label="Email"
                  Watermark="user@example.com"
-                 Text="{Binding Email, Mode=TwoWay}" 
-                 extensions:Element.FocusOnLoad="True"/>
+                 Text="{Binding Email, Mode=TwoWay}"
+                 extensions:Element.FocusOnLoad="True" />
         <TextBox Classes="PasswordReveal"
                  extensions:TextBox.Label="Password"
                  PasswordChar="•"
                  Watermark="Enter password"
                  Text="{Binding Password, Mode=TwoWay}" />
-        <Button Margin="0,20,0,0" Classes="Primary" Command="{Binding SubmitCommand}" HotKey="Enter">Submit</Button>
+        <StackPanel Margin="0,24,0,0" Spacing="16">
+            <Button Classes="Primary"
+                    Command="{Binding SubmitCommand}" HotKey="Enter">
+                Submit
+            </Button>
+            <Button Classes="Outline"
+                    Command="{Binding CancelCommand}"
+                    HotKey="Escape">
+                Cancel
+            </Button>
+        </StackPanel>
     </StackPanel>
 </UserControl>

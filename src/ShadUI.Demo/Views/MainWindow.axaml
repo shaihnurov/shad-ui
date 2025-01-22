@@ -13,6 +13,7 @@
     mc:Ignorable="d" d:DesignWidth="800"
     x:Class="ShadUI.Demo.Views.MainWindow"
     x:DataType="viewModels:MainWindowViewModel"
+    Name="BaseWindow"
     Width="1024" Height="768"
     Icon="/Assets/favicon.ico"
     TitleFontWeight="SemiBold"
@@ -59,7 +60,7 @@
         <PathIcon Margin="8,8,0,8" Width="14" Height="14" Data="{x:Static contents:Icons.Logo}" />
     </controls:Window.LogoContent>
     <controls:Window.Hosts>
-        <dialogs:DialogHost />
+        <dialogs:DialogHost Manager="{Binding DialogManager}" Owner="{Binding ElementName=BaseWindow }" />
     </controls:Window.Hosts>
     <Panel>
         <controls:SidebarMenu>

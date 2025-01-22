@@ -1,25 +1,17 @@
-using System;
-using System.Threading.Tasks;
-
 namespace ShadUI.Dialogs;
 
 /// <summary>
 ///     Dialog options used to configure the dialog.
 /// </summary>
-public sealed class DialogOptions
+public class DialogOptions
 {
-    /// <summary>
-    ///     Invoked when the dialog is closed.
-    /// </summary>
-    public Action<bool>? Callback { get; set; }
-
-    /// <summary>
-    ///     Invoked when the dialog is closed asynchronously.
-    /// </summary>
-    public Func<bool, Task>? AsyncCallback { get; set; }
-
     /// <summary>
     ///     Determines whether the dialog can be dismissed other than clicking/tapping an action button.
     /// </summary>
-    public bool DismissibleDialog { get; set; }
+    public bool Dismissible { get; set; }
+
+    /// <summary>
+    ///     Determines the maximum width of the dialog.
+    /// </summary>
+    public double MaxWidth { get; set; }
 }

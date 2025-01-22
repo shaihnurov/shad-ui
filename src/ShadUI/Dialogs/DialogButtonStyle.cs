@@ -3,7 +3,7 @@
 /// <summary>
 ///     Defines the style of the button in the simple dialog.
 /// </summary>
-public enum SimpleDialogButtonStyle
+public enum DialogButtonStyle
 {
     /// <summary>
     ///     Sets the button style class as Primary.

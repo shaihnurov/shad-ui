@@ -1,13 +1,13 @@
-﻿using System;
-using System.Threading.Tasks;
-using CommunityToolkit.Mvvm.ComponentModel;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using ShadUI.Dialogs;
+using ShadUI.Toasts;
 
 namespace ShadUI.Demo.ViewModels;
 
 public sealed partial class DialogsViewModel(
-    DialogService dialogService,
+    DialogManager dialogManager,
+    ToastManager toastManager,
     LoginViewModel loginViewModel
 ) : ViewModelBase
 {
@@ -20,24 +20,24 @@ public sealed partial class DialogsViewModel(
                                       [RelayCommand]
                                       private void ShowDialog()
                                       {
-                                          dialogService.Show(new SimpleDialogOptions
-                                          {
-                                              Title = "Are you absolutely sure?",
-                                              Message =
-                                                  "This action cannot be undone. This will permanently delete your account and remove your data from our servers.",
-                                              PrimaryButtonText = "Continue",
-                                              CancelButtonText = "Cancel",
-                                              MaxWidth = 485,
-                                              AsyncCallback = OnSubmitAsync
-                                          });
+                                          dialogManager
+                                              .CreateDialog(
+                                                  "Are you absolutely sure?",
+                                                  "This action cannot be undone. This will permanently delete your account and remove your data from our servers.")
+                                              .WithPrimaryButton("Continue", OnSubmit)
+                                              .WithCancelButton("Cancel")
+                                              .WithMaxWidth(512)
+                                              .Dismissible()
+                                              .Show();
                                       }
 
                                       // Simulate a long-running operation
-                                      private static async Task OnSubmitAsync(SimpleDialogAction action)
+                                      private void OnSubmit()
                                       {
-                                          Console.WriteLine("Waiting for 2 seconds...");
-                                          await Task.Delay(2000);
-                                          Console.WriteLine(action);
+                                          toastManager.CreateToast("Delete account")
+                                              .WithContent("Account deleted successfully!")
+                                              .DismissOnClick()
+                                              .ShowSuccess();
                                       }
 
                                       // ..rest of the code
@@ -46,24 +46,23 @@ public sealed partial class DialogsViewModel(
     [RelayCommand]
     private void ShowDialog()
     {
-        dialogService.Show(new SimpleDialogOptions
-        {
-            Title = "Are you absolutely sure?",
-            Message =
-                "This action cannot be undone. This will permanently delete your account and remove your data from our servers.",
-            PrimaryButtonText = "Continue",
-            CancelButtonText = "Cancel",
-            MaxWidth = 485,
-            AsyncCallback = OnSubmitAsync
-        });
+        dialogManager
+            .CreateDialog(
+                "Are you absolutely sure?",
+                "This action cannot be undone. This will permanently delete your account and remove your data from our servers.")
+            .WithPrimaryButton("Continue", OnSubmit)
+            .WithCancelButton("Cancel")
+            .WithMaxWidth(512)
+            .Dismissible()
+            .Show();
     }
 
-    // Simulate a long-running operation
-    private static async Task OnSubmitAsync(SimpleDialogAction action)
+    private void OnSubmit()
     {
-        Console.WriteLine("Waiting for 2 seconds...");
-        await Task.Delay(2000);
-        Console.WriteLine(action);
+        toastManager.CreateToast("Delete account")
+            .WithContent("Account deleted successfully!")
+            .DismissOnClick()
+            .ShowSuccess();
     }
 
     [ObservableProperty]
@@ -75,24 +74,24 @@ public sealed partial class DialogsViewModel(
                                                  [RelayCommand]
                                                  private void ShowDialog()
                                                  {
-                                                     dialogService.Show(new SimpleDialogOptions
-                                                     {
-                                                         Title = "Are you absolutely sure?",
-                                                         Message = "This action cannot be undone. This will permanently delete your account and remove your data from our servers.",
-                                                         PrimaryButtonText = "Delete",
-                                                         PrimaryButtonStyle = SimpleDialogButtonStyle.Destructive,
-                                                         CancelButtonText = "Cancel",
-                                                         MaxWidth = 485,
-                                                         AsyncCallback = OnSubmitAsync
-                                                     });
+                                                     dialogManager
+                                                         .CreateDialog(
+                                                             "Are you absolutely sure?",
+                                                             "This action cannot be undone. This will permanently delete your account and remove your data from our servers.")
+                                                         .WithPrimaryButton("Continue", OnSubmit, DialogButtonStyle.Destructive)
+                                                         .WithCancelButton("Cancel")
+                                                         .WithMaxWidth(512)
+                                                         .Dismissible()
+                                                         .Show();
                                                  }
 
                                                  // Simulate a long-running operation
-                                                 private static async Task OnSubmitAsync(SimpleDialogAction action)
+                                                 private void OnSubmit()
                                                  {
-                                                     Console.WriteLine("Waiting for 2 seconds...");
-                                                     await Task.Delay(2000);
-                                                     Console.WriteLine(action);
+                                                     toastManager.CreateToast("Delete account")
+                                                         .WithContent("Account deleted successfully!")
+                                                         .DismissOnClick()
+                                                         .ShowSuccess();
                                                  }
 
                                                  // ..rest of the code
@@ -101,17 +100,15 @@ public sealed partial class DialogsViewModel(
     [RelayCommand]
     private void ShowDestructiveStyleDialog()
     {
-        dialogService.Show(new SimpleDialogOptions
-        {
-            Title = "Are you absolutely sure?",
-            Message =
-                "This action cannot be undone. This will permanently delete your account and remove your data from our servers.",
-            PrimaryButtonText = "Delete",
-            PrimaryButtonStyle = SimpleDialogButtonStyle.Destructive,
-            CancelButtonText = "Cancel",
-            MaxWidth = 485,
-            AsyncCallback = OnSubmitAsync
-        });
+        dialogManager
+            .CreateDialog(
+                "Are you absolutely sure?",
+                "This action cannot be undone. This will permanently delete your account and remove your data from our servers.")
+            .WithPrimaryButton("Continue", OnSubmit, DialogButtonStyle.Destructive)
+            .WithCancelButton("Cancel")
+            .WithMaxWidth(512)
+            .Dismissible()
+            .Show();
     }
 
     [ObservableProperty]
@@ -124,11 +121,19 @@ public sealed partial class DialogsViewModel(
                                        private void ShowCustomDialog()
                                        {
                                            loginViewModel.Initialize();
-                                           dialogService.Show(loginViewModel, new DialogOptions
-                                           {
-                                               DismissibleDialog = true,
-                                               Callback = result => Console.WriteLine(result ? "Login successful!" : "Login failed!")
-                                           });
+                                           dialogManager.CreateDialog(loginViewModel)
+                                               .Dismissible()
+                                               .WithSuccessCallback(() =>
+                                                   toastManager.CreateToast("Sign in successful")
+                                                       .WithContent("Welcome back!")
+                                                       .DismissOnClick()
+                                                       .ShowSuccess())
+                                               .WithCancelCallback(() =>
+                                                   toastManager.CreateToast("Sign in cancelled")
+                                                       .WithContent("Please sign in to continue.")
+                                                       .DismissOnClick()
+                                                       .ShowWarning())
+                                               .Show();
                                        }
 
                                        // ..rest of the code
@@ -138,10 +143,18 @@ public sealed partial class DialogsViewModel(
     private void ShowCustomDialog()
     {
         loginViewModel.Initialize();
-        dialogService.Show(loginViewModel, new DialogOptions
-        {
-            DismissibleDialog = true,
-            Callback = result => Console.WriteLine(result ? "Login successful!" : "Login failed!")
-        });
+        dialogManager.CreateDialog(loginViewModel)
+            .Dismissible()
+            .WithSuccessCallback(() =>
+                toastManager.CreateToast("Sign in successful")
+                    .WithContent("Welcome back!")
+                    .DismissOnClick()
+                    .ShowSuccess())
+            .WithCancelCallback(() =>
+                toastManager.CreateToast("Sign in cancelled")
+                    .WithContent("Please sign in to continue.")
+                    .DismissOnClick()
+                    .ShowWarning())
+            .Show();
     }
 }
