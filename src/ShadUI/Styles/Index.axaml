@@ -7,5 +7,4 @@
     <StyleInclude Source="avares://ShadUI/Styles/ScrollViewer.axaml" />
     <StyleInclude Source="avares://ShadUI/Styles/Separator.axaml" />
     <StyleInclude Source="avares://ShadUI/Styles/TextBlock.axaml" />
-    <StyleInclude Source="avares://ShadUI/Styles/ToggleSwitch.axaml" />
 </Styles>
