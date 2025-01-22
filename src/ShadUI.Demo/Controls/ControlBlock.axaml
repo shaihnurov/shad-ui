@@ -4,7 +4,6 @@
     xmlns:controls="clr-namespace:ShadUI.Demo.Controls">
     <ControlTheme x:Key="{x:Type controls:ControlBlock}"
                   TargetType="controls:ControlBlock">
-        <Setter Property="CodeBlockHeight" Value="150" />
         <Setter Property="Template">
             <ControlTemplate>
                 <StackPanel Spacing="16">
@@ -21,7 +20,6 @@
                             </TabItem>
                             <TabItem Header="Code">
                                 <controls:CodeTextBlock
-                                    Height="{TemplateBinding CodeBlockHeight}"
                                     Text="{TemplateBinding Code}"
                                     Language="{TemplateBinding Language}" />
                             </TabItem>

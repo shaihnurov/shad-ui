@@ -21,17 +21,15 @@
                 <controls:ControlBlock
                     Title="Default"
                     Language="xaml"
-                    Code="{Binding DefaultSliderCode}"
-                    CodeBlockHeight="120">
+                    Code="{Binding DefaultSliderCode}">
                     <StackPanel>
-                        <Slider Value="5" Maximum="10" TickFrequency="1"/>
+                        <Slider Value="5" Maximum="10" TickFrequency="1" />
                     </StackPanel>
                 </controls:ControlBlock>
                 <controls:ControlBlock
                     Title="Disabled"
                     Language="xaml"
-                    Code="{Binding DisabledSliderCode}"
-                    CodeBlockHeight="120">
+                    Code="{Binding DisabledSliderCode}">
                     <StackPanel>
                         <Slider IsEnabled="False" Value="5" Maximum="10" TickFrequency="1" />
                     </StackPanel>
@@ -39,10 +37,10 @@
                 <controls:ControlBlock
                     Title="Tick Enabled"
                     Language="xaml"
-                    Code="{Binding TickEnabledSliderCode}"
-                    CodeBlockHeight="120">
+                    Code="{Binding TickEnabledSliderCode}">
                     <StackPanel>
-                        <Slider TickPlacement="BottomRight" IsSnapToTickEnabled="True" Value="5" Maximum="10" TickFrequency="1" />
+                        <Slider TickPlacement="BottomRight" IsSnapToTickEnabled="True" Value="5" Maximum="10"
+                                TickFrequency="1" />
                     </StackPanel>
                 </controls:ControlBlock>
             </StackPanel>

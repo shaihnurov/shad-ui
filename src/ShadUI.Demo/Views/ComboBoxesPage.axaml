@@ -23,8 +23,7 @@
                 <controls:ControlBlock
                     Title="Select"
                     Language="xaml"
-                    Code="{Binding SelectComboBoxCode}"
-                    CodeBlockHeight="250">
+                    Code="{Binding SelectComboBoxCode}">
                     <StackPanel Spacing="8">
                         <ComboBox Width="255"
                                   HorizontalContentAlignment="Center"
@@ -40,8 +39,7 @@
                 <controls:ControlBlock
                     Title="Disabled"
                     Language="xaml"
-                    Code="{Binding SelectComboBoxDisabledCode}"
-                    CodeBlockHeight="250">
+                    Code="{Binding SelectComboBoxDisabledCode}">
                     <StackPanel Spacing="8">
                         <ComboBox Width="255"
                                   IsEnabled="False"
@@ -58,8 +56,7 @@
                 <controls:ControlBlock
                     Title="Form Validation"
                     Language="xaml"
-                    Code="{Binding FormValidationCode}"
-                    CodeBlockHeight="275">
+                    Code="{Binding FormValidationCode}">
                     <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
                         <Border Classes="Card Bordered" Padding="40" HorizontalAlignment="Center">
                             <StackPanel Spacing="16">

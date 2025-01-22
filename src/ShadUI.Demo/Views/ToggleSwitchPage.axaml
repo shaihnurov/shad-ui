@@ -23,8 +23,7 @@
                 <controls:ControlBlock
                     Title="Default"
                     Language="xaml"
-                    Code="{Binding EnableCode}"
-                    CodeBlockHeight="250">
+                    Code="{Binding EnableCode}">
                     <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Spacing="8">
                         <ToggleSwitch>
                             <ToggleSwitch.OffContent>
@@ -39,8 +38,7 @@
                 <controls:ControlBlock
                     Title="Disabled"
                     Language="xaml"
-                    Code="{Binding DisableCode}"
-                    CodeBlockHeight="250">
+                    Code="{Binding DisableCode}">
                     <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Spacing="8">
                         <ToggleSwitch IsEnabled="False" IsChecked="True">
                             <ToggleSwitch.OffContent>
@@ -55,8 +53,7 @@
                 <controls:ControlBlock
                     Title="Right Aligned Content"
                     Language="xaml"
-                    Code="{Binding RightAlignedCode}"
-                    CodeBlockHeight="250">
+                    Code="{Binding RightAlignedCode}">
                     <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Spacing="8">
                         <ToggleSwitch extensions:ToggleSwitch.RightAlignedContent="True">
                             <ToggleSwitch.OffContent>

@@ -20,8 +20,7 @@
                 <controls:ControlBlock
                     Title="Primary"
                     Language="xaml"
-                    Code="{Binding PrimaryCode}"
-                    CodeBlockHeight="400">
+                    Code="{Binding PrimaryCode}">
                     <StackPanel Spacing="8" Orientation="Horizontal" HorizontalAlignment="Center">
                         <Button Classes="Primary" Content="Primary" />
                         <Button Classes="Primary" Content="Edit">
@@ -42,8 +41,7 @@
                 <controls:ControlBlock
                     Title="Secondary"
                     Language="xaml"
-                    Code="{Binding SecondaryCode}"
-                    CodeBlockHeight="400">
+                    Code="{Binding SecondaryCode}">
                     <StackPanel Spacing="8" Orientation="Horizontal" HorizontalAlignment="Center">
                         <Button Classes="Secondary" Content="Secondary" />
                         <Button Classes="Secondary" Content="Edit">
@@ -64,8 +62,7 @@
                 <controls:ControlBlock
                     Title="Destructive"
                     Language="xaml"
-                    Code="{Binding DestructiveCode}"
-                    CodeBlockHeight="400">
+                    Code="{Binding DestructiveCode}">
                     <StackPanel Spacing="8" Orientation="Horizontal" HorizontalAlignment="Center">
                         <Button Classes="Destructive" Content="Destructive" />
                         <Button Classes="Destructive" Content="Delete">
@@ -86,8 +83,7 @@
                 <controls:ControlBlock
                     Title="Outline"
                     Language="xaml"
-                    Code="{Binding OutlineCode}"
-                    CodeBlockHeight="400">
+                    Code="{Binding OutlineCode}">
                     <StackPanel Spacing="8" Orientation="Horizontal" HorizontalAlignment="Center">
                         <Button Classes="Outline" Content="Outline" />
                         <Button Classes="Outline" Content="Edit">
@@ -108,8 +104,7 @@
                 <controls:ControlBlock
                     Title="Ghost"
                     Language="xaml"
-                    Code="{Binding GhostCode}"
-                    CodeBlockHeight="400">
+                    Code="{Binding GhostCode}">
                     <StackPanel Spacing="8" Orientation="Horizontal" HorizontalAlignment="Center">
                         <Button Classes="Ghost" Content="Ghost" />
                         <Button Classes="Ghost" Content="Edit">
@@ -130,8 +125,7 @@
                 <controls:ControlBlock
                     Title="Icon"
                     Language="xaml"
-                    Code="{Binding IconCode}"
-                    CodeBlockHeight="400">
+                    Code="{Binding IconCode}">
                     <StackPanel Spacing="8" Orientation="Horizontal" HorizontalAlignment="Center">
                         <Button Classes="Icon" BorderBrush="{DynamicResource BorderColor}">
                             <extensions:Button.Icon>
@@ -157,8 +151,7 @@
                 <controls:ControlBlock
                     Title="Destructive Icon"
                     Language="xaml"
-                    Code="{Binding DestructiveIconCode}"
-                    CodeBlockHeight="400">
+                    Code="{Binding DestructiveIconCode}">
                     <StackPanel Spacing="8" Orientation="Horizontal" HorizontalAlignment="Center">
                         <Button Classes="DestructiveIcon">
                             <extensions:Button.Icon>

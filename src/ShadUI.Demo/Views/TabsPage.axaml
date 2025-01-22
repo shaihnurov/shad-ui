@@ -22,9 +22,8 @@
                 <controls:ControlBlock
                     Title="Basic Tab"
                     Code="{Binding BasicTabCode}"
-                    Language="xaml"
-                    CodeBlockHeight="350">
-                    <controls:ControlBlock Title="h1" Code="{Binding H1Code}" Language="xaml" CodeBlockHeight="100">
+                    Language="xaml">
+                    <controls:ControlBlock Title="h1" Code="{Binding H1Code}" Language="xaml">
                         <TextBlock TextWrapping="Wrap" Classes="h1"
                                    Text="Taxing Laughter: The Joke Tax Chronicles" />
                     </controls:ControlBlock>

@@ -94,8 +94,7 @@
                 <controls:ControlBlock
                     Title="Alert Dialog"
                     Language="cs"
-                    Code="{Binding AlertDialogCode}"
-                    CodeBlockHeight="350">
+                    Code="{Binding AlertDialogCode}">
                     <StackPanel>
                         <Button Command="{Binding ShowDialogCommand }" Classes="Outline" Content="Show Dialog"
                                 HorizontalAlignment="Center" />
@@ -104,8 +103,7 @@
                 <controls:ControlBlock
                     Title="Destructive Style Dialog"
                     Language="cs"
-                    Code="{Binding DestructiveAlertDialogCode}"
-                    CodeBlockHeight="350">
+                    Code="{Binding DestructiveAlertDialogCode}">
                     <StackPanel>
                         <Button Command="{Binding ShowDestructiveStyleDialogCommand }" Classes="Outline"
                                 Content="Show Dialog"
@@ -115,8 +113,7 @@
                 <controls:ControlBlock
                     Title="Custom Dialog"
                     Language="cs"
-                    Code="{Binding CustomDialogCode}"
-                    CodeBlockHeight="350">
+                    Code="{Binding CustomDialogCode}">
                     <StackPanel>
                         <Button Command="{Binding ShowCustomDialogCommand }" Classes="Outline"
                                 Content="Show Dialog"

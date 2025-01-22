@@ -31,13 +31,4 @@ public class ControlBlock : ContentControl
         get => GetValue(TitleProperty);
         set => SetValue(TitleProperty, value);
     }
-    
-    public static readonly StyledProperty<double?> CodeBlockHeightProperty =
-        AvaloniaProperty.Register<CodeTextBlock, double?>(nameof(CodeBlockHeight));
-    
-    public double? CodeBlockHeight
-    {
-        get => GetValue(CodeBlockHeightProperty);
-        set => SetValue(CodeBlockHeightProperty, value);
-    }
 }
