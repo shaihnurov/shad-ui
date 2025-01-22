@@ -8,27 +8,31 @@
     mc:Ignorable="d" d:DesignWidth="800"
     x:Class="ShadUI.Demo.Views.TabsPage"
     x:DataType="viewModels:TabsViewModel">
-    <ScrollViewer>
-        <Panel Margin="48 24" MaxWidth="1024">
-            <StackPanel Spacing="32">
-                <StackPanel>
-                    <TextBlock Classes="h3" Text="Tabs" />
-                    <TextBlock
-                        Classes="p"
-                        TextWrapping="Wrap"
-                        HorizontalAlignment="Left"
-                        Text="A set of layered sections of content—known as tab panels—that are displayed one at a time." />
-                </StackPanel>
-                <controls:ControlBlock
-                    Title="Basic Tab"
-                    Code="{Binding BasicTabCode}"
-                    Language="xaml">
-                    <controls:ControlBlock Title="h1" Code="{Binding H1Code}" Language="xaml">
-                        <TextBlock TextWrapping="Wrap" Classes="h1"
-                                   Text="Taxing Laughter: The Joke Tax Chronicles" />
+    <DockPanel LastChildFill="True">
+        <StackPanel DockPanel.Dock="Top" Margin="48 24" MaxWidth="1024">
+            <TextBlock Classes="h3" Text="Tabs" />
+            <TextBlock
+                Classes="p"
+                TextWrapping="Wrap"
+                HorizontalAlignment="Left"
+                Text="A set of layered sections of content—known as tab panels—that are displayed one at a time." />
+        </StackPanel>
+        <ScrollViewer>
+            <Panel Margin="48 24" MaxWidth="1024">
+                <StackPanel Spacing="32">
+
+                    <controls:ControlBlock
+                        Title="Basic Tab"
+                        Code="{Binding BasicTabCode}"
+                        Language="xaml">
+                        <controls:ControlBlock Title="h1" Code="{Binding H1Code}" Language="xaml">
+                            <TextBlock TextWrapping="Wrap" Classes="h1"
+                                       Text="Taxing Laughter: The Joke Tax Chronicles" />
+                        </controls:ControlBlock>
                     </controls:ControlBlock>
-                </controls:ControlBlock>
-            </StackPanel>
-        </Panel>
-    </ScrollViewer>
+                </StackPanel>
+            </Panel>
+        </ScrollViewer>
+    </DockPanel>
+
 </UserControl>
