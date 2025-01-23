@@ -12,7 +12,7 @@
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
-        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Background" Value="{DynamicResource BackgroundColor}" />
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="Width" Value="46" />
         <Setter Property="Height" Value="32" />
@@ -24,9 +24,8 @@
         </Setter>
         <Setter Property="Template">
             <ControlTemplate>
-                <Border>
+                <Border Name="PART_Container" Background="{TemplateBinding Background}">
                     <ContentPresenter
-                        Background="{TemplateBinding Background}"
                         Foreground="{TemplateBinding Foreground}"
                         Width="{TemplateBinding Width}"
                         Height="{TemplateBinding Height}"
@@ -34,18 +33,12 @@
                         HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                         VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                         Content="{TemplateBinding Content}"
-                        RecognizesAccessKey="True">
-                        <ContentPresenter.Transitions>
-                            <Transitions>
-                                <BrushTransition Property="Background" Duration="0:0:0.20" />
-                            </Transitions>
-                        </ContentPresenter.Transitions>
-                    </ContentPresenter>
+                        RecognizesAccessKey="True" />
                 </Border>
             </ControlTemplate>
         </Setter>
         <Style Selector="^:pointerover">
-            <Setter Property="Background" Value="{DynamicResource PrimaryColor10}" />
+            <Setter Property="Background" Value="{DynamicResource WindowButtonHoverColor}" />
         </Style>
         <Style Selector="^.Close">
             <Style Selector="^:pointerover">

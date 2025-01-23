@@ -13,7 +13,8 @@
     <Color x:Key="SidebarBackgroundColor">#F2F2F2</Color>
     <Color x:Key="TitleBarBackgroundColor">#F2F2F2</Color>
     <Color x:Key="WindowBackgroundColor">#EBEBEB</Color>
-   
+    <Color x:Key="WindowButtonHoverColor">#0D09090B</Color>
+
     <Color x:Key="SwitchForegroundColor">#F2F2F2</Color>
     <Color x:Key="SwitchBackgroundColor">#C0C0C2</Color>
 
