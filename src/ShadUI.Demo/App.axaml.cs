@@ -6,6 +6,7 @@ using Avalonia.Markup.Xaml;
 using Microsoft.Extensions.DependencyInjection;
 using ShadUI.Demo.ViewModels;
 using ShadUI.Demo.Views;
+using ShadUI.Themes;
 
 namespace ShadUI.Demo;
 
@@ -29,8 +30,11 @@ public class App : Application
             .BuildServiceProvider()
             .RegisterDialogs();
 
+        var themeWatcher = serviceProvider.GetRequiredService<ThemeWatcher>();
+        themeWatcher.Initialize();
         var viewModel = serviceProvider.GetRequiredService<MainWindowViewModel>();
         viewModel.Initialize();
+
         desktop.MainWindow = new MainWindow { DataContext = viewModel };
 
         base.OnFrameworkInitializationCompleted();

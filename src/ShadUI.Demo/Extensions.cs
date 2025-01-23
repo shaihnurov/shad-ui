@@ -2,11 +2,13 @@
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Reflection;
+using Avalonia;
 using Avalonia.Data.Converters;
 using Microsoft.Extensions.DependencyInjection;
 using ShadUI.Demo.ViewModels;
 using ShadUI.Demo.Views;
 using ShadUI.Dialogs;
+using ShadUI.Themes;
 using ShadUI.Toasts;
 
 namespace ShadUI.Demo;
@@ -16,6 +18,7 @@ public static class Extensions
     public static void AddServices(this IServiceCollection collection)
     {
         collection.AddTransientFromNamespace("ShadUI.Demo.ViewModels", typeof(Extensions).Assembly);
+        collection.AddSingleton(new ThemeWatcher(Application.Current!));
         collection.AddSingleton<DialogManager>();
         collection.AddSingleton<ToastManager>();
     }

@@ -46,6 +46,7 @@ public sealed partial class MainWindowViewModel(
     private async Task OpenDashboard()
     {
         await SwitchPage(dashboardViewModel);
+        dashboardViewModel.Initialize();
     }
 
     [RelayCommand]
