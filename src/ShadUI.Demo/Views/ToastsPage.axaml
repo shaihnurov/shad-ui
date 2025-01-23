@@ -9,7 +9,7 @@
     x:Class="ShadUI.Demo.Views.ToastsPage"
     x:DataType="viewModels:ToastsViewModel">
     <DockPanel>
-        <StackPanel DockPanel.Dock="Top" MaxWidth="1024" Margin="48 24">
+        <StackPanel DockPanel.Dock="Top" MaxWidth="1536" Margin="48 24">
             <TextBlock Classes="h3" Text="Toast" />
             <TextBlock
                 Classes="p"
@@ -18,7 +18,7 @@
                 Text="A succinct message that is displayed temporarily." />
         </StackPanel>
         <ScrollViewer>
-            <Panel Margin="48 24" MaxWidth="1024">
+            <Panel Margin="48 24" MaxWidth="1536">
                 <StackPanel Spacing="32">
                     <StackPanel Spacing="8" Orientation="Vertical">
                         <TextBlock Text="Installation" Classes="h4" />

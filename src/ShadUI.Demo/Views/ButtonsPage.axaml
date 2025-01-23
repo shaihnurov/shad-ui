@@ -11,12 +11,12 @@
     x:Class="ShadUI.Demo.Views.ButtonsPage"
     x:DataType="viewModels:ButtonsViewModel">
     <DockPanel LastChildFill="True">
-        <StackPanel DockPanel.Dock="Top" Margin="48 24" MaxWidth="1024">
+        <StackPanel DockPanel.Dock="Top" Margin="48 24" MaxWidth="1536">
             <TextBlock Classes="h3" Text="Button" />
             <TextBlock Classes="p" Text="Displays a button component" />
         </StackPanel>
         <ScrollViewer>
-            <Panel Margin="48 24" MaxWidth="1024">
+            <Panel Margin="48 24" MaxWidth="1536">
                 <StackPanel Spacing="32">
                     <controls:ControlBlock
                         Title="Primary"
