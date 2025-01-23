@@ -8,9 +8,79 @@ namespace ShadUI.Contents;
 public static class Icons
 {
     /// <summary>
-    ///     Logo icon.
+    ///     Checkmark icon.
+    /// </summary>
+    public static readonly StreamGeometry Check = Parse("M9,18c-.26,0-.51-.1-.71-.29l-5-5c-.39-.39-.39-1.02,0-1.41s1.02-.39,1.41,0l4.29,4.29,10.29-10.29c.39-.39,1.02-.39,1.41,0s.39,1.02,0,1.41l-11,11c-.2.2-.45.29-.71.29Z");
+
+    /// <summary>
+    ///     Chevron pointing down icon.
+    /// </summary>
+    public static readonly StreamGeometry ChevronDown = Parse("M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z");
+
+    /// <summary>
+    ///     Chevron pointing up icon.
+    /// </summary>
+    public static readonly StreamGeometry ChevronUp = Parse("M7.41,15.41L12,10.83L16.59,15.41L18,14L12,8L6,14L7.41,15.41Z");
+
+    /// <summary>
+    ///     Chevron pointing left icon.
+    /// </summary>
+    public static readonly StreamGeometry ChevronLeft = Parse("M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z");
+
+    /// <summary>
+    ///     Chevron pointing right icon.
+    /// </summary>
+    public static readonly StreamGeometry ChevronRight = Parse("M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z");
+
+    /// <summary>
+    ///     Up and down chevron combination icon.
+    /// </summary>
+    public static readonly StreamGeometry ChevronUpDown = Parse("M6,18c-.26,0-.51-.1-.71-.29L.29,12.71c-.39-.39-.39-1.02,0-1.41s1.02-.39,1.41,0l4.29,4.29,4.29-4.29c.39-.39,1.02-.39,1.41,0s.39,1.02,0,1.41l-5,5c-.2.2-.45.29-.71.29ZM11.71,6.71c.39-.39.39-1.02,0-1.41L6.71.29c-.39-.39-1.02-.39-1.41,0L.29,5.29c-.39.39-.39,1.02,0,1.41s1.02.39,1.41,0L6,2.41l4.29,4.29c.2.2.45.29.71.29s.51-.1.71-.29Z");
+
+    /// <summary>
+    ///     Clipboard icon.
+    /// </summary>
+    public static readonly StreamGeometry ClipBoard = Parse("M15,2h-1c0-1.1-.9-2-2-2h-6c-1.1,0-2,.9-2,2h-1c-1.65,0-3,1.35-3,3v14c0,1.65,1.35,3,3,3h12c1.65,0,3-1.35,3-3V5c0-1.65-1.35-3-3-3ZM6,2h6v2h-6v-2ZM16,19c0,.55-.45,1-1,1H3c-.55,0-1-.45-1-1V5c0-.55.45-1,1-1h1c0,1.1.9,2,2,2h6c1.1,0,2-.9,2-2h1c.55,0,1,.45,1,1v14Z");
+
+    /// <summary>
+    ///     Clipboard with checkmark icon.
+    /// </summary>
+    public static readonly StreamGeometry ClipBoardCheck = Parse("M15,2h-1c0-1.1-.9-2-2-2h-6c-1.1,0-2,.9-2,2h-1c-1.65,0-3,1.35-3,3v14c0,1.65,1.35,3,3,3h12c1.65,0,3-1.35,3-3V5c0-1.65-1.35-3-3-3ZM6,2h6v2h-6v-2ZM16,19c0,.55-.45,1-1,1H3c-.55,0-1-.45-1-1V5c0-.55.45-1,1-1h1c0,1.1.9,2,2,2h6c1.1,0,2-.9,2-2h1c.55,0,1,.45,1,1v14ZM8,16c-.26,0-.51-.1-.71-.29l-2-2c-.39-.39-.39-1.02,0-1.41s1.02-.39,1.41,0l1.29,1.29,3.29-3.29c.39-.39,1.02-.39,1.41,0s.39,1.02,0,1.41l-4,4c-.2.2-.45.29-.71.29Z");
+
+    /// <summary>
+    ///     Cross (X) icon.
+    /// </summary>
+    public static readonly StreamGeometry Cross = Parse("M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z");
+
+    /// <summary>
+    ///     Error indicator icon showing a circle with an exclamation mark.
+    /// </summary>
+    public static readonly StreamGeometry Error = Parse("M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-5a.75.75 0 01.75.75v4.5a.75.75 0 01-1.5 0v-4.5A.75.75 0 0110 5zm0 10a1 1 0 100-2 1 1 0 000 2z");
+
+    /// <summary>
+    ///     Information icon showing a circle with an 'i'.
+    /// </summary>
+    public static readonly StreamGeometry Info = Parse("M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a.75.75 0 000 1.5h.253a.25.25 0 01.244.304l-.459 2.066A1.75 1.75 0 0010.747 15H11a.75.75 0 000-1.5h-.253a.25.25 0 01-.244-.304l.459-2.066A1.75 1.75 0 009.253 9H9z");
+
+    /// <summary>
+    ///     Application logo icon.
     /// </summary>
     public static readonly StreamGeometry Logo = Parse("M128 224c-4.1 0-8.2-1.6-11.3-4.7-6.2-6.2-6.2-16.4 0-22.6l80-80c6.2-6.2 16.4-6.2 22.6 0 6.2 6.2 6.2 16.4 0 22.6l-80 80c-3.1 3.1-7.2 4.7-11.3 4.7zM44.4 107.4l63-63c4.9-4.9 4.9-12.9 0-17.8s-12.9-4.9-17.8 0l-63 63c-4.9 4.9-4.9 12.9 0 17.8 2.5 2.5 5.7 3.7 8.9 3.7s6.4-1.2 8.9-3.7zm6.9 95.9l152-152c6.2-6.2 6.2-16.4 0-22.6-6.2-6.2-16.4-6.2-22.6 0l-152 152c-6.2 6.2-6.2 16.4 0 22.6 3.1 3.1 7.2 4.7 11.3 4.7s8.2-1.6 11.3-4.7z");
+
+    /// <summary>
+    ///     Side panel toggle icon.
+    /// </summary>
+    public static readonly StreamGeometry SidePanel = Parse("M17,0H3C1.35,0,0,1.35,0,3v14c0,1.65,1.35,3,3,3h14c1.65,0,3-1.35,3-3V3c0-1.65-1.35-3-3-3ZM2,17V3c0-.55.45-1,1-1h9v16H3c-.55,0-1-.45-1-1ZM18,17c0,.55-.45,1-1,1h-3V2h3c.55,0,1,.45,1,1v14Z");
+
+    /// <summary>
+    ///     Success indicator icon showing a circle with a checkmark.
+    /// </summary>
+    public static readonly StreamGeometry Success = Parse("M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z");
+
+    /// <summary>
+    ///     Warning indicator icon showing a triangle with an exclamation mark.
+    /// </summary>
+    public static readonly StreamGeometry Warning = Parse("M14.82,12.34L9.22,1.02C8.87.36,8.31.03,7.62,0c-.7-.02-1.11.21-1.48.64-.09.11-.14.17-.25.37L.18,12.32c-.61,1.27.42,2.7,1.67,2.72h11.29c1.38-.02,2.22-1.56,1.68-2.7ZM8,12.21c-.12.13-.29.19-.51.19s-.39-.06-.51-.19c-.12-.12-.18-.27-.18-.46s.07-.34.19-.47c.12-.12.29-.19.5-.19s.39.07.51.19c.12.13.18.28.18.47s-.06.34-.18.46ZM6.84,5.04h1.28l-.12,5.14h-1.05l-.11-5.14Z");
 
     /// <summary>
     ///     Minimize window icon.
@@ -32,63 +102,5 @@ public static class Icons
     /// </summary>
     public static readonly StreamGeometry WindowClose = Parse("M36,41.1,6.15,71a3.44,3.44,0,0,1-2.53,1A3.55,3.55,0,0,1,0,68.38a3.44,3.44,0,0,1,1.05-2.53L30.9,36,1.05,6.15A3.49,3.49,0,0,1,0,3.59,3.51,3.51,0,0,1,.28,2.18,3.42,3.42,0,0,1,1.05,1,3.82,3.82,0,0,1,2.21.28,3.58,3.58,0,0,1,3.62,0,3.44,3.44,0,0,1,6.15,1.05L36,30.9,65.85,1.05a3.49,3.49,0,0,1,2.56-1A3.39,3.39,0,0,1,69.8.28,3.8,3.8,0,0,1,71,1.05a3.8,3.8,0,0,1,.77,1.15A3.39,3.39,0,0,1,72,3.59a3.49,3.49,0,0,1-1,2.56L41.1,36,71,65.85a3.44,3.44,0,0,1,1,2.53,3.58,3.58,0,0,1-.28,1.41A3.82,3.82,0,0,1,71,71a3.42,3.42,0,0,1-1.14.77,3.66,3.66,0,0,1-4-.77Z");
 
-    /// <summary>
-    ///     Arrow-up icon.
-    /// </summary>
-    public static readonly StreamGeometry ChevronUp = Parse("M7.41,15.41L12,10.83L16.59,15.41L18,14L12,8L6,14L7.41,15.41Z");
-
-    /// <summary>
-    ///     Arrow-down icon.
-    /// </summary>
-    public static readonly StreamGeometry ChevronDown = Parse("M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z");
-
-    /// <summary>
-    ///     Arrow-left icon.
-    /// </summary>
-    public static readonly StreamGeometry ChevronLeft = Parse("M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z");
-
-    /// <summary>
-    ///     Arrow-right icon.
-    /// </summary>
-    public static readonly StreamGeometry ChevronRight = Parse("M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z");
-
-    /// <summary>
-    ///     Side panel icon.
-    /// </summary>
-    public static readonly StreamGeometry SidePanel = Parse("M17,0H3C1.35,0,0,1.35,0,3v14c0,1.65,1.35,3,3,3h14c1.65,0,3-1.35,3-3V3c0-1.65-1.35-3-3-3ZM2,17V3c0-.55.45-1,1-1h9v16H3c-.55,0-1-.45-1-1ZM18,17c0,.55-.45,1-1,1h-3V2h3c.55,0,1,.45,1,1v14Z");
-
-    /// <summary>
-    ///     Cross icon.
-    /// </summary>
-    public static readonly StreamGeometry Cross = Parse("M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z");
-    
-    /// <summary>
-    ///     Clipboard icon.
-    /// </summary>
-    public static readonly StreamGeometry ClipBoard = Parse("M15,2h-1c0-1.1-.9-2-2-2h-6c-1.1,0-2,.9-2,2h-1c-1.65,0-3,1.35-3,3v14c0,1.65,1.35,3,3,3h12c1.65,0,3-1.35,3-3V5c0-1.65-1.35-3-3-3ZM6,2h6v2h-6v-2ZM16,19c0,.55-.45,1-1,1H3c-.55,0-1-.45-1-1V5c0-.55.45-1,1-1h1c0,1.1.9,2,2,2h6c1.1,0,2-.9,2-2h1c.55,0,1,.45,1,1v14Z");
-
-    /// <summary>
-    ///     Check icon.
-    /// </summary>
-    public static readonly StreamGeometry Check = Parse("M9,18c-.26,0-.51-.1-.71-.29l-5-5c-.39-.39-.39-1.02,0-1.41s1.02-.39,1.41,0l4.29,4.29,10.29-10.29c.39-.39,1.02-.39,1.41,0s.39,1.02,0,1.41l-11,11c-.2.2-.45.29-.71.29Z");
-
-    /// <summary>
-    ///     Clipboard icon.
-    /// </summary>
-    public static readonly StreamGeometry ClipBoardCheck = Parse("M15,2h-1c0-1.1-.9-2-2-2h-6c-1.1,0-2,.9-2,2h-1c-1.65,0-3,1.35-3,3v14c0,1.65,1.35,3,3,3h12c1.65,0,3-1.35,3-3V5c0-1.65-1.35-3-3-3ZM6,2h6v2h-6v-2ZM16,19c0,.55-.45,1-1,1H3c-.55,0-1-.45-1-1V5c0-.55.45-1,1-1h1c0,1.1.9,2,2,2h6c1.1,0,2-.9,2-2h1c.55,0,1,.45,1,1v14ZM8,16c-.26,0-.51-.1-.71-.29l-2-2c-.39-.39-.39-1.02,0-1.41s1.02-.39,1.41,0l1.29,1.29,3.29-3.29c.39-.39,1.02-.39,1.41,0s.39,1.02,0,1.41l-4,4c-.2.2-.45.29-.71.29Z");
-
-    /// <summary>
-    ///     Up-down chevron icon.
-    /// </summary>
-    public static readonly StreamGeometry ChevronUpDown = Parse("M6,18c-.26,0-.51-.1-.71-.29L.29,12.71c-.39-.39-.39-1.02,0-1.41s1.02-.39,1.41,0l4.29,4.29,4.29-4.29c.39-.39,1.02-.39,1.41,0s.39,1.02,0,1.41l-5,5c-.2.2-.45.29-.71.29ZM11.71,6.71c.39-.39.39-1.02,0-1.41L6.71.29c-.39-.39-1.02-.39-1.41,0L.29,5.29c-.39.39-.39,1.02,0,1.41s1.02.39,1.41,0L6,2.41l4.29,4.29c.2.2.45.29.71.29s.51-.1.71-.29Z");
-
-
-    public static readonly StreamGeometry Success = Parse("M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z");
-    
-    public static readonly StreamGeometry Error = Parse("M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-5a.75.75 0 01.75.75v4.5a.75.75 0 01-1.5 0v-4.5A.75.75 0 0110 5zm0 10a1 1 0 100-2 1 1 0 000 2z");
-    
-    public static readonly StreamGeometry Info = Parse("M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a.75.75 0 000 1.5h.253a.25.25 0 01.244.304l-.459 2.066A1.75 1.75 0 0010.747 15H11a.75.75 0 000-1.5h-.253a.25.25 0 01-.244-.304l.459-2.066A1.75 1.75 0 009.253 9H9z");
-
-    public static readonly StreamGeometry Warning = Parse("M14.82,12.34L9.22,1.02C8.87.36,8.31.03,7.62,0c-.7-.02-1.11.21-1.48.64-.09.11-.14.17-.25.37L.18,12.32c-.61,1.27.42,2.7,1.67,2.72h11.29c1.38-.02,2.22-1.56,1.68-2.7ZM8,12.21c-.12.13-.29.19-.51.19s-.39-.06-.51-.19c-.12-.12-.18-.27-.18-.46s.07-.34.19-.47c.12-.12.29-.19.5-.19s.39.07.51.19c.12.13.18.28.18.47s-.06.34-.18.46ZM6.84,5.04h1.28l-.12,5.14h-1.05l-.11-5.14Z");
     private static StreamGeometry Parse(string path) => StreamGeometry.Parse(path);
 }
