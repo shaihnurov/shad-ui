@@ -5,5 +5,6 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceInclude Source="CodeTextBlock.axaml" />
         <ResourceInclude Source="ControlBlock.axaml" />
+        <ResourceInclude Source="Dashboard/OverviewCard.axaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

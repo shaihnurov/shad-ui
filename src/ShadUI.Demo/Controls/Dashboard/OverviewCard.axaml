@@ -1,0 +1,45 @@
+﻿<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:dashboard="clr-namespace:ShadUI.Demo.Controls.Dashboard">
+    <Design.PreviewWith>
+        <Border Width="768">
+            <UniformGrid Columns="4">
+                <dashboard:OverviewCard Title="Total Revenue" Value="$45,231.89" Hint="-20.1% from last month" />
+                <dashboard:OverviewCard Title="Total Revenue" Value="$45,231.89" Hint="-20.1% from last month" />
+                <dashboard:OverviewCard Title="Total Revenue" Value="$45,231.89" Hint="-20.1% from last month" />
+                <dashboard:OverviewCard Title="Total Revenue" Value="$45,231.89" Hint="-20.1% from last month" />
+            </UniformGrid>
+        </Border>
+    </Design.PreviewWith>
+    <ControlTheme x:Key="OverviewCardTheme" TargetType="dashboard:OverviewCard">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Border MinWidth="150"
+                            Margin="8"
+                            BorderThickness="1"
+                            CornerRadius="{DynamicResource LargeCornerRadius}"
+                            BorderBrush="{DynamicResource BorderColor}"
+                            Background="{DynamicResource CardBackgroundColor}"
+                            BoxShadow="0 2 4 0 #20000000">
+                        <StackPanel Margin="24">
+                            <Grid ColumnDefinitions="* Auto">
+                                <TextBlock Text="{TemplateBinding Title}" Classes="Small" />
+                                <ContentPresenter Grid.Column="1" Content="{TemplateBinding Icon}" />
+                            </Grid>
+                            <TextBlock Text="{TemplateBinding Value}" TextWrapping="Wrap" Classes="h3"
+                                       Margin="0,12,0,2" />
+                            <TextBlock Text="{TemplateBinding Hint}" TextWrapping="Wrap" Classes="Caption Muted" />
+                        </StackPanel>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </ControlTheme>
+
+    <ControlTheme
+        x:Key="{x:Type dashboard:OverviewCard}"
+        BasedOn="{StaticResource OverviewCardTheme}"
+        TargetType="dashboard:OverviewCard" />
+</ResourceDictionary>
