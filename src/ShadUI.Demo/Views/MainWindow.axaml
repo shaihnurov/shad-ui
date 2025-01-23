@@ -43,12 +43,6 @@
                                       StrokeBrush="{Binding RelativeSource={RelativeSource AncestorType=controls:SidebarMenuItem}, Path=Foreground}" />
                     </controls:SidebarMenuItem.Icon>
                 </controls:SidebarMenuItem>
-                <controls:SidebarMenuItem Header="Themes" Classes="Compact" Command="{Binding OpenThemesCommand}">
-                    <controls:SidebarMenuItem.Icon>
-                        <icons:Lucide Icon="Palette" StrokeThickness="1.5" Width="16" Height="16"
-                                      StrokeBrush="{Binding RelativeSource={RelativeSource AncestorType=controls:SidebarMenuItem}, Path=Foreground}" />
-                    </controls:SidebarMenuItem.Icon>
-                </controls:SidebarMenuItem>
                 <controls:SidebarMenuItem Header="Typography" Classes="Compact"
                                           Command="{Binding OpenTypographyCommand}">
                     <controls:SidebarMenuItem.Icon>
@@ -101,12 +95,6 @@
                 <controls:SidebarMenuItem Header="Toasts" Classes="Compact" Command="{Binding OpenToastCommand}">
                     <controls:SidebarMenuItem.Icon>
                         <icons:Lucide Icon="StretchHorizontal" StrokeThickness="1.5" Width="16" Height="16"
-                                      StrokeBrush="{Binding RelativeSource={RelativeSource AncestorType=controls:SidebarMenuItem}, Path=Foreground}" />
-                    </controls:SidebarMenuItem.Icon>
-                </controls:SidebarMenuItem>
-                <controls:SidebarMenuItem Header="Settings" Classes="Compact" Command="{Binding OpenSettingsCommand}">
-                    <controls:SidebarMenuItem.Icon>
-                        <icons:Lucide Icon="Settings" StrokeThickness="1.5" Width="16" Height="16"
                                       StrokeBrush="{Binding RelativeSource={RelativeSource AncestorType=controls:SidebarMenuItem}, Path=Foreground}" />
                     </controls:SidebarMenuItem.Icon>
                 </controls:SidebarMenuItem>

@@ -6,9 +6,6 @@
     <DataTemplate DataType="{x:Type viewModels:DashboardViewModel}">
         <views:DashboardPage />
     </DataTemplate>
-    <DataTemplate DataType="{x:Type viewModels:ThemesViewModel}">
-        <views:ThemesPage />
-    </DataTemplate>
     <DataTemplate DataType="{x:Type viewModels:TypographyViewModel}">
         <views:TypographyPage />
     </DataTemplate>
@@ -35,8 +32,5 @@
     </DataTemplate>
     <DataTemplate DataType="{x:Type viewModels:ToggleSwitchViewModel}">
         <views:ToggleSwitchPage />
-    </DataTemplate>
-    <DataTemplate DataType="{x:Type viewModels:SettingsViewModel}">
-        <views:SettingsPage />
     </DataTemplate>
 </DataTemplates>

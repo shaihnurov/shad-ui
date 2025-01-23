@@ -10,7 +10,6 @@ public sealed partial class MainWindowViewModel(
     DialogManager dialogManager,
     ToastManager toastManager,
     DashboardViewModel dashboardViewModel,
-    ThemesViewModel themesViewModel,
     TypographyViewModel typographyViewModel,
     ButtonsViewModel buttonsViewModel,
     DialogsViewModel dialogsViewModel,
@@ -19,8 +18,7 @@ public sealed partial class MainWindowViewModel(
     ComboBoxesViewModel comboBoxesViewModel,
     SlidersViewModel slidersViewModel,
     ToastsViewModel toastsViewModel,
-    ToggleSwitchViewModel toggleSwitchViewModel,
-    SettingsViewModel settingsViewModel)
+    ToggleSwitchViewModel toggleSwitchViewModel)
     : ViewModelBase
 {
     [ObservableProperty]
@@ -47,12 +45,6 @@ public sealed partial class MainWindowViewModel(
     {
         await SwitchPage(dashboardViewModel);
         dashboardViewModel.Initialize();
-    }
-
-    [RelayCommand]
-    private async Task OpenThemes()
-    {
-        await SwitchPage(themesViewModel);
     }
 
     [RelayCommand]
@@ -108,12 +100,6 @@ public sealed partial class MainWindowViewModel(
     private async Task OpenToggleSwitch()
     {
         await SwitchPage(toggleSwitchViewModel);
-    }
-
-    [RelayCommand]
-    private async Task OpenSettings()
-    {
-        await SwitchPage(settingsViewModel);
     }
 
     public void Initialize()
