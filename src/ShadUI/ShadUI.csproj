@@ -12,8 +12,8 @@
     <PropertyGroup>
         <IsPackable>true</IsPackable>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <PackageVersion>0.0.0-alpha1</PackageVersion>
-        <PackageDescription>Avalonia-based UI Library inspired by shadcn forked from Suki UI Library</PackageDescription>
+        <PackageVersion>0.0.1-preview1</PackageVersion>
+        <PackageDescription>Avalonia-based Desktop UI Library inspired by shadcn and Suki UI Library</PackageDescription>
         <PackageTags>avalonia;avaloniaui;ui;theme;shadui</PackageTags>
         <PackageProjectUrl>https://github.com/accntech/shad-ui.git</PackageProjectUrl>
 
