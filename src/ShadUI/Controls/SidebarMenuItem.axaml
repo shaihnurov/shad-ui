@@ -65,6 +65,7 @@
                                     <TextBlock Name="PART_Header"
                                                Margin="15,0"
                                                VerticalAlignment="Center"
+                                               Foreground="{TemplateBinding Foreground}"
                                                FontSize="{TemplateBinding FontSize}"
                                                IsVisible="{Binding IsMenuExpanded, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type controls:SidebarMenu}}}"
                                                Text="{TemplateBinding Header}" />
@@ -90,12 +91,12 @@
             </Style>
         </Style>
         <Style Selector="^[IsSelected=True]">
+            <Setter Property="Foreground" Value="{DynamicResource PrimaryColor}" />
             <Style Selector="^ /template/ Border#PART_Border">
                 <Setter Property="Background" Value="{DynamicResource PrimaryColor10}" />
             </Style>
             <Style Selector="^ /template/ TextBlock#PART_Header">
                 <Setter Property="FontWeight" Value="Bold" />
-                <Setter Property="Foreground" Value="{DynamicResource PrimaryColor}" />
             </Style>
             <Style Selector="^[AnimateContent=True]">
                 <Style Selector="^[IsTopMenuExpanded=True] /template/ Border#PART_Border">

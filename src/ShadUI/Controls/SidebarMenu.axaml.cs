@@ -138,23 +138,12 @@ public class SidebarMenu : SelectingItemsControl
         set => SetValue(FooterContentProperty, value);
     }
 
-    private bool IsSpacerVisible => !IsMenuExpanded;
-
-    private Grid? _spacer;
-
     /// <summary>
     ///     Returns a new instance of the <see cref="SidebarMenu" /> class.
     /// </summary>
     public SidebarMenu()
     {
         SelectionMode = SelectionMode.Single | SelectionMode.AlwaysSelected;
-    }
-
-    private void MenuExpandedClicked()
-    {
-        IsMenuExpanded = !IsMenuExpanded;
-
-        UpdateMenuItemsExpansion();
     }
 
     private void UpdateMenuItemsExpansion()
@@ -166,19 +155,6 @@ public class SidebarMenu : SelectingItemsControl
         else if (Items.FirstOrDefault() is SidebarMenuItem)
             foreach (SidebarMenuItem? item in Items)
                 item!.IsTopMenuExpanded = IsMenuExpanded;
-    }
-
-    /// <summary>
-    ///     Called when the control is added to a visual tree.
-    /// </summary>
-    /// <param name="e"></param>
-    protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
-    {
-        base.OnApplyTemplate(e);
-
-        e.NameScope.Get<Button>("PART_SidebarToggleButton").Click += (_, _) => MenuExpandedClicked();
-        _spacer = e.NameScope.Get<Grid>("PART_Spacer");
-        if (_spacer != null) _spacer.IsVisible = IsSpacerVisible;
     }
 
     /// <summary>
@@ -199,8 +175,8 @@ public class SidebarMenu : SelectingItemsControl
     {
         base.OnPropertyChanged(change);
 
-        if (change.Property == IsMenuExpandedProperty && _spacer != null)
-            _spacer.IsVisible = IsSpacerVisible;
+        if (change.Property == IsMenuExpandedProperty)
+            UpdateMenuItemsExpansion();
     }
 
     /// <summary>

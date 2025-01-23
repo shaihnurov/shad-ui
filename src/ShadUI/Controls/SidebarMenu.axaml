@@ -28,6 +28,71 @@
             </controls:SidebarMenuItem>
         </controls:SidebarMenu>
     </Design.PreviewWith>
+    <ControlTheme x:Key="SideToggleButtonTheme" TargetType="ToggleButton">
+        <Setter Property="Height" Value="36" />
+        <Setter Property="Width" Value="36" />
+        <Setter Property="CornerRadius" Value="{DynamicResource MediumCornerRadius}" />
+        <Setter Property="Background" Value="{DynamicResource BackgroundColor}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Border Height="{TemplateBinding Height}"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            Background="{TemplateBinding Background}">
+                        <Border.Transitions>
+                            <Transitions>
+                                <BrushTransition Property="Background" Duration="0:0:0.20" />
+                                <DoubleTransition Property="Opacity" Duration="0:0:0.20" />
+                            </Transitions>
+                        </Border.Transitions>
+                        <Panel>
+                            <PathIcon Name="PART_ExpandIconLeft"
+                                      Width="14"
+                                      Height="14"
+                                      Data="{x:Static contents:Icons.SidePanel}"
+                                      Foreground="{DynamicResource ForegroundColor}">
+                                <PathIcon.Transitions>
+                                    <Transitions>
+                                        <DoubleTransition Property="Opacity" Duration="0:0:0.2" />
+                                    </Transitions>
+                                </PathIcon.Transitions>
+                            </PathIcon>
+                            <PathIcon Name="PART_ExpandIconRight"
+                                      Width="12"
+                                      Height="12"
+                                      Data="{x:Static contents:Icons.ChevronLeft}"
+                                      Foreground="{DynamicResource ForegroundColor}">
+                                <PathIcon.Transitions>
+                                    <Transitions>
+                                        <DoubleTransition Property="Opacity" Duration="0:0:0.2" />
+                                    </Transitions>
+                                </PathIcon.Transitions>
+                            </PathIcon>
+                        </Panel>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style Selector="^:pointerover">
+            <Setter Property="Background" Value="{DynamicResource PrimaryColor10}" />
+        </Style>
+        <Style Selector="^[IsChecked=False]">
+            <Style Selector="^ /template/ PathIcon#PART_ExpandIconLeft">
+                <Setter Property="Opacity" Value="1" />
+            </Style>
+            <Style Selector="^ /template/ PathIcon#PART_ExpandIconRight">
+                <Setter Property="Opacity" Value="0" />
+            </Style>
+        </Style>
+        <Style Selector="^[IsChecked=True]">
+            <Style Selector="^ /template/ PathIcon#PART_ExpandIconLeft">
+                <Setter Property="Opacity" Value="0" />
+            </Style>
+            <Style Selector="^ /template/ PathIcon#PART_ExpandIconRight">
+                <Setter Property="Opacity" Value="1" />
+            </Style>
+        </Style>
+    </ControlTheme>
     <ControlTheme x:Key="SidebarMenuStyle" TargetType="controls:SidebarMenu">
         <Setter Property="Background" Value="{DynamicResource SidebarBackgroundColor}" />
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
@@ -45,40 +110,16 @@
                                 <Border BorderThickness="0,0,1,0"
                                         CornerRadius="{Binding ShowTitlebarBackground, Converter={x:Static converters:WindowBackgroundToCornerRadiusConverter.Instance}, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type controls:Window}}}" />
                                 <DockPanel Background="{TemplateBinding Background}">
-                                    <Button Name="PART_SidebarToggleButton"
-                                            Margin="8"
-                                            HorizontalAlignment="Stretch"
-                                            VerticalAlignment="Top"
-                                            Classes="Icon"
-                                            Cursor="Hand"
-                                            DockPanel.Dock="Top"
-                                            BorderBrush="{DynamicResource SidebarBackgroundColor}"
-                                            IsVisible="{TemplateBinding SidebarToggleEnabled}">
-                                        <Panel>
-                                            <PathIcon Name="PART_ExpandIconLeft"
-                                                      Width="14"
-                                                      Height="14"
-                                                      Data="{x:Static contents:Icons.SidePanel}"
-                                                      Foreground="{DynamicResource ForegroundColor}">
-                                                <PathIcon.Transitions>
-                                                    <Transitions>
-                                                        <DoubleTransition Property="Opacity" Duration="0:0:0.2" />
-                                                    </Transitions>
-                                                </PathIcon.Transitions>
-                                            </PathIcon>
-                                            <PathIcon Name="PART_ExpandIconRight"
-                                                      Width="12"
-                                                      Height="12"
-                                                      Data="{x:Static contents:Icons.ChevronLeft}"
-                                                      Foreground="{DynamicResource ForegroundColor}">
-                                                <PathIcon.Transitions>
-                                                    <Transitions>
-                                                        <DoubleTransition Property="Opacity" Duration="0:0:0.2" />
-                                                    </Transitions>
-                                                </PathIcon.Transitions>
-                                            </PathIcon>
-                                        </Panel>
-                                    </Button>
+                                    <ToggleButton Name="PART_SidebarToggleButton"
+                                                  Margin="8"
+                                                  HorizontalAlignment="Stretch"
+                                                  VerticalAlignment="Top"
+                                                  Cursor="Hand"
+                                                  DockPanel.Dock="Top"
+                                                  IsChecked="{TemplateBinding IsMenuExpanded, Mode=TwoWay}"
+                                                  BorderBrush="{DynamicResource SidebarBackgroundColor}"
+                                                  IsVisible="{TemplateBinding SidebarToggleEnabled}"
+                                                  Theme="{StaticResource SideToggleButtonTheme}" />
                                     <Grid MinHeight="{TemplateBinding HeaderMinHeight}"
                                           DockPanel.Dock="Top"
                                           IsVisible="{TemplateBinding IsMenuExpanded}">
@@ -87,9 +128,6 @@
                                     <ContentControl Margin="0,0,0,12"
                                                     DockPanel.Dock="Bottom"
                                                     IsVisible="{TemplateBinding IsMenuExpanded}" />
-                                    <Grid Name="PART_Spacer"
-                                          Height="15"
-                                          DockPanel.Dock="Top" />
                                     <DockPanel>
                                         <ScrollViewer Name="PART_ScrollViewer"
                                                       Classes="Stack"
@@ -117,34 +155,16 @@
             </ControlTemplate>
         </Setter>
         <Style Selector="^[IsToggleButtonVisible=False]">
-            <Style Selector="^ /template/ Button#PART_SidebarToggleButton">
+            <Style Selector="^ /template/ ToggleButton#PART_SidebarToggleButton">
                 <Setter Property="Opacity" Value="0" />
                 <Setter Property="IsHitTestVisible" Value="False" />
             </Style>
         </Style>
-        <Style Selector="^[IsMenuExpanded=False]">
-            <Style Selector="^ /template/ Grid#PART_Spacer">
-                <Setter Property="Height" Value="0" />
-            </Style>
-            <Style Selector="^ /template/ PathIcon#PART_ExpandIconLeft">
-                <Setter Property="Opacity" Value="1" />
-            </Style>
-            <Style Selector="^ /template/ PathIcon#PART_ExpandIconRight">
-                <Setter Property="Opacity" Value="0" />
-            </Style>
-        </Style>
         <Style Selector="^[IsMenuExpanded=True]">
-            <Style Selector="^ /template/ PathIcon#PART_ExpandIconLeft">
-                <Setter Property="Opacity" Value="0" />
-            </Style>
-            <Style Selector="^ /template/ PathIcon#PART_ExpandIconRight">
-                <Setter Property="Opacity" Value="1" />
-            </Style>
-            <Style Selector="^ /template/ Button#PART_SidebarToggleButton">
+            <Style Selector="^ /template/ ToggleButton#PART_SidebarToggleButton">
                 <Setter Property="HorizontalAlignment" Value="Right" />
             </Style>
         </Style>
-        <StyleInclude Source="avares://ShadUI/Styles/ScrollViewer.axaml" />
     </ControlTheme>
     <ControlTheme x:Key="{x:Type controls:SidebarMenu}"
                   BasedOn="{StaticResource SidebarMenuStyle}"
