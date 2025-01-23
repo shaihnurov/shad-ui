@@ -1,0 +1,42 @@
+﻿<DataTemplates
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:viewModels="clr-namespace:ShadUI.Demo.ViewModels"
+    xmlns:views="clr-namespace:ShadUI.Demo.Views">
+    <DataTemplate DataType="{x:Type viewModels:DashboardViewModel}">
+        <views:DashboardPage />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type viewModels:ThemesViewModel}">
+        <views:ThemesPage />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type viewModels:TypographyViewModel}">
+        <views:TypographyPage />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type viewModels:ButtonsViewModel}">
+        <views:ButtonsPage />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type viewModels:DialogsViewModel}">
+        <views:DialogsPage />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type viewModels:InputViewModel}">
+        <views:InputPage />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type viewModels:TabsViewModel}">
+        <views:TabsPage />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type viewModels:ComboBoxesViewModel}">
+        <views:ComboBoxesPage />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type viewModels:SlidersViewModel}">
+        <views:SlidersPage />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type viewModels:ToastsViewModel}">
+        <views:ToastsPage />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type viewModels:ToggleSwitchViewModel}">
+        <views:ToggleSwitchPage />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type viewModels:SettingsViewModel}">
+        <views:SettingsPage />
+    </DataTemplate>
+</DataTemplates>
