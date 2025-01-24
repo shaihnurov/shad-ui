@@ -6,15 +6,15 @@ using Avalonia.Media;
 namespace ShadUI.Themes;
 
 /// <summary>
-/// Watches and manages theme changes in the application, providing access to current theme colors
-/// and notifications when the theme changes.
+///     Watches and manages theme changes in the application, providing access to current theme colors
+///     and notifications when the theme changes.
 /// </summary>
 public class ThemeWatcher
 {
     private readonly Application _app;
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="ThemeWatcher"/> class.
+    ///     Initializes a new instance of the <see cref="ThemeWatcher" /> class.
     /// </summary>
     /// <param name="app">The Avalonia application instance to watch for theme changes.</param>
     public ThemeWatcher(Application app)
@@ -24,20 +24,22 @@ public class ThemeWatcher
     }
 
     /// <summary>
-    /// Gets the current theme colors used in the application.
+    ///     Gets the current theme colors used in the application.
     /// </summary>
     public ThemeColors ThemeColors { get; private set; } = new();
 
     /// <summary>
-    /// Handles theme change events and updates the current theme colors.
+    ///     Handles theme change events and updates the current theme colors.
     /// </summary>
     private void OnThemeChanged(object sender, EventArgs e)
     {
-        ThemeChanged?.Invoke(this, GetThemeColors());
+        var colors = GetThemeColors();
+        ThemeColors = colors;
+        ThemeChanged?.Invoke(this, colors);
     }
 
     /// <summary>
-    /// Initializes the theme watcher by setting the initial theme colors.
+    ///     Initializes the theme watcher by setting the initial theme colors.
     /// </summary>
     public void Initialize()
     {
@@ -45,9 +47,9 @@ public class ThemeWatcher
     }
 
     /// <summary>
-    /// Retrieves the current theme colors from the application resources.
+    ///     Retrieves the current theme colors from the application resources.
     /// </summary>
-    /// <returns>A new <see cref="ThemeColors"/> instance containing all theme color values.</returns>
+    /// <returns>A new <see cref="ThemeColors" /> instance containing all theme color values.</returns>
     private ThemeColors GetThemeColors() =>
         new()
         {
@@ -112,7 +114,7 @@ public class ThemeWatcher
         };
 
     /// <summary>
-    /// Attempts to find a color resource by its key in the application resources.
+    ///     Attempts to find a color resource by its key in the application resources.
     /// </summary>
     /// <param name="resourceKey">The key of the color resource to find.</param>
     /// <returns>The color if found; otherwise, returns the default color value.</returns>
@@ -124,7 +126,7 @@ public class ThemeWatcher
     }
 
     /// <summary>
-    /// Occurs when the application theme changes, providing the new theme colors.
+    ///     Occurs when the application theme changes, providing the new theme colors.
     /// </summary>
     public event EventHandler<ThemeColors>? ThemeChanged;
 }
