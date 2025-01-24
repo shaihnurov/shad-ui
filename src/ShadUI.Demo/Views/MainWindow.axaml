@@ -16,7 +16,7 @@
     Width="1024" Height="768"
     Icon="/Assets/favicon.ico"
     TitleFontWeight="SemiBold"
-    Title="ShadUI.Demo">
+    Title="ShadUI - Application Demo">
     <controls:Window.DataTemplates>
         <ui:DataTemplateInclude Source="avares://ShadUI.Demo/Views/PageDataTemplates.axaml" />
     </controls:Window.DataTemplates>
