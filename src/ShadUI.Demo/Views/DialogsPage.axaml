@@ -29,10 +29,10 @@
                         <controls:CodeTextBlock Language="xaml">
                             <Run Text="&lt;controls:Window.Hosts&gt;" />
                             <LineBreak />
-                            <Run Text="    &lt;!-- Other Hosts --&gt;" />
+                            <Run Text="    &lt;dialogs:DialogHost Manager=&quot;{Binding DialogManager}&quot;" />
                             <LineBreak />
                             <Run
-                                Text="    &lt;dialogs:DialogHost Manager=&quot;{Binding DialogManager}&quot; Owner=&quot;{Binding ElementName=BaseWindow }&quot; /&gt;" />
+                                Text="                        Owner=&quot;{Binding RelativeSource={RelativeSource AncestorType=controls:Window}}&quot; /&gt;" />
                             <LineBreak />
                             <Run Text="&lt;/controls:Window.Hosts&gt;" />
                         </controls:CodeTextBlock>
