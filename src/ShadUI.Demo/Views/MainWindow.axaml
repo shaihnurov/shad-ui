@@ -34,7 +34,7 @@
             </controls:SidebarMenu.BodyContent>
             <controls:SidebarMenu.HeaderContent>
                 <controls:RoundedImage CornerRadius="40" Margin="30,10,30,30" Width="80" Height="80"
-                                       Source="../Assets/user.jpg" />
+                                       Source="../Assets/user.png" />
             </controls:SidebarMenu.HeaderContent>
             <controls:SidebarMenu.Items>
                 <controls:SidebarMenuItem Header="Dashboard" Classes="Compact" Command="{Binding OpenDashboardCommand}">
