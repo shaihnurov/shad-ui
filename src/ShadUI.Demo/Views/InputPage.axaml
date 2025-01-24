@@ -48,7 +48,7 @@
                     </controls:ControlBlock>
                     <controls:ControlBlock
                         Title="With Custom Label"
-                        Code="{Binding WithLabelCode}"
+                        Code="{Binding WithCustomLabelCode}"
                         Language="xaml">
                         <StackPanel>
                             <TextBox Classes="Clearable" Width="225" extensions:TextBox.Label="Email"
