@@ -17,6 +17,8 @@
         <PackageTags>avalonia;avaloniaui;ui;theme;shadui</PackageTags>
         <PackageProjectUrl>https://github.com/accntech/shad-ui.git</PackageProjectUrl>
         <RepositoryUrl>https://github.com/accntech/shad-ui.git</RepositoryUrl>
+        <PackageIcon>icon.png</PackageIcon>
+        <Authors>accntech</Authors>
     </PropertyGroup>
 
     <ItemGroup>
@@ -41,6 +43,7 @@
 
     <ItemGroup>
         <None Include="..\..\README.md" Pack="true" PackagePath="\"/>
+        <None Include="..\..\icon.png" Pack="true" PackagePath="\"/>
     </ItemGroup>
 
 </Project>
