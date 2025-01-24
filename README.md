@@ -13,6 +13,41 @@ Our goal is to deliver a modern, beautiful, and intuitive UI library for [Avalon
 
 ---
 
+## Installation 🚀
+
+To get started with ShadUI:
+
+Install the [ShadUI NuGet package](https://www.nuget.org/packages/ShadUI/):
+
+```powershell
+dotnet add package ShadUI
+```
+
+> Note: The command above will install the latest version automatically. You can also specify a version if you want to install a specific version or install a preview version.
+
+```powershell
+dotnet add package ShadUI --version [version]
+```
+
+Include ShadTheme in your App.xaml:
+
+```xml
+<Application
+    xmlns:themes="clr-namespace:ShadUI.Themes;assembly=ShadUI">
+
+    <!-- other code -->
+
+    <Application.Styles>
+        <themes:ShadTheme />
+        <!-- other styles -->
+    </Application.Styles>
+</Application>
+```
+
+> Recommended: Use the `ShadUI.Controls.Window` instead of `Avalonia.Controls.Window` to get the full ShadUI experience.
+
+See the [Demo App]() for examples of how to use ShadUI controls..
+
 ## Features 🌟
 
 ### 🎨 Theme
