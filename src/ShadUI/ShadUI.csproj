@@ -16,7 +16,7 @@
         <PackageDescription>Avalonia-based Desktop UI Library inspired by shadcn and Suki UI Library</PackageDescription>
         <PackageTags>avalonia;avaloniaui;ui;theme;shadui</PackageTags>
         <PackageProjectUrl>https://github.com/accntech/shad-ui.git</PackageProjectUrl>
-
+        <RepositoryUrl>https://github.com/accntech/shad-ui.git</RepositoryUrl>
     </PropertyGroup>
 
     <ItemGroup>
