@@ -2,8 +2,8 @@
 
 on:
   push:
-    branches:
-      - main
+    tags:
+      - '*' # Triggers only on version tags like v1.0.0
 
 jobs:
   build:
@@ -29,12 +29,12 @@ jobs:
         run: dotnet tool install --global minver-cli
 
       - name: Restore dependencies
-        run: dotnet restore
+        run: dotnet restore src/ShadUI/ShadUI.csproj
         env:
           DOTNET_SYSTEM_GLOBALIZATION_INVARIANT: true
 
       - name: Build
-        run: dotnet build --configuration Release --no-restore
+        run: dotnet build src/ShadUI/ShadUI.csproj --configuration Release --no-restore
 
       - name: Increment version
         run: |
@@ -42,7 +42,7 @@ jobs:
           sed -i "s/<Version>.*<\/Version>/<Version>${VERSION}<\/Version>/" src/ShadUI/ShadUI.csproj
 
       - name: Pack
-        run: dotnet pack --configuration Release --no-build --output ./output
+        run: dotnet pack src/ShadUI/ShadUI.csproj --configuration Release --no-build --output ./output
 
       - name: Publish to NuGet
         env:
