@@ -22,11 +22,19 @@
     <ItemGroup>
         <PackageReference Include="Avalonia" Version="11.2.3"/>
         <PackageReference Include="Avalonia.Skia" Version="11.2.3"/>
+        <PackageReference Include="MinVer" Version="6.0.0">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
         <PackageReference Include="SkiaSharp" Version="2.88.9"/>
         <PackageReference Include="Avalonia.Controls.DataGrid" Version="11.2.3"/>
         <PackageReference Include="Avalonia.Themes.Simple" Version="11.2.3"/>
     </ItemGroup>
 
+    <PropertyGroup>
+        <MinVerDefaultPreReleaseIdentifiers>preview.0</MinVerDefaultPreReleaseIdentifiers>
+    </PropertyGroup>
+    
     <ItemGroup>
         <EmbeddedResource Include="Contents\Loading\*.sksl"/>
     </ItemGroup>
