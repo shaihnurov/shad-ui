@@ -12,6 +12,7 @@ public sealed partial class MainWindowViewModel(
     DashboardViewModel dashboardViewModel,
     TypographyViewModel typographyViewModel,
     ButtonsViewModel buttonsViewModel,
+    CardsViewModel cardsViewModel,
     DialogsViewModel dialogsViewModel,
     InputViewModel inputViewModel,
     TabsViewModel tabsViewModel,
@@ -23,10 +24,10 @@ public sealed partial class MainWindowViewModel(
 {
     [ObservableProperty]
     private DialogManager _dialogManager = dialogManager;
-    
+
     [ObservableProperty]
     private ToastManager _toastManager = toastManager;
-    
+
     [ObservableProperty]
     private object? _selectedPage;
 
@@ -57,6 +58,12 @@ public sealed partial class MainWindowViewModel(
     private async Task OpenButtons()
     {
         await SwitchPage(buttonsViewModel);
+    }
+
+    [RelayCommand]
+    private async Task OpenCards()
+    {
+        await SwitchPage(cardsViewModel);
     }
 
     [RelayCommand]

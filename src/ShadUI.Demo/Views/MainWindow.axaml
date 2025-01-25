@@ -56,6 +56,12 @@
                                       StrokeBrush="{Binding RelativeSource={RelativeSource AncestorType=controls:SidebarMenuItem}, Path=Foreground}" />
                     </controls:SidebarMenuItem.Icon>
                 </controls:SidebarMenuItem>
+                <controls:SidebarMenuItem Header="Cards" Classes="Compact" Command="{Binding OpenCardsCommand}">
+                    <controls:SidebarMenuItem.Icon>
+                        <icons:Lucide Icon="Copy" StrokeThickness="1.5" Width="16" Height="16"
+                                      StrokeBrush="{Binding RelativeSource={RelativeSource AncestorType=controls:SidebarMenuItem}, Path=Foreground}" />
+                    </controls:SidebarMenuItem.Icon>
+                </controls:SidebarMenuItem>
                 <controls:SidebarMenuItem Header="Dialogs" Classes="Compact" Command="{Binding OpenDialogsCommand}">
                     <controls:SidebarMenuItem.Icon>
                         <icons:Lucide Icon="MessageSquare" StrokeThickness="1.5" Width="16" Height="16"

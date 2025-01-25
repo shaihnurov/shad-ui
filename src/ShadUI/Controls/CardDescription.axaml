@@ -1,0 +1,15 @@
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:ShadUI.Controls">
+    <ControlTheme x:Key="{x:Type controls:CardDescription}" TargetType="{x:Type controls:CardDescription}">
+        <Setter Property="TextBlock.Foreground" Value="{DynamicResource MutedColor}" />
+        <Setter Property="TextBlock.FontSize" Value="12.8" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <ContentPresenter Content="{TemplateBinding Content}" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </ControlTheme>
+</ResourceDictionary>

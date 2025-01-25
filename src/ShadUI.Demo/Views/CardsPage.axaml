@@ -1,0 +1,65 @@
+﻿<UserControl
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="clr-namespace:ShadUI.Demo.ViewModels"
+    xmlns:controls="clr-namespace:ShadUI.Demo.Controls"
+    xmlns:extensions="clr-namespace:ShadUI.Extensions;assembly=ShadUI"
+    xmlns:shadui="clr-namespace:ShadUI.Controls;assembly=ShadUI"
+    mc:Ignorable="d" d:DesignWidth="800"
+    x:Class="ShadUI.Demo.Views.CardsPage"
+    x:DataType="viewModels:CardsViewModel">
+    <DockPanel LastChildFill="True">
+        <StackPanel DockPanel.Dock="Top" Margin="48 24" MaxWidth="1536">
+            <TextBlock Classes="h3" Text="Card" />
+            <TextBlock
+                Classes="p"
+                TextWrapping="Wrap"
+                HorizontalAlignment="Left"
+                Text="Displays a card with header, content, and footer." />
+        </StackPanel>
+        <ScrollViewer>
+            <Panel Margin="48 24" MaxWidth="1536">
+                <StackPanel Spacing="32">
+                    <controls:ControlBlock
+                        Title="Usage"
+                        Code="{Binding UsageCode}"
+                        Language="xaml">
+                        <shadui:Card Margin="4" HasShadow="True" HorizontalAlignment="Center">
+                            <shadui:Card.Header>
+                                <StackPanel>
+                                    <shadui:CardTitle>Create project</shadui:CardTitle>
+                                    <shadui:CardDescription>Deploy your new project in one-click.</shadui:CardDescription>
+                                </StackPanel>
+                            </shadui:Card.Header>
+                            <StackPanel Spacing="16">
+                                <TextBox extensions:TextBox.Label="Name" Watermark="Name of your project" />
+                                <ComboBox Width="300"
+                                          SelectedIndex="0"
+                                          extensions:ComboBox.Label="Framework">
+                                    <ComboBox.Items>
+                                        <ComboBoxItem>Next.js</ComboBoxItem>
+                                        <ComboBoxItem>React</ComboBoxItem>
+                                        <ComboBoxItem>Vue.js</ComboBoxItem>
+                                        <ComboBoxItem>Angular</ComboBoxItem>
+                                    </ComboBox.Items>
+                                </ComboBox>
+                            </StackPanel>
+                            <shadui:Card.Footer>
+                                <DockPanel>
+                                    <Button HorizontalAlignment="Left" Margin="0,20,0,0" Classes="Outline">
+                                        Cancel
+                                    </Button>
+                                    <Button HorizontalAlignment="Right" Margin="0,20,0,0" Classes="Primary">
+                                        Deploy
+                                    </Button>
+                                </DockPanel>
+                            </shadui:Card.Footer>
+                        </shadui:Card>
+                    </controls:ControlBlock>
+                </StackPanel>
+            </Panel>
+        </ScrollViewer>
+    </DockPanel>
+</UserControl>

@@ -1,0 +1,85 @@
+﻿<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:shadui="clr-namespace:ShadUI.Controls"
+    xmlns:extensions="clr-namespace:ShadUI.Extensions">
+    <Design.PreviewWith>
+        <Border Padding="24" MinHeight="600">
+            <shadui:Card VerticalAlignment="Center"
+                         HasShadow="True">
+                <shadui:Card.Header>
+                    <StackPanel>
+                        <shadui:CardTitle>Create project</shadui:CardTitle>
+                        <shadui:CardDescription>Deploy your new project in one-click.</shadui:CardDescription>
+                    </StackPanel>
+                </shadui:Card.Header>
+                <StackPanel Spacing="16">
+                    <TextBox extensions:TextBox.Label="Name" Watermark="Name of your project" />
+                    <ComboBox Width="300"
+                              SelectedIndex="0"
+                              extensions:ComboBox.Label="Framework">
+                        <ComboBox.Items>
+                            <ComboBoxItem>Next.js</ComboBoxItem>
+                            <ComboBoxItem>React</ComboBoxItem>
+                            <ComboBoxItem>Vue.js</ComboBoxItem>
+                            <ComboBoxItem>Angular</ComboBoxItem>
+                        </ComboBox.Items>
+                    </ComboBox>
+                </StackPanel>
+                <shadui:Card.Footer>
+                    <DockPanel>
+                        <Button HorizontalAlignment="Left" Margin="0,20,0,0" Classes="Outline">
+                            Cancel
+                        </Button>
+                        <Button HorizontalAlignment="Right" Margin="0,20,0,0" Classes="Primary">
+                            Deploy
+                        </Button>
+                    </DockPanel>
+                </shadui:Card.Footer>
+            </shadui:Card>
+        </Border>
+    </Design.PreviewWith>
+
+    <ControlTheme x:Key="CardControlTheme" TargetType="{x:Type shadui:Card}">
+        <Setter Property="Padding" Value="24" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Background" Value="{DynamicResource CardBackgroundColor}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderColor}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource LargeCornerRadius}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Border Name="PART_OuterBorder" Margin="{TemplateBinding Margin}">
+                        <Border Name="PART_Container"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="{TemplateBinding CornerRadius}">
+                            <StackPanel Margin="{TemplateBinding Padding}">
+                                <ContentPresenter Margin="0,0,0,24"
+                                                  Content="{TemplateBinding Header}"
+                                                  IsVisible="{TemplateBinding Header, Converter={x:Static ObjectConverters.IsNotNull}}" />
+                                <ContentPresenter Content="{TemplateBinding Content}" />
+                                <ContentPresenter Margin="0,24,0,0"
+                                                  Content="{TemplateBinding Footer}"
+                                                  IsVisible="{TemplateBinding Footer, Converter={x:Static ObjectConverters.IsNotNull}}" />
+                            </StackPanel>
+                        </Border>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style Selector="^[HasShadow=True]">
+            <Style Selector="^ /template/ Border#PART_Container">
+                <Setter Property="BoxShadow" Value="0 2 4 0 #20000000" />
+            </Style>
+            <Style Selector="^ /template/ Border#PART_OuterBorder">
+                <Setter Property="Padding" Value="2,0,2,4" />
+            </Style>
+        </Style>
+    </ControlTheme>
+    <ControlTheme
+        x:Key="{x:Type shadui:Card}"
+        BasedOn="{StaticResource CardControlTheme}"
+        TargetType="{x:Type shadui:Card}" />
+</ResourceDictionary>
