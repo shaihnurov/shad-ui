@@ -1,47 +1,53 @@
-# Community Guidelines
+# Contributing Guidelines
 
-## Our Pledge
-We, as contributors and maintainers, pledge to make participation in our project and community a harassment-free experience for everyone, regardless of age, body size, disability, ethnicity, gender identity and expression, level of experience, nationality, personal appearance, race, religion, or sexual identity and orientation. We pledge to act and interact in ways that contribute to an open, welcoming, diverse, inclusive, and healthy community.
+Thank you for your interest in contributing to our project! We welcome contributions from everyone.
 
-## Our Standards
-Examples of behavior that contributes to a positive environment for our community include:
-- Using welcoming and inclusive language
-- Being respectful of differing viewpoints and experiences
-- Gracefully accepting constructive criticism
-- Focusing on what is best for the community
-- Showing empathy towards other community members
+## Code of Conduct
 
-Examples of unacceptable behavior by participants include:
-- The use of sexualized language or imagery and unwelcome sexual attention or advances
-- Trolling, insulting/derogatory comments, and personal or political attacks
-- Public or private harassment
-- Publishing others’ private information, such as a physical or electronic address, without explicit permission
-- Other conduct which could reasonably be considered inappropriate in a professional setting
+This project and everyone participating in it is governed by our [Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to accntech.dev@gmail.com.
 
-## Our Responsibilities
-Project maintainers are responsible for clarifying the standards of acceptable behavior and are expected to take appropriate and fair corrective action in response to any instances of unacceptable behavior. Project maintainers have the right and responsibility to remove, edit, or reject comments, commits, code, wiki edits, issues, and other contributions that are not aligned to this Code of Conduct, or to ban temporarily or permanently any contributor for other behaviors that they deem inappropriate, threatening, offensive, or harmful.
+## How to Contribute
 
-## Scope
-This Code of Conduct applies both within project spaces and in public spaces when an individual is representing the project or its community. Examples of representing a project or community include using an official project e-mail address, posting via an official social media account, or acting as an appointed representative at an online or offline event. Representation of a project may be further defined and clarified by project maintainers.
+### Reporting Issues
 
-## Enforcement
-Instances of abusive, harassing, or otherwise unacceptable behavior may be reported to the community leaders responsible for enforcement at contact@accntech.dev@gmail.com. All complaints will be reviewed and investigated promptly and fairly. All community leaders are obligated to respect the privacy and security of the reporter of any incident.
+- Before creating an issue, please check if a similar issue already exists
+- Provide a clear and descriptive title
+- Include steps to reproduce the issue
+- Describe the expected behavior and what actually happened
+- Include any relevant screenshots or error messages
 
-## Enforcement Guidelines
-Community leaders will follow these Community Impact Guidelines in determining the consequences for any action they deem in violation of this Code of Conduct:
+### Pull Requests
 
-### 1. Correction
-**Community Impact**: Use of inappropriate language or other behavior deemed unprofessional or unwelcome in the community.  
-**Consequence**: A private, written warning from community leaders, providing clarity around the nature of the violation and an explanation of why the behavior was inappropriate. A public apology may be requested.
+1. Fork the repository and create your branch from `main`
+2. If you've added code that should be tested, add tests
+3. Ensure the test suite passes
+4. Make sure your code follows the existing code style
+5. Write a clear and descriptive commit message, please follow the commit message convention
+6. Update documentation as needed
 
-### 2. Warning
-**Community Impact**: A violation through a single incident or series of actions.  
-**Consequence**: A warning with consequences for continued behavior. No interaction with the people involved, including unsolicited interaction with those enforcing the Code of Conduct, for a specified period of time. This includes avoiding interactions in community spaces as well as external channels like social media. Violating these terms may lead to a temporary or permanent ban.
+### Development Process
 
-### 3. Temporary Ban
-**Community Impact**: A serious violation of community standards, including sustained inappropriate behavior.  
-**Consequence**: A temporary ban from any sort of interaction or public communication with the community for a specified period of time. No public or private interaction with the people involved, including unsolicited interaction with those enforcing the Code of Conduct, is allowed during this period. Violating these terms may lead to a permanent ban.
+1. Create an issue describing the change you want to make
+2. Fork the repository
+3. Create a feature branch
+4. Make your changes
+5. Submit a pull request
 
-### 4. Permanent Ban
-**Community Impact**: Demonstrating a pattern of violation of community standards, including sustained inappropriate behavior, harassment of an individual, or aggression toward or disparagement of classes of individuals.  
-**Consequence**: A permanent ban from any sort of public interaction within the community.
+### Coding Standards
+
+- Follow the existing code style
+- Write clear, readable, and maintainable code
+- Comment your code when necessary
+- Keep your changes focused and atomic
+
+### Documentation
+
+- Update the README.md if needed
+- Add inline documentation for new functions or complex logic
+- Update any relevant documentation files
+
+## Questions?
+
+If you have any questions, feel free to create an issue or reach out to the maintainers at accntech.dev@gmail.com.
+
+Thank you for contributing!
