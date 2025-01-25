@@ -32,7 +32,7 @@ public class OverviewCard : TemplatedControl
         set => SetValue(HintProperty, value);
     }
 
-    public static readonly StyledProperty<object> IconProperty = 
+    public static readonly StyledProperty<object> IconProperty =
         AvaloniaProperty.Register<OverviewCard, object>(nameof(Icon));
 
     public object Icon

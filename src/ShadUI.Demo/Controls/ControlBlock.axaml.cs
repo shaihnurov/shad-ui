@@ -15,7 +15,7 @@ public class ControlBlock : ContentControl
     }
 
     public static readonly StyledProperty<string?> LanguageProperty =
-        AvaloniaProperty.Register<CodeTextBlock, string?>(nameof(Language), defaultValue: "xaml");
+        AvaloniaProperty.Register<CodeTextBlock, string?>(nameof(Language), "xaml");
 
     public string? Language
     {

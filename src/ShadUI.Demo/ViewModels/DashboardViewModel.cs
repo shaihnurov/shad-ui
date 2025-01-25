@@ -52,7 +52,7 @@ public sealed partial class DashboardViewModel : ViewModelBase
         XAxes[0].LabelsPaint = foregroundPaint;
         YAxes[0].LabelsPaint = foregroundPaint;
     }
-    
+
     private void UpdateSeriesFill(Color color)
     {
         var skColor = new SKColor(color.R, color.G, color.B, color.A);

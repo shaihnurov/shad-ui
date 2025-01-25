@@ -12,9 +12,9 @@ using AvaloniaEdit;
 using AvaloniaEdit.TextMate;
 using ShadUI.Contents;
 using ShadUI.Demo.ViewModels;
-using ShadUI.Dialogs;
 using ShadUI.Toasts;
 using TextMateSharp.Grammars;
+using Window = ShadUI.Controls.Window;
 
 namespace ShadUI.Demo.Controls;
 
@@ -127,8 +127,8 @@ public class CodeTextBlock : UserControl
     private void ShowCopyNotification()
     {
         if (Application.Current?.ApplicationLifetime is not IClassicDesktopStyleApplicationLifetime desktop) return;
-        
-        var window = desktop.MainWindow as ShadUI.Controls.Window;
+
+        var window = desktop.MainWindow as Window;
         var viewModel = window?.DataContext as MainWindowViewModel;
 
         viewModel?.ToastManager
@@ -137,7 +137,7 @@ public class CodeTextBlock : UserControl
             .DismissOnClick()
             .Show();
     }
-    
+
     protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)
     {
         base.OnPropertyChanged(change);

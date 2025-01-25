@@ -14,7 +14,7 @@
                 <ResourceInclude Source="Controls/Index.axaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
-        
+
         <x:Double x:Key="ControlContentThemeFontSize">12</x:Double>
     </Application.Resources>
     <Application.Styles>
