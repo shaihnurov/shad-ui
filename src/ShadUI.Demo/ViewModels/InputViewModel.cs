@@ -1,5 +1,4 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using ShadUI.Demo.Validators;
@@ -27,11 +26,11 @@ public sealed partial class InputViewModel : ViewModelBase
 
     [ObservableProperty]
     private string _disabledCode = """
-                                    <StackPanel>
-                                        <TextBox Width="225" IsEnabled="False" Watermark="Email" />
-                                    </StackPanel>
-                                    """;
-    
+                                   <StackPanel>
+                                       <TextBox Width="225" IsEnabled="False" Watermark="Email" />
+                                   </StackPanel>
+                                   """;
+
     [ObservableProperty]
     private string _withLabelCode = """
                                     <StackPanel>
@@ -41,36 +40,44 @@ public sealed partial class InputViewModel : ViewModelBase
 
     [ObservableProperty]
     private string _withCustomLabelCode = """
-                                    <StackPanel>
-                                        <TextBox Classes="Clearable" Width="225" extensions:TextBox.Label="Email"
-                                                 Watermark="user@example.com" />
-                                    </StackPanel>
-                                    """;
+                                          <StackPanel>
+                                              <TextBox Classes="Clearable" Width="225" extensions:TextBox.Label="Email"
+                                                       Watermark="user@example.com" />
+                                          </StackPanel>
+                                          """;
 
     [ObservableProperty]
     private string _formValidationCode = """
-                                          <shadui:Card HorizontalAlignment="Center">
-                                              <StackPanel Spacing="16" Width="275">
-                                                  <TextBox Classes="Clearable"
-                                                           extensions:TextBox.Label="Email"
-                                                           extensions:TextBox.Hint="This is your public display name."
-                                                           Watermark="user@example.com"
-                                                           Text="{Binding Email, Mode=TwoWay}" />
-                                                  <TextBox Classes="PasswordReveal"
-                                                           extensions:TextBox.Label="Password"
-                                                           PasswordChar="•"
-                                                           Watermark="Enter password"
-                                                           Text="{Binding Password, Mode=TwoWay}" />
-                                                  <TextBox Classes="PasswordReveal"
-                                                           PasswordChar="•"
-                                                           extensions:TextBox.Label="Confirm"
-                                                           Watermark="Confirm password"
-                                                           Text="{Binding ConfirmPassword, Mode=TwoWay}" />
-                                                  <Button Margin="0,20,0,0" Classes="Primary" Command="{Binding SubmitCommand}">Submit</Button>
-                                              </StackPanel>
-                                          </shadui:Card>
-                                          """;
-    
+                                         <shadui:Card HorizontalAlignment="Center" Width="350">
+                                             <shadui:Card.Header>
+                                                 <StackPanel Spacing="4">
+                                                     <shadui:CardTitle FontSize="18">Creat new account</shadui:CardTitle>
+                                                     <shadui:CardDescription>Enter your account details</shadui:CardDescription>
+                                                 </StackPanel>
+                                             </shadui:Card.Header>
+                                             <StackPanel Spacing="16">
+                                                 <TextBox Classes="Clearable"
+                                                          extensions:TextBox.Label="Email"
+                                                          extensions:TextBox.Hint="This is your public display name."
+                                                          Watermark="user@example.com"
+                                                          Text="{Binding Email, Mode=TwoWay}" />
+                                                 <TextBox Classes="PasswordReveal"
+                                                          extensions:TextBox.Label="Password"
+                                                          PasswordChar="•"
+                                                          Watermark="Enter password"
+                                                          Text="{Binding Password, Mode=TwoWay}" />
+                                                 <TextBox Classes="PasswordReveal"
+                                                          PasswordChar="•"
+                                                          extensions:TextBox.Label="Confirm"
+                                                          Watermark="Confirm password"
+                                                          Text="{Binding ConfirmPassword, Mode=TwoWay}" />
+                                             </StackPanel>
+                                             <shadui:Card.Footer>
+                                                 <Button Classes="Primary" Command="{Binding SubmitCommand}">Submit</Button>
+                                             </shadui:Card.Footer>
+                                         </shadui:Card>
+                                         """;
+
     private string _email = string.Empty;
 
     [Required(ErrorMessage = "Email is required")]
@@ -113,7 +120,7 @@ public sealed partial class InputViewModel : ViewModelBase
             .WithContent("Form submitted successfully!")
             .DismissOnClick()
             .ShowSuccess();
-        
+
         Initialize();
     }
 

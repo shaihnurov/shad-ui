@@ -61,8 +61,14 @@
                         Code="{Binding FormValidationCode}"
                         Language="xaml">
                         <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-                            <shadui:Card HorizontalAlignment="Center">
-                                <StackPanel Spacing="16" Width="275">
+                            <shadui:Card HorizontalAlignment="Center" Width="350">
+                                <shadui:Card.Header>
+                                    <StackPanel Spacing="4">
+                                        <shadui:CardTitle FontSize="18">Creat new account</shadui:CardTitle>
+                                        <shadui:CardDescription>Enter your account details</shadui:CardDescription>
+                                    </StackPanel>
+                                </shadui:Card.Header>
+                                <StackPanel Spacing="16">
                                     <TextBox Classes="Clearable"
                                              extensions:TextBox.Label="Email"
                                              extensions:TextBox.Hint="This is your public display name."
@@ -78,8 +84,10 @@
                                              extensions:TextBox.Label="Confirm"
                                              Watermark="Confirm password"
                                              Text="{Binding ConfirmPassword, Mode=TwoWay}" />
-                                    <Button Margin="0,20,0,0" Classes="Primary" Command="{Binding SubmitCommand}">Submit</Button>
                                 </StackPanel>
+                                <shadui:Card.Footer>
+                                    <Button Classes="Primary" Command="{Binding SubmitCommand}">Submit</Button>
+                                </shadui:Card.Footer>
                             </shadui:Card>
                         </ScrollViewer>
                     </controls:ControlBlock>

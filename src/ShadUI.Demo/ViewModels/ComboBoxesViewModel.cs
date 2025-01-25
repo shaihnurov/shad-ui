@@ -26,14 +26,7 @@ public sealed partial class ComboBoxesViewModel : ViewModelBase
                                                  <StackPanel Spacing="8">
                                                      <ComboBox Width="255"
                                                                IsEnabled="False"
-                                                               HorizontalContentAlignment="Center"
-                                                               SelectedIndex="0">
-                                                         <ComboBoxItem>Next.js</ComboBoxItem>
-                                                         <ComboBoxItem>SvelteKit</ComboBoxItem>
-                                                         <ComboBoxItem>Nuxt.js</ComboBoxItem>
-                                                         <ComboBoxItem>Remix</ComboBoxItem>
-                                                         <ComboBoxItem>Astro</ComboBoxItem>
-                                                     </ComboBox>
+                                                               PlaceholderText="Select a framework" />
                                                  </StackPanel>
                                                  """;
 

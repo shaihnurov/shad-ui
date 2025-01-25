@@ -22,15 +22,12 @@
         <ScrollViewer>
             <Panel Margin="48 24" MaxWidth="1536">
                 <StackPanel Spacing="32">
-
                     <controls:ControlBlock
                         Title="Select"
                         Language="xaml"
                         Code="{Binding SelectComboBoxCode}">
                         <StackPanel Spacing="8">
-                            <ComboBox Width="255"
-                                      HorizontalContentAlignment="Center"
-                                      SelectedIndex="0">
+                            <ComboBox Width="255" SelectedIndex="0">
                                 <ComboBoxItem>Next.js</ComboBoxItem>
                                 <ComboBoxItem>SvelteKit</ComboBoxItem>
                                 <ComboBoxItem>Nuxt.js</ComboBoxItem>
@@ -46,14 +43,7 @@
                         <StackPanel Spacing="8">
                             <ComboBox Width="255"
                                       IsEnabled="False"
-                                      HorizontalContentAlignment="Center"
-                                      SelectedIndex="0">
-                                <ComboBoxItem>Next.js</ComboBoxItem>
-                                <ComboBoxItem>SvelteKit</ComboBoxItem>
-                                <ComboBoxItem>Nuxt.js</ComboBoxItem>
-                                <ComboBoxItem>Remix</ComboBoxItem>
-                                <ComboBoxItem>Astro</ComboBoxItem>
-                            </ComboBox>
+                                      PlaceholderText="Select a framework" />
                         </StackPanel>
                     </controls:ControlBlock>
                     <controls:ControlBlock
@@ -62,17 +52,22 @@
                         Code="{Binding FormValidationCode}">
                         <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
                             <shadui:Card HorizontalAlignment="Center">
+                                <shadui:Card.Header>
+                                    <shadui:CardTitle>Framework Form</shadui:CardTitle>
+                                </shadui:Card.Header>
                                 <StackPanel Spacing="16">
                                     <ComboBox Width="255"
                                               SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
                                               ItemsSource="{Binding Items}"
                                               extensions:ComboBox.Label="Select a framework"
                                               extensions:ComboBox.Hint="Your favorite web framework" />
-                                    <Button HorizontalAlignment="Right" Margin="0,20,0,0" Classes="Outline"
+                                </StackPanel>
+                                <shadui:Card.Footer>
+                                    <Button HorizontalAlignment="Right" Classes="Outline"
                                             Command="{Binding ClearCommand}">
                                         Clear
                                     </Button>
-                                </StackPanel>
+                                </shadui:Card.Footer>
                             </shadui:Card>
                         </ScrollViewer>
                     </controls:ControlBlock>
