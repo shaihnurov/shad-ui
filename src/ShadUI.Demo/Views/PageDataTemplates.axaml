@@ -9,6 +9,9 @@
     <DataTemplate DataType="{x:Type viewModels:TypographyViewModel}">
         <views:TypographyPage />
     </DataTemplate>
+    <DataTemplate DataType="{x:Type viewModels:AvatarsViewModel}">
+        <views:AvatarPage />
+    </DataTemplate>
     <DataTemplate DataType="{x:Type viewModels:ButtonsViewModel}">
         <views:ButtonsPage />
     </DataTemplate>

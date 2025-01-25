@@ -11,6 +11,7 @@ public sealed partial class MainWindowViewModel(
     ToastManager toastManager,
     DashboardViewModel dashboardViewModel,
     TypographyViewModel typographyViewModel,
+    AvatarsViewModel avatarsViewModel,
     ButtonsViewModel buttonsViewModel,
     CardsViewModel cardsViewModel,
     DialogsViewModel dialogsViewModel,
@@ -58,6 +59,12 @@ public sealed partial class MainWindowViewModel(
     private async Task OpenButtons()
     {
         await SwitchPage(buttonsViewModel);
+    }
+
+    [RelayCommand]
+    private async Task OpenAvatar()
+    {
+        await SwitchPage(avatarsViewModel);
     }
 
     [RelayCommand]

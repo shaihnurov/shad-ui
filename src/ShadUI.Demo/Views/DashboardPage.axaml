@@ -123,7 +123,7 @@
                                                 </StackPanel>
                                                 <StackPanel Spacing="24" Margin="24,0,24,24">
                                                     <Grid ColumnDefinitions="Auto * Auto">
-                                                        <controls:RoundedImage CornerRadius="18" Width="36" Height="36"
+                                                        <controls:Avatar CornerRadius="18" Width="36" Height="36"
                                                                                VerticalAlignment="Center"
                                                                                Source="../Assets/Sales/01.png" />
                                                         <StackPanel Grid.Column="1" Margin="8,0">
@@ -135,7 +135,7 @@
                                                                    Text="+$1,999.00" VerticalAlignment="Center" />
                                                     </Grid>
                                                     <Grid ColumnDefinitions="Auto * Auto">
-                                                        <controls:RoundedImage CornerRadius="18" Width="36" Height="36"
+                                                        <controls:Avatar CornerRadius="18" Width="36" Height="36"
                                                                                VerticalAlignment="Center"
                                                                                Source="../Assets/Sales/02.png" />
                                                         <StackPanel Grid.Column="1" Margin="8,0">
@@ -147,7 +147,7 @@
                                                                    Text="+$39.00" VerticalAlignment="Center" />
                                                     </Grid>
                                                     <Grid ColumnDefinitions="Auto * Auto">
-                                                        <controls:RoundedImage CornerRadius="18" Width="36" Height="36"
+                                                        <controls:Avatar CornerRadius="18" Width="36" Height="36"
                                                                                VerticalAlignment="Center"
                                                                                Source="../Assets/Sales/03.png" />
                                                         <StackPanel Grid.Column="1" Margin="8,0">
@@ -159,7 +159,7 @@
                                                                    Text="+$299.00" VerticalAlignment="Center" />
                                                     </Grid>
                                                     <Grid ColumnDefinitions="Auto * Auto">
-                                                        <controls:RoundedImage CornerRadius="18" Width="36" Height="36"
+                                                        <controls:Avatar CornerRadius="18" Width="36" Height="36"
                                                                                VerticalAlignment="Center"
                                                                                Source="../Assets/Sales/04.png" />
                                                         <StackPanel Grid.Column="1" Margin="8,0">
@@ -170,7 +170,7 @@
                                                                    Text="+$99.00" VerticalAlignment="Center" />
                                                     </Grid>
                                                     <Grid ColumnDefinitions="Auto * Auto">
-                                                        <controls:RoundedImage CornerRadius="18" Width="36" Height="36"
+                                                        <controls:Avatar CornerRadius="18" Width="36" Height="36"
                                                                                VerticalAlignment="Center"
                                                                                Source="../Assets/Sales/05.png" />
                                                         <StackPanel Grid.Column="1" Margin="8,0">
@@ -222,7 +222,7 @@
                                                 </StackPanel>
                                                 <StackPanel Spacing="24" Margin="24,0,24,24">
                                                     <Grid ColumnDefinitions="Auto * Auto">
-                                                        <controls:RoundedImage CornerRadius="18" Width="36" Height="36"
+                                                        <controls:Avatar CornerRadius="18" Width="36" Height="36"
                                                                                VerticalAlignment="Center"
                                                                                Source="../Assets/Sales/01.png" />
                                                         <StackPanel Grid.Column="1" Margin="8,0">
@@ -234,7 +234,7 @@
                                                                    Text="+$1,999.00" VerticalAlignment="Center" />
                                                     </Grid>
                                                     <Grid ColumnDefinitions="Auto * Auto">
-                                                        <controls:RoundedImage CornerRadius="18" Width="36" Height="36"
+                                                        <controls:Avatar CornerRadius="18" Width="36" Height="36"
                                                                                VerticalAlignment="Center"
                                                                                Source="../Assets/Sales/02.png" />
                                                         <StackPanel Grid.Column="1" Margin="8,0">
@@ -246,7 +246,7 @@
                                                                    Text="+$39.00" VerticalAlignment="Center" />
                                                     </Grid>
                                                     <Grid ColumnDefinitions="Auto * Auto">
-                                                        <controls:RoundedImage CornerRadius="18" Width="36" Height="36"
+                                                        <controls:Avatar CornerRadius="18" Width="36" Height="36"
                                                                                VerticalAlignment="Center"
                                                                                Source="../Assets/Sales/03.png" />
                                                         <StackPanel Grid.Column="1" Margin="8,0">
@@ -258,7 +258,7 @@
                                                                    Text="+$299.00" VerticalAlignment="Center" />
                                                     </Grid>
                                                     <Grid ColumnDefinitions="Auto * Auto">
-                                                        <controls:RoundedImage CornerRadius="18" Width="36" Height="36"
+                                                        <controls:Avatar CornerRadius="18" Width="36" Height="36"
                                                                                VerticalAlignment="Center"
                                                                                Source="../Assets/Sales/04.png" />
                                                         <StackPanel Grid.Column="1" Margin="8,0">
@@ -269,7 +269,7 @@
                                                                    Text="+$99.00" VerticalAlignment="Center" />
                                                     </Grid>
                                                     <Grid ColumnDefinitions="Auto * Auto">
-                                                        <controls:RoundedImage CornerRadius="18" Width="36" Height="36"
+                                                        <controls:Avatar CornerRadius="18" Width="36" Height="36"
                                                                                VerticalAlignment="Center"
                                                                                Source="../Assets/Sales/05.png" />
                                                         <StackPanel Grid.Column="1" Margin="8,0">

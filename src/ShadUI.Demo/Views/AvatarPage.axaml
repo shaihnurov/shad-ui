@@ -1,0 +1,35 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:controls="clr-namespace:ShadUI.Demo.Controls"
+             xmlns:shadui="clr-namespace:ShadUI.Controls;assembly=ShadUI"
+             xmlns:viewModels="clr-namespace:ShadUI.Demo.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="ShadUI.Demo.Views.AvatarPage"
+             x:DataType="viewModels:AvatarsViewModel">
+    <DockPanel LastChildFill="True">
+        <StackPanel DockPanel.Dock="Top" Margin="48 24" MaxWidth="1536">
+            <TextBlock Classes="h3" Text="Avatar" />
+            <TextBlock
+                Classes="p"
+                TextWrapping="Wrap"
+                HorizontalAlignment="Left"
+                Text="An image element with a fallback for representing the user." />
+        </StackPanel>
+        <ScrollViewer>
+            <Panel Margin="48 24" MaxWidth="1536">
+                <StackPanel Spacing="32">
+                    <controls:ControlBlock
+                        Title="Usage"
+                        Code="{Binding UsageCode}"
+                        Language="xaml">
+                        <StackPanel>
+                            <shadui:Avatar Width="80" Height="80" Source="../../Assets/user.png" />
+                        </StackPanel>
+                    </controls:ControlBlock>
+                </StackPanel>
+            </Panel>
+        </ScrollViewer>
+    </DockPanel>
+</UserControl>

@@ -33,7 +33,7 @@
                 <TransitioningContentControl Content="{Binding SelectedPage}" />
             </controls:SidebarMenu.BodyContent>
             <controls:SidebarMenu.HeaderContent>
-                <controls:RoundedImage CornerRadius="40" Margin="30,10,30,30" Width="80" Height="80"
+                <controls:Avatar Margin="30,10,30,30" Width="80" Height="80"
                                        Source="../Assets/user.png" />
             </controls:SidebarMenu.HeaderContent>
             <controls:SidebarMenu.Items>
@@ -47,6 +47,12 @@
                                           Command="{Binding OpenTypographyCommand}">
                     <controls:SidebarMenuItem.Icon>
                         <icons:Lucide Icon="TypeOutline" StrokeThickness="1.5" Width="16" Height="16"
+                                      StrokeBrush="{Binding RelativeSource={RelativeSource AncestorType=controls:SidebarMenuItem}, Path=Foreground}" />
+                    </controls:SidebarMenuItem.Icon>
+                </controls:SidebarMenuItem>
+                <controls:SidebarMenuItem Header="Avatar" Classes="Compact" Command="{Binding OpenAvatarCommand}">
+                    <controls:SidebarMenuItem.Icon>
+                        <icons:Lucide Icon="CircleUser" StrokeThickness="1.5" Width="16" Height="16"
                                       StrokeBrush="{Binding RelativeSource={RelativeSource AncestorType=controls:SidebarMenuItem}, Path=Foreground}" />
                     </controls:SidebarMenuItem.Icon>
                 </controls:SidebarMenuItem>
