@@ -6,6 +6,7 @@
     xmlns:controls="clr-namespace:ShadUI.Demo.Controls"
     xmlns:viewModels="clr-namespace:ShadUI.Demo.ViewModels"
     xmlns:extensions="clr-namespace:ShadUI.Extensions;assembly=ShadUI"
+    xmlns:shadui="clr-namespace:ShadUI.Controls;assembly=ShadUI"
     mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
     x:Class="ShadUI.Demo.Views.ComboBoxesPage"
     x:DataType="viewModels:ComboBoxesViewModel">
@@ -60,7 +61,7 @@
                         Language="xaml"
                         Code="{Binding FormValidationCode}">
                         <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-                            <Border Classes="Card Bordered" Padding="40" HorizontalAlignment="Center">
+                            <shadui:Card HorizontalAlignment="Center">
                                 <StackPanel Spacing="16">
                                     <ComboBox Width="255"
                                               SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
@@ -72,7 +73,7 @@
                                         Clear
                                     </Button>
                                 </StackPanel>
-                            </Border>
+                            </shadui:Card>
                         </ScrollViewer>
                     </controls:ControlBlock>
                 </StackPanel>

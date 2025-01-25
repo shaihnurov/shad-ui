@@ -49,7 +49,7 @@ public sealed partial class InputViewModel : ViewModelBase
 
     [ObservableProperty]
     private string _formValidationCode = """
-                                          <Border Classes="Card Bordered" Padding="40" HorizontalAlignment="Center">
+                                          <shadui:Card HorizontalAlignment="Center">
                                               <StackPanel Spacing="16" Width="275">
                                                   <TextBox Classes="Clearable"
                                                            extensions:TextBox.Label="Email"
@@ -68,7 +68,7 @@ public sealed partial class InputViewModel : ViewModelBase
                                                            Text="{Binding ConfirmPassword, Mode=TwoWay}" />
                                                   <Button Margin="0,20,0,0" Classes="Primary" Command="{Binding SubmitCommand}">Submit</Button>
                                               </StackPanel>
-                                          </Border>
+                                          </shadui:Card>
                                           """;
     
     private string _email = string.Empty;

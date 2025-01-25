@@ -20,7 +20,6 @@
         <ScrollViewer>
             <Panel Margin="48 24" MaxWidth="1536">
                 <StackPanel Spacing="32">
-
                     <controls:ControlBlock
                         Title="Basic Tab"
                         Code="{Binding BasicTabCode}"

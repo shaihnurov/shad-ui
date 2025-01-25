@@ -8,24 +8,14 @@
     <Design.PreviewWith>
         <Border Width="500" Height="250">
             <controls:CodeTextBlock>
-                <Run Text="&lt;StackPanel Spacing=&quot;8&quot;&gt;" />
+                <Run Text="&lt;controls:Window.Hosts&gt;" />
                 <LineBreak />
-                <Run Text="    &lt;TextBlock Text=&quot;h1&quot; Classes=&quot;h4&quot; /&gt;" />
-                <LineBreak />
-                <Run Text="    &lt;Separator Margin=&quot;0&quot; /&gt;" />
+                <Run Text="    &lt;dialogs:DialogHost Manager=&quot;{Binding DialogManager}&quot;" />
                 <LineBreak />
                 <Run
-                    Text="    &lt;Border Classes=&quot;Card Bordered&quot; Padding=&quot;48&quot;&gt;" />
+                    Text="                        Owner=&quot;{Binding RelativeSource={RelativeSource AncestorType=controls:Window}}&quot; /&gt;" />
                 <LineBreak />
-                <Run
-                    Text="        &lt;TextBlock TextWrapping=&quot;Wrap&quot; Classes=&quot;h1&quot;" />
-                <LineBreak />
-                <Run
-                    Text="                   Text=&quot;Taxing Laughter: The Joke Tax Chronicles&quot; /&gt;" />
-                <LineBreak />
-                <Run Text="    &lt;/Border&gt;" />
-                <LineBreak />
-                <Run Text="&lt;/StackPanel&gt;" />
+                <Run Text="&lt;/controls:Window.Hosts&gt;" />
             </controls:CodeTextBlock>
         </Border>
     </Design.PreviewWith>

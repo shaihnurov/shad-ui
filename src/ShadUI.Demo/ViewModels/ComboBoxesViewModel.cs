@@ -64,10 +64,9 @@ public sealed partial class ComboBoxesViewModel : ViewModelBase
 
     [ObservableProperty]
     private string _formValidationCode = """
-                                         <Border Classes="Card Bordered" Padding="40" HorizontalAlignment="Center">
+                                         <shadui:Card HorizontalAlignment="Center">
                                              <StackPanel Spacing="16">
                                                  <ComboBox Width="255"
-                                                           SelectedIndex="0"
                                                            SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
                                                            ItemsSource="{Binding Items}"
                                                            extensions:ComboBox.Label="Select a framework"
@@ -77,6 +76,6 @@ public sealed partial class ComboBoxesViewModel : ViewModelBase
                                                      Clear
                                                  </Button>
                                              </StackPanel>
-                                         </Border>
+                                         </shadui:Card>
                                          """;
 }

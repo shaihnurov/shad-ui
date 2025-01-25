@@ -1,7 +1,8 @@
 ﻿<ResourceDictionary
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:controls="clr-namespace:ShadUI.Demo.Controls">
+    xmlns:controls="clr-namespace:ShadUI.Demo.Controls"
+    xmlns:shadui="clr-namespace:ShadUI.Controls;assembly=ShadUI">
     <ControlTheme x:Key="{x:Type controls:ControlBlock}"
                   TargetType="controls:ControlBlock">
         <Setter Property="Template">
@@ -14,9 +15,9 @@
                     <TabControl>
                         <TabControl.Items>
                             <TabItem Header="Preview">
-                                <Border Classes="Card Bordered" Padding="48">
+                                <shadui:Card Padding="48">
                                     <ContentPresenter Content="{TemplateBinding Content}" />
-                                </Border>
+                                </shadui:Card>
                             </TabItem>
                             <TabItem Header="Code">
                                 <controls:CodeTextBlock

@@ -1,5 +1,6 @@
 ﻿<Styles xmlns="https://github.com/avaloniaui"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="clr-namespace:ShadUI.Controls">
     <Design.PreviewWith>
         <Panel Margin="48 24" MaxWidth="670">
             <StackPanel Spacing="32">
@@ -9,84 +10,84 @@
                 <StackPanel Spacing="8">
                     <TextBlock Text="h1" Classes="h3" />
                     <Separator Margin="0" />
-                    <Border Classes="Card Bordered" Padding="48">
+                    <controls:Card Padding="48">
                         <TextBlock TextWrapping="Wrap" Classes="h1" Text="Taxing Laughter: The Joke Tax Chronicles" />
-                    </Border>
+                    </controls:Card>
                 </StackPanel>
                 <StackPanel Spacing="8">
                     <TextBlock Text="h2" Classes="h3" />
                     <Separator Margin="0" />
-                    <Border Classes="Card Bordered" Padding="48">
+                    <controls:Card Padding="48">
                         <TextBlock TextWrapping="Wrap" Classes="h2" Text="The People of the Kingdom" />
-                    </Border>
+                    </controls:Card>
                 </StackPanel>
                 <StackPanel Spacing="8">
                     <TextBlock Text="h3" Classes="h3" />
                     <Separator Margin="0" />
-                    <Border Classes="Card Bordered" Padding="48">
+                    <controls:Card Padding="48">
                         <TextBlock TextWrapping="Wrap" Classes="h3" Text="The Joke Tax" />
-                    </Border>
+                    </controls:Card>
                 </StackPanel>
                 <StackPanel Spacing="8">
                     <TextBlock Text="h4" Classes="h3" />
                     <Separator Margin="0" />
-                    <Border Classes="Card Bordered" Padding="48">
+                    <controls:Card Padding="48">
                         <TextBlock TextWrapping="Wrap" Classes="h4" Text="People stopped telling jokes" />
-                    </Border>
+                    </controls:Card>
                 </StackPanel>
                 <StackPanel Spacing="8">
                     <TextBlock Text="p" Classes="h3" />
                     <Separator Margin="0" />
-                    <Border Classes="Card Bordered" Padding="48">
+                    <controls:Card Padding="48">
                         <TextBlock TextWrapping="Wrap" Classes="p"
                                    Text="The king, seeing how much happier his subjects were, realized the error of his ways and repealed the joke tax." />
-                    </Border>
+                    </controls:Card>
                 </StackPanel>
                 <StackPanel Spacing="8">
                     <TextBlock Text="Lead" Classes="h3" />
                     <Separator Margin="0" />
-                    <Border Classes="Card Bordered" Padding="48">
+                    <controls:Card Padding="48">
                         <TextBlock TextWrapping="Wrap" Classes="Lead"
                                    Text="A modal dialog that interrupts the user with important content and expects a response." />
-                    </Border>
+                    </controls:Card>
                 </StackPanel>
                 <StackPanel Spacing="8">
                     <TextBlock Text="Large" Classes="h3" />
                     <Separator Margin="0" />
-                    <Border Classes="Card Bordered" Padding="48">
+                    <controls:Card Padding="48">
                         <TextBlock TextWrapping="Wrap" TextAlignment="Center" Classes="Large"
                                    Text="Are you absolutely sure?" />
-                    </Border>
+                    </controls:Card>
                 </StackPanel>
                 <StackPanel Spacing="8">
                     <TextBlock Text="Small" Classes="h3" />
                     <Separator Margin="0" />
-                    <Border Classes="Card Bordered" Padding="48">
+                    <controls:Card Padding="48">
                         <TextBlock TextWrapping="Wrap" TextAlignment="Center" Classes="Small" Text="Email address" />
-                    </Border>
+                    </controls:Card>
                 </StackPanel>
                 <StackPanel Spacing="8">
                     <TextBlock Text="Caption" Classes="h3" />
                     <Separator Margin="0" />
-                    <Border Classes="Card Bordered" Padding="48">
+                    <controls:Card Padding="48">
                         <TextBlock TextWrapping="Wrap" TextAlignment="Center" Classes="Caption" Text="Username" />
-                    </Border>
+                    </controls:Card>
                 </StackPanel>
                 <StackPanel Spacing="8">
                     <TextBlock Text="Muted" Classes="h3" />
                     <Separator Margin="0" />
-                    <Border Classes="Card Bordered" Padding="48">
+                    <controls:Card Padding="48">
                         <TextBlock TextWrapping="Wrap" TextAlignment="Center" Classes="p Muted"
                                    Text="Enter your email address" />
-                    </Border>
+                    </controls:Card>
                 </StackPanel>
                 <StackPanel Spacing="8">
                     <TextBlock Text="Error" Classes="h3" />
                     <Separator Margin="0" />
-                    <Border Classes="Card Bordered" Padding="48">
+                    <controls:Card Padding="48">
                         <TextBlock TextWrapping="Wrap" TextAlignment="Center" Classes="Caption Error"
                                    Text="Invalid email address" />
-                    </Border>
+                    </controls:Card>
                 </StackPanel>
             </StackPanel>
         </Panel>
