@@ -13,7 +13,7 @@ namespace ShadUI.Utilities.Effects;
 /// <summary>
 ///     Effect drawing base class.
 /// </summary>
-public abstract class EffectDrawBase : CompositionCustomVisualHandler
+internal abstract class EffectDrawBase : CompositionCustomVisualHandler
 {
     /// <summary>
     ///     Represents the start of animations.

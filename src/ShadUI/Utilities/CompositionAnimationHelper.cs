@@ -6,7 +6,7 @@ namespace ShadUI.Utilities;
 /// <summary>
 /// Useful helper for creating composition animations.
 /// </summary>
-public class CompositionAnimationHelper
+internal class CompositionAnimationHelper
 {
     /// <summary>
     /// Makes the opacity of the visual animated.

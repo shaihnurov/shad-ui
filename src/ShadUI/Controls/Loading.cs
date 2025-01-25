@@ -123,7 +123,7 @@ public class Loading : Control
     /// <summary>
     ///     The <see cref="EffectDrawBase" /> for the <see cref="Loading" /> indicator.
     /// </summary>
-    public class LoadingEffectDraw : EffectDrawBase
+    private class LoadingEffectDraw : EffectDrawBase
     {
         private float[] _color = { 1.0f, 0f, 0f };
 

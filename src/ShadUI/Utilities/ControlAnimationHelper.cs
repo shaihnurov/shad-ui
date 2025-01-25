@@ -9,7 +9,7 @@ namespace ShadUI.Utilities;
 /// <summary>
 ///     Provides helper methods for animating controls.
 /// </summary>
-public static class ControlAnimationHelper
+internal static class ControlAnimationHelper
 {
     /// <summary>
     ///     Animates a property of a control from one value to another over a specified duration.

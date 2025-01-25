@@ -17,7 +17,7 @@ namespace ShadUI.Utilities.Effects;
 ///     Use the static methods <see cref="BaseEffect.FromEmbeddedResource" /> and <see cref="BaseEffect.FromString" /> for
 ///     creation.
 /// </summary>
-public class BaseEffect
+internal class BaseEffect
 {
     // Basic uniforms passed into the shader from the CPU.
     private static readonly string[] Uniforms =
