@@ -104,7 +104,7 @@ ShadUI wouldn't be possible without the inspiration and contributions of the fol
 
 ## Contributing 🤝
 
-We welcome contributions to ShadUI! Before getting started, please review our [Code of Conduct](https://github.com/accntech/shad-ui/blob/main/CODE_OF_CONDUCT.md).  
+We welcome contributions to ShadUI! Before getting started, please review our [Contributing Guidelines](https://github.com/accntech/shad-ui/blob/main/CONTRIBUTING.md) and [Code of Conduct](https://github.com/accntech/shad-ui/blob/main/CODE_OF_CONDUCT.md).  
 Feel free to open issues, suggest new features, or submit pull requests.
 
 ---
