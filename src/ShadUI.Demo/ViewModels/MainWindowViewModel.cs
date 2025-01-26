@@ -22,7 +22,8 @@ public sealed partial class MainWindowViewModel(
     ComboBoxesViewModel comboBoxesViewModel,
     SlidersViewModel slidersViewModel,
     ToastsViewModel toastsViewModel,
-    ToggleSwitchViewModel toggleSwitchViewModel)
+    ToggleSwitchViewModel toggleSwitchViewModel,
+    ToolTipViewModel toolTipViewModel)
     : ViewModelBase
 {
     [ObservableProperty]
@@ -107,15 +108,21 @@ public sealed partial class MainWindowViewModel(
     }
 
     [RelayCommand]
+    private async Task OpenToggleSwitch()
+    {
+        await SwitchPage(toggleSwitchViewModel);
+    }
+    
+    [RelayCommand]
     private async Task OpenToast()
     {
         await SwitchPage(toastsViewModel);
     }
 
     [RelayCommand]
-    private async Task OpenToggleSwitch()
+    private async Task OpenToolTip()
     {
-        await SwitchPage(toggleSwitchViewModel);
+        await SwitchPage(toolTipViewModel);
     }
 
     [RelayCommand]

@@ -20,6 +20,7 @@
         <ResourceInclude Source="avares://ShadUI/Controls/TabControl.axaml" />
         <ResourceInclude Source="avares://ShadUI/Controls/TextBox.axaml" />
         <ResourceInclude Source="avares://ShadUI/Controls/ToggleSwitch.axaml" />
+        <ResourceInclude Source="avares://ShadUI/Controls/ToolTip.axaml" />
         <ResourceInclude Source="avares://ShadUI/Controls/Window.axaml" />
         <ResourceInclude Source="avares://ShadUI/Dialogs/DialogHost.axaml" />
         <ResourceInclude Source="avares://ShadUI/Dialogs/SimpleDialog.axaml" />

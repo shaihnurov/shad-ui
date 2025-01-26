@@ -39,4 +39,7 @@
     <DataTemplate DataType="{x:Type viewModels:ToggleSwitchViewModel}">
         <views:ToggleSwitchPage />
     </DataTemplate>
+    <DataTemplate DataType="{x:Type viewModels:ToolTipViewModel}">
+        <views:ToolTipPage />
+    </DataTemplate>
 </DataTemplates>
