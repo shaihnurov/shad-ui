@@ -1,3 +1,5 @@
+using System.Diagnostics;
+using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -116,6 +118,17 @@ public sealed partial class MainWindowViewModel(
         await SwitchPage(toggleSwitchViewModel);
     }
 
+    [RelayCommand]
+    private void OpenUrl(string url)
+    {
+        if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            Process.Start(new ProcessStartInfo(url.Replace("&", "^&")) { UseShellExecute = true });
+        else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+            Process.Start("xdg-open", url);
+        else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+            Process.Start("open", url);
+    }
+    
     public void Initialize()
     {
         SelectedPage = dashboardViewModel;

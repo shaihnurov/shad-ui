@@ -102,5 +102,10 @@ public static class Icons
     /// </summary>
     public static readonly StreamGeometry WindowClose = Parse("M36,41.1,6.15,71a3.44,3.44,0,0,1-2.53,1A3.55,3.55,0,0,1,0,68.38a3.44,3.44,0,0,1,1.05-2.53L30.9,36,1.05,6.15A3.49,3.49,0,0,1,0,3.59,3.51,3.51,0,0,1,.28,2.18,3.42,3.42,0,0,1,1.05,1,3.82,3.82,0,0,1,2.21.28,3.58,3.58,0,0,1,3.62,0,3.44,3.44,0,0,1,6.15,1.05L36,30.9,65.85,1.05a3.49,3.49,0,0,1,2.56-1A3.39,3.39,0,0,1,69.8.28,3.8,3.8,0,0,1,71,1.05a3.8,3.8,0,0,1,.77,1.15A3.39,3.39,0,0,1,72,3.59a3.49,3.49,0,0,1-1,2.56L41.1,36,71,65.85a3.44,3.44,0,0,1,1,2.53,3.58,3.58,0,0,1-.28,1.41A3.82,3.82,0,0,1,71,71a3.42,3.42,0,0,1-1.14.77,3.66,3.66,0,0,1-4-.77Z");
 
-    private static StreamGeometry Parse(string path) => StreamGeometry.Parse(path);
+    /// <summary>
+    ///     Parses the given path string into a <see cref="StreamGeometry" />.
+    /// </summary>
+    /// <param name="path">The path string to parse.</param>
+    /// <returns>A <see cref="StreamGeometry" /> object representing the parsed path.</returns>
+    public static StreamGeometry Parse(string path) => StreamGeometry.Parse(path);
 }
