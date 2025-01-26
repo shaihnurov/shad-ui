@@ -10,9 +10,9 @@
     <system:TimeSpan x:Key="ShortAnimationDuration">0.2</system:TimeSpan>
 
     <CornerRadius x:Key="SmallCornerRadius">4</CornerRadius>
-    <CornerRadius x:Key="MediumCornerRadius">8</CornerRadius>
-    <CornerRadius x:Key="LargeCornerRadius">12</CornerRadius>
-    <CornerRadius x:Key="ExtraLargeCornerRadius">16</CornerRadius>
+    <CornerRadius x:Key="MediumCornerRadius">6</CornerRadius>
+    <CornerRadius x:Key="LargeCornerRadius">8</CornerRadius>
+    <CornerRadius x:Key="ExtraLargeCornerRadius">12</CornerRadius>
     <CornerRadius x:Key="RoundedCornerRadius">999</CornerRadius>
 
     <Easing x:Key="MenuEasing">CircularEaseOut</Easing>
