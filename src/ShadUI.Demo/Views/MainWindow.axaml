@@ -12,6 +12,7 @@
     xmlns:ui="clr-namespace:ShadUI;assembly=ShadUI"
     xmlns:extensions="clr-namespace:ShadUI.Extensions;assembly=ShadUI"
     xmlns:demo="clr-namespace:ShadUI.Demo"
+    xmlns:converters="clr-namespace:ShadUI.Demo.Converters"
     mc:Ignorable="d" d:DesignWidth="800"
     x:Class="ShadUI.Demo.Views.MainWindow"
     x:DataType="viewModels:MainWindowViewModel"
@@ -31,6 +32,12 @@
     </controls:Window.Hosts>
     <Panel>
         <controls:SidebarMenu>
+            <controls:SidebarMenu.Styles>
+                <Style Selector="controls|SidebarMenuItem">
+                    <Setter Property="ToolTip.Placement" Value="Top" />
+                    <Setter Property="ToolTip.VerticalOffset" Value="-5" />
+                </Style>
+            </controls:SidebarMenu.Styles>
             <controls:SidebarMenu.BodyContent>
                 <TransitioningContentControl Content="{Binding SelectedPage}" />
             </controls:SidebarMenu.BodyContent>
@@ -39,80 +46,105 @@
                                  Source="../Assets/user.png" />
             </controls:SidebarMenu.HeaderContent>
             <controls:SidebarMenu.Items>
-                <controls:SidebarMenuItem Header="Dashboard" Classes="Compact" Command="{Binding OpenDashboardCommand}">
+                <controls:SidebarMenuItem Header="Dashboard" Classes="Compact" 
+                                          Command="{Binding OpenDashboardCommand}"
+                                          ToolTip.Tip="{Binding IsMenuExpanded, RelativeSource={RelativeSource AncestorType=controls:SidebarMenu}, Converter={x:Static converters:BooleanToNullOrStringConverter.Instance}, ConverterParameter='Dashboard'}">
                     <controls:SidebarMenuItem.Icon>
                         <icons:Lucide Icon="LayoutDashboard" StrokeThickness="1.5" Width="16" Height="16"
                                       StrokeBrush="{Binding RelativeSource={RelativeSource AncestorType=controls:SidebarMenuItem}, Path=Foreground}" />
                     </controls:SidebarMenuItem.Icon>
                 </controls:SidebarMenuItem>
                 <controls:SidebarMenuItem Header="Typography" Classes="Compact"
-                                          Command="{Binding OpenTypographyCommand}">
+                                          Command="{Binding OpenTypographyCommand}"
+                                          ToolTip.Tip="{Binding IsMenuExpanded, RelativeSource={RelativeSource AncestorType=controls:SidebarMenu}, Converter={x:Static converters:BooleanToNullOrStringConverter.Instance}, ConverterParameter='Typography'}">
                     <controls:SidebarMenuItem.Icon>
                         <icons:Lucide Icon="TypeOutline" StrokeThickness="1.5" Width="16" Height="16"
                                       StrokeBrush="{Binding RelativeSource={RelativeSource AncestorType=controls:SidebarMenuItem}, Path=Foreground}" />
                     </controls:SidebarMenuItem.Icon>
                 </controls:SidebarMenuItem>
-                <controls:SidebarMenuItem Header="Avatar" Classes="Compact" Command="{Binding OpenAvatarCommand}">
+                <controls:SidebarMenuItem Header="Avatar" Classes="Compact" 
+                                          Command="{Binding OpenAvatarCommand}"
+                                          ToolTip.Tip="{Binding IsMenuExpanded, RelativeSource={RelativeSource AncestorType=controls:SidebarMenu}, Converter={x:Static converters:BooleanToNullOrStringConverter.Instance}, ConverterParameter='Avatar'}">
                     <controls:SidebarMenuItem.Icon>
                         <icons:Lucide Icon="CircleUser" StrokeThickness="1.5" Width="16" Height="16"
                                       StrokeBrush="{Binding RelativeSource={RelativeSource AncestorType=controls:SidebarMenuItem}, Path=Foreground}" />
                     </controls:SidebarMenuItem.Icon>
                 </controls:SidebarMenuItem>
-                <controls:SidebarMenuItem Header="Buttons" Classes="Compact" Command="{Binding OpenButtonsCommand}">
+                <controls:SidebarMenuItem Header="Buttons" Classes="Compact" 
+                                          Command="{Binding OpenButtonsCommand}"
+                                          ToolTip.Tip="{Binding IsMenuExpanded, RelativeSource={RelativeSource AncestorType=controls:SidebarMenu}, Converter={x:Static converters:BooleanToNullOrStringConverter.Instance}, ConverterParameter='Buttons'}">
                     <controls:SidebarMenuItem.Icon>
                         <icons:Lucide Icon="MousePointerClick" StrokeThickness="1.5" Width="16" Height="16"
                                       StrokeBrush="{Binding RelativeSource={RelativeSource AncestorType=controls:SidebarMenuItem}, Path=Foreground}" />
                     </controls:SidebarMenuItem.Icon>
                 </controls:SidebarMenuItem>
-                <controls:SidebarMenuItem Header="Cards" Classes="Compact" Command="{Binding OpenCardsCommand}">
+                <controls:SidebarMenuItem Header="Cards" Classes="Compact" 
+                                          Command="{Binding OpenCardsCommand}"
+                                          ToolTip.Tip="{Binding IsMenuExpanded, RelativeSource={RelativeSource AncestorType=controls:SidebarMenu}, Converter={x:Static converters:BooleanToNullOrStringConverter.Instance}, ConverterParameter='Cards'}">
                     <controls:SidebarMenuItem.Icon>
                         <icons:Lucide Icon="Copy" StrokeThickness="1.5" Width="16" Height="16"
                                       StrokeBrush="{Binding RelativeSource={RelativeSource AncestorType=controls:SidebarMenuItem}, Path=Foreground}" />
                     </controls:SidebarMenuItem.Icon>
                 </controls:SidebarMenuItem>
-                <controls:SidebarMenuItem Header="ComboBox" Classes="Compact" Command="{Binding OpenComboBoxesCommand}">
+                <controls:SidebarMenuItem Header="ComboBox" Classes="Compact" 
+                                          Command="{Binding OpenComboBoxesCommand}"
+                                          ToolTip.Tip="{Binding IsMenuExpanded, RelativeSource={RelativeSource AncestorType=controls:SidebarMenu}, Converter={x:Static converters:BooleanToNullOrStringConverter.Instance}, ConverterParameter='ComboBox'}">
                     <controls:SidebarMenuItem.Icon>
                         <icons:Lucide Icon="ChevronsUpDown" StrokeThickness="1.5" Width="16" Height="16"
                                       StrokeBrush="{Binding RelativeSource={RelativeSource AncestorType=controls:SidebarMenuItem}, Path=Foreground}" />
                     </controls:SidebarMenuItem.Icon>
                 </controls:SidebarMenuItem>
-                <controls:SidebarMenuItem Header="Dialogs" Classes="Compact" Command="{Binding OpenDialogsCommand}">
+                <controls:SidebarMenuItem Header="Dialogs" Classes="Compact" 
+                                          Command="{Binding OpenDialogsCommand}"
+                                          ToolTip.Tip="{Binding IsMenuExpanded, RelativeSource={RelativeSource AncestorType=controls:SidebarMenu}, Converter={x:Static converters:BooleanToNullOrStringConverter.Instance}, ConverterParameter='Dialogs'}">
                     <controls:SidebarMenuItem.Icon>
                         <icons:Lucide Icon="MessageSquare" StrokeThickness="1.5" Width="16" Height="16"
                                       StrokeBrush="{Binding RelativeSource={RelativeSource AncestorType=controls:SidebarMenuItem}, Path=Foreground}" />
                     </controls:SidebarMenuItem.Icon>
                 </controls:SidebarMenuItem>
-                <controls:SidebarMenuItem Header="Inputs" Classes="Compact" Command="{Binding OpenInputsCommand}">
+                <controls:SidebarMenuItem Header="Inputs" Classes="Compact" 
+                                          Command="{Binding OpenInputsCommand}"
+                                          ToolTip.Tip="{Binding IsMenuExpanded, RelativeSource={RelativeSource AncestorType=controls:SidebarMenu}, Converter={x:Static converters:BooleanToNullOrStringConverter.Instance}, ConverterParameter='Inputs'}">
                     <controls:SidebarMenuItem.Icon>
                         <icons:Lucide Icon="TextCursorInput" StrokeThickness="1.5" Width="16" Height="16"
                                       StrokeBrush="{Binding RelativeSource={RelativeSource AncestorType=controls:SidebarMenuItem}, Path=Foreground}" />
                     </controls:SidebarMenuItem.Icon>
                 </controls:SidebarMenuItem>
-                <controls:SidebarMenuItem Header="Sliders" Classes="Compact" Command="{Binding OpenSlidersCommand}">
+                <controls:SidebarMenuItem Header="Sliders" Classes="Compact" 
+                                          Command="{Binding OpenSlidersCommand}"
+                                          ToolTip.Tip="{Binding IsMenuExpanded, RelativeSource={RelativeSource AncestorType=controls:SidebarMenu}, Converter={x:Static converters:BooleanToNullOrStringConverter.Instance}, ConverterParameter='Sliders'}">
                     <controls:SidebarMenuItem.Icon>
                         <icons:Lucide Icon="SlidersHorizontal" StrokeThickness="1.5" Width="16" Height="16"
                                       StrokeBrush="{Binding RelativeSource={RelativeSource AncestorType=controls:SidebarMenuItem}, Path=Foreground}" />
                     </controls:SidebarMenuItem.Icon>
                 </controls:SidebarMenuItem>
-                <controls:SidebarMenuItem Header="Switch" Classes="Compact" Command="{Binding OpenToggleSwitchCommand}">
+                <controls:SidebarMenuItem Header="Switch" Classes="Compact" 
+                                          Command="{Binding OpenToggleSwitchCommand}"
+                                          ToolTip.Tip="{Binding IsMenuExpanded, RelativeSource={RelativeSource AncestorType=controls:SidebarMenu}, Converter={x:Static converters:BooleanToNullOrStringConverter.Instance}, ConverterParameter='Switch'}">
                     <controls:SidebarMenuItem.Icon>
                         <icons:Lucide Icon="ToggleLeft" StrokeThickness="1.5" Width="16" Height="16"
                                       StrokeBrush="{Binding RelativeSource={RelativeSource AncestorType=controls:SidebarMenuItem}, Path=Foreground}" />
                     </controls:SidebarMenuItem.Icon>
                 </controls:SidebarMenuItem>
-                <controls:SidebarMenuItem Header="Tabs" Classes="Compact" Command="{Binding OpenTabsCommand}">
+                <controls:SidebarMenuItem Header="Tabs" Classes="Compact" 
+                                          Command="{Binding OpenTabsCommand}"
+                                          ToolTip.Tip="{Binding IsMenuExpanded, RelativeSource={RelativeSource AncestorType=controls:SidebarMenu}, Converter={x:Static converters:BooleanToNullOrStringConverter.Instance}, ConverterParameter='Tabs'}">
                     <controls:SidebarMenuItem.Icon>
                         <icons:Lucide Icon="AppWindow" StrokeThickness="1.5" Width="16" Height="16"
                                       StrokeBrush="{Binding RelativeSource={RelativeSource AncestorType=controls:SidebarMenuItem}, Path=Foreground}" />
                     </controls:SidebarMenuItem.Icon>
                 </controls:SidebarMenuItem>
-                <controls:SidebarMenuItem Header="Toasts" Classes="Compact" Command="{Binding OpenToastCommand}">
+                <controls:SidebarMenuItem Header="Toasts" Classes="Compact" 
+                                          Command="{Binding OpenToastCommand}"
+                                          ToolTip.Tip="{Binding IsMenuExpanded, RelativeSource={RelativeSource AncestorType=controls:SidebarMenu}, Converter={x:Static converters:BooleanToNullOrStringConverter.Instance}, ConverterParameter='Toasts'}">
                     <controls:SidebarMenuItem.Icon>
                         <icons:Lucide Icon="StretchHorizontal" StrokeThickness="1.5" Width="16" Height="16"
                                       StrokeBrush="{Binding RelativeSource={RelativeSource AncestorType=controls:SidebarMenuItem}, Path=Foreground}" />
                     </controls:SidebarMenuItem.Icon>
                 </controls:SidebarMenuItem>
-                <controls:SidebarMenuItem Header="Tooltip" Classes="Compact" Command="{Binding OpenToolTipCommand}">
+                <controls:SidebarMenuItem Header="Tooltip" Classes="Compact" 
+                                          Command="{Binding OpenToolTipCommand}"
+                                          ToolTip.Tip="{Binding IsMenuExpanded, RelativeSource={RelativeSource AncestorType=controls:SidebarMenu}, Converter={x:Static converters:BooleanToNullOrStringConverter.Instance}, ConverterParameter='Tooltip'}">
                     <controls:SidebarMenuItem.Icon>
                         <icons:Lucide Icon="MessageCircle" StrokeThickness="1.5" Width="16" Height="16"
                                       StrokeBrush="{Binding RelativeSource={RelativeSource AncestorType=controls:SidebarMenuItem}, Path=Foreground}" />
