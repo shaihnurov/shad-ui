@@ -162,6 +162,18 @@ public static class DialogBuilderExtensions
     }
 
     /// <summary>
+    ///     Sets the minimum width of the dialog.
+    /// </summary>
+    /// <param name="builder">The <see cref="SimpleDialogBuilder" /></param>
+    /// <param name="minWidth">The minimum width in pixels</param>
+    /// <returns>The modified <see cref="SimpleDialogBuilder" /> instance</returns>
+    public static SimpleDialogBuilder WithMinWidth(this SimpleDialogBuilder builder, double minWidth)
+    {
+        builder.Options.MinWidth = minWidth;
+        return builder;
+    }
+
+    /// <summary>
     ///     Shows the dialog.
     /// </summary>
     /// <param name="builder">The <see cref="SimpleDialogBuilder" /></param>
@@ -257,6 +269,19 @@ public static class DialogBuilderExtensions
         return builder;
     }
 
+    /// <summary>
+    ///     Sets the minimum width of the dialog.
+    /// </summary>
+    /// <typeparam name="TContext">The type of the dialog context</typeparam>
+    /// <param name="builder">The <see cref="DialogBuilder{TContext}" /></param>
+    /// <param name="minWidth">The minimum width in pixels</param>
+    /// <returns>The modified <see cref="DialogBuilder{TContext}" /> instance</returns>
+    public static DialogBuilder<TContext> WithMinWidth<TContext>(this DialogBuilder<TContext> builder, double minWidth)
+    {
+        builder.Options.MinWidth = minWidth;
+        return builder;
+    }
+    
     /// <summary>
     ///     Shows the dialog.
     /// </summary>

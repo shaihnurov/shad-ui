@@ -93,6 +93,21 @@ public class DialogHost : TemplatedControl
     }
 
     /// <summary>
+    ///     Defines the <see cref="DialogMinWidth"/> property.
+    /// </summary>
+    internal static readonly StyledProperty<double?> DialogMinWidthProperty =
+        AvaloniaProperty.Register<DialogHost, double?>(nameof(DialogMinWidth));
+
+    /// <summary>
+    ///     Gets or sets the minimum width of the dialog.
+    /// </summary>
+    internal double? DialogMinWidth
+    {
+        get => GetValue(DialogMinWidthProperty);
+        set => SetValue(DialogMinWidthProperty, value);
+    }
+
+    /// <summary>
     ///     Defines the <see cref="Dismissible"/> property.
     /// </summary>
     internal static readonly StyledProperty<bool> DismissibleProperty =
@@ -223,6 +238,9 @@ public class DialogHost : TemplatedControl
 
         if (e.Options.MaxWidth > 0)
             DialogMaxWidth = e.Options.MaxWidth;
+        
+        if (e.Options.MinWidth > 0)
+            DialogMinWidth = e.Options.MinWidth;
 
         if (Owner is not null)
             Owner.HasOpenDialog = true;

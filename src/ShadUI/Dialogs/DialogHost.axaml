@@ -25,6 +25,7 @@
                             Background="{DynamicResource DialogBackgroundColor}"
                             BorderThickness="1"
                             MaxWidth="{TemplateBinding DialogMaxWidth}"
+                            MinWidth="{TemplateBinding DialogMinWidth}"
                             BorderBrush="{DynamicResource BorderColor}"
                             CornerRadius="{DynamicResource MediumCornerRadius}"
                             ClipToBounds="False">
