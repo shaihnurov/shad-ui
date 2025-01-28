@@ -5,6 +5,7 @@ and [Suki UI Library](https://kikipoulet.github.io/SukiUI/).
 Our goal is to deliver a modern, beautiful, and intuitive UI library for [Avalonia](https://avaloniaui.net/).
 
 [![NuGet](https://img.shields.io/nuget/v/ShadUI.svg)](https://www.nuget.org/packages/ShadUI)
+[![NuGet Downloads](https://img.shields.io/nuget/dt/ShadUI)](https://www.nuget.org/packages/ShadUI)
 [![GitHub stars](https://img.shields.io/github/stars/accntech/shad-ui)](https://github.com/accntech/shad-ui/stargazers)
 
 **Forever free and open-source.** 🚀
