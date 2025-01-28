@@ -25,7 +25,7 @@
                         Code="{Binding UsageCode}"
                         Language="xaml">
                         <StackPanel>
-                            <shadui:Avatar Width="80" Height="80" Source="../../Assets/user.png" />
+                            <shadui:Avatar Fallback="CN" Width="80" Height="80" Source="../../Assets/user.png" />
                         </StackPanel>
                     </controls:ControlBlock>
                 </StackPanel>

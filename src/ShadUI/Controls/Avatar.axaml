@@ -21,6 +21,7 @@
                             <Image Source="{TemplateBinding Source}" />
                             <TextBlock TextAlignment="Center"
                                        VerticalAlignment="Center"
+                                       IsVisible="{TemplateBinding Source, Converter={x:Static ObjectConverters.IsNull}}"
                                        Text="{TemplateBinding Fallback}" />
                         </Panel>
                     </Border>
