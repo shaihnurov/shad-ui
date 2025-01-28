@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using Avalonia.Controls;
 
 namespace ShadUI.Dialogs;
@@ -17,7 +18,9 @@ public sealed class DialogBuilder<TContext>
     }
 
     internal Action? OnCancelCallback { get; set; }
+    internal Func<Task>? OnCancelAsyncCallback { get; set; }
     internal Action? OnSuccessCallback { get; set; }
+    internal Func<Task>? OnSuccessAsyncCallback { get; set; }
     internal DialogOptions Options { get; } = new();
 
     private Control? _control;
@@ -37,9 +40,15 @@ public sealed class DialogBuilder<TContext>
 
         if (OnSuccessCallback != null)
             _manager.OnSuccessCallbacks.Add(typeof(TContext), OnSuccessCallback);
+        
+        if (OnSuccessAsyncCallback != null)
+            _manager.OnSuccessAsyncCallbacks.Add(typeof(TContext), OnSuccessAsyncCallback);
 
         if (OnCancelCallback != null)
             _manager.OnCancelCallbacks.Add(typeof(TContext), OnCancelCallback);
+        
+        if (OnCancelAsyncCallback != null)
+            _manager.OnCancelAsyncCallbacks.Add(typeof(TContext), OnCancelAsyncCallback);
 
         _manager.Show(_control, Options);
     }

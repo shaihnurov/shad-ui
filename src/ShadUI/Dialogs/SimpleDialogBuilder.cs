@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 namespace ShadUI.Dialogs;
 
@@ -17,12 +18,15 @@ public sealed class SimpleDialogBuilder
 
     internal string PrimaryButtonText { get; set; } = string.Empty;
     internal Action? PrimaryCallback { get; set; }
+    internal Func<Task>? PrimaryCallbackAsync { get; set; }
     internal DialogButtonStyle PrimaryButtonStyle { get; set; } = DialogButtonStyle.Primary;
     internal string SecondaryButtonText { get; set; } = string.Empty;
     internal Action? SecondaryCallback { get; set; }
+    internal Func<Task>? SecondaryCallbackAsync { get; set; }
     internal DialogButtonStyle SecondaryButtonStyle { get; set; } = DialogButtonStyle.Secondary;
     internal string TertiaryButtonText { get; set; } = string.Empty;
     internal Action? TertiaryCallback { get; set; }
+    internal Func<Task>? TertiaryCallbackAsync { get; set; }
     internal DialogButtonStyle TertiaryButtonStyle { get; set; } = DialogButtonStyle.Outline;
     internal string CancelButtonText { get; set; } = "Cancel";
     internal DialogButtonStyle CancelButtonStyle { get; set; } = DialogButtonStyle.Outline;
@@ -44,12 +48,15 @@ public sealed class SimpleDialogBuilder
 
         _dialog.PrimaryButtonText = PrimaryButtonText;
         _dialog.PrimaryCallback = PrimaryCallback;
+        _dialog.PrimaryCallbackAsync = PrimaryCallbackAsync;
         _dialog.PrimaryButtonStyle = PrimaryButtonStyle;
         _dialog.SecondaryButtonText = SecondaryButtonText;
         _dialog.SecondaryCallback = SecondaryCallback;
+        _dialog.SecondaryCallbackAsync = SecondaryCallbackAsync;
         _dialog.SecondaryButtonStyle = SecondaryButtonStyle;
         _dialog.TertiaryButtonText = TertiaryButtonText;
         _dialog.TertiaryCallback = TertiaryCallback;
+        _dialog.TertiaryCallbackAsync = TertiaryCallbackAsync;
         _dialog.TertiaryButtonStyle = TertiaryButtonStyle;
         _dialog.CancelButtonText = CancelButtonText;
         _dialog.CancelButtonStyle = CancelButtonStyle;

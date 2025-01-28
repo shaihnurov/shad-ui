@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
@@ -56,6 +57,8 @@ internal class SimpleDialog : TemplatedControl
 
     public Action? PrimaryCallback { get; set; }
 
+    public Func<Task>? PrimaryCallbackAsync { get; set; }
+
     public static readonly StyledProperty<string> SecondaryButtonTextProperty =
         AvaloniaProperty.Register<SimpleDialog, string>(nameof(SecondaryButtonText));
 
@@ -76,6 +79,8 @@ internal class SimpleDialog : TemplatedControl
 
     public Action? SecondaryCallback { get; set; }
 
+    public Func<Task>? SecondaryCallbackAsync { get; set; }
+
     public static readonly StyledProperty<string> TertiaryButtonTextProperty =
         AvaloniaProperty.Register<SimpleDialog, string>(nameof(TertiaryButtonText));
 
@@ -95,6 +100,8 @@ internal class SimpleDialog : TemplatedControl
     }
 
     public Action? TertiaryCallback { get; set; }
+
+    public Func<Task>? TertiaryCallbackAsync { get; set; }
 
     public static readonly StyledProperty<string> CancelButtonTextProperty =
         AvaloniaProperty.Register<SimpleDialog, string>(nameof(CancelButtonText));
@@ -121,16 +128,19 @@ internal class SimpleDialog : TemplatedControl
         {
             _manager?.Close(this);
             PrimaryCallback?.Invoke();
+            PrimaryCallbackAsync?.Invoke();
         };
         e.NameScope.Get<Button>("PART_SecondaryButton").Click += (_, _) =>
         {
             _manager?.Close(this);
             SecondaryCallback?.Invoke();
+            SecondaryCallbackAsync?.Invoke();
         };
         e.NameScope.Get<Button>("PART_TertiaryButton").Click += (_, _) =>
         {
             _manager?.Close(this);
             TertiaryCallback?.Invoke();
+            TertiaryCallbackAsync?.Invoke();
         };
         e.NameScope.Get<Button>("PART_CancelButton").Click += (_, _) =>
         {

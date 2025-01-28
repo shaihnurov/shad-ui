@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Avalonia.Controls;
 
 namespace ShadUI.Dialogs;
@@ -46,7 +47,9 @@ public sealed class DialogManager
     }
 
     internal readonly Dictionary<Type, Action> OnCancelCallbacks = [];
+    internal readonly Dictionary<Type, Func<Task>> OnCancelAsyncCallbacks = [];
     internal readonly Dictionary<Type, Action> OnSuccessCallbacks = [];
+    internal readonly Dictionary<Type, Func<Task>> OnSuccessAsyncCallbacks = [];
 
     /// <summary>
     ///     Closes the dialog and invokes the callback.
@@ -61,13 +64,25 @@ public sealed class DialogManager
         if (OnSuccessCallbacks.TryGetValue(typeof(TContext), out var successCallback))
         {
             OnSuccessCallbacks.Remove(typeof(TContext));
-            if(success) successCallback?.Invoke();
+            if (success) successCallback?.Invoke();
+        }
+
+        if (OnSuccessAsyncCallbacks.TryGetValue(typeof(TContext), out var successAsyncCallback))
+        {
+            OnSuccessAsyncCallbacks.Remove(typeof(TContext));
+            if (success) successAsyncCallback?.Invoke();
         }
 
         if (OnCancelCallbacks.TryGetValue(typeof(TContext), out var cancelCallback))
         {
             OnCancelCallbacks.Remove(typeof(TContext));
-            if(!success) cancelCallback?.Invoke();
+            if (!success) cancelCallback?.Invoke();
+        }
+
+        if (OnCancelAsyncCallbacks.TryGetValue(typeof(TContext), out var cancelAsyncCallback))
+        {
+            OnCancelAsyncCallbacks.Remove(typeof(TContext));
+            if (!success) cancelAsyncCallback?.Invoke();
         }
 
         Close(control);

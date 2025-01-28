@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 namespace ShadUI.Dialogs;
 
@@ -35,6 +36,24 @@ public static class DialogBuilderExtensions
     }
 
     /// <summary>
+    ///     Sets the primary button of the dialog with an asynchronous callback.
+    /// </summary>
+    /// <param name="builder">The <see cref="SimpleDialogBuilder" /></param>
+    /// <param name="text">The button text</param>
+    /// <param name="asyncCallback">The asynchronous method that is called once the button is clicked</param>
+    /// <param name="buttonStyle">The style of the button. The default is <see cref="DialogButtonStyle.Primary" /></param>
+    /// <returns>The modified <see cref="SimpleDialogBuilder" /> instance</returns>
+    public static SimpleDialogBuilder WithPrimaryButton(this SimpleDialogBuilder builder, string text,
+        Func<Task>? asyncCallback = null,
+        DialogButtonStyle buttonStyle = DialogButtonStyle.Primary)
+    {
+        builder.PrimaryButtonText = text;
+        builder.PrimaryCallbackAsync = asyncCallback;
+        builder.PrimaryButtonStyle = buttonStyle;
+        return builder;
+    }
+
+    /// <summary>
     ///     Sets the secondary button of the dialog.
     /// </summary>
     /// <param name="builder">The <see cref="SimpleDialogBuilder" /></param>
@@ -52,6 +71,24 @@ public static class DialogBuilderExtensions
     }
 
     /// <summary>
+    ///     Sets the secondary button of the dialog with an asynchronous callback.
+    /// </summary>
+    /// <param name="builder">The <see cref="SimpleDialogBuilder" /></param>
+    /// <param name="text">The button text</param>
+    /// <param name="asyncCallback">The asynchronous method that is called once the button is clicked</param>
+    /// <param name="buttonStyle">The style of the button. The default is <see cref="DialogButtonStyle.Secondary" /></param>
+    /// <returns>The modified <see cref="SimpleDialogBuilder" /> instance</returns>
+    public static SimpleDialogBuilder WithSecondaryButton(this SimpleDialogBuilder builder, string text,
+        Func<Task>? asyncCallback = null,
+        DialogButtonStyle buttonStyle = DialogButtonStyle.Secondary)
+    {
+        builder.SecondaryButtonText = text;
+        builder.SecondaryCallbackAsync = asyncCallback;
+        builder.SecondaryButtonStyle = buttonStyle;
+        return builder;
+    }
+
+    /// <summary>
     ///     Sets the tertiary button of the dialog.
     /// </summary>
     /// <param name="builder">The <see cref="SimpleDialogBuilder" /></param>
@@ -64,6 +101,24 @@ public static class DialogBuilderExtensions
     {
         builder.TertiaryButtonText = text;
         builder.TertiaryCallback = callback;
+        builder.TertiaryButtonStyle = buttonStyle;
+        return builder;
+    }
+
+    /// <summary>
+    ///     Sets the tertiary button of the dialog with an asynchronous callback.
+    /// </summary>
+    /// <param name="builder">The <see cref="SimpleDialogBuilder" /></param>
+    /// <param name="text">The button text</param>
+    /// <param name="asyncCallback">The asynchronous method that is called once the button is clicked</param>
+    /// <param name="buttonStyle">The style of the button. The default is <see cref="DialogButtonStyle.Outline" /></param>
+    /// <returns>The modified <see cref="SimpleDialogBuilder" /> instance</returns>
+    public static SimpleDialogBuilder WithTertiaryButton(this SimpleDialogBuilder builder, string text,
+        Func<Task>? asyncCallback = null,
+        DialogButtonStyle buttonStyle = DialogButtonStyle.Outline)
+    {
+        builder.TertiaryButtonText = text;
+        builder.TertiaryCallbackAsync = asyncCallback;
         builder.TertiaryButtonStyle = buttonStyle;
         return builder;
     }
@@ -139,6 +194,19 @@ public static class DialogBuilderExtensions
     }
 
     /// <summary>
+    ///     Sets the success callback for the dialog with an asynchronous callback.
+    /// </summary>
+    /// <typeparam name="TContext">The type of the dialog context</typeparam>
+    /// <param name="builder">The <see cref="DialogBuilder{TContext}" /></param>
+    /// <param name="callback">The asynchronous method that is called on successful completion</param>
+    /// <returns>The modified <see cref="DialogBuilder{TContext}" /> instance</returns>
+    public static DialogBuilder<TContext> WithSuccessCallback<TContext>(this DialogBuilder<TContext> builder, Func<Task> callback)
+    {
+        builder.OnSuccessAsyncCallback = callback;
+        return builder;
+    }
+
+    /// <summary>
     ///     Sets the cancel callback for the dialog.
     /// </summary>
     /// <typeparam name="TContext">The type of the dialog context</typeparam>
@@ -148,6 +216,19 @@ public static class DialogBuilderExtensions
     public static DialogBuilder<TContext> WithCancelCallback<TContext>(this DialogBuilder<TContext> builder, Action callback)
     {
         builder.OnCancelCallback = callback;
+        return builder;
+    }
+
+    /// <summary>
+    ///     Sets the cancel callback for the dialog with an asynchronous callback.
+    /// </summary>
+    /// <typeparam name="TContext">The type of the dialog context</typeparam>
+    /// <param name="builder">The <see cref="DialogBuilder{TContext}" /></param>
+    /// <param name="callback">The asynchronous method that is called when the dialog is cancelled</param>
+    /// <returns>The modified <see cref="DialogBuilder{TContext}" /> instance</returns>
+    public static DialogBuilder<TContext> WithCancelCallback<TContext>(this DialogBuilder<TContext> builder, Func<Task> callback)
+    {
+        builder.OnCancelAsyncCallback = callback;
         return builder;
     }
 
