@@ -39,16 +39,16 @@ public sealed class DialogBuilder<TContext>
         if (_control == null) throw new InvalidOperationException("Dialog control is not set.");
 
         if (OnSuccessCallback != null)
-            _manager.OnSuccessCallbacks.Add(typeof(TContext), OnSuccessCallback);
+            _manager.OnSuccessCallbacks.TryAdd(typeof(TContext), OnSuccessCallback);
         
         if (OnSuccessAsyncCallback != null)
-            _manager.OnSuccessAsyncCallbacks.Add(typeof(TContext), OnSuccessAsyncCallback);
+            _manager.OnSuccessAsyncCallbacks.TryAdd(typeof(TContext), OnSuccessAsyncCallback);
 
         if (OnCancelCallback != null)
-            _manager.OnCancelCallbacks.Add(typeof(TContext), OnCancelCallback);
+            _manager.OnCancelCallbacks.TryAdd(typeof(TContext), OnCancelCallback);
         
         if (OnCancelAsyncCallback != null)
-            _manager.OnCancelAsyncCallbacks.Add(typeof(TContext), OnCancelAsyncCallback);
+            _manager.OnCancelAsyncCallbacks.TryAdd(typeof(TContext), OnCancelAsyncCallback);
 
         _manager.Show(_control, Options);
     }
