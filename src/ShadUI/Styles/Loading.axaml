@@ -29,4 +29,8 @@
     <Style Selector="Button.DestructiveIcon controls|Loading">
         <Setter Property="Foreground" Value="{DynamicResource DestructiveForegroundColor}" />
     </Style>
+
+    <Style Selector="TextBox controls|Loading">
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryColor}" />
+    </Style>
 </Styles>

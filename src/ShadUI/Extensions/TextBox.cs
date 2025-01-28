@@ -70,4 +70,27 @@ public static class TextBox
     {
         textBox.SetValue(HintProperty, value);
     }
+
+    /// <summary>
+    ///     Indicates whether the text box should show progress.
+    /// </summary>
+    public static readonly AttachedProperty<bool> ShowProgressProperty =
+        AvaloniaProperty.RegisterAttached<Avalonia.Controls.TextBox, bool>("ShowProgress", typeof(Avalonia.Controls.TextBox));
+
+    /// <summary>
+    ///     Gets the value of the <see cref="ShowProgressProperty" />.
+    /// </summary>
+    /// <param name="textBox">The text box.</param>
+    /// <returns>The value of the <see cref="ShowProgressProperty" />.</returns>
+    public static bool GetShowProgress(Avalonia.Controls.TextBox textBox) => textBox.GetValue(ShowProgressProperty);
+
+    /// <summary>
+    ///     Sets the value of the <see cref="ShowProgressProperty" />.
+    /// </summary>
+    /// <param name="textBox">The text box.</param>
+    /// <param name="value">The value to set.</param>
+    public static void SetShowProgress(Avalonia.Controls.TextBox textBox, bool value)
+    {
+        textBox.SetValue(ShowProgressProperty, value);
+    }
 }

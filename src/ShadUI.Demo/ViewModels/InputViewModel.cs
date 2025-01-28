@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using Avalonia.Threading;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using ShadUI.Demo.Validators;
@@ -9,12 +11,46 @@ namespace ShadUI.Demo.ViewModels;
 public sealed partial class InputViewModel : ViewModelBase
 {
     private readonly ToastManager _toastManager;
+    private System.Timers.Timer? _searchTimer;
 
     public InputViewModel(ToastManager toastManager)
     {
         _toastManager = toastManager;
-        PropertyChanged += (_, _) => SubmitCommand.NotifyCanExecuteChanged();
+        PropertyChanged += OnPropertyChanged;
         ErrorsChanged += (_, _) => SubmitCommand.NotifyCanExecuteChanged();
+
+        _searchTimer = new System.Timers.Timer(500); // 500ms debounce
+        _searchTimer.Elapsed += SearchTimerElapsed;
+        _searchTimer.AutoReset = false;
+    }
+
+    private void OnPropertyChanged(object? sender, PropertyChangedEventArgs e)
+    {
+        SubmitCommand.NotifyCanExecuteChanged();
+
+        if (e.PropertyName == nameof(SearchString))
+        {
+            if (SearchString.Length > 0)
+            {
+                IsSearching = true;
+                _searchTimer?.Stop();
+                _searchTimer?.Start();
+            }
+            else
+            {
+                _searchTimer?.Stop();
+                IsSearching = false;
+            }
+        }
+    }
+
+    private void SearchTimerElapsed(object? sender, System.Timers.ElapsedEventArgs e)
+    {
+        Dispatcher.UIThread.Invoke(() =>
+        {
+            IsSearching = false;
+            _searchTimer?.Stop();
+        });
     }
 
     [ObservableProperty]
@@ -77,6 +113,26 @@ public sealed partial class InputViewModel : ViewModelBase
                                              </shadui:Card.Footer>
                                          </shadui:Card>
                                          """;
+
+    [ObservableProperty]
+    private string _searchString = string.Empty;
+
+    [ObservableProperty]
+    private bool _isSearching;
+    
+    [ObservableProperty]
+    private string _searchBoxCode = """
+                                    <StackPanel>
+                                        <TextBox Classes="Clearable" Width="225" 
+                                                 Text="{Binding SearchString, Mode=TwoWay}"
+                                                 extensions:TextBox.ShowProgress="{Binding IsSearching}"
+                                                 Watermark="Search here...">
+                                            <TextBox.InnerRightContent>
+                                                <PathIcon Data="{x:Static contents:Icons.Search}" Opacity="0.75" Width="16" />
+                                            </TextBox.InnerRightContent>
+                                        </TextBox>
+                                    </StackPanel>
+                                    """;
 
     private string _email = string.Empty;
 

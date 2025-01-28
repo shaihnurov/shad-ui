@@ -7,6 +7,7 @@
     xmlns:controls="clr-namespace:ShadUI.Demo.Controls"
     xmlns:extensions="clr-namespace:ShadUI.Extensions;assembly=ShadUI"
     xmlns:shadui="clr-namespace:ShadUI.Controls;assembly=ShadUI"
+    xmlns:contents="clr-namespace:ShadUI.Contents;assembly=ShadUI"
     mc:Ignorable="d" d:DesignWidth="800"
     x:Class="ShadUI.Demo.Views.InputPage"
     x:DataType="viewModels:InputViewModel">
@@ -54,6 +55,21 @@
                         <StackPanel>
                             <TextBox Classes="Clearable" Width="225" extensions:TextBox.Label="Email"
                                      Watermark="user@example.com" />
+                        </StackPanel>
+                    </controls:ControlBlock>
+                    <controls:ControlBlock
+                        Title="Search Box"
+                        Code="{Binding SearchBoxCode}"
+                        Language="xaml">
+                        <StackPanel>
+                            <TextBox Classes="Clearable" Width="225" 
+                                     Text="{Binding SearchString, Mode=TwoWay}"
+                                     extensions:TextBox.ShowProgress="{Binding IsSearching}"
+                                     Watermark="Search here...">
+                                <TextBox.InnerRightContent>
+                                    <PathIcon Data="{x:Static contents:Icons.Search}" Opacity="0.75" Width="16" />
+                                </TextBox.InnerRightContent>
+                            </TextBox>
                         </StackPanel>
                     </controls:ControlBlock>
                     <controls:ControlBlock

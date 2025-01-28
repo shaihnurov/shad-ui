@@ -113,6 +113,7 @@
         <Setter Property="SelectionForegroundBrush" Value="{DynamicResource PrimaryForegroundColor}" />
         <Setter Property="CaretBrush" Value="{DynamicResource ForegroundColor}" />
         <Setter Property="FocusAdorner" Value="{x:Null}" />
+        <Setter Property="extensions:TextBox.ShowProgress" Value="False" />
         <Setter Property="Template">
             <ControlTemplate>
                 <StackPanel Spacing="4" Focusable="False">
@@ -133,6 +134,7 @@
                                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
                                     <Grid ColumnDefinitions="Auto,*,Auto">
                                         <ContentPresenter Grid.Column="0"
+                                                          VerticalAlignment="Center"
                                                           Content="{TemplateBinding InnerLeftContent}" />
                                         <ScrollViewer Name="PART_ScrollViewer"
                                                       Grid.Column="1"
@@ -141,7 +143,7 @@
                                                       HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
                                                       IsScrollChainingEnabled="{TemplateBinding (ScrollViewer.IsScrollChainingEnabled)}"
                                                       VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
-                                            <Panel>
+                                            <Panel VerticalAlignment="Center">
                                                 <TextBlock Name="watermark"
                                                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
@@ -183,7 +185,20 @@
                                             </ScrollViewer.Styles>
                                         </ScrollViewer>
                                         <ContentPresenter Grid.Column="2"
-                                                          Content="{TemplateBinding InnerRightContent}" />
+                                                          Name="PART_InnerRightContent"
+                                                          VerticalAlignment="Center"
+                                                          Content="{TemplateBinding InnerRightContent}"
+                                                          IsVisible="{TemplateBinding extensions:TextBox.ShowProgress, Converter={x:Static BoolConverters.Not}}" />
+                                        <ContentPresenter Grid.Column="2"
+                                                          Name="PART_ClearButton"
+                                                          VerticalAlignment="Center"
+                                                          IsVisible="{TemplateBinding extensions:TextBox.ShowProgress, Converter={x:Static BoolConverters.Not}}" />
+                                        <Viewbox Grid.Column="2" Width="24" Height="24" ClipToBounds="True">
+                                            <ContentPresenter Name="PART_LoadingIndicator"
+                                                              VerticalAlignment="Center"
+                                                              IsVisible="{TemplateBinding extensions:TextBox.ShowProgress}"
+                                                              Content="{TemplateBinding extensions:TextBox.ShowProgress, Converter={x:Static converters:ProgressToContentConverter.Instance}}" />
+                                        </Viewbox>
                                     </Grid>
                                 </DockPanel>
                             </Border>
@@ -219,45 +234,30 @@
         </Style>
 
         <Style Selector="^.Clearable[AcceptsReturn=False][IsReadOnly=False]:focus:not(TextBox:empty)">
-            <Setter Property="InnerRightContent">
-                <Template>
-                    <Button Command="{Binding $parent[TextBox].Clear}"
-                            Focusable="False"
-                            Theme="{StaticResource SimpleTextBoxClearButtonTheme}"
-                            ClipToBounds="True" />
-                </Template>
-            </Setter>
-        </Style>
-
-        <Style Selector="^.PasswordReveal[AcceptsReturn=False][IsReadOnly=False]:not(TextBox:empty)">
-            <Setter Property="InnerRightContent">
-                <Template>
-                    <Panel Margin="4,0">
-                        <Panel.Styles>
-                            <Style Selector="ToggleButton[IsChecked=True]">
-                                <Setter Property="(ToolTip.Tip)" Value="Hide Password" />
-                            </Style>
-                            <Style Selector="ToggleButton[IsChecked=False]">
-                                <Setter Property="(ToolTip.Tip)" Value="Show Password" />
-                            </Style>
-                        </Panel.Styles>
-                        <ToggleButton Background="Transparent"
-                                      Focusable="False"
-                                      IsChecked="{Binding $parent[TextBox].RevealPassword, Mode=TwoWay}"
-                                      Theme="{StaticResource SimplePasswordBoxRevealButtonTheme}"
-                                      ClipToBounds="True" />
-                    </Panel>
-                </Template>
-            </Setter>
-        </Style>
-        <Style Selector="^.ClearablePassword[AcceptsReturn=False][IsReadOnly=False]:not(TextBox:empty)">
-            <Setter Property="InnerRightContent">
-                <Template>
-                    <StackPanel Spacing="4" Orientation="Horizontal">
+            <Style Selector="^ /template/ ContentPresenter#PART_InnerRightContent">
+                <Setter Property="IsVisible" Value="False" />
+                <Setter Property="IsHitTestVisible" Value="False" />
+            </Style>
+            <Style Selector="^ /template/ ContentPresenter#PART_ClearButton">
+                <Setter Property="Content">
+                    <Template>
                         <Button Command="{Binding $parent[TextBox].Clear}"
                                 Focusable="False"
                                 Theme="{StaticResource SimpleTextBoxClearButtonTheme}"
                                 ClipToBounds="True" />
+                    </Template>
+                </Setter>
+            </Style>
+        </Style>
+
+        <Style Selector="^.PasswordReveal[AcceptsReturn=False][IsReadOnly=False]:not(TextBox:empty)">
+            <Style Selector="^ /template/ ContentPresenter#PART_InnerRightContent">
+                <Setter Property="IsVisible" Value="False" />
+                <Setter Property="IsHitTestVisible" Value="False" />
+            </Style>
+            <Style Selector="^ /template/ ContentPresenter#PART_ClearButton">
+                <Setter Property="Content">
+                    <Template>
                         <Panel Margin="4,0">
                             <Panel.Styles>
                                 <Style Selector="ToggleButton[IsChecked=True]">
@@ -273,9 +273,42 @@
                                           Theme="{StaticResource SimplePasswordBoxRevealButtonTheme}"
                                           ClipToBounds="True" />
                         </Panel>
-                    </StackPanel>
-                </Template>
-            </Setter>
+                    </Template>
+                </Setter>
+            </Style>
+        </Style>
+        <Style Selector="^.ClearablePassword[AcceptsReturn=False][IsReadOnly=False]:not(TextBox:empty)">
+            <Style Selector="^ /template/ ContentPresenter#PART_InnerRightContent">
+                <Setter Property="IsVisible" Value="False" />
+                <Setter Property="IsHitTestVisible" Value="False" />
+            </Style>
+            <Style Selector="^ /template/ ContentPresenter#PART_ClearButton">
+                <Setter Property="Content">
+                    <Template>
+                        <StackPanel Spacing="4" Orientation="Horizontal">
+                            <Button Command="{Binding $parent[TextBox].Clear}"
+                                    Focusable="False"
+                                    Theme="{StaticResource SimpleTextBoxClearButtonTheme}"
+                                    ClipToBounds="True" />
+                            <Panel Margin="4,0">
+                                <Panel.Styles>
+                                    <Style Selector="ToggleButton[IsChecked=True]">
+                                        <Setter Property="(ToolTip.Tip)" Value="Hide Password" />
+                                    </Style>
+                                    <Style Selector="ToggleButton[IsChecked=False]">
+                                        <Setter Property="(ToolTip.Tip)" Value="Show Password" />
+                                    </Style>
+                                </Panel.Styles>
+                                <ToggleButton Background="Transparent"
+                                              Focusable="False"
+                                              IsChecked="{Binding $parent[TextBox].RevealPassword, Mode=TwoWay}"
+                                              Theme="{StaticResource SimplePasswordBoxRevealButtonTheme}"
+                                              ClipToBounds="True" />
+                            </Panel>
+                        </StackPanel>
+                    </Template>
+                </Setter>
+            </Style>
         </Style>
     </ControlTheme>
 </ResourceDictionary>
