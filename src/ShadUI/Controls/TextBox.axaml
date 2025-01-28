@@ -41,7 +41,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <Border x:Name="PART_ButtonLayoutBorder"
-                            Width="16"
+                            Padding="4"
                             Background="Transparent"
                             BorderThickness="{TemplateBinding BorderThickness}">
                         <Path x:Name="PART_GlyphElement"
@@ -65,7 +65,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="ToggleButton">
                     <Border x:Name="PART_ButtonLayoutBorder"
-                            Width="16"
+                            Padding="4"
                             Background="Transparent">
                         <Panel>
                             <Path x:Name="PART_GlyphElement_Reveal"
