@@ -29,7 +29,7 @@ internal class ProgressToContentConverter : IValueConverter
         CultureInfo culture)
     {
         if (value is true)
-            return new Loading { LoadingStyle = LoadingStyle.Simple };
+            return new Loading { Width = 24, Height = 24 };
 
         return new Panel();
     }
