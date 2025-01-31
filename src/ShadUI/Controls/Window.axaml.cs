@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.InteropServices;
 using Avalonia;
 using Avalonia.Collections;
 using Avalonia.Controls;
@@ -7,6 +8,8 @@ using Avalonia.Controls.Primitives;
 using Avalonia.Input;
 using Avalonia.Interactivity;
 using Avalonia.Media;
+using ShadUI.Extensions;
+using Button = Avalonia.Controls.Button;
 
 namespace ShadUI.Controls;
 
@@ -381,5 +384,13 @@ public class Window : Avalonia.Controls.Window
     {
         base.OnPointerPressed(e);
         BeginMoveDrag(e);
+    }
+
+    static Window()
+    {
+        if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+        {
+            OnScreenKeyboard.Integrate();
+        }
     }
 }
