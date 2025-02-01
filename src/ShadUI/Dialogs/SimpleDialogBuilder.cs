@@ -29,6 +29,8 @@ public sealed class SimpleDialogBuilder
     internal Func<Task>? TertiaryCallbackAsync { get; set; }
     internal DialogButtonStyle TertiaryButtonStyle { get; set; } = DialogButtonStyle.Outline;
     internal string CancelButtonText { get; set; } = "Cancel";
+    internal Action? CancelCallback { get; set; }
+    internal Func<Task>? CancelCallbackAsync { get; set; }
     internal DialogButtonStyle CancelButtonStyle { get; set; } = DialogButtonStyle.Outline;
     internal DialogOptions Options { get; } = new();
 
@@ -59,6 +61,8 @@ public sealed class SimpleDialogBuilder
         _dialog.TertiaryCallbackAsync = TertiaryCallbackAsync;
         _dialog.TertiaryButtonStyle = TertiaryButtonStyle;
         _dialog.CancelButtonText = CancelButtonText;
+        _dialog.CancelCallback = CancelCallback;
+        _dialog.CancelCallbackAsync = CancelCallbackAsync;
         _dialog.CancelButtonStyle = CancelButtonStyle;
 
         _manager.Show(_dialog, Options);

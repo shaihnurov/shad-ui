@@ -139,6 +139,40 @@ public static class DialogBuilderExtensions
     }
 
     /// <summary>
+    ///     Sets the cancel button of the dialog.
+    /// </summary>
+    /// <param name="builder">The <see cref="SimpleDialogBuilder" /></param>
+    /// <param name="text">The button text</param>
+    /// <param name="callback">The method that is called once the button is clicked</param>
+    /// <param name="buttonStyle">The style of the button. The default is <see cref="DialogButtonStyle.Outline" /></param>
+    /// <returns>The modified <see cref="SimpleDialogBuilder" /> instance</returns>
+    public static SimpleDialogBuilder WithCancelButton(this SimpleDialogBuilder builder, string text, Action callback,
+        DialogButtonStyle buttonStyle = DialogButtonStyle.Outline)
+    {
+        builder.CancelButtonText = text;
+        builder.CancelCallback = callback;
+        builder.CancelButtonStyle = buttonStyle;
+        return builder;
+    }
+
+    /// <summary>
+    ///     Sets the cancel button of the dialog.
+    /// </summary>
+    /// <param name="builder">The <see cref="SimpleDialogBuilder" /></param>
+    /// <param name="text">The button text</param>
+    /// <param name="asyncCallback">The asynchronous method that is called once the button is clicked</param>
+    /// <param name="buttonStyle">The style of the button. The default is <see cref="DialogButtonStyle.Outline" /></param>
+    /// <returns>The modified <see cref="SimpleDialogBuilder" /> instance</returns>
+    public static SimpleDialogBuilder WithCancelButton(this SimpleDialogBuilder builder, string text, Func<Task>? asyncCallback,
+        DialogButtonStyle buttonStyle = DialogButtonStyle.Outline)
+    {
+        builder.CancelButtonText = text;
+        builder.CancelCallbackAsync = asyncCallback;
+        builder.CancelButtonStyle = buttonStyle;
+        return builder;
+    }
+
+    /// <summary>
     ///     Makes the dialog dismissible by clicking outside or pressing escape.
     /// </summary>
     /// <param name="builder">The <see cref="SimpleDialogBuilder" /></param>
@@ -281,7 +315,7 @@ public static class DialogBuilderExtensions
         builder.Options.MinWidth = minWidth;
         return builder;
     }
-    
+
     /// <summary>
     ///     Shows the dialog.
     /// </summary>

@@ -112,6 +112,10 @@ internal class SimpleDialog : TemplatedControl
         set => SetValue(CancelButtonTextProperty, value);
     }
 
+    public Action? CancelCallback { get; set; }
+
+    public Func<Task>? CancelCallbackAsync { get; set; }
+
     public static readonly StyledProperty<DialogButtonStyle> CancelButtonStyleProperty =
         AvaloniaProperty.Register<SimpleDialog, DialogButtonStyle>(nameof(CancelButtonStyle), DialogButtonStyle.Outline);
 
@@ -145,6 +149,8 @@ internal class SimpleDialog : TemplatedControl
         e.NameScope.Get<Button>("PART_CancelButton").Click += (_, _) =>
         {
             _manager?.Close(this);
+            CancelCallback?.Invoke();
+            CancelCallbackAsync?.Invoke();
         };
     }
 }
