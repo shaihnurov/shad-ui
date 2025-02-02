@@ -193,7 +193,7 @@
                                                           Name="PART_ClearButton"
                                                           VerticalAlignment="Center"
                                                           IsVisible="{TemplateBinding extensions:TextBox.ShowProgress, Converter={x:Static BoolConverters.Not}}" />
-                                        <Viewbox Grid.Column="2" Width="24" Height="24" ClipToBounds="True">
+                                        <Viewbox Grid.Column="2" Width="16" Height="16" ClipToBounds="True">
                                             <ContentPresenter Name="PART_LoadingIndicator"
                                                               VerticalAlignment="Center"
                                                               IsVisible="{TemplateBinding extensions:TextBox.ShowProgress}"

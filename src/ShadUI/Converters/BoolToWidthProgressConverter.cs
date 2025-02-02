@@ -5,14 +5,14 @@ using Avalonia.Data.Converters;
 namespace ShadUI.Converters;
 
 /// <summary>
-///     Returns a width of 36 if the value is true, otherwise 0.
+///     Returns a width of 24 if the value is true, otherwise 0.
 /// </summary>
 internal class BoolToWidthProgressConverter : IValueConverter
 {
     public static readonly BoolToWidthProgressConverter Instance = new();
     
     /// <summary>
-    ///     Convert a boolean value to a width of 40 or 0.
+    ///     Convert a boolean value to a width of 24 or 0.
     /// </summary>
     /// <param name="value"></param>
     /// <param name="targetType"></param>
@@ -24,11 +24,11 @@ internal class BoolToWidthProgressConverter : IValueConverter
         if (value == null)
             return 0;
 
-        return (bool) value ? 36 : 0;
+        return (bool) value ? 24 : 0;
     }
 
     /// <summary>
-    ///     Convert a width of 36 or 0 to a boolean value.
+    ///     Convert a width of 24 or 0 to a boolean value.
     /// </summary>
     /// <param name="value"></param>
     /// <param name="targetType"></param>
@@ -41,7 +41,7 @@ internal class BoolToWidthProgressConverter : IValueConverter
 }
 
 /// <summary>
-///     Returns a width of 0 if the value is true, otherwise 36.
+///     Returns a width of 0 if the value is true, otherwise 24.
 /// </summary>
 internal class BoolToInverseWidthProgressConverter : IValueConverter
 {
@@ -58,13 +58,13 @@ internal class BoolToInverseWidthProgressConverter : IValueConverter
     public object Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
     {
         if (value == null)
-            return 36;
+            return 24;
 
-        return (bool) value ? 0 : 36;
+        return (bool) value ? 0 : 24;
     }
 
     /// <summary>
-    ///     Convert a width of 0 or 36 to a boolean value.
+    ///     Convert a width of 0 or 24 to a boolean value.
     /// </summary>
     /// <param name="value"></param>
     /// <param name="targetType"></param>

@@ -2,12 +2,18 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:converters="clr-namespace:ShadUI.Converters"
-    xmlns:extensions="clr-namespace:ShadUI.Extensions">
+    xmlns:extensions="clr-namespace:ShadUI.Extensions"
+    xmlns:icons="clr-namespace:ShadUI.Contents">
     <Design.PreviewWith>
         <Border Padding="12">
             <StackPanel Spacing="8">
-                <Button Classes="Primary" Content="Primary" />
+                <Button Classes="Primary" Content="Primary" extensions:Button.ShowProgress="True" />
                 <Button Classes="Outline" Content="Primary" />
+                <Button Classes="Secondary" Content="Close">
+                    <extensions:Button.Icon>
+                        <PathIcon Data="{x:Static icons:Icons.Cross}" Margin="4,0" Height="14" />
+                    </extensions:Button.Icon>
+                </Button>
             </StackPanel>
         </Border>
     </Design.PreviewWith>
@@ -39,7 +45,7 @@
                         <Viewbox Margin="0,-4"
                                  Classes="IconContent"
                                  Width="{TemplateBinding extensions:Button.ShowProgress, Converter={x:Static converters:BoolToWidthProgressConverter.Instance}}"
-                                 Height="24">
+                                 Height="16">
                             <Viewbox.Transitions>
                                 <Transitions>
                                     <DoubleTransition Property="Width" Duration="0:0:0.15" />
@@ -48,8 +54,7 @@
                             <ContentPresenter
                                 Content="{TemplateBinding extensions:Button.ShowProgress, Converter={x:Static converters:ProgressToContentConverter.Instance}}" />
                         </Viewbox>
-                        <Viewbox Margin="-4"
-                                 Height="24"
+                        <Viewbox Height="24"
                                  Classes="IconContent"
                                  IsVisible="{TemplateBinding extensions:Button.Icon, Converter={x:Static ObjectConverters.IsNotNull}}"
                                  Width="{TemplateBinding extensions:Button.ShowProgress, Converter={x:Static converters:BoolToInverseWidthProgressConverter.Instance}}">
