@@ -9,10 +9,15 @@
                 <Panel>
                     <Border Name="PART_DialogBackground"
                             HorizontalAlignment="Stretch"
-                            IsVisible="False"
                             VerticalAlignment="Stretch"
                             Background="{DynamicResource DialogOverlayColor}"
-                            Opacity="0" />
+                            Opacity="0">
+                        <Border.Transitions>
+                            <Transitions>
+                                <DoubleTransition Property="Opacity" Duration="0:0:0.15" />
+                            </Transitions>
+                        </Border.Transitions>
+                    </Border>
                     <Border Name="PART_TitleBar"
                             Height="32"
                             IsVisible="False"
@@ -31,13 +36,13 @@
                             ClipToBounds="False">
                         <Border.Transitions>
                             <Transitions>
-                                <ThicknessTransition Property="Margin" Duration="0:0:0.10">
+                                <ThicknessTransition Property="Margin" Duration="0:0:0.15">
                                     <ThicknessTransition.Easing>
                                         <CircularEaseOut />
                                     </ThicknessTransition.Easing>
                                 </ThicknessTransition>
-                                <DoubleTransition Property="Opacity" Duration="0:0:0.02" />
-                                <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.10">
+                                <DoubleTransition Property="Opacity" Duration="0:0:0.1" />
+                                <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.15">
                                     <TransformOperationsTransition.Easing>
                                         <CircularEaseOut />
                                     </TransformOperationsTransition.Easing>
@@ -74,7 +79,6 @@
                         <Style Selector="dialogs|DialogHost[IsDialogOpen=True]">
                             <Style Selector="^ Border#PART_DialogBackground">
                                 <Setter Property="Opacity" Value="0.80" />
-                                <Setter Property="IsVisible" Value="True" />
                                 <Setter Property="IsHitTestVisible" Value="True" />
                             </Style>
                             <Style Selector="^ Border#PART_TitleBar">
@@ -84,7 +88,6 @@
                             <Style Selector="^ Border#PART_DialogContent">
                                 <Setter Property="Margin" Value="0" />
                                 <Setter Property="Opacity" Value="1" />
-                                <Setter Property="IsVisible" Value="True" />
                                 <Setter Property="IsHitTestVisible" Value="True" />
                                 <Setter Property="RenderTransform" Value="scale(1)" />
                             </Style>
@@ -93,7 +96,6 @@
                             <Style Selector="^ Border#PART_DialogBackground">
                                 <Setter Property="Opacity" Value="0" />
                                 <Setter Property="IsHitTestVisible" Value="False" />
-                                <Setter Property="IsVisible" Value="False" />
                             </Style>
                             <Style Selector="^ Border#PART_TitleBar">
                                 <Setter Property="Opacity" Value="0" />

@@ -6,8 +6,6 @@ using Avalonia.Controls.Primitives;
 using Avalonia.Input;
 using Avalonia.Interactivity;
 using Avalonia.Reactive;
-using Avalonia.Rendering.Composition;
-using ShadUI.Utilities;
 using Window = ShadUI.Controls.Window;
 
 namespace ShadUI.Dialogs;
@@ -18,7 +16,7 @@ namespace ShadUI.Dialogs;
 public class DialogHost : TemplatedControl
 {
     /// <summary>
-    ///     Defines the <see cref="Owner"/> property.
+    ///     Defines the <see cref="Owner" /> property.
     /// </summary>
     public static readonly StyledProperty<Window?> OwnerProperty =
         AvaloniaProperty.Register<DialogHost, Window?>(nameof(Owner));
@@ -33,7 +31,7 @@ public class DialogHost : TemplatedControl
     }
 
     /// <summary>
-    ///     Defines the <see cref="Manager"/> property.
+    ///     Defines the <see cref="Manager" /> property.
     /// </summary>
     public static readonly StyledProperty<DialogManager?> ManagerProperty =
         AvaloniaProperty.Register<DialogHost, DialogManager?>(nameof(Manager));
@@ -48,7 +46,7 @@ public class DialogHost : TemplatedControl
     }
 
     /// <summary>
-    ///     Defines the <see cref="Dialog"/> property.
+    ///     Defines the <see cref="Dialog" /> property.
     /// </summary>
     internal static readonly StyledProperty<object?> DialogProperty =
         AvaloniaProperty.Register<DialogHost, object?>(nameof(Dialog));
@@ -63,7 +61,7 @@ public class DialogHost : TemplatedControl
     }
 
     /// <summary>
-    ///     Defines the <see cref="IsDialogOpen"/> property.
+    ///     Defines the <see cref="IsDialogOpen" /> property.
     /// </summary>
     internal static readonly StyledProperty<bool> IsDialogOpenProperty =
         AvaloniaProperty.Register<DialogHost, bool>(nameof(IsDialogOpen));
@@ -78,7 +76,7 @@ public class DialogHost : TemplatedControl
     }
 
     /// <summary>
-    ///     Defines the <see cref="DialogMaxWidth"/> property.
+    ///     Defines the <see cref="DialogMaxWidth" /> property.
     /// </summary>
     internal static readonly StyledProperty<double?> DialogMaxWidthProperty =
         AvaloniaProperty.Register<DialogHost, double?>(nameof(DialogMaxWidth));
@@ -93,7 +91,7 @@ public class DialogHost : TemplatedControl
     }
 
     /// <summary>
-    ///     Defines the <see cref="DialogMinWidth"/> property.
+    ///     Defines the <see cref="DialogMinWidth" /> property.
     /// </summary>
     internal static readonly StyledProperty<double?> DialogMinWidthProperty =
         AvaloniaProperty.Register<DialogHost, double?>(nameof(DialogMinWidth));
@@ -108,7 +106,7 @@ public class DialogHost : TemplatedControl
     }
 
     /// <summary>
-    ///     Defines the <see cref="Dismissible"/> property.
+    ///     Defines the <see cref="Dismissible" /> property.
     /// </summary>
     internal static readonly StyledProperty<bool> DismissibleProperty =
         AvaloniaProperty.Register<DialogHost, bool>(nameof(Dismissible), true);
@@ -123,7 +121,7 @@ public class DialogHost : TemplatedControl
     }
 
     /// <summary>
-    ///     Defines the <see cref="CanDismissWithBackgroundClick"/> property.
+    ///     Defines the <see cref="CanDismissWithBackgroundClick" /> property.
     /// </summary>
     internal static readonly StyledProperty<bool> CanDismissWithBackgroundClickProperty =
         AvaloniaProperty.Register<DialogHost, bool>(nameof(CanDismissWithBackgroundClick), true);
@@ -145,18 +143,10 @@ public class DialogHost : TemplatedControl
     {
         base.OnApplyTemplate(e);
         if (e.NameScope.Find<Border>("PART_DialogBackground") is { } background)
-        {
-            background.Loaded += (_, _) =>
-            {
-                var element = ElementComposition.GetElementVisual(background);
-                if (element != null)
-                    CompositionAnimationHelper.MakeOpacityAnimated(element, 400);
-            };
             background.PointerPressed += (_, _) =>
             {
                 if (CanDismissWithBackgroundClick) CloseDialog();
             };
-        }
 
         if (e.NameScope.Find<Border>("PART_TitleBar") is { } titleBar)
         {
@@ -189,7 +179,6 @@ public class DialogHost : TemplatedControl
         if (!Dismissible) return;
 
         IsDialogOpen = false;
-        Dialog = null;
 
         if (Manager is not null)
         {
@@ -238,7 +227,7 @@ public class DialogHost : TemplatedControl
 
         if (e.Options.MaxWidth > 0)
             DialogMaxWidth = e.Options.MaxWidth;
-        
+
         if (e.Options.MinWidth > 0)
             DialogMinWidth = e.Options.MinWidth;
 
@@ -247,12 +236,12 @@ public class DialogHost : TemplatedControl
 
         IsDialogOpen = true;
     }
+
     private void ManagerOnDialogClosed(object sender, DialogClosedEventArgs e)
     {
         if (e.Control != Dialog) return;
 
         IsDialogOpen = false;
-        Dialog = null;
 
         if (Owner is not null)
             Owner.HasOpenDialog = false;
