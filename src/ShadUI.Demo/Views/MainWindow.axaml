@@ -150,6 +150,14 @@
                                       StrokeBrush="{Binding RelativeSource={RelativeSource AncestorType=controls:SidebarMenuItem}, Path=Foreground}" />
                     </controls:SidebarMenuItem.Icon>
                 </controls:SidebarMenuItem>
+                <controls:SidebarMenuItem Header="Miscellaneous" Classes="Compact"
+                                          Command="{Binding OpenMiscellaneousCommand}"
+                                          ToolTip.Tip="{Binding IsMenuExpanded, RelativeSource={RelativeSource AncestorType=controls:SidebarMenu}, Converter={x:Static converters:BooleanToNullOrStringConverter.Instance}, ConverterParameter='Miscellaneous'}">
+                    <controls:SidebarMenuItem.Icon>
+                        <icons:Lucide Icon="Layers2" StrokeThickness="1.5" Width="16" Height="16"
+                                      StrokeBrush="{Binding RelativeSource={RelativeSource AncestorType=controls:SidebarMenuItem}, Path=Foreground}" />
+                    </controls:SidebarMenuItem.Icon>
+                </controls:SidebarMenuItem>
             </controls:SidebarMenu.Items>
             <controls:SidebarMenu.FooterContent>
                 <StackPanel Spacing="16" Orientation="Horizontal" HorizontalAlignment="Center">

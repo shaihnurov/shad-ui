@@ -1,0 +1,42 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:ShadUI.Demo.ViewModels"
+             xmlns:controls="clr-namespace:ShadUI.Demo.Controls"
+             xmlns:shadui="clr-namespace:ShadUI.Controls;assembly=ShadUI"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="ShadUI.Demo.Views.MiscellaneousPage"
+             x:DataType="viewModels:MiscellaneousViewModel">
+    <DockPanel LastChildFill="True">
+        <StackPanel DockPanel.Dock="Top" Margin="48 24" MaxWidth="1536">
+            <TextBlock Classes="h3" Text="Miscellaneous" />
+            <TextBlock
+                Classes="p"
+                TextWrapping="Wrap"
+                HorizontalAlignment="Left"
+                Text="A collection of miscellaneous controls that don’t fit into any specific category" />
+        </StackPanel>
+        <ScrollViewer>
+            <Panel Margin="48 24" MaxWidth="1536">
+                <StackPanel Spacing="32">
+                    <controls:ControlBlock
+                        Title="Busy Area"
+                        Code="{Binding BusyAreaCode}"
+                        Language="xaml">
+                        <Border BorderThickness="1" BorderBrush="{DynamicResource BorderColor}"
+                                CornerRadius="{DynamicResource LargeCornerRadius}" Height="400">
+                            <Panel>
+                                <Button Classes="Outline" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                        Command="{Binding ToggleBusyCommand}">
+                                    Load
+                                </Button>
+                                <shadui:BusyArea CornerRadius="{DynamicResource LargeCornerRadius}" IsBusy="{Binding IsBusy}" />
+                            </Panel>
+                        </Border>
+                    </controls:ControlBlock>
+                </StackPanel>
+            </Panel>
+        </ScrollViewer>
+    </DockPanel>
+</UserControl>

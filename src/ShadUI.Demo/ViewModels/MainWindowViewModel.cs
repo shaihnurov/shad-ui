@@ -23,7 +23,8 @@ public sealed partial class MainWindowViewModel(
     SlidersViewModel slidersViewModel,
     ToastsViewModel toastsViewModel,
     ToggleSwitchViewModel toggleSwitchViewModel,
-    ToolTipViewModel toolTipViewModel)
+    ToolTipViewModel toolTipViewModel,
+    MiscellaneousViewModel miscellaneousViewModel)
     : ViewModelBase
 {
     [ObservableProperty]
@@ -125,6 +126,12 @@ public sealed partial class MainWindowViewModel(
         await SwitchPage(toolTipViewModel);
     }
 
+    [RelayCommand]
+    private async Task OpenMiscellaneous()
+    {
+        await SwitchPage(miscellaneousViewModel);
+    }
+    
     [RelayCommand]
     private void OpenUrl(string url)
     {
