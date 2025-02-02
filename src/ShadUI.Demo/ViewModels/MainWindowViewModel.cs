@@ -36,102 +36,113 @@ public sealed partial class MainWindowViewModel(
     [ObservableProperty]
     private object? _selectedPage;
 
-    private async Task<bool> SwitchPage(object page)
+    [ObservableProperty]
+    private bool _isBusy;
+
+    private async Task<bool> SwitchPageAsync(object page)
     {
-        await Task.Delay(200); // prevent flickering
+        IsBusy = true;
+        try
+        {
+            await Task.Delay(200); // prevent flickering
 
-        if (SelectedPage == page) return false;
+            if (SelectedPage == page) return false;
 
-        SelectedPage = page;
-        return true;
+            SelectedPage = page;
+            return true;
+        }
+        finally
+        {
+            IsBusy = false;
+        }
     }
 
     [RelayCommand]
     private async Task OpenDashboard()
     {
-        await SwitchPage(dashboardViewModel);
+        await SwitchPageAsync(dashboardViewModel);
         dashboardViewModel.Initialize();
     }
 
     [RelayCommand]
     private async Task OpenTypography()
     {
-        await SwitchPage(typographyViewModel);
+        await SwitchPageAsync(typographyViewModel);
     }
 
     [RelayCommand]
     private async Task OpenButtons()
     {
-        await SwitchPage(buttonsViewModel);
+        await SwitchPageAsync(buttonsViewModel);
     }
 
     [RelayCommand]
     private async Task OpenAvatar()
     {
-        await SwitchPage(avatarsViewModel);
+        await SwitchPageAsync(avatarsViewModel);
     }
 
     [RelayCommand]
     private async Task OpenCards()
     {
-        await SwitchPage(cardsViewModel);
+        await SwitchPageAsync(cardsViewModel);
     }
 
     [RelayCommand]
     private async Task OpenDialogs()
     {
-        await SwitchPage(dialogsViewModel);
+        await SwitchPageAsync(dialogsViewModel);
     }
 
     [RelayCommand]
     private async Task OpenInputs()
     {
-        if (await SwitchPage(inputViewModel))
+        if (await SwitchPageAsync(inputViewModel))
             inputViewModel.Initialize();
     }
 
     [RelayCommand]
     private async Task OpenTabs()
     {
-        await SwitchPage(tabsViewModel);
+        await SwitchPageAsync(tabsViewModel);
     }
 
     [RelayCommand]
     private async Task OpenComboBoxes()
     {
-        await SwitchPage(comboBoxesViewModel);
+        await SwitchPageAsync(comboBoxesViewModel);
     }
 
     [RelayCommand]
     private async Task OpenSliders()
     {
-        await SwitchPage(slidersViewModel);
+        await SwitchPageAsync(slidersViewModel);
     }
 
     [RelayCommand]
     private async Task OpenToggleSwitch()
     {
-        await SwitchPage(toggleSwitchViewModel);
+        await SwitchPageAsync(toggleSwitchViewModel);
     }
-    
+
     [RelayCommand]
     private async Task OpenToast()
     {
-        await SwitchPage(toastsViewModel);
+        await SwitchPageAsync(toastsViewModel);
     }
 
     [RelayCommand]
     private async Task OpenToolTip()
     {
-        await SwitchPage(toolTipViewModel);
+        await SwitchPageAsync(toolTipViewModel);
     }
 
     [RelayCommand]
     private async Task OpenMiscellaneous()
     {
-        await SwitchPage(miscellaneousViewModel);
+        await SwitchPageAsync(miscellaneousViewModel);
     }
-    
+
     [RelayCommand]
     private void OpenUrl(string url)
     {
@@ -142,7 +153,7 @@ public sealed partial class MainWindowViewModel(
         else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
             Process.Start("open", url);
     }
-    
+
     public void Initialize()
     {
         SelectedPage = dashboardViewModel;
