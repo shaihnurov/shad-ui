@@ -23,6 +23,18 @@ public sealed partial class MiscellaneousViewModel : ViewModelBase
                                    </Border>
                                    """;
 
+    [ObservableProperty]
+    private string _skeletonCode = """
+                                   <StackPanel Orientation="Horizontal" Spacing="16" Margin="24" HorizontalAlignment="Center">
+                                       <shadui:Skeleton Height="64" Width="64"
+                                                          CornerRadius="{DynamicResource RoundedCornerRadius}" />
+                                       <StackPanel Spacing="8" VerticalAlignment="Center">
+                                           <shadui:Skeleton Height="28" Width="255" HorizontalAlignment="Left" />
+                                           <shadui:Skeleton Height="20" Width="200" HorizontalAlignment="Left" />
+                                       </StackPanel>
+                                   </StackPanel>
+                                   """;
+
     [RelayCommand]
     private async Task ToggleBusy()
     {
