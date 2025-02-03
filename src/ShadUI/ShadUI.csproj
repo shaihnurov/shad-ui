@@ -7,6 +7,7 @@
         <AssemblyVersion>0.0.1</AssemblyVersion>
         <Nullable>enable</Nullable>
         <LangVersion>latest</LangVersion>
+        <Platforms>AnyCPU;x64</Platforms>
     </PropertyGroup>
 
     <PropertyGroup>
@@ -22,14 +23,14 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Avalonia" Version="11.2.3"/>
-        <PackageReference Include="Avalonia.Skia" Version="11.2.3"/>
+        <PackageReference Include="Avalonia" Version="11.2.3" />
+        <PackageReference Include="Avalonia.Skia" Version="11.2.3" />
         <PackageReference Include="MinVer" Version="6.0.0">
           <PrivateAssets>all</PrivateAssets>
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-        <PackageReference Include="Avalonia.Controls.DataGrid" Version="11.2.3"/>
-        <PackageReference Include="Avalonia.Themes.Simple" Version="11.2.3"/>
+        <PackageReference Include="Avalonia.Controls.DataGrid" Version="11.2.3" />
+        <PackageReference Include="Avalonia.Themes.Simple" Version="11.2.3" />
     </ItemGroup>
 
     <PropertyGroup>
@@ -37,8 +38,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <None Include="..\..\README.md" Pack="true" PackagePath="\"/>
-        <None Include="..\..\icon.png" Pack="true" PackagePath="\"/>
+        <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+        <None Include="..\..\icon.png" Pack="true" PackagePath="\" />
     </ItemGroup>
 
 </Project>
