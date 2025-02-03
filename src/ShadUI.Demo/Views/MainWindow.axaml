@@ -175,7 +175,7 @@
                             <Setter Property="ToolTip.VerticalOffset" Value="-5" />
                         </Style>
                         <Style Selector="PathIcon">
-                            <Setter Property="Height" Value="10" />
+                            <Setter Property="Height" Value="16" />
                         </Style>
                     </StackPanel.Styles>
                     <Button Classes="Icon"
@@ -198,7 +198,7 @@
                             ToolTip.Tip="Nuget package"
                             CommandParameter="https://www.nuget.org/packages/ShadUI">
                         <extensions:Button.Icon>
-                            <PathIcon Data="{x:Static demo:CustomIcons.Nuget}"
+                            <PathIcon Data="{x:Static demo:CustomIcons.Nuget}" 
                                       Foreground="{DynamicResource PrimaryColor}" />
                         </extensions:Button.Icon>
                     </Button>
