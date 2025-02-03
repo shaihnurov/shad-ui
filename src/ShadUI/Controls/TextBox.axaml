@@ -13,6 +13,7 @@
                 <TextBox Watermark="Username" Classes="Clearable" Text="john" />
                 <TextBox Watermark="Enter password" PasswordChar="•" Classes="ClearablePassword" Text="12321"
                          extensions:TextBox.Label="Password" />
+                <TextBox Watermark="Description" AcceptsReturn="True" />
                 <TextBox>
                     <DataValidationErrors.Error>
                         <system:Exception />
@@ -89,7 +90,6 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-
         <Style Selector="^:unchecked /template/ Path#PART_GlyphElement_Hide">
             <Setter Property="IsVisible" Value="False" />
         </Style>
@@ -129,25 +129,24 @@
                                     BorderBrush="{TemplateBinding BorderBrush}"
                                     BorderThickness="{TemplateBinding BorderThickness}"
                                     CornerRadius="{TemplateBinding CornerRadius}">
-                                <DockPanel Margin="{TemplateBinding Padding}"
-                                           HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
-                                    <Grid ColumnDefinitions="Auto,*,Auto">
-                                        <ContentPresenter Grid.Column="0"
-                                                          VerticalAlignment="Center"
-                                                          Content="{TemplateBinding InnerLeftContent}" />
-                                        <ScrollViewer Name="PART_ScrollViewer"
-                                                      Grid.Column="1"
-                                                      AllowAutoHide="{TemplateBinding (ScrollViewer.AllowAutoHide)}"
-                                                      BringIntoViewOnFocusChange="{TemplateBinding (ScrollViewer.BringIntoViewOnFocusChange)}"
-                                                      HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
-                                                      IsScrollChainingEnabled="{TemplateBinding (ScrollViewer.IsScrollChainingEnabled)}"
-                                                      VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
-                                            <Panel VerticalAlignment="Center">
+                                <ScrollViewer Name="PART_ScrollViewer"
+                                              AllowAutoHide="{TemplateBinding (ScrollViewer.AllowAutoHide)}"
+                                              BringIntoViewOnFocusChange="{TemplateBinding (ScrollViewer.BringIntoViewOnFocusChange)}"
+                                              HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
+                                              IsScrollChainingEnabled="{TemplateBinding (ScrollViewer.IsScrollChainingEnabled)}"
+                                              VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
+                                    <DockPanel Margin="{TemplateBinding Padding}"
+                                               HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                               VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                                        <Grid ColumnDefinitions="Auto * Auto">
+                                            <ContentPresenter Grid.Column="0"
+                                                              VerticalAlignment="Center"
+                                                              Content="{TemplateBinding InnerLeftContent}" />
+                                            <Panel Grid.Column="1" Name="PART_TextContainer">
                                                 <TextBlock Name="watermark"
+                                                           Opacity="0.5"
                                                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                                           Opacity="0.5"
                                                            Text="{TemplateBinding Watermark}"
                                                            TextAlignment="{TemplateBinding TextAlignment}"
                                                            TextWrapping="{TemplateBinding TextWrapping}">
@@ -178,29 +177,29 @@
                                                                TextAlignment="{TemplateBinding TextAlignment}"
                                                                TextWrapping="{TemplateBinding TextWrapping}" />
                                             </Panel>
-                                            <ScrollViewer.Styles>
-                                                <Style Selector="ScrollContentPresenter#PART_ContentPresenter">
-                                                    <Setter Property="Cursor" Value="IBeam" />
-                                                </Style>
-                                            </ScrollViewer.Styles>
-                                        </ScrollViewer>
-                                        <ContentPresenter Grid.Column="2"
-                                                          Name="PART_InnerRightContent"
-                                                          VerticalAlignment="Center"
-                                                          Content="{TemplateBinding InnerRightContent}"
-                                                          IsVisible="{TemplateBinding extensions:TextBox.ShowProgress, Converter={x:Static BoolConverters.Not}}" />
-                                        <ContentPresenter Grid.Column="2"
-                                                          Name="PART_ClearButton"
-                                                          VerticalAlignment="Center"
-                                                          IsVisible="{TemplateBinding extensions:TextBox.ShowProgress, Converter={x:Static BoolConverters.Not}}" />
-                                        <Viewbox Grid.Column="2" Width="16" Height="16" ClipToBounds="True">
+
+                                            <ContentPresenter Grid.Column="2"
+                                                              Name="PART_InnerRightContent"
+                                                              VerticalAlignment="Center"
+                                                              Content="{TemplateBinding InnerRightContent}"
+                                                              IsVisible="{TemplateBinding extensions:TextBox.ShowProgress, Converter={x:Static BoolConverters.Not}}" />
+                                            <ContentPresenter Grid.Column="2"
+                                                              Name="PART_ClearButton"
+                                                              VerticalAlignment="Center"
+                                                              IsVisible="{TemplateBinding extensions:TextBox.ShowProgress, Converter={x:Static BoolConverters.Not}}" />
                                             <ContentPresenter Name="PART_LoadingIndicator"
+                                                              Grid.Column="2"
                                                               VerticalAlignment="Center"
                                                               IsVisible="{TemplateBinding extensions:TextBox.ShowProgress}"
                                                               Content="{TemplateBinding extensions:TextBox.ShowProgress, Converter={x:Static converters:ProgressToContentConverter.Instance}}" />
-                                        </Viewbox>
-                                    </Grid>
-                                </DockPanel>
+                                        </Grid>
+                                    </DockPanel>
+                                    <ScrollViewer.Styles>
+                                        <Style Selector="ScrollContentPresenter#PART_ContentPresenter">
+                                            <Setter Property="Cursor" Value="IBeam" />
+                                        </Style>
+                                    </ScrollViewer.Styles>
+                                </ScrollViewer>
                             </Border>
                             <TextBlock Name="PART_Hint" Classes="Caption Muted"
                                        Text="{TemplateBinding extensions:TextBox.Hint}"
@@ -247,6 +246,25 @@
                                 ClipToBounds="True" />
                     </Template>
                 </Setter>
+            </Style>
+        </Style>
+
+        <Style Selector="^[AcceptsReturn=True]">
+            <Setter Property="VerticalContentAlignment" Value="Top" />
+            <Style Selector="^ /template/ Panel#PART_TextContainer">
+                <Setter Property="Margin" Value="0,4" />
+            </Style>
+            <Style Selector="^ /template/ ContentPresenter#PART_InnerRightContent">
+                <Setter Property="IsVisible" Value="False" />
+                <Setter Property="IsHitTestVisible" Value="False" />
+            </Style>
+            <Style Selector="^ /template/ ContentPresenter#PART_ClearButton">
+                <Setter Property="IsVisible" Value="False" />
+                <Setter Property="IsHitTestVisible" Value="False" />
+            </Style>
+            <Style Selector="^ /template/ ContentPresenter#PART_LoadingIndicator">
+                <Setter Property="IsVisible" Value="False" />
+                <Setter Property="IsHitTestVisible" Value="False" />
             </Style>
         </Style>
 
