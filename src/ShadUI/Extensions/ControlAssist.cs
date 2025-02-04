@@ -15,11 +15,10 @@ public static class ControlAssist
         {
             control.TemplateApplied += (sender, eventArgs) =>
             {
-
                 var label = eventArgs.NameScope.Find<TextBlock>("PART_Label");
                 if (label is null || string.IsNullOrEmpty(args.NewValue?.ToString())) return;
 
-                if(sender is Avalonia.Controls.TextBox tb) tb.UseFloatingWatermark = true;
+                if (sender is TextBox tb) tb.UseFloatingWatermark = true;
 
                 label.Text = args.NewValue!.ToString();
             };
@@ -94,4 +93,64 @@ public static class ControlAssist
     {
         control.SetValue(ShowProgressProperty, value);
     }
+
+    /// <summary>
+    ///     Defines an attached property for setting the height excluding label and hint of a control.
+    /// </summary>
+    public static readonly AttachedProperty<double> HeightProperty =
+        AvaloniaProperty.RegisterAttached<TemplatedControl, double>("Height", typeof(TemplatedControl));
+
+    /// <summary>
+    ///     Gets the value of the <see cref="HeightProperty" />.
+    /// </summary>
+    /// <param name="control">The control.</param>
+    /// <returns>The height value.</returns>
+    public static double GetHeight(TemplatedControl control) => control.GetValue(HeightProperty);
+
+    /// <summary>
+    ///     Sets the value of the <see cref="HeightProperty" />.
+    /// </summary>
+    /// <param name="control">The control.</param>
+    /// <param name="value">The height value to set. Must be used to define the actual height of control excluding label and hint.</param>
+    public static void SetHeight(TemplatedControl control, double value) => control.SetValue(HeightProperty, value);
+
+    /// <summary>
+    ///     Defines an attached property for setting the minimum height of a control.
+    /// </summary>
+    public static readonly AttachedProperty<double> MinHeightProperty =
+        AvaloniaProperty.RegisterAttached<TemplatedControl, double>("MinHeight", typeof(TemplatedControl));
+
+    /// <summary>
+    ///     Gets the value of the <see cref="MinHeightProperty" />.
+    /// </summary>
+    /// <param name="control">The control.</param>
+    /// <returns>The minimum height value.</returns>
+    public static double GetMinHeight(TemplatedControl control) => control.GetValue(MinHeightProperty);
+
+    /// <summary>
+    ///     Sets the value of the <see cref="MinHeightProperty" />.
+    /// </summary>
+    /// <param name="control">The control.</param>
+    /// <param name="value">The minimum height value to set. Must be used to define the actual minimum height of control excluding label and hint.</param>
+    public static void SetMinHeight(TemplatedControl control, double value) => control.SetValue(MinHeightProperty, value);
+
+    /// <summary>
+    ///     Defines an attached property for setting the maximum height of a control.
+    /// </summary>
+    public static readonly AttachedProperty<double> MaxHeightProperty =
+        AvaloniaProperty.RegisterAttached<TemplatedControl, double>("MaxHeight", typeof(TemplatedControl));
+
+    /// <summary>
+    ///     Gets the value of the <see cref="MaxHeightProperty" />.
+    /// </summary>
+    /// <param name="control">The control.</param>
+    /// <returns>The maximum height value.</returns>
+    public static double GetMaxHeight(TemplatedControl control) => control.GetValue(MaxHeightProperty);
+
+    /// <summary>
+    ///     Sets the value of the <see cref="MaxHeightProperty" />.
+    /// </summary>
+    /// <param name="control">The control.</param>
+    /// <param name="value">The maximum height value to set. Must be used to define the actual maximum height of control excluding label and hint.</param>
+    public static void SetMaxHeight(TemplatedControl control, double value) => control.SetValue(MaxHeightProperty, value);
 }

@@ -13,7 +13,9 @@
                 <TextBox Watermark="Username" Classes="Clearable" Text="john" />
                 <TextBox Watermark="Enter password" PasswordChar="•" Classes="ClearablePassword" Text="12321"
                          extensions:ControlAssist.Label="Password" />
-                <TextBox Watermark="Description" AcceptsReturn="True" />
+                <TextBox extensions:ControlAssist.Label="Description"
+                         extensions:ControlAssist.Height="250"
+                         extensions:ControlAssist.Hint="This is hint" Watermark="Description" AcceptsReturn="True" />
                 <TextBox>
                     <DataValidationErrors.Error>
                         <system:Exception />
@@ -105,7 +107,6 @@
         <Setter Property="Background" Value="{DynamicResource BackgroundColor}" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="BorderBrush" Value="{DynamicResource BorderColor}" />
-        <Setter Property="MinHeight" Value="36" />
         <Setter Property="Padding" Value="12,4" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="CornerRadius" Value="{DynamicResource MediumCornerRadius}" />
@@ -114,6 +115,7 @@
         <Setter Property="CaretBrush" Value="{DynamicResource ForegroundColor}" />
         <Setter Property="FocusAdorner" Value="{x:Null}" />
         <Setter Property="extensions:ControlAssist.ShowProgress" Value="False" />
+        <Setter Property="extensions:ControlAssist.MinHeight" Value="36" />
         <Setter Property="Template">
             <ControlTemplate>
                 <StackPanel Focusable="False">
@@ -123,83 +125,86 @@
                     <DataValidationErrors Focusable="False">
                         <StackPanel>
                             <Border Name="border"
-                                    Height="{TemplateBinding Height}"
-                                    MinHeight="{TemplateBinding MinHeight}"
+                                    Height="{TemplateBinding extensions:ControlAssist.Height}"
+                                    MinHeight="{TemplateBinding extensions:ControlAssist.MinHeight}"
                                     Background="{TemplateBinding Background}"
                                     BorderBrush="{TemplateBinding BorderBrush}"
                                     BorderThickness="{TemplateBinding BorderThickness}"
                                     CornerRadius="{TemplateBinding CornerRadius}">
-                                <ScrollViewer Name="PART_ScrollViewer"
-                                              AllowAutoHide="{TemplateBinding (ScrollViewer.AllowAutoHide)}"
-                                              BringIntoViewOnFocusChange="{TemplateBinding (ScrollViewer.BringIntoViewOnFocusChange)}"
-                                              HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
-                                              IsScrollChainingEnabled="{TemplateBinding (ScrollViewer.IsScrollChainingEnabled)}"
-                                              VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
-                                    <DockPanel Margin="{TemplateBinding Padding}"
-                                               HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                               VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
-                                        <Grid ColumnDefinitions="Auto * Auto">
-                                            <ContentPresenter Grid.Column="0"
-                                                              VerticalAlignment="Center"
-                                                              Content="{TemplateBinding InnerLeftContent}" />
-                                            <Panel Grid.Column="1" Name="PART_TextContainer">
-                                                <TextBlock Name="watermark"
-                                                           Opacity="0.5"
-                                                           HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                                           Text="{TemplateBinding Watermark}"
+                                <Grid ColumnDefinitions="Auto * Auto"
+                                      HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                                    <ContentPresenter Grid.Column="0"
+                                                      VerticalAlignment="Center"
+                                                      Content="{TemplateBinding InnerLeftContent}" />
+                                    <ScrollViewer Name="PART_ScrollViewer"
+                                                  Grid.Column="1"
+                                                  AllowAutoHide="{TemplateBinding (ScrollViewer.AllowAutoHide)}"
+                                                  BringIntoViewOnFocusChange="{TemplateBinding (ScrollViewer.BringIntoViewOnFocusChange)}"
+                                                  HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
+                                                  IsScrollChainingEnabled="{TemplateBinding (ScrollViewer.IsScrollChainingEnabled)}"
+                                                  VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
+                                        <Panel Name="PART_TextContainer">
+                                            <TextBlock Name="watermark"
+                                                       Opacity="0.5"
+                                                       Margin="{TemplateBinding Padding}"
+                                                       HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                       VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                       Text="{TemplateBinding Watermark}"
+                                                       TextAlignment="{TemplateBinding TextAlignment}"
+                                                       TextWrapping="{TemplateBinding TextWrapping}">
+                                                <TextBlock.IsVisible>
+                                                    <MultiBinding Converter="{x:Static BoolConverters.And}">
+                                                        <Binding ElementName="PART_TextPresenter"
+                                                                 Path="PreeditText"
+                                                                 Converter="{x:Static StringConverters.IsNullOrEmpty}" />
+                                                        <Binding RelativeSource="{RelativeSource TemplatedParent}"
+                                                                 Path="Text"
+                                                                 Converter="{x:Static StringConverters.IsNullOrEmpty}" />
+                                                    </MultiBinding>
+                                                </TextBlock.IsVisible>
+                                            </TextBlock>
+                                            <TextPresenter Name="PART_TextPresenter"
+                                                           Margin="{TemplateBinding Padding}"
+                                                           CaretBlinkInterval="{TemplateBinding CaretBlinkInterval}"
+                                                           CaretBrush="{TemplateBinding CaretBrush}"
+                                                           CaretIndex="{TemplateBinding CaretIndex}"
+                                                           LineHeight="{TemplateBinding LineHeight}"
+                                                           LetterSpacing="{TemplateBinding LetterSpacing}"
+                                                           PasswordChar="{TemplateBinding PasswordChar}"
+                                                           RevealPassword="{TemplateBinding RevealPassword}"
+                                                           SelectionBrush="{TemplateBinding SelectionBrush}"
+                                                           SelectionEnd="{TemplateBinding SelectionEnd}"
+                                                           SelectionForegroundBrush="{TemplateBinding SelectionForegroundBrush}"
+                                                           SelectionStart="{TemplateBinding SelectionStart}"
+                                                           Text="{TemplateBinding Text,Mode=TwoWay}"
                                                            TextAlignment="{TemplateBinding TextAlignment}"
-                                                           TextWrapping="{TemplateBinding TextWrapping}">
-                                                    <TextBlock.IsVisible>
-                                                        <MultiBinding Converter="{x:Static BoolConverters.And}">
-                                                            <Binding ElementName="PART_TextPresenter"
-                                                                     Path="PreeditText"
-                                                                     Converter="{x:Static StringConverters.IsNullOrEmpty}" />
-                                                            <Binding RelativeSource="{RelativeSource TemplatedParent}"
-                                                                     Path="Text"
-                                                                     Converter="{x:Static StringConverters.IsNullOrEmpty}" />
-                                                        </MultiBinding>
-                                                    </TextBlock.IsVisible>
-                                                </TextBlock>
-                                                <TextPresenter Name="PART_TextPresenter"
-                                                               CaretBlinkInterval="{TemplateBinding CaretBlinkInterval}"
-                                                               CaretBrush="{TemplateBinding CaretBrush}"
-                                                               CaretIndex="{TemplateBinding CaretIndex}"
-                                                               LineHeight="{TemplateBinding LineHeight}"
-                                                               LetterSpacing="{TemplateBinding LetterSpacing}"
-                                                               PasswordChar="{TemplateBinding PasswordChar}"
-                                                               RevealPassword="{TemplateBinding RevealPassword}"
-                                                               SelectionBrush="{TemplateBinding SelectionBrush}"
-                                                               SelectionEnd="{TemplateBinding SelectionEnd}"
-                                                               SelectionForegroundBrush="{TemplateBinding SelectionForegroundBrush}"
-                                                               SelectionStart="{TemplateBinding SelectionStart}"
-                                                               Text="{TemplateBinding Text,Mode=TwoWay}"
-                                                               TextAlignment="{TemplateBinding TextAlignment}"
-                                                               TextWrapping="{TemplateBinding TextWrapping}" />
-                                            </Panel>
-
-                                            <ContentPresenter Grid.Column="2"
-                                                              Name="PART_InnerRightContent"
-                                                              VerticalAlignment="Center"
-                                                              Content="{TemplateBinding InnerRightContent}"
-                                                              IsVisible="{TemplateBinding extensions:ControlAssist.ShowProgress, Converter={x:Static BoolConverters.Not}}" />
-                                            <ContentPresenter Grid.Column="2"
-                                                              Name="PART_ClearButton"
-                                                              VerticalAlignment="Center"
-                                                              IsVisible="{TemplateBinding extensions:ControlAssist.ShowProgress, Converter={x:Static BoolConverters.Not}}" />
-                                            <ContentPresenter Name="PART_LoadingIndicator"
-                                                              Grid.Column="2"
-                                                              VerticalAlignment="Center"
-                                                              IsVisible="{TemplateBinding extensions:ControlAssist.ShowProgress}"
-                                                              Content="{TemplateBinding extensions:ControlAssist.ShowProgress, Converter={x:Static converters:ProgressToContentConverter.Instance}}" />
-                                        </Grid>
-                                    </DockPanel>
-                                    <ScrollViewer.Styles>
-                                        <Style Selector="ScrollContentPresenter#PART_ContentPresenter">
-                                            <Setter Property="Cursor" Value="IBeam" />
-                                        </Style>
-                                    </ScrollViewer.Styles>
-                                </ScrollViewer>
+                                                           TextWrapping="{TemplateBinding TextWrapping}" />
+                                        </Panel>
+                                        <ScrollViewer.Styles>
+                                            <Style Selector="ScrollContentPresenter#PART_ContentPresenter">
+                                                <Setter Property="Cursor" Value="IBeam" />
+                                            </Style>
+                                        </ScrollViewer.Styles>
+                                    </ScrollViewer>
+                                    <ContentPresenter Name="PART_InnerRightContent"
+                                                      Grid.Column="2"
+                                                      VerticalAlignment="Center"
+                                                      Margin="0,4,12,4"
+                                                      Content="{TemplateBinding InnerRightContent}"
+                                                      IsVisible="{TemplateBinding extensions:ControlAssist.ShowProgress, Converter={x:Static BoolConverters.Not}}" />
+                                    <ContentPresenter Name="PART_ClearButton"
+                                                      Grid.Column="2"
+                                                      VerticalAlignment="Center"
+                                                      Margin="0,4,12,4"
+                                                      IsVisible="{TemplateBinding extensions:ControlAssist.ShowProgress, Converter={x:Static BoolConverters.Not}}" />
+                                    <ContentPresenter Name="PART_LoadingIndicator"
+                                                      Grid.Column="2"
+                                                      VerticalAlignment="Center"
+                                                      Margin="0,4,12,4"
+                                                      IsVisible="{TemplateBinding extensions:ControlAssist.ShowProgress}"
+                                                      Content="{TemplateBinding extensions:ControlAssist.ShowProgress, Converter={x:Static converters:ProgressToContentConverter.Instance}}" />
+                                </Grid>
                             </Border>
                             <TextBlock Name="PART_Hint" Classes="Caption Muted"
                                        Margin="0,4,0,0"
@@ -277,7 +282,7 @@
             <Style Selector="^ /template/ ContentPresenter#PART_ClearButton">
                 <Setter Property="Content">
                     <Template>
-                        <Panel Margin="4,0">
+                        <Panel>
                             <Panel.Styles>
                                 <Style Selector="ToggleButton[IsChecked=True]">
                                     <Setter Property="(ToolTip.Tip)" Value="Hide Password" />
@@ -304,12 +309,12 @@
             <Style Selector="^ /template/ ContentPresenter#PART_ClearButton">
                 <Setter Property="Content">
                     <Template>
-                        <StackPanel Spacing="4" Orientation="Horizontal">
+                        <StackPanel Spacing="8" Orientation="Horizontal">
                             <Button Command="{Binding $parent[TextBox].Clear}"
                                     Focusable="False"
                                     Theme="{StaticResource SimpleTextBoxClearButtonTheme}"
                                     ClipToBounds="True" />
-                            <Panel Margin="4,0">
+                            <Panel>
                                 <Panel.Styles>
                                     <Style Selector="ToggleButton[IsChecked=True]">
                                         <Setter Property="(ToolTip.Tip)" Value="Hide Password" />
