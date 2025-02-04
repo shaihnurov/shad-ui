@@ -141,6 +141,14 @@
                                       StrokeBrush="{Binding RelativeSource={RelativeSource AncestorType=controls:SidebarMenuItem}, Path=Foreground}" />
                     </controls:SidebarMenuItem.Icon>
                 </controls:SidebarMenuItem>
+                <controls:SidebarMenuItem Header="Time Pickers" Classes="Compact"
+                                          Command="{Binding OpenTimePickerCommand}"
+                                          ToolTip.Tip="{Binding IsMenuExpanded, RelativeSource={RelativeSource AncestorType=controls:SidebarMenu}, Converter={x:Static converters:BooleanToNullOrStringConverter.Instance}, ConverterParameter='Time Pickers'}">
+                    <controls:SidebarMenuItem.Icon>
+                        <icons:Lucide Icon="CalendarClock" StrokeThickness="1.5" Width="16" Height="16"
+                                      StrokeBrush="{Binding RelativeSource={RelativeSource AncestorType=controls:SidebarMenuItem}, Path=Foreground}" />
+                    </controls:SidebarMenuItem.Icon>
+                </controls:SidebarMenuItem>
                 <controls:SidebarMenuItem Header="Toasts" Classes="Compact"
                                           Command="{Binding OpenToastCommand}"
                                           ToolTip.Tip="{Binding IsMenuExpanded, RelativeSource={RelativeSource AncestorType=controls:SidebarMenu}, Converter={x:Static converters:BooleanToNullOrStringConverter.Instance}, ConverterParameter='Toasts'}">

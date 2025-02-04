@@ -21,6 +21,7 @@ public sealed partial class MainWindowViewModel(
     TabsViewModel tabsViewModel,
     ComboBoxesViewModel comboBoxesViewModel,
     SlidersViewModel slidersViewModel,
+    TimePickerViewModel timePickerViewModel,
     ToastsViewModel toastsViewModel,
     ToggleSwitchViewModel toggleSwitchViewModel,
     ToolTipViewModel toolTipViewModel,
@@ -119,6 +120,12 @@ public sealed partial class MainWindowViewModel(
         await SwitchPageAsync(slidersViewModel);
     }
 
+    [RelayCommand]
+    private async Task OpenTimePicker()
+    {
+        await SwitchPageAsync(timePickerViewModel);
+    }
+    
     [RelayCommand]
     private async Task OpenToggleSwitch()
     {

@@ -33,6 +33,9 @@
     <DataTemplate DataType="{x:Type viewModels:SlidersViewModel}">
         <views:SlidersPage />
     </DataTemplate>
+    <DataTemplate DataType="{x:Type viewModels:TimePickerViewModel}">
+        <views:TimePickerPage />
+    </DataTemplate>
     <DataTemplate DataType="{x:Type viewModels:ToastsViewModel}">
         <views:ToastsPage />
     </DataTemplate>
