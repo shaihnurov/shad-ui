@@ -62,8 +62,8 @@ public sealed partial class ComboBoxesViewModel : ViewModelBase
                                                  <ComboBox Width="255"
                                                            SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
                                                            ItemsSource="{Binding Items}"
-                                                           extensions:ComboBox.Label="Select a framework"
-                                                           extensions:ComboBox.Hint="Your favorite web framework" />
+                                                           extensions:ControlAssist.Label="Select a framework"
+                                                           extensions:ControlAssist.Hint="Your favorite web framework" />
                                                  <Button HorizontalAlignment="Right" Margin="0,20,0,0" Classes="Outline"
                                                          Command="{Binding ClearCommand}">
                                                      Clear

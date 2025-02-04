@@ -77,7 +77,7 @@ public sealed partial class InputViewModel : ViewModelBase
     [ObservableProperty]
     private string _withCustomLabelCode = """
                                           <StackPanel>
-                                              <TextBox Classes="Clearable" Width="225" extensions:TextBox.Label="Email"
+                                              <TextBox Classes="Clearable" Width="225" extensions:ControlAssist.Label="Email"
                                                        Watermark="user@example.com" />
                                           </StackPanel>
                                           """;
@@ -93,18 +93,18 @@ public sealed partial class InputViewModel : ViewModelBase
                                              </shadui:Card.Header>
                                              <StackPanel Spacing="16">
                                                  <TextBox Classes="Clearable"
-                                                          extensions:TextBox.Label="Email"
-                                                          extensions:TextBox.Hint="This is your public display name."
+                                                          extensions:ControlAssist.Label="Email"
+                                                          extensions:ControlAssist.Hint="This is your public display name."
                                                           Watermark="user@example.com"
                                                           Text="{Binding Email, Mode=TwoWay}" />
                                                  <TextBox Classes="PasswordReveal"
-                                                          extensions:TextBox.Label="Password"
+                                                          extensions:ControlAssist.Label="Password"
                                                           PasswordChar="•"
                                                           Watermark="Enter password"
                                                           Text="{Binding Password, Mode=TwoWay}" />
                                                  <TextBox Classes="PasswordReveal"
                                                           PasswordChar="•"
-                                                          extensions:TextBox.Label="Confirm"
+                                                          extensions:ControlAssist.Label="Confirm"
                                                           Watermark="Confirm password"
                                                           Text="{Binding ConfirmPassword, Mode=TwoWay}" />
                                              </StackPanel>
@@ -125,11 +125,11 @@ public sealed partial class InputViewModel : ViewModelBase
                                     <StackPanel>
                                         <TextBox Classes="Clearable" Width="225" 
                                                  Text="{Binding SearchString, Mode=TwoWay}"
-                                                 extensions:TextBox.ShowProgress="{Binding IsSearching}"
+                                                 extensions:ControlAssist.ShowProgress="{Binding IsSearching}"
                                                  Watermark="Search here...">
-                                            <TextBox.InnerRightContent>
+                                            <ControlAssist.InnerRightContent>
                                                 <PathIcon Data="{x:Static contents:Icons.Search}" Opacity="0.75" Width="16" />
-                                            </TextBox.InnerRightContent>
+                                            </ControlAssist.InnerRightContent>
                                         </TextBox>
                                     </StackPanel>
                                     """;
