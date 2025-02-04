@@ -14,10 +14,10 @@
                     </StackPanel>
                 </shadui:Card.Header>
                 <StackPanel Spacing="16">
-                    <TextBox extensions:TextBox.Label="Name" Watermark="Name of your project" />
+                    <TextBox extensions:ControlAssist.Label="Name" Watermark="Name of your project" />
                     <ComboBox Width="300"
                               SelectedIndex="0"
-                              extensions:ComboBox.Label="Framework">
+                              extensions:ControlAssist.Label="Framework">
                         <ComboBox.Items>
                             <ComboBoxItem>Next.js</ComboBoxItem>
                             <ComboBoxItem>React</ComboBoxItem>

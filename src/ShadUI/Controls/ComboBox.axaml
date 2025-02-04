@@ -15,8 +15,8 @@
                     <ComboBoxItem>Astro</ComboBoxItem>
                 </ComboBox>
                 <ComboBox Width="200" SelectedIndex="0"
-                          extensions:ComboBox.Label="Disabled Selection"
-                          extensions:ComboBox.Hint="This control is currently disabled">
+                          extensions:ControlAssist.Label="Disabled Selection"
+                          extensions:ControlAssist.Hint="This control is currently disabled">
                     <DataValidationErrors.Error>
                         <system:Exception />
                     </DataValidationErrors.Error>
@@ -47,8 +47,8 @@
                 <DataValidationErrors>
                     <StackPanel Spacing="4">
                         <TextBlock Name="PART_Label" Classes="Small" Margin="0,0,0,6"
-                                   Text="{TemplateBinding extensions:ComboBox.Label}"
-                                   IsVisible="{TemplateBinding extensions:ComboBox.Label, Converter={x:Static StringConverters.IsNotNullOrEmpty}}" />
+                                   Text="{TemplateBinding extensions:ControlAssist.Label}"
+                                   IsVisible="{TemplateBinding extensions:ControlAssist.Label, Converter={x:Static StringConverters.IsNotNullOrEmpty}}" />
                         <Border Name="PART_Border"
                                 BorderBrush="{TemplateBinding BorderBrush}"
                                 MinHeight="{TemplateBinding MinHeight}"
@@ -126,8 +126,8 @@
                             </Grid>
                         </Border>
                         <TextBlock Name="PART_Hint" Classes="Caption Muted"
-                                   Text="{TemplateBinding extensions:ComboBox.Hint}"
-                                   IsVisible="{TemplateBinding extensions:ComboBox.Hint, Converter={x:Static StringConverters.IsNotNullOrEmpty}}" />
+                                   Text="{TemplateBinding extensions:ControlAssist.Hint}"
+                                   IsVisible="{TemplateBinding extensions:ControlAssist.Hint, Converter={x:Static StringConverters.IsNotNullOrEmpty}}" />
                     </StackPanel>
                 </DataValidationErrors>
             </ControlTemplate>

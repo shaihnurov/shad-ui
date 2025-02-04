@@ -12,7 +12,7 @@
                 <TextBox Watermark="Last Name" UseFloatingWatermark="True" Classes="Clearable" />
                 <TextBox Watermark="Username" Classes="Clearable" Text="john" />
                 <TextBox Watermark="Enter password" PasswordChar="•" Classes="ClearablePassword" Text="12321"
-                         extensions:TextBox.Label="Password" />
+                         extensions:ControlAssist.Label="Password" />
                 <TextBox Watermark="Description" AcceptsReturn="True" />
                 <TextBox>
                     <DataValidationErrors.Error>
@@ -113,7 +113,7 @@
         <Setter Property="SelectionForegroundBrush" Value="{DynamicResource PrimaryForegroundColor}" />
         <Setter Property="CaretBrush" Value="{DynamicResource ForegroundColor}" />
         <Setter Property="FocusAdorner" Value="{x:Null}" />
-        <Setter Property="extensions:TextBox.ShowProgress" Value="False" />
+        <Setter Property="extensions:ControlAssist.ShowProgress" Value="False" />
         <Setter Property="Template">
             <ControlTemplate>
                 <StackPanel Focusable="False">
@@ -182,16 +182,16 @@
                                                               Name="PART_InnerRightContent"
                                                               VerticalAlignment="Center"
                                                               Content="{TemplateBinding InnerRightContent}"
-                                                              IsVisible="{TemplateBinding extensions:TextBox.ShowProgress, Converter={x:Static BoolConverters.Not}}" />
+                                                              IsVisible="{TemplateBinding extensions:ControlAssist.ShowProgress, Converter={x:Static BoolConverters.Not}}" />
                                             <ContentPresenter Grid.Column="2"
                                                               Name="PART_ClearButton"
                                                               VerticalAlignment="Center"
-                                                              IsVisible="{TemplateBinding extensions:TextBox.ShowProgress, Converter={x:Static BoolConverters.Not}}" />
+                                                              IsVisible="{TemplateBinding extensions:ControlAssist.ShowProgress, Converter={x:Static BoolConverters.Not}}" />
                                             <ContentPresenter Name="PART_LoadingIndicator"
                                                               Grid.Column="2"
                                                               VerticalAlignment="Center"
-                                                              IsVisible="{TemplateBinding extensions:TextBox.ShowProgress}"
-                                                              Content="{TemplateBinding extensions:TextBox.ShowProgress, Converter={x:Static converters:ProgressToContentConverter.Instance}}" />
+                                                              IsVisible="{TemplateBinding extensions:ControlAssist.ShowProgress}"
+                                                              Content="{TemplateBinding extensions:ControlAssist.ShowProgress, Converter={x:Static converters:ProgressToContentConverter.Instance}}" />
                                         </Grid>
                                     </DockPanel>
                                     <ScrollViewer.Styles>
@@ -203,8 +203,8 @@
                             </Border>
                             <TextBlock Name="PART_Hint" Classes="Caption Muted"
                                        Margin="0,4,0,0"
-                                       Text="{TemplateBinding extensions:TextBox.Hint}"
-                                       IsVisible="{TemplateBinding extensions:TextBox.Hint, Converter={x:Static StringConverters.IsNotNullOrEmpty}}" />
+                                       Text="{TemplateBinding extensions:ControlAssist.Hint}"
+                                       IsVisible="{TemplateBinding extensions:ControlAssist.Hint, Converter={x:Static StringConverters.IsNotNullOrEmpty}}" />
                         </StackPanel>
                     </DataValidationErrors>
                 </StackPanel>

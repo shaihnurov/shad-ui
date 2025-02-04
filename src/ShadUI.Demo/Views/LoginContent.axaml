@@ -11,12 +11,12 @@
     <StackPanel Spacing="16" Width="275">
         <TextBlock Classes="h4" Text="Sign In" />
         <TextBox Classes="Clearable"
-                 extensions:TextBox.Label="Email"
+                 extensions:ControlAssist.Label="Email"
                  Watermark="user@example.com"
                  Text="{Binding Email, Mode=TwoWay}"
                  extensions:Element.FocusOnLoad="True" />
         <TextBox Classes="PasswordReveal"
-                 extensions:TextBox.Label="Password"
+                 extensions:ControlAssist.Label="Password"
                  PasswordChar="•"
                  Watermark="Enter password"
                  Text="{Binding Password, Mode=TwoWay}" />

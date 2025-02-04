@@ -59,8 +59,8 @@
                                     <ComboBox Width="255"
                                               SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
                                               ItemsSource="{Binding Items}"
-                                              extensions:ComboBox.Label="Select a framework"
-                                              extensions:ComboBox.Hint="Your favorite web framework" />
+                                              extensions:ControlAssist.Label="Select a framework"
+                                              extensions:ControlAssist.Hint="Your favorite web framework" />
                                 </StackPanel>
                                 <shadui:Card.Footer>
                                     <Button HorizontalAlignment="Right" Classes="Outline"
