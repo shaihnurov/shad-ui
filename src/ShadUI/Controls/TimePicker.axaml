@@ -67,12 +67,12 @@
     <ControlTheme x:Key="{x:Type TimePicker}" TargetType="TimePicker">
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="CornerRadius" Value="{DynamicResource MediumCornerRadius}" />
-        <Setter Property="MinHeight" Value="36" />
         <Setter Property="BorderBrush" Value="{DynamicResource BorderColor}" />
         <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
         <Setter Property="Background" Value="{DynamicResource CardBackgroundColor}" />
         <Setter Property="FontSize" Value="14" />
         <Setter Property="FontWeight" Value="Medium" />
+        <Setter Property="extensions:ControlAssist.MinHeight" Value="36" />
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
         <Setter Property="Transitions">
             <Setter.Value>
@@ -91,9 +91,9 @@
                                    IsVisible="{TemplateBinding extensions:ControlAssist.Label, Converter={x:Static StringConverters.IsNotNullOrEmpty}}" />
                         <Grid Name="LayoutRoot" Background="Transparent">
                             <Border Name="PART_Border"
-                                    Height="{TemplateBinding Height}"
+                                    Height="{TemplateBinding extensions:ControlAssist.Height}"
+                                    MinHeight="{TemplateBinding extensions:ControlAssist.MinHeight}"
                                     BorderBrush="{TemplateBinding BorderBrush}"
-                                    MinHeight="{TemplateBinding MinHeight}"
                                     Padding="{TemplateBinding Padding}"
                                     BorderThickness="{TemplateBinding BorderThickness}"
                                     Background="{TemplateBinding Background}"

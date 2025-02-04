@@ -32,7 +32,6 @@
     <ControlTheme x:Key="ComboBoxControlTheme" TargetType="ComboBox">
         <Setter Property="BorderThickness" Value="1,1,1,1" />
         <Setter Property="CornerRadius" Value="{DynamicResource MediumCornerRadius}" />
-        <Setter Property="MinHeight" Value="36" />
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="BorderBrush" Value="{DynamicResource BorderColor}" />
@@ -41,6 +40,7 @@
         <Setter Property="Background" Value="{DynamicResource CardBackgroundColor}" />
         <Setter Property="FontSize" Value="14" />
         <Setter Property="FontWeight" Value="Medium" />
+        <Setter Property="extensions:ControlAssist.MinHeight" Value="36" />
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
         <Setter Property="Template">
             <ControlTemplate>
@@ -51,7 +51,8 @@
                                    IsVisible="{TemplateBinding extensions:ControlAssist.Label, Converter={x:Static StringConverters.IsNotNullOrEmpty}}" />
                         <Border Name="PART_Border"
                                 BorderBrush="{TemplateBinding BorderBrush}"
-                                MinHeight="{TemplateBinding MinHeight}"
+                                Height="{TemplateBinding extensions:ControlAssist.Height}"
+                                MinHeight="{TemplateBinding extensions:ControlAssist.MinHeight}"
                                 Padding="{TemplateBinding Padding}"
                                 BorderThickness="{TemplateBinding BorderThickness}"
                                 Background="{TemplateBinding Background}"
