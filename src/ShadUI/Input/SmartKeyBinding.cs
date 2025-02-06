@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Input;
+using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Input;
 using ShadUI.Extensions;
@@ -14,12 +15,42 @@ namespace ShadUI.Input;
 public class SmartKeyBinding : KeyBinding, ICommand
 {
     /// <summary>
+    ///     The styled property for the smart command that will be executed.
+    /// </summary>
+    public static readonly StyledProperty<ICommand> SmartCommandProperty =
+        AvaloniaProperty.Register<SmartKeyBinding, ICommand>(nameof(SmartCommand));
+
+    /// <summary>
+    ///     Gets or sets the command that will be executed when the key binding is triggered.
+    ///     This command receives special handling for TextBox controls.
+    /// </summary>
+    /// <value>
+    ///     The ICommand to execute when the key binding is triggered.
+    /// </value>
+    public ICommand SmartCommand
+    {
+        get => GetValue(SmartCommandProperty);
+        set => SetValue(SmartCommandProperty, value);
+    }
+
+    /// <summary>
+    ///     Gets or sets the command for the key binding.
+    ///     It is recommended to use <see cref="SmartCommand"/> instead for proper TextBox handling.
+    /// </summary>
+    [Obsolete("The Command property is not supported in SmartKeyBinding. Use SmartCommand property instead for proper TextBox handling and focus-aware key binding behavior.", true)]
+    public new ICommand Command
+    {
+        get => base.Command;
+        set => base.Command = value;
+    }
+    
+    /// <summary>
     ///     Initializes a new instance of the <see cref="SmartKeyBinding" /> class.
-    ///     Sets itself as the command handler.
+    ///     Sets up the internal command handling.
     /// </summary>
     public SmartKeyBinding()
     {
-        Command = this;
+        base.Command = this;
     }
 
     /// <summary>
@@ -34,7 +65,7 @@ public class SmartKeyBinding : KeyBinding, ICommand
     public bool CanExecute(object? parameter)
     {
         var focusManager = Avalonia.Application.Current.GetTopLevel()?.FocusManager;
-        return focusManager?.GetFocusedElement() is TextBox || Command.CanExecute(parameter);
+        return focusManager?.GetFocusedElement() is TextBox || SmartCommand.CanExecute(parameter);
     }
 
     /// <summary>
@@ -59,11 +90,11 @@ public class SmartKeyBinding : KeyBinding, ICommand
             };
             textBox.RaiseEvent(ev);
             if (!ev.Handled && CanExecute(parameter))
-                Command.Execute(parameter);
+                SmartCommand.Execute(parameter);
         }
         else
         {
-            Command.Execute(parameter);
+            SmartCommand.Execute(parameter);
         }
     }
 
@@ -72,7 +103,7 @@ public class SmartKeyBinding : KeyBinding, ICommand
     /// </summary>
     public event EventHandler? CanExecuteChanged
     {
-        add => Command.CanExecuteChanged += value;
-        remove => Command.CanExecuteChanged -= value;
+        add => SmartCommand.CanExecuteChanged += value;
+        remove => SmartCommand.CanExecuteChanged -= value;
     }
 }
