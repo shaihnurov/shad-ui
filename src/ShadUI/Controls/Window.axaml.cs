@@ -9,7 +9,6 @@ using Avalonia.Input;
 using Avalonia.Interactivity;
 using Avalonia.Media;
 using ShadUI.Extensions;
-using Button = Avalonia.Controls.Button;
 
 namespace ShadUI.Controls;
 
@@ -253,7 +252,7 @@ public class Window : Avalonia.Controls.Window
     {
         base.OnLoaded(e);
 
-        if (Application.Current?.ApplicationLifetime is not IClassicDesktopStyleApplicationLifetime desktop)
+        if (Avalonia.Application.Current?.ApplicationLifetime is not IClassicDesktopStyleApplicationLifetime desktop)
             return;
         if (desktop.MainWindow is Window window && window != this) Icon ??= window.Icon;
     }
@@ -280,16 +279,16 @@ public class Window : Avalonia.Controls.Window
         try
         {
             // Create handlers for buttons
-            if (e.NameScope.Get<Button>("PART_MaximizeButton") is { } maximize)
+            if (e.NameScope.Get<Avalonia.Controls.Button>("PART_MaximizeButton") is { } maximize)
             {
                 maximize.Click += OnMaximizeButtonClicked;
                 EnableWindowsSnapLayout(maximize);
             }
 
-            if (e.NameScope.Get<Button>("PART_MinimizeButton") is { } minimize)
+            if (e.NameScope.Get<Avalonia.Controls.Button>("PART_MinimizeButton") is { } minimize)
                 minimize.Click += (_, _) => WindowState = WindowState.Minimized;
 
-            if (e.NameScope.Get<Button>("PART_CloseButton") is { } close)
+            if (e.NameScope.Get<Avalonia.Controls.Button>("PART_CloseButton") is { } close)
                 close.Click += (_, _) => Close();
 
             if (e.NameScope.Get<Control>("PART_TitleBarBackground") is { } titleBar)
@@ -314,10 +313,10 @@ public class Window : Avalonia.Controls.Window
 
     internal bool HasOpenDialog { get; set; }
 
-    private void EnableWindowsSnapLayout(Button maximize)
+    private void EnableWindowsSnapLayout(Avalonia.Controls.Button maximize)
     {
         var pointerOnMaxButton = false;
-        var setter = typeof(Button).GetProperty("IsPointerOver");
+        var setter = typeof(Avalonia.Controls.Button).GetProperty("IsPointerOver");
         var proc = (IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam, ref bool handled) =>
         {
             switch (msg)
