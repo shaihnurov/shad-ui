@@ -27,8 +27,12 @@ public sealed class DialogBuilder<TContext>
 
     internal DialogBuilder<TContext> CreateDialog(TContext context)
     {
-        if (!_manager.CustomDialogs.TryGetValue(typeof(TContext), out _control))
+        if (!_manager.CustomDialogs.TryGetValue(typeof(TContext), out var type))
             throw new InvalidOperationException($"Custom dialog with {typeof(TContext)} is not registered.");
+
+        _control = Activator.CreateInstance(type) as Control;
+
+        if (_control == null) throw new InvalidOperationException("Dialog control is not set.");
 
         _control.DataContext = context;
         return this;
@@ -40,13 +44,13 @@ public sealed class DialogBuilder<TContext>
 
         if (OnSuccessCallback != null)
             _manager.OnSuccessCallbacks.TryAdd(typeof(TContext), OnSuccessCallback);
-        
+
         if (OnSuccessAsyncCallback != null)
             _manager.OnSuccessAsyncCallbacks.TryAdd(typeof(TContext), OnSuccessAsyncCallback);
 
         if (OnCancelCallback != null)
             _manager.OnCancelCallbacks.TryAdd(typeof(TContext), OnCancelCallback);
-        
+
         if (OnCancelAsyncCallback != null)
             _manager.OnCancelAsyncCallbacks.TryAdd(typeof(TContext), OnCancelAsyncCallback);
 

@@ -57,7 +57,7 @@ public static class Extensions
     public static IServiceProvider RegisterDialogs(this IServiceProvider service)
     {
         var dialogService = service.GetRequiredService<DialogManager>();
-        dialogService.Register<LoginContent, LoginViewModel>(new LoginContent());
+        dialogService.Register<LoginContent, LoginViewModel>();
 
         return service;
     }

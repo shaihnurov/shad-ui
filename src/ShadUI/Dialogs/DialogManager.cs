@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Avalonia.Controls;
 
@@ -13,6 +14,8 @@ public sealed class DialogManager
     internal event EventHandler<DialogShownEventArgs>? OnDialogShown;
     internal event EventHandler<DialogClosedEventArgs>? OnDialogClosed;
 
+    private readonly List<Control> _dialogs = [];
+
     /// <summary>
     ///     Shows a dialog with the provided options.
     /// </summary>
@@ -20,6 +23,7 @@ public sealed class DialogManager
     /// <param name="options">Dialog options</param>
     internal void Show(Control control, DialogOptions options)
     {
+        _dialogs.Add(control);
         OnDialogShown?.Invoke(this, new DialogShownEventArgs { Control = control, Options = options });
     }
 
@@ -28,21 +32,21 @@ public sealed class DialogManager
     /// </summary>
     public void Close(Control control)
     {
+        _dialogs.Remove(control);
         OnDialogClosed?.Invoke(this, new DialogClosedEventArgs { Control = control });
     }
 
-    internal readonly Dictionary<Type, Control> CustomDialogs = [];
+    internal readonly Dictionary<Type, Type> CustomDialogs = [];
 
     /// <summary>
     ///     Registers a custom dialog view with its DataContext type.
     /// </summary>
-    /// <param name="view">The actual view object</param>
     /// <typeparam name="TView">The type of view</typeparam>
     /// <typeparam name="TContext">The type of DataContext</typeparam>
     /// <returns></returns>
-    public DialogManager Register<TView, TContext>(TView view) where TView : Control
+    public DialogManager Register<TView, TContext>() where TView : Control
     {
-        CustomDialogs.Add(typeof(TContext), view);
+        CustomDialogs.Add(typeof(TContext), typeof(TView));
         return this;
     }
 
@@ -85,7 +89,9 @@ public sealed class DialogManager
             if (!success) cancelAsyncCallback?.Invoke();
         }
 
-        Close(control);
+        var dialogs = _dialogs.Where(x => x.GetType() == control && x.DataContext?.GetType() == typeof(TContext)).ToList();
+
+        foreach (var dialog in dialogs) Close(dialog);
     }
 }
 

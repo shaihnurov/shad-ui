@@ -65,7 +65,7 @@
                             <Run Text="    var dialogService = service.GetRequiredService&lt;DialogManager&gt;();" />
                             <LineBreak />
                             <Run
-                                Text="    dialogService.Register&lt;LoginContent, LoginViewModel&gt;(new LoginContent());" />
+                                Text="    dialogService.Register&lt;LoginContent, LoginViewModel&gt;();" />
                             <LineBreak />
                             <Run Text="    " />
                             <LineBreak />
