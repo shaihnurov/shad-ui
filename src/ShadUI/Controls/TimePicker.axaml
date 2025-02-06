@@ -198,7 +198,11 @@
                                    Placement="Bottom"
                                    PlacementTarget="{TemplateBinding}"
                                    WindowManagerAddShadowHint="False">
-                                <TimePickerPresenter Name="PART_PickerPresenter" />
+                                <TimePickerPresenter Name="PART_PickerPresenter">
+                                    <TimePickerPresenter.KeyBindings>
+                                        <KeyBinding Gesture="Escape" Command="{Binding $parent[Popup].Close}" />
+                                    </TimePickerPresenter.KeyBindings>
+                                </TimePickerPresenter>
                             </Popup>
                         </Grid>
                         <TextBlock Name="PART_Hint" Classes="Caption Muted"
@@ -433,7 +437,8 @@
                             <Button Name="PART_AcceptButton"
                                     Grid.Column="1"
                                     Margin="12,8"
-                                    Classes="Outline">
+                                    Classes="Outline"
+                                    extensions:Element.FocusOnLoad="True">
                                 Apply
                             </Button>
                             <Button Name="PART_DismissButton"

@@ -13,6 +13,7 @@ public class Element
     static Element()
     {
         ClassesProperty.Changed.AddClassHandler<AvaloniaObject>(HandleClassesChanged);
+        FocusOnLoadProperty.Changed.AddClassHandler<Control>(HandleFocusOnLoadChanged);
     }
 
     /// <summary>
@@ -62,13 +63,6 @@ public class Element
     public static void SetFocusOnLoad(AvaloniaObject element, bool value)
     {
         element.SetValue(FocusOnLoadProperty, value);
-        if (element is Control control)
-        {
-            control.Loaded += (_, _) =>
-            {
-                if (GetFocusOnLoad(control)) control.Focus();
-            };
-        }
     }
 
     /// <summary>
@@ -76,4 +70,14 @@ public class Element
     /// </summary>
     public static bool GetFocusOnLoad(AvaloniaObject element)
         => element.GetValue(FocusOnLoadProperty);
+
+    private static void HandleFocusOnLoadChanged(AvaloniaObject element, AvaloniaPropertyChangedEventArgs args)
+    {
+        if (element is not Control control) return;
+
+        control.Loaded += (_, _) =>
+        {
+            if (GetFocusOnLoad(control)) control.Focus();
+        };
+    }
 }
