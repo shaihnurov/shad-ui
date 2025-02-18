@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using Avalonia.Threading;
 using CommunityToolkit.Mvvm.ComponentModel;
@@ -119,7 +120,7 @@ public sealed partial class InputViewModel : ViewModelBase
 
     [ObservableProperty]
     private bool _isSearching;
-    
+
     [ObservableProperty]
     private string _searchBoxCode = """
                                     <StackPanel>

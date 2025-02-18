@@ -22,6 +22,7 @@
         <ResourceInclude Source="avares://ShadUI/Controls/TabItem.axaml" />
         <ResourceInclude Source="avares://ShadUI/Controls/TabControl.axaml" />
         <ResourceInclude Source="avares://ShadUI/Controls/TextBox.axaml" />
+        <ResourceInclude Source="avares://ShadUI/Controls/TimeInput.axaml" />
         <ResourceInclude Source="avares://ShadUI/Controls/TimePicker.axaml" />
         <ResourceInclude Source="avares://ShadUI/Controls/ToggleSwitch.axaml" />
         <ResourceInclude Source="avares://ShadUI/Controls/ToolTip.axaml" />

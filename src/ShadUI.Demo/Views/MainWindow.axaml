@@ -141,7 +141,7 @@
                                       StrokeBrush="{Binding RelativeSource={RelativeSource AncestorType=controls:SidebarMenuItem}, Path=Foreground}" />
                     </controls:SidebarMenuItem.Icon>
                 </controls:SidebarMenuItem>
-                <controls:SidebarMenuItem Header="Time Pickers" Classes="Compact"
+                <controls:SidebarMenuItem Header="Time Controls" Classes="Compact"
                                           Command="{Binding OpenTimePickerCommand}"
                                           ToolTip.Tip="{Binding IsMenuExpanded, RelativeSource={RelativeSource AncestorType=controls:SidebarMenu}, Converter={x:Static converters:BooleanToNullOrStringConverter.Instance}, ConverterParameter='Time Pickers'}">
                     <controls:SidebarMenuItem.Icon>

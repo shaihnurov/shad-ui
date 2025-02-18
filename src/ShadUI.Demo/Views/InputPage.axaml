@@ -62,7 +62,7 @@
                         Code="{Binding SearchBoxCode}"
                         Language="xaml">
                         <StackPanel>
-                            <TextBox Classes="Clearable" Width="225" 
+                            <TextBox Classes="Clearable" Width="225"
                                      Text="{Binding SearchString, Mode=TwoWay}"
                                      extensions:ControlAssist.ShowProgress="{Binding IsSearching}"
                                      Watermark="Search here...">
