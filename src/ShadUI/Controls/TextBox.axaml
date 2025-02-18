@@ -233,7 +233,7 @@
             </Style>
         </Style>
 
-        <Style Selector="^ /template/ DockPanel">
+        <Style Selector="^ /template/ StackPanel">
             <Setter Property="Cursor" Value="IBeam" />
         </Style>
         <Style Selector="^:disabled /template/ Border#border">
