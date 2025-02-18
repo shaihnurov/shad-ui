@@ -13,8 +13,10 @@
                         <TextBlock>Control Content</TextBlock>
                     </StackPanel>
                 </ToolTip>
-                <Button ToolTip.Tip="Add to library" ToolTip.Placement="Top" 
-                        ToolTip.VerticalOffset="-5" Classes="Outline">Hover</Button>
+                <Button ToolTip.Tip="Add to library" ToolTip.Placement="Top"
+                        ToolTip.VerticalOffset="-5" Classes="Outline">
+                    Hover
+                </Button>
             </StackPanel>
         </Border>
     </Design.PreviewWith>

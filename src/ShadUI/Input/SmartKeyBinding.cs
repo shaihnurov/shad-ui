@@ -4,6 +4,7 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Input;
 using ShadUI.Extensions;
+using Application = Avalonia.Application;
 
 namespace ShadUI.Input;
 
@@ -35,15 +36,17 @@ public class SmartKeyBinding : KeyBinding, ICommand
 
     /// <summary>
     ///     Gets or sets the command for the key binding.
-    ///     It is recommended to use <see cref="SmartCommand"/> instead for proper TextBox handling.
+    ///     It is recommended to use <see cref="SmartCommand" /> instead for proper TextBox handling.
     /// </summary>
-    [Obsolete("The Command property is not supported in SmartKeyBinding. Use SmartCommand property instead for proper TextBox handling and focus-aware key binding behavior.", true)]
+    [Obsolete(
+        "The Command property is not supported in SmartKeyBinding. Use SmartCommand property instead for proper TextBox handling and focus-aware key binding behavior.",
+        true)]
     public new ICommand Command
     {
         get => base.Command;
         set => base.Command = value;
     }
-    
+
     /// <summary>
     ///     Initializes a new instance of the <see cref="SmartKeyBinding" /> class.
     ///     Sets up the internal command handling.
@@ -64,7 +67,7 @@ public class SmartKeyBinding : KeyBinding, ICommand
     /// <returns>true if this command can be executed; otherwise, false.</returns>
     public bool CanExecute(object? parameter)
     {
-        var focusManager = Avalonia.Application.Current.GetTopLevel()?.FocusManager;
+        var focusManager = Application.Current.GetTopLevel()?.FocusManager;
         return focusManager?.GetFocusedElement() is TextBox || SmartCommand.CanExecute(parameter);
     }
 
@@ -79,7 +82,7 @@ public class SmartKeyBinding : KeyBinding, ICommand
     /// </param>
     public void Execute(object? parameter)
     {
-        var focusManager = Avalonia.Application.Current.GetTopLevel()?.FocusManager;
+        var focusManager = Application.Current.GetTopLevel()?.FocusManager;
         if (focusManager?.GetFocusedElement() is TextBox textBox)
         {
             var ev = new KeyEventArgs

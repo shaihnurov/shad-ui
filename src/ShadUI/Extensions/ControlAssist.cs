@@ -111,7 +111,10 @@ public static class ControlAssist
     ///     Sets the value of the <see cref="HeightProperty" />.
     /// </summary>
     /// <param name="control">The control.</param>
-    /// <param name="value">The height value to set. Must be used to define the actual height of control excluding label and hint.</param>
+    /// <param name="value">
+    ///     The height value to set. Must be used to define the actual height of control excluding label and
+    ///     hint.
+    /// </param>
     public static void SetHeight(TemplatedControl control, double value) => control.SetValue(HeightProperty, value);
 
     /// <summary>
@@ -131,7 +134,10 @@ public static class ControlAssist
     ///     Sets the value of the <see cref="MinHeightProperty" />.
     /// </summary>
     /// <param name="control">The control.</param>
-    /// <param name="value">The minimum height value to set. Must be used to define the actual minimum height of control excluding label and hint.</param>
+    /// <param name="value">
+    ///     The minimum height value to set. Must be used to define the actual minimum height of control
+    ///     excluding label and hint.
+    /// </param>
     public static void SetMinHeight(TemplatedControl control, double value) => control.SetValue(MinHeightProperty, value);
 
     /// <summary>
@@ -151,6 +157,9 @@ public static class ControlAssist
     ///     Sets the value of the <see cref="MaxHeightProperty" />.
     /// </summary>
     /// <param name="control">The control.</param>
-    /// <param name="value">The maximum height value to set. Must be used to define the actual maximum height of control excluding label and hint.</param>
+    /// <param name="value">
+    ///     The maximum height value to set. Must be used to define the actual maximum height of control
+    ///     excluding label and hint.
+    /// </param>
     public static void SetMaxHeight(TemplatedControl control, double value) => control.SetValue(MaxHeightProperty, value);
 }

@@ -3,7 +3,7 @@
                     xmlns:controls="clr-namespace:ShadUI.Controls">
     <Design.PreviewWith>
         <StackPanel Orientation="Horizontal" Spacing="16" Margin="24">
-            <controls:Skeleton Height="64" Width="64" CornerRadius="{DynamicResource RoundedCornerRadius}"  />
+            <controls:Skeleton Height="64" Width="64" CornerRadius="{DynamicResource RoundedCornerRadius}" />
             <StackPanel Spacing="8" VerticalAlignment="Center">
                 <controls:Skeleton Height="28" Width="255" HorizontalAlignment="Left" />
                 <controls:Skeleton Height="20" Width="200" HorizontalAlignment="Left" />

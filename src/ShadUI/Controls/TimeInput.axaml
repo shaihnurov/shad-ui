@@ -263,7 +263,8 @@
                                                   Margin="8,0,0,0"
                                                   Classes="Ghost"
                                                   Theme="{StaticResource ToggleButtonTheme}"
-                                                  IsVisible="{TemplateBinding ClockIdentifier, Converter={x:Static converters:ClockIdentifierToIsVisibleConverter.Instance}}" Content="AM" />
+                                                  IsVisible="{TemplateBinding ClockIdentifier, Converter={x:Static converters:ClockIdentifierToIsVisibleConverter.Instance}}"
+                                                  Content="AM" />
                                 </Grid>
                             </Border>
                             <TextBlock Name="PART_Hint" Classes="Caption Muted"

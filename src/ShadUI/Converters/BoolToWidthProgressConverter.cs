@@ -10,7 +10,7 @@ namespace ShadUI.Converters;
 internal class BoolToWidthProgressConverter : IValueConverter
 {
     public static readonly BoolToWidthProgressConverter Instance = new();
-    
+
     /// <summary>
     ///     Convert a boolean value to a width of 24 or 0.
     /// </summary>

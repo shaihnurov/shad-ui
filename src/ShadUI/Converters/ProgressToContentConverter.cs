@@ -3,7 +3,6 @@ using System.Globalization;
 using Avalonia.Controls;
 using Avalonia.Data.Converters;
 using ShadUI.Controls;
-using ShadUI.Enums;
 
 namespace ShadUI.Converters;
 

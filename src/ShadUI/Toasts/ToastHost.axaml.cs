@@ -50,7 +50,7 @@ public class ToastHost : ItemsControl
         AvaloniaProperty.Register<ToastHost, ToastPosition>(nameof(Position));
 
     /// <summary>
-    /// Gets or sets the position of the toast host.
+    ///     Gets or sets the position of the toast host.
     /// </summary>
     public ToastPosition Position
     {
@@ -59,7 +59,7 @@ public class ToastHost : ItemsControl
     }
 
     /// <summary>
-    /// Called when the template is applied.
+    ///     Called when the template is applied.
     /// </summary>
     /// <param name="e"></param>
     protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
@@ -69,7 +69,7 @@ public class ToastHost : ItemsControl
     }
 
     /// <summary>
-    /// Called when a property is changed.
+    ///     Called when a property is changed.
     /// </summary>
     /// <param name="change"></param>
     protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)

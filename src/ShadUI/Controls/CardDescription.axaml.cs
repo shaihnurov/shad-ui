@@ -3,7 +3,7 @@
 namespace ShadUI.Controls;
 
 /// <summary>
-/// Represents a description control for a card.
+///     Represents a description control for a card.
 /// </summary>
 public class CardDescription : ContentControl
 {

@@ -8,7 +8,7 @@
             <StackPanel VerticalAlignment="Center" Spacing="20">
                 <TimePicker />
                 <TimePicker UseSeconds="True" />
-                <TimePicker ClockIdentifier="24HourClock"/>
+                <TimePicker ClockIdentifier="24HourClock" />
                 <TimePicker IsEnabled="False" />
                 <TimePicker extensions:ControlAssist.Label="Start time"
                             extensions:ControlAssist.Hint="Start time schedule" />

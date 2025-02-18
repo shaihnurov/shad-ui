@@ -17,7 +17,7 @@ internal static class OnScreenKeyboard
     private static readonly Dictionary<IInputPane, TopLevel> TopLevelMap = new();
     private static Timer? _throttleTimer;
     private static bool _alreadyDone;
-    private static (Avalonia.Controls.TextBox? TextBox, bool State) _lastKeyboardEvent;
+    private static (TextBox? TextBox, bool State) _lastKeyboardEvent;
     private static readonly object LockObject = new();
 
     public static void Integrate()
@@ -48,17 +48,17 @@ internal static class OnScreenKeyboard
 
         _throttleTimer = new Timer(HandleKeyboardEvent, null, Timeout.Infinite, Timeout.Infinite);
 
-        InputElement.PointerPressedEvent.AddClassHandler<Avalonia.Controls.TextBox>((t, e) =>
+        InputElement.PointerPressedEvent.AddClassHandler<TextBox>((t, e) =>
         {
             if (e.Pointer.Type == PointerType.Touch)
                 QueueKeyboardEvent(t, true);
         }, handledEventsToo: true);
 
-        InputElement.LostFocusEvent.AddClassHandler<Avalonia.Controls.TextBox>((t, _) => QueueKeyboardEvent(t, false),
+        InputElement.LostFocusEvent.AddClassHandler<TextBox>((t, _) => QueueKeyboardEvent(t, false),
             handledEventsToo: true);
     }
 
-    private static void QueueKeyboardEvent(Avalonia.Controls.TextBox textBox, bool state)
+    private static void QueueKeyboardEvent(TextBox textBox, bool state)
     {
         lock (LockObject)
         {
@@ -69,7 +69,7 @@ internal static class OnScreenKeyboard
 
     private static void HandleKeyboardEvent(object? state)
     {
-        Avalonia.Controls.TextBox? textBox;
+        TextBox? textBox;
         bool eventState;
 
         lock (LockObject)
@@ -109,7 +109,7 @@ internal static class OnScreenKeyboard
         var inputPane = (IInputPane) sender!;
         var tl = TopLevelMap[inputPane];
 
-        if (tl.FocusManager?.GetFocusedElement() is not Avalonia.Controls.TextBox ctrl)
+        if (tl.FocusManager?.GetFocusedElement() is not TextBox ctrl)
             return;
 
         if (e.NewState == InputPaneState.Open)
@@ -125,7 +125,7 @@ internal static class OnScreenKeyboard
 
             var contains = oskBounds.Contains(ctrlBottom);
             if (!contains) return;
-            
+
             var diff = oskBounds.TopLeft - ctrlBottom;
             tl.RenderTransform = new TranslateTransform(0, diff.Y);
         }

@@ -463,7 +463,6 @@
                 </Style>
             </Style>
         </Style>
-
     </ControlTheme>
     <ControlTheme x:Key="{x:Type Button}"
                   BasedOn="{StaticResource ButtonStyle}"

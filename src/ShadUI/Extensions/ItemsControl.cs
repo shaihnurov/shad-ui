@@ -1,5 +1,4 @@
 using Avalonia;
-using Avalonia.Controls;
 using Avalonia.Rendering.Composition;
 
 namespace ShadUI.Extensions;
@@ -13,14 +12,16 @@ public static class ItemsControl
     ///     Gets or sets if scroll is animated.
     /// </summary>
     public static readonly AttachedProperty<bool> AnimatedScrollProperty =
-        AvaloniaProperty.RegisterAttached<Avalonia.Controls.ItemsControl, bool>("AnimatedScroll", typeof(Avalonia.Controls.ItemsControl));
+        AvaloniaProperty.RegisterAttached<Avalonia.Controls.ItemsControl, bool>("AnimatedScroll",
+            typeof(Avalonia.Controls.ItemsControl));
 
     static ItemsControl()
     {
         AnimatedScrollProperty.Changed.AddClassHandler<Avalonia.Controls.ItemsControl>(HandleAnimatedScrollChanged);
     }
 
-    private static void HandleAnimatedScrollChanged(Avalonia.Controls.ItemsControl interactElem, AvaloniaPropertyChangedEventArgs args)
+    private static void HandleAnimatedScrollChanged(Avalonia.Controls.ItemsControl interactElem,
+        AvaloniaPropertyChangedEventArgs args)
     {
         if (GetAnimatedScroll(interactElem))
             interactElem.AttachedToVisualTree += (_, _) =>
