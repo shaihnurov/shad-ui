@@ -7,13 +7,12 @@
     <Design.PreviewWith>
         <Border Padding="24" Height="500">
             <StackPanel Spacing="8">
-                <controls:TimeInput ClockIdentifier="12HourClock" UseSeconds="True" />
+                <controls:TimeInput Width="255" HorizontalAlignment="Left" ClockIdentifier="12HourClock" UseSeconds="True" />
                 <controls:TimeInput extensions:ControlAssist.Label="Start time" />
                 <controls:TimeInput extensions:ControlAssist.Label="End time"
                                     extensions:ControlAssist.Hint="Set end time" />
-
                 <controls:TimeInput extensions:ControlAssist.Label="Disable" IsEnabled="False" />
-                <controls:TimeInput MaxWidth="255">
+                <controls:TimeInput >
                     <DataValidationErrors.Error>
                         <system:Exception />
                     </DataValidationErrors.Error>
@@ -181,6 +180,7 @@
                                     VerticalAlignment="{TemplateBinding VerticalAlignment}"
                                     Padding="{TemplateBinding Padding}"
                                     Height="{TemplateBinding Height}"
+                                    Width="{TemplateBinding Width}"
                                     Background="{TemplateBinding Background}"
                                     BorderBrush="{TemplateBinding BorderBrush}"
                                     BorderThickness="{TemplateBinding BorderThickness}"
