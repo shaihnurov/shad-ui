@@ -6,7 +6,7 @@
     <Design.PreviewWith>
         <Border Padding="24" Height="500">
             <StackPanel Spacing="8">
-                <controls:DateInput HorizontalAlignment="Left" Width="255" />
+                <controls:DateInput extensions:Element.FocusOnLoad="True" HorizontalAlignment="Left" Width="255" />
                 <controls:DateInput extensions:ControlAssist.Label="Start date" />
                 <controls:DateInput extensions:ControlAssist.Label="End date"
                                   extensions:ControlAssist.Hint="Set end date" />
@@ -112,13 +112,13 @@
                                              MaxLength="2"
                                              Text="{TemplateBinding MonthString, Mode=TwoWay}"
                                              Background="{TemplateBinding Background}"
+                                             extensions:Element.FocusOnLoad="{TemplateBinding extensions:Element.FocusOnLoad}"
                                              Theme="{StaticResource InputBoxTheme}" />
                                     <TextBlock Grid.Column="1" VerticalAlignment="Center" FontSize="18" Margin="8,0">/</TextBlock>
                                     <TextBox Grid.Column="2"
                                              Name="PART_DayTextBox"
                                              Watermark="dd"
                                              MaxLength="2"
-                                             extensions:Element.FocusOnLoad="{TemplateBinding extensions:Element.FocusOnLoad}"
                                              Text="{TemplateBinding DayString, Mode=TwoWay}"
                                              Background="{TemplateBinding Background}"
                                              Theme="{StaticResource InputBoxTheme}" />
