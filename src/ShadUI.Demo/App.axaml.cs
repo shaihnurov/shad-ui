@@ -3,7 +3,6 @@ using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Data.Core.Plugins;
 using Avalonia.Markup.Xaml;
-using Microsoft.Extensions.DependencyInjection;
 using ShadUI.Demo.ViewModels;
 using ShadUI.Demo.Views;
 using ShadUI.Themes;
@@ -23,16 +22,11 @@ public class App : Application
 
         DisableAvaloniaDataAnnotationValidation();
 
-        var serviceCollection = new ServiceCollection();
-        serviceCollection.AddServices();
+        var provider = new ServiceProvider().RegisterDialogs();
 
-        var serviceProvider = serviceCollection
-            .BuildServiceProvider()
-            .RegisterDialogs();
-
-        var themeWatcher = serviceProvider.GetRequiredService<ThemeWatcher>();
+        var themeWatcher = provider.GetService<ThemeWatcher>();
         themeWatcher.Initialize();
-        var viewModel = serviceProvider.GetRequiredService<MainWindowViewModel>();
+        var viewModel = provider.GetService<MainWindowViewModel>();
         viewModel.Initialize();
 
         desktop.MainWindow = new MainWindow { DataContext = viewModel };
