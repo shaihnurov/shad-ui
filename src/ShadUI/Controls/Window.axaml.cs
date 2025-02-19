@@ -237,11 +237,11 @@ public class Window : Avalonia.Controls.Window
     /// <summary>
     ///     Initializes a new instance of the <see cref="Window" /> class.
     /// </summary>
-    public Window()
+    protected Window()
     {
-        MenuItems = new AvaloniaList<MenuItem>();
-        RightWindowTitleBarControls = new Avalonia.Controls.Controls();
-        Hosts = new Avalonia.Controls.Controls();
+        MenuItems = [];
+        RightWindowTitleBarControls = [];
+        Hosts = [];
     }
 
     /// <summary>
@@ -344,7 +344,7 @@ public class Window : Avalonia.Controls.Window
                         .Contains(new Point(x, y)))
                     {
                         if (HasOpenDialog) return (IntPtr) 9;
-                        
+
                         setter?.SetValue(maximize, true);
                         pointerOnMaxButton = true;
                         handled = true;
@@ -382,7 +382,9 @@ public class Window : Avalonia.Controls.Window
     private void OnTitleBarPointerPressed(object? sender, PointerPressedEventArgs e)
     {
         base.OnPointerPressed(e);
-        BeginMoveDrag(e);
+
+        if (WindowState != WindowState.FullScreen)
+            BeginMoveDrag(e);
     }
 
     static Window()
