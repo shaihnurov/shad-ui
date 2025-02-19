@@ -6,12 +6,12 @@
     <Design.PreviewWith>
         <Border Padding="24" Height="500">
             <StackPanel Spacing="8">
-                <controls:DateInput />
+                <controls:DateInput HorizontalAlignment="Left" Width="255" />
                 <controls:DateInput extensions:ControlAssist.Label="Start date" />
                 <controls:DateInput extensions:ControlAssist.Label="End date"
                                   extensions:ControlAssist.Hint="Set end date" />
                 <controls:DateInput extensions:ControlAssist.Label="Disable" IsEnabled="False" />
-                <controls:DateInput MaxWidth="255">
+                <controls:DateInput Width="255">
                     <DataValidationErrors.Error>
                         <system:Exception />
                     </DataValidationErrors.Error>
@@ -100,6 +100,7 @@
                                     VerticalAlignment="{TemplateBinding VerticalAlignment}"
                                     Padding="{TemplateBinding Padding}"
                                     Height="{TemplateBinding Height}"
+                                    Width="{TemplateBinding Width}"
                                     Background="{TemplateBinding Background}"
                                     BorderBrush="{TemplateBinding BorderBrush}"
                                     BorderThickness="{TemplateBinding BorderThickness}"
