@@ -18,7 +18,8 @@ public class TimeInput : TemplatedControl
     ///     Defines the <see cref="Value" /> property.
     /// </summary>
     public static readonly StyledProperty<TimeSpan?> ValueProperty =
-        AvaloniaProperty.Register<TimeInput, TimeSpan?>(nameof(Value), enableDataValidation: true);
+        AvaloniaProperty.Register<TimeInput, TimeSpan?>(nameof(Value), 
+            defaultBindingMode: BindingMode.TwoWay, enableDataValidation: true);
 
     /// <summary>
     ///     Gets or sets the current time value.

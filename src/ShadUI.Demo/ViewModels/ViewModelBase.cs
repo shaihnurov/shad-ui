@@ -36,7 +36,7 @@ public abstract class ViewModelBase : ObservableObject, INotifyDataErrorInfo
         if (validate) ValidateProperty(value, propertyName);
     }
 
-    private void ValidateProperty<T>(T value, string propertyName)
+    protected void ValidateProperty<T>(T value, string propertyName)
     {
         ClearErrors(propertyName);
 

@@ -17,11 +17,11 @@ public sealed partial class MainWindowViewModel(
     ButtonsViewModel buttonsViewModel,
     CardsViewModel cardsViewModel,
     DialogsViewModel dialogsViewModel,
+    DateTimeViewModel dateTimeViewModel,
     InputViewModel inputViewModel,
     TabsViewModel tabsViewModel,
     ComboBoxesViewModel comboBoxesViewModel,
     SlidersViewModel slidersViewModel,
-    TimeControlViewModel timeControlViewModel,
     ToastsViewModel toastsViewModel,
     ToggleSwitchViewModel toggleSwitchViewModel,
     ToolTipViewModel toolTipViewModel,
@@ -121,9 +121,9 @@ public sealed partial class MainWindowViewModel(
     }
 
     [RelayCommand]
-    private async Task OpenTimePicker()
+    private async Task OpenDateTime()
     {
-        await SwitchPageAsync(timeControlViewModel);
+        await SwitchPageAsync(dateTimeViewModel);
     }
     
     [RelayCommand]

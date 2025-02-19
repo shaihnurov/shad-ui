@@ -2,9 +2,9 @@
 
 namespace ShadUI.Demo.Views;
 
-public partial class TimeControlPage : UserControl
+public partial class DateTimePage : UserControl
 {
-    public TimeControlPage()
+    public DateTimePage()
     {
         InitializeComponent();
     }

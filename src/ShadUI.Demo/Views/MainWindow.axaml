@@ -101,6 +101,14 @@
                                       StrokeBrush="{Binding RelativeSource={RelativeSource AncestorType=controls:SidebarMenuItem}, Path=Foreground}" />
                     </controls:SidebarMenuItem.Icon>
                 </controls:SidebarMenuItem>
+                <controls:SidebarMenuItem Header="Date Time" Classes="Compact"
+                                          Command="{Binding OpenDateTimeCommand}"
+                                          ToolTip.Tip="{Binding IsMenuExpanded, RelativeSource={RelativeSource AncestorType=controls:SidebarMenu}, Converter={x:Static converters:BooleanToNullOrStringConverter.Instance}, ConverterParameter='Time Pickers'}">
+                    <controls:SidebarMenuItem.Icon>
+                        <icons:Lucide Icon="CalendarClock" StrokeThickness="1.5" Width="16" Height="16"
+                                      StrokeBrush="{Binding RelativeSource={RelativeSource AncestorType=controls:SidebarMenuItem}, Path=Foreground}" />
+                    </controls:SidebarMenuItem.Icon>
+                </controls:SidebarMenuItem>
                 <controls:SidebarMenuItem Header="Dialogs" Classes="Compact"
                                           Command="{Binding OpenDialogsCommand}"
                                           ToolTip.Tip="{Binding IsMenuExpanded, RelativeSource={RelativeSource AncestorType=controls:SidebarMenu}, Converter={x:Static converters:BooleanToNullOrStringConverter.Instance}, ConverterParameter='Dialogs'}">
@@ -138,14 +146,6 @@
                                           ToolTip.Tip="{Binding IsMenuExpanded, RelativeSource={RelativeSource AncestorType=controls:SidebarMenu}, Converter={x:Static converters:BooleanToNullOrStringConverter.Instance}, ConverterParameter='Tabs'}">
                     <controls:SidebarMenuItem.Icon>
                         <icons:Lucide Icon="AppWindow" StrokeThickness="1.5" Width="16" Height="16"
-                                      StrokeBrush="{Binding RelativeSource={RelativeSource AncestorType=controls:SidebarMenuItem}, Path=Foreground}" />
-                    </controls:SidebarMenuItem.Icon>
-                </controls:SidebarMenuItem>
-                <controls:SidebarMenuItem Header="Time Controls" Classes="Compact"
-                                          Command="{Binding OpenTimePickerCommand}"
-                                          ToolTip.Tip="{Binding IsMenuExpanded, RelativeSource={RelativeSource AncestorType=controls:SidebarMenu}, Converter={x:Static converters:BooleanToNullOrStringConverter.Instance}, ConverterParameter='Time Pickers'}">
-                    <controls:SidebarMenuItem.Icon>
-                        <icons:Lucide Icon="CalendarClock" StrokeThickness="1.5" Width="16" Height="16"
                                       StrokeBrush="{Binding RelativeSource={RelativeSource AncestorType=controls:SidebarMenuItem}, Path=Foreground}" />
                     </controls:SidebarMenuItem.Icon>
                 </controls:SidebarMenuItem>
