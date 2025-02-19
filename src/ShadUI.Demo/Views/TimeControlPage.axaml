@@ -35,7 +35,7 @@
                         Code="{Binding Hour24ClockPickerCode}"
                         Language="xaml">
                         <StackPanel>
-                            <TimePicker ClockIdentifier="24HourClock" HorizontalAlignment="Center" />
+                            <TimePicker ClockIdentifier="24HourClock" HorizontalAlignment="Center" UseSeconds="True"/>
                         </StackPanel>
                     </controls:ControlBlock>
                     <controls:ControlBlock
@@ -86,7 +86,7 @@
                         Code="{Binding Hour24ClockInputCode}"
                         Language="xaml">
                         <StackPanel>
-                            <shadui:TimeInput ClockIdentifier="24HourClock" HorizontalAlignment="Center" />
+                            <shadui:TimeInput ClockIdentifier="24HourClock" HorizontalAlignment="Center" UseSeconds="True" />
                         </StackPanel>
                     </controls:ControlBlock>
                     <controls:ControlBlock

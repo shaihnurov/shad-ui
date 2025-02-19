@@ -33,7 +33,7 @@ public sealed partial class TimeControlViewModel : ViewModelBase
     [ObservableProperty]
     private string _hour24ClockPickerCode = """
                                             <StackPanel>
-                                                <TimePicker ClockIdentifier="24HourClock" HorizontalAlignment="Center" />
+                                                <TimePicker ClockIdentifier="24HourClock" HorizontalAlignment="Center" UseSeconds="True"/>
                                             </StackPanel>
                                             """;
     [ObservableProperty]
@@ -111,7 +111,7 @@ public sealed partial class TimeControlViewModel : ViewModelBase
     [ObservableProperty]
     private string _hour24ClockInputCode = """
                                             <StackPanel>
-                                                <shadui:TimeInput ClockIdentifier="24HourClock" HorizontalAlignment="Center" />
+                                                <shadui:TimeInput ClockIdentifier="24HourClock" HorizontalAlignment="Center" UseSeconds="True"/>
                                             </StackPanel>
                                             """;
     [ObservableProperty]

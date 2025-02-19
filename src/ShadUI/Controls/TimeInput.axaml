@@ -81,8 +81,13 @@
         </Setter>
     </ControlTheme>
     <ControlTheme x:Key="ToggleButtonTheme" TargetType="ToggleButton">
+        <Setter Property="Padding" Value="8,4" />
+        <Setter Property="Background" Value="{DynamicResource CardBackgroundColor}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderColor}" />
+        <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="FontWeight" Value="Medium" />
         <Setter Property="FontFamily" Value="{DynamicResource FontFamily}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource MediumBorderBrushColor}" />
         <Setter Property="CornerRadius" Value="{DynamicResource SmallCornerRadius}" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
@@ -111,41 +116,32 @@
                 </Border>
             </ControlTemplate>
         </Setter>
-        <Setter Property="Transitions">
-            <Transitions>
-                <BrushTransition Property="Background" Duration="0:0:0.35" />
-                <DoubleTransition Property="Opacity" Duration="0:0:0.35" />
-            </Transitions>
-        </Setter>
-
-        <!--  Nested Selectors For Default Button  -->
+        <Style Selector="^ /template/ Border#RootBorder">
+            <Setter Property="Transitions">
+                <Transitions>
+                    <BrushTransition Property="Background" Duration="0:0:0.2" />
+                    <BrushTransition Property="BorderBrush" Duration="0:0:0.2" />
+                </Transitions>
+            </Setter>
+        </Style>
         <Style Selector="^ /template/ TextBlock">
-            <Setter Property="FontSize" Value="14" />
-            <Setter Property="FontWeight" Value="Medium" />
+            <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
             <Setter Property="Transitions">
                 <Transitions>
                     <BrushTransition Property="Foreground" Duration="0:0:0.3" />
                 </Transitions>
             </Setter>
         </Style>
-
-        <Style Selector="^ /template/ Border">
-            <Setter Property="Transitions">
-                <Transitions>
-                    <BrushTransition Property="BorderBrush" Duration="0:0:0.3" />
-                    <BrushTransition Property="Background" Duration="0:0:0.3" />
-                </Transitions>
-            </Setter>
-        </Style>
-
         <Style Selector="^ /template/ ContentPresenter">
-            <Setter Property="FontSize" Value="14" />
-            <Setter Property="FontWeight" Value="Medium" />
+            <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
             <Setter Property="Transitions">
                 <Transitions>
                     <BrushTransition Property="Foreground" Duration="0:0:0.3" />
                 </Transitions>
             </Setter>
+        </Style>
+        <Style Selector="^:pointerover /template/ Border#RootBorder">
+            <Setter Property="Background" Value="{DynamicResource GhostColor}" />
         </Style>
         <Style Selector="^:pressed">
             <Style Selector="^ /template/ Border">
@@ -156,53 +152,11 @@
                 </Setter>
             </Style>
         </Style>
-
-        <Style Selector="^:pointerover /template/ Border#RootBorder">
-            <Setter Property="Cursor" Value="Hand" />
+        <Style Selector="^[IsChecked=True]">
+            <Setter Property="Content" Value="PM" />
         </Style>
-
-        <Style Selector="^.Ghost">
-            <Setter Property="FontSize" Value="14" />
-            <Setter Property="Padding" Value="8,4" />
-            <Setter Property="Background" Value="{DynamicResource CardBackgroundColor}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource BorderColor}" />
-            <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
-            <Style Selector="^ /template/ Border#RootBorder">
-                <Setter Property="Transitions">
-                    <Transitions>
-                        <BrushTransition Property="Background" Duration="0:0:0.2" />
-                        <BrushTransition Property="BorderBrush" Duration="0:0:0.2" />
-                    </Transitions>
-                </Setter>
-            </Style>
-            <Style Selector="^ /template/ TextBlock">
-                <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
-                <Setter Property="Transitions">
-                    <Transitions>
-                        <BrushTransition Property="Foreground" Duration="0:0:0.3" />
-                    </Transitions>
-                </Setter>
-            </Style>
-            <Style Selector="^ /template/ ContentPresenter">
-                <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
-                <Setter Property="Transitions">
-                    <Transitions>
-                        <BrushTransition Property="Foreground" Duration="0:0:0.3" />
-                    </Transitions>
-                </Setter>
-            </Style>
-            <Style Selector="^:pointerover /template/ Border#RootBorder">
-                <Setter Property="Background" Value="{DynamicResource GhostColor}" />
-            </Style>
-            <Style Selector="^:pressed">
-                <Style Selector="^.IconContent /template/ Border">
-                    <Setter Property="RenderTransform">
-                        <Setter.Value>
-                            <ScaleTransform ScaleX="0.95" ScaleY="0.95" />
-                        </Setter.Value>
-                    </Setter>
-                </Style>
-            </Style>
+        <Style Selector="^[IsChecked=False]">
+            <Setter Property="Content" Value="AM" />
         </Style>
     </ControlTheme>
     <ControlTheme x:Key="{x:Type controls:TimeInput}" TargetType="{x:Type controls:TimeInput}">
@@ -261,10 +215,8 @@
                                              Theme="{StaticResource InputBoxTheme}" />
                                     <ToggleButton Grid.Column="5" Name="PART_ToggleButton"
                                                   Margin="8,0,0,0"
-                                                  Classes="Ghost"
                                                   Theme="{StaticResource ToggleButtonTheme}"
-                                                  IsVisible="{TemplateBinding ClockIdentifier, Converter={x:Static converters:ClockIdentifierToIsVisibleConverter.Instance}}"
-                                                  Content="AM" />
+                                                  IsVisible="{TemplateBinding ClockIdentifier, Converter={x:Static converters:ClockIdentifierToIsVisibleConverter.Instance}}"/>
                                 </Grid>
                             </Border>
                             <TextBlock Name="PART_Hint" Classes="Caption Muted"

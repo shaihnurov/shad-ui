@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
@@ -133,6 +134,7 @@ public class TimeInput : TemplatedControl
         set => SetValue(InputFocusProperty, value);
     }
 
+    private TextBox? _hourTextBox;
     private TextBox? _minuteTextBox;
     private TextBox? _secondTextBox;
     private ToggleButton? _toggleButton;
@@ -151,157 +153,97 @@ public class TimeInput : TemplatedControl
         var secondTextBox = e.NameScope.Get<TextBox>("PART_SecondTextBox");
         var toggleButton = e.NameScope.Get<ToggleButton>("PART_ToggleButton");
 
+        _hourTextBox = hourTextBox;
         _minuteTextBox = minuteTextBox;
         _secondTextBox = secondTextBox;
         _toggleButton = toggleButton;
 
-        if (Value is { Hours: >= 12 })
+        _toggleButton.IsChecked = Value is { Hours: >= 12 };
+
+        _hourTextBox.LostFocus += OnTextBoxLostFocus;
+        _minuteTextBox.LostFocus += OnTextBoxLostFocus;
+        _secondTextBox.LostFocus += OnTextBoxLostFocus;
+        _toggleButton.LostFocus += (_, _) => InputFocus = false;
+
+        _hourTextBox.GotFocus += (_, _) => InputFocus = true;
+        _minuteTextBox.GotFocus += (_, _) => InputFocus = true;
+        _secondTextBox.GotFocus += (_, _) => InputFocus = true;
+        _toggleButton.GotFocus += (_, _) => InputFocus = true;
+
+        _hourTextBox.TextChanged += OnInputChanged;
+        _minuteTextBox.TextChanged += OnInputChanged;
+        _secondTextBox.TextChanged += OnInputChanged;
+        _toggleButton.Click += OnToggleButtonCheckChanged;
+
+        _hourTextBox.KeyDown += (_, _) => _fromInput = true;
+        _minuteTextBox.KeyDown += (_, _) => _fromInput = true;
+        _secondTextBox.KeyDown += (_, _) => _fromInput = true;
+
+        _hourTextBox.KeyUp += (_, _) => _fromInput = false;
+        _minuteTextBox.KeyUp += (_, _) => _fromInput = false;
+        _secondTextBox.KeyUp += (_, _) => _fromInput = false;
+
+        if (ClockIdentifier == "12HourClock")
         {
-            toggleButton.IsChecked = true;
-            toggleButton.Content = "PM";
+            if (_toggleButton is not null) _toggleButton.IsChecked = Value?.Hours >= 12;
+            if (_hourTextBox is not null) _hourTextBox.Text = Value?.Hours.ToString().PadLeft(2, '0');
         }
-        else
-        {
-            toggleButton.IsChecked = false;
-            toggleButton.Content = "AM";
-        }
-
-        hourTextBox.LostFocus += OnTextBoxLostFocus;
-        minuteTextBox.LostFocus += OnTextBoxLostFocus;
-        secondTextBox.LostFocus += OnTextBoxLostFocus;
-        toggleButton.LostFocus += (_, _) => InputFocus = false;
-
-        hourTextBox.GotFocus += (_, _) => InputFocus = true;
-        minuteTextBox.GotFocus += (_, _) => InputFocus = true;
-        secondTextBox.GotFocus += (_, _) => InputFocus = true;
-        toggleButton.GotFocus += (_, _) => InputFocus = true;
-
-        hourTextBox.TextChanged += OnInputChanged;
-        minuteTextBox.TextChanged += OnInputChanged;
-        secondTextBox.TextChanged += OnInputChanged;
-        toggleButton.IsCheckedChanged += OnToggleButtonCheckChanged;
-
-        hourTextBox.KeyDown += (_, _) => _fromInput = true;
-        minuteTextBox.KeyDown += (_, _) => _fromInput = true;
-        secondTextBox.KeyDown += (_, _) => _fromInput = true;
-
-        hourTextBox.KeyUp += (_, _) => _fromInput = false;
-        minuteTextBox.KeyUp += (_, _) => _fromInput = false;
-        secondTextBox.KeyUp += (_, _) => _fromInput = false;
     }
 
-    private bool _isUpdating;
+    private bool _updating;
     private bool _fromInput;
 
-    /// <summary>
-    ///     Handles changes to the input text boxes, updating the time value accordingly.
-    /// </summary>
-    /// <param name="sender">The source of the event.</param>
-    /// <param name="e">Event arguments.</param>
     private void OnInputChanged(object sender, TextChangedEventArgs e)
     {
-        if (sender is not TextBox textBox) return;
+        if (sender is not TextBox textBox || !_fromInput) return;
 
-        if (_isUpdating || !_fromInput) return;
+        if (textBox.Text?.Length < 2) return;
 
-        _isUpdating = true;
-        int.TryParse(textBox.Text, out var value);
-
-        if (textBox.Name == "PART_HourTextBox")
+        var nextTextBox = textBox.Name switch
         {
-            if (value >= 24) value = 0;
+            "PART_HourTextBox" => _minuteTextBox,
+            "PART_MinuteTextBox" => _secondTextBox,
+            _ => null
+        };
 
-            if (ClockIdentifier == "12HourClock")
-                if (_toggleButton is not null && value >= 12)
-                {
-                    _toggleButton.IsChecked = true;
-                    _toggleButton.Content = "PM";
-                    HourString = (value - 12).ToString().PadLeft(2, '0');
-                }
-
-            Value = new TimeSpan(value, Value?.Minutes ?? 0, Value?.Seconds ?? 0);
-
-            if (_fromInput && textBox.Text?.Length >= 2)
-            {
-                _minuteTextBox?.Focus();
-                _minuteTextBox?.SelectAll();
-            }
-        }
-
-        if (textBox.Name == "PART_MinuteTextBox")
-        {
-            if (value >= 60) value = 0;
-            Value = new TimeSpan(Value?.Hours ?? 0, value, Value?.Seconds ?? 0);
-
-            if (_fromInput && textBox.Text?.Length >= 2)
-            {
-                _secondTextBox?.Focus();
-                _secondTextBox?.SelectAll();
-            }
-        }
-
-        if (textBox.Name == "PART_SecondTextBox")
-        {
-            if (value >= 60) value = 0;
-            Value = new TimeSpan(Value?.Hours ?? 0, Value?.Minutes ?? 0, value);
-        }
-
-        _isUpdating = false;
+        nextTextBox?.Focus();
+        nextTextBox?.SelectAll();
     }
 
-    /// <summary>
-    ///     Handles the loss of focus from input text boxes, ensuring valid time values.
-    /// </summary>
-    /// <param name="sender">The source of the event.</param>
-    /// <param name="e">Event arguments.</param>
     private void OnTextBoxLostFocus(object sender, RoutedEventArgs e)
     {
         if (sender is not TextBox textBox) return;
-
         int.TryParse(textBox.Text, out var value);
 
         if (textBox.Name == "PART_HourTextBox")
         {
             if (value >= 24) value = 0;
 
-            if (_toggleButton?.IsChecked == false && value == 12) value = 0;
-            if (_toggleButton?.IsChecked == true && value > 12) value -= 12;
-
-            if (_toggleButton is not null && value == 0)
+            switch (ClockIdentifier)
             {
-                _toggleButton.Content = "AM";
-                _toggleButton.IsChecked = false;
+                case "12HourClock" when value >= 12:
+                    textBox.Text = value == 12 ? "12" : (value - 12).ToString().PadLeft(2, '0');
+                    _toggleButton!.IsChecked = true;
+                    Value = new TimeSpan(value, Value?.Minutes ?? 0, Value?.Seconds ?? 0);
+                    return;
+                case "12HourClock" when value == 0:
+                    _toggleButton!.IsChecked = false;
+                    textBox.Text = "00";
+                    Value = new TimeSpan(value, Value?.Minutes ?? 0, Value?.Seconds ?? 0);
+                    return;
             }
         }
+        else
+        {
+            if (value >= 60) value = 0;
+        }
 
-        if (textBox.Name == "PART_MinuteTextBox")
-            if (value >= 60)
-                value = 0;
-
-        if (textBox.Name == "PART_SecondTextBox")
-            if (value >= 60)
-                value = 0;
-
-        _fromInput = false;
         textBox.Text = value.ToString().PadLeft(2, '0');
-
-        InputFocus = false;
     }
 
-    /// <summary>
-    ///     Handles changes to the AM/PM toggle button, updating the time value accordingly.
-    /// </summary>
-    /// <param name="sender">The source of the event.</param>
-    /// <param name="e">Event arguments.</param>
     private void OnToggleButtonCheckChanged(object sender, RoutedEventArgs e)
     {
         if (sender is not ToggleButton toggleButton) return;
-
-        if (_isUpdating) return;
-
-        _isUpdating = true;
-        _fromInput = false;
-        toggleButton.Content = toggleButton.IsChecked == true ? "PM" : "AM";
 
         if (toggleButton.IsChecked == true)
         {
@@ -310,45 +252,54 @@ public class TimeInput : TemplatedControl
             if (Value is { Hours: < 12 })
                 Value = new TimeSpan(Value.Value.Hours + 12, Value.Value.Minutes, Value.Value.Seconds);
 
-            if (HourString == "00") HourString = "12";
+            if (ClockIdentifier == "12HourClock" && _hourTextBox!.Text == "00") _hourTextBox.Text = "12";
         }
         else
         {
             if (Value is { Hours: >= 12 })
                 Value = new TimeSpan(Value.Value.Hours - 12, Value.Value.Minutes, Value.Value.Seconds);
 
-            if (HourString == "12") HourString = "00";
+            if (ClockIdentifier == "12HourClock" && _hourTextBox!.Text == "12") _hourTextBox.Text = "00";
         }
-
-        _isUpdating = false;
     }
 
     /// <summary>
     ///     Called when a property value changes. Handles updates to the time value and updates the display strings.
     /// </summary>
-    /// <param name="change">Information about the property that changed.</param>
-    protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)
+    /// <param name="e">Information about the property that changed.</param>
+    protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs e)
     {
-        base.OnPropertyChanged(change);
+        base.OnPropertyChanged(e);
 
-        if (change.Property != ValueProperty) return;
+        if (_updating) return;
+        if (e.Property == ValueProperty) UpdateValue(e);
+        if (e.Property == HourStringProperty) UpdateHour(e);
+        if (e.Property == MinuteStringProperty) UpdateMinute(e);
+        if (e.Property == SecondStringProperty) UpdateSecond(e);
+    }
 
-        var newValue = change.GetNewValue<TimeSpan?>();
+    private void UpdateValue(AvaloniaPropertyChangedEventArgs args)
+    {
+        _updating = true;
 
-        if (_isUpdating) return;
+        var value = args.GetNewValue<TimeSpan?>();
 
-        _isUpdating = true;
-
-        if (newValue.HasValue)
+        if (value.HasValue)
         {
-            HourString = newValue.Value.Hours.ToString().PadLeft(2, '0');
-            MinuteString = newValue.Value.Minutes.ToString().PadLeft(2, '0');
-            SecondString = UseSeconds ? newValue.Value.Seconds.ToString().PadLeft(2, '0') : "00";
+            HourString = value.Value.Hours.ToString().PadLeft(2, '0');
+            MinuteString = value.Value.Minutes.ToString().PadLeft(2, '0');
+            SecondString = UseSeconds ? value.Value.Seconds.ToString().PadLeft(2, '0') : "00";
 
             if (!UseSeconds)
             {
-                Value = new TimeSpan(newValue.Value.Hours, newValue.Value.Minutes, 0);
+                Value = new TimeSpan(value.Value.Hours, value.Value.Minutes, 0);
                 SecondString = "00";
+            }
+
+            if (ClockIdentifier == "12HourClock")
+            {
+                if (_toggleButton is not null) _toggleButton.IsChecked = value.Value.Hours >= 12;
+                if (_hourTextBox is not null) _hourTextBox!.Text = value.Value.Hours.ToString().PadLeft(2, '0');
             }
         }
         else
@@ -358,7 +309,38 @@ public class TimeInput : TemplatedControl
             SecondString = "00";
         }
 
-        _isUpdating = false;
+        _updating = false;
+    }
+
+    private void UpdateHour(AvaloniaPropertyChangedEventArgs args)
+    {
+        int.TryParse(args.GetNewValue<string>(), out var value);
+
+        if (value >= 24) value = 0;
+
+        if (ClockIdentifier == "12HourClock" && value < 12 && _toggleButton!.IsChecked == true) value += 12;
+
+        Value = new TimeSpan(value, Value?.Minutes ?? 0, Value?.Seconds ?? 0);
+    }
+
+    private void UpdateMinute(AvaloniaPropertyChangedEventArgs args)
+    {
+        var parsed = int.TryParse(args.GetNewValue<string>(), out var value);
+
+        if (!parsed || value < 0 || value > 59)
+            value = 0;
+
+        Value = new TimeSpan(Value?.Hours ?? 0, value, Value?.Seconds ?? 0);
+    }
+
+    private void UpdateSecond(AvaloniaPropertyChangedEventArgs args)
+    {
+        var parsed = int.TryParse(args.GetNewValue<string>(), out var value);
+
+        if (!parsed || value < 0 || value > 59)
+            value = 0;
+
+        Value = new TimeSpan(Value?.Hours ?? 0, Value?.Minutes ?? 0, value);
     }
 
     /// <summary>
