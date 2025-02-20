@@ -371,12 +371,27 @@ public class Window : Avalonia.Controls.Window
 
     private void OnWindowStateChanged(WindowState state)
     {
-        if (state == WindowState.FullScreen)
-            CanMaximize = CanResize = CanMove = false;
-        if (state == WindowState.Maximized)
-            Margin = new Thickness(7);
-        else
-            Margin = new Thickness(0);
+        switch (state)
+        {
+            case WindowState.FullScreen:
+                CanMaximize = false;
+                CanMove = false;
+                CanResize = false;
+                Margin = new Thickness(0);
+                break;
+            case WindowState.Maximized:
+                Margin = new Thickness(7);
+                break;
+            case WindowState.Normal:
+                CanMaximize = true;
+                CanMove = true;
+                CanResize = true;
+                Margin = new Thickness(0);
+                break;
+            default:
+                Margin = new Thickness(0);
+                break;
+        }
     }
 
     private void OnTitleBarPointerPressed(object? sender, PointerPressedEventArgs e)
