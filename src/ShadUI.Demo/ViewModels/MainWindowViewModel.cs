@@ -16,6 +16,7 @@ public sealed partial class MainWindowViewModel(
     AvatarsViewModel avatarsViewModel,
     ButtonsViewModel buttonsViewModel,
     CardsViewModel cardsViewModel,
+    CheckBoxesViewModel checkBoxesViewModel,
     DialogsViewModel dialogsViewModel,
     DateTimeViewModel dateTimeViewModel,
     InputViewModel inputViewModel,
@@ -87,6 +88,12 @@ public sealed partial class MainWindowViewModel(
     private async Task OpenCards()
     {
         await SwitchPageAsync(cardsViewModel);
+    }
+
+    [RelayCommand]
+    private async Task OpenCheckBoxes()
+    {
+        await SwitchPageAsync(checkBoxesViewModel);
     }
 
     [RelayCommand]

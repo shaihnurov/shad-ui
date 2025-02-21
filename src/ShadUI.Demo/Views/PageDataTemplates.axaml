@@ -18,6 +18,9 @@
     <DataTemplate DataType="{x:Type viewModels:CardsViewModel}">
         <views:CardsPage />
     </DataTemplate>
+    <DataTemplate DataType="{x:Type viewModels:CheckBoxesViewModel}">
+        <views:CheckBoxesPage />
+    </DataTemplate>
     <DataTemplate DataType="{x:Type viewModels:DialogsViewModel}">
         <views:DialogsPage />
     </DataTemplate>
