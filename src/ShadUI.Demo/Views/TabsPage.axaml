@@ -5,6 +5,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModels="clr-namespace:ShadUI.Demo.ViewModels"
     xmlns:controls="clr-namespace:ShadUI.Demo.Controls"
+    xmlns:shadui="clr-namespace:ShadUI.Controls;assembly=ShadUI"
     mc:Ignorable="d" d:DesignWidth="800"
     x:Class="ShadUI.Demo.Views.TabsPage"
     x:DataType="viewModels:TabsViewModel">
@@ -24,10 +25,24 @@
                         Title="Basic Tab"
                         Code="{Binding BasicTabCode}"
                         Language="xaml">
-                        <controls:ControlBlock Title="h1" Code="{Binding H1Code}" Language="xaml">
-                            <TextBlock TextWrapping="Wrap" Classes="h1"
-                                       Text="Taxing Laughter: The Joke Tax Chronicles" />
-                        </controls:ControlBlock>
+                        <TabControl>
+                            <TabControl.Items>
+                                <TabItem Header="Preview">
+                                    <shadui:Card Padding="48">
+                                        <TextBlock TextWrapping="Wrap" Classes="h1"
+                                                   Text="Taxing Laughter: The Joke Tax Chronicles" />
+                                    </shadui:Card>
+                                </TabItem>
+                                <TabItem Header="Code">
+                                    <controls:CodeTextBlock Language="xaml">
+                                        <Run Text="&lt;TextBlock TextWrapping=&quot;Wrap&quot; Classes=&quot;h&quot;" />
+                                        <LineBreak />
+                                        <Run
+                                            Text="           Text=&quot;Taxing Laughter: The Joke Tax Chronicles&quot;/&gt;" />
+                                    </controls:CodeTextBlock>
+                                </TabItem>
+                            </TabControl.Items>
+                        </TabControl>
                     </controls:ControlBlock>
                 </StackPanel>
             </Panel>
