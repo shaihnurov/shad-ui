@@ -68,7 +68,7 @@
                             <extensions:Button.Icon>
                                 <PathIcon
                                     Name="PART_ClipBoardIcon"
-                                    Height="10"
+                                    Height="16"
                                     Foreground="#FAFAFA"
                                     Data="{x:Static content:Icons.ClipBoard}" />
                             </extensions:Button.Icon>
