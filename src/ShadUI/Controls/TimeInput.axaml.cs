@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
@@ -18,7 +17,7 @@ public class TimeInput : TemplatedControl
     ///     Defines the <see cref="Value" /> property.
     /// </summary>
     public static readonly StyledProperty<TimeSpan?> ValueProperty =
-        AvaloniaProperty.Register<TimeInput, TimeSpan?>(nameof(Value), 
+        AvaloniaProperty.Register<TimeInput, TimeSpan?>(nameof(Value),
             defaultBindingMode: BindingMode.TwoWay, enableDataValidation: true);
 
     /// <summary>
@@ -184,11 +183,13 @@ public class TimeInput : TemplatedControl
         _minuteTextBox.KeyUp += (_, _) => _fromInput = false;
         _secondTextBox.KeyUp += (_, _) => _fromInput = false;
 
-        if (ClockIdentifier == "12HourClock")
-        {
-            if (_toggleButton is not null) _toggleButton.IsChecked = Value?.Hours >= 12;
-            if (_hourTextBox is not null) _hourTextBox.Text = Value?.Hours.ToString().PadLeft(2, '0');
-        }
+        if (ClockIdentifier != "12HourClock") return;
+        
+        if (_toggleButton is not null) _toggleButton.IsChecked = Value?.Hours >= 12;
+            
+        var hours = Value?.Hours ?? 0;
+        if (hours > 12) hours -= 12;
+        if (_hourTextBox is not null) _hourTextBox.Text = hours.ToString().PadLeft(2, '0');
     }
 
     private bool _updating;
@@ -283,24 +284,29 @@ public class TimeInput : TemplatedControl
     {
         _updating = true;
 
-        var value = args.GetNewValue<TimeSpan?>();
+        var time = args.GetNewValue<TimeSpan?>();
 
-        if (value.HasValue)
+        if (time.HasValue)
         {
-            HourString = value.Value.Hours.ToString().PadLeft(2, '0');
-            MinuteString = value.Value.Minutes.ToString().PadLeft(2, '0');
-            SecondString = UseSeconds ? value.Value.Seconds.ToString().PadLeft(2, '0') : "00";
+            var hour = time.Value.Hours;
+
+            HourString = hour.ToString().PadLeft(2, '0');
+            MinuteString = time.Value.Minutes.ToString().PadLeft(2, '0');
+            SecondString = UseSeconds ? time.Value.Seconds.ToString().PadLeft(2, '0') : "00";
 
             if (!UseSeconds)
             {
-                Value = new TimeSpan(value.Value.Hours, value.Value.Minutes, 0);
+                Value = new TimeSpan(time.Value.Hours, time.Value.Minutes, 0);
                 SecondString = "00";
             }
 
             if (ClockIdentifier == "12HourClock")
             {
-                if (_toggleButton is not null) _toggleButton.IsChecked = value.Value.Hours >= 12;
-                if (_hourTextBox is not null) _hourTextBox!.Text = value.Value.Hours.ToString().PadLeft(2, '0');
+                if (hour > 12) hour -= 12;
+
+                HourString = hour.ToString().PadLeft(2, '0');
+                if (_toggleButton is not null) _toggleButton.IsChecked = time.Value.Hours >= 12;
+                if (_hourTextBox is not null) _hourTextBox!.Text = hour.ToString().PadLeft(2, '0');
             }
         }
         else
