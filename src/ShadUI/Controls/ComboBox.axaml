@@ -3,7 +3,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:contents="clr-namespace:ShadUI.Contents"
     xmlns:system="clr-namespace:System;assembly=netstandard"
-    xmlns:extensions="clr-namespace:ShadUI.Extensions">
+    xmlns:extensions="clr-namespace:ShadUI.Extensions"
+    xmlns:converters="clr-namespace:ShadUI.Converters">
     <Design.PreviewWith>
         <Border Height="500" Width="400" Padding="8">
             <StackPanel Spacing="8">
@@ -99,17 +100,19 @@
                                 </Path>
                                 <Popup Name="PART_Popup"
                                        Grid.Column="0"
-                                       MaxHeight="{TemplateBinding MaxDropDownHeight}"
-                                       MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
+                                       MaxHeight="{TemplateBinding MaxDropDownHeight, Converter={x:Static converters:PopupMaxDropDownHeightConverter.Instance}}"
+                                       MinWidth="{Binding Bounds.Width, Converter={x:Static converters:PopupMinWidthConverter.Instance}, RelativeSource={RelativeSource TemplatedParent}}"
                                        IsLightDismissEnabled="True"
                                        VerticalOffset="5"
                                        IsOpen="{TemplateBinding IsDropDownOpen,Mode=TwoWay}"
                                        PlacementTarget="{Binding #PART_Border}">
                                     <LayoutTransformControl Name="PART_LayoutTransform"
-                                                            RenderTransformOrigin="50%, 0%">
+                                                            RenderTransformOrigin="50%, 0%" >
                                         <Border Background="{DynamicResource CardBackgroundColor}"
                                                 BorderBrush="{DynamicResource BorderColor}"
                                                 BorderThickness="1"
+                                                BoxShadow="{DynamicResource Shadow}"
+                                                Margin="2,0,2,4"
                                                 CornerRadius="{DynamicResource MediumCornerRadius}">
                                             <ScrollViewer
                                                 HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"

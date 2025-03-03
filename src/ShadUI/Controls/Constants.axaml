@@ -16,5 +16,6 @@
     <CornerRadius x:Key="RoundedCornerRadius">999</CornerRadius>
 
     <Easing x:Key="MenuEasing">CircularEaseOut</Easing>
+    <BoxShadows x:Key="Shadow">0 2 4 0 #20000000</BoxShadows>
 
 </ResourceDictionary>
