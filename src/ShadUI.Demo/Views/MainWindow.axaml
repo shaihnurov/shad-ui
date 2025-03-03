@@ -133,6 +133,14 @@
                                       StrokeBrush="{Binding RelativeSource={RelativeSource AncestorType=controls:SidebarMenuItem}, Path=Foreground}" />
                     </controls:SidebarMenuItem.Icon>
                 </controls:SidebarMenuItem>
+                <controls:SidebarMenuItem Header="Menus" Classes="Compact"
+                                          Command="{Binding OpenMenusCommand}"
+                                          ToolTip.Tip="{Binding IsMenuExpanded, RelativeSource={RelativeSource AncestorType=controls:SidebarMenu}, Converter={x:Static converters:BooleanToNullOrStringConverter.Instance}, ConverterParameter='Menus'}">
+                    <controls:SidebarMenuItem.Icon>
+                        <icons:Lucide Icon="SquareMenu" StrokeThickness="1.5" Width="16" Height="16"
+                                      StrokeBrush="{Binding RelativeSource={RelativeSource AncestorType=controls:SidebarMenuItem}, Path=Foreground}" />
+                    </controls:SidebarMenuItem.Icon>
+                </controls:SidebarMenuItem>
                 <controls:SidebarMenuItem Header="Sliders" Classes="Compact"
                                           Command="{Binding OpenSlidersCommand}"
                                           ToolTip.Tip="{Binding IsMenuExpanded, RelativeSource={RelativeSource AncestorType=controls:SidebarMenu}, Converter={x:Static converters:BooleanToNullOrStringConverter.Instance}, ConverterParameter='Sliders'}">
@@ -214,7 +222,7 @@
                             ToolTip.Tip="Nuget package"
                             CommandParameter="https://www.nuget.org/packages/ShadUI">
                         <extensions:Button.Icon>
-                            <PathIcon Data="{x:Static demo:CustomIcons.Nuget}" 
+                            <PathIcon Data="{x:Static demo:CustomIcons.Nuget}"
                                       Foreground="{DynamicResource PrimaryColor}" />
                         </extensions:Button.Icon>
                     </Button>

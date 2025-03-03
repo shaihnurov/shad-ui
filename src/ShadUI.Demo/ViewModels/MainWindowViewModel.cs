@@ -20,6 +20,7 @@ public sealed partial class MainWindowViewModel(
     DialogsViewModel dialogsViewModel,
     DateTimeViewModel dateTimeViewModel,
     InputViewModel inputViewModel,
+    MenuViewModel menuViewModel,
     TabsViewModel tabsViewModel,
     ComboBoxesViewModel comboBoxesViewModel,
     SlidersViewModel slidersViewModel,
@@ -109,6 +110,12 @@ public sealed partial class MainWindowViewModel(
             inputViewModel.Initialize();
     }
 
+    [RelayCommand]
+    private async Task OpenMenus()
+    {
+        await SwitchPageAsync(menuViewModel);
+    }
+    
     [RelayCommand]
     private async Task OpenTabs()
     {

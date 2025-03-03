@@ -1,0 +1,344 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=netstandard"
+                    xmlns:extensions="clr-namespace:ShadUI.Extensions">
+    <ControlTheme x:Key="TopLevelMenuItem" TargetType="MenuItem">
+        <Setter Property="FontWeight" Value="DemiBold" />
+        <Setter Property="CornerRadius" Value="{DynamicResource SmallCornerRadius}" />
+        <Setter Property="Padding" Value="12 0" />
+        <Setter Property="extensions:MenuItem.PopupVerticalOffset" Value="8" />
+        <Setter Property="extensions:MenuItem.PopupPlacement" Value="BottomEdgeAlignedLeft" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Name="root"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}">
+                    <Panel>
+                        <Border CornerRadius="{TemplateBinding CornerRadius}" Name="ItemBackground">
+                            <Border.Transitions>
+                                <Transitions>
+                                    <BrushTransition Property="Background" Duration="0:0:0.15" />
+                                </Transitions>
+                            </Border.Transitions>
+                        </Border>
+                        <ContentPresenter Name="PART_HeaderPresenter"
+                                          Margin="{TemplateBinding Padding}"
+                                          HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"
+                                          HorizontalContentAlignment="Left"
+                                          VerticalContentAlignment="Center"
+                                          Content="{TemplateBinding Header}">
+                            <ContentPresenter.DataTemplates>
+                                <DataTemplate DataType="system:String">
+                                    <TextBlock Name="PART_HeaderText" FontSize="14" FontWeight="Medium" Text="{CompiledBinding}" />
+                                </DataTemplate>
+                            </ContentPresenter.DataTemplates>
+                        </ContentPresenter>
+                        <Popup Name="PART_Popup"
+                               IsLightDismissEnabled="True"
+                               IsOpen="{TemplateBinding IsSubMenuOpen,Mode=TwoWay}"
+                               Opacity="0"
+                               VerticalOffset="{TemplateBinding extensions:MenuItem.PopupVerticalOffset}"
+                               OverlayInputPassThroughElement="{Binding $parent[Menu]}"
+                               Placement="{TemplateBinding extensions:MenuItem.PopupPlacement}">
+                            <LayoutTransformControl Name="PART_LayoutTransform" RenderTransformOrigin="50%, 0%">
+                                <Border Name="PART_Border"
+                                        Background="{DynamicResource CardBackgroundColor}"
+                                        BorderBrush="{DynamicResource BorderColor}"
+                                        BorderThickness="1"
+                                        BoxShadow="{DynamicResource Shadow}"
+                                        ClipToBounds="True"
+                                        Margin="2,0,2,4"
+                                        CornerRadius="{DynamicResource MediumCornerRadius}">
+                                    <StackPanel Margin="0,2">
+                                        <Border
+                                            IsVisible="{TemplateBinding extensions:MenuItem.Label, Converter={x:Static ObjectConverters.IsNotNull}}"
+                                            Padding="16,8">
+                                            <ContentPresenter Content="{TemplateBinding extensions:MenuItem.Label}" />
+                                        </Border>
+                                        <Separator Margin="0,2"
+                                                   IsVisible="{TemplateBinding extensions:MenuItem.Label, Converter={x:Static ObjectConverters.IsNotNull}}" />
+                                        <ScrollViewer Margin="0,2">
+                                            <ItemsPresenter Name="PART_ItemsPresenter"
+                                                            Grid.IsSharedSizeScope="True"
+                                                            ItemsPanel="{TemplateBinding ItemsPanel}" />
+                                        </ScrollViewer>
+                                    </StackPanel>
+                                </Border>
+                            </LayoutTransformControl>
+                        </Popup>
+                    </Panel>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^:pointerover /template/ Border#ItemBackground">
+            <Setter Property="Background" Value="{DynamicResource GhostColor}" />
+        </Style>
+        <Style Selector="^:open /template/ LayoutTransformControl#PART_LayoutTransform">
+            <Style.Animations>
+                <Animation Easing="SineEaseInOut"
+                           FillMode="Forward"
+                           Duration="0:0:0.10">
+                    <KeyFrame Cue="0%">
+                        <Setter Property="ScaleTransform.ScaleY" Value="0.90" />
+                        <Setter Property="ScaleTransform.ScaleX" Value="0.90" />
+                        <Setter Property="Opacity" Value="0" />
+                    </KeyFrame>
+                    <KeyFrame Cue="100%">
+                        <Setter Property="ScaleTransform.ScaleY" Value="1" />
+                        <Setter Property="ScaleTransform.ScaleX" Value="1" />
+                        <Setter Property="Opacity" Value="1" />
+                    </KeyFrame>
+                </Animation>
+            </Style.Animations>
+        </Style>
+
+        <!-- Primary -->
+        <Style Selector="^.Primary">
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Padding" Value="16,8" />
+            <Setter Property="Background" Value="{DynamicResource PrimaryColor}" />
+            <Style Selector="^ /template/ Border#root">
+                <Setter Property="Transitions">
+                    <Transitions>
+                        <BrushTransition Property="Background" Duration="0:0:0.2" />
+                        <BrushTransition Property="BorderBrush" Duration="0:0:0.2" />
+                    </Transitions>
+                </Setter>
+            </Style>
+            <Style Selector="^ /template/ ContentPresenter#PART_HeaderPresenter">
+                <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundColor}" />
+                <Setter Property="Transitions">
+                    <Transitions>
+                        <BrushTransition Property="Foreground" Duration="0:0:0.3" />
+                    </Transitions>
+                </Setter>
+            </Style>
+            <Style Selector="^:pointerover /template/ Border#root">
+                <Setter Property="Background" Value="{DynamicResource PrimaryColor50}" />
+            </Style>
+            <Style Selector="^:pressed">
+                <Style Selector="^.IconContent /template/ Border">
+                    <Setter Property="RenderTransform">
+                        <Setter.Value>
+                            <ScaleTransform ScaleX="0.95" ScaleY="0.95" />
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Style>
+        </Style>
+
+        <!--  Secondary  -->
+        <Style Selector="^.Secondary">
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Padding" Value="16,8" />
+            <Setter Property="Background" Value="{DynamicResource SecondaryColor}" />
+            <Style Selector="^ /template/ Border#root">
+                <Setter Property="Transitions">
+                    <Transitions>
+                        <BrushTransition Property="Background" Duration="0:0:0.2" />
+                        <BrushTransition Property="BorderBrush" Duration="0:0:0.2" />
+                    </Transitions>
+                </Setter>
+            </Style>
+            <Style Selector="^ /template/ ContentPresenter#PART_HeaderPresenter">
+                <Setter Property="Foreground" Value="{DynamicResource SecondaryForegroundColor}" />
+                <Setter Property="Transitions">
+                    <Transitions>
+                        <BrushTransition Property="Foreground" Duration="0:0:0.3" />
+                    </Transitions>
+                </Setter>
+            </Style>
+            <Style Selector="^:pointerover /template/ Border#root">
+                <Setter Property="Background" Value="{DynamicResource SecondaryColor50}" />
+            </Style>
+            <Style Selector="^:pressed">
+                <Style Selector="^.IconContent /template/ Border">
+                    <Setter Property="RenderTransform">
+                        <Setter.Value>
+                            <ScaleTransform ScaleX="0.95" ScaleY="0.95" />
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Style>
+        </Style>
+
+        <!--  Outline  -->
+        <Style Selector="^.Outline">
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Padding" Value="16,8" />
+            <Setter Property="Background" Value="{DynamicResource CardBackgroundColor}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="BorderBrush" Value="{DynamicResource BorderColor}" />
+            <Style Selector="^ /template/ Border#root">
+                <Setter Property="Transitions">
+                    <Transitions>
+                        <BrushTransition Property="Background" Duration="0:0:0.2" />
+                        <BrushTransition Property="BorderBrush" Duration="0:0:0.2" />
+                    </Transitions>
+                </Setter>
+            </Style>
+            <Style Selector="^ /template/ ContentPresenter#PART_HeaderPresenter">
+                <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
+                <Setter Property="Transitions">
+                    <Transitions>
+                        <BrushTransition Property="Foreground" Duration="0:0:0.3" />
+                    </Transitions>
+                </Setter>
+            </Style>
+            <Style Selector="^:pointerover /template/ Border#root">
+                <Setter Property="Background" Value="{DynamicResource OutlineColor}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource OutlineColor}" />
+            </Style>
+
+            <Style Selector="^:pressed">
+                <Style Selector="^.IconContent /template/ Border">
+                    <Setter Property="RenderTransform">
+                        <Setter.Value>
+                            <ScaleTransform ScaleX="0.95" ScaleY="0.95" />
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Style>
+        </Style>
+
+        <!--  Ghost  -->
+        <Style Selector="^.Ghost">
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Padding" Value="16,8" />
+            <Setter Property="Background" Value="{DynamicResource CardBackgroundColor}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource BorderColor}" />
+            <Style Selector="^ /template/ Border#root">
+                <Setter Property="Transitions">
+                    <Transitions>
+                        <BrushTransition Property="Background" Duration="0:0:0.2" />
+                        <BrushTransition Property="BorderBrush" Duration="0:0:0.2" />
+                    </Transitions>
+                </Setter>
+            </Style>
+            <Style Selector="^ /template/ ContentPresenter#PART_HeaderPresenter">
+                <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
+                <Setter Property="Transitions">
+                    <Transitions>
+                        <BrushTransition Property="Foreground" Duration="0:0:0.3" />
+                    </Transitions>
+                </Setter>
+            </Style>
+            <Style Selector="^:pointerover /template/ Border#root">
+                <Setter Property="Background" Value="{DynamicResource GhostColor}" />
+            </Style>
+
+            <Style Selector="^:pressed">
+                <Style Selector="^.IconContent /template/ Border">
+                    <Setter Property="RenderTransform">
+                        <Setter.Value>
+                            <ScaleTransform ScaleX="0.95" ScaleY="0.95" />
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Style>
+        </Style>
+
+        <!--  Icon  -->
+        <Style Selector="^.Icon">
+            <Setter Property="Width" Value="36" />
+            <Setter Property="Height" Value="36" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Background" Value="{DynamicResource CardBackgroundColor}" />
+            <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
+            <Style Selector="^ /template/ Border#root">
+                <Setter Property="Transitions">
+                    <Transitions>
+                        <BrushTransition Property="Background" Duration="0:0:0.2" />
+                        <BrushTransition Property="BorderBrush" Duration="0:0:0.2" />
+                    </Transitions>
+                </Setter>
+            </Style>
+            <Style Selector="^ /template/ ContentPresenter#PART_HeaderPresenter">
+                <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
+                <Setter Property="Transitions">
+                    <Transitions>
+                        <BrushTransition Property="Foreground" Duration="0:0:0.3" />
+                    </Transitions>
+                </Setter>
+            </Style>
+            <Style Selector="^:pointerover /template/ Border#root">
+                <Setter Property="Background" Value="{DynamicResource OutlineColor}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource OutlineColor}" />
+            </Style>
+
+            <Style Selector="^:pressed">
+                <Style Selector="^.IconContent /template/ Border">
+                    <Setter Property="RenderTransform">
+                        <Setter.Value>
+                            <ScaleTransform ScaleX="0.95" ScaleY="0.95" />
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Style>
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type Menu}" TargetType="Menu">
+        <Setter Property="FontWeight" Value="DemiBold" />
+        <Setter Property="Background" Value="{DynamicResource CardBackgroundColor}" />
+        <Setter Property="ItemContainerTheme" Value="{StaticResource TopLevelMenuItem}" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <LayoutTransformControl Name="PART_LayoutTransform" RenderTransformOrigin="50%, 0%">
+                    <Border Height="{TemplateBinding Height}"
+                            ClipToBounds="True"
+                            Padding="{TemplateBinding Padding}"
+                            BorderBrush="{DynamicResource BorderColor}"
+                            BorderThickness="0"
+                            CornerRadius="{TemplateBinding CornerRadius}">
+                        <ItemsPresenter Name="PART_ItemsPresenter"
+                                        Grid.IsSharedSizeScope="True"
+                                        ItemsPanel="{TemplateBinding ItemsPanel}"
+                                        KeyboardNavigation.TabNavigation="Continue" />
+                    </Border>
+                </LayoutTransformControl>
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^[IsEnabled=True] /template/ LayoutTransformControl#PART_LayoutTransform">
+            <Style.Animations>
+                <Animation Easing="SineEaseInOut"
+                           FillMode="Forward"
+                           Duration="0:0:0.15">
+                    <KeyFrame Cue="0%">
+                        <Setter Property="ScaleTransform.ScaleY" Value="0.90" />
+                        <Setter Property="ScaleTransform.ScaleX" Value="0.90" />
+                        <Setter Property="Opacity" Value="0" />
+                        <Setter Property="IsVisible" Value="True" />
+                    </KeyFrame>
+                    <KeyFrame Cue="100%">
+                        <Setter Property="ScaleTransform.ScaleY" Value="1" />
+                        <Setter Property="ScaleTransform.ScaleX" Value="1" />
+                        <Setter Property="Opacity" Value="1" />
+                    </KeyFrame>
+                </Animation>
+            </Style.Animations>
+        </Style>
+        <Style Selector="^[IsEnabled=False] /template/ LayoutTransformControl#PART_LayoutTransform">
+            <Style.Animations>
+                <Animation Easing="SineEaseInOut"
+                           FillMode="Forward"
+                           Duration="0:0:0.15">
+                    <KeyFrame Cue="0%">
+                        <Setter Property="ScaleTransform.ScaleY" Value="1" />
+                        <Setter Property="ScaleTransform.ScaleX" Value="1" />
+                        <Setter Property="Opacity" Value="1" />
+                    </KeyFrame>
+                    <KeyFrame Cue="100%">
+                        <Setter Property="ScaleTransform.ScaleY" Value="0.9" />
+                        <Setter Property="ScaleTransform.ScaleX" Value="0.9" />
+                        <Setter Property="Opacity" Value="0" />
+                        <Setter Property="IsVisible" Value="False" />
+                    </KeyFrame>
+                </Animation>
+            </Style.Animations>
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>
