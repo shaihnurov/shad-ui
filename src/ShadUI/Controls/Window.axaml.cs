@@ -130,13 +130,13 @@ public class Window : Avalonia.Controls.Window
     /// <summary>
     ///     The menu items.
     /// </summary>
-    public static readonly StyledProperty<AvaloniaList<MenuItem>?> MenuItemsProperty =
-        AvaloniaProperty.Register<Window, AvaloniaList<MenuItem>?>(nameof(MenuItems));
+    public static readonly StyledProperty<AvaloniaList<Avalonia.Controls.MenuItem>?> MenuItemsProperty =
+        AvaloniaProperty.Register<Window, AvaloniaList<Avalonia.Controls.MenuItem>?>(nameof(MenuItems));
 
     /// <summary>
     ///     Gets or sets the value of the <see cref="MenuItemsProperty" />.
     /// </summary>
-    public AvaloniaList<MenuItem>? MenuItems
+    public AvaloniaList<Avalonia.Controls.MenuItem>? MenuItems
     {
         get => GetValue(MenuItemsProperty);
         set => SetValue(MenuItemsProperty, value);
