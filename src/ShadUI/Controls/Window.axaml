@@ -59,9 +59,13 @@
         <Setter Property="ExtendClientAreaTitleBarHeightHint" Value="-1" />
         <Setter Property="ExtendClientAreaToDecorationsHint" Value="True" />
         <Setter Property="TextElement.Foreground" Value="{DynamicResource ForegroundColor}" />
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderColor}"/>
         <Setter Property="Template">
             <ControlTemplate>
                 <Border Margin="{TemplateBinding Margin}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
                         ClipToBounds="True" Background="{TemplateBinding Background}"
                         CornerRadius="{OnPlatform '0', Linux='10', x:TypeArguments=CornerRadius}">
                     <VisualLayerManager Name="PART_VisualLayerManager" IsHitTestVisible="True">
@@ -190,6 +194,9 @@
 
         <Style Selector="^[ShowTitlebarBackground=False] /template/ Menu#PART_Menu">
             <Setter Property="Margin" Value="10,0,0,7" />
+        </Style>
+        <Style Selector="^[WindowState=Maximized]">
+            <Setter Property="BorderThickness" Value="2" />
         </Style>
         <Style Selector="^[WindowState=Maximized] /template/ PathIcon#MaximizeIcon">
             <Setter Property="Data" Value="{x:Static icons:Icons.WindowRestore}" />
