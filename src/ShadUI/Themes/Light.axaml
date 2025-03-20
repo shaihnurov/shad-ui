@@ -10,8 +10,8 @@
     <Color x:Key="BorderColor">#CECECE</Color>
 
     <Color x:Key="CardBackgroundColor">#F7F7F7</Color>
-    <Color x:Key="SidebarBackgroundColor">#F2F2F2</Color>
-    <Color x:Key="TitleBarBackgroundColor">#F2F2F2</Color>
+    <Color x:Key="SidebarBackgroundColor">#FAFAFA</Color>
+    <Color x:Key="TitleBarBackgroundColor">#FAFAFA</Color>
     <Color x:Key="WindowBackgroundColor">#FAFAFA</Color>
     <Color x:Key="WindowButtonHoverColor">#0D09090B</Color>
 
