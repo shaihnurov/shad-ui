@@ -2,9 +2,9 @@
 
 namespace ShadUI.Demo.Views;
 
-public partial class ToggleSwitchPage : UserControl
+public partial class SwitchPage : UserControl
 {
-    public ToggleSwitchPage()
+    public SwitchPage()
     {
         InitializeComponent();
     }

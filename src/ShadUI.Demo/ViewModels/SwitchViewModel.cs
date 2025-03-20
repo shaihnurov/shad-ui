@@ -2,7 +2,7 @@
 
 namespace ShadUI.Demo.ViewModels;
 
-public sealed partial class ToggleSwitchViewModel : ViewModelBase
+public sealed partial class SwitchViewModel : ViewModelBase
 {
     [ObservableProperty]
     private string _enableCode = """

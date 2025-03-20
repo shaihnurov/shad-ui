@@ -39,6 +39,9 @@
     <DataTemplate DataType="{x:Type viewModels:SlidersViewModel}">
         <views:SlidersPage />
     </DataTemplate>
+    <DataTemplate DataType="{x:Type viewModels:SwitchViewModel}">
+        <views:SwitchPage />
+    </DataTemplate>
     <DataTemplate DataType="{x:Type viewModels:DateTimeViewModel}">
         <views:DateTimePage />
     </DataTemplate>

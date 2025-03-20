@@ -21,7 +21,7 @@ namespace ShadUI.Demo;
 [Transient<TabsViewModel>]
 [Transient<DateTimeViewModel>]
 [Transient<ToastsViewModel>]
-[Transient<ToggleSwitchViewModel>]
+[Transient<SwitchViewModel>]
 [Transient<ToolTipViewModel>]
 [Transient<TypographyViewModel>]
 [Transient<MainWindowViewModel>]

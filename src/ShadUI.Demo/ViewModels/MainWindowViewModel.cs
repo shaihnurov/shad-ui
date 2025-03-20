@@ -24,6 +24,7 @@ public sealed partial class MainWindowViewModel(
     TabsViewModel tabsViewModel,
     ComboBoxesViewModel comboBoxesViewModel,
     SlidersViewModel slidersViewModel,
+    SwitchViewModel switchViewModel,
     ToastsViewModel toastsViewModel,
     ToggleSwitchViewModel toggleSwitchViewModel,
     ToolTipViewModel toolTipViewModel,
