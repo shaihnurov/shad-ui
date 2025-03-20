@@ -32,7 +32,7 @@
                         </StackPanel.Transitions>
                         <Viewbox Width="{TemplateBinding LoadingSize}" Height="{TemplateBinding LoadingSize}">
                             <ContentPresenter
-                                Content="{TemplateBinding IsBusy, Converter={x:Static converters:ProgressToContentConverter.Instance}}" />
+                                Content="{TemplateBinding IsBusy, Converter={x:Static converters:BooleanConverters.ToLoading}}" />
                         </Viewbox>
                         <ContentPresenter Content="{TemplateBinding Content }" HorizontalContentAlignment="Center" />
                     </StackPanel>

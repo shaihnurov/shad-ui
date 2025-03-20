@@ -51,8 +51,7 @@
                                     <DoubleTransition Property="Width" Duration="0:0:0.15" />
                                 </Transitions>
                             </Viewbox.Transitions>
-                            <ContentPresenter
-                                Content="{TemplateBinding extensions:Button.ShowProgress, Converter={x:Static converters:ProgressToContentConverter.Instance}}" />
+                            <ContentPresenter Content="{TemplateBinding extensions:Button.ShowProgress, Converter={x:Static converters:BooleanConverters.ToLoading}}" />
                         </Viewbox>
                         <Viewbox Height="24"
                                  Classes="IconContent"
