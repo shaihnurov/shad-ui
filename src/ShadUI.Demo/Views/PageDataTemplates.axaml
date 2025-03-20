@@ -48,8 +48,8 @@
     <DataTemplate DataType="{x:Type viewModels:ToastsViewModel}">
         <views:ToastsPage />
     </DataTemplate>
-    <DataTemplate DataType="{x:Type viewModels:ToggleSwitchViewModel}">
-        <views:ToggleSwitchPage />
+    <DataTemplate DataType="{x:Type viewModels:TogglesViewModel}">
+        <views:TogglePage />
     </DataTemplate>
     <DataTemplate DataType="{x:Type viewModels:ToolTipViewModel}">
         <views:ToolTipPage />

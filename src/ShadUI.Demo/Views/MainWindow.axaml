@@ -150,7 +150,7 @@
                     </controls:SidebarMenuItem.Icon>
                 </controls:SidebarMenuItem>
                 <controls:SidebarMenuItem Header="Switch" Classes="Compact"
-                                          Command="{Binding OpenToggleSwitchCommand}"
+                                          Command="{Binding OpenToggleCommand}"
                                           ToolTip.Tip="{Binding IsMenuExpanded, RelativeSource={RelativeSource AncestorType=controls:SidebarMenu}, Converter={x:Static converters:BooleanToNullOrStringConverter.Instance}, ConverterParameter='Switch'}">
                     <controls:SidebarMenuItem.Icon>
                         <icons:Lucide Icon="ToggleLeft" StrokeThickness="1.5" Width="16" Height="16"
@@ -170,6 +170,14 @@
                                           ToolTip.Tip="{Binding IsMenuExpanded, RelativeSource={RelativeSource AncestorType=controls:SidebarMenu}, Converter={x:Static converters:BooleanToNullOrStringConverter.Instance}, ConverterParameter='Toasts'}">
                     <controls:SidebarMenuItem.Icon>
                         <icons:Lucide Icon="StretchHorizontal" StrokeThickness="1.5" Width="16" Height="16"
+                                      StrokeBrush="{Binding RelativeSource={RelativeSource AncestorType=controls:SidebarMenuItem}, Path=Foreground}" />
+                    </controls:SidebarMenuItem.Icon>
+                </controls:SidebarMenuItem>
+                <controls:SidebarMenuItem Header="Toggle" Classes="Compact"
+                                          Command="{Binding OpenToggleCommand}"
+                                          ToolTip.Tip="{Binding IsMenuExpanded, RelativeSource={RelativeSource AncestorType=controls:SidebarMenu}, Converter={x:Static converters:BooleanToNullOrStringConverter.Instance}, ConverterParameter='Toggle'}">
+                    <controls:SidebarMenuItem.Icon>
+                        <icons:Lucide Icon="Menu" StrokeThickness="1.5" Width="16" Height="16"
                                       StrokeBrush="{Binding RelativeSource={RelativeSource AncestorType=controls:SidebarMenuItem}, Path=Foreground}" />
                     </controls:SidebarMenuItem.Icon>
                 </controls:SidebarMenuItem>

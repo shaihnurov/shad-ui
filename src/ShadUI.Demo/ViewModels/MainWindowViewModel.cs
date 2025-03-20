@@ -26,7 +26,7 @@ public sealed partial class MainWindowViewModel(
     SlidersViewModel slidersViewModel,
     SwitchViewModel switchViewModel,
     ToastsViewModel toastsViewModel,
-    ToggleSwitchViewModel toggleSwitchViewModel,
+    TogglesViewModel togglesViewModel,
     ToolTipViewModel toolTipViewModel,
     MiscellaneousViewModel miscellaneousViewModel)
     : ViewModelBase
@@ -136,23 +136,29 @@ public sealed partial class MainWindowViewModel(
     }
 
     [RelayCommand]
+    private async Task OpenSwitch()
+    {
+        await SwitchPageAsync(switchViewModel);
+    }
+    
+    [RelayCommand]
     private async Task OpenDateTime()
     {
         await SwitchPageAsync(dateTimeViewModel);
     }
     
     [RelayCommand]
-    private async Task OpenToggleSwitch()
-    {
-        await SwitchPageAsync(toggleSwitchViewModel);
-    }
-
-    [RelayCommand]
     private async Task OpenToast()
     {
         await SwitchPageAsync(toastsViewModel);
     }
 
+    [RelayCommand]
+    private async Task OpenToggle()
+    {
+        await SwitchPageAsync(togglesViewModel);
+    }
+    
     [RelayCommand]
     private async Task OpenToolTip()
     {
