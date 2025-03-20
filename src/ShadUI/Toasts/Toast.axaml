@@ -48,6 +48,7 @@
                                     Height="20"
                                     Margin="4"
                                     Opacity="0"
+                                    MinHeight="20"
                                     VerticalAlignment="Top"
                                     HorizontalAlignment="Right"
                                     CornerRadius="{DynamicResource RoundedCornerRadius}"
