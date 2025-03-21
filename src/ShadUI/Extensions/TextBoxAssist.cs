@@ -76,29 +76,25 @@ public static class TextBoxAssist
             // Keep only digits, decimal separator, and negative sign
             text = new string(text.Where(c => char.IsDigit(c) || c == '.' || c == ',' || c == '-').ToArray());
 
-            // Normalize decimal separator
-            text = text.Replace(',', '.');
-
-            if (double.TryParse(text, out var value))
+            if (!double.TryParse(text, out var value)) return;
+            
+            // Handle percentage format
+            if (format.Contains('P') || format.Contains('p') || format.Contains('%'))
             {
-                // Handle percentage format
-                if (format.Contains('P') || format.Contains('p') || format.Contains('%'))
+                // If the format is percentage but the value is already in decimal form (e.g., 0.25 for 25%)
+                // we don't need to divide by 100 again
+                if (value is > 0 and < 1 && !text.Contains('%'))
                 {
-                    // If the format is percentage but the value is already in decimal form (e.g., 0.25 for 25%)
-                    // we don't need to divide by 100 again
-                    if (value is > 0 and < 1 && !text.Contains('%'))
-                    {
-                        // Value is already in decimal form, no need to divide
-                    }
-                    else if (!text.Contains('%'))
-                    {
-                        // Convert from percentage to decimal (e.g., 25 to 0.25)
-                        value /= 100;
-                    }
+                    // Value is already in decimal form, no need to divide
                 }
-
-                textBox.Text = value.ToString(format);
+                else if (!text.Contains('%'))
+                {
+                    // Convert from percentage to decimal (e.g., 25 to 0.25)
+                    value /= 100;
+                }
             }
+
+            textBox.Text = value.ToString(format);
         };
     }
 }
