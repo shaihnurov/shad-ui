@@ -211,6 +211,7 @@
                         </Style>
                     </StackPanel.Styles>
                     <Button Classes="Icon"
+                            Background="{DynamicResource SidebarBackgroundColor}"
                             ToolTip.Tip="Source repository"
                             CommandParameter="https://github.com/accntech/shad-ui">
                         <extensions:Button.Icon>
@@ -219,6 +220,7 @@
                         </extensions:Button.Icon>
                     </Button>
                     <Button Classes="Icon"
+                            Background="{DynamicResource SidebarBackgroundColor}"
                             ToolTip.Tip="Open source license"
                             CommandParameter="https://github.com/accntech/shad-ui/blob/main/LICENSE">
                         <extensions:Button.Icon>
@@ -227,6 +229,7 @@
                         </extensions:Button.Icon>
                     </Button>
                     <Button Classes="Icon"
+                            Background="{DynamicResource SidebarBackgroundColor}"
                             ToolTip.Tip="Nuget package"
                             CommandParameter="https://www.nuget.org/packages/ShadUI">
                         <extensions:Button.Icon>
