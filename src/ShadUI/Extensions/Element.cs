@@ -77,7 +77,13 @@ public class Element
 
         control.Loaded += (_, _) =>
         {
-            if (GetFocusOnLoad(control)) control.Focus();
+               if (!GetFocusOnLoad(control)) return;
+               
+               control.Focus();
+               if (control is TextBox textBox)
+               {
+                   textBox.CaretIndex = textBox.Text?.Length ?? 0;
+               }
         };
     }
 }
