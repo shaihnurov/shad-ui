@@ -124,13 +124,13 @@ public sealed partial class InputViewModel : ViewModelBase
     [ObservableProperty]
     private string _searchBoxCode = """
                                     <StackPanel>
-                                        <TextBox Classes="Clearable" Width="225" 
+                                        <TextBox Classes="Clearable" Width="225"
                                                  Text="{Binding SearchString, Mode=TwoWay}"
                                                  extensions:ControlAssist.ShowProgress="{Binding IsSearching}"
                                                  Watermark="Search here...">
-                                            <ControlAssist.InnerRightContent>
+                                            <TextBox.InnerRightContent>
                                                 <PathIcon Data="{x:Static contents:Icons.Search}" Opacity="0.75" Width="16" />
-                                            </ControlAssist.InnerRightContent>
+                                            </TextBox.InnerRightContent>
                                         </TextBox>
                                     </StackPanel>
                                     """;

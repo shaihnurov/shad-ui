@@ -4,6 +4,7 @@
     xmlns:extensions="clr-namespace:ShadUI.Extensions"
     xmlns:system="clr-namespace:System;assembly=netstandard"
     xmlns:converters="clr-namespace:ShadUI.Converters"
+    xmlns:contents="clr-namespace:ShadUI.Contents"
     x:ClassModifier="internal">
     <Design.PreviewWith>
         <Border Padding="20">
@@ -11,6 +12,12 @@
                 <TextBox Watermark="First Name" UseFloatingWatermark="True" Classes="Clearable" />
                 <TextBox Watermark="Last Name" UseFloatingWatermark="True" Classes="Clearable" />
                 <TextBox Watermark="Username" Classes="Clearable" Text="john" />
+                <TextBox Watermark="Search here..." Classes="Clearable" Text="12321"
+                         extensions:ControlAssist.Label="Search">
+                    <TextBox.InnerRightContent>
+                        <PathIcon Data="{x:Static contents:Icons.Search}" Opacity="0.75" Width="16" Height="32" />
+                    </TextBox.InnerRightContent>
+                </TextBox>
                 <TextBox Watermark="Enter password" PasswordChar="•" Classes="ClearablePassword" Text="12321"
                          extensions:ControlAssist.Label="Password" />
                 <TextBox extensions:ControlAssist.Label="Description"
@@ -179,7 +186,8 @@
                                                            SelectionStart="{TemplateBinding SelectionStart}"
                                                            Text="{TemplateBinding Text,Mode=TwoWay}"
                                                            TextAlignment="{TemplateBinding TextAlignment}"
-                                                           TextWrapping="{TemplateBinding TextWrapping}" />
+                                                           TextWrapping="{TemplateBinding TextWrapping}"
+                                                           VerticalAlignment="Center" />
                                         </Panel>
                                         <ScrollViewer.Styles>
                                             <Style Selector="ScrollContentPresenter#PART_ContentPresenter">
