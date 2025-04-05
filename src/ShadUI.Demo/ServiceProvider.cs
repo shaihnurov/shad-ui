@@ -6,6 +6,7 @@ using ShadUI.Themes;
 namespace ShadUI.Demo;
 
 [ServiceProvider]
+[Transient<AboutViewModel>]
 [Transient<AvatarsViewModel>]
 [Transient<ButtonsViewModel>]
 [Transient<CardsViewModel>]

@@ -12,6 +12,7 @@ namespace ShadUI.Demo.ViewModels;
 public sealed partial class MainWindowViewModel(
     DialogManager dialogManager,
     ToastManager toastManager,
+    AboutViewModel aboutViewModel,
     DashboardViewModel dashboardViewModel,
     TypographyViewModel typographyViewModel,
     AvatarsViewModel avatarsViewModel,
@@ -117,7 +118,7 @@ public sealed partial class MainWindowViewModel(
     {
         await SwitchPageAsync(menuViewModel);
     }
-    
+
     [RelayCommand]
     private async Task OpenTabs()
     {
@@ -141,13 +142,13 @@ public sealed partial class MainWindowViewModel(
     {
         await SwitchPageAsync(switchViewModel);
     }
-    
+
     [RelayCommand]
     private async Task OpenDateTime()
     {
         await SwitchPageAsync(dateTimeViewModel);
     }
-    
+
     [RelayCommand]
     private async Task OpenToast()
     {
@@ -159,7 +160,7 @@ public sealed partial class MainWindowViewModel(
     {
         await SwitchPageAsync(togglesViewModel);
     }
-    
+
     [RelayCommand]
     private async Task OpenToolTip()
     {
@@ -187,6 +188,15 @@ public sealed partial class MainWindowViewModel(
     {
         SelectedPage = dashboardViewModel;
         dashboardViewModel.Initialize();
+    }
+
+    [RelayCommand]
+    private void ShowAbout()
+    {
+        DialogManager.CreateDialog(aboutViewModel)
+            .WithMinWidth(300)
+            .Dismissible()
+            .Show();
     }
 
     [RelayCommand]

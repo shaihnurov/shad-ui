@@ -10,6 +10,7 @@ public static class Extensions
     {
         var dialogService = service.GetService<DialogManager>();
         dialogService.Register<LoginContent, LoginViewModel>();
+        dialogService.Register<AboutContent, AboutViewModel>();
 
         return service;
     }
