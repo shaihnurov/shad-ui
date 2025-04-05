@@ -150,7 +150,7 @@
                     </controls:SidebarMenuItem.Icon>
                 </controls:SidebarMenuItem>
                 <controls:SidebarMenuItem Header="Switch" Classes="Compact"
-                                          Command="{Binding OpenToggleCommand}"
+                                          Command="{Binding OpenSwitchCommand}"
                                           ToolTip.Tip="{Binding IsMenuExpanded, RelativeSource={RelativeSource AncestorType=controls:SidebarMenu}, Converter={x:Static converters:BooleanToNullOrStringConverter.Instance}, ConverterParameter='Switch'}">
                     <controls:SidebarMenuItem.Icon>
                         <icons:Lucide Icon="ToggleLeft" StrokeThickness="1.5" Width="16" Height="16"
