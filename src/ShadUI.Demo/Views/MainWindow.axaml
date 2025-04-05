@@ -183,7 +183,7 @@
                                           Command="{Binding OpenToggleCommand}"
                                           ToolTip.Tip="{Binding IsMenuExpanded, RelativeSource={RelativeSource AncestorType=controls:SidebarMenu}, Converter={x:Static converters:BooleanToNullOrStringConverter.Instance}, ConverterParameter='Toggle'}">
                     <controls:SidebarMenuItem.Icon>
-                        <icons:Lucide Icon="Menu" StrokeThickness="1.5" Width="16" Height="16"
+                        <icons:Lucide Icon="Squircle" StrokeThickness="1.5" Width="16" Height="16"
                                       StrokeBrush="{Binding RelativeSource={RelativeSource AncestorType=controls:SidebarMenuItem}, Path=Foreground}" />
                     </controls:SidebarMenuItem.Icon>
                 </controls:SidebarMenuItem>
