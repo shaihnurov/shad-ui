@@ -1,49 +1,65 @@
 ﻿<UserControl
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d"
+    x:Class="ShadUI.Demo.Views.SlidersPage"
+    x:DataType="viewModels:SlidersViewModel"
     xmlns="https://github.com/avaloniaui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:ShadUI.Demo.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModels="clr-namespace:ShadUI.Demo.ViewModels"
-    xmlns:controls="clr-namespace:ShadUI.Demo.Controls"
-    mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-    x:Class="ShadUI.Demo.Views.SlidersPage"
-    x:DataType="viewModels:SlidersViewModel">
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <DockPanel LastChildFill="True">
-        <StackPanel DockPanel.Dock="Top" Margin="48 24" MaxWidth="1536">
+        <StackPanel
+            DockPanel.Dock="Top"
+            Margin="48,24"
+            MaxWidth="1536">
             <TextBlock Classes="h3" Text="Sliders" />
             <TextBlock
                 Classes="p"
-                TextWrapping="Wrap"
                 HorizontalAlignment="Left"
-                Text="An input where the user selects a value from within a given range." />
+                Text="An input where the user selects a value from within a given range."
+                TextWrapping="Wrap" />
         </StackPanel>
         <ScrollViewer>
-            <Panel Margin="48 24" MaxWidth="1536">
+            <Panel Margin="48,24" MaxWidth="1536">
                 <StackPanel Spacing="32">
 
                     <controls:ControlBlock
-                        Title="Default"
+                        Code="{Binding DefaultSliderCode}"
                         Language="xaml"
-                        Code="{Binding DefaultSliderCode}">
+                        Title="Default">
                         <StackPanel>
-                            <Slider Value="5" Maximum="10" TickFrequency="1" />
+                            <Slider
+                                Maximum="10"
+                                TickFrequency="1"
+                                Value="5" />
                         </StackPanel>
                     </controls:ControlBlock>
                     <controls:ControlBlock
-                        Title="Disabled"
+                        Code="{Binding DisabledSliderCode}"
                         Language="xaml"
-                        Code="{Binding DisabledSliderCode}">
+                        Title="Disabled">
                         <StackPanel>
-                            <Slider IsEnabled="False" Value="5" Maximum="10" TickFrequency="1" />
+                            <Slider
+                                IsEnabled="False"
+                                Maximum="10"
+                                TickFrequency="1"
+                                Value="5" />
                         </StackPanel>
                     </controls:ControlBlock>
                     <controls:ControlBlock
-                        Title="Tick Enabled"
+                        Code="{Binding TickEnabledSliderCode}"
                         Language="xaml"
-                        Code="{Binding TickEnabledSliderCode}">
+                        Title="Tick Enabled">
                         <StackPanel>
-                            <Slider TickPlacement="BottomRight" IsSnapToTickEnabled="True" Value="5" Maximum="10"
-                                    TickFrequency="1" />
+                            <Slider
+                                IsSnapToTickEnabled="True"
+                                Maximum="10"
+                                TickFrequency="1"
+                                TickPlacement="BottomRight"
+                                Value="5" />
                         </StackPanel>
                     </controls:ControlBlock>
                 </StackPanel>

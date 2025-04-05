@@ -1,34 +1,52 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Design.PreviewWith>
-        <Border Width="400" Padding="8">
+        <Border Padding="8" Width="400">
             <StackPanel Spacing="8">
                 <TabControl>
                     <TabItem Header="Preview">
-                        <Border Height="100" BorderBrush="{DynamicResource BorderColor}" BorderThickness="1"
-                                Padding="12" CornerRadius="{DynamicResource MediumCornerRadius}">
-                            <TextBlock FontSize="20"
-                                       Foreground="Black"
-                                       Text="Content" />
+                        <Border
+                            BorderBrush="{DynamicResource BorderColor}"
+                            BorderThickness="1"
+                            CornerRadius="{DynamicResource MediumCornerRadius}"
+                            Height="100"
+                            Padding="12">
+                            <TextBlock
+                                FontSize="20"
+                                Foreground="Black"
+                                Text="Content" />
                         </Border>
                     </TabItem>
                     <TabItem Header="Code">
-                        <Border Height="100" BorderBrush="{DynamicResource BorderColor}" BorderThickness="1"
-                                Padding="12" CornerRadius="{DynamicResource MediumCornerRadius}" />
+                        <Border
+                            BorderBrush="{DynamicResource BorderColor}"
+                            BorderThickness="1"
+                            CornerRadius="{DynamicResource MediumCornerRadius}"
+                            Height="100"
+                            Padding="12" />
                     </TabItem>
                     <TabItem Header="Disabled" IsEnabled="False" />
                 </TabControl>
                 <TabControl>
                     <TabItem Header="Preview">
-                        <Border Height="100" BorderBrush="{DynamicResource BorderColor}" BorderThickness="1"
-                                Padding="12" CornerRadius="{DynamicResource MediumCornerRadius}">
-                            <TextBlock FontSize="20"
-                                       Foreground="Black"
-                                       Text="Content" />
+                        <Border
+                            BorderBrush="{DynamicResource BorderColor}"
+                            BorderThickness="1"
+                            CornerRadius="{DynamicResource MediumCornerRadius}"
+                            Height="100"
+                            Padding="12">
+                            <TextBlock
+                                FontSize="20"
+                                Foreground="Black"
+                                Text="Content" />
                         </Border>
                     </TabItem>
                     <TabItem Header="Code">
-                        <Border Height="100" BorderBrush="{DynamicResource BorderColor}" BorderThickness="1"
-                                Padding="12" CornerRadius="{DynamicResource MediumCornerRadius}" />
+                        <Border
+                            BorderBrush="{DynamicResource BorderColor}"
+                            BorderThickness="1"
+                            CornerRadius="{DynamicResource MediumCornerRadius}"
+                            Height="100"
+                            Padding="12" />
                     </TabItem>
                     <TabItem Header="Disabled" IsEnabled="False" />
                 </TabControl>
@@ -36,8 +54,7 @@
         </Border>
     </Design.PreviewWith>
 
-    <ControlTheme x:Key="{x:Type TabItem}"
-                  TargetType="TabItem">
+    <ControlTheme TargetType="TabItem" x:Key="{x:Type TabItem}">
         <Setter Property="Background" Value="{DynamicResource TabItemsBackgroundColor}" />
         <Setter Property="FontSize" Value="14" />
         <Setter Property="FontWeight" Value="Medium" />
@@ -49,28 +66,31 @@
         <Setter Property="Padding" Value="16,6" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Border Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding CornerRadius}"
-                        ClipToBounds="True">
+                <Border
+                    Background="{TemplateBinding Background}"
+                    ClipToBounds="True"
+                    CornerRadius="{TemplateBinding CornerRadius}">
                     <Border.Transitions>
                         <Transitions>
-                            <BrushTransition Property="Background" Duration="0:0:0.20" />
+                            <BrushTransition Duration="0:0:0.20" Property="Background" />
                         </Transitions>
                     </Border.Transitions>
-                    <ContentPresenter Name="PART_ContentPresenter"
-                                      MaxHeight="28"
-                                      Opacity="{TemplateBinding Opacity}"
-                                      Padding="{TemplateBinding Padding}"
-                                      Foreground="{TemplateBinding Foreground}"
-                                      HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                      VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                                      BorderBrush="{TemplateBinding BorderBrush}"
-                                      BorderThickness="{TemplateBinding BorderThickness}"
-                                      Content="{TemplateBinding Header}"
-                                      ContentTemplate="{TemplateBinding HeaderTemplate}"
-                                      RecognizesAccessKey="True">
+                    <ContentPresenter
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        Content="{TemplateBinding Header}"
+                        ContentTemplate="{TemplateBinding HeaderTemplate}"
+                        Foreground="{TemplateBinding Foreground}"
+                        HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                        MaxHeight="28"
+                        Name="PART_ContentPresenter"
+                        Opacity="{TemplateBinding Opacity}"
+                        Padding="{TemplateBinding Padding}"
+                        RecognizesAccessKey="True"
+                        VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}">
                         <ContentPresenter.Transitions>
                             <Transitions>
-                                <DoubleTransition Property="Opacity" Duration="0:0:0.20" />
+                                <DoubleTransition Duration="0:0:0.20" Property="Opacity" />
                             </Transitions>
                         </ContentPresenter.Transitions>
                     </ContentPresenter>

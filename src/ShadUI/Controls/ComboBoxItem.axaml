@@ -1,8 +1,8 @@
 ﻿<ResourceDictionary
     xmlns="https://github.com/avaloniaui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:icons="clr-namespace:ShadUI.Contents">
-    <ControlTheme x:Key="ComboBoxItemTheme" TargetType="ComboBoxItem">
+    xmlns:icons="clr-namespace:ShadUI.Contents"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ControlTheme TargetType="ComboBoxItem" x:Key="ComboBoxItemTheme">
         <Setter Property="Background" Value="{DynamicResource CardBackgroundColor}" />
         <Setter Property="Padding" Value="2" />
         <Setter Property="HorizontalAlignment" Value="Stretch" />
@@ -10,36 +10,39 @@
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Border Name="BorderBasicStyle"
-                        Margin="3,0,3,3"
-                        Padding="5,0"
-                        MinHeight="36"
-                        Background="{TemplateBinding Background}"
-                        BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}"
-                        CornerRadius="6">
+                <Border
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="6"
+                    Margin="3,0,3,3"
+                    MinHeight="36"
+                    Name="BorderBasicStyle"
+                    Padding="5,0">
                     <Border.Transitions>
                         <Transitions>
-                            <BrushTransition Property="Background" Duration="0:0:0.15" />
+                            <BrushTransition Duration="0:0:0.15" Property="Background" />
                         </Transitions>
                     </Border.Transitions>
                     <DockPanel>
-                        <PathIcon Name="CheckSelected"
-                                  Width="12"
-                                  Height="12"
-                                  Margin="0,0,3,0"
-                                  Data="{x:Static icons:Icons.Check}"
-                                  DockPanel.Dock="Right"
-                                  Foreground="{DynamicResource ForegroundColor}" />
-                        <ContentPresenter Name="PART_ContentPresenter"
-                                          Margin="1"
-                                          Padding="5"
-                                          Background="Transparent"
-                                          HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                          VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                                          Content="{TemplateBinding Content}"
-                                          ContentTemplate="{TemplateBinding ContentTemplate}"
-                                          CornerRadius="{DynamicResource SmallCornerRadius}" />
+                        <PathIcon
+                            Data="{x:Static icons:Icons.Check}"
+                            DockPanel.Dock="Right"
+                            Foreground="{DynamicResource ForegroundColor}"
+                            Height="12"
+                            Margin="0,0,3,0"
+                            Name="CheckSelected"
+                            Width="12" />
+                        <ContentPresenter
+                            Background="Transparent"
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            CornerRadius="{DynamicResource SmallCornerRadius}"
+                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            Margin="1"
+                            Name="PART_ContentPresenter"
+                            Padding="5"
+                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
 
                     </DockPanel>
                 </Border>
@@ -60,7 +63,7 @@
     </ControlTheme>
 
     <ControlTheme
-        x:Key="{x:Type ComboBoxItem}"
         BasedOn="{StaticResource ComboBoxItemTheme}"
-        TargetType="ComboBoxItem" />
+        TargetType="ComboBoxItem"
+        x:Key="{x:Type ComboBoxItem}" />
 </ResourceDictionary>

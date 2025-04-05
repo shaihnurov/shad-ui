@@ -1,5 +1,4 @@
-﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Design.PreviewWith>
         <StackPanel Spacing="12">
             <ToggleButton Classes="Default">Default</ToggleButton>
@@ -7,7 +6,7 @@
         </StackPanel>
     </Design.PreviewWith>
 
-    <ControlTheme x:Key="{x:Type ToggleButton}" TargetType="ToggleButton">
+    <ControlTheme TargetType="ToggleButton" x:Key="{x:Type ToggleButton}">
         <Setter Property="MinHeight" Value="36" />
         <Setter Property="Background" Value="{DynamicResource BackgroundColor}" />
         <Setter Property="BorderBrush" Value="{DynamicResource BorderColor}" />
@@ -17,19 +16,20 @@
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Border Name="RootBorder"
-                        Background="{TemplateBinding Background}"
-                        BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}"
-                        CornerRadius="{TemplateBinding CornerRadius}">
-                    <ContentPresenter Name="PART_ContentPresenter"
-                                      Padding="{TemplateBinding Padding}"
-                                      HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                      VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                                      RecognizesAccessKey="True"
-                                      Content="{TemplateBinding Content}"
-                                      TextElement.Foreground="{TemplateBinding Foreground}">
-                    </ContentPresenter>
+                <Border
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="{TemplateBinding CornerRadius}"
+                    Name="RootBorder">
+                    <ContentPresenter
+                        Content="{TemplateBinding Content}"
+                        HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                        Name="PART_ContentPresenter"
+                        Padding="{TemplateBinding Padding}"
+                        RecognizesAccessKey="True"
+                        TextElement.Foreground="{TemplateBinding Foreground}"
+                        VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
                 </Border>
             </ControlTemplate>
         </Setter>
@@ -43,9 +43,9 @@
         <Style Selector="^:disabled">
             <Setter Property="Opacity" Value="0.50" />
         </Style>
-        
-        <!-- Default -->
-         <Style Selector="^.Default">
+
+        <!--  Default  -->
+        <Style Selector="^.Default">
             <Setter Property="FontSize" Value="14" />
             <Setter Property="Padding" Value="12,8" />
             <Setter Property="Background" Value="{DynamicResource CardBackgroundColor}" />
@@ -54,8 +54,8 @@
             <Style Selector="^ /template/ Border#RootBorder">
                 <Setter Property="Transitions">
                     <Transitions>
-                        <BrushTransition Property="Background" Duration="0:0:0.2" />
-                        <BrushTransition Property="BorderBrush" Duration="0:0:0.2" />
+                        <BrushTransition Duration="0:0:0.2" Property="Background" />
+                        <BrushTransition Duration="0:0:0.2" Property="BorderBrush" />
                     </Transitions>
                 </Setter>
             </Style>
@@ -63,7 +63,7 @@
                 <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
                 <Setter Property="Transitions">
                     <Transitions>
-                        <BrushTransition Property="Foreground" Duration="0:0:0.3" />
+                        <BrushTransition Duration="0:0:0.3" Property="Foreground" />
                     </Transitions>
                 </Setter>
             </Style>
@@ -71,7 +71,7 @@
                 <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
                 <Setter Property="Transitions">
                     <Transitions>
-                        <BrushTransition Property="Foreground" Duration="0:0:0.3" />
+                        <BrushTransition Duration="0:0:0.3" Property="Foreground" />
                     </Transitions>
                 </Setter>
             </Style>
@@ -89,8 +89,8 @@
                 </Style>
             </Style>
         </Style>
-        
-        <!-- Outline -->
+
+        <!--  Outline  -->
         <Style Selector="^.Outline">
             <Setter Property="FontSize" Value="14" />
             <Setter Property="Padding" Value="12,8" />
@@ -101,8 +101,8 @@
             <Style Selector="^ /template/ Border#RootBorder">
                 <Setter Property="Transitions">
                     <Transitions>
-                        <BrushTransition Property="Background" Duration="0:0:0.2" />
-                        <BrushTransition Property="BorderBrush" Duration="0:0:0.2" />
+                        <BrushTransition Duration="0:0:0.2" Property="Background" />
+                        <BrushTransition Duration="0:0:0.2" Property="BorderBrush" />
                     </Transitions>
                 </Setter>
             </Style>
@@ -110,7 +110,7 @@
                 <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
                 <Setter Property="Transitions">
                     <Transitions>
-                        <BrushTransition Property="Foreground" Duration="0:0:0.3" />
+                        <BrushTransition Duration="0:0:0.3" Property="Foreground" />
                     </Transitions>
                 </Setter>
             </Style>
@@ -118,7 +118,7 @@
                 <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
                 <Setter Property="Transitions">
                     <Transitions>
-                        <BrushTransition Property="Foreground" Duration="0:0:0.3" />
+                        <BrushTransition Duration="0:0:0.3" Property="Foreground" />
                     </Transitions>
                 </Setter>
             </Style>

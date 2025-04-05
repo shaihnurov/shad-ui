@@ -1,6 +1,7 @@
-﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:contents="clr-namespace:ShadUI.Contents">
+﻿<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:contents="clr-namespace:ShadUI.Contents"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Design.PreviewWith>
         <Border Padding="24">
             <StackPanel Spacing="16">
@@ -10,7 +11,7 @@
             </StackPanel>
         </Border>
     </Design.PreviewWith>
-    <ControlTheme x:Key="{x:Type CheckBox}" TargetType="CheckBox">
+    <ControlTheme TargetType="CheckBox" x:Key="{x:Type CheckBox}">
         <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
         <Setter Property="Background" Value="{DynamicResource BackgroundColor}" />
         <Setter Property="BorderBrush" Value="{DynamicResource BorderColor}" />
@@ -23,49 +24,57 @@
         <Setter Property="HorizontalContentAlignment" Value="Left" />
         <Setter Property="Template">
             <ControlTemplate>
-                <StackPanel Orientation="Horizontal" Spacing="4" Background="Transparent">
-                    <Border Name="border"
-                            Width="18"
-                            Height="18"
-                            VerticalAlignment="Center"
-                            Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="{TemplateBinding CornerRadius}">
+                <StackPanel
+                    Background="Transparent"
+                    Orientation="Horizontal"
+                    Spacing="4">
+                    <Border
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}"
+                        Height="18"
+                        Name="border"
+                        VerticalAlignment="Center"
+                        Width="18">
                         <Border.Transitions>
                             <Transitions>
-                                <BrushTransition Property="BorderBrush" Duration="0:0:0.2" />
+                                <BrushTransition Duration="0:0:0.2" Property="BorderBrush" />
                             </Transitions>
                         </Border.Transitions>
                         <Panel>
-                            <Path Name="checkMark"
-                                  Margin="3"
-                                  HorizontalAlignment="Center"
-                                  VerticalAlignment="Center"
-                                  Data="{x:Static contents:Icons.Check}"
-                                  Fill="{DynamicResource PrimaryForegroundColor}"
-                                  FlowDirection="LeftToRight"
-                                  Stretch="Uniform" />
-                            <Path Name="indeterminateMark"
-                                  Margin="3"
-                                  IsVisible="False"
-                                  HorizontalAlignment="Center"
-                                  VerticalAlignment="Center"
-                                  Data="{x:Static contents:Icons.Minus}"
-                                  Fill="{DynamicResource PrimaryForegroundColor}"
-                                  FlowDirection="LeftToRight"
-                                  Stretch="Uniform" />
+                            <Path
+                                Data="{x:Static contents:Icons.Check}"
+                                Fill="{DynamicResource PrimaryForegroundColor}"
+                                FlowDirection="LeftToRight"
+                                HorizontalAlignment="Center"
+                                Margin="3"
+                                Name="checkMark"
+                                Stretch="Uniform"
+                                VerticalAlignment="Center" />
+                            <Path
+                                Data="{x:Static contents:Icons.Minus}"
+                                Fill="{DynamicResource PrimaryForegroundColor}"
+                                FlowDirection="LeftToRight"
+                                HorizontalAlignment="Center"
+                                IsVisible="False"
+                                Margin="3"
+                                Name="indeterminateMark"
+                                Stretch="Uniform"
+                                VerticalAlignment="Center" />
                         </Panel>
                     </Border>
-                    <ContentPresenter Name="PART_ContentPresenter"
-                                      Margin="{TemplateBinding Padding}"
-                                      HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                      Content="{TemplateBinding Content}"
-                                      ContentTemplate="{TemplateBinding ContentTemplate}"
-                                      IsVisible="{TemplateBinding Content, Converter={x:Static ObjectConverters.IsNotNull}}"
-                                      RecognizesAccessKey="True"
-                                      TextElement.Foreground="{TemplateBinding Foreground}" />
+                    <ContentPresenter
+                        Content="{TemplateBinding Content}"
+                        ContentTemplate="{TemplateBinding ContentTemplate}"
+                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                        IsVisible="{TemplateBinding Content,
+                                                    Converter={x:Static ObjectConverters.IsNotNull}}"
+                        Margin="{TemplateBinding Padding}"
+                        Name="PART_ContentPresenter"
+                        RecognizesAccessKey="True"
+                        TextElement.Foreground="{TemplateBinding Foreground}"
+                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
                 </StackPanel>
             </ControlTemplate>
         </Setter>

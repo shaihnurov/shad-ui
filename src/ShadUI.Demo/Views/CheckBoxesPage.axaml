@@ -1,64 +1,74 @@
-﻿<UserControl xmlns="https://github.com/avaloniaui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:controls="clr-namespace:ShadUI.Demo.Controls"
-             xmlns:viewModels="clr-namespace:ShadUI.Demo.ViewModels"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="ShadUI.Demo.Views.CheckBoxesPage"
-             x:DataType="viewModels:CheckBoxesViewModel">
+﻿<UserControl
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d"
+    x:Class="ShadUI.Demo.Views.CheckBoxesPage"
+    x:DataType="viewModels:CheckBoxesViewModel"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:controls="clr-namespace:ShadUI.Demo.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="clr-namespace:ShadUI.Demo.ViewModels"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <DockPanel LastChildFill="True">
-        <StackPanel DockPanel.Dock="Top" Margin="48 24" MaxWidth="1536">
+        <StackPanel
+            DockPanel.Dock="Top"
+            Margin="48,24"
+            MaxWidth="1536">
             <TextBlock Classes="h3" Text="CheckBox" />
             <TextBlock
                 Classes="p"
-                TextWrapping="Wrap"
                 HorizontalAlignment="Left"
-                Text="A control that allows the user to toggle between checked and not checked." />
+                Text="A control that allows the user to toggle between checked and not checked."
+                TextWrapping="Wrap" />
         </StackPanel>
         <ScrollViewer>
-            <Panel Margin="48 24" MaxWidth="1536">
+            <Panel Margin="48,24" MaxWidth="1536">
                 <StackPanel Spacing="32">
                     <controls:ControlBlock
-                        Title="Default"
+                        Code="{Binding DefaultCode}"
                         Language="xaml"
-                        Code="{Binding DefaultCode}">
+                        Title="Default">
                         <StackPanel Spacing="8">
                             <CheckBox HorizontalAlignment="Center">Accept terms and conditions</CheckBox>
                         </StackPanel>
                     </controls:ControlBlock>
                     <controls:ControlBlock
-                        Title="Disabled"
+                        Code="{Binding DisabledCode}"
                         Language="xaml"
-                        Code="{Binding DisabledCode}">
+                        Title="Disabled">
                         <StackPanel Spacing="8">
-                            <CheckBox IsEnabled="False" HorizontalAlignment="Center">Accept terms and conditions</CheckBox>
+                            <CheckBox HorizontalAlignment="Center" IsEnabled="False">Accept terms and conditions</CheckBox>
                         </StackPanel>
                     </controls:ControlBlock>
                     <controls:ControlBlock
-                        Title="Indeterminate"
+                        Code="{Binding IndeterminateCode}"
                         Language="xaml"
-                        Code="{Binding IndeterminateCode}">
+                        Title="Indeterminate">
                         <StackPanel Spacing="8">
-                            <CheckBox IsChecked="{x:Null}" HorizontalAlignment="Center">Accept terms and conditions</CheckBox>
+                            <CheckBox HorizontalAlignment="Center" IsChecked="{x:Null}">Accept terms and conditions</CheckBox>
                         </StackPanel>
                     </controls:ControlBlock>
                     <controls:ControlBlock
-                        Title="Multiple"
+                        Code="{Binding MultipleCode}"
                         Language="xaml"
-                        Code="{Binding MultipleCode}">
+                        Title="Multiple">
                         <StackPanel HorizontalAlignment="Center" Spacing="8">
                             <StackPanel>
-                                <TextBlock FontSize="16" FontWeight="Medium" Text="Sidebar" />
-                                <TextBlock Classes="Caption Muted"
-                                           Text="Select the items you want to display in the sidebar." />
+                                <TextBlock
+                                    FontSize="16"
+                                    FontWeight="Medium"
+                                    Text="Sidebar" />
+                                <TextBlock Classes="Caption Muted" Text="Select the items you want to display in the sidebar." />
                             </StackPanel>
                             <CheckBox IsChecked="{Binding IsChecked}">Select All</CheckBox>
-                            <ItemsControl Margin="28,0,0,0" ItemsSource="{Binding Items}">
+                            <ItemsControl ItemsSource="{Binding Items}" Margin="28,0,0,0">
                                 <ItemsControl.ItemTemplate>
                                     <DataTemplate DataType="{x:Type viewModels:CheckBoxItem}">
-                                        <CheckBox Margin="0,2" IsChecked="{Binding IsChecked}"
-                                                  Content="{Binding Text}" />
+                                        <CheckBox
+                                            Content="{Binding Text}"
+                                            IsChecked="{Binding IsChecked}"
+                                            Margin="0,2" />
                                     </DataTemplate>
                                 </ItemsControl.ItemTemplate>
                             </ItemsControl>

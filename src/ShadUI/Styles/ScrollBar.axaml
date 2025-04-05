@@ -1,12 +1,12 @@
-﻿<Styles xmlns="https://github.com/avaloniaui"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:converters="clr-namespace:ShadUI.Converters"
-        xmlns:content="clr-namespace:ShadUI.Contents">
+﻿<Styles
+    xmlns="https://github.com/avaloniaui"
+    xmlns:content="clr-namespace:ShadUI.Contents"
+    xmlns:converters="clr-namespace:ShadUI.Converters"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Design.PreviewWith>
         <StackPanel Width="200">
             <Border Padding="20">
-                <ScrollViewer Width="200"
-                              Height="100">
+                <ScrollViewer Height="100" Width="200">
                     <StackPanel>
                         <ListBoxItem>isse</ListBoxItem>
                         <ListBoxItem>isse</ListBoxItem>
@@ -43,27 +43,32 @@
             </Border>
 
             <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Auto">
-                <StackPanel Width="500" Orientation="Horizontal">
-                    <Panel Width="50"
-                           Height="50"
-                           Margin="5"
-                           Background="Gray" />
-                    <Panel Width="50"
-                           Height="50"
-                           Margin="5"
-                           Background="Gray" />
-                    <Panel Width="50"
-                           Height="50"
-                           Margin="5"
-                           Background="Gray" />
-                    <Panel Width="50"
-                           Height="50"
-                           Margin="5"
-                           Background="Gray" />
-                    <Panel Width="50"
-                           Height="50"
-                           Margin="5"
-                           Background="Gray" />
+                <StackPanel Orientation="Horizontal" Width="500">
+                    <Panel
+                        Background="Gray"
+                        Height="50"
+                        Margin="5"
+                        Width="50" />
+                    <Panel
+                        Background="Gray"
+                        Height="50"
+                        Margin="5"
+                        Width="50" />
+                    <Panel
+                        Background="Gray"
+                        Height="50"
+                        Margin="5"
+                        Width="50" />
+                    <Panel
+                        Background="Gray"
+                        Height="50"
+                        Margin="5"
+                        Width="50" />
+                    <Panel
+                        Background="Gray"
+                        Height="50"
+                        Margin="5"
+                        Width="50" />
                 </StackPanel>
             </ScrollViewer>
         </StackPanel>
@@ -75,38 +80,44 @@
             <ControlTemplate>
                 <Border Background="Transparent" UseLayoutRounding="False">
                     <Grid RowDefinitions="Auto,*,Auto">
-                        <Track Grid.Row="1"
-                               IsDirectionReversed="True"
-                               Maximum="{TemplateBinding Maximum}"
-                               Minimum="{TemplateBinding Minimum}"
-                               Orientation="{TemplateBinding Orientation}"
-                               ViewportSize="{TemplateBinding ViewportSize}"
-                               Value="{TemplateBinding Value,
-                                                       Mode=TwoWay}">
+                        <Track
+                            Grid.Row="1"
+                            IsDirectionReversed="True"
+                            Maximum="{TemplateBinding Maximum}"
+                            Minimum="{TemplateBinding Minimum}"
+                            Orientation="{TemplateBinding Orientation}"
+                            Value="{TemplateBinding Value,
+                                                    Mode=TwoWay}"
+                            ViewportSize="{TemplateBinding ViewportSize}">
                             <Track.DecreaseButton>
-                                <RepeatButton Name="PART_PageUpButton"
-                                              BorderThickness="0"
-                                              Background="Transparent"
-                                              Focusable="False" />
+                                <RepeatButton
+                                    Background="Transparent"
+                                    BorderThickness="0"
+                                    Focusable="False"
+                                    Name="PART_PageUpButton" />
                             </Track.DecreaseButton>
                             <Track.IncreaseButton>
-                                <RepeatButton Name="PART_PageDownButton"
-                                              BorderThickness="0"
-                                              Background="Transparent"
-                                              Focusable="False" />
+                                <RepeatButton
+                                    Background="Transparent"
+                                    BorderThickness="0"
+                                    Focusable="False"
+                                    Name="PART_PageDownButton" />
                             </Track.IncreaseButton>
                             <Thumb Name="thumb">
                                 <Thumb.Template>
                                     <ControlTemplate>
                                         <Panel>
-                                            <Border Name="ThumbBarVertical" Margin="0,3" Width="3"
-                                                    Background="{DynamicResource BorderColor}"
-                                                    CornerRadius="{DynamicResource MediumCornerRadius}">
+                                            <Border
+                                                Background="{DynamicResource BorderColor}"
+                                                CornerRadius="{DynamicResource MediumCornerRadius}"
+                                                Margin="0,3"
+                                                Name="ThumbBarVertical"
+                                                Width="3">
 
                                                 <Border.Transitions>
                                                     <Transitions>
-                                                        <BrushTransition Property="Background" Duration="0:0:0.15" />
-                                                        <DoubleTransition Property="Width" Duration="0:0:0.1" />
+                                                        <BrushTransition Duration="0:0:0.15" Property="Background" />
+                                                        <DoubleTransition Duration="0:0:0.1" Property="Width" />
                                                     </Transitions>
                                                 </Border.Transitions>
                                             </Border>
@@ -126,44 +137,48 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <Grid HorizontalAlignment="Stretch" RowDefinitions="Auto,*,Auto">
-                    <RepeatButton Name="PART_PageUpButton"
-                                  Height="30"
-                                  HorizontalAlignment="Stretch"
-                                  Background="Transparent"
-                                  BorderThickness="0"
-                                  Focusable="False">
+                    <RepeatButton
+                        Background="Transparent"
+                        BorderThickness="0"
+                        Focusable="False"
+                        Height="30"
+                        HorizontalAlignment="Stretch"
+                        Name="PART_PageUpButton">
                         <RepeatButton.IsVisible>
                             <MultiBinding Converter="{x:Static converters:SidebarMenuScrollerToVisibilityBool.Up}">
                                 <Binding Path="Value" RelativeSource="{RelativeSource TemplatedParent}" />
                                 <Binding Path="Minimum" RelativeSource="{RelativeSource TemplatedParent}" />
                             </MultiBinding>
                         </RepeatButton.IsVisible>
-                        <PathIcon Width="10"
-                                  Height="25"
-                                  Data="{x:Static content:Icons.ChevronUp}"
-                                  Foreground="{DynamicResource ForegroundColor}">
+                        <PathIcon
+                            Data="{x:Static content:Icons.ChevronUp}"
+                            Foreground="{DynamicResource ForegroundColor}"
+                            Height="25"
+                            Width="10">
                             <PathIcon.RenderTransform>
                                 <ScaleTransform ScaleX="1" />
                             </PathIcon.RenderTransform>
                         </PathIcon>
                     </RepeatButton>
-                    <RepeatButton Name="PART_PageDownButton"
-                                  Grid.Row="2"
-                                  Height="30"
-                                  HorizontalAlignment="Stretch"
-                                  Background="Transparent"
-                                  BorderThickness="0"
-                                  Focusable="False">
+                    <RepeatButton
+                        Background="Transparent"
+                        BorderThickness="0"
+                        Focusable="False"
+                        Grid.Row="2"
+                        Height="30"
+                        HorizontalAlignment="Stretch"
+                        Name="PART_PageDownButton">
                         <RepeatButton.IsVisible>
                             <MultiBinding Converter="{x:Static converters:SideMenuScrollerToVisibilityBool.Down}">
                                 <Binding Path="Value" RelativeSource="{RelativeSource TemplatedParent}" />
                                 <Binding Path="Maximum" RelativeSource="{RelativeSource TemplatedParent}" />
                             </MultiBinding>
                         </RepeatButton.IsVisible>
-                        <PathIcon Width="10"
-                                  Height="25"
-                                  Data="{x:Static content:Icons.ChevronDown}"
-                                  Foreground="{DynamicResource ForegroundColor}">
+                        <PathIcon
+                            Data="{x:Static content:Icons.ChevronDown}"
+                            Foreground="{DynamicResource ForegroundColor}"
+                            Height="25"
+                            Width="10">
                             <PathIcon.RenderTransform>
                                 <ScaleTransform ScaleX="1" />
                             </PathIcon.RenderTransform>
@@ -186,32 +201,37 @@
                             Maximum="{TemplateBinding Maximum}"
                             Minimum="{TemplateBinding Minimum}"
                             Orientation="{TemplateBinding Orientation}"
-                            ViewportSize="{TemplateBinding ViewportSize}"
-                            Value="{TemplateBinding Value, Mode=TwoWay}">
+                            Value="{TemplateBinding Value,
+                                                    Mode=TwoWay}"
+                            ViewportSize="{TemplateBinding ViewportSize}">
                             <Track.DecreaseButton>
-                                <RepeatButton Name="PART_PageUpButton"
-                                              Background="Transparent"
-                                              BorderThickness="0"
-                                              Focusable="False" />
+                                <RepeatButton
+                                    Background="Transparent"
+                                    BorderThickness="0"
+                                    Focusable="False"
+                                    Name="PART_PageUpButton" />
                             </Track.DecreaseButton>
                             <Track.IncreaseButton>
-                                <RepeatButton Name="PART_PageDownButton"
-                                              Background="Transparent"
-                                              BorderThickness="0"
-                                              Focusable="False" />
+                                <RepeatButton
+                                    Background="Transparent"
+                                    BorderThickness="0"
+                                    Focusable="False"
+                                    Name="PART_PageDownButton" />
                             </Track.IncreaseButton>
                             <Thumb Name="thumb">
                                 <Thumb.Template>
                                     <ControlTemplate>
                                         <Panel>
-                                            <Border Height="3" Name="ThumbBarHorizontal"
-                                                    Margin="3,0"
-                                                    Background="{DynamicResource BorderColor}"
-                                                    CornerRadius="10">
+                                            <Border
+                                                Background="{DynamicResource BorderColor}"
+                                                CornerRadius="10"
+                                                Height="3"
+                                                Margin="3,0"
+                                                Name="ThumbBarHorizontal">
                                                 <Border.Transitions>
                                                     <Transitions>
-                                                        <BrushTransition Property="Background" Duration="0:0:0.15" />
-                                                        <DoubleTransition Property="Height" Duration="0:0:0.1" />
+                                                        <BrushTransition Duration="0:0:0.15" Property="Background" />
+                                                        <DoubleTransition Duration="0:0:0.1" Property="Height" />
                                                     </Transitions>
                                                 </Border.Transitions>
                                             </Border>

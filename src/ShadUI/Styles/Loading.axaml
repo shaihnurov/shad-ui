@@ -1,7 +1,7 @@
 ﻿<Styles
     xmlns="https://github.com/avaloniaui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:controls="clr-namespace:ShadUI.Controls">
+    xmlns:controls="clr-namespace:ShadUI.Controls"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Style Selector="Button controls|Loading">
         <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundColor}" />
     </Style>

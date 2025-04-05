@@ -1,16 +1,29 @@
-﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:controls="clr-namespace:ShadUI.Controls">
+﻿<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:controls="clr-namespace:ShadUI.Controls"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Design.PreviewWith>
-        <StackPanel Orientation="Horizontal" Spacing="16" Margin="24">
-            <controls:Skeleton Height="64" Width="64" CornerRadius="{DynamicResource RoundedCornerRadius}" />
+        <StackPanel
+            Margin="24"
+            Orientation="Horizontal"
+            Spacing="16">
+            <controls:Skeleton
+                CornerRadius="{DynamicResource RoundedCornerRadius}"
+                Height="64"
+                Width="64" />
             <StackPanel Spacing="8" VerticalAlignment="Center">
-                <controls:Skeleton Height="28" Width="255" HorizontalAlignment="Left" />
-                <controls:Skeleton Height="20" Width="200" HorizontalAlignment="Left" />
+                <controls:Skeleton
+                    Height="28"
+                    HorizontalAlignment="Left"
+                    Width="255" />
+                <controls:Skeleton
+                    Height="20"
+                    HorizontalAlignment="Left"
+                    Width="200" />
             </StackPanel>
         </StackPanel>
     </Design.PreviewWith>
-    <ControlTheme x:Key="{x:Type controls:Skeleton}" TargetType="controls:Skeleton">
+    <ControlTheme TargetType="controls:Skeleton" x:Key="{x:Type controls:Skeleton}">
         <Setter Property="Background" Value="{DynamicResource PrimaryColor10}" />
         <Setter Property="CornerRadius" Value="{DynamicResource MediumCornerRadius}" />
         <Setter Property="Template">

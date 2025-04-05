@@ -1,79 +1,84 @@
 <ResourceDictionary
     xmlns="https://github.com/avaloniaui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:content="clr-namespace:ShadUI.Contents"
-    xmlns:controls="clr-namespace:ShadUI.Controls">
+    xmlns:controls="clr-namespace:ShadUI.Controls"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Design.PreviewWith>
         <controls:SidebarMenu>
             <controls:SidebarMenuItem Header="Header">
                 <controls:SidebarMenuItem.Icon>
-                    <PathIcon Width="13"
-                              Height="13"
-                              Data="{x:Static content:Icons.Cross}" />
+                    <PathIcon
+                        Data="{x:Static content:Icons.Cross}"
+                        Height="13"
+                        Width="13" />
                 </controls:SidebarMenuItem.Icon>
 
             </controls:SidebarMenuItem>
             <controls:SidebarMenuItem Header="Header">
                 <controls:SidebarMenuItem.Icon>
-                    <PathIcon Width="13"
-                              Height="13"
-                              Data="{x:Static content:Icons.Cross}" />
+                    <PathIcon
+                        Data="{x:Static content:Icons.Cross}"
+                        Height="13"
+                        Width="13" />
                 </controls:SidebarMenuItem.Icon>
                 <Grid />
             </controls:SidebarMenuItem>
         </controls:SidebarMenu>
     </Design.PreviewWith>
-    <ControlTheme x:Key="SidebarMenuItemStyle" TargetType="controls:SidebarMenuItem">
+    <ControlTheme TargetType="controls:SidebarMenuItem" x:Key="SidebarMenuItemStyle">
         <Setter Property="Template">
             <ControlTemplate>
                 <Panel>
-                    <Border Name="PART_Border"
-                            MinWidth="85"
-                            Margin="15,2"
-                            Padding="30,15,15,15"
-                            Background="Transparent"
-                            CornerRadius="{DynamicResource MediumCornerRadius}">
+                    <Border
+                        Background="Transparent"
+                        CornerRadius="{DynamicResource MediumCornerRadius}"
+                        Margin="15,2"
+                        MinWidth="85"
+                        Name="PART_Border"
+                        Padding="30,15,15,15">
                         <Border.Transitions>
                             <Transitions>
-                                <DoubleTransition Property="MaxHeight" Duration="0:0:1">
+                                <DoubleTransition Duration="0:0:1" Property="MaxHeight">
                                     <DoubleTransition.Easing>CubicEaseInOut</DoubleTransition.Easing>
                                 </DoubleTransition>
-                                <BrushTransition Property="Background" Duration="0:0:0.20" />
-                                <ThicknessTransition Property="Padding" Duration="0:0:0.35">
+                                <BrushTransition Duration="0:0:0.20" Property="Background" />
+                                <ThicknessTransition Duration="0:0:0.35" Property="Padding">
                                     <ThicknessTransition.Easing>CubicEaseInOut</ThicknessTransition.Easing>
                                 </ThicknessTransition>
                             </Transitions>
                         </Border.Transitions>
                         <Panel>
-                            <DockPanel Name="PART_NormalDisplay" LastChildFill="True">
+                            <DockPanel LastChildFill="True" Name="PART_NormalDisplay">
                                 <DockPanel.Resources />
 
-                                <ContentControl Name="PART_Icon"
-                                                Width="24"
-                                                Height="24"
-                                                Content="{TemplateBinding Icon}"
-                                                DockPanel.Dock="Left">
+                                <ContentControl
+                                    Content="{TemplateBinding Icon}"
+                                    DockPanel.Dock="Left"
+                                    Height="24"
+                                    Name="PART_Icon"
+                                    Width="24">
                                     <ContentControl.Transitions>
                                         <Transitions>
-                                            <TransformOperationsTransition Property="RenderTransform"
-                                                                           Duration="0:0:0.2" />
-                                            <DoubleTransition Property="Opacity" Duration="0:0:0.2" />
+                                            <TransformOperationsTransition Duration="0:0:0.2" Property="RenderTransform" />
+                                            <DoubleTransition Duration="0:0:0.2" Property="Opacity" />
                                         </Transitions>
                                     </ContentControl.Transitions>
                                 </ContentControl>
                                 <Viewbox HorizontalAlignment="Left" StretchDirection="DownOnly">
-                                    <TextBlock Name="PART_Header"
-                                               Margin="15,0"
-                                               VerticalAlignment="Center"
-                                               Foreground="{TemplateBinding Foreground}"
-                                               FontSize="{TemplateBinding FontSize}"
-                                               IsVisible="{Binding IsMenuExpanded, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type controls:SidebarMenu}}}"
-                                               Text="{TemplateBinding Header}" />
+                                    <TextBlock
+                                        FontSize="{TemplateBinding FontSize}"
+                                        Foreground="{TemplateBinding Foreground}"
+                                        IsVisible="{Binding IsMenuExpanded, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type controls:SidebarMenu}}}"
+                                        Margin="15,0"
+                                        Name="PART_Header"
+                                        Text="{TemplateBinding Header}"
+                                        VerticalAlignment="Center" />
                                 </Viewbox>
                             </DockPanel>
-                            <ContentPresenter Name="PART_AltDisplay"
-                                              Content="{TemplateBinding Content}"
-                                              ContentTemplate="{TemplateBinding ContentTemplate}" />
+                            <ContentPresenter
+                                Content="{TemplateBinding Content}"
+                                ContentTemplate="{TemplateBinding ContentTemplate}"
+                                Name="PART_AltDisplay" />
 
                         </Panel>
                     </Border>
@@ -123,7 +128,8 @@
         </Style>
         <Setter Property="FontSize" Value="14" />
     </ControlTheme>
-    <ControlTheme x:Key="{x:Type controls:SidebarMenuItem}"
-                  BasedOn="{StaticResource SidebarMenuItemStyle}"
-                  TargetType="controls:SidebarMenuItem" />
+    <ControlTheme
+        BasedOn="{StaticResource SidebarMenuItemStyle}"
+        TargetType="controls:SidebarMenuItem"
+        x:Key="{x:Type controls:SidebarMenuItem}" />
 </ResourceDictionary>

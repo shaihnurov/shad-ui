@@ -1,27 +1,25 @@
 <ResourceDictionary
     xmlns="https://github.com/avaloniaui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:controls="clr-namespace:ShadUI.Demo.Controls"
     xmlns:content="clr-namespace:ShadUI.Contents;assembly=ShadUI"
+    xmlns:controls="clr-namespace:ShadUI.Demo.Controls"
     xmlns:editor="https://github.com/avaloniaui/avaloniaedit"
-    xmlns:extensions="clr-namespace:ShadUI.Extensions;assembly=ShadUI">
+    xmlns:extensions="clr-namespace:ShadUI.Extensions;assembly=ShadUI"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Design.PreviewWith>
-        <Border Width="500" Height="250">
+        <Border Height="250" Width="500">
             <controls:CodeTextBlock>
                 <Run Text="&lt;controls:Window.Hosts&gt;" />
                 <LineBreak />
                 <Run Text="    &lt;dialogs:DialogHost Manager=&quot;{Binding DialogManager}&quot;" />
                 <LineBreak />
-                <Run
-                    Text="                        Owner=&quot;{Binding RelativeSource={RelativeSource AncestorType=controls:Window}}&quot; /&gt;" />
+                <Run Text="                        Owner=&quot;{Binding RelativeSource={RelativeSource AncestorType=controls:Window}}&quot; /&gt;" />
                 <LineBreak />
                 <Run Text="&lt;/controls:Window.Hosts&gt;" />
             </controls:CodeTextBlock>
         </Border>
     </Design.PreviewWith>
 
-    <ControlTheme x:Key="{x:Type controls:CodeTextBlock}"
-                  TargetType="controls:CodeTextBlock">
+    <ControlTheme TargetType="controls:CodeTextBlock" x:Key="{x:Type controls:CodeTextBlock}">
         <ControlTheme.Resources>
             <FontFamily x:Key="JetbrainsFont">avares://ShadUI.Demo/Assets/Fonts#Jetbrains</FontFamily>
         </ControlTheme.Resources>
@@ -34,32 +32,33 @@
         <Setter Property="FontWeight" Value="SemiBold" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Border Background="{TemplateBinding Background}"
-                        BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}"
-                        CornerRadius="{TemplateBinding CornerRadius}"
-                        Padding="{TemplateBinding Padding}">
+                <Border
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="{TemplateBinding CornerRadius}"
+                    Padding="{TemplateBinding Padding}">
                     <Panel>
                         <editor:TextEditor
-                            Margin="{TemplateBinding Padding}"
-                            Name="PART_Editor"
-                            ShowLineNumbers="True"
-                            MinHeight="{TemplateBinding MinHeight}"
-                            MaxHeight="{TemplateBinding MaxHeight}"
                             FontFamily="{StaticResource JetbrainsFont}"
                             HorizontalScrollBarVisibility="Auto"
+                            Margin="{TemplateBinding Padding}"
+                            MaxHeight="{TemplateBinding MaxHeight}"
+                            MinHeight="{TemplateBinding MinHeight}"
+                            Name="PART_Editor"
+                            ShowLineNumbers="True"
                             VerticalScrollBarVisibility="Auto" />
                         <Button
-                            Name="PART_ClipBoardButton"
                             CornerRadius="6"
-                            Margin="0,8,28,0"
-                            Width="36"
                             Height="36"
-                            MaxHeight="{TemplateBinding MaxHeight}"
                             HorizontalAlignment="Right"
                             HorizontalContentAlignment="Center"
+                            Margin="0,8,28,0"
+                            MaxHeight="{TemplateBinding MaxHeight}"
+                            Name="PART_ClipBoardButton"
+                            VerticalAlignment="Top"
                             VerticalContentAlignment="Center"
-                            VerticalAlignment="Top">
+                            Width="36">
                             <Button.Styles>
                                 <Style Selector="Button:pointerover">
                                     <Setter Property="Background" Value="{DynamicResource CodeForegroundColor50}" />
@@ -67,10 +66,10 @@
                             </Button.Styles>
                             <extensions:Button.Icon>
                                 <PathIcon
-                                    Name="PART_ClipBoardIcon"
-                                    Height="16"
+                                    Data="{x:Static content:Icons.ClipBoard}"
                                     Foreground="#FAFAFA"
-                                    Data="{x:Static content:Icons.ClipBoard}" />
+                                    Height="16"
+                                    Name="PART_ClipBoardIcon" />
                             </extensions:Button.Icon>
                         </Button>
                     </Panel>

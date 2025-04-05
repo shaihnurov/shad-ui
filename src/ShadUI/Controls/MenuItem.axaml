@@ -1,11 +1,12 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:converters="clr-namespace:Avalonia.Controls.Converters;assembly=Avalonia.Controls"
-                    xmlns:system="clr-namespace:System;assembly=netstandard"
-                    xmlns:contents="clr-namespace:ShadUI.Contents"
-                    xmlns:extensions="clr-namespace:ShadUI.Extensions">
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:contents="clr-namespace:ShadUI.Contents"
+    xmlns:converters="clr-namespace:Avalonia.Controls.Converters;assembly=Avalonia.Controls"
+    xmlns:extensions="clr-namespace:ShadUI.Extensions"
+    xmlns:system="clr-namespace:System;assembly=netstandard"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <converters:PlatformKeyGestureConverter x:Key="KeyGestureConverter" />
-    <ControlTheme x:Key="{x:Type MenuItem}" TargetType="MenuItem">
+    <ControlTheme TargetType="MenuItem" x:Key="{x:Type MenuItem}">
         <Setter Property="Background" Value="{DynamicResource CardBackgroundColor}" />
         <Setter Property="CornerRadius" Value="{DynamicResource SmallCornerRadius}" />
         <Setter Property="BorderThickness" Value="1.5" />
@@ -16,85 +17,103 @@
         <Setter Property="Transitions">
             <Setter.Value>
                 <Transitions>
-                    <BrushTransition Property="Background" Duration="0:0:0.20" />
+                    <BrushTransition Duration="0:0:0.20" Property="Background" />
                 </Transitions>
             </Setter.Value>
         </Setter>
         <Setter Property="Template">
             <ControlTemplate>
-                <Border Name="root"
-                        Padding="{TemplateBinding Padding}"
-                        Background="{TemplateBinding Background}"
-                        BorderBrush="{TemplateBinding BorderBrush}"
-                        CornerRadius="{TemplateBinding CornerRadius}"
-                        ClipToBounds="True">
+                <Border
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    ClipToBounds="True"
+                    CornerRadius="{TemplateBinding CornerRadius}"
+                    Name="root"
+                    Padding="{TemplateBinding Padding}">
                     <Panel>
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto" SharedSizeGroup="A" />
+                                <ColumnDefinition SharedSizeGroup="A" Width="Auto" />
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="Auto" />
                                 <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
-                            <ContentPresenter Name="PART_Icon"
-                                              Margin="0,0,8,0"
-                                              Height="8"
-                                              HorizontalAlignment="Center"
-                                              VerticalAlignment="Center"
-                                              Content="{TemplateBinding Icon}"
-                                              IsVisible="{TemplateBinding Icon, Converter={x:Static ObjectConverters.IsNotNull}}" />
-                            <ContentPresenter Name="PART_HeaderPresenter"
-                                              Grid.Column="1"
-                                              HorizontalAlignment="Left"
-                                              VerticalAlignment="Center"
-                                              Content="{TemplateBinding Header}">
+                            <ContentPresenter
+                                Content="{TemplateBinding Icon}"
+                                Height="8"
+                                HorizontalAlignment="Center"
+                                IsVisible="{TemplateBinding Icon,
+                                                            Converter={x:Static ObjectConverters.IsNotNull}}"
+                                Margin="0,0,8,0"
+                                Name="PART_Icon"
+                                VerticalAlignment="Center" />
+                            <ContentPresenter
+                                Content="{TemplateBinding Header}"
+                                Grid.Column="1"
+                                HorizontalAlignment="Left"
+                                Name="PART_HeaderPresenter"
+                                VerticalAlignment="Center">
                                 <ContentPresenter.DataTemplates>
                                     <DataTemplate DataType="system:String">
-                                        <TextBlock FontSize="14" FontWeight="Medium" Text="{Binding}" />
+                                        <TextBlock
+                                            FontSize="14"
+                                            FontWeight="Medium"
+                                            Text="{Binding}" />
                                     </DataTemplate>
                                 </ContentPresenter.DataTemplates>
                             </ContentPresenter>
-                            <PathIcon Name="PART_RightArrow"
-                                      Grid.Column="2"
-                                      Width="10"
-                                      Height="10"
-                                      Margin="16,0,0,0"
-                                      HorizontalAlignment="Right"
-                                      VerticalAlignment="Center"
-                                      Data="{x:Static contents:Icons.ChevronRight}"
-                                      DockPanel.Dock="Right"
-                                      Foreground="{DynamicResource ForegroundColor}" />
-                            <TextBlock Name="PART_InputGestureText" VerticalAlignment="Center"
-                                       Grid.Column="3" Opacity="0.5" Margin="8,0,0,0" FontSize="12"
-                                       IsVisible="{TemplateBinding InputGesture, Converter={x:Static ObjectConverters.IsNotNull}}"
-                                       Text="{TemplateBinding InputGesture, Converter={StaticResource KeyGestureConverter}}" />
+                            <PathIcon
+                                Data="{x:Static contents:Icons.ChevronRight}"
+                                DockPanel.Dock="Right"
+                                Foreground="{DynamicResource ForegroundColor}"
+                                Grid.Column="2"
+                                Height="10"
+                                HorizontalAlignment="Right"
+                                Margin="16,0,0,0"
+                                Name="PART_RightArrow"
+                                VerticalAlignment="Center"
+                                Width="10" />
+                            <TextBlock
+                                FontSize="12"
+                                Grid.Column="3"
+                                IsVisible="{TemplateBinding InputGesture,
+                                                            Converter={x:Static ObjectConverters.IsNotNull}}"
+                                Margin="8,0,0,0"
+                                Name="PART_InputGestureText"
+                                Opacity="0.5"
+                                Text="{TemplateBinding InputGesture,
+                                                       Converter={StaticResource KeyGestureConverter}}"
+                                VerticalAlignment="Center" />
                         </Grid>
-                        <Popup Name="PART_Popup"
-                               HorizontalOffset="-24"
-                               VerticalOffset="-8"
-                               IsLightDismissEnabled="False"
-                               IsOpen="{TemplateBinding IsSubMenuOpen, Mode=TwoWay}"
-                               Opacity="0"
-                               OverlayInputPassThroughElement="{Binding $parent[Menu]}"
-                               Placement="RightEdgeAlignedTop">
+                        <Popup
+                            HorizontalOffset="-24"
+                            IsLightDismissEnabled="False"
+                            IsOpen="{TemplateBinding IsSubMenuOpen,
+                                                     Mode=TwoWay}"
+                            Name="PART_Popup"
+                            Opacity="0"
+                            OverlayInputPassThroughElement="{Binding $parent[Menu]}"
+                            Placement="RightEdgeAlignedTop"
+                            VerticalOffset="-8">
                             <LayoutTransformControl Name="PART_LayoutTransform" RenderTransformOrigin="0%, 0%">
-                                <Border Name="PART_Border"
-                                        Margin="32,0,2,4"
-                                        Background="{DynamicResource CardBackgroundColor}"
-                                        BorderBrush="{DynamicResource BorderColor}"
-                                        BorderThickness="1"
-                                        BoxShadow="{DynamicResource Shadow}"
-                                        CornerRadius="{DynamicResource MediumCornerRadius}">
+                                <Border
+                                    Background="{DynamicResource CardBackgroundColor}"
+                                    BorderBrush="{DynamicResource BorderColor}"
+                                    BorderThickness="1"
+                                    BoxShadow="{DynamicResource Shadow}"
+                                    CornerRadius="{DynamicResource MediumCornerRadius}"
+                                    Margin="32,0,2,4"
+                                    Name="PART_Border">
                                     <StackPanel Margin="0,2">
-                                        <Border IsVisible="{TemplateBinding extensions:MenuItem.Label, Converter={x:Static ObjectConverters.IsNotNull}}"
-                                                Padding="16,8">
+                                        <Border IsVisible="{TemplateBinding extensions:MenuItem.Label, Converter={x:Static ObjectConverters.IsNotNull}}" Padding="16,8">
                                             <ContentPresenter Content="{TemplateBinding extensions:MenuItem.Label}" />
                                         </Border>
-                                        <Separator Margin="0,2" IsVisible="{TemplateBinding extensions:MenuItem.Label, Converter={x:Static ObjectConverters.IsNotNull}}" />
+                                        <Separator IsVisible="{TemplateBinding extensions:MenuItem.Label, Converter={x:Static ObjectConverters.IsNotNull}}" Margin="0,2" />
                                         <ScrollViewer ClipToBounds="True">
-                                            <ItemsPresenter Name="PART_ItemsPresenter"
-                                                            Grid.IsSharedSizeScope="True"
-                                                            ItemsPanel="{TemplateBinding ItemsPanel}" />
+                                            <ItemsPresenter
+                                                Grid.IsSharedSizeScope="True"
+                                                ItemsPanel="{TemplateBinding ItemsPanel}"
+                                                Name="PART_ItemsPresenter" />
                                         </ScrollViewer>
                                     </StackPanel>
                                 </Border>
@@ -104,16 +123,17 @@
                 </Border>
             </ControlTemplate>
         </Setter>
-        
+
         <Style Selector="^:pointerover">
             <Setter Property="Background" Value="{DynamicResource GhostColor}" />
         </Style>
 
         <Style Selector="^:open /template/ LayoutTransformControl#PART_LayoutTransform">
             <Style.Animations>
-                <Animation Easing="SineEaseInOut"
-                           FillMode="Forward"
-                           Duration="0:0:0.15">
+                <Animation
+                    Duration="0:0:0.15"
+                    Easing="SineEaseInOut"
+                    FillMode="Forward">
                     <KeyFrame Cue="0%">
                         <Setter Property="ScaleTransform.ScaleY" Value="0.9" />
                         <Setter Property="ScaleTransform.ScaleX" Value="0.9" />

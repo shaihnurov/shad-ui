@@ -1,33 +1,44 @@
-﻿<UserControl xmlns="https://github.com/avaloniaui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:controls="clr-namespace:ShadUI.Demo.Controls"
-             xmlns:icons="clr-namespace:LucideAvalonia;assembly=LucideAvalonia"
-             xmlns:extensions="clr-namespace:ShadUI.Extensions;assembly=ShadUI"
-             xmlns:viewModels="clr-namespace:ShadUI.Demo.ViewModels"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="ShadUI.Demo.Views.MenuViewPage"
-             x:DataType="viewModels:MenuViewModel">
+﻿<UserControl
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d"
+    x:Class="ShadUI.Demo.Views.MenuViewPage"
+    x:DataType="viewModels:MenuViewModel"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:controls="clr-namespace:ShadUI.Demo.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:extensions="clr-namespace:ShadUI.Extensions;assembly=ShadUI"
+    xmlns:icons="clr-namespace:LucideAvalonia;assembly=LucideAvalonia"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="clr-namespace:ShadUI.Demo.ViewModels"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <DockPanel LastChildFill="True">
-        <StackPanel DockPanel.Dock="Top" Margin="48 24" MaxWidth="1536">
+        <StackPanel
+            DockPanel.Dock="Top"
+            Margin="48,24"
+            MaxWidth="1536">
             <TextBlock Classes="h3" Text="Menus" />
             <TextBlock
                 Classes="p"
-                TextWrapping="Wrap"
                 HorizontalAlignment="Left"
-                Text="A menu component that provides a set of options or commands for the user to choose from." />
+                Text="A menu component that provides a set of options or commands for the user to choose from."
+                TextWrapping="Wrap" />
         </StackPanel>
         <ScrollViewer>
-            <Panel Margin="48 24" MaxWidth="1536">
+            <Panel Margin="48,24" MaxWidth="1536">
                 <StackPanel Spacing="32">
                     <controls:ControlBlock
-                        Title="Menu Bar"
+                        Code="{Binding MenuBarCode}"
                         Language="xaml"
-                        Code="{Binding MenuBarCode}">
-                        <Border HorizontalAlignment="Center" CornerRadius="{DynamicResource MediumCornerRadius}"
-                                BorderBrush="{DynamicResource BorderColor}" BorderThickness="1"
-                                BoxShadow="{DynamicResource Shadow}" Padding="4" Height="36">
+                        Title="Menu Bar">
+                        <Border
+                            BorderBrush="{DynamicResource BorderColor}"
+                            BorderThickness="1"
+                            BoxShadow="{DynamicResource Shadow}"
+                            CornerRadius="{DynamicResource MediumCornerRadius}"
+                            Height="36"
+                            HorizontalAlignment="Center"
+                            Padding="4">
                             <Menu>
                                 <MenuItem Header="File">
                                     <MenuItem Header="New Tab" InputGesture="Ctrl + T" />
@@ -43,7 +54,10 @@
                                     <MenuItem Header="Print" InputGesture="Ctrl + P" />
                                 </MenuItem>
                                 <MenuItem Header="Edit">
-                                    <MenuItem Header="Undo" InputGesture="Ctrl + Z" Width="192" />
+                                    <MenuItem
+                                        Header="Undo"
+                                        InputGesture="Ctrl + Z"
+                                        Width="192" />
                                     <MenuItem Header="Redo" InputGesture="Ctrl + Shift + Z" />
                                     <Separator />
                                     <MenuItem Header="Find">
@@ -61,13 +75,18 @@
                                     <MenuItem Header="Always Show Bookmarks Bar" />
                                     <MenuItem Header="Always Show Full URLs">
                                         <MenuItem.Icon>
-                                            <icons:Lucide Icon="Check" Width="12"
-                                                          StrokeBrush="{DynamicResource ForegroundColor}" />
+                                            <icons:Lucide
+                                                Icon="Check"
+                                                StrokeBrush="{DynamicResource ForegroundColor}"
+                                                Width="12" />
                                         </MenuItem.Icon>
                                     </MenuItem>
                                     <Separator />
                                     <MenuItem Header="Reload" InputGesture="Ctrl + R" />
-                                    <MenuItem Header="Force Reload" InputGesture="Ctrl + Shift + R" IsEnabled="False" />
+                                    <MenuItem
+                                        Header="Force Reload"
+                                        InputGesture="Ctrl + Shift + R"
+                                        IsEnabled="False" />
                                     <Separator />
                                     <MenuItem Header="Toggle Fullscreen" InputGesture="F11" />
                                     <Separator />
@@ -77,8 +96,11 @@
                                     <MenuItem Header="Andy" Width="192" />
                                     <MenuItem Header="Benoit">
                                         <MenuItem.Icon>
-                                            <Border CornerRadius="{DynamicResource RoundedCornerRadius}" Width="12"
-                                                    Height="12" Background="{DynamicResource ForegroundColor}" />
+                                            <Border
+                                                Background="{DynamicResource ForegroundColor}"
+                                                CornerRadius="{DynamicResource RoundedCornerRadius}"
+                                                Height="12"
+                                                Width="12" />
                                         </MenuItem.Icon>
                                     </MenuItem>
                                     <MenuItem Header="Luis" />
@@ -91,20 +113,31 @@
                         </Border>
                     </controls:ControlBlock>
                     <controls:ControlBlock
-                        Title="Dropdown Menu"
+                        Code="{Binding DropDownCode}"
                         Language="xaml"
-                        Code="{Binding DropDownCode}">
-                        <StackPanel Orientation="Horizontal" Spacing="16" VerticalAlignment="Center"
-                                    HorizontalAlignment="Center">
-                            <StackPanel.Resources>
-                            </StackPanel.Resources>
+                        Title="Dropdown Menu">
+                        <StackPanel
+                            HorizontalAlignment="Center"
+                            Orientation="Horizontal"
+                            Spacing="16"
+                            VerticalAlignment="Center">
+                            <StackPanel.Resources />
                             <Menu>
-                                <MenuItem Margin="12,0" Classes="Primary" Header="Primary"
-                                          extensions:MenuItem.PopupPlacement="Bottom">
+                                <MenuItem
+                                    Classes="Primary"
+                                    Header="Primary"
+                                    Margin="12,0"
+                                    extensions:MenuItem.PopupPlacement="Bottom">
                                     <extensions:MenuItem.Label>
-                                        <TextBlock Text="My Account" FontSize="16" FontWeight="SemiBold" />
+                                        <TextBlock
+                                            FontSize="16"
+                                            FontWeight="SemiBold"
+                                            Text="My Account" />
                                     </extensions:MenuItem.Label>
-                                    <MenuItem Header="Profile" InputGesture="Ctrl + Shift + P" Width="224" />
+                                    <MenuItem
+                                        Header="Profile"
+                                        InputGesture="Ctrl + Shift + P"
+                                        Width="224" />
                                     <MenuItem Header="Billing" InputGesture="Ctrl + B" />
                                     <MenuItem Header="Settings" InputGesture="Ctrl + S" />
                                     <MenuItem Header="Keyboard shortcuts" InputGesture="Ctrl + K" />
@@ -125,12 +158,21 @@
                                     <Separator />
                                     <MenuItem Classes="Destructive" Header="Delete Account" />
                                 </MenuItem>
-                                <MenuItem Margin="12,0" Classes="Secondary" Header="Secondary"
-                                          extensions:MenuItem.PopupPlacement="Bottom">
+                                <MenuItem
+                                    Classes="Secondary"
+                                    Header="Secondary"
+                                    Margin="12,0"
+                                    extensions:MenuItem.PopupPlacement="Bottom">
                                     <extensions:MenuItem.Label>
-                                        <TextBlock Text="My Account" FontSize="16" FontWeight="SemiBold" />
+                                        <TextBlock
+                                            FontSize="16"
+                                            FontWeight="SemiBold"
+                                            Text="My Account" />
                                     </extensions:MenuItem.Label>
-                                    <MenuItem Header="Profile" InputGesture="Ctrl + Shift + P" Width="224" />
+                                    <MenuItem
+                                        Header="Profile"
+                                        InputGesture="Ctrl + Shift + P"
+                                        Width="224" />
                                     <MenuItem Header="Billing" InputGesture="Ctrl + B" />
                                     <MenuItem Header="Settings" InputGesture="Ctrl + S" />
                                     <MenuItem Header="Keyboard shortcuts" InputGesture="Ctrl + K" />
@@ -151,12 +193,21 @@
                                     <Separator />
                                     <MenuItem Classes="Destructive" Header="Delete Account" />
                                 </MenuItem>
-                                <MenuItem Margin="12,0" Classes="Outline" Header="Outline"
-                                          extensions:MenuItem.PopupPlacement="Bottom">
+                                <MenuItem
+                                    Classes="Outline"
+                                    Header="Outline"
+                                    Margin="12,0"
+                                    extensions:MenuItem.PopupPlacement="Bottom">
                                     <extensions:MenuItem.Label>
-                                        <TextBlock Text="My Account" FontSize="16" FontWeight="SemiBold" />
+                                        <TextBlock
+                                            FontSize="16"
+                                            FontWeight="SemiBold"
+                                            Text="My Account" />
                                     </extensions:MenuItem.Label>
-                                    <MenuItem Header="Profile" InputGesture="Ctrl + Shift + P" Width="224" />
+                                    <MenuItem
+                                        Header="Profile"
+                                        InputGesture="Ctrl + Shift + P"
+                                        Width="224" />
                                     <MenuItem Header="Billing" InputGesture="Ctrl + B" />
                                     <MenuItem Header="Settings" InputGesture="Ctrl + S" />
                                     <MenuItem Header="Keyboard shortcuts" InputGesture="Ctrl + K" />
@@ -177,12 +228,21 @@
                                     <Separator />
                                     <MenuItem Classes="Destructive" Header="Delete Account" />
                                 </MenuItem>
-                                <MenuItem Margin="12,0" Classes="Ghost" Header="Ghost"
-                                          extensions:MenuItem.PopupPlacement="Bottom">
+                                <MenuItem
+                                    Classes="Ghost"
+                                    Header="Ghost"
+                                    Margin="12,0"
+                                    extensions:MenuItem.PopupPlacement="Bottom">
                                     <extensions:MenuItem.Label>
-                                        <TextBlock Text="My Account" FontSize="16" FontWeight="SemiBold" />
+                                        <TextBlock
+                                            FontSize="16"
+                                            FontWeight="SemiBold"
+                                            Text="My Account" />
                                     </extensions:MenuItem.Label>
-                                    <MenuItem Header="Profile" InputGesture="Ctrl + Shift + P" Width="224" />
+                                    <MenuItem
+                                        Header="Profile"
+                                        InputGesture="Ctrl + Shift + P"
+                                        Width="224" />
                                     <MenuItem Header="Billing" InputGesture="Ctrl + B" />
                                     <MenuItem Header="Settings" InputGesture="Ctrl + S" />
                                     <MenuItem Header="Keyboard shortcuts" InputGesture="Ctrl + K" />
@@ -203,16 +263,26 @@
                                     <Separator />
                                     <MenuItem Classes="Destructive" Header="Delete Account" />
                                 </MenuItem>
-                                <MenuItem Margin="12,0" Classes="Icon"
-                                          extensions:MenuItem.PopupPlacement="Bottom">
+                                <MenuItem
+                                    Classes="Icon"
+                                    Margin="12,0"
+                                    extensions:MenuItem.PopupPlacement="Bottom">
                                     <MenuItem.Header>
-                                        <icons:Lucide Icon="Ellipsis" StrokeBrush="{DynamicResource ForegroundColor}"
-                                                      Width="16" />
+                                        <icons:Lucide
+                                            Icon="Ellipsis"
+                                            StrokeBrush="{DynamicResource ForegroundColor}"
+                                            Width="16" />
                                     </MenuItem.Header>
                                     <extensions:MenuItem.Label>
-                                        <TextBlock Text="My Account" FontSize="16" FontWeight="SemiBold" />
+                                        <TextBlock
+                                            FontSize="16"
+                                            FontWeight="SemiBold"
+                                            Text="My Account" />
                                     </extensions:MenuItem.Label>
-                                    <MenuItem Header="Profile" InputGesture="Ctrl + Shift + P" Width="224" />
+                                    <MenuItem
+                                        Header="Profile"
+                                        InputGesture="Ctrl + Shift + P"
+                                        Width="224" />
                                     <MenuItem Header="Billing" InputGesture="Ctrl + B" />
                                     <MenuItem Header="Settings" InputGesture="Ctrl + S" />
                                     <MenuItem Header="Keyboard shortcuts" InputGesture="Ctrl + K" />

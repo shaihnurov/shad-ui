@@ -1,8 +1,9 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:system="clr-namespace:System;assembly=netstandard"
-                    xmlns:extensions="clr-namespace:ShadUI.Extensions">
-    <ControlTheme x:Key="TopLevelMenuItem" TargetType="MenuItem">
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:extensions="clr-namespace:ShadUI.Extensions"
+    xmlns:system="clr-namespace:System;assembly=netstandard"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ControlTheme TargetType="MenuItem" x:Key="TopLevelMenuItem">
         <Setter Property="FontWeight" Value="DemiBold" />
         <Setter Property="CornerRadius" Value="{DynamicResource SmallCornerRadius}" />
         <Setter Property="Padding" Value="12 0" />
@@ -10,60 +11,67 @@
         <Setter Property="extensions:MenuItem.PopupPlacement" Value="BottomEdgeAlignedLeft" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Border Name="root"
-                        Background="{TemplateBinding Background}"
-                        BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}"
-                        CornerRadius="{TemplateBinding CornerRadius}">
+                <Border
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="{TemplateBinding CornerRadius}"
+                    Name="root">
                     <Panel>
                         <Border CornerRadius="{TemplateBinding CornerRadius}" Name="ItemBackground">
                             <Border.Transitions>
                                 <Transitions>
-                                    <BrushTransition Property="Background" Duration="0:0:0.15" />
+                                    <BrushTransition Duration="0:0:0.15" Property="Background" />
                                 </Transitions>
                             </Border.Transitions>
                         </Border>
-                        <ContentPresenter Name="PART_HeaderPresenter"
-                                          Margin="{TemplateBinding Padding}"
-                                          HorizontalAlignment="Center"
-                                          VerticalAlignment="Center"
-                                          HorizontalContentAlignment="Left"
-                                          VerticalContentAlignment="Center"
-                                          Content="{TemplateBinding Header}">
+                        <ContentPresenter
+                            Content="{TemplateBinding Header}"
+                            HorizontalAlignment="Center"
+                            HorizontalContentAlignment="Left"
+                            Margin="{TemplateBinding Padding}"
+                            Name="PART_HeaderPresenter"
+                            VerticalAlignment="Center"
+                            VerticalContentAlignment="Center">
                             <ContentPresenter.DataTemplates>
                                 <DataTemplate DataType="system:String">
-                                    <TextBlock Name="PART_HeaderText" FontSize="14" FontWeight="Medium" Text="{CompiledBinding}" />
+                                    <TextBlock
+                                        FontSize="14"
+                                        FontWeight="Medium"
+                                        Name="PART_HeaderText"
+                                        Text="{CompiledBinding}" />
                                 </DataTemplate>
                             </ContentPresenter.DataTemplates>
                         </ContentPresenter>
-                        <Popup Name="PART_Popup"
-                               IsLightDismissEnabled="True"
-                               IsOpen="{TemplateBinding IsSubMenuOpen,Mode=TwoWay}"
-                               Opacity="0"
-                               VerticalOffset="{TemplateBinding extensions:MenuItem.PopupVerticalOffset}"
-                               OverlayInputPassThroughElement="{Binding $parent[Menu]}"
-                               Placement="{TemplateBinding extensions:MenuItem.PopupPlacement}">
+                        <Popup
+                            IsLightDismissEnabled="True"
+                            IsOpen="{TemplateBinding IsSubMenuOpen,
+                                                     Mode=TwoWay}"
+                            Name="PART_Popup"
+                            Opacity="0"
+                            OverlayInputPassThroughElement="{Binding $parent[Menu]}"
+                            Placement="{TemplateBinding extensions:MenuItem.PopupPlacement}"
+                            VerticalOffset="{TemplateBinding extensions:MenuItem.PopupVerticalOffset}">
                             <LayoutTransformControl Name="PART_LayoutTransform" RenderTransformOrigin="50%, 0%">
-                                <Border Name="PART_Border"
-                                        Background="{DynamicResource CardBackgroundColor}"
-                                        BorderBrush="{DynamicResource BorderColor}"
-                                        BorderThickness="1"
-                                        BoxShadow="{DynamicResource Shadow}"
-                                        ClipToBounds="True"
-                                        Margin="2,0,2,4"
-                                        CornerRadius="{DynamicResource MediumCornerRadius}">
+                                <Border
+                                    Background="{DynamicResource CardBackgroundColor}"
+                                    BorderBrush="{DynamicResource BorderColor}"
+                                    BorderThickness="1"
+                                    BoxShadow="{DynamicResource Shadow}"
+                                    ClipToBounds="True"
+                                    CornerRadius="{DynamicResource MediumCornerRadius}"
+                                    Margin="2,0,2,4"
+                                    Name="PART_Border">
                                     <StackPanel Margin="0,2">
-                                        <Border
-                                            IsVisible="{TemplateBinding extensions:MenuItem.Label, Converter={x:Static ObjectConverters.IsNotNull}}"
-                                            Padding="16,8">
+                                        <Border IsVisible="{TemplateBinding extensions:MenuItem.Label, Converter={x:Static ObjectConverters.IsNotNull}}" Padding="16,8">
                                             <ContentPresenter Content="{TemplateBinding extensions:MenuItem.Label}" />
                                         </Border>
-                                        <Separator Margin="0,2"
-                                                   IsVisible="{TemplateBinding extensions:MenuItem.Label, Converter={x:Static ObjectConverters.IsNotNull}}" />
+                                        <Separator IsVisible="{TemplateBinding extensions:MenuItem.Label, Converter={x:Static ObjectConverters.IsNotNull}}" Margin="0,2" />
                                         <ScrollViewer Margin="0,2">
-                                            <ItemsPresenter Name="PART_ItemsPresenter"
-                                                            Grid.IsSharedSizeScope="True"
-                                                            ItemsPanel="{TemplateBinding ItemsPanel}" />
+                                            <ItemsPresenter
+                                                Grid.IsSharedSizeScope="True"
+                                                ItemsPanel="{TemplateBinding ItemsPanel}"
+                                                Name="PART_ItemsPresenter" />
                                         </ScrollViewer>
                                     </StackPanel>
                                 </Border>
@@ -78,9 +86,10 @@
         </Style>
         <Style Selector="^:open /template/ LayoutTransformControl#PART_LayoutTransform">
             <Style.Animations>
-                <Animation Easing="SineEaseInOut"
-                           FillMode="Forward"
-                           Duration="0:0:0.10">
+                <Animation
+                    Duration="0:0:0.10"
+                    Easing="SineEaseInOut"
+                    FillMode="Forward">
                     <KeyFrame Cue="0%">
                         <Setter Property="ScaleTransform.ScaleY" Value="0.90" />
                         <Setter Property="ScaleTransform.ScaleX" Value="0.90" />
@@ -95,7 +104,7 @@
             </Style.Animations>
         </Style>
 
-        <!-- Primary -->
+        <!--  Primary  -->
         <Style Selector="^.Primary">
             <Setter Property="FontSize" Value="14" />
             <Setter Property="Padding" Value="16,8" />
@@ -103,8 +112,8 @@
             <Style Selector="^ /template/ Border#root">
                 <Setter Property="Transitions">
                     <Transitions>
-                        <BrushTransition Property="Background" Duration="0:0:0.2" />
-                        <BrushTransition Property="BorderBrush" Duration="0:0:0.2" />
+                        <BrushTransition Duration="0:0:0.2" Property="Background" />
+                        <BrushTransition Duration="0:0:0.2" Property="BorderBrush" />
                     </Transitions>
                 </Setter>
             </Style>
@@ -112,7 +121,7 @@
                 <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundColor}" />
                 <Setter Property="Transitions">
                     <Transitions>
-                        <BrushTransition Property="Foreground" Duration="0:0:0.3" />
+                        <BrushTransition Duration="0:0:0.3" Property="Foreground" />
                     </Transitions>
                 </Setter>
             </Style>
@@ -138,8 +147,8 @@
             <Style Selector="^ /template/ Border#root">
                 <Setter Property="Transitions">
                     <Transitions>
-                        <BrushTransition Property="Background" Duration="0:0:0.2" />
-                        <BrushTransition Property="BorderBrush" Duration="0:0:0.2" />
+                        <BrushTransition Duration="0:0:0.2" Property="Background" />
+                        <BrushTransition Duration="0:0:0.2" Property="BorderBrush" />
                     </Transitions>
                 </Setter>
             </Style>
@@ -147,7 +156,7 @@
                 <Setter Property="Foreground" Value="{DynamicResource SecondaryForegroundColor}" />
                 <Setter Property="Transitions">
                     <Transitions>
-                        <BrushTransition Property="Foreground" Duration="0:0:0.3" />
+                        <BrushTransition Duration="0:0:0.3" Property="Foreground" />
                     </Transitions>
                 </Setter>
             </Style>
@@ -175,8 +184,8 @@
             <Style Selector="^ /template/ Border#root">
                 <Setter Property="Transitions">
                     <Transitions>
-                        <BrushTransition Property="Background" Duration="0:0:0.2" />
-                        <BrushTransition Property="BorderBrush" Duration="0:0:0.2" />
+                        <BrushTransition Duration="0:0:0.2" Property="Background" />
+                        <BrushTransition Duration="0:0:0.2" Property="BorderBrush" />
                     </Transitions>
                 </Setter>
             </Style>
@@ -184,7 +193,7 @@
                 <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
                 <Setter Property="Transitions">
                     <Transitions>
-                        <BrushTransition Property="Foreground" Duration="0:0:0.3" />
+                        <BrushTransition Duration="0:0:0.3" Property="Foreground" />
                     </Transitions>
                 </Setter>
             </Style>
@@ -213,8 +222,8 @@
             <Style Selector="^ /template/ Border#root">
                 <Setter Property="Transitions">
                     <Transitions>
-                        <BrushTransition Property="Background" Duration="0:0:0.2" />
-                        <BrushTransition Property="BorderBrush" Duration="0:0:0.2" />
+                        <BrushTransition Duration="0:0:0.2" Property="Background" />
+                        <BrushTransition Duration="0:0:0.2" Property="BorderBrush" />
                     </Transitions>
                 </Setter>
             </Style>
@@ -222,7 +231,7 @@
                 <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
                 <Setter Property="Transitions">
                     <Transitions>
-                        <BrushTransition Property="Foreground" Duration="0:0:0.3" />
+                        <BrushTransition Duration="0:0:0.3" Property="Foreground" />
                     </Transitions>
                 </Setter>
             </Style>
@@ -251,8 +260,8 @@
             <Style Selector="^ /template/ Border#root">
                 <Setter Property="Transitions">
                     <Transitions>
-                        <BrushTransition Property="Background" Duration="0:0:0.2" />
-                        <BrushTransition Property="BorderBrush" Duration="0:0:0.2" />
+                        <BrushTransition Duration="0:0:0.2" Property="Background" />
+                        <BrushTransition Duration="0:0:0.2" Property="BorderBrush" />
                     </Transitions>
                 </Setter>
             </Style>
@@ -260,7 +269,7 @@
                 <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
                 <Setter Property="Transitions">
                     <Transitions>
-                        <BrushTransition Property="Foreground" Duration="0:0:0.3" />
+                        <BrushTransition Duration="0:0:0.3" Property="Foreground" />
                     </Transitions>
                 </Setter>
             </Style>
@@ -281,32 +290,35 @@
         </Style>
     </ControlTheme>
 
-    <ControlTheme x:Key="{x:Type Menu}" TargetType="Menu">
+    <ControlTheme TargetType="Menu" x:Key="{x:Type Menu}">
         <Setter Property="FontWeight" Value="DemiBold" />
         <Setter Property="Background" Value="{DynamicResource CardBackgroundColor}" />
         <Setter Property="ItemContainerTheme" Value="{StaticResource TopLevelMenuItem}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <LayoutTransformControl Name="PART_LayoutTransform" RenderTransformOrigin="50%, 0%">
-                    <Border Height="{TemplateBinding Height}"
-                            ClipToBounds="True"
-                            Padding="{TemplateBinding Padding}"
-                            BorderBrush="{DynamicResource BorderColor}"
-                            BorderThickness="0"
-                            CornerRadius="{TemplateBinding CornerRadius}">
-                        <ItemsPresenter Name="PART_ItemsPresenter"
-                                        Grid.IsSharedSizeScope="True"
-                                        ItemsPanel="{TemplateBinding ItemsPanel}"
-                                        KeyboardNavigation.TabNavigation="Continue" />
+                    <Border
+                        BorderBrush="{DynamicResource BorderColor}"
+                        BorderThickness="0"
+                        ClipToBounds="True"
+                        CornerRadius="{TemplateBinding CornerRadius}"
+                        Height="{TemplateBinding Height}"
+                        Padding="{TemplateBinding Padding}">
+                        <ItemsPresenter
+                            Grid.IsSharedSizeScope="True"
+                            ItemsPanel="{TemplateBinding ItemsPanel}"
+                            KeyboardNavigation.TabNavigation="Continue"
+                            Name="PART_ItemsPresenter" />
                     </Border>
                 </LayoutTransformControl>
             </ControlTemplate>
         </Setter>
         <Style Selector="^[IsEnabled=True] /template/ LayoutTransformControl#PART_LayoutTransform">
             <Style.Animations>
-                <Animation Easing="SineEaseInOut"
-                           FillMode="Forward"
-                           Duration="0:0:0.15">
+                <Animation
+                    Duration="0:0:0.15"
+                    Easing="SineEaseInOut"
+                    FillMode="Forward">
                     <KeyFrame Cue="0%">
                         <Setter Property="ScaleTransform.ScaleY" Value="0.90" />
                         <Setter Property="ScaleTransform.ScaleX" Value="0.90" />
@@ -323,9 +335,10 @@
         </Style>
         <Style Selector="^[IsEnabled=False] /template/ LayoutTransformControl#PART_LayoutTransform">
             <Style.Animations>
-                <Animation Easing="SineEaseInOut"
-                           FillMode="Forward"
-                           Duration="0:0:0.15">
+                <Animation
+                    Duration="0:0:0.15"
+                    Easing="SineEaseInOut"
+                    FillMode="Forward">
                     <KeyFrame Cue="0%">
                         <Setter Property="ScaleTransform.ScaleY" Value="1" />
                         <Setter Property="ScaleTransform.ScaleX" Value="1" />

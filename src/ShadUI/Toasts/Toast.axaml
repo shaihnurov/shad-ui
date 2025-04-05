@@ -1,59 +1,72 @@
 <ResourceDictionary
+    x:ClassModifier="internal"
     xmlns="https://github.com/avaloniaui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:toasts="clr-namespace:ShadUI.Toasts"
     xmlns:icons="clr-namespace:ShadUI.Contents"
-    x:ClassModifier="internal">
+    xmlns:toasts="clr-namespace:ShadUI.Toasts"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Design.PreviewWith>
-        <toasts:Toast Title="Title" Content="Message" />
+        <toasts:Toast Content="Message" Title="Title" />
     </Design.PreviewWith>
-    <ControlTheme x:Key="ToastTheme" TargetType="toasts:Toast">
+    <ControlTheme TargetType="toasts:Toast" x:Key="ToastTheme">
         <Setter Property="Template">
             <ControlTemplate>
                 <Border Name="PART_ToastCard" Padding="12,0,12,12">
-                    <Border Name="PART_ToastCardInner"
-                            MinWidth="350"
-                            Background="{DynamicResource CardBackgroundColor}"
-                            BorderBrush="{DynamicResource BorderColor}"
-                            BorderThickness="1"
-                            CornerRadius="{DynamicResource MediumCornerRadius}"
-                            ClipToBounds="True">
+                    <Border
+                        Background="{DynamicResource CardBackgroundColor}"
+                        BorderBrush="{DynamicResource BorderColor}"
+                        BorderThickness="1"
+                        ClipToBounds="True"
+                        CornerRadius="{DynamicResource MediumCornerRadius}"
+                        MinWidth="350"
+                        Name="PART_ToastCardInner">
                         <Panel>
-                            <Border Name="PART_InnerCardBackground" CornerRadius="{DynamicResource MediumCornerRadius}" />
+                            <Border CornerRadius="{DynamicResource MediumCornerRadius}" Name="PART_InnerCardBackground" />
                             <Grid ColumnDefinitions="Auto * Auto" Margin="16">
-                                <PathIcon Name="PART_Icon" Width="20" Height="20" Margin="0,0,8,0"
-                                          Foreground="{DynamicResource ForegroundColor}"
-                                          IsVisible="{Binding Data, ElementName=PART_Icon, Converter={x:Static ObjectConverters.IsNotNull}}"
-                                          Data="{x:Static icons:Icons.Warning}" />
+                                <PathIcon
+                                    Data="{x:Static icons:Icons.Warning}"
+                                    Foreground="{DynamicResource ForegroundColor}"
+                                    Height="20"
+                                    IsVisible="{Binding Data, ElementName=PART_Icon, Converter={x:Static ObjectConverters.IsNotNull}}"
+                                    Margin="0,0,8,0"
+                                    Name="PART_Icon"
+                                    Width="20" />
                                 <StackPanel Grid.Column="1">
                                     <TextBlock Name="PART_Title" Text="{TemplateBinding Title}" />
-                                    <ContentPresenter Margin="0,4,0,0" Name="PART_Content"
-                                                      Content="{TemplateBinding Content}" />
+                                    <ContentPresenter
+                                        Content="{TemplateBinding Content}"
+                                        Margin="0,4,0,0"
+                                        Name="PART_Content" />
                                 </StackPanel>
-                                <Button Name="PART_ActionButton"
-                                        Grid.Column="2"
-                                        Margin="8,0,12,0"
-                                        Content="{TemplateBinding ActionLabel}"
-                                        IsVisible="{TemplateBinding Action, Converter={x:Static ObjectConverters.IsNotNull}}">
+                                <Button
+                                    Content="{TemplateBinding ActionLabel}"
+                                    Grid.Column="2"
+                                    IsVisible="{TemplateBinding Action,
+                                                                Converter={x:Static ObjectConverters.IsNotNull}}"
+                                    Margin="8,0,12,0"
+                                    Name="PART_ActionButton">
                                     <Button.Transitions>
                                         <Transitions>
-                                            <BrushTransition Property="Background" Duration="0:0:0.20" />
-                                            <BrushTransition Property="BorderBrush" Duration="0:0:0.20" />
+                                            <BrushTransition Duration="0:0:0.20" Property="Background" />
+                                            <BrushTransition Duration="0:0:0.20" Property="BorderBrush" />
                                         </Transitions>
                                     </Button.Transitions>
                                 </Button>
                             </Grid>
-                            <Button Name="PART_CloseButton"
-                                    Width="20"
-                                    Height="20"
-                                    Margin="4"
-                                    Opacity="0"
-                                    VerticalAlignment="Top"
-                                    HorizontalAlignment="Right"
-                                    CornerRadius="{DynamicResource RoundedCornerRadius}"
-                                    HotKey="Escape">
-                                <PathIcon Name="PART_CloseButtonIcon" Width="8" Height="8"
-                                          Data="{x:Static icons:Icons.WindowClose}" />
+                            <Button
+                                CornerRadius="{DynamicResource RoundedCornerRadius}"
+                                Height="20"
+                                HorizontalAlignment="Right"
+                                HotKey="Escape"
+                                Margin="4"
+                                Name="PART_CloseButton"
+                                Opacity="0"
+                                VerticalAlignment="Top"
+                                Width="20">
+                                <PathIcon
+                                    Data="{x:Static icons:Icons.WindowClose}"
+                                    Height="8"
+                                    Name="PART_CloseButtonIcon"
+                                    Width="8" />
                             </Button>
                         </Panel>
                     </Border>
@@ -277,7 +290,8 @@
         </Style>
 
     </ControlTheme>
-    <ControlTheme x:Key="{x:Type toasts:Toast}"
-                  BasedOn="{StaticResource ToastTheme}"
-                  TargetType="toasts:Toast" />
+    <ControlTheme
+        BasedOn="{StaticResource ToastTheme}"
+        TargetType="toasts:Toast"
+        x:Key="{x:Type toasts:Toast}" />
 </ResourceDictionary>

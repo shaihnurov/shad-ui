@@ -1,36 +1,52 @@
-<ResourceDictionary
-    xmlns="https://github.com/avaloniaui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Design.PreviewWith>
-        <Border Width="400" Padding="8">
+        <Border Padding="8" Width="400">
             <StackPanel Spacing="8">
                 <TabControl>
                     <TabItem Header="Preview">
-                        <Border Height="100" BorderBrush="{DynamicResource BorderColor}" BorderThickness="1"
-                                Padding="12" CornerRadius="{DynamicResource MediumCornerRadius}">
-                            <TextBlock FontSize="20"
-                                       Foreground="Black"
-                                       Text="Content" />
+                        <Border
+                            BorderBrush="{DynamicResource BorderColor}"
+                            BorderThickness="1"
+                            CornerRadius="{DynamicResource MediumCornerRadius}"
+                            Height="100"
+                            Padding="12">
+                            <TextBlock
+                                FontSize="20"
+                                Foreground="Black"
+                                Text="Content" />
                         </Border>
                     </TabItem>
                     <TabItem Header="Code">
-                        <Border Height="100" BorderBrush="{DynamicResource BorderColor}" BorderThickness="1"
-                                Padding="12" CornerRadius="{DynamicResource MediumCornerRadius}" />
+                        <Border
+                            BorderBrush="{DynamicResource BorderColor}"
+                            BorderThickness="1"
+                            CornerRadius="{DynamicResource MediumCornerRadius}"
+                            Height="100"
+                            Padding="12" />
                     </TabItem>
                     <TabItem Header="Disabled" IsEnabled="False" />
                 </TabControl>
                 <TabControl>
                     <TabItem Header="Preview">
-                        <Border Height="100" BorderBrush="{DynamicResource BorderColor}" BorderThickness="1"
-                                Padding="12" CornerRadius="{DynamicResource MediumCornerRadius}">
-                            <TextBlock FontSize="20"
-                                       Foreground="Black"
-                                       Text="Content" />
+                        <Border
+                            BorderBrush="{DynamicResource BorderColor}"
+                            BorderThickness="1"
+                            CornerRadius="{DynamicResource MediumCornerRadius}"
+                            Height="100"
+                            Padding="12">
+                            <TextBlock
+                                FontSize="20"
+                                Foreground="Black"
+                                Text="Content" />
                         </Border>
                     </TabItem>
                     <TabItem Header="Code">
-                        <Border Height="100" BorderBrush="{DynamicResource BorderColor}" BorderThickness="1"
-                                Padding="12" CornerRadius="{DynamicResource MediumCornerRadius}" />
+                        <Border
+                            BorderBrush="{DynamicResource BorderColor}"
+                            BorderThickness="1"
+                            CornerRadius="{DynamicResource MediumCornerRadius}"
+                            Height="100"
+                            Padding="12" />
                     </TabItem>
                     <TabItem Header="Disabled" IsEnabled="False" />
                 </TabControl>
@@ -38,7 +54,7 @@
         </Border>
     </Design.PreviewWith>
 
-    <ControlTheme x:Key="TabControlTheme" TargetType="TabControl">
+    <ControlTheme TargetType="TabControl" x:Key="TabControlTheme">
         <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
         <Setter Property="Background" Value="{DynamicResource BackgroundColor}" />
         <Setter Property="ItemsPanel">
@@ -50,26 +66,30 @@
         </Setter>
         <Setter Property="Template">
             <ControlTemplate>
-                <Border HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
-                        VerticalAlignment="{TemplateBinding VerticalAlignment}"
-                        Background="{TemplateBinding Background}"
-                        BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}"
-                        CornerRadius="{TemplateBinding CornerRadius}">
+                <Border
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="{TemplateBinding CornerRadius}"
+                    HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                    VerticalAlignment="{TemplateBinding VerticalAlignment}">
                     <StackPanel Spacing="8">
-                        <LayoutTransformControl Name="PART_LayoutTransform"
-                                                DockPanel.Dock="{TemplateBinding TabStripPlacement}">
-                            <Border HorizontalAlignment="Left" CornerRadius="{DynamicResource LargeCornerRadius}"
-                                    Padding="4" Background="{DynamicResource TabItemsBackgroundColor}">
-                                <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
+                        <LayoutTransformControl DockPanel.Dock="{TemplateBinding TabStripPlacement}" Name="PART_LayoutTransform">
+                            <Border
+                                Background="{DynamicResource TabItemsBackgroundColor}"
+                                CornerRadius="{DynamicResource LargeCornerRadius}"
+                                HorizontalAlignment="Left"
+                                Padding="4">
+                                <ItemsPresenter ItemsPanel="{TemplateBinding ItemsPanel}" Name="PART_ItemsPresenter" />
                             </Border>
                         </LayoutTransformControl>
-                        <ContentPresenter Name="PART_SelectedContentHost"
-                                          Margin="{TemplateBinding Padding}"
-                                          HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                          VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                                          Content="{TemplateBinding SelectedContent}"
-                                          ContentTemplate="{TemplateBinding SelectedContentTemplate}" />
+                        <ContentPresenter
+                            Content="{TemplateBinding SelectedContent}"
+                            ContentTemplate="{TemplateBinding SelectedContentTemplate}"
+                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            Margin="{TemplateBinding Padding}"
+                            Name="PART_SelectedContentHost"
+                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
                     </StackPanel>
                 </Border>
             </ControlTemplate>
@@ -107,7 +127,8 @@
         </Style>
     </ControlTheme>
 
-    <ControlTheme x:Key="{x:Type TabControl}"
-                  BasedOn="{StaticResource TabControlTheme}"
-                  TargetType="TabControl" />
+    <ControlTheme
+        BasedOn="{StaticResource TabControlTheme}"
+        TargetType="TabControl"
+        x:Key="{x:Type TabControl}" />
 </ResourceDictionary>
