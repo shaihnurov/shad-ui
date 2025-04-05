@@ -1,3 +1,4 @@
+using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
@@ -186,5 +187,20 @@ public sealed partial class MainWindowViewModel(
     {
         SelectedPage = dashboardViewModel;
         dashboardViewModel.Initialize();
+    }
+
+    [RelayCommand]
+    private void TryClose()
+    {
+        DialogManager.CreateDialog("Close", "Do you really want to exit?")
+            .WithPrimaryButton("Yes", OnAcceptExit)
+            .WithCancelButton("No")
+            .WithMinWidth(300)
+            .Show();
+    }
+
+    private void OnAcceptExit()
+    {
+        Environment.Exit(0);
     }
 }

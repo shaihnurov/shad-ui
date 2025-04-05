@@ -19,7 +19,7 @@
     Width="1024" Height="768"
     Icon="/Assets/favicon.ico"
     TitleFontWeight="SemiBold"
-    Title="ShadUI App">
+    Title="ShadUI App" IsMenuVisible="True">
     <controls:Window.DataTemplates>
         <ui:DataTemplateInclude Source="avares://ShadUI.Demo/Views/PageDataTemplates.axaml" />
     </controls:Window.DataTemplates>
@@ -30,6 +30,12 @@
         <dialogs:DialogHost Manager="{Binding DialogManager}"
                             Owner="{Binding RelativeSource={RelativeSource AncestorType=controls:Window}}" />
     </controls:Window.Hosts>
+    <controls:Window.MenuItems>
+        <MenuItem Header="File">
+            <MenuItem Header="Close" Width="175"  Command="{Binding TryCloseCommand}">
+            </MenuItem>
+        </MenuItem>
+    </controls:Window.MenuItems>
     <Panel>
         <controls:SidebarMenu>
             <controls:SidebarMenu.Styles>
