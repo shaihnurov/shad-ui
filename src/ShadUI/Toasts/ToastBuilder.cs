@@ -31,6 +31,8 @@ public sealed class ToastBuilder
 
     internal bool DismissOnClick { get; set; }
 
+    internal ToastPosition Position { get; set; }
+
     internal ToastBuilder CreateToast(string title)
     {
         _toast = new Toast(_manager)
@@ -50,6 +52,7 @@ public sealed class ToastBuilder
         _toast.ActionLabel = ActionLabel;
         _toast.CanDismissByClicking = DismissOnClick;
         _toast.Action = Action;
+        _toast.Position = Position;
         _manager.Queue(_toast);
     }
 }

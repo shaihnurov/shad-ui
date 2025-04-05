@@ -84,16 +84,20 @@ public class ToastHost : ItemsControl
         HorizontalAlignment = position switch
         {
             ToastPosition.BottomRight => HorizontalAlignment.Right,
+            ToastPosition.BottomCenter => HorizontalAlignment.Center,
             ToastPosition.BottomLeft => HorizontalAlignment.Left,
             ToastPosition.TopRight => HorizontalAlignment.Right,
+            ToastPosition.TopCenter => HorizontalAlignment.Center,
             ToastPosition.TopLeft => HorizontalAlignment.Left,
             _ => throw new ArgumentOutOfRangeException()
         };
         VerticalAlignment = position switch
         {
             ToastPosition.BottomRight => VerticalAlignment.Bottom,
+            ToastPosition.BottomCenter => VerticalAlignment.Bottom,
             ToastPosition.BottomLeft => VerticalAlignment.Bottom,
             ToastPosition.TopRight => VerticalAlignment.Top,
+            ToastPosition.TopCenter => VerticalAlignment.Top,
             ToastPosition.TopLeft => VerticalAlignment.Top,
             _ => throw new ArgumentOutOfRangeException()
         };
@@ -136,9 +140,27 @@ public class ToastHost : ItemsControl
     private void ManagerOnToastQueued(object sender, Toast toast)
     {
         if (MaxToasts <= 0) return;
-        Items.Add(toast);
-        Manager.EnsureMaximum(MaxToasts);
-        toast.AnimateShow();
+
+        if (Position != toast.Position)
+        {
+            foreach (var t in Items)
+                ClearToast((Toast) t!);
+            Task.Delay(300).ContinueWith(_ => ShowToast(), TaskScheduler.FromCurrentSynchronizationContext());
+        }
+        else
+        {
+            ShowToast();
+        }
+        return;
+
+        void ShowToast()
+        {
+            Items.Add(toast);
+            Manager.EnsureMaximum(MaxToasts);
+
+            Position = toast.Position;
+            toast.AnimateShow();
+        }
     }
 
     private void ClearToast(Toast toast)

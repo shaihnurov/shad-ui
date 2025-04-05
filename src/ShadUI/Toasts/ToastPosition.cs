@@ -16,6 +16,11 @@ public enum ToastPosition
     BottomLeft,
 
     /// <summary>
+    ///     Places the toast in the bottom center corner of the screen.
+    /// </summary>
+    BottomCenter,
+
+    /// <summary>
     ///     Places the toast in the top right corner of the screen.
     /// </summary>
     TopRight,
@@ -23,5 +28,10 @@ public enum ToastPosition
     /// <summary>
     ///     Places the toast in the top left corner of the screen.
     /// </summary>
-    TopLeft
+    TopLeft,
+
+    /// <summary>
+    ///     Places the toast in the top center corner of the screen.
+    /// </summary>
+    TopCenter
 }

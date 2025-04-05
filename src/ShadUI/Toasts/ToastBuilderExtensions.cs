@@ -55,6 +55,84 @@ public static class ToastBuilderExtensions
     }
 
     /// <summary>
+    ///     Sets the toast position to the top left.
+    /// </summary>
+    /// <param name="builder">The current <see cref="ToastBuilder" /></param>
+    /// <returns>
+    ///     <see cref="ToastBuilder" />
+    /// </returns>
+    public static ToastBuilder OnTopLeft(this ToastBuilder builder)
+    {
+        builder.Position = ToastPosition.TopLeft;
+        return builder;
+    }
+
+    /// <summary>
+    ///     Sets the toast position to the top center.
+    /// </summary>
+    /// <param name="builder">The current <see cref="ToastBuilder" /></param>
+    /// <returns>
+    ///     <see cref="ToastBuilder" />
+    /// </returns>
+    public static ToastBuilder OnTopCenter(this ToastBuilder builder)
+    {
+        builder.Position = ToastPosition.TopCenter;
+        return builder;
+    }
+    
+    /// <summary>
+    ///     Sets the toast position to the top right.
+    /// </summary>
+    /// <param name="builder">The current <see cref="ToastBuilder" /></param>
+    /// <returns>
+    ///     <see cref="ToastBuilder" />
+    /// </returns>
+    public static ToastBuilder OnTopRight(this ToastBuilder builder)
+    {
+        builder.Position = ToastPosition.TopRight;
+        return builder;
+    }
+
+    /// <summary>
+    ///     Sets the toast position to the bottom left.
+    /// </summary>
+    /// <param name="builder">The current <see cref="ToastBuilder" /></param>
+    /// <returns>
+    ///     <see cref="ToastBuilder" />
+    /// </returns>
+    public static ToastBuilder OnBottomLeft(this ToastBuilder builder)
+    {
+        builder.Position = ToastPosition.BottomLeft;
+        return builder;
+    }
+
+    /// <summary>
+    ///     Sets the toast position to the bottom center.
+    /// </summary>
+    /// <param name="builder">The current <see cref="ToastBuilder" /></param>
+    /// <returns>
+    ///     <see cref="ToastBuilder" />
+    /// </returns>
+    public static ToastBuilder OnBottomCenter(this ToastBuilder builder)
+    {
+        builder.Position = ToastPosition.BottomCenter;
+        return builder;
+    }
+    
+    /// <summary>
+    ///     Sets the toast position to the bottom right.
+    /// </summary>
+    /// <param name="builder">The current <see cref="ToastBuilder" /></param>
+    /// <returns>
+    ///     <see cref="ToastBuilder" />
+    /// </returns>
+    public static ToastBuilder OnBottomRight(this ToastBuilder builder)
+    {
+        builder.Position = ToastPosition.BottomRight;
+        return builder;
+    }
+
+    /// <summary>
     ///     Sets the toast to be dismissed when clicked.
     /// </summary>
     /// <param name="builder"></param>
