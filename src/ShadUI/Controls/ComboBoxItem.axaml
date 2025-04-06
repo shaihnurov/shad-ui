@@ -8,13 +8,15 @@
         <Setter Property="HorizontalAlignment" Value="Stretch" />
         <Setter Property="HorizontalContentAlignment" Value="Left" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="FocusAdorner" Value="{x:Null}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource SmallCornerRadius}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Border
                     Background="{TemplateBinding Background}"
                     BorderBrush="{TemplateBinding BorderBrush}"
                     BorderThickness="{TemplateBinding BorderThickness}"
-                    CornerRadius="6"
+                    CornerRadius="{TemplateBinding CornerRadius}"
                     Margin="3,0,3,3"
                     MinHeight="36"
                     Name="BorderBasicStyle"
@@ -37,7 +39,7 @@
                             Background="Transparent"
                             Content="{TemplateBinding Content}"
                             ContentTemplate="{TemplateBinding ContentTemplate}"
-                            CornerRadius="{DynamicResource SmallCornerRadius}"
+                            CornerRadius="{TemplateBinding CornerRadius}"
                             HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                             Margin="1"
                             Name="PART_ContentPresenter"
@@ -57,7 +59,13 @@
         <Style Selector="^TextBlock">
             <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
         </Style>
+        <Style Selector="^:selected:not(:pointerover) /template/ Border#BorderBasicStyle">
+            <Setter Property="Background" Value="{DynamicResource CardBackgroundColor}" />
+        </Style>
         <Style Selector="^:pointerover /template/ Border#BorderBasicStyle">
+            <Setter Property="Background" Value="{DynamicResource GhostHoverColor}" />
+        </Style>
+        <Style Selector="^:focus /template/ Border#BorderBasicStyle">
             <Setter Property="Background" Value="{DynamicResource GhostColor}" />
         </Style>
     </ControlTheme>
