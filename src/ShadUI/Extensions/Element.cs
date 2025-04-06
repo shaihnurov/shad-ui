@@ -37,10 +37,10 @@ public class Element
     ///     Sets the classes of the element.
     /// </summary>
     /// <param name="element"></param>
-    /// <param name="commandValue"></param>
-    public static void SetClasses(AvaloniaObject element, Template commandValue)
+    /// <param name="value"></param>
+    public static void SetClasses(AvaloniaObject element, string value)
     {
-        element.SetValue(ClassesProperty, commandValue);
+        element.SetValue(ClassesProperty, value);
     }
 
     /// <summary>
