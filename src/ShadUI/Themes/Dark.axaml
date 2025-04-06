@@ -35,7 +35,8 @@
     <Color x:Key="TabItemSelectedColor">#09090B</Color>
     <Color x:Key="TabItemsBackgroundColor">#27272A</Color>
     <Color x:Key="OutlineColor">#BF27272A</Color>
-    <Color x:Key="GhostColor">#BF27272A</Color>
+    <Color x:Key="GhostColor">#27272A</Color>
+    <Color x:Key="GhostHoverColor">#121214</Color>
 
     <Color x:Key="BusyAreaOverlayColor">#000000</Color>
     <Color x:Key="DialogOverlayColor">#000000</Color>
