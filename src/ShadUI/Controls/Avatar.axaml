@@ -11,7 +11,7 @@
         <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
         <Setter Property="FontSize" Value="18" />
         <Setter Property="FontWeight" Value="DemiBold" />
-        <Setter Property="CornerRadius" Value="{DynamicResource RoundedCornerRadius}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource FullCornerRadius}" />
         <Setter Property="Background" Value="{DynamicResource GhostColor}" />
         <Setter Property="Template">
             <Setter.Value>

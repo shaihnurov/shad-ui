@@ -109,7 +109,7 @@
                                         <Panel>
                                             <Border
                                                 Background="{DynamicResource BorderColor}"
-                                                CornerRadius="{DynamicResource MediumCornerRadius}"
+                                                CornerRadius="{DynamicResource MdCornerRadius}"
                                                 Margin="0,3"
                                                 Name="ThumbBarVertical"
                                                 Width="3">

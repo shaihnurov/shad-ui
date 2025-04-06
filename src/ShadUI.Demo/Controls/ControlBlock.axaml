@@ -66,7 +66,7 @@
                         </ContentPresenter>
                         <Border
                             Background="{DynamicResource PrimaryColor}"
-                            CornerRadius="{DynamicResource RoundedCornerRadius}"
+                            CornerRadius="{DynamicResource FullCornerRadius}"
                             Height="2"
                             Name="PART_Underline"
                             Opacity="0">

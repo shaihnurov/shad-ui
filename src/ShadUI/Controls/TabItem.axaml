@@ -7,7 +7,7 @@
                         <Border
                             BorderBrush="{DynamicResource BorderColor}"
                             BorderThickness="1"
-                            CornerRadius="{DynamicResource MediumCornerRadius}"
+                            CornerRadius="{DynamicResource MdCornerRadius}"
                             Height="100"
                             Padding="12">
                             <TextBlock
@@ -20,7 +20,7 @@
                         <Border
                             BorderBrush="{DynamicResource BorderColor}"
                             BorderThickness="1"
-                            CornerRadius="{DynamicResource MediumCornerRadius}"
+                            CornerRadius="{DynamicResource MdCornerRadius}"
                             Height="100"
                             Padding="12" />
                     </TabItem>
@@ -31,7 +31,7 @@
                         <Border
                             BorderBrush="{DynamicResource BorderColor}"
                             BorderThickness="1"
-                            CornerRadius="{DynamicResource MediumCornerRadius}"
+                            CornerRadius="{DynamicResource MdCornerRadius}"
                             Height="100"
                             Padding="12">
                             <TextBlock
@@ -44,7 +44,7 @@
                         <Border
                             BorderBrush="{DynamicResource BorderColor}"
                             BorderThickness="1"
-                            CornerRadius="{DynamicResource MediumCornerRadius}"
+                            CornerRadius="{DynamicResource MdCornerRadius}"
                             Height="100"
                             Padding="12" />
                     </TabItem>
@@ -61,7 +61,7 @@
         <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="HorizontalContentAlignment" Value="Left" />
-        <Setter Property="CornerRadius" Value="{DynamicResource MediumCornerRadius}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource MdCornerRadius}" />
         <Setter Property="Cursor" Value="Hand" />
         <Setter Property="Padding" Value="16,6" />
         <Setter Property="Template">

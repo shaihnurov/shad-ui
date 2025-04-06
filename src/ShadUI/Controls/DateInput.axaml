@@ -25,7 +25,7 @@
 
     <ControlTheme TargetType="TextBox" x:Key="InputBoxTheme">
         <Setter Property="MinWidth" Value="32" />
-        <Setter Property="CornerRadius" Value="{DynamicResource SmallCornerRadius}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource SmCornerRadius}" />
         <Setter Property="Padding" Value="4" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
@@ -93,7 +93,7 @@
         <Setter Property="FontSize" Value="14" />
         <Setter Property="Background" Value="{DynamicResource BackgroundColor}" />
         <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
-        <Setter Property="CornerRadius" Value="{DynamicResource MediumCornerRadius}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource MdCornerRadius}" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="BorderBrush" Value="{DynamicResource BorderColor}" />
         <Setter Property="extensions:Element.FocusOnLoad" Value="False" />

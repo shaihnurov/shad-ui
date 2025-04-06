@@ -33,7 +33,7 @@
     <ControlTheme TargetType="ToggleButton" x:Key="SideToggleButtonTheme">
         <Setter Property="Height" Value="36" />
         <Setter Property="Width" Value="36" />
-        <Setter Property="CornerRadius" Value="{DynamicResource MediumCornerRadius}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource MdCornerRadius}" />
         <Setter Property="Background" Value="{DynamicResource BackgroundColor}" />
         <Setter Property="Template">
             <Setter.Value>

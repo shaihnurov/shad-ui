@@ -111,7 +111,7 @@
                     Background="{DynamicResource PrimaryForegroundColor}"
                     BorderBrush="{DynamicResource BorderColor}"
                     BorderThickness="1"
-                    CornerRadius="{DynamicResource RoundedCornerRadius}" />
+                    CornerRadius="{DynamicResource FullCornerRadius}" />
             </ControlTemplate>
         </Setter>
         <Style Selector="^:pressed">

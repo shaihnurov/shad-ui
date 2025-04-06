@@ -31,7 +31,7 @@
                         BorderBrush="{DynamicResource BorderColor}"
                         BorderThickness="1"
                         ClipToBounds="False"
-                        CornerRadius="{DynamicResource MediumCornerRadius}"
+                        CornerRadius="{DynamicResource LgCornerRadius}"
                         HorizontalAlignment="Center"
                         MaxWidth="{TemplateBinding DialogMaxWidth}"
                         MinWidth="{TemplateBinding DialogMinWidth}"
@@ -55,7 +55,7 @@
                         <Panel>
                             <Button
                                 Background="{DynamicResource DialogBackgroundColor}"
-                                CornerRadius="{DynamicResource MediumCornerRadius}"
+                                CornerRadius="{DynamicResource MdCornerRadius}"
                                 Height="24"
                                 HorizontalAlignment="Right"
                                 HotKey="Escape"

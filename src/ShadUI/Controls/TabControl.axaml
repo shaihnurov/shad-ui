@@ -7,7 +7,7 @@
                         <Border
                             BorderBrush="{DynamicResource BorderColor}"
                             BorderThickness="1"
-                            CornerRadius="{DynamicResource MediumCornerRadius}"
+                            CornerRadius="{DynamicResource MdCornerRadius}"
                             Height="100"
                             Padding="12">
                             <TextBlock
@@ -20,7 +20,7 @@
                         <Border
                             BorderBrush="{DynamicResource BorderColor}"
                             BorderThickness="1"
-                            CornerRadius="{DynamicResource MediumCornerRadius}"
+                            CornerRadius="{DynamicResource MdCornerRadius}"
                             Height="100"
                             Padding="12" />
                     </TabItem>
@@ -31,7 +31,7 @@
                         <Border
                             BorderBrush="{DynamicResource BorderColor}"
                             BorderThickness="1"
-                            CornerRadius="{DynamicResource MediumCornerRadius}"
+                            CornerRadius="{DynamicResource MdCornerRadius}"
                             Height="100"
                             Padding="12">
                             <TextBlock
@@ -44,7 +44,7 @@
                         <Border
                             BorderBrush="{DynamicResource BorderColor}"
                             BorderThickness="1"
-                            CornerRadius="{DynamicResource MediumCornerRadius}"
+                            CornerRadius="{DynamicResource MdCornerRadius}"
                             Height="100"
                             Padding="12" />
                     </TabItem>
@@ -77,7 +77,7 @@
                         <LayoutTransformControl DockPanel.Dock="{TemplateBinding TabStripPlacement}" Name="PART_LayoutTransform">
                             <Border
                                 Background="{DynamicResource TabItemsBackgroundColor}"
-                                CornerRadius="{DynamicResource LargeCornerRadius}"
+                                CornerRadius="{DynamicResource LgCornerRadius}"
                                 HorizontalAlignment="Left"
                                 Padding="4">
                                 <ItemsPresenter ItemsPanel="{TemplateBinding ItemsPanel}" Name="PART_ItemsPresenter" />

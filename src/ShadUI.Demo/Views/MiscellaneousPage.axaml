@@ -33,7 +33,7 @@
                         <Border
                             BorderBrush="{DynamicResource BorderColor}"
                             BorderThickness="1"
-                            CornerRadius="{DynamicResource LargeCornerRadius}"
+                            CornerRadius="{DynamicResource XlCornerRadius}"
                             Height="400">
                             <Panel>
                                 <Button
@@ -43,7 +43,7 @@
                                     VerticalAlignment="Center">
                                     Load
                                 </Button>
-                                <shadui:BusyArea CornerRadius="{DynamicResource LargeCornerRadius}" IsBusy="{Binding IsBusy}" />
+                                <shadui:BusyArea CornerRadius="{DynamicResource LgCornerRadius}" IsBusy="{Binding IsBusy}" />
                             </Panel>
                         </Border>
                     </controls:ControlBlock>
@@ -57,7 +57,7 @@
                             Orientation="Horizontal"
                             Spacing="16">
                             <shadui:Skeleton
-                                CornerRadius="{DynamicResource RoundedCornerRadius}"
+                                CornerRadius="{DynamicResource FullCornerRadius}"
                                 Height="64"
                                 Width="64" />
                             <StackPanel Spacing="8" VerticalAlignment="Center">

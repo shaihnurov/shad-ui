@@ -31,7 +31,7 @@
                 <Panel>
                     <Border
                         Background="Transparent"
-                        CornerRadius="{DynamicResource MediumCornerRadius}"
+                        CornerRadius="{DynamicResource MdCornerRadius}"
                         Margin="15,2"
                         MinWidth="85"
                         Name="PART_Border"
@@ -87,7 +87,7 @@
         </Setter>
         <Style Selector="^.Compact /template/ Border#PART_Border">
             <Setter Property="Padding" Value="30,10,15,10" />
-            <Setter Property="CornerRadius" Value="{DynamicResource MediumCornerRadius}" />
+            <Setter Property="CornerRadius" Value="{DynamicResource MdCornerRadius}" />
         </Style>
         <Style Selector="^:pointerover">
             <Style Selector="^ /template/ Border#PART_Border">

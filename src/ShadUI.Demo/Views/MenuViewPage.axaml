@@ -35,7 +35,7 @@
                             BorderBrush="{DynamicResource BorderColor}"
                             BorderThickness="1"
                             BoxShadow="{DynamicResource Shadow}"
-                            CornerRadius="{DynamicResource MediumCornerRadius}"
+                            CornerRadius="{DynamicResource MdCornerRadius}"
                             Height="36"
                             HorizontalAlignment="Center"
                             Padding="4">
@@ -98,7 +98,7 @@
                                         <MenuItem.Icon>
                                             <Border
                                                 Background="{DynamicResource ForegroundColor}"
-                                                CornerRadius="{DynamicResource RoundedCornerRadius}"
+                                                CornerRadius="{DynamicResource FullCornerRadius}"
                                                 Height="12"
                                                 Width="12" />
                                         </MenuItem.Icon>

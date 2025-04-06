@@ -6,7 +6,7 @@ public sealed partial class MenuViewModel : ViewModelBase
 {
     [ObservableProperty]
     private string _menuBarCode = """
-                                  <Border HorizontalAlignment="Center" CornerRadius="{DynamicResource MediumCornerRadius}"
+                                  <Border HorizontalAlignment="Center" CornerRadius="{DynamicResource MdCornerRadius}"
                                           BorderBrush="{DynamicResource BorderColor}" BorderThickness="1"
                                           BoxShadow="{DynamicResource Shadow}" Padding="4" Height="36">
                                       <Menu>
@@ -58,7 +58,7 @@ public sealed partial class MenuViewModel : ViewModelBase
                                               <MenuItem Header="Andy" Width="192" />
                                               <MenuItem Header="Benoit">
                                                   <MenuItem.Icon>
-                                                      <Border CornerRadius="{DynamicResource RoundedCornerRadius}" Width="12"
+                                                      <Border CornerRadius="{DynamicResource FullCornerRadius}" Width="12"
                                                               Height="12" Background="{DynamicResource ForegroundColor}" />
                                                   </MenuItem.Icon>
                                               </MenuItem>

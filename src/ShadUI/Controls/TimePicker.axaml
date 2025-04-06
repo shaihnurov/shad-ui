@@ -69,7 +69,7 @@
 
     <ControlTheme TargetType="TimePicker" x:Key="{x:Type TimePicker}">
         <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="CornerRadius" Value="{DynamicResource MediumCornerRadius}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource MdCornerRadius}" />
         <Setter Property="BorderBrush" Value="{DynamicResource BorderColor}" />
         <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
         <Setter Property="Background" Value="{DynamicResource CardBackgroundColor}" />
@@ -272,7 +272,7 @@
     <ControlTheme TargetType="ListBoxItem" x:Key="ListBoxItemTheme">
         <Setter Property="Background" Value="{DynamicResource CardBackgroundColor}" />
         <Setter Property="FontSize" Value="14" />
-        <Setter Property="CornerRadius" Value="{DynamicResource MediumCornerRadius}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource MdCornerRadius}" />
         <Setter Property="TextBlock.TextAlignment" Value="Center" />
         <Setter Property="Padding" Value="8" />
         <Setter Property="Template">
@@ -314,7 +314,7 @@
         <Setter Property="MinWidth" Value="262" />
         <Setter Property="MaxHeight" Value="398" />
         <Setter Property="FontWeight" Value="Normal" />
-        <Setter Property="CornerRadius" Value="{DynamicResource MediumCornerRadius}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource MdCornerRadius}" />
         <Setter Property="Background" Value="{DynamicResource CardBackgroundColor}" />
         <Setter Property="BorderBrush" Value="{DynamicResource BorderColor}" />
         <Setter Property="BorderThickness" Value="1" />

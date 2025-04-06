@@ -16,11 +16,11 @@
                         BorderBrush="{DynamicResource BorderColor}"
                         BorderThickness="1"
                         ClipToBounds="True"
-                        CornerRadius="{DynamicResource MediumCornerRadius}"
+                        CornerRadius="{DynamicResource MdCornerRadius}"
                         MinWidth="350"
                         Name="PART_ToastCardInner">
                         <Panel>
-                            <Border CornerRadius="{DynamicResource MediumCornerRadius}" Name="PART_InnerCardBackground" />
+                            <Border CornerRadius="{DynamicResource MdCornerRadius}" Name="PART_InnerCardBackground" />
                             <Grid ColumnDefinitions="Auto * Auto" Margin="16">
                                 <PathIcon
                                     Data="{x:Static icons:Icons.Warning}"
@@ -53,7 +53,7 @@
                                 </Button>
                             </Grid>
                             <Button
-                                CornerRadius="{DynamicResource RoundedCornerRadius}"
+                                CornerRadius="{DynamicResource FullCornerRadius}"
                                 Height="20"
                                 HorizontalAlignment="Right"
                                 HotKey="Escape"

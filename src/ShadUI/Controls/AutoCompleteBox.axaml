@@ -87,7 +87,7 @@
         <Setter Property="Background" Value="{DynamicResource CardBackgroundColor}" />
         <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
         <Setter Property="Padding" Value="2" />
-        <Setter Property="CornerRadius" Value="{DynamicResource SmallCornerRadius}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource SmCornerRadius}" />
         <Setter Property="HorizontalAlignment" Value="Stretch" />
         <Setter Property="HorizontalContentAlignment" Value="Left" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
@@ -113,7 +113,7 @@
                         Background="Transparent"
                         Content="{TemplateBinding Content}"
                         ContentTemplate="{TemplateBinding ContentTemplate}"
-                        CornerRadius="{DynamicResource SmallCornerRadius}"
+                        CornerRadius="{DynamicResource SmCornerRadius}"
                         HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                         Margin="1"
                         Name="PART_ContentPresenter"
@@ -153,7 +153,7 @@
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="BorderBrush" Value="{DynamicResource BorderColor}" />
         <Setter Property="Padding" Value="12,4" />
-        <Setter Property="CornerRadius" Value="{DynamicResource MediumCornerRadius}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource MdCornerRadius}" />
         <Setter Property="FocusAdorner" Value="{x:Null}" />
         <Setter Property="extensions:ControlAssist.ShowProgress" Value="False" />
         <Setter Property="extensions:ControlAssist.MinHeight" Value="36" />
@@ -210,7 +210,7 @@
                                 BorderBrush="{DynamicResource BorderColor}"
                                 BorderThickness="1"
                                 BoxShadow="{DynamicResource Shadow}"
-                                CornerRadius="{DynamicResource MediumCornerRadius}">
+                                CornerRadius="{DynamicResource MdCornerRadius}">
                                 <ListBox
                                     Background="{TemplateBinding Background}"
                                     BorderThickness="0"

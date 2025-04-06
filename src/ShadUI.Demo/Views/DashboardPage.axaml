@@ -28,7 +28,7 @@
                         <StackPanel>
                             <breakpoints:ViewPort>
                                 <breakpoints:View Breakpoint="MdAndUp">
-                                    <UniformGrid Columns="4">
+                                    <UniformGrid Columns="4" Margin="-8,0">
                                         <dashboard:OverviewCard
                                             Hint="+180.1% from last month"
                                             Title="Total Revenue"
@@ -80,7 +80,7 @@
                                     </UniformGrid>
                                 </breakpoints:View>
                                 <breakpoints:View Breakpoint="MdAndDown">
-                                    <UniformGrid Columns="2">
+                                    <UniformGrid Columns="2" Margin="-8,0">
                                         <dashboard:OverviewCard
                                             Hint="+180.1% from last month"
                                             Title="Total Revenue"
@@ -134,13 +134,13 @@
                             </breakpoints:ViewPort>
                             <breakpoints:ViewPort>
                                 <breakpoints:View Breakpoint="MdAndUp">
-                                    <Grid ColumnDefinitions="3* 2*">
+                                    <Grid ColumnDefinitions="3* 2*" Margin="-8,0">
                                         <Border
                                             Background="{DynamicResource CardBackgroundColor}"
                                             BorderBrush="{DynamicResource BorderColor}"
                                             BorderThickness="1"
                                             BoxShadow="0 2 4 0 #20000000"
-                                            CornerRadius="{DynamicResource LargeCornerRadius}"
+                                            CornerRadius="{DynamicResource 2XlCornerRadius}"
                                             Margin="8">
                                             <DockPanel>
                                                 <TextBlock
@@ -163,7 +163,7 @@
                                             BorderBrush="{DynamicResource BorderColor}"
                                             BorderThickness="1"
                                             BoxShadow="0 2 4 0 #20000000"
-                                            CornerRadius="{DynamicResource LargeCornerRadius}"
+                                            CornerRadius="{DynamicResource 2XlCornerRadius}"
                                             Grid.Column="1"
                                             Margin="8">
                                             <DockPanel>
@@ -274,13 +274,13 @@
                                     </Grid>
                                 </breakpoints:View>
                                 <breakpoints:View Breakpoint="MdAndDown">
-                                    <Grid RowDefinitions="* *">
+                                    <Grid Margin="-8,0" RowDefinitions="* *">
                                         <Border
                                             Background="{DynamicResource CardBackgroundColor}"
                                             BorderBrush="{DynamicResource BorderColor}"
                                             BorderThickness="1"
                                             BoxShadow="0 2 4 0 #20000000"
-                                            CornerRadius="{DynamicResource LargeCornerRadius}"
+                                            CornerRadius="{DynamicResource 2XlCornerRadius}"
                                             Margin="8"
                                             MinHeight="360">
                                             <DockPanel>
@@ -304,7 +304,7 @@
                                             BorderBrush="{DynamicResource BorderColor}"
                                             BorderThickness="1"
                                             BoxShadow="0 2 4 0 #20000000"
-                                            CornerRadius="{DynamicResource LargeCornerRadius}"
+                                            CornerRadius="{DynamicResource 2XlCornerRadius}"
                                             Grid.Row="1"
                                             Margin="8">
                                             <DockPanel>

@@ -11,7 +11,7 @@
                 <Border
                     BorderBrush="{DynamicResource BorderColor}"
                     BorderThickness="1"
-                    CornerRadius="{DynamicResource MediumCornerRadius}"
+                    CornerRadius="{DynamicResource MdCornerRadius}"
                     MaxWidth="500"
                     Padding="24">
                     <dialogs:SimpleDialog
@@ -24,7 +24,7 @@
                 <Border
                     BorderBrush="{DynamicResource BorderColor}"
                     BorderThickness="1"
-                    CornerRadius="{DynamicResource MediumCornerRadius}"
+                    CornerRadius="{DynamicResource MdCornerRadius}"
                     MaxWidth="500"
                     Padding="24">
                     <dialogs:SimpleDialog
@@ -38,7 +38,7 @@
                 <Border
                     BorderBrush="{DynamicResource BorderColor}"
                     BorderThickness="1"
-                    CornerRadius="{DynamicResource MediumCornerRadius}"
+                    CornerRadius="{DynamicResource MdCornerRadius}"
                     MaxWidth="500"
                     Padding="24">
                     <dialogs:SimpleDialog

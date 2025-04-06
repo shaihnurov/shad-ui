@@ -25,7 +25,7 @@
         </ControlTheme.Resources>
         <Setter Property="Padding" Value="8,12" />
         <Setter Property="MinHeight" Value="50" />
-        <Setter Property="CornerRadius" Value="{DynamicResource MediumCornerRadius}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource XlCornerRadius}" />
         <Setter Property="Background" Value="{DynamicResource CodeBackgroundColor}" />
         <Setter Property="Foreground" Value="{DynamicResource CodeForegroundColor}" />
         <Setter Property="FontSize" Value="13" />

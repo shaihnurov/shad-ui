@@ -34,7 +34,7 @@
     <ControlTheme TargetType="Button" x:Key="ButtonStyle">
         <Setter Property="FontFamily" Value="{DynamicResource FontFamily}" />
         <Setter Property="BorderBrush" Value="{DynamicResource MediumBorderBrushColor}" />
-        <Setter Property="CornerRadius" Value="{DynamicResource MediumCornerRadius}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource MdCornerRadius}" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="extensions:Button.Icon" Value="{x:Null}" />

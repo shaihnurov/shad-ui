@@ -8,7 +8,7 @@
     <converters:PlatformKeyGestureConverter x:Key="KeyGestureConverter" />
     <ControlTheme TargetType="MenuItem" x:Key="{x:Type MenuItem}">
         <Setter Property="Background" Value="{DynamicResource CardBackgroundColor}" />
-        <Setter Property="CornerRadius" Value="{DynamicResource SmallCornerRadius}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource SmCornerRadius}" />
         <Setter Property="BorderThickness" Value="1.5" />
         <Setter Property="Margin" Value="4,2" />
         <Setter Property="Padding" Value="12,8" />
@@ -101,7 +101,7 @@
                                     BorderBrush="{DynamicResource BorderColor}"
                                     BorderThickness="1"
                                     BoxShadow="{DynamicResource Shadow}"
-                                    CornerRadius="{DynamicResource MediumCornerRadius}"
+                                    CornerRadius="{DynamicResource MdCornerRadius}"
                                     Margin="32,0,2,4"
                                     Name="PART_Border">
                                     <StackPanel Margin="0,2">
