@@ -10,6 +10,7 @@
     xmlns:extensions="clr-namespace:ShadUI.Extensions;assembly=ShadUI"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:shadui="clr-namespace:ShadUI.Controls;assembly=ShadUI"
+    xmlns:system="clr-namespace:System;assembly=System.Runtime"
     xmlns:viewModels="clr-namespace:ShadUI.Demo.ViewModels"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <DockPanel LastChildFill="True">
@@ -89,6 +90,28 @@
                                         Width="16" />
                                 </TextBox.InnerRightContent>
                             </TextBox>
+                        </StackPanel>
+                    </controls:ControlBlock>
+                    <controls:ControlBlock
+                        Code="{Binding AutoCompleteBoxCode}"
+                        Language="xaml"
+                        Title="Auto Complete Box">
+                        <StackPanel>
+                            <AutoCompleteBox
+                                FilterMode="Contains"
+                                ItemsSource="{Binding WebFrameworks}"
+                                Watermark="Search here..."
+                                Width="225"
+                                extensions:ControlAssist.Hint="Your favorite web framework"
+                                extensions:ControlAssist.Label="Search a framework"
+                                extensions:Element.Classes="Clearable">
+                                <AutoCompleteBox.InnerRightContent>
+                                    <PathIcon
+                                        Data="{x:Static contents:Icons.Search}"
+                                        Opacity="0.75"
+                                        Width="16" />
+                                </AutoCompleteBox.InnerRightContent>
+                            </AutoCompleteBox>
                         </StackPanel>
                     </controls:ControlBlock>
                     <controls:ControlBlock

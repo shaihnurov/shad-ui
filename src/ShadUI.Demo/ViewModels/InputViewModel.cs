@@ -1,6 +1,6 @@
-﻿using System;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.Timers;
 using Avalonia.Threading;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -12,7 +12,7 @@ namespace ShadUI.Demo.ViewModels;
 public sealed partial class InputViewModel : ViewModelBase
 {
     private readonly ToastManager _toastManager;
-    private System.Timers.Timer? _searchTimer;
+    private readonly Timer? _searchTimer;
 
     public InputViewModel(ToastManager toastManager)
     {
@@ -20,7 +20,7 @@ public sealed partial class InputViewModel : ViewModelBase
         PropertyChanged += OnPropertyChanged;
         ErrorsChanged += (_, _) => SubmitCommand.NotifyCanExecuteChanged();
 
-        _searchTimer = new System.Timers.Timer(500); // 500ms debounce
+        _searchTimer = new Timer(500); // 500ms debounce
         _searchTimer.Elapsed += SearchTimerElapsed;
         _searchTimer.AutoReset = false;
     }
@@ -45,7 +45,7 @@ public sealed partial class InputViewModel : ViewModelBase
         }
     }
 
-    private void SearchTimerElapsed(object? sender, System.Timers.ElapsedEventArgs e)
+    private void SearchTimerElapsed(object? sender, ElapsedEventArgs e)
     {
         Dispatcher.UIThread.Invoke(() =>
         {
@@ -134,6 +134,30 @@ public sealed partial class InputViewModel : ViewModelBase
                                         </TextBox>
                                     </StackPanel>
                                     """;
+    
+    [ObservableProperty]
+    private string[] _webFrameworks = ["Next.js", "Sveltekit", "Nuxt.js", "Remix", "Astro"];
+
+    [ObservableProperty]
+    private string _autoCompleteBoxCode = """
+                                          <StackPanel>
+                                              <AutoCompleteBox
+                                                  FilterMode="Contains"
+                                                  ItemsSource="{Binding WebFrameworks}"
+                                                  Watermark="Search here..."
+                                                  Width="225"
+                                                  extensions:ControlAssist.Hint="Your favorite web framework"
+                                                  extensions:ControlAssist.Label="Search a framework"
+                                                  extensions:Element.Classes="Clearable">
+                                                  <AutoCompleteBox.InnerRightContent>
+                                                      <PathIcon
+                                                          Data="{x:Static contents:Icons.Search}"
+                                                          Opacity="0.75"
+                                                          Width="16" />
+                                                  </AutoCompleteBox.InnerRightContent>
+                                              </AutoCompleteBox>
+                                          </StackPanel>
+                                          """;
 
     private string _email = string.Empty;
 

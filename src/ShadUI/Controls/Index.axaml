@@ -2,6 +2,7 @@
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceInclude Source="avares://ShadUI/Breakpoints/View.axaml" />
+        <ResourceInclude Source="avares://ShadUI/Controls/AutoCompleteBox.axaml" />
         <ResourceInclude Source="avares://ShadUI/Controls/Avatar.axaml" />
         <ResourceInclude Source="avares://ShadUI/Controls/BusyArea.axaml" />
         <ResourceInclude Source="avares://ShadUI/Controls/Button.axaml" />
