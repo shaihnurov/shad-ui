@@ -43,10 +43,14 @@ public class ThemeColors
     public Color DestructiveForegroundColor { get; set; }
 
     // Special Colors
+    public Color TabItemSelectedColor { get; set; }
+    public Color TabItemsBackgroundColor { get; set; }
     public Color OutlineColor { get; set; }
     public Color GhostColor { get; set; }
+    public Color GhostHoverColor { get; set; }
 
-    // Dialog Colors
+    // Overlay Colors
+    public Color BusyAreaOverlayColor { get; set; }
     public Color DialogOverlayColor { get; set; }
     public Color DialogBackgroundColor { get; set; }
 

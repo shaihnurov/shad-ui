@@ -2,6 +2,8 @@
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Media;
+using Avalonia.Styling;
+using Avalonia.Threading;
 
 namespace ShadUI.Themes;
 
@@ -85,9 +87,13 @@ public class ThemeWatcher
             DestructiveColor50 = TryGetColor("DestructiveColor50"),
             DestructiveForegroundColor = TryGetColor("DestructiveForegroundColor"),
             // Special Colors
+            TabItemSelectedColor = TryGetColor("TabItemSelectedColor"),
+            TabItemsBackgroundColor = TryGetColor("TabItemsBackgroundColor"),
             OutlineColor = TryGetColor("OutlineColor"),
             GhostColor = TryGetColor("GhostColor"),
-            // Dialog Colors
+            GhostHoverColor = TryGetColor("GhostHoverColor"),
+            // Overlay Colors
+            BusyAreaOverlayColor = TryGetColor("BusyAreaOverlayColor"),
             DialogOverlayColor = TryGetColor("DialogOverlayColor"),
             DialogBackgroundColor = TryGetColor("DialogBackgroundColor"),
             // Status Colors
@@ -129,4 +135,20 @@ public class ThemeWatcher
     ///     Occurs when the application theme changes, providing the new theme colors.
     /// </summary>
     public event EventHandler<ThemeColors>? ThemeChanged;
+
+    /// <summary>
+    ///     Switches the theme of the application based on the specified mode.
+    /// </summary>
+    /// <param name="mode">The theme mode to switch to.</param>
+    public void SwitchTheme(ThemeMode mode)
+    {
+        var variant = mode switch
+        {
+            ThemeMode.Dark => ThemeVariant.Dark,
+            ThemeMode.Light => ThemeVariant.Light,
+            _ => ThemeVariant.Default
+        };
+
+        Dispatcher.UIThread.Invoke(() => _app.RequestedThemeVariant = variant);
+    }
 }
