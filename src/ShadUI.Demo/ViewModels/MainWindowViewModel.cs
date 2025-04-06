@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using ShadUI.Dialogs;
+using ShadUI.Themes;
 using ShadUI.Toasts;
 
 namespace ShadUI.Demo.ViewModels;
@@ -12,6 +13,7 @@ namespace ShadUI.Demo.ViewModels;
 public sealed partial class MainWindowViewModel(
     DialogManager dialogManager,
     ToastManager toastManager,
+    ThemeWatcher themeWatcher,
     AboutViewModel aboutViewModel,
     DashboardViewModel dashboardViewModel,
     TypographyViewModel typographyViewModel,
@@ -212,5 +214,15 @@ public sealed partial class MainWindowViewModel(
     private void OnAcceptExit()
     {
         Environment.Exit(0);
+    }
+
+    [ObservableProperty]
+    private string _selectedTheme = "System";
+
+    [RelayCommand]
+    private void SwitchTheme(ThemeMode mode)
+    {
+        themeWatcher.SwitchTheme(mode);
+        SelectedTheme = mode.ToString();
     }
 }

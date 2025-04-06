@@ -56,7 +56,7 @@ public sealed partial class DashboardViewModel : ViewModelBase
     private void UpdateSeriesFill(Color color)
     {
         var skColor = new SKColor(color.R, color.G, color.B, color.A);
-        ((ColumnSeries<double>) Series[0]).Fill = new SolidColorPaint(skColor);
+        if (Series.Length > 0) ((ColumnSeries<double>) Series[0]).Fill = new SolidColorPaint(skColor);
     }
 
     public ISeries[] Series { get; set; } =
