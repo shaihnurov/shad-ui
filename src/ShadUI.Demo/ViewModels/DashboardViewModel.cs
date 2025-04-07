@@ -10,7 +10,7 @@ namespace ShadUI.Demo.ViewModels;
 
 public sealed partial class DashboardViewModel : ViewModelBase
 {
-    private readonly ThemeWatcher _themeWatcher;
+    public ThemeWatcher ThemeWatcher { get; }
 
     [ObservableProperty]
     private static SolidColorPaint _tooltipTextPaint = new()
@@ -21,13 +21,13 @@ public sealed partial class DashboardViewModel : ViewModelBase
 
     public DashboardViewModel(ThemeWatcher themeWatcher)
     {
-        _themeWatcher = themeWatcher;
-        _themeWatcher.ThemeChanged += (_, colors) => UpdateThemeColors(colors);
+        ThemeWatcher = themeWatcher;
+        ThemeWatcher.ThemeChanged += (_, colors) => UpdateThemeColors(colors);
     }
 
     public void Initialize()
     {
-        UpdateThemeColors(_themeWatcher.ThemeColors);
+        UpdateThemeColors(ThemeWatcher.ThemeColors);
     }
 
     private void UpdateThemeColors(ThemeColors colors)
