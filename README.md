@@ -54,7 +54,6 @@ Install the [ShadUI App](https://apps.microsoft.com/detail/9N3358B0PHG4?hl=en-us
 ### 🎨 Theme
 
 ShadUI provides a default theme out of the box, allowing you to get started quickly with a professional look and feel.  
-Dynamic theming is currently under development and will be available soon.
 
 ![Theme Demo](https://raw.githubusercontent.com/accntech/shad-ui/main/docs/demo-01.gif)
 
