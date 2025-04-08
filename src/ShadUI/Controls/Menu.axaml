@@ -106,14 +106,28 @@
 
         <!--  Primary  -->
         <Style Selector="^.Primary">
+            <Setter Property="Height" Value="36" />
             <Setter Property="FontSize" Value="14" />
             <Setter Property="Padding" Value="16,8" />
+            <Setter Property="CornerRadius" Value="{DynamicResource MdCornerRadius}" />
             <Setter Property="Background" Value="{DynamicResource PrimaryColor}" />
+            <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundColor}" />
             <Style Selector="^ /template/ Border#root">
                 <Setter Property="Transitions">
                     <Transitions>
                         <BrushTransition Duration="0:0:0.2" Property="Background" />
                         <BrushTransition Duration="0:0:0.2" Property="BorderBrush" />
+                    </Transitions>
+                </Setter>
+            </Style>
+            <Style Selector="^/template/ Border#ItemBackground">
+                <Setter Property="IsVisible" Value="False" />
+            </Style>
+            <Style Selector="^ /template/ TextBlock">
+                <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundColor}" />
+                <Setter Property="Transitions">
+                    <Transitions>
+                        <BrushTransition Duration="0:0:0.3" Property="Foreground" />
                     </Transitions>
                 </Setter>
             </Style>
@@ -128,27 +142,39 @@
             <Style Selector="^:pointerover /template/ Border#root">
                 <Setter Property="Background" Value="{DynamicResource PrimaryColor50}" />
             </Style>
-            <Style Selector="^:pressed">
-                <Style Selector="^.IconContent /template/ Border">
-                    <Setter Property="RenderTransform">
-                        <Setter.Value>
-                            <ScaleTransform ScaleX="0.95" ScaleY="0.95" />
-                        </Setter.Value>
-                    </Setter>
-                </Style>
+            <Style Selector="^:pressed /template/ Border#root">
+                <Setter Property="RenderTransform">
+                    <Setter.Value>
+                        <ScaleTransform ScaleX="0.95" ScaleY="0.95" />
+                    </Setter.Value>
+                </Setter>
             </Style>
         </Style>
 
         <!--  Secondary  -->
         <Style Selector="^.Secondary">
+            <Setter Property="Height" Value="36" />
             <Setter Property="FontSize" Value="14" />
             <Setter Property="Padding" Value="16,8" />
+            <Setter Property="CornerRadius" Value="{DynamicResource MdCornerRadius}" />
             <Setter Property="Background" Value="{DynamicResource SecondaryColor}" />
+            <Setter Property="Foreground" Value="{DynamicResource SecondaryForegroundColor}" />
             <Style Selector="^ /template/ Border#root">
                 <Setter Property="Transitions">
                     <Transitions>
                         <BrushTransition Duration="0:0:0.2" Property="Background" />
                         <BrushTransition Duration="0:0:0.2" Property="BorderBrush" />
+                    </Transitions>
+                </Setter>
+            </Style>
+            <Style Selector="^/template/ Border#ItemBackground">
+                <Setter Property="IsVisible" Value="False" />
+            </Style>
+            <Style Selector="^ /template/ TextBlock">
+                <Setter Property="Foreground" Value="{DynamicResource SecondaryForegroundColor}" />
+                <Setter Property="Transitions">
+                    <Transitions>
+                        <BrushTransition Duration="0:0:0.3" Property="Foreground" />
                     </Transitions>
                 </Setter>
             </Style>
@@ -163,29 +189,40 @@
             <Style Selector="^:pointerover /template/ Border#root">
                 <Setter Property="Background" Value="{DynamicResource SecondaryColor50}" />
             </Style>
-            <Style Selector="^:pressed">
-                <Style Selector="^.IconContent /template/ Border">
-                    <Setter Property="RenderTransform">
-                        <Setter.Value>
-                            <ScaleTransform ScaleX="0.95" ScaleY="0.95" />
-                        </Setter.Value>
-                    </Setter>
-                </Style>
+            <Style Selector="^:pressed /template/ Border#root">
+                <Setter Property="RenderTransform">
+                    <Setter.Value>
+                        <ScaleTransform ScaleX="0.95" ScaleY="0.95" />
+                    </Setter.Value>
+                </Setter>
             </Style>
         </Style>
 
         <!--  Outline  -->
         <Style Selector="^.Outline">
+            <Setter Property="Height" Value="36" />
             <Setter Property="FontSize" Value="14" />
             <Setter Property="Padding" Value="16,8" />
-            <Setter Property="Background" Value="{DynamicResource CardBackgroundColor}" />
             <Setter Property="BorderThickness" Value="1" />
             <Setter Property="BorderBrush" Value="{DynamicResource BorderColor}" />
+            <Setter Property="CornerRadius" Value="{DynamicResource MdCornerRadius}" />
+            <Setter Property="Background" Value="{DynamicResource CardBackgroundColor}" />
             <Style Selector="^ /template/ Border#root">
                 <Setter Property="Transitions">
                     <Transitions>
                         <BrushTransition Duration="0:0:0.2" Property="Background" />
                         <BrushTransition Duration="0:0:0.2" Property="BorderBrush" />
+                    </Transitions>
+                </Setter>
+            </Style>
+            <Style Selector="^/template/ Border#ItemBackground">
+                <Setter Property="IsVisible" Value="False" />
+            </Style>
+            <Style Selector="^ /template/ TextBlock">
+                <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
+                <Setter Property="Transitions">
+                    <Transitions>
+                        <BrushTransition Duration="0:0:0.3" Property="Foreground" />
                     </Transitions>
                 </Setter>
             </Style>
@@ -201,29 +238,38 @@
                 <Setter Property="Background" Value="{DynamicResource OutlineColor}" />
                 <Setter Property="BorderBrush" Value="{DynamicResource OutlineColor}" />
             </Style>
-
-            <Style Selector="^:pressed">
-                <Style Selector="^.IconContent /template/ Border">
-                    <Setter Property="RenderTransform">
-                        <Setter.Value>
-                            <ScaleTransform ScaleX="0.95" ScaleY="0.95" />
-                        </Setter.Value>
-                    </Setter>
-                </Style>
+            <Style Selector="^:pressed /template/ Border#root">
+                <Setter Property="RenderTransform">
+                    <Setter.Value>
+                        <ScaleTransform ScaleX="0.95" ScaleY="0.95" />
+                    </Setter.Value>
+                </Setter>
             </Style>
         </Style>
 
         <!--  Ghost  -->
         <Style Selector="^.Ghost">
+            <Setter Property="Height" Value="36" />
             <Setter Property="FontSize" Value="14" />
             <Setter Property="Padding" Value="16,8" />
+            <Setter Property="CornerRadius" Value="{DynamicResource MdCornerRadius}" />
             <Setter Property="Background" Value="{DynamicResource CardBackgroundColor}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource BorderColor}" />
             <Style Selector="^ /template/ Border#root">
                 <Setter Property="Transitions">
                     <Transitions>
                         <BrushTransition Duration="0:0:0.2" Property="Background" />
                         <BrushTransition Duration="0:0:0.2" Property="BorderBrush" />
+                    </Transitions>
+                </Setter>
+            </Style>
+            <Style Selector="^/template/ Border#ItemBackground">
+                <Setter Property="IsVisible" Value="False" />
+            </Style>
+            <Style Selector="^ /template/ TextBlock">
+                <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
+                <Setter Property="Transitions">
+                    <Transitions>
+                        <BrushTransition Duration="0:0:0.3" Property="Foreground" />
                     </Transitions>
                 </Setter>
             </Style>
@@ -238,23 +284,20 @@
             <Style Selector="^:pointerover /template/ Border#root">
                 <Setter Property="Background" Value="{DynamicResource GhostColor}" />
             </Style>
-
-            <Style Selector="^:pressed">
-                <Style Selector="^.IconContent /template/ Border">
-                    <Setter Property="RenderTransform">
-                        <Setter.Value>
-                            <ScaleTransform ScaleX="0.95" ScaleY="0.95" />
-                        </Setter.Value>
-                    </Setter>
-                </Style>
+            <Style Selector="^:pressed /template/ Border#root">
+                <Setter Property="RenderTransform">
+                    <Setter.Value>
+                        <ScaleTransform ScaleX="0.95" ScaleY="0.95" />
+                    </Setter.Value>
+                </Setter>
             </Style>
         </Style>
 
         <!--  Icon  -->
         <Style Selector="^.Icon">
-            <Setter Property="Width" Value="36" />
             <Setter Property="Height" Value="36" />
-            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Width" Value="36" />
+            <Setter Property="CornerRadius" Value="{DynamicResource MdCornerRadius}" />
             <Setter Property="Background" Value="{DynamicResource CardBackgroundColor}" />
             <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
             <Style Selector="^ /template/ Border#root">
@@ -262,6 +305,17 @@
                     <Transitions>
                         <BrushTransition Duration="0:0:0.2" Property="Background" />
                         <BrushTransition Duration="0:0:0.2" Property="BorderBrush" />
+                    </Transitions>
+                </Setter>
+            </Style>
+            <Style Selector="^/template/ Border#ItemBackground">
+                <Setter Property="IsVisible" Value="False" />
+            </Style>
+            <Style Selector="^ /template/ TextBlock">
+                <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
+                <Setter Property="Transitions">
+                    <Transitions>
+                        <BrushTransition Duration="0:0:0.3" Property="Foreground" />
                     </Transitions>
                 </Setter>
             </Style>
@@ -277,15 +331,12 @@
                 <Setter Property="Background" Value="{DynamicResource OutlineColor}" />
                 <Setter Property="BorderBrush" Value="{DynamicResource OutlineColor}" />
             </Style>
-
-            <Style Selector="^:pressed">
-                <Style Selector="^.IconContent /template/ Border">
-                    <Setter Property="RenderTransform">
-                        <Setter.Value>
-                            <ScaleTransform ScaleX="0.95" ScaleY="0.95" />
-                        </Setter.Value>
-                    </Setter>
-                </Style>
+            <Style Selector="^:pressed /template/ Border#root">
+                <Setter Property="RenderTransform">
+                    <Setter.Value>
+                        <ScaleTransform ScaleX="0.95" ScaleY="0.95" />
+                    </Setter.Value>
+                </Setter>
             </Style>
         </Style>
     </ControlTheme>
