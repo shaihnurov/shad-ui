@@ -1,5 +1,4 @@
 using System;
-using System.Threading.Tasks;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
@@ -8,6 +7,7 @@ using Avalonia.Controls.Primitives;
 using Avalonia.Interactivity;
 using Avalonia.Media;
 using Avalonia.Metadata;
+using Avalonia.Threading;
 using AvaloniaEdit;
 using AvaloniaEdit.TextMate;
 using ShadUI.Contents;
@@ -20,6 +20,23 @@ namespace ShadUI.Demo.Controls;
 
 public class CodeTextBlock : UserControl
 {
+    private readonly DispatcherTimer _timer;
+    private InlineCollection? _inlines = new();
+    private Button? _clipboardButton;
+    private PathIcon? _clipboardIcon;
+    private Geometry? _originalIconData;
+    private TextEditor? _editor;
+
+    public CodeTextBlock()
+    {
+        _timer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(5) };
+        _timer.Tick += (_, _) =>
+        {
+            if (_clipboardIcon is not null) _clipboardIcon.Data = _originalIconData;
+            _timer.Stop();
+        };
+    }
+
     public static readonly StyledProperty<string?> TextProperty =
         AvaloniaProperty.Register<CodeTextBlock, string?>(nameof(Text));
 
@@ -29,12 +46,6 @@ public class CodeTextBlock : UserControl
 
     public static readonly StyledProperty<string> LanguageProperty =
         AvaloniaProperty.Register<CodeTextBlock, string>(nameof(Language), "xaml");
-
-    private InlineCollection? _inlines = new();
-    private Button? _clipboardButton;
-    private PathIcon? _clipboardIcon;
-    private Geometry? _originalIconData;
-    private TextEditor? _editor;
 
     public string? Text
     {
@@ -114,9 +125,9 @@ public class CodeTextBlock : UserControl
 
             // Show feedback that text was copied
             ShowCopyNotification();
-            _clipboardIcon.Data = Icons.ClipBoardCheck;
-            await Task.Delay(2000);
-            _clipboardIcon.Data = _originalIconData;
+            _clipboardIcon.Data = Icons.Check;
+            _timer.Stop();
+            _timer.Start();
         }
         catch (Exception)
         {
