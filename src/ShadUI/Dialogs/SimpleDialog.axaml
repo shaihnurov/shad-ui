@@ -12,8 +12,7 @@
                     BorderBrush="{DynamicResource BorderColor}"
                     BorderThickness="1"
                     CornerRadius="{DynamicResource MdCornerRadius}"
-                    MaxWidth="500"
-                    Padding="24">
+                    MaxWidth="500">
                     <dialogs:SimpleDialog
                         CancelButtonStyle="Outline"
                         CancelButtonText="Cancel"
@@ -25,8 +24,7 @@
                     BorderBrush="{DynamicResource BorderColor}"
                     BorderThickness="1"
                     CornerRadius="{DynamicResource MdCornerRadius}"
-                    MaxWidth="500"
-                    Padding="24">
+                    MaxWidth="500">
                     <dialogs:SimpleDialog
                         CancelButtonStyle="Outline"
                         CancelButtonText="Cancel"
@@ -39,8 +37,7 @@
                     BorderBrush="{DynamicResource BorderColor}"
                     BorderThickness="1"
                     CornerRadius="{DynamicResource MdCornerRadius}"
-                    MaxWidth="500"
-                    Padding="24">
+                    MaxWidth="500">
                     <dialogs:SimpleDialog
                         CancelButtonStyle="Ghost"
                         CancelButtonText="Cancel"
@@ -56,10 +53,11 @@
         </Border>
     </Design.PreviewWith>
     <ControlTheme TargetType="dialogs:SimpleDialog" x:Key="SimpleDialogTheme">
+        <Setter Property="Padding" Value="24" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate>
-                    <StackPanel Spacing="16">
+                    <StackPanel Margin="{TemplateBinding Padding}" Spacing="16">
                         <TextBlock
                             FontSize="18"
                             FontWeight="DemiBold"

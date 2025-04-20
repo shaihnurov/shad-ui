@@ -8,7 +8,10 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModels="clr-namespace:ShadUI.Demo.ViewModels"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <StackPanel Spacing="16" Width="275">
+    <StackPanel
+        Margin="24"
+        Spacing="16"
+        Width="275">
         <TextBlock Classes="h4" Text="Sign In" />
         <TextBox
             Classes="Clearable"

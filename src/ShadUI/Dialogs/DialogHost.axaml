@@ -75,10 +75,7 @@
                                     Height="10"
                                     Width="10" />
                             </Button>
-                            <ContentControl
-                                Content="{TemplateBinding Dialog}"
-                                KeyboardNavigation.TabNavigation="Cycle"
-                                Margin="24" />
+                            <ContentControl Content="{TemplateBinding Dialog}" KeyboardNavigation.TabNavigation="Cycle" />
                         </Panel>
                     </Border>
 
