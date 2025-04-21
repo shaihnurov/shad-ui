@@ -120,7 +120,7 @@
                                     x:Name="PART_FlyoutButton">
                                     <DockPanel Background="Transparent" Margin="{TemplateBinding Padding}">
                                         <PathIcon
-                                            Data="{x:Static icons:Icons.Calendar}"
+                                            Data="{x:Static icons:Icons.DateTime}"
                                             DockPanel.Dock="Right"
                                             Foreground="{DynamicResource ForegroundColor}"
                                             Height="16"
