@@ -176,7 +176,7 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <StackPanel Spacing="16">
-                    <StackPanel>
+                    <StackPanel IsVisible="{TemplateBinding Title, Converter={x:Static StringConverters.IsNotNullOrEmpty}}">
                         <TextBlock Classes="h4" Text="{TemplateBinding Title}" />
                         <Separator Margin="0,8,0,0" />
                     </StackPanel>
