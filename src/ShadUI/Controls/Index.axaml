@@ -6,6 +6,11 @@
         <ResourceInclude Source="avares://ShadUI/Controls/Avatar.axaml" />
         <ResourceInclude Source="avares://ShadUI/Controls/BusyArea.axaml" />
         <ResourceInclude Source="avares://ShadUI/Controls/Button.axaml" />
+        <ResourceInclude Source="avares://ShadUI/Controls/Calendar.axaml" />
+        <ResourceInclude Source="avares://ShadUI/Controls/CalendarButton.axaml" />
+        <ResourceInclude Source="avares://ShadUI/Controls/CalendarDatePicker.axaml" />
+        <ResourceInclude Source="avares://ShadUI/Controls/CalendarItem.axaml" />
+        <ResourceInclude Source="avares://ShadUI/Controls/CalendarDayButton.axaml" />
         <ResourceInclude Source="avares://ShadUI/Controls/Card.axaml" />
         <ResourceInclude Source="avares://ShadUI/Controls/CardDescription.axaml" />
         <ResourceInclude Source="avares://ShadUI/Controls/CardTitle.axaml" />

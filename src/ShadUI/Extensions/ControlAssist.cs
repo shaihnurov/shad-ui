@@ -162,4 +162,26 @@ public static class ControlAssist
     ///     excluding label and hint.
     /// </param>
     public static void SetMaxHeight(TemplatedControl control, double value) => control.SetValue(MaxHeightProperty, value);
+
+    /// <summary>
+    ///     Defines an attached property that determines if a control should be read-only.
+    /// </summary>
+    public static readonly AttachedProperty<bool> ReadOnlyProperty =
+        AvaloniaProperty.RegisterAttached<TemplatedControl, bool>("ReadOnly", typeof(ControlAssist));
+
+    /// <summary>
+    ///     Gets the value of the <see cref="ReadOnlyProperty" />.
+    /// </summary>
+    /// <param name="control">The control.</param>
+    /// <returns>A boolean value indicating whether the control is read-only.</returns>
+    public static bool GetReadOnly(TemplatedControl control) => control.GetValue(ReadOnlyProperty);
+
+    /// <summary>
+    ///     Sets the value of the <see cref="ReadOnlyProperty" />.
+    /// </summary>
+    /// <param name="control">The control.</param>
+    /// <param name="value">
+    ///     The value to set - true to make the control read-only, false to make it editable.
+    /// </param>
+    public static void SetReadOnly(TemplatedControl control, bool value) => control.SetValue(ReadOnlyProperty, value);
 }
