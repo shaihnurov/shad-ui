@@ -53,6 +53,7 @@
                             </Transitions>
                         </Border.Transitions>
                         <Panel>
+                            <ContentControl Content="{TemplateBinding Dialog}" KeyboardNavigation.TabNavigation="Cycle" />
                             <Button
                                 Background="{DynamicResource DialogBackgroundColor}"
                                 CornerRadius="{DynamicResource MdCornerRadius}"
@@ -75,7 +76,6 @@
                                     Height="10"
                                     Width="10" />
                             </Button>
-                            <ContentControl Content="{TemplateBinding Dialog}" KeyboardNavigation.TabNavigation="Cycle" />
                         </Panel>
                     </Border>
 
