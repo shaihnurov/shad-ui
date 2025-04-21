@@ -20,10 +20,10 @@ public sealed partial class MainWindowViewModel(
     AvatarsViewModel avatarsViewModel,
     ButtonsViewModel buttonsViewModel,
     CardsViewModel cardsViewModel,
-    CalendarViewModel calendarViewModel,
+    DateViewModel dateViewModel,
     CheckBoxesViewModel checkBoxesViewModel,
     DialogsViewModel dialogsViewModel,
-    DateTimeViewModel dateTimeViewModel,
+    TimeViewModel timeViewModel,
     InputViewModel inputViewModel,
     MenuViewModel menuViewModel,
     TabsViewModel tabsViewModel,
@@ -98,9 +98,9 @@ public sealed partial class MainWindowViewModel(
     }
 
     [RelayCommand]
-    private async Task OpenCalendar()
+    private async Task OpenDate()
     {
-        await SwitchPageAsync(calendarViewModel);
+        await SwitchPageAsync(dateViewModel);
     }
     
     [RelayCommand]
@@ -153,9 +153,9 @@ public sealed partial class MainWindowViewModel(
     }
 
     [RelayCommand]
-    private async Task OpenDateTime()
+    private async Task OpenTime()
     {
-        await SwitchPageAsync(dateTimeViewModel);
+        await SwitchPageAsync(timeViewModel);
     }
 
     [RelayCommand]

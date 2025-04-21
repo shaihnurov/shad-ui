@@ -203,20 +203,6 @@
                 </controls:SidebarMenuItem>
                 <controls:SidebarMenuItem
                     Classes="Compact"
-                    Command="{Binding OpenCalendarCommand}"
-                    Header="Calendar"
-                    ToolTip.Tip="{Binding IsMenuExpanded, RelativeSource={RelativeSource AncestorType=controls:SidebarMenu}, Converter={x:Static converters:BooleanToNullOrStringConverter.Instance}, ConverterParameter='Calendar'}">
-                    <controls:SidebarMenuItem.Icon>
-                        <icons:Lucide
-                            Height="16"
-                            Icon="Calendar"
-                            StrokeBrush="{Binding RelativeSource={RelativeSource AncestorType=controls:SidebarMenuItem}, Path=Foreground}"
-                            StrokeThickness="1.5"
-                            Width="16" />
-                    </controls:SidebarMenuItem.Icon>
-                </controls:SidebarMenuItem>
-                <controls:SidebarMenuItem
-                    Classes="Compact"
                     Command="{Binding OpenCheckBoxesCommand}"
                     Header="CheckBox"
                     ToolTip.Tip="{Binding IsMenuExpanded, RelativeSource={RelativeSource AncestorType=controls:SidebarMenu}, Converter={x:Static converters:BooleanToNullOrStringConverter.Instance}, ConverterParameter='CheckBox'}">
@@ -245,13 +231,13 @@
                 </controls:SidebarMenuItem>
                 <controls:SidebarMenuItem
                     Classes="Compact"
-                    Command="{Binding OpenDateTimeCommand}"
-                    Header="Date Time"
-                    ToolTip.Tip="{Binding IsMenuExpanded, RelativeSource={RelativeSource AncestorType=controls:SidebarMenu}, Converter={x:Static converters:BooleanToNullOrStringConverter.Instance}, ConverterParameter='Time Pickers'}">
+                    Command="{Binding OpenDateCommand}"
+                    Header="Date"
+                    ToolTip.Tip="{Binding IsMenuExpanded, RelativeSource={RelativeSource AncestorType=controls:SidebarMenu}, Converter={x:Static converters:BooleanToNullOrStringConverter.Instance}, ConverterParameter='Date'}">
                     <controls:SidebarMenuItem.Icon>
                         <icons:Lucide
                             Height="16"
-                            Icon="CalendarClock"
+                            Icon="Calendar"
                             StrokeBrush="{Binding RelativeSource={RelativeSource AncestorType=controls:SidebarMenuItem}, Path=Foreground}"
                             StrokeThickness="1.5"
                             Width="16" />
@@ -336,6 +322,20 @@
                         <icons:Lucide
                             Height="16"
                             Icon="AppWindow"
+                            StrokeBrush="{Binding RelativeSource={RelativeSource AncestorType=controls:SidebarMenuItem}, Path=Foreground}"
+                            StrokeThickness="1.5"
+                            Width="16" />
+                    </controls:SidebarMenuItem.Icon>
+                </controls:SidebarMenuItem>
+                <controls:SidebarMenuItem
+                    Classes="Compact"
+                    Command="{Binding OpenTimeCommand}"
+                    Header="Time"
+                    ToolTip.Tip="{Binding IsMenuExpanded, RelativeSource={RelativeSource AncestorType=controls:SidebarMenu}, Converter={x:Static converters:BooleanToNullOrStringConverter.Instance}, ConverterParameter='Time'}">
+                    <controls:SidebarMenuItem.Icon>
+                        <icons:Lucide
+                            Height="16"
+                            Icon="Clock4"
                             StrokeBrush="{Binding RelativeSource={RelativeSource AncestorType=controls:SidebarMenuItem}, Path=Foreground}"
                             StrokeThickness="1.5"
                             Width="16" />

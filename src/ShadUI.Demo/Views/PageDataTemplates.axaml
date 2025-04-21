@@ -18,8 +18,8 @@
     <DataTemplate DataType="{x:Type viewModels:CardsViewModel}">
         <views:CardsPage />
     </DataTemplate>
-    <DataTemplate DataType="{x:Type viewModels:CalendarViewModel}">
-        <views:CalendarPage />
+    <DataTemplate DataType="{x:Type viewModels:DateViewModel}">
+        <views:DatePage />
     </DataTemplate>
     <DataTemplate DataType="{x:Type viewModels:CheckBoxesViewModel}">
         <views:CheckBoxesPage />
@@ -45,8 +45,8 @@
     <DataTemplate DataType="{x:Type viewModels:SwitchViewModel}">
         <views:SwitchPage />
     </DataTemplate>
-    <DataTemplate DataType="{x:Type viewModels:DateTimeViewModel}">
-        <views:DateTimePage />
+    <DataTemplate DataType="{x:Type viewModels:TimeViewModel}">
+        <views:TimePage />
     </DataTemplate>
     <DataTemplate DataType="{x:Type viewModels:ToastsViewModel}">
         <views:ToastsPage />

@@ -4,9 +4,9 @@ using Avalonia.Markup.Xaml;
 
 namespace ShadUI.Demo.Views;
 
-public partial class CalendarPage : UserControl
+public partial class DatePage : UserControl
 {
-    public CalendarPage()
+    public DatePage()
     {
         InitializeComponent();
     }

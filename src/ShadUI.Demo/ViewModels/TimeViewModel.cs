@@ -1,5 +1,4 @@
 ﻿using System;
-using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -8,75 +7,8 @@ using ShadUI.Toasts;
 
 namespace ShadUI.Demo.ViewModels;
 
-public sealed partial class DateTimeViewModel : ViewModelBase
+public sealed partial class TimeViewModel(ToastManager toastManager) : ViewModelBase
 {
-    private readonly ToastManager _toastManager;
-
-    public DateTimeViewModel(ToastManager toastManager)
-    {
-        _toastManager = toastManager;
-        PropertyChanged += OnPropertyChanged;
-    }
-
-    private void OnPropertyChanged(object? sender, PropertyChangedEventArgs e)
-    {
-        ValidateAllProperties();
-    }
-
-    [ObservableProperty]
-    private string _dateInputCode = """
-                                     <StackPanel>
-                                        <shadui:DateInput HorizontalAlignment="Center" />
-                                    </StackPanel>
-                                    """;
-
-    [ObservableProperty]
-    private string _disabledDateInputCode = """
-                                            <StackPanel>
-                                                <shadui:DateInput IsEnabled="False" HorizontalAlignment="Center" />
-                                            </StackPanel>
-                                            """;
-
-    private DateOnly? _startDate;
-
-    [Required(ErrorMessage = "Start date is required.")]
-    [StartDateValidation(nameof(EndDate), ErrorMessage = "Start date must be less than end date")]
-    public DateOnly? StartDate
-    {
-        get => _startDate;
-        set => SetProperty(ref _startDate, value, true);
-    }
-
-    private DateOnly? _endDate;
-
-    [Required(ErrorMessage = "End date is required.")]
-    [EndDateValidation(nameof(StartDate), ErrorMessage = "End date must be greater than start date")]
-    public DateOnly? EndDate
-    {
-        get => _endDate;
-        set => SetProperty(ref _endDate, value, true);
-    }
-
-    [RelayCommand]
-    private void SubmitDateForm()
-    {
-        ClearAllErrors();
-
-        ValidateProperty(StartDate, nameof(StartDate));
-        ValidateProperty(EndDate, nameof(EndDate));
-        if (HasErrors) return;
-
-        _toastManager.CreateToast("Create schedule")
-            .WithContent("Schedule created successfully.")
-            .DismissOnClick()
-            .ShowSuccess();
-    }
-
-    [ObservableProperty]
-    private string _dateInputFormCode = """
-
-                                        """;
-
     [ObservableProperty]
     private string _hour12ClockTimePickerCode = """
                                                 <StackPanel>
@@ -151,7 +83,7 @@ public sealed partial class DateTimeViewModel : ViewModelBase
         ValidateProperty(EndTime, nameof(EndTime));
         if (HasErrors) return;
 
-        _toastManager.CreateToast("Create schedule")
+        toastManager.CreateToast("Create schedule")
             .WithContent("Schedule created successfully.")
             .DismissOnClick()
             .ShowSuccess();
