@@ -1,5 +1,4 @@
 using System;
-using System.Diagnostics;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
@@ -121,22 +120,13 @@ public class DateInput : TemplatedControl
         _dayTextBox.TextChanged += OnInputChanged;
         _monthTextBox.TextChanged += OnInputChanged;
         _yearTextBox.TextChanged += OnInputChanged;
-
-        _dayTextBox.KeyDown += (_, _) => _fromInput = true;
-        _monthTextBox.KeyDown += (_, _) => _fromInput = true;
-        _yearTextBox.KeyDown += (_, _) => _fromInput = true;
-
-        _dayTextBox.KeyUp += (_, _) => _fromInput = false;
-        _monthTextBox.KeyUp += (_, _) => _fromInput = false;
-        _yearTextBox.KeyUp += (_, _) => _fromInput = false;
     }
 
     private bool _updating;
-    private bool _fromInput;
 
     private void OnInputChanged(object sender, TextChangedEventArgs e)
     {
-        if (sender is not TextBox textBox || !_fromInput) return;
+        if (sender is not TextBox textBox) return;
 
         var maxLength = textBox.Name == "PART_YearTextBox" ? 4 : 2;
         if (textBox.Text?.Length < maxLength) return;
@@ -148,19 +138,26 @@ public class DateInput : TemplatedControl
             _ => null
         };
 
-        nextTextBox?.Focus();
-        nextTextBox?.SelectAll();
+        if (nextTextBox is null) return;
+
+        nextTextBox.Focus();
+        nextTextBox.SelectAll();
     }
 
     private void OnTextBoxLostFocus(object sender, RoutedEventArgs e)
     {
         if (sender is not TextBox textBox) return;
-        int.TryParse(textBox.Text, out var value);
+        var parsed = int.TryParse(textBox.Text, out var value);
+
+        if (string.IsNullOrWhiteSpace(textBox.Text) || !parsed)
+        {
+            textBox.Text = string.Empty;
+            return;
+        }
 
         switch (textBox.Name)
         {
             case "PART_DayTextBox":
-                if (value < 1) value = 1;
                 // Get current month and year
                 int.TryParse(_monthTextBox?.Text, out var month);
                 int.TryParse(_yearTextBox?.Text, out var year);
@@ -170,11 +167,13 @@ public class DateInput : TemplatedControl
                     var lastDay = DateTime.DaysInMonth(year, month);
                     if (value > lastDay) value = lastDay;
                 }
-                else if (value > 31) value = 31;
+                else if (value > 31)
+                {
+                    value = 31;
+                }
                 textBox.Text = value.ToString().PadLeft(2, '0');
                 break;
             case "PART_MonthTextBox":
-                if (value < 1) value = 1;
                 if (value > 12) value = 12;
                 textBox.Text = value.ToString().PadLeft(2, '0');
                 // After month changes, validate day
@@ -183,10 +182,7 @@ public class DateInput : TemplatedControl
                 if (currentDay > 0 && currentYear > 0)
                 {
                     var maxDays = DateTime.DaysInMonth(currentYear, value);
-                    if (currentDay > maxDays)
-                    {
-                        _dayTextBox!.Text = maxDays.ToString().PadLeft(2, '0');
-                    }
+                    if (currentDay > maxDays) _dayTextBox!.Text = maxDays.ToString().PadLeft(2, '0');
                 }
                 break;
             case "PART_YearTextBox":
@@ -208,10 +204,7 @@ public class DateInput : TemplatedControl
                 if (day > 0 && currentMonth == 2)
                 {
                     var maxDays = DateTime.DaysInMonth(value, 2);
-                    if (day > maxDays)
-                    {
-                        _dayTextBox!.Text = maxDays.ToString().PadLeft(2, '0');
-                    }
+                    if (day > maxDays) _dayTextBox!.Text = maxDays.ToString().PadLeft(2, '0');
                 }
                 break;
         }
@@ -226,9 +219,9 @@ public class DateInput : TemplatedControl
         if (!int.TryParse(_dayTextBox.Text, out var day) ||
             !int.TryParse(_monthTextBox.Text, out var month) ||
             !int.TryParse(_yearTextBox.Text, out var year))
-        {
             return;
-        }
+
+        _updating = true;
 
         try
         {
@@ -241,8 +234,10 @@ public class DateInput : TemplatedControl
         }
         catch (ArgumentOutOfRangeException)
         {
-           //ignore
+            //ignore
         }
+
+        _updating = false;
     }
 
     /// <summary>
