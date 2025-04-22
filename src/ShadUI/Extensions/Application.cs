@@ -7,7 +7,7 @@ namespace ShadUI.Extensions;
 /// <summary>
 ///     Provides extension methods for <see cref="Avalonia.Application" /> class.
 /// </summary>
-public static class Application
+internal static class Application
 {
     /// <summary>
     ///     Gets the top-level window or visual element from an <see cref="Avalonia.Application" />.
