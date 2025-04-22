@@ -6,21 +6,19 @@ using Avalonia.Data;
 namespace ShadUI.Extensions;
 
 /// <summary>
-/// Provides attached properties for enhancing TextBox functionality.
+///     Provides attached properties for enhancing TextBox functionality.
 /// </summary>
 /// <remarks>
-/// The TextBoxAssist class offers attached properties that can be used to extend the functionality
-/// of standard TextBox controls in Avalonia applications. Currently, it provides number formatting
-/// capabilities that automatically format numeric input according to specified format strings when
-/// the TextBox loses focus.
-/// 
-/// Example usage in XAML:
-/// <code>
+///     The TextBoxAssist class offers attached properties that can be used to extend the functionality
+///     of standard TextBox controls in Avalonia applications. Currently, it provides number formatting
+///     capabilities that automatically format numeric input according to specified format strings when
+///     the TextBox loses focus.
+///     Example usage in XAML:
+///     <code>
 /// &lt;TextBox Text="{Binding Amount}" 
 ///          extensions:TextBoxAssist.FormatNumber="C2" /&gt;
 /// </code>
-/// 
-/// This will format the number as currency with 2 decimal places when the TextBox loses focus.
+///     This will format the number as currency with 2 decimal places when the TextBox loses focus.
 /// </remarks>
 public static class TextBoxAssist
 {
@@ -30,19 +28,19 @@ public static class TextBoxAssist
     }
 
     /// <summary>
-    /// Gets or sets the number format string to be applied to a TextBox when it loses focus.
+    ///     Gets or sets the number format string to be applied to a TextBox when it loses focus.
     /// </summary>
     /// <remarks>
-    /// This property allows automatic formatting of numeric input according to standard .NET format strings.
-    /// The formatting is applied when the TextBox loses focus.
-    /// Supports standard numeric format strings including currency (C), percentage (P), etc.
+    ///     This property allows automatic formatting of numeric input according to standard .NET format strings.
+    ///     The formatting is applied when the TextBox loses focus.
+    ///     Supports standard numeric format strings including currency (C), percentage (P), etc.
     /// </remarks>
     public static readonly AttachedProperty<string> FormatNumberProperty =
-        AvaloniaProperty.RegisterAttached<Element, TextBox, string>(
+        AvaloniaProperty.RegisterAttached<ElementAssist, TextBox, string>(
             "FormatNumber", string.Empty, false, BindingMode.OneTime);
 
     /// <summary>
-    /// Sets the number format string to be applied to the specified TextBox when it loses focus.
+    ///     Sets the number format string to be applied to the specified TextBox when it loses focus.
     /// </summary>
     /// <param name="element">The TextBox element to set the format on.</param>
     /// <param name="value">The format string to apply (e.g., "C2", "P0", "N1").</param>
@@ -52,7 +50,7 @@ public static class TextBoxAssist
     }
 
     /// <summary>
-    /// Gets the number format string applied to the specified TextBox.
+    ///     Gets the number format string applied to the specified TextBox.
     /// </summary>
     /// <param name="element">The TextBox element to get the format from.</param>
     /// <returns>The format string applied to the TextBox.</returns>
@@ -77,7 +75,7 @@ public static class TextBoxAssist
             text = new string(text.Where(c => char.IsDigit(c) || c == '.' || c == ',' || c == '-').ToArray());
 
             if (!double.TryParse(text, out var value)) return;
-            
+
             // Handle percentage format
             if (format.Contains('P') || format.Contains('p') || format.Contains('%'))
             {

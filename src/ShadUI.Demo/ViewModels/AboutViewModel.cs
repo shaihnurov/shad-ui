@@ -5,7 +5,7 @@ using ShadUI.Dialogs;
 
 namespace ShadUI.Demo.ViewModels;
 
-public sealed partial class AboutViewModel(DialogManager dialogManager): ViewModelBase
+public sealed partial class AboutViewModel(DialogManager dialogManager) : ViewModelBase
 {
     [RelayCommand]
     private void Close()

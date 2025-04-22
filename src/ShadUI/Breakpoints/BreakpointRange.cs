@@ -4,12 +4,12 @@ using System.Collections.Generic;
 namespace ShadUI.Breakpoints;
 
 /// <summary>
-/// Provides a dictionary of breakpoints and their corresponding range functions.
+///     Provides a dictionary of breakpoints and their corresponding range functions.
 /// </summary>
 public static class BreakpointRange
 {
     /// <summary>
-    /// Gets the dictionary of breakpoints and their corresponding range functions.
+    ///     Gets the dictionary of breakpoints and their corresponding range functions.
     /// </summary>
     public static readonly Dictionary<Breakpoint, Func<double, bool>> Ranges =
         new()

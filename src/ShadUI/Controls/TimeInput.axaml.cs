@@ -184,9 +184,9 @@ public class TimeInput : TemplatedControl
         _secondTextBox.KeyUp += (_, _) => _fromInput = false;
 
         if (ClockIdentifier != "12HourClock") return;
-        
+
         if (_toggleButton is not null) _toggleButton.IsChecked = Value?.Hours >= 12;
-            
+
         var hours = Value?.Hours ?? 0;
         if (hours > 12) hours -= 12;
         if (_hourTextBox is not null) _hourTextBox.Text = hours.ToString().PadLeft(2, '0');

@@ -1,5 +1,6 @@
 ﻿using Avalonia.Controls;
 using Avalonia.Interactivity;
+using LiveChartsCore.Kernel;
 using ShadUI.Demo.ViewModels;
 using ShadUI.Themes;
 
@@ -22,9 +23,9 @@ public partial class DashboardPage : UserControl
 
     private void OnThemeChanged(object? sender, ThemeColors e)
     {
-        CartesianChart1.CoreChart.Update(new LiveChartsCore.Kernel.ChartUpdateParams
+        CartesianChart1.CoreChart.Update(new ChartUpdateParams
             { IsAutomaticUpdate = false, Throttling = false });
-        CartesianChart2.CoreChart.Update(new LiveChartsCore.Kernel.ChartUpdateParams
+        CartesianChart2.CoreChart.Update(new ChartUpdateParams
             { IsAutomaticUpdate = false, Throttling = false });
     }
 }

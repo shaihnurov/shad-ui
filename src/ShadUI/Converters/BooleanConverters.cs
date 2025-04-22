@@ -7,8 +7,8 @@ namespace ShadUI.Converters;
 internal static class BooleanConverters
 {
     public static readonly IValueConverter ToInverseOpacity =
-        new FuncValueConverter<bool, int>((value) => value ? 0 : 1);
-    
+        new FuncValueConverter<bool, int>(value => value ? 0 : 1);
+
     public static readonly IValueConverter ToLoading =
-        new FuncValueConverter<bool, object>((value) => value ? new Loading() : new Panel());
+        new FuncValueConverter<bool, object>(value => value ? new Loading() : new Panel());
 }

@@ -24,7 +24,8 @@ Install the [ShadUI NuGet package](https://www.nuget.org/packages/ShadUI/):
 dotnet add package ShadUI
 ```
 
-> Note: The command above will install the latest version automatically. You can also specify a version if you want to install a specific version or install a preview version.
+> Note: The command above will install the latest version automatically. You can also specify a version if you want to
+> install a specific version or install a preview version.
 
 ```powershell
 dotnet add package ShadUI --version [version]
@@ -46,14 +47,15 @@ Include ShadTheme in your App.xaml:
 ```
 
 > Recommended: Use the `ShadUI.Controls.Window` instead of `Avalonia.Controls.Window` to get the full ShadUI experience.
- 
-Install the [ShadUI App](https://apps.microsoft.com/detail/9N3358B0PHG4?hl=en-us&gl=PH&ocid=pdpshare) from Microsoft Store for examples of how to use ShadUI controls.
+
+Install the [ShadUI App](https://apps.microsoft.com/detail/9N3358B0PHG4?hl=en-us&gl=PH&ocid=pdpshare) from Microsoft
+Store for examples of how to use ShadUI controls.
 
 ## Features 🌟
 
 ### 🎨 Theme
 
-ShadUI provides a default theme out of the box, allowing you to get started quickly with a professional look and feel.  
+ShadUI provides a default theme out of the box, allowing you to get started quickly with a professional look and feel.
 
 ![Theme Demo](https://raw.githubusercontent.com/accntech/shad-ui/main/docs/demo-01.gif)
 
@@ -104,11 +106,14 @@ ShadUI wouldn't be possible without the inspiration and contributions of the fol
 
 ## Contributing 🤝
 
-We welcome contributions to ShadUI! Before getting started, please review our [Contributing Guidelines](https://github.com/accntech/shad-ui/blob/main/CONTRIBUTING.md) and [Code of Conduct](https://github.com/accntech/shad-ui/blob/main/CODE_OF_CONDUCT.md).  
+We welcome contributions to ShadUI! Before getting started, please review
+our [Contributing Guidelines](https://github.com/accntech/shad-ui/blob/main/CONTRIBUTING.md)
+and [Code of Conduct](https://github.com/accntech/shad-ui/blob/main/CODE_OF_CONDUCT.md).  
 Feel free to open issues, suggest new features, or submit pull requests.
 
 ---
 
 ## License 📜
 
-ShadUI is licensed under the **MIT License**. See the [LICENSE](https://github.com/accntech/shad-ui/blob/main/LICENSE) file for details.
+ShadUI is licensed under the **MIT License**. See the [LICENSE](https://github.com/accntech/shad-ui/blob/main/LICENSE)
+file for details.

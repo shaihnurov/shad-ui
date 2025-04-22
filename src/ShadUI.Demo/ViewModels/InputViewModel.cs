@@ -134,7 +134,7 @@ public sealed partial class InputViewModel : ViewModelBase
                                         </TextBox>
                                     </StackPanel>
                                     """;
-    
+
     [ObservableProperty]
     private string[] _webFrameworks = ["Next.js", "Sveltekit", "Nuxt.js", "Remix", "Astro"];
 

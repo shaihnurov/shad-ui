@@ -102,7 +102,7 @@ public sealed partial class MainWindowViewModel(
     {
         await SwitchPageAsync(dateViewModel);
     }
-    
+
     [RelayCommand]
     private async Task OpenCheckBoxes()
     {

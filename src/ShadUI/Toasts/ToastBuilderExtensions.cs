@@ -79,7 +79,7 @@ public static class ToastBuilderExtensions
         builder.Position = ToastPosition.TopCenter;
         return builder;
     }
-    
+
     /// <summary>
     ///     Sets the toast position to the top right.
     /// </summary>
@@ -118,7 +118,7 @@ public static class ToastBuilderExtensions
         builder.Position = ToastPosition.BottomCenter;
         return builder;
     }
-    
+
     /// <summary>
     ///     Sets the toast position to the bottom right.
     /// </summary>
