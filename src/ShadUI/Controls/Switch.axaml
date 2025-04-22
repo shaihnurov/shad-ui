@@ -11,7 +11,7 @@
             <ToggleSwitch
                 OffContent="Off"
                 OnContent="On"
-                extensions:ToggleSwitch.RightAlignedContent="True" />
+                extensions:ToggleSwitchAssist.RightAlignedContent="True" />
             <ToggleSwitch IsEnabled="False" />
         </StackPanel>
     </Design.PreviewWith>
@@ -33,7 +33,7 @@
                 <ReversibleStackPanel
                     Name="PART_Container"
                     Orientation="Horizontal"
-                    ReverseOrder="{TemplateBinding extensions:ToggleSwitch.RightAlignedContent}"
+                    ReverseOrder="{TemplateBinding extensions:ToggleSwitchAssist.RightAlignedContent}"
                     Spacing="8">
                     <Panel>
                         <ContentPresenter

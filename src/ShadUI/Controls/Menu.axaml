@@ -7,8 +7,8 @@
         <Setter Property="FontWeight" Value="DemiBold" />
         <Setter Property="CornerRadius" Value="{DynamicResource SmCornerRadius}" />
         <Setter Property="Padding" Value="12 0" />
-        <Setter Property="extensions:MenuItem.PopupVerticalOffset" Value="8" />
-        <Setter Property="extensions:MenuItem.PopupPlacement" Value="BottomEdgeAlignedLeft" />
+        <Setter Property="extensions:MenuItemAssist.PopupVerticalOffset" Value="8" />
+        <Setter Property="extensions:MenuItemAssist.PopupPlacement" Value="BottomEdgeAlignedLeft" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Border
@@ -50,8 +50,8 @@
                             Name="PART_Popup"
                             Opacity="0"
                             OverlayInputPassThroughElement="{Binding $parent[Menu]}"
-                            Placement="{TemplateBinding extensions:MenuItem.PopupPlacement}"
-                            VerticalOffset="{TemplateBinding extensions:MenuItem.PopupVerticalOffset}">
+                            Placement="{TemplateBinding extensions:MenuItemAssist.PopupPlacement}"
+                            VerticalOffset="{TemplateBinding extensions:MenuItemAssist.PopupVerticalOffset}">
                             <LayoutTransformControl Name="PART_LayoutTransform" RenderTransformOrigin="50%, 0%">
                                 <Border
                                     Background="{DynamicResource CardBackgroundColor}"
@@ -63,10 +63,10 @@
                                     Margin="2,0,2,4"
                                     Name="PART_Border">
                                     <StackPanel Margin="0,2">
-                                        <Border IsVisible="{TemplateBinding extensions:MenuItem.Label, Converter={x:Static ObjectConverters.IsNotNull}}" Padding="16,8">
-                                            <ContentPresenter Content="{TemplateBinding extensions:MenuItem.Label}" />
+                                        <Border IsVisible="{TemplateBinding extensions:MenuItemAssist.Label, Converter={x:Static ObjectConverters.IsNotNull}}" Padding="16,8">
+                                            <ContentPresenter Content="{TemplateBinding extensions:MenuItemAssist.Label}" />
                                         </Border>
-                                        <Separator IsVisible="{TemplateBinding extensions:MenuItem.Label, Converter={x:Static ObjectConverters.IsNotNull}}" Margin="0,2" />
+                                        <Separator IsVisible="{TemplateBinding extensions:MenuItemAssist.Label, Converter={x:Static ObjectConverters.IsNotNull}}" Margin="0,2" />
                                         <ScrollViewer Margin="0,2">
                                             <ItemsPresenter
                                                 Grid.IsSharedSizeScope="True"

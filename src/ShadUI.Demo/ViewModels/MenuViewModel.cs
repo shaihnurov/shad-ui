@@ -80,10 +80,10 @@ public sealed partial class MenuViewModel : ViewModelBase
                                        </StackPanel.Resources>
                                        <Menu>
                                            <MenuItem Margin="12,0" Classes="Primary" Header="Primary"
-                                                     extensions:MenuItem.PopupPlacement="Bottom">
-                                               <extensions:MenuItem.Label>
+                                                     extensions:MenuItemAssist.PopupPlacement="Bottom">
+                                               <extensions:MenuItemAssist.Label>
                                                    <TextBlock Text="My Account" FontSize="16" FontWeight="SemiBold" />
-                                               </extensions:MenuItem.Label>
+                                               </extensions:MenuItemAssist.Label>
                                                <MenuItem Header="Profile" InputGesture="Ctrl + Shift + P" Width="224" />
                                                <MenuItem Header="Billing" InputGesture="Ctrl + B" />
                                                <MenuItem Header="Settings" InputGesture="Ctrl + S" />
@@ -106,10 +106,10 @@ public sealed partial class MenuViewModel : ViewModelBase
                                                <MenuItem Classes="Destructive" Header="Delete Account" />
                                            </MenuItem>
                                            <MenuItem Margin="12,0" Classes="Secondary" Header="Secondary"
-                                                     extensions:MenuItem.PopupPlacement="Bottom">
-                                               <extensions:MenuItem.Label>
+                                                     extensions:MenuItemAssist.PopupPlacement="Bottom">
+                                               <extensions:MenuItemAssist.Label>
                                                    <TextBlock Text="My Account" FontSize="16" FontWeight="SemiBold" />
-                                               </extensions:MenuItem.Label>
+                                               </extensions:MenuItemAssist.Label>
                                                <MenuItem Header="Profile" InputGesture="Ctrl + Shift + P" Width="224" />
                                                <MenuItem Header="Billing" InputGesture="Ctrl + B" />
                                                <MenuItem Header="Settings" InputGesture="Ctrl + S" />
@@ -132,10 +132,10 @@ public sealed partial class MenuViewModel : ViewModelBase
                                                <MenuItem Classes="Destructive" Header="Delete Account" />
                                            </MenuItem>
                                            <MenuItem Margin="12,0" Classes="Outline" Header="Outline"
-                                                     extensions:MenuItem.PopupPlacement="Bottom">
-                                               <extensions:MenuItem.Label>
+                                                     extensions:MenuItemAssist.PopupPlacement="Bottom">
+                                               <extensions:MenuItemAssist.Label>
                                                    <TextBlock Text="My Account" FontSize="16" FontWeight="SemiBold" />
-                                               </extensions:MenuItem.Label>
+                                               </extensions:MenuItemAssist.Label>
                                                <MenuItem Header="Profile" InputGesture="Ctrl + Shift + P" Width="224" />
                                                <MenuItem Header="Billing" InputGesture="Ctrl + B" />
                                                <MenuItem Header="Settings" InputGesture="Ctrl + S" />
@@ -158,10 +158,10 @@ public sealed partial class MenuViewModel : ViewModelBase
                                                <MenuItem Classes="Destructive" Header="Delete Account" />
                                            </MenuItem>
                                            <MenuItem Margin="12,0" Classes="Ghost" Header="Ghost"
-                                                     extensions:MenuItem.PopupPlacement="Bottom">
-                                               <extensions:MenuItem.Label>
+                                                     extensions:MenuItemAssist.PopupPlacement="Bottom">
+                                               <extensions:MenuItemAssist.Label>
                                                    <TextBlock Text="My Account" FontSize="16" FontWeight="SemiBold" />
-                                               </extensions:MenuItem.Label>
+                                               </extensions:MenuItemAssist.Label>
                                                <MenuItem Header="Profile" InputGesture="Ctrl + Shift + P" Width="224" />
                                                <MenuItem Header="Billing" InputGesture="Ctrl + B" />
                                                <MenuItem Header="Settings" InputGesture="Ctrl + S" />
@@ -184,14 +184,14 @@ public sealed partial class MenuViewModel : ViewModelBase
                                                <MenuItem Classes="Destructive" Header="Delete Account" />
                                            </MenuItem>
                                            <MenuItem Margin="12,0" Classes="Icon"
-                                                     extensions:MenuItem.PopupPlacement="Bottom">
+                                                     extensions:MenuItemAssist.PopupPlacement="Bottom">
                                                <MenuItem.Header>
                                                    <icons:Lucide Icon="Ellipsis" StrokeBrush="{DynamicResource ForegroundColor}"
                                                                  Width="16" />
                                                </MenuItem.Header>
-                                               <extensions:MenuItem.Label>
+                                               <extensions:MenuItemAssist.Label>
                                                    <TextBlock Text="My Account" FontSize="16" FontWeight="SemiBold" />
-                                               </extensions:MenuItem.Label>
+                                               </extensions:MenuItemAssist.Label>
                                                <MenuItem Header="Profile" InputGesture="Ctrl + Shift + P" Width="224" />
                                                <MenuItem Header="Billing" InputGesture="Ctrl + B" />
                                                <MenuItem Header="Settings" InputGesture="Ctrl + S" />

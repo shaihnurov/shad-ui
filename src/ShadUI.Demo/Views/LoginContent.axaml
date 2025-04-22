@@ -18,7 +18,7 @@
             Text="{Binding Email, Mode=TwoWay}"
             Watermark="user@example.com"
             extensions:ControlAssist.Label="Email"
-            extensions:Element.FocusOnLoad="True" />
+            extensions:ElementAssist.FocusOnLoad="True" />
         <TextBox
             Classes="PasswordReveal"
             PasswordChar="•"

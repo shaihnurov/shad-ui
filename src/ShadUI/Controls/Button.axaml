@@ -10,23 +10,23 @@
                 <Button
                     Classes="Primary"
                     Content="Primary"
-                    extensions:Button.ShowProgress="True" />
+                    extensions:ButtonAssist.ShowProgress="True" />
                 <Button Classes="Outline" Content="Primary" />
                 <Button
                     Classes="Secondary"
                     Content="Close"
-                    extensions:Button.ShowProgress="True">
-                    <extensions:Button.Icon>
+                    extensions:ButtonAssist.ShowProgress="True">
+                    <extensions:ButtonAssist.Icon>
                         <PathIcon Data="{x:Static icons:Icons.Cross}" Height="32" />
-                    </extensions:Button.Icon>
+                    </extensions:ButtonAssist.Icon>
                 </Button>
                 <Button
                     BorderBrush="{DynamicResource BorderColor}"
                     Classes="Icon"
-                    extensions:Button.ShowProgress="True">
-                    <extensions:Button.Icon>
+                    extensions:ButtonAssist.ShowProgress="True">
+                    <extensions:ButtonAssist.Icon>
                         <PathIcon Data="{x:Static icons:Icons.Cross}" Height="32" />
-                    </extensions:Button.Icon>
+                    </extensions:ButtonAssist.Icon>
                 </Button>
             </StackPanel>
         </Border>
@@ -37,8 +37,8 @@
         <Setter Property="CornerRadius" Value="{DynamicResource MdCornerRadius}" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
-        <Setter Property="extensions:Button.Icon" Value="{x:Null}" />
-        <Setter Property="extensions:Button.ShowProgress" Value="False" />
+        <Setter Property="extensions:ButtonAssist.Icon" Value="{x:Null}" />
+        <Setter Property="extensions:ButtonAssist.ShowProgress" Value="False" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Border
@@ -59,24 +59,24 @@
                             Classes="IconContent"
                             Height="16"
                             Margin="0,-4"
-                            Width="{TemplateBinding extensions:Button.ShowProgress,
+                            Width="{TemplateBinding extensions:ButtonAssist.ShowProgress,
                                                     Converter={x:Static converters:BoolToWidthProgressConverter.Instance}}">
                             <Viewbox.Transitions>
                                 <Transitions>
                                     <DoubleTransition Duration="0:0:0.20" Property="Width" />
                                 </Transitions>
                             </Viewbox.Transitions>
-                            <ContentPresenter Content="{TemplateBinding extensions:Button.ShowProgress, Converter={x:Static converters:BooleanConverters.ToLoading}}" />
+                            <ContentPresenter Content="{TemplateBinding extensions:ButtonAssist.ShowProgress, Converter={x:Static converters:BooleanConverters.ToLoading}}" />
                         </Viewbox>
                         <Viewbox
                             Classes="IconContent"
                             Height="24"
-                            IsVisible="{TemplateBinding extensions:Button.Icon,
+                            IsVisible="{TemplateBinding extensions:ButtonAssist.Icon,
                                                         Converter={x:Static ObjectConverters.IsNotNull}}"
                             Margin="0,-4"
-                            Opacity="{TemplateBinding extensions:Button.ShowProgress,
+                            Opacity="{TemplateBinding extensions:ButtonAssist.ShowProgress,
                                                       Converter={x:Static converters:BooleanConverters.ToInverseOpacity}}"
-                            Width="{TemplateBinding extensions:Button.ShowProgress,
+                            Width="{TemplateBinding extensions:ButtonAssist.ShowProgress,
                                                     Converter={x:Static converters:BoolToInverseWidthProgressConverter.Instance}}">
                             <Viewbox.Transitions>
                                 <Transitions>
@@ -84,7 +84,7 @@
                                     <DoubleTransition Duration="0:0:0.20" Property="Width" />
                                 </Transitions>
                             </Viewbox.Transitions>
-                            <ContentPresenter Content="{TemplateBinding extensions:Button.Icon}" />
+                            <ContentPresenter Content="{TemplateBinding extensions:ButtonAssist.Icon}" />
                         </Viewbox>
                         <ContentPresenter
                             Content="{TemplateBinding Content}"

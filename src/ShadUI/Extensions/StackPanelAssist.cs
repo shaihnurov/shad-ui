@@ -1,26 +1,27 @@
 using Avalonia;
+using Avalonia.Controls;
 using Avalonia.Rendering.Composition;
 
 namespace ShadUI.Extensions;
 
 /// <summary>
-///     Useful extension methods for <see cref="Avalonia.Controls.Presenters.ItemsPresenter" />.
+///     Useful extension methods for <see cref="Avalonia.Controls.StackPanel" />
 /// </summary>
-public static class ItemsPresenter
+public static class StackPanelAssist
 {
     /// <summary>
     ///     Gets or sets if scroll is animated.
     /// </summary>
     public static readonly AttachedProperty<bool> AnimatedScrollProperty =
-        AvaloniaProperty.RegisterAttached<Avalonia.Controls.Presenters.ItemsPresenter, bool>("AnimatedScroll",
-            typeof(Avalonia.Controls.Presenters.ItemsPresenter));
+        AvaloniaProperty.RegisterAttached<StackPanel, bool>("AnimatedScroll",
+            typeof(StackPanel));
 
-    static ItemsPresenter()
+    static StackPanelAssist()
     {
-        AnimatedScrollProperty.Changed.AddClassHandler<Avalonia.Controls.Presenters.ItemsPresenter>(HandleAnimatedScrollChanged);
+        AnimatedScrollProperty.Changed.AddClassHandler<StackPanel>(HandleAnimatedScrollChanged);
     }
 
-    private static void HandleAnimatedScrollChanged(Avalonia.Controls.Presenters.ItemsPresenter interactElem,
+    private static void HandleAnimatedScrollChanged(StackPanel interactElem,
         AvaloniaPropertyChangedEventArgs args)
     {
         if (GetAnimatedScroll(interactElem))
@@ -33,14 +34,14 @@ public static class ItemsPresenter
     /// </summary>
     /// <param name="wrap"></param>
     /// <returns></returns>
-    public static bool GetAnimatedScroll(Avalonia.Controls.Presenters.ItemsPresenter wrap) => wrap.GetValue(AnimatedScrollProperty);
+    public static bool GetAnimatedScroll(StackPanel wrap) => wrap.GetValue(AnimatedScrollProperty);
 
     /// <summary>
     ///     Sets the value of <see cref="AnimatedScrollProperty" />
     /// </summary>
     /// <param name="wrap"></param>
     /// <param name="value"></param>
-    public static void SetAnimatedScroll(Avalonia.Controls.Presenters.ItemsPresenter wrap, bool value)
+    public static void SetAnimatedScroll(StackPanel wrap, bool value)
     {
         wrap.SetValue(AnimatedScrollProperty, value);
     }

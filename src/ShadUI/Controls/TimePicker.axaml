@@ -464,7 +464,7 @@
                                 Grid.Column="1"
                                 Margin="12,8"
                                 Name="PART_AcceptButton"
-                                extensions:Element.FocusOnLoad="True">
+                                extensions:ElementAssist.FocusOnLoad="True">
                                 Apply
                             </Button>
                             <Button

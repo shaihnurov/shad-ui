@@ -29,7 +29,7 @@
                 Width="225"
                 extensions:ControlAssist.Hint="This is test"
                 extensions:ControlAssist.Label="Search"
-                extensions:Element.Classes="Clearable">
+                extensions:ElementAssist.Classes="Clearable">
                 <AutoCompleteBox.InnerRightContent>
                     <PathIcon
                         Data="{x:Static contents:Icons.Search}"
@@ -187,7 +187,7 @@
                                 Watermark="{TemplateBinding Watermark}"
                                 extensions:ControlAssist.MinHeight="{TemplateBinding extensions:ControlAssist.MinHeight}"
                                 extensions:ControlAssist.ShowProgress="{TemplateBinding extensions:ControlAssist.ShowProgress}"
-                                extensions:Element.Classes="{TemplateBinding extensions:Element.Classes}" />
+                                extensions:ElementAssist.Classes="{TemplateBinding extensions:ElementAssist.Classes}" />
                             <TextBlock
                                 Classes="Caption Muted"
                                 IsVisible="{TemplateBinding extensions:ControlAssist.Hint,

@@ -34,20 +34,20 @@
                                 Classes="Primary"
                                 Command="{Binding SubmitCommand}"
                                 Content="Primary"
-                                extensions:Button.ShowProgress="{Binding IsBusy}" />
+                                extensions:ButtonAssist.ShowProgress="{Binding IsBusy}" />
                             <Button
                                 Classes="Primary"
                                 Command="{Binding SubmitCommand}"
                                 Content="Edit"
-                                extensions:Button.ShowProgress="{Binding IsBusy}">
-                                <extensions:Button.Icon>
+                                extensions:ButtonAssist.ShowProgress="{Binding IsBusy}">
+                                <extensions:ButtonAssist.Icon>
                                     <icons:Lucide
                                         Height="16"
                                         Icon="Pencil"
                                         StrokeBrush="{DynamicResource PrimaryForegroundColor}"
                                         StrokeThickness="1.5"
                                         Width="10" />
-                                </extensions:Button.Icon>
+                                </extensions:ButtonAssist.Icon>
                             </Button>
                             <Button
                                 Classes="Primary"
@@ -67,20 +67,20 @@
                                 Classes="Secondary"
                                 Command="{Binding SubmitCommand}"
                                 Content="Secondary"
-                                extensions:Button.ShowProgress="{Binding IsBusy}" />
+                                extensions:ButtonAssist.ShowProgress="{Binding IsBusy}" />
                             <Button
                                 Classes="Secondary"
                                 Command="{Binding SubmitCommand}"
                                 Content="Edit"
-                                extensions:Button.ShowProgress="{Binding IsBusy}">
-                                <extensions:Button.Icon>
+                                extensions:ButtonAssist.ShowProgress="{Binding IsBusy}">
+                                <extensions:ButtonAssist.Icon>
                                     <icons:Lucide
                                         Height="16"
                                         Icon="Pencil"
                                         StrokeBrush="{DynamicResource SecondaryForegroundColor}"
                                         StrokeThickness="1.5"
                                         Width="10" />
-                                </extensions:Button.Icon>
+                                </extensions:ButtonAssist.Icon>
                             </Button>
                             <Button
                                 Classes="Secondary"
@@ -100,20 +100,20 @@
                                 Classes="Destructive"
                                 Command="{Binding SubmitCommand}"
                                 Content="Destructive"
-                                extensions:Button.ShowProgress="{Binding IsBusy}" />
+                                extensions:ButtonAssist.ShowProgress="{Binding IsBusy}" />
                             <Button
                                 Classes="Destructive"
                                 Command="{Binding SubmitCommand}"
                                 Content="Delete"
-                                extensions:Button.ShowProgress="{Binding IsBusy}">
-                                <extensions:Button.Icon>
+                                extensions:ButtonAssist.ShowProgress="{Binding IsBusy}">
+                                <extensions:ButtonAssist.Icon>
                                     <icons:Lucide
                                         Height="16"
                                         Icon="Trash"
                                         StrokeBrush="{DynamicResource DestructiveForegroundColor}"
                                         StrokeThickness="1.5"
                                         Width="10" />
-                                </extensions:Button.Icon>
+                                </extensions:ButtonAssist.Icon>
                             </Button>
                             <Button
                                 Classes="Destructive"
@@ -133,20 +133,20 @@
                                 Classes="Outline"
                                 Command="{Binding SubmitCommand}"
                                 Content="Outline"
-                                extensions:Button.ShowProgress="{Binding IsBusy}" />
+                                extensions:ButtonAssist.ShowProgress="{Binding IsBusy}" />
                             <Button
                                 Classes="Outline"
                                 Command="{Binding SubmitCommand}"
                                 Content="Edit"
-                                extensions:Button.ShowProgress="{Binding IsBusy}">
-                                <extensions:Button.Icon>
+                                extensions:ButtonAssist.ShowProgress="{Binding IsBusy}">
+                                <extensions:ButtonAssist.Icon>
                                     <icons:Lucide
                                         Height="16"
                                         Icon="Pencil"
                                         StrokeBrush="{DynamicResource ForegroundColor}"
                                         StrokeThickness="1.5"
                                         Width="10" />
-                                </extensions:Button.Icon>
+                                </extensions:ButtonAssist.Icon>
                             </Button>
                             <Button
                                 Classes="Outline"
@@ -166,20 +166,20 @@
                                 Classes="Ghost"
                                 Command="{Binding SubmitCommand}"
                                 Content="Ghost"
-                                extensions:Button.ShowProgress="{Binding IsBusy}" />
+                                extensions:ButtonAssist.ShowProgress="{Binding IsBusy}" />
                             <Button
                                 Classes="Ghost"
                                 Command="{Binding SubmitCommand}"
                                 Content="Edit"
-                                extensions:Button.ShowProgress="{Binding IsBusy}">
-                                <extensions:Button.Icon>
+                                extensions:ButtonAssist.ShowProgress="{Binding IsBusy}">
+                                <extensions:ButtonAssist.Icon>
                                     <icons:Lucide
                                         Height="16"
                                         Icon="Pencil"
                                         StrokeBrush="{DynamicResource ForegroundColor}"
                                         StrokeThickness="1.5"
                                         Width="10" />
-                                </extensions:Button.Icon>
+                                </extensions:ButtonAssist.Icon>
                             </Button>
                             <Button
                                 Classes="Ghost"
@@ -199,26 +199,26 @@
                                 BorderBrush="{DynamicResource BorderColor}"
                                 Classes="Icon"
                                 Command="{Binding SubmitCommand}"
-                                extensions:Button.ShowProgress="{Binding IsBusy}">
-                                <extensions:Button.Icon>
+                                extensions:ButtonAssist.ShowProgress="{Binding IsBusy}">
+                                <extensions:ButtonAssist.Icon>
                                     <icons:Lucide
                                         Icon="Pencil"
                                         StrokeBrush="{DynamicResource ForegroundColor}"
                                         StrokeThickness="1.5"
                                         Width="16" />
-                                </extensions:Button.Icon>
+                                </extensions:ButtonAssist.Icon>
                             </Button>
                             <Button
                                 BorderBrush="{DynamicResource BorderColor}"
                                 Classes="Icon"
                                 IsEnabled="False">
-                                <extensions:Button.Icon>
+                                <extensions:ButtonAssist.Icon>
                                     <icons:Lucide
                                         Icon="Pencil"
                                         StrokeBrush="{DynamicResource ForegroundColor}"
                                         StrokeThickness="1.5"
                                         Width="16" />
-                                </extensions:Button.Icon>
+                                </extensions:ButtonAssist.Icon>
                             </Button>
                         </StackPanel>
                     </controls:ControlBlock>
@@ -233,23 +233,23 @@
                             <Button
                                 Classes="DestructiveIcon"
                                 Command="{Binding SubmitCommand}"
-                                extensions:Button.ShowProgress="{Binding IsBusy}">
-                                <extensions:Button.Icon>
+                                extensions:ButtonAssist.ShowProgress="{Binding IsBusy}">
+                                <extensions:ButtonAssist.Icon>
                                     <icons:Lucide
                                         Icon="Trash"
                                         StrokeBrush="{DynamicResource DestructiveForegroundColor}"
                                         StrokeThickness="1.5"
                                         Width="16" />
-                                </extensions:Button.Icon>
+                                </extensions:ButtonAssist.Icon>
                             </Button>
                             <Button Classes="DestructiveIcon" IsEnabled="False">
-                                <extensions:Button.Icon>
+                                <extensions:ButtonAssist.Icon>
                                     <icons:Lucide
                                         Icon="Trash"
                                         StrokeBrush="{DynamicResource DestructiveForegroundColor}"
                                         StrokeThickness="1.5"
                                         Width="16" />
-                                </extensions:Button.Icon>
+                                </extensions:ButtonAssist.Icon>
                             </Button>
                         </StackPanel>
                     </controls:ControlBlock>

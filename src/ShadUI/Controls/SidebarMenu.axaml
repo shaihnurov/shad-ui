@@ -149,12 +149,12 @@
                                             Name="PART_ScrollViewer"
                                             VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}"
                                             VerticalSnapPointsType="{TemplateBinding (ScrollViewer.VerticalSnapPointsType)}">
-                                            <StackPanel extensions:StackPanel.AnimatedScroll="True">
+                                            <StackPanel extensions:StackPanelAssist.AnimatedScroll="True">
                                                 <ItemsPresenter
                                                     ItemsPanel="{TemplateBinding ItemsPanel}"
                                                     Margin="{TemplateBinding Padding}"
                                                     Name="PART_ItemsPresenter"
-                                                    extensions:ItemsPresenter.AnimatedScroll="True" />
+                                                    extensions:ItemsPresenterAssist.AnimatedScroll="True" />
                                             </StackPanel>
                                         </ScrollViewer>
                                     </DockPanel>

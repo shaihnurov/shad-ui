@@ -81,7 +81,7 @@
                             HorizontalAlignment="Center"
                             Orientation="Horizontal"
                             Spacing="8">
-                            <ToggleSwitch extensions:ToggleSwitch.RightAlignedContent="True">
+                            <ToggleSwitch extensions:ToggleSwitchAssist.RightAlignedContent="True">
                                 <ToggleSwitch.OffContent>
                                     <TextBlock
                                         Classes="Small"

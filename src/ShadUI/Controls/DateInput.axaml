@@ -10,7 +10,7 @@
                 <controls:DateInput
                     HorizontalAlignment="Left"
                     Width="255"
-                    extensions:Element.FocusOnLoad="True" />
+                    extensions:ElementAssist.FocusOnLoad="True" />
                 <controls:DateInput extensions:ControlAssist.Label="Start date" />
                 <controls:DateInput extensions:ControlAssist.Hint="Set end date" extensions:ControlAssist.Label="End date" />
                 <controls:DateInput IsEnabled="False" extensions:ControlAssist.Label="Disable" />
@@ -96,7 +96,7 @@
         <Setter Property="CornerRadius" Value="{DynamicResource MdCornerRadius}" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="BorderBrush" Value="{DynamicResource BorderColor}" />
-        <Setter Property="extensions:Element.FocusOnLoad" Value="False" />
+        <Setter Property="extensions:ElementAssist.FocusOnLoad" Value="False" />
         <Setter Property="Template">
             <ControlTemplate>
                 <StackPanel Focusable="False">
@@ -130,7 +130,7 @@
                                                                Mode=TwoWay}"
                                         Theme="{StaticResource InputBoxTheme}"
                                         Watermark="mm"
-                                        extensions:Element.FocusOnLoad="{TemplateBinding extensions:Element.FocusOnLoad}" />
+                                        extensions:ElementAssist.FocusOnLoad="{TemplateBinding extensions:ElementAssist.FocusOnLoad}" />
                                     <TextBlock
                                         FontSize="18"
                                         Grid.Column="1"

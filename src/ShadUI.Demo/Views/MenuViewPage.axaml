@@ -127,13 +127,13 @@
                                     Classes="Primary"
                                     Header="Primary"
                                     Margin="12,0"
-                                    extensions:MenuItem.PopupPlacement="Bottom">
-                                    <extensions:MenuItem.Label>
+                                    extensions:MenuItemAssist.PopupPlacement="Bottom">
+                                    <extensions:MenuItemAssist.Label>
                                         <TextBlock
                                             FontSize="16"
                                             FontWeight="SemiBold"
                                             Text="My Account" />
-                                    </extensions:MenuItem.Label>
+                                    </extensions:MenuItemAssist.Label>
                                     <MenuItem
                                         Header="Profile"
                                         InputGesture="Ctrl + Shift + P"
@@ -162,13 +162,13 @@
                                     Classes="Secondary"
                                     Header="Secondary"
                                     Margin="12,0"
-                                    extensions:MenuItem.PopupPlacement="Bottom">
-                                    <extensions:MenuItem.Label>
+                                    extensions:MenuItemAssist.PopupPlacement="Bottom">
+                                    <extensions:MenuItemAssist.Label>
                                         <TextBlock
                                             FontSize="16"
                                             FontWeight="SemiBold"
                                             Text="My Account" />
-                                    </extensions:MenuItem.Label>
+                                    </extensions:MenuItemAssist.Label>
                                     <MenuItem
                                         Header="Profile"
                                         InputGesture="Ctrl + Shift + P"
@@ -197,13 +197,13 @@
                                     Classes="Outline"
                                     Header="Outline"
                                     Margin="12,0"
-                                    extensions:MenuItem.PopupPlacement="Bottom">
-                                    <extensions:MenuItem.Label>
+                                    extensions:MenuItemAssist.PopupPlacement="Bottom">
+                                    <extensions:MenuItemAssist.Label>
                                         <TextBlock
                                             FontSize="16"
                                             FontWeight="SemiBold"
                                             Text="My Account" />
-                                    </extensions:MenuItem.Label>
+                                    </extensions:MenuItemAssist.Label>
                                     <MenuItem
                                         Header="Profile"
                                         InputGesture="Ctrl + Shift + P"
@@ -232,13 +232,13 @@
                                     Classes="Ghost"
                                     Header="Ghost"
                                     Margin="12,0"
-                                    extensions:MenuItem.PopupPlacement="Bottom">
-                                    <extensions:MenuItem.Label>
+                                    extensions:MenuItemAssist.PopupPlacement="Bottom">
+                                    <extensions:MenuItemAssist.Label>
                                         <TextBlock
                                             FontSize="16"
                                             FontWeight="SemiBold"
                                             Text="My Account" />
-                                    </extensions:MenuItem.Label>
+                                    </extensions:MenuItemAssist.Label>
                                     <MenuItem
                                         Header="Profile"
                                         InputGesture="Ctrl + Shift + P"
@@ -266,19 +266,19 @@
                                 <MenuItem
                                     Classes="Icon"
                                     Margin="12,0"
-                                    extensions:MenuItem.PopupPlacement="Bottom">
+                                    extensions:MenuItemAssist.PopupPlacement="Bottom">
                                     <MenuItem.Header>
                                         <icons:Lucide
                                             Icon="Ellipsis"
                                             StrokeBrush="{DynamicResource ForegroundColor}"
                                             Width="16" />
                                     </MenuItem.Header>
-                                    <extensions:MenuItem.Label>
+                                    <extensions:MenuItemAssist.Label>
                                         <TextBlock
                                             FontSize="16"
                                             FontWeight="SemiBold"
                                             Text="My Account" />
-                                    </extensions:MenuItem.Label>
+                                    </extensions:MenuItemAssist.Label>
                                     <MenuItem
                                         Header="Profile"
                                         InputGesture="Ctrl + Shift + P"

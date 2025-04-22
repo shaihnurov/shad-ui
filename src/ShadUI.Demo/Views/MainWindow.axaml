@@ -418,27 +418,27 @@
                         Classes="Icon"
                         CommandParameter="https://github.com/accntech/shad-ui"
                         ToolTip.Tip="Source repository">
-                        <extensions:Button.Icon>
+                        <extensions:ButtonAssist.Icon>
                             <PathIcon Data="{x:Static demo:CustomIcons.Github}" Foreground="{DynamicResource PrimaryColor}" />
-                        </extensions:Button.Icon>
+                        </extensions:ButtonAssist.Icon>
                     </Button>
                     <Button
                         Background="{DynamicResource SidebarBackgroundColor}"
                         Classes="Icon"
                         CommandParameter="https://github.com/accntech/shad-ui/blob/main/LICENSE"
                         ToolTip.Tip="Open source license">
-                        <extensions:Button.Icon>
+                        <extensions:ButtonAssist.Icon>
                             <PathIcon Data="{x:Static demo:CustomIcons.License}" Foreground="{DynamicResource PrimaryColor}" />
-                        </extensions:Button.Icon>
+                        </extensions:ButtonAssist.Icon>
                     </Button>
                     <Button
                         Background="{DynamicResource SidebarBackgroundColor}"
                         Classes="Icon"
                         CommandParameter="https://www.nuget.org/packages/ShadUI"
                         ToolTip.Tip="Nuget package">
-                        <extensions:Button.Icon>
+                        <extensions:ButtonAssist.Icon>
                             <PathIcon Data="{x:Static demo:CustomIcons.Nuget}" Foreground="{DynamicResource PrimaryColor}" />
-                        </extensions:Button.Icon>
+                        </extensions:ButtonAssist.Icon>
                     </Button>
                 </StackPanel>
             </controls:SidebarMenu.FooterContent>

@@ -148,7 +148,7 @@ public sealed partial class InputViewModel : ViewModelBase
                                                   Width="225"
                                                   extensions:ControlAssist.Hint="Your favorite web framework"
                                                   extensions:ControlAssist.Label="Search a framework"
-                                                  extensions:Element.Classes="Clearable">
+                                                  extensions:ElementAssist.Classes="Clearable">
                                                   <AutoCompleteBox.InnerRightContent>
                                                       <PathIcon
                                                           Data="{x:Static contents:Icons.Search}"

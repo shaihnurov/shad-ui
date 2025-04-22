@@ -1,16 +1,15 @@
 ﻿using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Data;
-using Avalonia.Markup.Xaml.Templates;
 
 namespace ShadUI.Extensions;
 
 /// <summary>
 ///     Useful extensions for any element.
 /// </summary>
-public class Element
+public class ElementAssist
 {
-    static Element()
+    static ElementAssist()
     {
         ClassesProperty.Changed.AddClassHandler<AvaloniaObject>(HandleClassesChanged);
         FocusOnLoadProperty.Changed.AddClassHandler<Control>(HandleFocusOnLoadChanged);
@@ -20,7 +19,7 @@ public class Element
     ///     Set the classes of the element using <see cref="string" />.
     /// </summary>
     public static readonly AttachedProperty<string> ClassesProperty =
-        AvaloniaProperty.RegisterAttached<Element, StyledElement, string>(
+        AvaloniaProperty.RegisterAttached<ElementAssist, StyledElement, string>(
             "Classes", "", false, BindingMode.OneTime);
 
     private static void HandleClassesChanged(AvaloniaObject element, AvaloniaPropertyChangedEventArgs args)
@@ -54,7 +53,7 @@ public class Element
     ///     Gets whether the element should be focused when loaded.
     /// </summary>
     public static readonly AttachedProperty<bool> FocusOnLoadProperty =
-        AvaloniaProperty.RegisterAttached<Element, Control, bool>(
+        AvaloniaProperty.RegisterAttached<ElementAssist, Control, bool>(
             "FocusOnLoad", false, false, BindingMode.OneTime);
 
     /// <summary>
@@ -77,13 +76,10 @@ public class Element
 
         control.Loaded += (_, _) =>
         {
-               if (!GetFocusOnLoad(control)) return;
-               
-               control.Focus();
-               if (control is TextBox textBox)
-               {
-                   textBox.CaretIndex = textBox.Text?.Length ?? 0;
-               }
+            if (!GetFocusOnLoad(control)) return;
+
+            control.Focus();
+            if (control is TextBox textBox) textBox.CaretIndex = textBox.Text?.Length ?? 0;
         };
     }
 }
