@@ -162,7 +162,10 @@ public class DialogHost : TemplatedControl
     {
         base.OnPointerPressed(e);
 
-        if (Application.Current?.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime { MainWindow: not null } desktop)
+        if (Application.Current?.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime
+            {
+                MainWindow: not null
+            } desktop)
             desktop.MainWindow.BeginMoveDrag(e);
     }
 
@@ -203,9 +206,21 @@ public class DialogHost : TemplatedControl
         if (sender is not DialogHost host)
             throw new NullReferenceException("Dependency object is not of valid type " + nameof(DialogHost));
         if (propChanged.OldValue is DialogManager oldManager)
+        {
+            oldManager.AllowDismissChanged -= host.AllowDismissChanged;
             host.DetachManagerEvents(oldManager);
+        }
+
         if (propChanged.NewValue is DialogManager newManager)
+        {
+            newManager.AllowDismissChanged += host.AllowDismissChanged;
             host.AttachManagerEvents(newManager);
+        }
+    }
+
+    private void AllowDismissChanged(object sender, bool e)
+    {
+        Dismissible = e;
     }
 
     private void AttachManagerEvents(DialogManager manager)

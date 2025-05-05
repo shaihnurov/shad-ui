@@ -63,7 +63,9 @@ public sealed class DialogManager
     public void Close<TContext>(bool success)
     {
         if (!CustomDialogs.TryGetValue(typeof(TContext), out var control))
+        {
             throw new InvalidOperationException($"Dialog with {typeof(TContext)} is not registered.");
+        }
 
         if (OnSuccessCallbacks.TryGetValue(typeof(TContext), out var successCallback))
         {
@@ -89,9 +91,30 @@ public sealed class DialogManager
             if (!success) cancelAsyncCallback?.Invoke();
         }
 
-        var dialogs = _dialogs.Where(x => x.GetType() == control && x.DataContext?.GetType() == typeof(TContext)).ToList();
+        var dialogs = _dialogs.Where(x => x.GetType() == control && x.DataContext?.GetType() == typeof(TContext))
+            .ToList();
 
         foreach (var dialog in dialogs) Close(dialog);
+    }
+
+    internal event EventHandler<bool>? AllowDismissChanged;
+
+    /// <summary>
+    ///     Disables the ability to dismiss dialogs. This overrides the <see cref="DialogHost.Dismissible" /> property of the
+    ///     <see cref="DialogHost" />.
+    /// </summary>
+    public void PreventDismissal()
+    {
+        AllowDismissChanged?.Invoke(this, false);
+    }
+
+    /// <summary>
+    ///     Enables the ability to dismiss dialogs. This overrides the <see cref="DialogHost.Dismissible" /> property of the
+    ///     <see cref="DialogHost" />.
+    /// </summary>
+    public void AllowDismissal()
+    {
+        AllowDismissChanged?.Invoke(this, true);
     }
 }
 
