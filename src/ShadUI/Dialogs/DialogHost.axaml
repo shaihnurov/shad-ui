@@ -4,6 +4,7 @@
     xmlns:icons="clr-namespace:ShadUI.Contents"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <ControlTheme TargetType="dialogs:DialogHost" x:Key="SukiDialogHostTheme">
+        <Setter Property="CornerRadius" Value="{DynamicResource LgCornerRadius}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Panel>
@@ -30,8 +31,7 @@
                         Background="{DynamicResource DialogBackgroundColor}"
                         BorderBrush="{DynamicResource BorderColor}"
                         BorderThickness="1"
-                        ClipToBounds="False"
-                        CornerRadius="{DynamicResource LgCornerRadius}"
+                        CornerRadius="{TemplateBinding CornerRadius}"
                         HorizontalAlignment="Center"
                         MaxWidth="{TemplateBinding DialogMaxWidth}"
                         MinWidth="{TemplateBinding DialogMinWidth}"
@@ -53,7 +53,10 @@
                             </Transitions>
                         </Border.Transitions>
                         <Panel>
-                            <ContentControl Content="{TemplateBinding Dialog}" KeyboardNavigation.TabNavigation="Cycle" />
+                            <!--  add border for proper clip  -->
+                            <Border ClipToBounds="True" CornerRadius="{TemplateBinding CornerRadius}">
+                                <ContentControl Content="{TemplateBinding Dialog}" KeyboardNavigation.TabNavigation="Cycle" />
+                            </Border>
                             <Button
                                 Background="{DynamicResource DialogBackgroundColor}"
                                 CornerRadius="{DynamicResource MdCornerRadius}"
