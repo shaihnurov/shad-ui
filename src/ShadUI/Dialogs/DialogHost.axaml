@@ -3,7 +3,7 @@
     xmlns:dialogs="clr-namespace:ShadUI.Dialogs"
     xmlns:icons="clr-namespace:ShadUI.Contents"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <ControlTheme TargetType="dialogs:DialogHost" x:Key="SukiDialogHostTheme">
+    <ControlTheme TargetType="dialogs:DialogHost" x:Key="DialogHostTheme">
         <Setter Property="CornerRadius" Value="{DynamicResource LgCornerRadius}" />
         <Setter Property="Template">
             <ControlTemplate>
@@ -81,48 +81,45 @@
                             </Button>
                         </Panel>
                     </Border>
-
-                    <Panel.Styles>
-                        <Style Selector="dialogs|DialogHost[IsDialogOpen=True]">
-                            <Style Selector="^ Border#PART_DialogBackground">
-                                <Setter Property="Opacity" Value="0.80" />
-                                <Setter Property="IsHitTestVisible" Value="True" />
-                            </Style>
-                            <Style Selector="^ Border#PART_TitleBar">
-                                <Setter Property="IsVisible" Value="True" />
-                                <Setter Property="IsHitTestVisible" Value="True" />
-                            </Style>
-                            <Style Selector="^ Border#PART_DialogContent">
-                                <Setter Property="Margin" Value="0" />
-                                <Setter Property="Opacity" Value="1" />
-                                <Setter Property="IsHitTestVisible" Value="True" />
-                                <Setter Property="RenderTransform" Value="scale(1)" />
-                            </Style>
-                        </Style>
-                        <Style Selector="dialogs|DialogHost[IsDialogOpen=False]">
-                            <Style Selector="^ Border#PART_DialogBackground">
-                                <Setter Property="Opacity" Value="0" />
-                                <Setter Property="IsHitTestVisible" Value="False" />
-                            </Style>
-                            <Style Selector="^ Border#PART_TitleBar">
-                                <Setter Property="Opacity" Value="0" />
-                                <Setter Property="IsHitTestVisible" Value="False" />
-                                <Setter Property="IsVisible" Value="False" />
-                            </Style>
-                            <Style Selector="^ Border#PART_DialogContent">
-                                <Setter Property="Opacity" Value="0" />
-                                <Setter Property="IsHitTestVisible" Value="False" />
-                                <Setter Property="RenderTransform" Value="scale(0.70)" />
-                                <Setter Property="Margin" Value="0,50,0,0" />
-                            </Style>
-                        </Style>
-                    </Panel.Styles>
                 </Panel>
             </ControlTemplate>
         </Setter>
+        <Style Selector="^[IsDialogOpen=True]">
+            <Style Selector="^/template/ Border#PART_DialogBackground">
+                <Setter Property="Opacity" Value="0.80" />
+                <Setter Property="IsHitTestVisible" Value="True" />
+            </Style>
+            <Style Selector="^/template/ Border#PART_TitleBar">
+                <Setter Property="IsVisible" Value="True" />
+                <Setter Property="IsHitTestVisible" Value="True" />
+            </Style>
+            <Style Selector="^/template/ Border#PART_DialogContent">
+                <Setter Property="Margin" Value="0" />
+                <Setter Property="Opacity" Value="1" />
+                <Setter Property="IsHitTestVisible" Value="True" />
+                <Setter Property="RenderTransform" Value="scale(1)" />
+            </Style>
+        </Style>
+        <Style Selector="^[IsDialogOpen=False]">
+            <Style Selector="^/template/ Border#PART_DialogBackground">
+                <Setter Property="Opacity" Value="0" />
+                <Setter Property="IsHitTestVisible" Value="False" />
+            </Style>
+            <Style Selector="^ Border#PART_TitleBar">
+                <Setter Property="Opacity" Value="0" />
+                <Setter Property="IsHitTestVisible" Value="False" />
+                <Setter Property="IsVisible" Value="False" />
+            </Style>
+            <Style Selector="^/template/ Border#PART_DialogContent">
+                <Setter Property="Opacity" Value="0" />
+                <Setter Property="IsHitTestVisible" Value="False" />
+                <Setter Property="RenderTransform" Value="scale(0.70)" />
+                <Setter Property="Margin" Value="0,50,0,0" />
+            </Style>
+        </Style>
     </ControlTheme>
     <ControlTheme
-        BasedOn="{StaticResource SukiDialogHostTheme}"
+        BasedOn="{StaticResource DialogHostTheme}"
         TargetType="dialogs:DialogHost"
         x:Key="{x:Type dialogs:DialogHost}" />
 </ResourceDictionary>
