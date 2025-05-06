@@ -119,7 +119,7 @@
                                                              Mode=TwoWay}"
                                     MaxHeight="{TemplateBinding MaxDropDownHeight,
                                                                 Converter={x:Static converters:PopupMaxDropDownHeightConverter.Instance}}"
-                                    MinWidth="{Binding Bounds.Width, Converter={x:Static converters:PopupMinWidthConverter.Instance}, RelativeSource={RelativeSource TemplatedParent}}"
+                                    MinWidth="{Binding #PART_Border.Bounds.Width, Converter={x:Static converters:PopupMinWidthConverter.Instance}}"
                                     Name="PART_Popup"
                                     PlacementTarget="{Binding #PART_Border}"
                                     VerticalOffset="5">
@@ -130,7 +130,8 @@
                                             BorderThickness="1"
                                             BoxShadow="{DynamicResource Shadow}"
                                             CornerRadius="{DynamicResource MdCornerRadius}"
-                                            Margin="2,0,2,4">
+                                            Margin="2,0,2,4"
+                                            MinWidth="{Binding #PART_Border.Bounds.Width}">
                                             <ScrollViewer HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}" VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
                                                 <ItemsPresenter
                                                     ItemsPanel="{TemplateBinding ItemsPanel}"
