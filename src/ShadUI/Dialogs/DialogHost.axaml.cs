@@ -78,13 +78,13 @@ public class DialogHost : TemplatedControl
     /// <summary>
     ///     Defines the <see cref="DialogMaxWidth" /> property.
     /// </summary>
-    internal static readonly StyledProperty<double?> DialogMaxWidthProperty =
-        AvaloniaProperty.Register<DialogHost, double?>(nameof(DialogMaxWidth));
+    internal static readonly StyledProperty<double> DialogMaxWidthProperty =
+        AvaloniaProperty.Register<DialogHost, double>(nameof(DialogMaxWidth), double.MaxValue);
 
     /// <summary>
     ///     Gets or sets the maximum width of the dialog.
     /// </summary>
-    internal double? DialogMaxWidth
+    internal double DialogMaxWidth
     {
         get => GetValue(DialogMaxWidthProperty);
         set => SetValue(DialogMaxWidthProperty, value);
@@ -93,13 +93,13 @@ public class DialogHost : TemplatedControl
     /// <summary>
     ///     Defines the <see cref="DialogMinWidth" /> property.
     /// </summary>
-    internal static readonly StyledProperty<double?> DialogMinWidthProperty =
-        AvaloniaProperty.Register<DialogHost, double?>(nameof(DialogMinWidth));
+    internal static readonly StyledProperty<double> DialogMinWidthProperty =
+        AvaloniaProperty.Register<DialogHost, double>(nameof(DialogMinWidth), double.MinValue);
 
     /// <summary>
     ///     Gets or sets the minimum width of the dialog.
     /// </summary>
-    internal double? DialogMinWidth
+    internal double DialogMinWidth
     {
         get => GetValue(DialogMinWidthProperty);
         set => SetValue(DialogMinWidthProperty, value);
