@@ -199,8 +199,9 @@
                     </DataValidationErrors>
                     <Popup
                         IsLightDismissEnabled="True"
-                        MaxHeight="{TemplateBinding MaxDropDownHeight}"
-                        MinWidth="{Binding Bounds.Width, Converter={x:Static converters:PopupMinWidthConverter.Instance}, RelativeSource={RelativeSource TemplatedParent}}"
+                        MaxHeight="{TemplateBinding MaxDropDownHeight,
+                                                    Converter={x:Static converters:PopupMaxDropDownHeightConverter.Instance}}"
+                        MinWidth="{Binding #PART_TextBox.Bounds.Width, Converter={x:Static converters:PopupMinWidthConverter.Instance}}"
                         Name="PART_Popup"
                         PlacementTarget="PART_TextBox"
                         VerticalOffset="5">
@@ -210,7 +211,8 @@
                                 BorderBrush="{DynamicResource BorderColor}"
                                 BorderThickness="1"
                                 BoxShadow="{DynamicResource Shadow}"
-                                CornerRadius="{DynamicResource MdCornerRadius}">
+                                CornerRadius="{DynamicResource MdCornerRadius}"
+                                Margin="2,0,2,4">
                                 <ListBox
                                     Background="{TemplateBinding Background}"
                                     BorderThickness="0"
