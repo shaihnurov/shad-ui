@@ -14,7 +14,7 @@ public sealed class DialogManager
     internal event EventHandler<DialogShownEventArgs>? OnDialogShown;
     internal event EventHandler<DialogClosedEventArgs>? OnDialogClosed;
 
-    private readonly List<Control> _dialogs = [];
+    private readonly Dictionary<Control, DialogOptions> _dialogs = [];
 
     /// <summary>
     ///     Shows a dialog with the provided options.
@@ -23,8 +23,20 @@ public sealed class DialogManager
     /// <param name="options">Dialog options</param>
     internal void Show(Control control, DialogOptions options)
     {
-        _dialogs.Add(control);
-        OnDialogShown?.Invoke(this, new DialogShownEventArgs { Control = control, Options = options });
+        if (_dialogs.Count > 0)
+        {
+            var last = _dialogs.Last();
+            if (last.Key != control)
+            {
+                OnDialogClosed?.Invoke(this, new DialogClosedEventArgs { Control = last.Key });
+            }
+        }
+
+        var existing = _dialogs.FirstOrDefault(x => x.Key == control || x.Key.GetType() == control.GetType());
+        if (existing.Key is null) _dialogs.TryAdd(control, options);
+
+        var current = existing.Key ?? control;
+        OnDialogShown?.Invoke(this, new DialogShownEventArgs { Control = current, Options = options });
     }
 
     /// <summary>
@@ -34,6 +46,21 @@ public sealed class DialogManager
     {
         _dialogs.Remove(control);
         OnDialogClosed?.Invoke(this, new DialogClosedEventArgs { Control = control });
+
+        if (_dialogs.Count == 0) return;
+
+        var lastDialog = _dialogs.Last();
+        Show(lastDialog.Key, lastDialog.Value);
+    }
+
+    internal void RemoveLast()
+    {
+        if (_dialogs.Count == 0) return;
+
+        var lastDialog = _dialogs.Last();
+        Close(lastDialog.Key);
+        var contextType = lastDialog.Key.DataContext?.GetType();
+        if (contextType is not null) InvokeCallBacks(contextType, false);
     }
 
     internal readonly Dictionary<Type, Type> CustomDialogs = [];
@@ -67,34 +94,37 @@ public sealed class DialogManager
             throw new InvalidOperationException($"Dialog with {typeof(TContext)} is not registered.");
         }
 
-        if (OnSuccessCallbacks.TryGetValue(typeof(TContext), out var successCallback))
-        {
-            OnSuccessCallbacks.Remove(typeof(TContext));
-            if (success) successCallback?.Invoke();
-        }
+        InvokeCallBacks(typeof(TContext), success);
 
-        if (OnSuccessAsyncCallbacks.TryGetValue(typeof(TContext), out var successAsyncCallback))
-        {
-            OnSuccessAsyncCallbacks.Remove(typeof(TContext));
-            if (success) successAsyncCallback?.Invoke();
-        }
-
-        if (OnCancelCallbacks.TryGetValue(typeof(TContext), out var cancelCallback))
-        {
-            OnCancelCallbacks.Remove(typeof(TContext));
-            if (!success) cancelCallback?.Invoke();
-        }
-
-        if (OnCancelAsyncCallbacks.TryGetValue(typeof(TContext), out var cancelAsyncCallback))
-        {
-            OnCancelAsyncCallbacks.Remove(typeof(TContext));
-            if (!success) cancelAsyncCallback?.Invoke();
-        }
-
-        var dialogs = _dialogs.Where(x => x.GetType() == control && x.DataContext?.GetType() == typeof(TContext))
+        var dialogs = _dialogs
+            .Where(x => x.Key.GetType() == control &&
+                        x.Key.DataContext?.GetType() == typeof(TContext))
             .ToList();
 
-        foreach (var dialog in dialogs) Close(dialog);
+        foreach (var dialog in dialogs) Close(dialog.Key);
+    }
+
+    private void InvokeCallBacks(Type type, bool success)
+    {
+        if (OnSuccessCallbacks.Remove(type, out var successCallback) && success)
+        {
+            successCallback?.Invoke();
+        }
+
+        if (OnSuccessAsyncCallbacks.Remove(type, out var successAsyncCallback) && success)
+        {
+            successAsyncCallback?.Invoke();
+        }
+
+        if (OnCancelCallbacks.Remove(type, out var cancelCallback) && !success)
+        {
+            cancelCallback?.Invoke();
+        }
+
+        if (OnCancelAsyncCallbacks.Remove(type, out var cancelAsyncCallback) && !success)
+        {
+            cancelAsyncCallback?.Invoke();
+        }
     }
 
     internal event EventHandler<bool>? AllowDismissChanged;
@@ -115,6 +145,18 @@ public sealed class DialogManager
     public void AllowDismissal()
     {
         AllowDismissChanged?.Invoke(this, true);
+    }
+
+    /// <summary>
+    ///     Removes all dialogs including all associated callbacks.
+    /// </summary>
+    public void RemoveAll()
+    {
+        _dialogs.Clear();
+        OnSuccessAsyncCallbacks.Clear();
+        OnSuccessCallbacks.Clear();
+        OnCancelAsyncCallbacks.Clear();
+        OnCancelCallbacks.Clear();
     }
 }
 

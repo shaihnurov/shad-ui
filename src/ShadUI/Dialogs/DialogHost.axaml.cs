@@ -183,11 +183,7 @@ public class DialogHost : TemplatedControl
 
         IsDialogOpen = false;
 
-        if (Manager is not null)
-        {
-            Manager.OnCancelCallbacks.Clear();
-            Manager.OnSuccessCallbacks.Clear();
-        }
+        Manager?.RemoveLast();
 
         if (Owner is not null)
             Owner.HasOpenDialog = false;
