@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Security.Cryptography;
+using System.Text;
 using System.Threading.Tasks;
 using Avalonia;
 using Avalonia.Controls;
@@ -13,6 +15,8 @@ internal class SimpleDialog : TemplatedControl
     public SimpleDialog()
     {
     }
+
+    public string Id { get; set; } = string.Empty;
 
     public SimpleDialog(DialogManager manager)
     {
@@ -69,7 +73,8 @@ internal class SimpleDialog : TemplatedControl
     }
 
     public static readonly StyledProperty<DialogButtonStyle> SecondaryButtonStyleProperty =
-        AvaloniaProperty.Register<SimpleDialog, DialogButtonStyle>(nameof(SecondaryButtonStyle), DialogButtonStyle.Secondary);
+        AvaloniaProperty.Register<SimpleDialog, DialogButtonStyle>(nameof(SecondaryButtonStyle),
+            DialogButtonStyle.Secondary);
 
     public DialogButtonStyle SecondaryButtonStyle
     {
@@ -91,7 +96,8 @@ internal class SimpleDialog : TemplatedControl
     }
 
     public static readonly StyledProperty<DialogButtonStyle> TertiaryButtonStyleProperty =
-        AvaloniaProperty.Register<SimpleDialog, DialogButtonStyle>(nameof(TertiaryButtonStyle), DialogButtonStyle.Outline);
+        AvaloniaProperty.Register<SimpleDialog, DialogButtonStyle>(nameof(TertiaryButtonStyle),
+            DialogButtonStyle.Outline);
 
     public DialogButtonStyle TertiaryButtonStyle
     {
@@ -117,7 +123,8 @@ internal class SimpleDialog : TemplatedControl
     public Func<Task>? CancelCallbackAsync { get; set; }
 
     public static readonly StyledProperty<DialogButtonStyle> CancelButtonStyleProperty =
-        AvaloniaProperty.Register<SimpleDialog, DialogButtonStyle>(nameof(CancelButtonStyle), DialogButtonStyle.Outline);
+        AvaloniaProperty.Register<SimpleDialog, DialogButtonStyle>(nameof(CancelButtonStyle),
+            DialogButtonStyle.Outline);
 
     public DialogButtonStyle CancelButtonStyle
     {
@@ -152,5 +159,86 @@ internal class SimpleDialog : TemplatedControl
             CancelCallback?.Invoke();
             CancelCallbackAsync?.Invoke();
         };
+    }
+
+    /// <summary>
+    ///     Sets the ID of the dialog based on its properties and options. 
+    /// </summary>
+    /// <param name="options"></param>
+    internal void SetId(DialogOptions options)
+    {
+        // Use a pooled array writer which is more memory efficient than StringBuilder
+        using var hasher = IncrementalHash.CreateHash(HashAlgorithmName.SHA256);
+
+        if (!string.IsNullOrEmpty(Title))
+        {
+            hasher.AppendData(Encoding.UTF8.GetBytes(Title));
+        }
+
+        hasher.AppendData(new[] { (byte)'|' });
+
+        if (!string.IsNullOrEmpty(Message))
+        {
+            hasher.AppendData(Encoding.UTF8.GetBytes(Message));
+        }
+
+        hasher.AppendData(new[] { (byte)'|' });
+
+        if (!string.IsNullOrEmpty(PrimaryButtonText))
+        {
+            hasher.AppendData(Encoding.UTF8.GetBytes(PrimaryButtonText));
+        }
+
+        hasher.AppendData(new[] { (byte)'|' });
+        hasher.AppendData(BitConverter.GetBytes((int)PrimaryButtonStyle));
+        hasher.AppendData(new[] { (byte)'|' });
+
+        if (!string.IsNullOrEmpty(SecondaryButtonText))
+        {
+            hasher.AppendData(Encoding.UTF8.GetBytes(SecondaryButtonText));
+        }
+
+        hasher.AppendData(new[] { (byte)'|' });
+        hasher.AppendData(BitConverter.GetBytes((int)SecondaryButtonStyle));
+        hasher.AppendData(new[] { (byte)'|' });
+
+        if (!string.IsNullOrEmpty(TertiaryButtonText))
+        {
+            hasher.AppendData(Encoding.UTF8.GetBytes(TertiaryButtonText));
+        }
+
+        hasher.AppendData(new[] { (byte)'|' });
+        hasher.AppendData(BitConverter.GetBytes((int)TertiaryButtonStyle));
+        hasher.AppendData(new[] { (byte)'|' });
+
+        if (!string.IsNullOrEmpty(CancelButtonText))
+        {
+            hasher.AppendData(Encoding.UTF8.GetBytes(CancelButtonText));
+        }
+
+        hasher.AppendData(new[] { (byte)'|' });
+        hasher.AppendData(BitConverter.GetBytes((int)CancelButtonStyle));
+        hasher.AppendData(new[] { (byte)'|' });
+
+        hasher.AppendData(BitConverter.GetBytes(options.Dismissible));
+        hasher.AppendData(new[] { (byte)'|' });
+        hasher.AppendData(BitConverter.GetBytes(options.MinWidth));
+        hasher.AppendData(new[] { (byte)'|' });
+        hasher.AppendData(BitConverter.GetBytes(options.MaxWidth));
+
+        var hash = hasher.GetHashAndReset();
+        var hexChars = new char[16];
+        for (var i = 0; i < 8; i++)
+        {
+            hexChars[i * 2] = GetHexChar(hash[i] >> 4);
+            hexChars[i * 2 + 1] = GetHexChar(hash[i] & 0xF);
+        }
+
+        Id = new string(hexChars);
+    }
+
+    private static char GetHexChar(int value)
+    {
+        return (char)(value < 10 ? '0' + value : 'A' + (value - 10));
     }
 }

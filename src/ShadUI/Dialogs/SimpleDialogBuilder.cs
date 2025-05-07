@@ -65,6 +65,7 @@ public sealed class SimpleDialogBuilder
         _dialog.CancelCallbackAsync = CancelCallbackAsync;
         _dialog.CancelButtonStyle = CancelButtonStyle;
 
+        _dialog.SetId(Options);
         _manager.Show(_dialog, Options);
     }
 }

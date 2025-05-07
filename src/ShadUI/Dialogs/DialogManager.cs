@@ -25,6 +25,19 @@ public sealed class DialogManager
     {
         if (_dialogs.Count > 0)
         {
+            if (control is SimpleDialog simple)
+            {
+                var existingSimpleDialog = _dialogs.FirstOrDefault(x => x.Key is SimpleDialog d && d.Id == simple.Id)
+                    .Key;
+
+                if (existingSimpleDialog is not null) return;
+            }
+
+            var existingCustomDialog =
+                _dialogs.FirstOrDefault(x =>
+                    x.Key.DataContext?.GetType() == control.DataContext?.GetType()).Key;
+            if (existingCustomDialog is not null) return;
+
             var last = _dialogs.Last();
             if (last.Key != control)
             {
@@ -32,11 +45,8 @@ public sealed class DialogManager
             }
         }
 
-        var existing = _dialogs.FirstOrDefault(x => x.Key == control || x.Key.GetType() == control.GetType());
-        if (existing.Key is null) _dialogs.TryAdd(control, options);
-
-        var current = existing.Key ?? control;
-        OnDialogShown?.Invoke(this, new DialogShownEventArgs { Control = current, Options = options });
+        _dialogs.TryAdd(control, options);
+        OnDialogShown?.Invoke(this, new DialogShownEventArgs { Control = control, Options = options });
     }
 
     /// <summary>
@@ -50,7 +60,7 @@ public sealed class DialogManager
         if (_dialogs.Count == 0) return;
 
         var lastDialog = _dialogs.Last();
-        Show(lastDialog.Key, lastDialog.Value);
+        OnDialogShown?.Invoke(this, new DialogShownEventArgs { Control = lastDialog.Key, Options = lastDialog.Value });
     }
 
     internal void RemoveLast()
