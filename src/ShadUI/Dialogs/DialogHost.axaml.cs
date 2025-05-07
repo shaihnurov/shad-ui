@@ -122,18 +122,18 @@ public class DialogHost : TemplatedControl
     }
 
     /// <summary>
-    ///     Defines the <see cref="AlreadyOpen" /> property.
+    ///     Defines the <see cref="HasOpenDialog" /> property.
     /// </summary>
-    internal static readonly StyledProperty<bool> AlreadyOpenProperty =
-        AvaloniaProperty.Register<DialogHost, bool>(nameof(AlreadyOpen));
+    internal static readonly StyledProperty<bool> HasOpenDialogProperty =
+        AvaloniaProperty.Register<DialogHost, bool>(nameof(HasOpenDialog));
 
     /// <summary>
     ///     Gets or sets whether the dialog can be dismissed.
     /// </summary>
-    internal bool AlreadyOpen
+    internal bool HasOpenDialog
     {
-        get => GetValue(AlreadyOpenProperty);
-        set => SetValue(AlreadyOpenProperty, value);
+        get => GetValue(HasOpenDialogProperty);
+        set => SetValue(HasOpenDialogProperty, value);
     }
 
     /// <summary>
@@ -208,6 +208,7 @@ public class DialogHost : TemplatedControl
         IsDialogOpen = false;
 
         Manager?.RemoveLast();
+        Manager?.OpenLast();
 
         if (Owner is not null) Owner.HasOpenDialog = false;
     }
@@ -229,35 +230,27 @@ public class DialogHost : TemplatedControl
 
         if (propChanged.OldValue is DialogManager oldManager)
         {
-            oldManager.AllowDismissChanged -= host.AllowDismissChanged;
             host.DetachManagerEvents(oldManager);
         }
 
         if (propChanged.NewValue is DialogManager newManager)
         {
-            newManager.AllowDismissChanged += host.AllowDismissChanged;
             host.AttachManagerEvents(newManager);
         }
-    }
-
-    private void AllowDismissChanged(object sender, bool e)
-    {
-        if (Manager is null || Manager.Dialogs.Count == 0) return;
-
-        var firstDialog = Manager.Dialogs.First();
-        Dismissible = firstDialog.Value.Dismissible || e;
     }
 
     private void AttachManagerEvents(DialogManager manager)
     {
         manager.OnDialogShown += ManagerOnDialogShown;
         manager.OnDialogClosed += ManagerOnDialogClosed;
+        manager.AllowDismissChanged += AllowDismissChanged;
     }
 
     private void DetachManagerEvents(DialogManager manager)
     {
         manager.OnDialogShown -= ManagerOnDialogShown;
         manager.OnDialogClosed -= ManagerOnDialogClosed;
+        manager.AllowDismissChanged -= AllowDismissChanged;
     }
 
     private void ManagerOnDialogShown(object sender, DialogShownEventArgs e)
@@ -271,9 +264,8 @@ public class DialogHost : TemplatedControl
         if (e.Options.MinWidth > 0) DialogMinWidth = e.Options.MinWidth;
 
         IsDialogOpen = true;
-
-        AlreadyOpen = Manager.Dialogs.Count > 0;
-        Owner.HasOpenDialog = Manager.Dialogs.Count > 0;
+        HasOpenDialog = true;
+        Owner.HasOpenDialog = true;
     }
 
     private void ManagerOnDialogClosed(object sender, DialogClosedEventArgs e)
@@ -281,10 +273,16 @@ public class DialogHost : TemplatedControl
         if (Manager is null || Owner is null) return;
         if (e.Control != Dialog) return;
 
-        AlreadyOpen = Manager.Dialogs.Count > 0;
+        IsDialogOpen = false;
+        HasOpenDialog = Manager.Dialogs.Count > 0;
         Owner.HasOpenDialog = Manager.Dialogs.Count > 0;
+    }
+    
+    private void AllowDismissChanged(object sender, bool e)
+    {
+        if (Manager is null || Manager.Dialogs.Count == 0) return;
 
-        if (AlreadyOpen) IsDialogOpen = false;
-        IsDialogOpen = AlreadyOpen;
+        var firstDialog = Manager.Dialogs.First();
+        Dismissible = firstDialog.Value.Dismissible || e;
     }
 }

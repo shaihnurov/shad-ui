@@ -49,11 +49,14 @@ public sealed class DialogManager
         OnDialogShown?.Invoke(this, new DialogShownEventArgs { Control = control, Options = options });
     }
 
-    internal void CloseAndTryOpenLast(Control control)
+    internal void CloseDialog(Control control)
     {
         Dialogs.Remove(control);
         OnDialogClosed?.Invoke(this, new DialogClosedEventArgs { Control = control });
+    }
 
+    internal void OpenLast()
+    {
         if (Dialogs.Count == 0) return;
 
         var lastDialog = Dialogs.Last();
@@ -65,7 +68,8 @@ public sealed class DialogManager
         if (Dialogs.Count == 0) return;
 
         var lastDialog = Dialogs.Last();
-        CloseAndTryOpenLast(lastDialog.Key);
+        CloseDialog(lastDialog.Key);
+
         var contextType = lastDialog.Key.DataContext?.GetType();
         if (contextType is not null) InvokeCallBacks(contextType, false);
     }
@@ -113,16 +117,33 @@ public sealed class DialogManager
     }
 
     /// <summary>
-    ///     Closes the dialog and invokes the callback.
+    ///     Closes the dialog associated with the specified context and invokes the appropriate callbacks.
     /// </summary>
-    /// <param name="context">The actual context</param>
-    /// <param name="success">Returns whether the action is successful or not. Default is false.</param>
-    /// <typeparam name="TContext">The registered DataContext type</typeparam>
-    public void Close<TContext>(TContext context, bool success = false)
+    /// <typeparam name="TContext">The type of the DataContext associated with the dialog.</typeparam>
+    /// <param name="context">The DataContext of the dialog to close.</param>
+    /// <param name="options">Optional parameters for closing the dialog.</param>
+    public void Close<TContext>(TContext context, CloseDialogOptions? options = null)
     {
+        var clearAll = options?.ClearAll ?? false;
+        var dialogs = Dialogs.Where(x => Equals(x.Key.DataContext, context)).ToList();
+
+        if (clearAll) RemoveAll();
+
+        foreach (var dialog in dialogs) CloseDialog(dialog.Key);
+
+        var success = options?.Success ?? false;
         InvokeCallBacks(typeof(TContext), success);
-        var dialogs = Dialogs.Where(x => Equals(x.Key.DataContext, context));
-        foreach (var dialog in dialogs) CloseAndTryOpenLast(dialog.Key);
+
+        if (!clearAll) OpenLast();
+    }
+
+    private void RemoveAll()
+    {
+        Dialogs.Clear();
+        OnSuccessAsyncCallbacks.Clear();
+        OnSuccessCallbacks.Clear();
+        OnCancelAsyncCallbacks.Clear();
+        OnCancelCallbacks.Clear();
     }
 
     internal event EventHandler<bool>? AllowDismissChanged;
@@ -143,18 +164,6 @@ public sealed class DialogManager
     public void AllowDismissal()
     {
         AllowDismissChanged?.Invoke(this, true);
-    }
-
-    /// <summary>
-    ///     Removes all dialogs including all associated callbacks.
-    /// </summary>
-    public void RemoveAll()
-    {
-        Dialogs.Clear();
-        OnSuccessAsyncCallbacks.Clear();
-        OnSuccessCallbacks.Clear();
-        OnCancelAsyncCallbacks.Clear();
-        OnCancelCallbacks.Clear();
     }
 }
 

@@ -10,7 +10,7 @@ public sealed partial class AboutViewModel(DialogManager dialogManager) : ViewMo
     [RelayCommand]
     private void Close()
     {
-        dialogManager.Close(this, success: true);
+        dialogManager.Close(this);
     }
 
     [ObservableProperty]
