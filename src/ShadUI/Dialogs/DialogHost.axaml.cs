@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
@@ -241,7 +242,10 @@ public class DialogHost : TemplatedControl
 
     private void AllowDismissChanged(object sender, bool e)
     {
-        Dismissible = e;
+        if (Manager is null || Manager.Dialogs.Count == 0) return;
+
+        var firstDialog = Manager.Dialogs.First();
+        Dismissible = firstDialog.Value.Dismissible || e;
     }
 
     private void AttachManagerEvents(DialogManager manager)

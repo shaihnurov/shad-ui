@@ -279,7 +279,7 @@ public static class DialogBuilderExtensions
     }
 
     /// <summary>
-    ///     Makes the dialog dismissible by clicking outside or pressing escape.
+    ///     Makes the dialog dismissible by clicking outside or pressing escape. If set to true, this will take precedence over toggling <see cref="DialogManager.PreventDismissal()"/>
     /// </summary>
     /// <typeparam name="TContext">The type of the dialog context</typeparam>
     /// <param name="builder">The <see cref="DialogBuilder{TContext}" /></param>
