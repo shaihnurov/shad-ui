@@ -89,28 +89,6 @@ public sealed class DialogManager
     internal readonly Dictionary<Type, Action> OnSuccessCallbacks = [];
     internal readonly Dictionary<Type, Func<Task>> OnSuccessAsyncCallbacks = [];
 
-    /// <summary>
-    ///     Closes the dialog and invokes the callback.
-    /// </summary>
-    /// <param name="success">Returns whether the action is successful or not</param>
-    /// <typeparam name="TContext">The registered DataContext</typeparam>
-    /// /// <remarks>
-    ///     This method is deprecated and will be removed in the next release. Use the overload with the context parameter instead.
-    /// </remarks>
-    [Obsolete("This method is deprecated and will be removed in the major next release. Use the overload with the context parameter instead.")]
-    public void Close<TContext>(bool success = false)
-    {
-        if (!CustomDialogs.TryGetValue(typeof(TContext), out var control))
-        {
-            throw new InvalidOperationException($"Dialog with {typeof(TContext)} is not registered.");
-        }
-
-        InvokeCallBacks(typeof(TContext), success);
-
-        var dialogs = Dialogs.Where(x => x.Key.GetType() == control && x.Key.DataContext?.GetType() == typeof(TContext));
-        foreach (var dialog in dialogs) CloseAndTryOpenLast(dialog.Key);
-    }
-
     private void InvokeCallBacks(Type type, bool success)
     {
         if (OnSuccessCallbacks.Remove(type, out var successCallback) && success)
