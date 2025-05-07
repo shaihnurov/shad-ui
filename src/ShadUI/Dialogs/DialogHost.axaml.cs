@@ -121,6 +121,21 @@ public class DialogHost : TemplatedControl
     }
 
     /// <summary>
+    ///     Defines the <see cref="AlreadyOpen" /> property.
+    /// </summary>
+    internal static readonly StyledProperty<bool> AlreadyOpenProperty =
+        AvaloniaProperty.Register<DialogHost, bool>(nameof(AlreadyOpen));
+
+    /// <summary>
+    ///     Gets or sets whether the dialog can be dismissed.
+    /// </summary>
+    internal bool AlreadyOpen
+    {
+        get => GetValue(AlreadyOpenProperty);
+        set => SetValue(AlreadyOpenProperty, value);
+    }
+
+    /// <summary>
     ///     Defines the <see cref="CanDismissWithBackgroundClick" /> property.
     /// </summary>
     internal static readonly StyledProperty<bool> CanDismissWithBackgroundClickProperty =
@@ -143,10 +158,12 @@ public class DialogHost : TemplatedControl
     {
         base.OnApplyTemplate(e);
         if (e.NameScope.Find<Border>("PART_DialogBackground") is { } background)
+        {
             background.PointerPressed += (_, _) =>
             {
                 if (CanDismissWithBackgroundClick) CloseDialog();
             };
+        }
 
         if (e.NameScope.Find<Border>("PART_TitleBar") is { } titleBar)
         {
@@ -155,7 +172,9 @@ public class DialogHost : TemplatedControl
         }
 
         if (e.NameScope.Find<Button>("PART_CloseButton") is { } closeButton)
+        {
             closeButton.Click += (_, _) => CloseDialog();
+        }
     }
 
     private void OnTitleBarPointerPressed(object? sender, PointerPressedEventArgs e)
@@ -166,15 +185,19 @@ public class DialogHost : TemplatedControl
             {
                 MainWindow: not null
             } desktop)
+        {
             desktop.MainWindow.BeginMoveDrag(e);
+        }
     }
 
     private void OnMaximizeButtonClicked(object? sender, RoutedEventArgs args)
     {
         if (Owner is not null && Owner.CanMaximize)
+        {
             Owner.WindowState = Owner.WindowState == WindowState.Maximized
                 ? WindowState.Normal
                 : WindowState.Maximized;
+        }
     }
 
     private void CloseDialog()
@@ -185,8 +208,7 @@ public class DialogHost : TemplatedControl
 
         Manager?.RemoveLast();
 
-        if (Owner is not null)
-            Owner.HasOpenDialog = false;
+        if (Owner is not null) Owner.HasOpenDialog = false;
     }
 
     static DialogHost()
@@ -200,7 +222,10 @@ public class DialogHost : TemplatedControl
         AvaloniaPropertyChangedEventArgs propChanged)
     {
         if (sender is not DialogHost host)
+        {
             throw new NullReferenceException("Dependency object is not of valid type " + nameof(DialogHost));
+        }
+
         if (propChanged.OldValue is DialogManager oldManager)
         {
             oldManager.AllowDismissChanged -= host.AllowDismissChanged;
@@ -233,28 +258,29 @@ public class DialogHost : TemplatedControl
 
     private void ManagerOnDialogShown(object sender, DialogShownEventArgs e)
     {
+        if (Manager is null || Owner is null) return;
+
         Dialog = e.Control;
         Dismissible = e.Options.Dismissible;
 
-        if (e.Options.MaxWidth > 0)
-            DialogMaxWidth = e.Options.MaxWidth;
-
-        if (e.Options.MinWidth > 0)
-            DialogMinWidth = e.Options.MinWidth;
-
-        if (Owner is not null)
-            Owner.HasOpenDialog = true;
+        if (e.Options.MaxWidth > 0) DialogMaxWidth = e.Options.MaxWidth;
+        if (e.Options.MinWidth > 0) DialogMinWidth = e.Options.MinWidth;
 
         IsDialogOpen = true;
+
+        AlreadyOpen = Manager.Dialogs.Count > 0;
+        Owner.HasOpenDialog = Manager.Dialogs.Count > 0;
     }
 
     private void ManagerOnDialogClosed(object sender, DialogClosedEventArgs e)
     {
+        if (Manager is null || Owner is null) return;
         if (e.Control != Dialog) return;
 
-        IsDialogOpen = false;
+        AlreadyOpen = Manager.Dialogs.Count > 0;
+        Owner.HasOpenDialog = Manager.Dialogs.Count > 0;
 
-        if (Owner is not null)
-            Owner.HasOpenDialog = false;
+        if (AlreadyOpen) IsDialogOpen = false;
+        IsDialogOpen = AlreadyOpen;
     }
 }
