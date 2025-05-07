@@ -137,25 +137,25 @@ internal class SimpleDialog : TemplatedControl
         base.OnApplyTemplate(e);
         e.NameScope.Get<Button>("PART_PrimaryButton").Click += (_, _) =>
         {
-            _manager?.Close(this);
+            _manager?.CloseAndTryOpenLast(this);
             PrimaryCallback?.Invoke();
             PrimaryCallbackAsync?.Invoke();
         };
         e.NameScope.Get<Button>("PART_SecondaryButton").Click += (_, _) =>
         {
-            _manager?.Close(this);
+            _manager?.CloseAndTryOpenLast(this);
             SecondaryCallback?.Invoke();
             SecondaryCallbackAsync?.Invoke();
         };
         e.NameScope.Get<Button>("PART_TertiaryButton").Click += (_, _) =>
         {
-            _manager?.Close(this);
+            _manager?.CloseAndTryOpenLast(this);
             TertiaryCallback?.Invoke();
             TertiaryCallbackAsync?.Invoke();
         };
         e.NameScope.Get<Button>("PART_CancelButton").Click += (_, _) =>
         {
-            _manager?.Close(this);
+            _manager?.CloseAndTryOpenLast(this);
             CancelCallback?.Invoke();
             CancelCallbackAsync?.Invoke();
         };

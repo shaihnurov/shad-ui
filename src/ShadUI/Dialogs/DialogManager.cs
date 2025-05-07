@@ -49,10 +49,7 @@ public sealed class DialogManager
         OnDialogShown?.Invoke(this, new DialogShownEventArgs { Control = control, Options = options });
     }
 
-    /// <summary>
-    ///     Closes the dialog.
-    /// </summary>
-    public void Close(Control control)
+    internal void CloseAndTryOpenLast(Control control)
     {
         Dialogs.Remove(control);
         OnDialogClosed?.Invoke(this, new DialogClosedEventArgs { Control = control });
@@ -68,7 +65,7 @@ public sealed class DialogManager
         if (Dialogs.Count == 0) return;
 
         var lastDialog = Dialogs.Last();
-        Close(lastDialog.Key);
+        CloseAndTryOpenLast(lastDialog.Key);
         var contextType = lastDialog.Key.DataContext?.GetType();
         if (contextType is not null) InvokeCallBacks(contextType, false);
     }
@@ -97,7 +94,11 @@ public sealed class DialogManager
     /// </summary>
     /// <param name="success">Returns whether the action is successful or not</param>
     /// <typeparam name="TContext">The registered DataContext</typeparam>
-    public void Close<TContext>(bool success)
+    /// /// <remarks>
+    ///     This method is deprecated and will be removed in the next release. Use the overload with the context parameter instead.
+    /// </remarks>
+    [Obsolete("This method is deprecated and will be removed in the major next release. Use the overload with the context parameter instead.")]
+    public void Close<TContext>(bool success = false)
     {
         if (!CustomDialogs.TryGetValue(typeof(TContext), out var control))
         {
@@ -106,12 +107,8 @@ public sealed class DialogManager
 
         InvokeCallBacks(typeof(TContext), success);
 
-        var dialogs = Dialogs
-            .Where(x => x.Key.GetType() == control &&
-                        x.Key.DataContext?.GetType() == typeof(TContext))
-            .ToList();
-
-        foreach (var dialog in dialogs) Close(dialog.Key);
+        var dialogs = Dialogs.Where(x => x.Key.GetType() == control && x.Key.DataContext?.GetType() == typeof(TContext));
+        foreach (var dialog in dialogs) CloseAndTryOpenLast(dialog.Key);
     }
 
     private void InvokeCallBacks(Type type, bool success)
@@ -135,6 +132,19 @@ public sealed class DialogManager
         {
             cancelAsyncCallback?.Invoke();
         }
+    }
+
+    /// <summary>
+    ///     Closes the dialog and invokes the callback.
+    /// </summary>
+    /// <param name="context">The actual context</param>
+    /// <param name="success">Returns whether the action is successful or not. Default is false.</param>
+    /// <typeparam name="TContext">The registered DataContext type</typeparam>
+    public void Close<TContext>(TContext context, bool success = false)
+    {
+        InvokeCallBacks(typeof(TContext), success);
+        var dialogs = Dialogs.Where(x => Equals(x.Key.DataContext, context));
+        foreach (var dialog in dialogs) CloseAndTryOpenLast(dialog.Key);
     }
 
     internal event EventHandler<bool>? AllowDismissChanged;
