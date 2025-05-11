@@ -99,7 +99,7 @@
         <Setter Property="extensions:ElementAssist.FocusOnLoad" Value="False" />
         <Setter Property="Template">
             <ControlTemplate>
-                <StackPanel Focusable="False">
+                <StackPanel Background="Transparent" Focusable="False">
                     <TextBlock
                         Classes="Small"
                         IsVisible="{TemplateBinding extensions:ControlAssist.Label,
@@ -120,9 +120,16 @@
                                 Padding="{TemplateBinding Padding}"
                                 VerticalAlignment="{TemplateBinding VerticalAlignment}"
                                 Width="{TemplateBinding Width}">
+                                <Border.Transitions>
+                                    <Transitions>
+                                        <BrushTransition Duration="0:0:0.20" Property="BorderBrush" />
+                                        <BrushTransition Duration="0:0:0.20" Property="Background" />
+                                    </Transitions>
+                                </Border.Transitions>
                                 <Grid ColumnDefinitions="* Auto * Auto *">
                                     <TextBox
                                         Background="{TemplateBinding Background}"
+                                        Cursor="IBeam"
                                         Grid.Column="0"
                                         MaxLength="2"
                                         Name="PART_MonthTextBox"
@@ -140,6 +147,7 @@
                                     </TextBlock>
                                     <TextBox
                                         Background="{TemplateBinding Background}"
+                                        Cursor="IBeam"
                                         Grid.Column="2"
                                         MaxLength="2"
                                         Name="PART_DayTextBox"
@@ -156,6 +164,7 @@
                                     </TextBlock>
                                     <TextBox
                                         Background="{TemplateBinding Background}"
+                                        Cursor="IBeam"
                                         Grid.Column="4"
                                         MaxLength="4"
                                         Name="PART_YearTextBox"

@@ -181,7 +181,7 @@
         <Setter Property="extensions:ElementAssist.FocusOnLoad" Value="False" />
         <Setter Property="Template">
             <ControlTemplate>
-                <StackPanel Focusable="False">
+                <StackPanel Background="Transparent" Focusable="False">
                     <TextBlock
                         Classes="Small"
                         IsVisible="{TemplateBinding extensions:ControlAssist.Label,
@@ -202,9 +202,16 @@
                                 Padding="{TemplateBinding Padding}"
                                 VerticalAlignment="{TemplateBinding VerticalAlignment}"
                                 Width="{TemplateBinding Width}">
+                                <Border.Transitions>
+                                    <Transitions>
+                                        <BrushTransition Duration="0:0:0.20" Property="BorderBrush" />
+                                        <BrushTransition Duration="0:0:0.20" Property="Background" />
+                                    </Transitions>
+                                </Border.Transitions>
                                 <Grid ColumnDefinitions="* Auto * Auto * Auto">
                                     <TextBox
                                         Background="{TemplateBinding Background}"
+                                        Cursor="IBeam"
                                         Grid.Column="0"
                                         Name="PART_HourTextBox"
                                         Text="{TemplateBinding HourString,
@@ -221,6 +228,7 @@
                                     </TextBlock>
                                     <TextBox
                                         Background="{TemplateBinding Background}"
+                                        Cursor="IBeam"
                                         Grid.Column="2"
                                         Name="PART_MinuteTextBox"
                                         Text="{TemplateBinding MinuteString,
@@ -237,6 +245,7 @@
                                     </TextBlock>
                                     <TextBox
                                         Background="{TemplateBinding Background}"
+                                        Cursor="IBeam"
                                         Grid.Column="4"
                                         IsVisible="{TemplateBinding UseSeconds}"
                                         Name="PART_SecondTextBox"

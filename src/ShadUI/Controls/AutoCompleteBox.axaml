@@ -159,11 +159,12 @@
         <Setter Property="extensions:ControlAssist.MinHeight" Value="36" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Panel>
+                <Panel Background="Transparent">
                     <DataValidationErrors>
                         <StackPanel>
                             <TextBlock
                                 Classes="Small"
+                                Cursor="Arrow"
                                 IsVisible="{TemplateBinding extensions:ControlAssist.Label,
                                                             Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
                                 Margin="0,0,0,6"
@@ -187,9 +188,17 @@
                                 Watermark="{TemplateBinding Watermark}"
                                 extensions:ControlAssist.MinHeight="{TemplateBinding extensions:ControlAssist.MinHeight}"
                                 extensions:ControlAssist.ShowProgress="{TemplateBinding extensions:ControlAssist.ShowProgress}"
-                                extensions:ElementAssist.Classes="{TemplateBinding extensions:ElementAssist.Classes}" />
+                                extensions:ElementAssist.Classes="{TemplateBinding extensions:ElementAssist.Classes}">
+                                <TextBox.Transitions>
+                                    <Transitions>
+                                        <BrushTransition Duration="0:0:0.20" Property="BorderBrush" />
+                                        <BrushTransition Duration="0:0:0.20" Property="Background" />
+                                    </Transitions>
+                                </TextBox.Transitions>
+                            </TextBox>
                             <TextBlock
                                 Classes="Caption Muted"
+                                Cursor="Arrow"
                                 IsVisible="{TemplateBinding extensions:ControlAssist.Hint,
                                                             Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
                                 Margin="0,4,0,0"

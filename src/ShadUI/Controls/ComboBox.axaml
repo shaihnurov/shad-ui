@@ -51,7 +51,7 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <DataValidationErrors>
-                    <StackPanel Spacing="4">
+                    <StackPanel Background="Transparent" Spacing="4">
                         <TextBlock
                             Classes="Small"
                             IsVisible="{TemplateBinding extensions:ControlAssist.Label,
@@ -175,6 +175,16 @@
                         </KeyFrame>
                     </Animation>
                 </Style.Animations>
+            </Style>
+        </Style>
+        <Style Selector="^:focus">
+            <Style Selector="^ /template/ Border#PART_Border">
+                <Setter Property="BorderBrush" Value="{DynamicResource PrimaryColor}" />
+            </Style>
+        </Style>
+        <Style Selector="^:pointerover">
+            <Style Selector="^ /template/ Border#PART_Border">
+                <Setter Property="BorderBrush" Value="{DynamicResource PrimaryColor}" />
             </Style>
         </Style>
         <Style Selector="^ /template/ Border#PART_Border">

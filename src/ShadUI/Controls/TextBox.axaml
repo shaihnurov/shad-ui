@@ -160,9 +160,10 @@
         <Setter Property="extensions:ControlAssist.MinHeight" Value="36" />
         <Setter Property="Template">
             <ControlTemplate>
-                <StackPanel Focusable="False">
+                <StackPanel Background="Transparent" Focusable="False">
                     <TextBlock
                         Classes="Small"
+                        Cursor="Arrow"
                         IsVisible="{TemplateBinding UseFloatingWatermark}"
                         Margin="0,0,0,6"
                         Name="PART_Label"
@@ -176,7 +177,13 @@
                                 CornerRadius="{TemplateBinding CornerRadius}"
                                 Height="{TemplateBinding extensions:ControlAssist.Height}"
                                 MinHeight="{TemplateBinding extensions:ControlAssist.MinHeight}"
-                                Name="border">
+                                Name="PART_Border">
+                                <Border.Transitions>
+                                    <Transitions>
+                                        <BrushTransition Duration="0:0:0.20" Property="BorderBrush" />
+                                        <BrushTransition Duration="0:0:0.20" Property="Background" />
+                                    </Transitions>
+                                </Border.Transitions>
                                 <Grid
                                     ColumnDefinitions="Auto * Auto"
                                     HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -271,6 +278,7 @@
                             </Border>
                             <TextBlock
                                 Classes="Caption Muted"
+                                Cursor="Arrow"
                                 IsVisible="{TemplateBinding extensions:ControlAssist.Hint,
                                                             Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
                                 Margin="0,4,0,0"
@@ -282,14 +290,14 @@
             </ControlTemplate>
         </Setter>
 
-        <Style Selector="^:pointerover /template/ Border#border">
+        <Style Selector="^:pointerover /template/ Border#PART_Border">
             <Setter Property="BorderBrush" Value="{DynamicResource PrimaryColor}" />
         </Style>
-        <Style Selector="^:focus /template/ Border#border">
+        <Style Selector="^:focus /template/ Border#PART_Border">
             <Setter Property="BorderBrush" Value="{DynamicResource PrimaryColor}" />
         </Style>
         <Style Selector="^:error">
-            <Style Selector="^/template/ Border#border">
+            <Style Selector="^/template/ Border#PART_Border">
                 <Setter Property="BorderBrush" Value="{DynamicResource ErrorColor}" />
             </Style>
             <Style Selector="^/template/ TextBlock#PART_Label">
@@ -300,7 +308,7 @@
         <Style Selector="^ /template/ StackPanel">
             <Setter Property="Cursor" Value="IBeam" />
         </Style>
-        <Style Selector="^:disabled /template/ Border#border">
+        <Style Selector="^:disabled /template/ Border#PART_Border">
             <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />
         </Style>
 

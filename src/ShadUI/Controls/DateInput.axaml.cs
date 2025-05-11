@@ -146,6 +146,8 @@ public class DateInput : TemplatedControl
 
     private void OnTextBoxLostFocus(object sender, RoutedEventArgs e)
     {
+        InputFocus = false;
+        
         if (sender is not TextBox textBox) return;
         var parsed = int.TryParse(textBox.Text, out var value);
 

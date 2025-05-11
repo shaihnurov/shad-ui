@@ -214,6 +214,8 @@ public class TimeInput : TemplatedControl
 
     private void OnTextBoxLostFocus(object sender, RoutedEventArgs e)
     {
+        InputFocus = false;
+
         if (sender is not TextBox textBox) return;
         int.TryParse(textBox.Text, out var value);
 
