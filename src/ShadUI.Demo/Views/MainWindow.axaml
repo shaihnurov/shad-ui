@@ -159,6 +159,7 @@
                             Width="16" />
                     </controls:SidebarMenuItem.Icon>
                 </controls:SidebarMenuItem>
+                <Separator />
                 <controls:SidebarMenuItem
                     Classes="Compact"
                     Command="{Binding OpenAvatarCommand}"

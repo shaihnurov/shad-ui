@@ -74,7 +74,8 @@ public class SidebarMenu : SelectingItemsControl
         set => SetValue(OpenPaneLengthProperty, value switch
         {
             >= 200 => value,
-            _ => throw new ArgumentOutOfRangeException($"OpenPaneLength must be greater than or equal to 200, but was {value}")
+            _ => throw new ArgumentOutOfRangeException(
+                $"OpenPaneLength must be greater than or equal to 200, but was {value}")
         });
     }
 
@@ -153,8 +154,18 @@ public class SidebarMenu : SelectingItemsControl
                 item.IsTopMenuExpanded = IsMenuExpanded;
 
         else if (Items.FirstOrDefault() is SidebarMenuItem)
-            foreach (SidebarMenuItem? item in Items)
-                item!.IsTopMenuExpanded = IsMenuExpanded;
+            foreach (var item in Items)
+            {
+                switch (item)
+                {
+                    case SidebarMenuItem i:
+                        i.IsTopMenuExpanded = IsMenuExpanded;
+                        break;
+                    case Separator s:
+                        s.Margin = IsMenuExpanded ? new Thickness(16, 4) : new Thickness(8, 4);
+                        break;
+                }
+            }
     }
 
     /// <summary>
@@ -195,12 +206,19 @@ public class SidebarMenu : SelectingItemsControl
     /// <returns></returns>
     protected override Control CreateContainerForItemOverride(object? item, int index, object? recycleKey)
     {
-        var menuItem = ItemTemplate != null && ItemTemplate.Match(item) &&
-                       ItemTemplate.Build(item) is SidebarMenuItem menu
-            ? menu
-            : new SidebarMenuItem();
-        _sideMenuItems.Add(menuItem);
-        return menuItem;
+        Control control = new Panel();
+        if (ItemTemplate != null && ItemTemplate.Match(item) && ItemTemplate.Build(item) is SidebarMenuItem menu)
+        {
+            _sideMenuItems.Add(menu);
+            control = menu;
+        }
+        else if (item is Separator c)
+        {
+            c.Opacity = 0.5;
+            control = c;
+        }
+
+        return control;
     }
 
     private readonly List<SidebarMenuItem> _sideMenuItems = [];
