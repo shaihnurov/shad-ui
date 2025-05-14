@@ -1,5 +1,4 @@
-﻿using Avalonia;
-using Avalonia.Data.Converters;
+﻿using Avalonia.Data.Converters;
 using Avalonia.Media;
 using Avalonia.Media.Immutable;
 
@@ -18,11 +17,4 @@ public static class BrushConverters
 
             return null;
         });
-}
-
-public static class CornerRadiusConverters
-{
-    public static readonly IValueConverter ToPixel =
-        new FuncValueConverter<CornerRadius, string>(cr =>
-            $"{cr.TopLeft} px");
 }
