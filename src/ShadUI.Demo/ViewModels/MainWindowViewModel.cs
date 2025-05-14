@@ -16,6 +16,7 @@ public sealed partial class MainWindowViewModel(
     ThemeWatcher themeWatcher,
     AboutViewModel aboutViewModel,
     DashboardViewModel dashboardViewModel,
+    ThemeViewModel themeViewModel,
     TypographyViewModel typographyViewModel,
     AvatarsViewModel avatarsViewModel,
     ButtonsViewModel buttonsViewModel,
@@ -75,6 +76,12 @@ public sealed partial class MainWindowViewModel(
     }
 
     [RelayCommand]
+    private async Task OpenTheme()
+    {
+        await SwitchPageAsync(themeViewModel);
+    }
+
+    [RelayCommand]
     private async Task OpenTypography()
     {
         await SwitchPageAsync(typographyViewModel);
@@ -103,7 +110,7 @@ public sealed partial class MainWindowViewModel(
     {
         await SwitchPageAsync(dataGridViewModel);
     }
-    
+
     [RelayCommand]
     private async Task OpenDate()
     {
@@ -126,7 +133,9 @@ public sealed partial class MainWindowViewModel(
     private async Task OpenInputs()
     {
         if (await SwitchPageAsync(inputViewModel))
+        {
             inputViewModel.Initialize();
+        }
     }
 
     [RelayCommand]
@@ -193,11 +202,17 @@ public sealed partial class MainWindowViewModel(
     private void OpenUrl(string url)
     {
         if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+        {
             Process.Start(new ProcessStartInfo(url.Replace("&", "^&")) { UseShellExecute = true });
+        }
         else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+        {
             Process.Start("xdg-open", url);
+        }
         else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+        {
             Process.Start("open", url);
+        }
     }
 
     public void Initialize()

@@ -3,6 +3,8 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceInclude Source="CodeTextBlock.axaml" />
         <ResourceInclude Source="ControlBlock.axaml" />
+        <ResourceInclude Source="ThemeColor.axaml" />
+        <ResourceInclude Source="ThemeCornerRadius.axaml" />
         <ResourceInclude Source="Dashboard/OverviewCard.axaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

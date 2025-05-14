@@ -6,6 +6,9 @@
     <DataTemplate DataType="{x:Type viewModels:DashboardViewModel}">
         <views:DashboardPage />
     </DataTemplate>
+    <DataTemplate DataType="{x:Type viewModels:ThemeViewModel}">
+        <views:ThemePage />
+    </DataTemplate>
     <DataTemplate DataType="{x:Type viewModels:TypographyViewModel}">
         <views:TypographyPage />
     </DataTemplate>
