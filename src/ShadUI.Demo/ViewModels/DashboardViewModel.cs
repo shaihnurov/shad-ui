@@ -23,26 +23,24 @@ public sealed partial class DashboardViewModel : ViewModelBase
     public DashboardViewModel(ThemeWatcher themeWatcher)
     {
         ThemeWatcher = themeWatcher;
-        ThemeWatcher.ThemeChanged += (_, colors) => UpdateThemeColors(colors);
+        ThemeWatcher.ThemeChanged += (_, colors) =>
+        {
+            UpdateAxesLabelPaints(colors);
+            UpdateSeriesFill(colors.PrimaryColor);
+        };
     }
 
     public void Initialize()
     {
-        Series =
-        [
-            new ColumnSeries<double>
-            {
-                Values = GenerateRandomValues(),
-                Fill = new SolidColorPaint(SKColors.Transparent)
-            }
-        ];
-        UpdateThemeColors(ThemeWatcher.ThemeColors);
+        ((ColumnSeries<double>)Series[0]).Values = GenerateRandomValues();
+        var primary = ThemeWatcher.ThemeColors.PrimaryColor;
+        UpdateSeriesFill(primary);
     }
 
-    private void UpdateThemeColors(ThemeColors colors)
+    private void UpdateSeriesFill(Color primary)
     {
-        UpdateAxesLabelPaints(colors);
-        UpdateSeriesFill(colors.PrimaryColor);
+        var color = new SKColor(primary.R, primary.G, primary.B, primary.A);
+        if (Series.Length > 0) ((ColumnSeries<double>)Series[0]).Fill = new SolidColorPaint(color);
     }
 
     private void UpdateAxesLabelPaints(ThemeColors colors)
@@ -60,18 +58,6 @@ public sealed partial class DashboardViewModel : ViewModelBase
 
         XAxes[0].LabelsPaint = foregroundPaint;
         YAxes[0].LabelsPaint = foregroundPaint;
-    }
-
-    private void UpdateSeriesFill(Color color)
-    {
-        var skColor = new SKColor(color.R, color.G, color.B, color.A);
-        if (Series.Length <= 0) return;
-        
-        foreach (var i in Series)
-        {
-            var series = (ColumnSeries<double>)i;
-            series.Fill = new SolidColorPaint(skColor);
-        }
     }
 
     public ISeries[] Series { get; set; } =
@@ -95,7 +81,7 @@ public sealed partial class DashboardViewModel : ViewModelBase
 
         return values;
     }
-    
+
     public Axis[] XAxes { get; set; } =
     [
         new()
