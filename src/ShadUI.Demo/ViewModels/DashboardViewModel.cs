@@ -1,4 +1,5 @@
-﻿using Avalonia.Media;
+﻿using System;
+using Avalonia.Media;
 using CommunityToolkit.Mvvm.ComponentModel;
 using LiveChartsCore;
 using LiveChartsCore.SkiaSharpView;
@@ -27,6 +28,14 @@ public sealed partial class DashboardViewModel : ViewModelBase
 
     public void Initialize()
     {
+        Series =
+        [
+            new ColumnSeries<double>
+            {
+                Values = GenerateRandomValues(),
+                Fill = new SolidColorPaint(SKColors.Transparent)
+            }
+        ];
         UpdateThemeColors(ThemeWatcher.ThemeColors);
     }
 
@@ -56,18 +65,37 @@ public sealed partial class DashboardViewModel : ViewModelBase
     private void UpdateSeriesFill(Color color)
     {
         var skColor = new SKColor(color.R, color.G, color.B, color.A);
-        if (Series.Length > 0) ((ColumnSeries<double>) Series[0]).Fill = new SolidColorPaint(skColor);
+        if (Series.Length <= 0) return;
+        
+        foreach (var i in Series)
+        {
+            var series = (ColumnSeries<double>)i;
+            series.Fill = new SolidColorPaint(skColor);
+        }
     }
 
     public ISeries[] Series { get; set; } =
     [
         new ColumnSeries<double>
         {
-            Values = [1300, 2700, 2950, 1750, 1259, 4490, 5500, 1550, 1540, 4450, 3000, 3200],
+            Values = GenerateRandomValues(),
             Fill = new SolidColorPaint(SKColors.Transparent)
         }
     ];
 
+    private static double[] GenerateRandomValues()
+    {
+        var random = new Random();
+
+        var values = new double[12];
+        for (var i = 0; i < values.Length; i++)
+        {
+            values[i] = random.Next(1000, 5000);
+        }
+
+        return values;
+    }
+    
     public Axis[] XAxes { get; set; } =
     [
         new()
