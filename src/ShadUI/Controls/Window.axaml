@@ -214,8 +214,8 @@
                 <Style Selector="^ /template/ LayoutTransformControl#PART_LayoutTransform">
                     <Style.Animations>
                         <Animation
-                            Duration="{StaticResource MediumAnimationDuration}"
-                            Easing="{StaticResource MenuEasing}"
+                            Duration="0:0:0.35"
+                            Easing="CircularEaseOut"
                             FillMode="Forward">
                             <KeyFrame Cue="0%">
                                 <Setter Property="ScaleTransform.ScaleY" Value="0" />
@@ -272,8 +272,8 @@
                 <Style Selector="^ /template/ LayoutTransformControl#PART_LayoutTransform">
                     <Style.Animations>
                         <Animation
-                            Duration="{StaticResource MediumAnimationDuration}"
-                            Easing="{StaticResource MenuEasing}"
+                            Duration="0:0:0.35"
+                            Easing="CircularEaseOut"
                             FillMode="Forward">
                             <KeyFrame Cue="0%">
                                 <Setter Property="ScaleTransform.ScaleY" Value="1" />

@@ -2,14 +2,6 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:converters="clr-namespace:ShadUI.Converters"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-
-    <Styles.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceInclude Source="avares://ShadUI/Controls/Constants.axaml" />
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-    </Styles.Resources>
     <Style Selector="ScrollViewer">
         <Setter Property="IsScrollInertiaEnabled" Value="True" />
         <Setter Property="Template">
@@ -64,7 +56,7 @@
                         </Panel.OpacityMask>
                         <Panel.Transitions>
                             <Transitions>
-                                <BrushTransition Duration="{StaticResource ShortAnimationDuration}" Property="OpacityMask" />
+                                <BrushTransition Duration="0:0:0.2" Property="OpacityMask" />
                             </Transitions>
                         </Panel.Transitions>
                         <ScrollContentPresenter
@@ -84,7 +76,7 @@
                             </ScrollContentPresenter.OpacityMask>
                             <ScrollContentPresenter.Transitions>
                                 <Transitions>
-                                    <BrushTransition Duration="{StaticResource ShortAnimationDuration}" Property="OpacityMask" />
+                                    <BrushTransition Duration="0:0:0.2" Property="OpacityMask" />
                                 </Transitions>
                             </ScrollContentPresenter.Transitions>
                             <ScrollContentPresenter.GestureRecognizers>
