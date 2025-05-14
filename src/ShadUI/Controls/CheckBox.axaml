@@ -37,11 +37,6 @@
                         Name="border"
                         VerticalAlignment="Center"
                         Width="18">
-                        <Border.Transitions>
-                            <Transitions>
-                                <BrushTransition Duration="0:0:0.2" Property="BorderBrush" />
-                            </Transitions>
-                        </Border.Transitions>
                         <Panel>
                             <Path
                                 Data="{x:Static contents:Icons.Check}"
@@ -79,6 +74,13 @@
             </ControlTemplate>
         </Setter>
         <Style Selector="^:pointerover /template/ Border#border">
+            <Setter Property="Transitions">
+                <Setter.Value>
+                    <Transitions>
+                        <BrushTransition Duration="0:0:0.20" Property="BorderBrush" />
+                    </Transitions>
+                </Setter.Value>
+            </Setter>
             <Setter Property="BorderBrush" Value="{DynamicResource PrimaryColor}" />
         </Style>
         <Style Selector="^ /template/ Path#checkMark">
@@ -101,6 +103,14 @@
                 <Setter Property="IsVisible" Value="True" />
             </Style>
             <Style Selector="^ /template/ Border#border">
+                <Setter Property="Transitions">
+                    <Setter.Value>
+                        <Transitions>
+                            <BrushTransition Duration="0:0:0.20" Property="Background" />
+                            <BrushTransition Duration="0:0:0.20" Property="BorderBrush" />
+                        </Transitions>
+                    </Setter.Value>
+                </Setter>
                 <Setter Property="Background" Value="{DynamicResource PrimaryColor75}" />
                 <Setter Property="BorderBrush" Value="{DynamicResource PrimaryColor75}" />
             </Style>

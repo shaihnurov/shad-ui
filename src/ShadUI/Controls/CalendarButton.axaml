@@ -24,14 +24,7 @@
                         Background="{TemplateBinding Background}"
                         BorderThickness="{TemplateBinding}"
                         CornerRadius="{TemplateBinding CornerRadius}"
-                        Name="Background">
-                        <Border.Transitions>
-                            <Transitions>
-                                <BrushTransition Duration="0:0:0.2" Property="Background" />
-                                <BrushTransition Duration="0:0:0.2" Property="BorderBrush" />
-                            </Transitions>
-                        </Border.Transitions>
-                    </Border>
+                        Name="Background" />
                     <ContentPresenter
                         Content="{TemplateBinding Content}"
                         ContentTemplate="{TemplateBinding ContentTemplate}"
@@ -46,6 +39,13 @@
         </Setter>
 
         <Style Selector="^:pointerover /template/ Border#Background">
+            <Setter Property="Transitions">
+                <Setter.Value>
+                    <Transitions>
+                        <BrushTransition Duration="0:0:0.2" Property="Background" />
+                    </Transitions>
+                </Setter.Value>
+            </Setter>
             <Setter Property="Background" Value="{DynamicResource GhostColor}" />
         </Style>
         <Style Selector="^:pressed /template/ Border#Background">
@@ -58,6 +58,13 @@
             <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundColor}" />
         </Style>
         <Style Selector="^:btnfocused /template/ Border#Background">
+            <Setter Property="Transitions">
+                <Setter.Value>
+                    <Transitions>
+                        <BrushTransition Duration="0:0:0.2" Property="BorderBrush" />
+                    </Transitions>
+                </Setter.Value>
+            </Setter>
             <Setter Property="BorderBrush" Value="{DynamicResource BorderColor}" />
         </Style>
         <Style Selector="^:inactive">

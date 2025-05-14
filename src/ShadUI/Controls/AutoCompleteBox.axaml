@@ -188,14 +188,7 @@
                                 Watermark="{TemplateBinding Watermark}"
                                 extensions:ControlAssist.MinHeight="{TemplateBinding extensions:ControlAssist.MinHeight}"
                                 extensions:ControlAssist.ShowProgress="{TemplateBinding extensions:ControlAssist.ShowProgress}"
-                                extensions:ElementAssist.Classes="{TemplateBinding extensions:ElementAssist.Classes}">
-                                <TextBox.Transitions>
-                                    <Transitions>
-                                        <BrushTransition Duration="0:0:0.20" Property="BorderBrush" />
-                                        <BrushTransition Duration="0:0:0.20" Property="Background" />
-                                    </Transitions>
-                                </TextBox.Transitions>
-                            </TextBox>
+                                extensions:ElementAssist.Classes="{TemplateBinding extensions:ElementAssist.Classes}" />
                             <TextBlock
                                 Classes="Caption Muted"
                                 Cursor="Arrow"
@@ -241,9 +234,23 @@
             </ControlTemplate>
         </Setter>
         <Style Selector="^:pointerover /template/ TextBox#PART_TextBox">
+            <Setter Property="Transitions">
+                <Setter.Value>
+                    <Transitions>
+                        <BrushTransition Duration="0:0:0.20" Property="BorderBrush" />
+                    </Transitions>
+                </Setter.Value>
+            </Setter>
             <Setter Property="BorderBrush" Value="{DynamicResource PrimaryColor}" />
         </Style>
         <Style Selector="^:focus /template/ TextBox#PART_TextBox">
+            <Setter Property="Transitions">
+                <Setter.Value>
+                    <Transitions>
+                        <BrushTransition Duration="0:0:0.20" Property="BorderBrush" />
+                    </Transitions>
+                </Setter.Value>
+            </Setter>
             <Setter Property="BorderBrush" Value="{DynamicResource PrimaryColor}" />
         </Style>
         <Style Selector="^:error">

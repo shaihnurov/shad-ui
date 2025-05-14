@@ -66,12 +66,6 @@
                             MinHeight="{TemplateBinding extensions:ControlAssist.MinHeight}"
                             Name="PART_Border"
                             Padding="{TemplateBinding Padding}">
-                            <Border.Transitions>
-                                <Transitions>
-                                    <BrushTransition Duration="0:0:0.20" Property="BorderBrush" />
-                                    <BrushTransition Duration="0:0:0.20" Property="Background" />
-                                </Transitions>
-                            </Border.Transitions>
                             <Grid ColumnDefinitions="*,Auto">
                                 <TextBox
                                     BorderThickness="0"
@@ -124,13 +118,7 @@
                                     Margin="5,0,18,0"
                                     Name="PART_Icon"
                                     Stretch="Uniform"
-                                    VerticalAlignment="Center">
-                                    <Path.Transitions>
-                                        <Transitions>
-                                            <BrushTransition Duration="0:0:0.20" Property="Fill" />
-                                        </Transitions>
-                                    </Path.Transitions>
-                                </Path>
+                                    VerticalAlignment="Center" />
                                 <Popup
                                     Grid.Column="0"
                                     IsLightDismissEnabled="True"
@@ -190,16 +178,38 @@
         </Style>
         <Style Selector="^:focus">
             <Style Selector="^ /template/ Border#PART_Border">
+                <Setter Property="Transitions">
+                    <Setter.Value>
+                        <Transitions>
+                            <BrushTransition Duration="0:0:0.20" Property="BorderBrush" />
+                        </Transitions>
+                    </Setter.Value>
+                </Setter>
                 <Setter Property="BorderBrush" Value="{DynamicResource PrimaryColor}" />
             </Style>
         </Style>
         <Style Selector="^:pointerover">
             <Style Selector="^ /template/ Border#PART_Border">
+                <Setter Property="Transitions">
+                    <Setter.Value>
+                        <Transitions>
+                            <BrushTransition Duration="0:0:0.20" Property="BorderBrush" />
+                        </Transitions>
+                    </Setter.Value>
+                </Setter>
                 <Setter Property="BorderBrush" Value="{DynamicResource PrimaryColor}" />
             </Style>
         </Style>
         <Style Selector="^ /template/ Border#PART_Border">
             <Style Selector="^:pointerover">
+                <Setter Property="Transitions">
+                    <Setter.Value>
+                        <Transitions>
+                            <BrushTransition Duration="0:0:0.20" Property="BorderBrush" />
+                            <BrushTransition Duration="0:0:0.20" Property="Background" />
+                        </Transitions>
+                    </Setter.Value>
+                </Setter>
                 <Setter Property="BorderBrush" Value="{DynamicResource OutlineColor}" />
                 <Setter Property="Background" Value="{DynamicResource OutlineColor}" />
                 <Setter Property="Cursor" Value="Hand" />

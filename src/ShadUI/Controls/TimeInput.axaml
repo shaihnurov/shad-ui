@@ -126,31 +126,18 @@
                 </Border>
             </ControlTemplate>
         </Setter>
-        <Style Selector="^ /template/ Border#RootBorder">
-            <Setter Property="Transitions">
-                <Transitions>
-                    <BrushTransition Duration="0:0:0.2" Property="Background" />
-                    <BrushTransition Duration="0:0:0.2" Property="BorderBrush" />
-                </Transitions>
-            </Setter>
-        </Style>
         <Style Selector="^ /template/ TextBlock">
             <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
-            <Setter Property="Transitions">
-                <Transitions>
-                    <BrushTransition Duration="0:0:0.3" Property="Foreground" />
-                </Transitions>
-            </Setter>
         </Style>
         <Style Selector="^ /template/ ContentPresenter">
             <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
-            <Setter Property="Transitions">
-                <Transitions>
-                    <BrushTransition Duration="0:0:0.3" Property="Foreground" />
-                </Transitions>
-            </Setter>
         </Style>
         <Style Selector="^:pointerover /template/ Border#RootBorder">
+            <Setter Property="Transitions">
+                <Transitions>
+                    <BrushTransition Duration="0:0:0.20" Property="Background" />
+                </Transitions>
+            </Setter>
             <Setter Property="Background" Value="{DynamicResource GhostColor}" />
         </Style>
         <Style Selector="^:pressed">
@@ -202,12 +189,6 @@
                                 Padding="{TemplateBinding Padding}"
                                 VerticalAlignment="{TemplateBinding VerticalAlignment}"
                                 Width="{TemplateBinding Width}">
-                                <Border.Transitions>
-                                    <Transitions>
-                                        <BrushTransition Duration="0:0:0.20" Property="BorderBrush" />
-                                        <BrushTransition Duration="0:0:0.20" Property="Background" />
-                                    </Transitions>
-                                </Border.Transitions>
                                 <Grid ColumnDefinitions="* Auto * Auto * Auto">
                                     <TextBox
                                         Background="{TemplateBinding Background}"
@@ -281,17 +262,21 @@
             <Setter Property="BorderBrush" Value="{DynamicResource PrimaryColor}" />
         </Style>
         <Style Selector="^:focus /template/ Border#PART_Container">
+            <Setter Property="Transitions">
+                <Transitions>
+                    <BrushTransition Duration="0:0:0.20" Property="BorderBrush" />
+                </Transitions>
+            </Setter>
             <Setter Property="BorderBrush" Value="{DynamicResource PrimaryColor}" />
         </Style>
         <Style Selector="^ /template/ TextBox">
-            <Setter Property="Transitions">
-                <Setter.Value>
-                    <Transitions>
-                        <BrushTransition Duration="0:0:0.2" Property="Background" />
-                    </Transitions>
-                </Setter.Value>
-            </Setter>
             <Style Selector="^:focus">
+                <Setter Property="Transitions">
+                    <Transitions>
+                        <BrushTransition Duration="0:0:0.20" Property="Background" />
+                        <BrushTransition Duration="0:0:0.20" Property="SelectionBrush" />
+                    </Transitions>
+                </Setter>
                 <Setter Property="Background" Value="{DynamicResource PrimaryColor}" />
                 <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundColor}" />
                 <Setter Property="CaretBrush" Value="{DynamicResource PrimaryForegroundColor}" />
@@ -299,6 +284,11 @@
             </Style>
         </Style>
         <Style Selector="^:pointerover /template/ Border#PART_Container">
+            <Setter Property="Transitions">
+                <Transitions>
+                    <BrushTransition Duration="0:0:0.20" Property="BorderBrush" />
+                </Transitions>
+            </Setter>
             <Setter Property="BorderBrush" Value="{DynamicResource PrimaryColor}" />
         </Style>
         <Style Selector="^:error">

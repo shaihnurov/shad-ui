@@ -120,12 +120,6 @@
                                 Padding="{TemplateBinding Padding}"
                                 VerticalAlignment="{TemplateBinding VerticalAlignment}"
                                 Width="{TemplateBinding Width}">
-                                <Border.Transitions>
-                                    <Transitions>
-                                        <BrushTransition Duration="0:0:0.20" Property="BorderBrush" />
-                                        <BrushTransition Duration="0:0:0.20" Property="Background" />
-                                    </Transitions>
-                                </Border.Transitions>
                                 <Grid ColumnDefinitions="* Auto * Auto *">
                                     <TextBox
                                         Background="{TemplateBinding Background}"
@@ -187,20 +181,34 @@
             </ControlTemplate>
         </Setter>
         <Style Selector="^[InputFocus=True]">
-            <Setter Property="BorderBrush" Value="{DynamicResource PrimaryColor}" />
-        </Style>
-        <Style Selector="^:focus /template/ Border#PART_Container">
-            <Setter Property="BorderBrush" Value="{DynamicResource PrimaryColor}" />
-        </Style>
-        <Style Selector="^ /template/ TextBox">
             <Setter Property="Transitions">
                 <Setter.Value>
                     <Transitions>
-                        <BrushTransition Duration="0:0:0.2" Property="Background" />
+                        <BrushTransition Duration="0:0:0.20" Property="BorderBrush" />
                     </Transitions>
                 </Setter.Value>
             </Setter>
+            <Setter Property="BorderBrush" Value="{DynamicResource PrimaryColor}" />
+        </Style>
+        <Style Selector="^:focus /template/ Border#PART_Container">
+            <Setter Property="Transitions">
+                <Setter.Value>
+                    <Transitions>
+                        <BrushTransition Duration="0:0:0.20" Property="BorderBrush" />
+                    </Transitions>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="BorderBrush" Value="{DynamicResource PrimaryColor}" />
+        </Style>
+        <Style Selector="^ /template/ TextBox">
             <Style Selector="^:focus">
+                <Setter Property="Transitions">
+                    <Setter.Value>
+                        <Transitions>
+                            <BrushTransition Duration="0:0:0.20" Property="Background" />
+                        </Transitions>
+                    </Setter.Value>
+                </Setter>
                 <Setter Property="Background" Value="{DynamicResource PrimaryColor}" />
                 <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundColor}" />
                 <Setter Property="CaretBrush" Value="{DynamicResource PrimaryForegroundColor}" />

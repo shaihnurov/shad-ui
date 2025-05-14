@@ -66,43 +66,62 @@
         <Setter Property="Padding" Value="16,6" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Border
-                    Background="{TemplateBinding Background}"
-                    ClipToBounds="True"
-                    CornerRadius="{TemplateBinding CornerRadius}">
-                    <Border.Transitions>
-                        <Transitions>
-                            <BrushTransition Duration="0:0:0.20" Property="Background" />
-                        </Transitions>
-                    </Border.Transitions>
-                    <ContentPresenter
-                        BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}"
-                        Content="{TemplateBinding Header}"
-                        ContentTemplate="{TemplateBinding HeaderTemplate}"
-                        Foreground="{TemplateBinding Foreground}"
-                        HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                        MaxHeight="28"
-                        Name="PART_ContentPresenter"
-                        Opacity="{TemplateBinding Opacity}"
-                        Padding="{TemplateBinding Padding}"
-                        RecognizesAccessKey="True"
-                        VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}">
-                        <ContentPresenter.Transitions>
+                <Panel>
+                    <Border
+                        Background="{DynamicResource TabItemSelectedColor}"
+                        BoxShadow="{DynamicResource Shadow}"
+                        CornerRadius="{TemplateBinding CornerRadius}"
+                        Margin="2,0,2,4"
+                        Opacity="0"
+                        x:Name="SelectedBorder">
+                        <Border.Transitions>
                             <Transitions>
                                 <DoubleTransition Duration="0:0:0.20" Property="Opacity" />
                             </Transitions>
-                        </ContentPresenter.Transitions>
-                    </ContentPresenter>
-                </Border>
-
+                        </Border.Transitions>
+                    </Border>
+                    <Border
+                        ClipToBounds="True"
+                        CornerRadius="{TemplateBinding CornerRadius}"
+                        Margin="2,0,2,4">
+                        <ContentPresenter
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Content="{TemplateBinding Header}"
+                            ContentTemplate="{TemplateBinding HeaderTemplate}"
+                            Foreground="{TemplateBinding Foreground}"
+                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            MaxHeight="28"
+                            Name="PART_ContentPresenter"
+                            Opacity="{TemplateBinding Opacity}"
+                            Padding="{TemplateBinding Padding}"
+                            RecognizesAccessKey="True"
+                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}">
+                            <ContentPresenter.Transitions>
+                                <Transitions>
+                                    <DoubleTransition Duration="0:0:0.20" Property="Opacity" />
+                                </Transitions>
+                            </ContentPresenter.Transitions>
+                        </ContentPresenter>
+                    </Border>
+                </Panel>
             </ControlTemplate>
         </Setter>
         <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
             <Setter Property="Opacity" Value="0.50" />
         </Style>
+        <Style Selector="^[IsSelected=False]">
+            <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="Opacity" Value="0.75" />
+            </Style>
+            <Style Selector="^ /template/ Border#SelectedBorder">
+                <Setter Property="Opacity" Value="0" />
+            </Style>
+        </Style>
         <Style Selector="^:selected">
-            <Setter Property="Background" Value="{DynamicResource TabItemSelectedColor}" />
+            <Style Selector="^ /template/ Border#SelectedBorder">
+                <Setter Property="Opacity" Value="1" />
+            </Style>
             <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
                 <Setter Property="Opacity" Value="1" />
             </Style>

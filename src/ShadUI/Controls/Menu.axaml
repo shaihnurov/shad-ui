@@ -18,13 +18,7 @@
                     CornerRadius="{TemplateBinding CornerRadius}"
                     Name="root">
                     <Panel>
-                        <Border CornerRadius="{TemplateBinding CornerRadius}" Name="ItemBackground">
-                            <Border.Transitions>
-                                <Transitions>
-                                    <BrushTransition Duration="0:0:0.15" Property="Background" />
-                                </Transitions>
-                            </Border.Transitions>
-                        </Border>
+                        <Border CornerRadius="{TemplateBinding CornerRadius}" Name="ItemBackground" />
                         <ContentPresenter
                             Content="{TemplateBinding Header}"
                             HorizontalAlignment="Center"
@@ -81,7 +75,14 @@
                 </Border>
             </ControlTemplate>
         </Setter>
-        <Style Selector="^:pointerover /template/ Border#ItemBackground">
+        <Style Selector="^:pointerover /template/ Border#root">
+            <Setter Property="Transitions">
+                <Setter.Value>
+                    <Transitions>
+                        <BrushTransition Duration="0:0:0.20" Property="Background" />
+                    </Transitions>
+                </Setter.Value>
+            </Setter>
             <Setter Property="Background" Value="{DynamicResource GhostColor}" />
         </Style>
         <Style Selector="^:open /template/ LayoutTransformControl#PART_LayoutTransform">
@@ -112,34 +113,23 @@
             <Setter Property="CornerRadius" Value="{DynamicResource MdCornerRadius}" />
             <Setter Property="Background" Value="{DynamicResource PrimaryColor}" />
             <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundColor}" />
-            <Style Selector="^ /template/ Border#root">
-                <Setter Property="Transitions">
-                    <Transitions>
-                        <BrushTransition Duration="0:0:0.2" Property="Background" />
-                        <BrushTransition Duration="0:0:0.2" Property="BorderBrush" />
-                    </Transitions>
-                </Setter>
-            </Style>
             <Style Selector="^/template/ Border#ItemBackground">
                 <Setter Property="IsVisible" Value="False" />
             </Style>
             <Style Selector="^ /template/ TextBlock">
                 <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundColor}" />
-                <Setter Property="Transitions">
-                    <Transitions>
-                        <BrushTransition Duration="0:0:0.3" Property="Foreground" />
-                    </Transitions>
-                </Setter>
             </Style>
             <Style Selector="^ /template/ ContentPresenter#PART_HeaderPresenter">
                 <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundColor}" />
-                <Setter Property="Transitions">
-                    <Transitions>
-                        <BrushTransition Duration="0:0:0.3" Property="Foreground" />
-                    </Transitions>
-                </Setter>
             </Style>
             <Style Selector="^:pointerover /template/ Border#root">
+                <Setter Property="Transitions">
+                    <Setter.Value>
+                        <Transitions>
+                            <BrushTransition Duration="0:0:0.20" Property="Background" />
+                        </Transitions>
+                    </Setter.Value>
+                </Setter>
                 <Setter Property="Background" Value="{DynamicResource PrimaryColor50}" />
             </Style>
             <Style Selector="^:pressed /template/ Border#root">
@@ -159,34 +149,23 @@
             <Setter Property="CornerRadius" Value="{DynamicResource MdCornerRadius}" />
             <Setter Property="Background" Value="{DynamicResource SecondaryColor}" />
             <Setter Property="Foreground" Value="{DynamicResource SecondaryForegroundColor}" />
-            <Style Selector="^ /template/ Border#root">
-                <Setter Property="Transitions">
-                    <Transitions>
-                        <BrushTransition Duration="0:0:0.2" Property="Background" />
-                        <BrushTransition Duration="0:0:0.2" Property="BorderBrush" />
-                    </Transitions>
-                </Setter>
-            </Style>
             <Style Selector="^/template/ Border#ItemBackground">
                 <Setter Property="IsVisible" Value="False" />
             </Style>
             <Style Selector="^ /template/ TextBlock">
                 <Setter Property="Foreground" Value="{DynamicResource SecondaryForegroundColor}" />
-                <Setter Property="Transitions">
-                    <Transitions>
-                        <BrushTransition Duration="0:0:0.3" Property="Foreground" />
-                    </Transitions>
-                </Setter>
             </Style>
             <Style Selector="^ /template/ ContentPresenter#PART_HeaderPresenter">
                 <Setter Property="Foreground" Value="{DynamicResource SecondaryForegroundColor}" />
-                <Setter Property="Transitions">
-                    <Transitions>
-                        <BrushTransition Duration="0:0:0.3" Property="Foreground" />
-                    </Transitions>
-                </Setter>
             </Style>
             <Style Selector="^:pointerover /template/ Border#root">
+                <Setter Property="Transitions">
+                    <Setter.Value>
+                        <Transitions>
+                            <BrushTransition Duration="0:0:0.20" Property="Background" />
+                        </Transitions>
+                    </Setter.Value>
+                </Setter>
                 <Setter Property="Background" Value="{DynamicResource SecondaryColor50}" />
             </Style>
             <Style Selector="^:pressed /template/ Border#root">
@@ -207,34 +186,24 @@
             <Setter Property="BorderBrush" Value="{DynamicResource BorderColor}" />
             <Setter Property="CornerRadius" Value="{DynamicResource MdCornerRadius}" />
             <Setter Property="Background" Value="{DynamicResource CardBackgroundColor}" />
-            <Style Selector="^ /template/ Border#root">
-                <Setter Property="Transitions">
-                    <Transitions>
-                        <BrushTransition Duration="0:0:0.2" Property="Background" />
-                        <BrushTransition Duration="0:0:0.2" Property="BorderBrush" />
-                    </Transitions>
-                </Setter>
-            </Style>
             <Style Selector="^/template/ Border#ItemBackground">
                 <Setter Property="IsVisible" Value="False" />
             </Style>
             <Style Selector="^ /template/ TextBlock">
                 <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
-                <Setter Property="Transitions">
-                    <Transitions>
-                        <BrushTransition Duration="0:0:0.3" Property="Foreground" />
-                    </Transitions>
-                </Setter>
             </Style>
             <Style Selector="^ /template/ ContentPresenter#PART_HeaderPresenter">
                 <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
-                <Setter Property="Transitions">
-                    <Transitions>
-                        <BrushTransition Duration="0:0:0.3" Property="Foreground" />
-                    </Transitions>
-                </Setter>
             </Style>
             <Style Selector="^:pointerover /template/ Border#root">
+                <Setter Property="Transitions">
+                    <Setter.Value>
+                        <Transitions>
+                            <BrushTransition Duration="0:0:0.20" Property="Background" />
+                            <BrushTransition Duration="0:0:0.20" Property="BorderBrush" />
+                        </Transitions>
+                    </Setter.Value>
+                </Setter>
                 <Setter Property="Background" Value="{DynamicResource OutlineColor}" />
                 <Setter Property="BorderBrush" Value="{DynamicResource OutlineColor}" />
             </Style>
@@ -254,34 +223,23 @@
             <Setter Property="Padding" Value="16,8" />
             <Setter Property="CornerRadius" Value="{DynamicResource MdCornerRadius}" />
             <Setter Property="Background" Value="{DynamicResource CardBackgroundColor}" />
-            <Style Selector="^ /template/ Border#root">
-                <Setter Property="Transitions">
-                    <Transitions>
-                        <BrushTransition Duration="0:0:0.2" Property="Background" />
-                        <BrushTransition Duration="0:0:0.2" Property="BorderBrush" />
-                    </Transitions>
-                </Setter>
-            </Style>
             <Style Selector="^/template/ Border#ItemBackground">
                 <Setter Property="IsVisible" Value="False" />
             </Style>
             <Style Selector="^ /template/ TextBlock">
                 <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
-                <Setter Property="Transitions">
-                    <Transitions>
-                        <BrushTransition Duration="0:0:0.3" Property="Foreground" />
-                    </Transitions>
-                </Setter>
             </Style>
             <Style Selector="^ /template/ ContentPresenter#PART_HeaderPresenter">
                 <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
-                <Setter Property="Transitions">
-                    <Transitions>
-                        <BrushTransition Duration="0:0:0.3" Property="Foreground" />
-                    </Transitions>
-                </Setter>
             </Style>
             <Style Selector="^:pointerover /template/ Border#root">
+                <Setter Property="Transitions">
+                    <Setter.Value>
+                        <Transitions>
+                            <BrushTransition Duration="0:0:0.20" Property="Background" />
+                        </Transitions>
+                    </Setter.Value>
+                </Setter>
                 <Setter Property="Background" Value="{DynamicResource GhostColor}" />
             </Style>
             <Style Selector="^:pressed /template/ Border#root">
@@ -300,34 +258,24 @@
             <Setter Property="CornerRadius" Value="{DynamicResource MdCornerRadius}" />
             <Setter Property="Background" Value="{DynamicResource CardBackgroundColor}" />
             <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
-            <Style Selector="^ /template/ Border#root">
-                <Setter Property="Transitions">
-                    <Transitions>
-                        <BrushTransition Duration="0:0:0.2" Property="Background" />
-                        <BrushTransition Duration="0:0:0.2" Property="BorderBrush" />
-                    </Transitions>
-                </Setter>
-            </Style>
             <Style Selector="^/template/ Border#ItemBackground">
                 <Setter Property="IsVisible" Value="False" />
             </Style>
             <Style Selector="^ /template/ TextBlock">
                 <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
-                <Setter Property="Transitions">
-                    <Transitions>
-                        <BrushTransition Duration="0:0:0.3" Property="Foreground" />
-                    </Transitions>
-                </Setter>
             </Style>
             <Style Selector="^ /template/ ContentPresenter#PART_HeaderPresenter">
                 <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
-                <Setter Property="Transitions">
-                    <Transitions>
-                        <BrushTransition Duration="0:0:0.3" Property="Foreground" />
-                    </Transitions>
-                </Setter>
             </Style>
             <Style Selector="^:pointerover /template/ Border#root">
+                <Setter Property="Transitions">
+                    <Setter.Value>
+                        <Transitions>
+                            <BrushTransition Duration="0:0:0.20" Property="Background" />
+                            <BrushTransition Duration="0:0:0.20" Property="BorderBrush" />
+                        </Transitions>
+                    </Setter.Value>
+                </Setter>
                 <Setter Property="Background" Value="{DynamicResource OutlineColor}" />
                 <Setter Property="BorderBrush" Value="{DynamicResource OutlineColor}" />
             </Style>

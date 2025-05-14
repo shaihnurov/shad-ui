@@ -68,12 +68,6 @@
                             MinHeight="{TemplateBinding extensions:ControlAssist.MinHeight}"
                             Name="PART_Border"
                             Padding="{TemplateBinding Padding}">
-                            <Border.Transitions>
-                                <Transitions>
-                                    <BrushTransition Duration="0:0:0.20" Property="BorderBrush" />
-                                    <BrushTransition Duration="0:0:0.20" Property="Background" />
-                                </Transitions>
-                            </Border.Transitions>
                             <Grid Background="Transparent" ColumnDefinitions="*,Auto">
                                 <TextBlock
                                     Foreground="{TemplateBinding PlaceholderForeground}"
@@ -182,13 +176,16 @@
                 <Setter Property="BorderBrush" Value="{DynamicResource PrimaryColor}" />
             </Style>
         </Style>
-        <Style Selector="^:pointerover">
-            <Style Selector="^ /template/ Border#PART_Border">
-                <Setter Property="BorderBrush" Value="{DynamicResource PrimaryColor}" />
-            </Style>
-        </Style>
         <Style Selector="^ /template/ Border#PART_Border">
             <Style Selector="^:pointerover">
+                <Setter Property="Transitions">
+                    <Setter.Value>
+                        <Transitions>
+                            <BrushTransition Duration="0:0:0.20" Property="Background" />
+                            <BrushTransition Duration="0:0:0.20" Property="BorderBrush" />
+                        </Transitions>
+                    </Setter.Value>
+                </Setter>
                 <Setter Property="BorderBrush" Value="{DynamicResource OutlineColor}" />
                 <Setter Property="Background" Value="{DynamicResource OutlineColor}" />
                 <Setter Property="Cursor" Value="Hand" />

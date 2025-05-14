@@ -79,7 +79,7 @@
                                 Background="{DynamicResource TabItemsBackgroundColor}"
                                 CornerRadius="{DynamicResource LgCornerRadius}"
                                 HorizontalAlignment="Left"
-                                Padding="4">
+                                Padding="2,4,2,0">
                                 <ItemsPresenter ItemsPanel="{TemplateBinding ItemsPanel}" Name="PART_ItemsPresenter" />
                             </Border>
                         </LayoutTransformControl>

@@ -76,14 +76,6 @@
         <Setter Property="FontWeight" Value="Medium" />
         <Setter Property="extensions:ControlAssist.MinHeight" Value="36" />
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
-        <Setter Property="Transitions">
-            <Setter.Value>
-                <Transitions>
-                    <BrushTransition Duration="0:0:0.2" Property="Background" />
-                    <BrushTransition Duration="0:0:0.2" Property="BorderBrush" />
-                </Transitions>
-            </Setter.Value>
-        </Setter>
         <Setter Property="Template">
             <ControlTemplate>
                 <DataValidationErrors Focusable="False">
@@ -243,6 +235,12 @@
         </Style>
 
         <Style Selector="^:pointerover">
+            <Setter Property="Transitions">
+                <Transitions>
+                    <BrushTransition Duration="0:0:0.20" Property="Background" />
+                    <BrushTransition Duration="0:0:0.20" Property="BorderBrush" />
+                </Transitions>
+            </Setter>
             <Setter Property="Background" Value="{DynamicResource OutlineColor}" />
             <Setter Property="BorderBrush" Value="{DynamicResource OutlineColor}" />
         </Style>
@@ -289,13 +287,7 @@
                         Name="PART_ContentPresenter"
                         Padding="{TemplateBinding Padding}"
                         VerticalAlignment="Center"
-                        VerticalContentAlignment="Center">
-                        <ContentPresenter.Transitions>
-                            <Transitions>
-                                <BrushTransition Duration="0:0:0.05" Property="Background" />
-                            </Transitions>
-                        </ContentPresenter.Transitions>
-                    </ContentPresenter>
+                        VerticalContentAlignment="Center" />
                 </Border>
             </ControlTemplate>
         </Setter>
@@ -304,6 +296,11 @@
             <Setter Property="Background" Value="Transparent" />
         </Style>
         <Style Selector="^:pointerover:not(:selected)">
+            <Setter Property="Transitions">
+                <Transitions>
+                    <BrushTransition Duration="0:0:0.2" Property="Background" />
+                </Transitions>
+            </Setter>
             <Setter Property="Background" Value="{DynamicResource GhostColor}" />
         </Style>
     </ControlTheme>

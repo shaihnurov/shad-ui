@@ -178,12 +178,6 @@
                                 Height="{TemplateBinding extensions:ControlAssist.Height}"
                                 MinHeight="{TemplateBinding extensions:ControlAssist.MinHeight}"
                                 Name="PART_Border">
-                                <Border.Transitions>
-                                    <Transitions>
-                                        <BrushTransition Duration="0:0:0.20" Property="BorderBrush" />
-                                        <BrushTransition Duration="0:0:0.20" Property="Background" />
-                                    </Transitions>
-                                </Border.Transitions>
                                 <Grid
                                     ColumnDefinitions="Auto * Auto"
                                     HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -291,9 +285,23 @@
         </Setter>
 
         <Style Selector="^:pointerover /template/ Border#PART_Border">
+            <Setter Property="Transitions">
+                <Setter.Value>
+                    <Transitions>
+                        <BrushTransition Duration="0:0:0.20" Property="BorderBrush" />
+                    </Transitions>
+                </Setter.Value>
+            </Setter>
             <Setter Property="BorderBrush" Value="{DynamicResource PrimaryColor}" />
         </Style>
         <Style Selector="^:focus /template/ Border#PART_Border">
+            <Setter Property="Transitions">
+                <Setter.Value>
+                    <Transitions>
+                        <BrushTransition Duration="0:0:0.20" Property="BorderBrush" />
+                    </Transitions>
+                </Setter.Value>
+            </Setter>
             <Setter Property="BorderBrush" Value="{DynamicResource PrimaryColor}" />
         </Style>
         <Style Selector="^:error">

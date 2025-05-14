@@ -43,14 +43,7 @@
                                     IsVisible="{TemplateBinding Action,
                                                                 Converter={x:Static ObjectConverters.IsNotNull}}"
                                     Margin="8,0,12,0"
-                                    Name="PART_ActionButton">
-                                    <Button.Transitions>
-                                        <Transitions>
-                                            <BrushTransition Duration="0:0:0.20" Property="Background" />
-                                            <BrushTransition Duration="0:0:0.20" Property="BorderBrush" />
-                                        </Transitions>
-                                    </Button.Transitions>
-                                </Button>
+                                    Name="PART_ActionButton" />
                             </Grid>
                             <Button
                                 CornerRadius="{DynamicResource FullCornerRadius}"
@@ -83,6 +76,7 @@
             </Style>
         </Style>
         <Style Selector="^:pointerover">
+
             <Style Selector="^ /template/ Button#PART_CloseButton">
                 <Setter Property="Opacity" Value="1" />
             </Style>
@@ -105,6 +99,14 @@
                 <Setter Property="BorderBrush" Value="{DynamicResource BorderColor}" />
                 <Setter Property="Background" Value="{DynamicResource CardBackgroundColor}" />
                 <Style Selector="^:pointerover">
+                    <Setter Property="Transitions">
+                        <Setter.Value>
+                            <Transitions>
+                                <BrushTransition Duration="0:0:0.20" Property="Background" />
+                                <BrushTransition Duration="0:0:0.20" Property="BorderBrush" />
+                            </Transitions>
+                        </Setter.Value>
+                    </Setter>
                     <Setter Property="BorderBrush" Value="{DynamicResource GhostColor}" />
                     <Setter Property="Background" Value="{DynamicResource GhostColor}" />
                 </Style>
@@ -112,6 +114,14 @@
             <Style Selector="^ /template/ Button#PART_CloseButton">
                 <Setter Property="Background" Value="{DynamicResource CardBackgroundColor}" />
                 <Style Selector="^:pointerover">
+                    <Setter Property="Transitions">
+                        <Setter.Value>
+                            <Transitions>
+                                <BrushTransition Duration="0:0:0.20" Property="Background" />
+                                <BrushTransition Duration="0:0:0.20" Property="BorderBrush" />
+                            </Transitions>
+                        </Setter.Value>
+                    </Setter>
                     <Setter Property="Background" Value="{DynamicResource GhostColor}" />
                     <Setter Property="BorderBrush" Value="{DynamicResource GhostColor}" />
                 </Style>
@@ -148,6 +158,14 @@
                 <Setter Property="BorderBrush" Value="{DynamicResource SuccessColor}" />
                 <Setter Property="Background" Value="{DynamicResource SuccessColor5}" />
                 <Style Selector="^:pointerover">
+                    <Setter Property="Transitions">
+                        <Setter.Value>
+                            <Transitions>
+                                <BrushTransition Duration="0:0:0.20" Property="Background" />
+                                <BrushTransition Duration="0:0:0.20" Property="BorderBrush" />
+                            </Transitions>
+                        </Setter.Value>
+                    </Setter>
                     <Setter Property="Background" Value="{DynamicResource SuccessColor10}" />
                     <Setter Property="BorderBrush" Value="{DynamicResource SuccessColor10}" />
                 </Style>
@@ -155,6 +173,13 @@
             <Style Selector="^ /template/ Button#PART_CloseButton">
                 <Setter Property="Background" Value="{DynamicResource SuccessColor5}" />
                 <Style Selector="^:pointerover">
+                    <Setter Property="Transitions">
+                        <Setter.Value>
+                            <Transitions>
+                                <BrushTransition Duration="0:0:0.20" Property="Background" />
+                            </Transitions>
+                        </Setter.Value>
+                    </Setter>
                     <Setter Property="Background" Value="{DynamicResource SuccessColor10}" />
                 </Style>
             </Style>
@@ -190,6 +215,14 @@
                 <Setter Property="BorderBrush" Value="{DynamicResource InfoColor}" />
                 <Setter Property="Background" Value="{DynamicResource InfoColor5}" />
                 <Style Selector="^:pointerover">
+                    <Setter Property="Transitions">
+                        <Setter.Value>
+                            <Transitions>
+                                <BrushTransition Duration="0:0:0.20" Property="Background" />
+                                <BrushTransition Duration="0:0:0.20" Property="BorderBrush" />
+                            </Transitions>
+                        </Setter.Value>
+                    </Setter>
                     <Setter Property="Background" Value="{DynamicResource InfoColor10}" />
                     <Setter Property="BorderBrush" Value="{DynamicResource InfoColor10}" />
                 </Style>
@@ -197,6 +230,13 @@
             <Style Selector="^ /template/ Button#PART_CloseButton">
                 <Setter Property="Background" Value="{DynamicResource InfoColor5}" />
                 <Style Selector="^:pointerover">
+                    <Setter Property="Transitions">
+                        <Setter.Value>
+                            <Transitions>
+                                <BrushTransition Duration="0:0:0.20" Property="Background" />
+                            </Transitions>
+                        </Setter.Value>
+                    </Setter>
                     <Setter Property="Background" Value="{DynamicResource InfoColor10}" />
                 </Style>
             </Style>
@@ -232,6 +272,14 @@
                 <Setter Property="BorderBrush" Value="{DynamicResource WarningColor}" />
                 <Setter Property="Background" Value="{DynamicResource WarningColor5}" />
                 <Style Selector="^:pointerover">
+                    <Setter Property="Transitions">
+                        <Setter.Value>
+                            <Transitions>
+                                <BrushTransition Duration="0:0:0.20" Property="Background" />
+                                <BrushTransition Duration="0:0:0.20" Property="BorderBrush" />
+                            </Transitions>
+                        </Setter.Value>
+                    </Setter>
                     <Setter Property="Background" Value="{DynamicResource WarningColor10}" />
                     <Setter Property="BorderBrush" Value="{DynamicResource WarningColor10}" />
                 </Style>
@@ -239,6 +287,13 @@
             <Style Selector="^ /template/ Button#PART_CloseButton">
                 <Setter Property="Background" Value="{DynamicResource WarningColor5}" />
                 <Style Selector="^:pointerover">
+                    <Setter Property="Transitions">
+                        <Setter.Value>
+                            <Transitions>
+                                <BrushTransition Duration="0:0:0.20" Property="Background" />
+                            </Transitions>
+                        </Setter.Value>
+                    </Setter>
                     <Setter Property="Background" Value="{DynamicResource WarningColor10}" />
                 </Style>
             </Style>
@@ -274,6 +329,14 @@
                 <Setter Property="BorderBrush" Value="{DynamicResource ErrorColor}" />
                 <Setter Property="Background" Value="{DynamicResource ErrorColor5}" />
                 <Style Selector="^:pointerover">
+                    <Setter Property="Transitions">
+                        <Setter.Value>
+                            <Transitions>
+                                <BrushTransition Duration="0:0:0.20" Property="Background" />
+                                <BrushTransition Duration="0:0:0.20" Property="BorderBrush" />
+                            </Transitions>
+                        </Setter.Value>
+                    </Setter>
                     <Setter Property="Background" Value="{DynamicResource ErrorColor10}" />
                     <Setter Property="BorderBrush" Value="{DynamicResource ErrorColor10}" />
                 </Style>
@@ -281,6 +344,13 @@
             <Style Selector="^ /template/ Button#PART_CloseButton">
                 <Setter Property="Background" Value="{DynamicResource ErrorColor5}" />
                 <Style Selector="^:pointerover">
+                    <Setter Property="Transitions">
+                        <Setter.Value>
+                            <Transitions>
+                                <BrushTransition Duration="0:0:0.20" Property="Background" />
+                            </Transitions>
+                        </Setter.Value>
+                    </Setter>
                     <Setter Property="Background" Value="{DynamicResource ErrorColor10}" />
                 </Style>
             </Style>
