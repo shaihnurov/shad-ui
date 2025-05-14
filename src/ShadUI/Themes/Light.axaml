@@ -37,6 +37,7 @@
     <Color x:Key="OutlineColor">#BFE0E0E0</Color>
     <Color x:Key="GhostColor">#E6E6E6</Color>
     <Color x:Key="GhostHoverColor">#F0F0F0</Color>
+    <Color x:Key="GhostHoverColor50">#7FF0F0F0</Color>
 
     <Color x:Key="BusyAreaOverlayColor">#F2F2F2</Color>
     <Color x:Key="DialogOverlayColor">#000000</Color>

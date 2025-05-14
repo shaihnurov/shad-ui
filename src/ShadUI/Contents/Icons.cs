@@ -7,6 +7,12 @@ namespace ShadUI.Contents;
 /// </summary>
 public static class Icons
 {
+    // arrow up down
+    /// <summary>
+    ///     Arrow up and down icon.
+    /// </summary>
+    public static readonly StreamGeometry ArrowDown = Parse("M15.71,8.71l-7,7c-.1.09-.21.16-.32.21-.05.02-.09.04-.14.04-.08.03-.16.04-.25.04s-.17-.01-.25-.04c-.05,0-.09-.02-.14-.04-.11-.05-.22-.12-.32-.21L.29,8.71c-.39-.39-.39-1.03,0-1.42s1.03-.39,1.42,0l5.29,5.3V1c0-.55.45-1,1-1s1,.45,1,1v11.59l5.29-5.3c.39-.39,1.03-.39,1.42,0s.39,1.03,0,1.42Z");
+    
     /// <summary>
     ///     Calendar icon.
     /// </summary>

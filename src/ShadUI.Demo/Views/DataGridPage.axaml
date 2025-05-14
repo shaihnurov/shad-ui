@@ -1,0 +1,198 @@
+﻿<UserControl
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d"
+    x:Class="ShadUI.Demo.Views.DataGridPage"
+    x:DataType="viewModels:DataGridViewModel"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:contents="clr-namespace:ShadUI.Contents;assembly=ShadUI"
+    xmlns:controls="clr-namespace:ShadUI.Demo.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:extensions="clr-namespace:ShadUI.Extensions;assembly=ShadUI"
+    xmlns:icons="clr-namespace:LucideAvalonia;assembly=LucideAvalonia"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="clr-namespace:ShadUI.Demo.ViewModels"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <DockPanel LastChildFill="True">
+        <StackPanel
+            DockPanel.Dock="Top"
+            Margin="48,24"
+            MaxWidth="1536">
+            <TextBlock Classes="h3" Text="Data Table" />
+            <TextBlock
+                Classes="p"
+                HorizontalAlignment="Left"
+                Text="Basic data table with sorting and filtering."
+                TextWrapping="Wrap" />
+        </StackPanel>
+        <ScrollViewer>
+            <Panel Margin="48,24" MaxWidth="1536">
+                <StackPanel Spacing="32">
+                    <controls:ControlBlock
+                        Code="{Binding Code}"
+                        Language="xaml"
+                        Title="Usage">
+                        <StackPanel
+                            HorizontalAlignment="Center"
+                            Spacing="16"
+                            Width="600">
+                            <Grid ColumnDefinitions="* Auto">
+                                <TextBox
+                                    Classes="Clearable"
+                                    HorizontalAlignment="Left"
+                                    Text="{Binding SearchString, Mode=TwoWay}"
+                                    Watermark="Filter emails..."
+                                    Width="384"
+                                    extensions:ControlAssist.ShowProgress="{Binding IsSearching}">
+                                    <TextBox.InnerRightContent>
+                                        <PathIcon
+                                            Data="{x:Static contents:Icons.Search}"
+                                            Opacity="0.75"
+                                            Width="16" />
+                                    </TextBox.InnerRightContent>
+                                </TextBox>
+                                <Menu Grid.Column="1">
+                                    <MenuItem Classes="Outline" extensions:MenuItemAssist.PopupPlacement="Bottom">
+                                        <MenuItem.Header>
+                                            <StackPanel Orientation="Horizontal" Spacing="8">
+                                                <TextBlock Text="Columns" />
+                                                <icons:Lucide
+                                                    Height="12"
+                                                    Icon="ChevronDown"
+                                                    StrokeBrush="{DynamicResource ForegroundColor}"
+                                                    Width="12" />
+                                            </StackPanel>
+                                        </MenuItem.Header>
+                                        <MenuItem
+                                            Command="{Binding ToggleStatusColumnCommand}"
+                                            Header="Status"
+                                            Width="128">
+                                            <MenuItem.Icon>
+                                                <icons:Lucide
+                                                    Icon="Check"
+                                                    IsVisible="{Binding ShowStatusColumn}"
+                                                    StrokeBrush="{DynamicResource ForegroundColor}"
+                                                    Width="12" />
+                                            </MenuItem.Icon>
+                                        </MenuItem>
+                                        <MenuItem Command="{Binding ToggleEmailColumnCommand}" Header="Email">
+                                            <MenuItem.Icon>
+                                                <icons:Lucide
+                                                    Icon="Check"
+                                                    IsVisible="{Binding ShowEmailColumn}"
+                                                    StrokeBrush="{DynamicResource ForegroundColor}"
+                                                    Width="12" />
+                                            </MenuItem.Icon>
+                                        </MenuItem>
+                                        <MenuItem Command="{Binding ToggleAmountColumnCommand}" Header="Amount">
+                                            <MenuItem.Icon>
+                                                <icons:Lucide
+                                                    Icon="Check"
+                                                    IsVisible="{Binding ShowAmountColumn}"
+                                                    StrokeBrush="{DynamicResource ForegroundColor}"
+                                                    Width="12" />
+                                            </MenuItem.Icon>
+                                        </MenuItem>
+                                    </MenuItem>
+                                </Menu>
+                            </Grid>
+                            <DataGrid
+                                CanUserReorderColumns="False"
+                                CanUserSortColumns="True"
+                                GridLinesVisibility="Horizontal"
+                                ItemsSource="{Binding Items}"
+                                SelectionMode="Single"
+                                x:Name="DataGrid">
+                                <DataGrid.Columns>
+                                    <DataGridCheckBoxColumn Binding="{Binding IsSelected}" CanUserSort="False">
+                                        <DataGridCheckBoxColumn.Header>
+                                            <CheckBox
+                                                Command="{Binding ToggleSelectionCommand}"
+                                                CommandParameter="{Binding #SelectToggler.IsChecked}"
+                                                IsChecked="{Binding SelectAll}"
+                                                x:Name="SelectToggler" />
+                                        </DataGridCheckBoxColumn.Header>
+                                    </DataGridCheckBoxColumn>
+                                    <DataGridTextColumn
+                                        Binding="{Binding Status}"
+                                        CanUserSort="False"
+                                        Header="Status"
+                                        IsReadOnly="True"
+                                        IsVisible="{Binding ShowStatusColumn}" />
+                                    <DataGridTextColumn
+                                        Binding="{Binding Email, Mode=TwoWay}"
+                                        Header="Email"
+                                        IsVisible="{Binding ShowEmailColumn}"
+                                        Width="*" />
+                                    <DataGridTemplateColumn IsVisible="{Binding ShowAmountColumn}" SortMemberPath="Amount">
+                                        <DataGridTemplateColumn.Header>
+                                            <TextBlock
+                                                HorizontalAlignment="Center"
+                                                Text="Amount"
+                                                TextAlignment="Center" />
+                                        </DataGridTemplateColumn.Header>
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate DataType="viewModels:DataGridItem">
+                                                <TextBlock
+                                                    HorizontalAlignment="Right"
+                                                    Text="{Binding Amount, StringFormat={}{0:C}}"
+                                                    TextAlignment="Right"
+                                                    VerticalAlignment="Center" />
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                        <DataGridTemplateColumn.CellEditingTemplate>
+                                            <DataTemplate DataType="viewModels:DataGridItem">
+                                                <TextBox Text="{Binding Amount}" TextAlignment="End" />
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellEditingTemplate>
+                                    </DataGridTemplateColumn>
+                                    <DataGridTemplateColumn CanUserResize="False" CanUserSort="False">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate DataType="viewModels:DataGridItem">
+                                                <Menu>
+                                                    <MenuItem Classes="Icon Grid" extensions:MenuItemAssist.PopupPlacement="BottomEdgeAlignedRight">
+                                                        <extensions:MenuItemAssist.Label>
+                                                            <TextBlock
+                                                                Classes="Small"
+                                                                FontFamily="{DynamicResource FontFamily}"
+                                                                Text="Actions" />
+                                                        </extensions:MenuItemAssist.Label>
+                                                        <MenuItem.Header>
+                                                            <icons:Lucide
+                                                                Height="12"
+                                                                Icon="Ellipsis"
+                                                                StrokeBrush="{DynamicResource ForegroundColor}"
+                                                                Width="12" />
+                                                        </MenuItem.Header>
+                                                        <MenuItem Header="Copy payment ID" />
+                                                        <MenuItem Header="View customer" />
+                                                        <MenuItem Header="View payment details" />
+                                                    </MenuItem>
+                                                </Menu>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                            <Grid ColumnDefinitions="* Auto">
+                                <TextBlock Classes="Small Muted" VerticalAlignment="Center">
+                                    <Run Text="{Binding SelectedCount}" />
+                                    <Run Text="of" />
+                                    <Run Text="{Binding TotalCount}" />
+                                    <Run Text="row(s) selected." />
+                                </TextBlock>
+                                <StackPanel
+                                    Grid.Column="1"
+                                    Orientation="Horizontal"
+                                    Spacing="8">
+                                    <Button Classes="Outline" IsEnabled="False">Previous</Button>
+                                    <Button Classes="Outline" IsEnabled="False">Next</Button>
+                                </StackPanel>
+                            </Grid>
+                        </StackPanel>
+                    </controls:ControlBlock>
+                </StackPanel>
+            </Panel>
+        </ScrollViewer>
+    </DockPanel>
+</UserControl>

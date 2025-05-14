@@ -18,6 +18,9 @@
     <DataTemplate DataType="{x:Type viewModels:CardsViewModel}">
         <views:CardsPage />
     </DataTemplate>
+    <DataTemplate DataType="{x:Type viewModels:DataGridViewModel}">
+        <views:DataGridPage />
+    </DataTemplate>
     <DataTemplate DataType="{x:Type viewModels:DateViewModel}">
         <views:DatePage />
     </DataTemplate>

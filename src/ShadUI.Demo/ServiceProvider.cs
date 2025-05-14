@@ -10,6 +10,7 @@ namespace ShadUI.Demo;
 [Transient<AvatarsViewModel>]
 [Transient<ButtonsViewModel>]
 [Transient<CardsViewModel>]
+[Transient<DataGridViewModel>]
 [Transient<DateViewModel>]
 [Transient<CheckBoxesViewModel>]
 [Transient<ComboBoxesViewModel>]

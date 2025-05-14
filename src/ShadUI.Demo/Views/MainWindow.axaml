@@ -204,6 +204,20 @@
                 </controls:SidebarMenuItem>
                 <controls:SidebarMenuItem
                     Classes="Compact"
+                    Command="{Binding OpenDataGridCommand}"
+                    Header="Data Table"
+                    ToolTip.Tip="{Binding IsMenuExpanded, RelativeSource={RelativeSource AncestorType=controls:SidebarMenu}, Converter={x:Static converters:BooleanToNullOrStringConverter.Instance}, ConverterParameter='Data Table'}">
+                    <controls:SidebarMenuItem.Icon>
+                        <icons:Lucide
+                            Height="16"
+                            Icon="Grid2X2"
+                            StrokeBrush="{Binding RelativeSource={RelativeSource AncestorType=controls:SidebarMenuItem}, Path=Foreground}"
+                            StrokeThickness="1.5"
+                            Width="16" />
+                    </controls:SidebarMenuItem.Icon>
+                </controls:SidebarMenuItem>
+                <controls:SidebarMenuItem
+                    Classes="Compact"
                     Command="{Binding OpenCheckBoxesCommand}"
                     Header="CheckBox"
                     ToolTip.Tip="{Binding IsMenuExpanded, RelativeSource={RelativeSource AncestorType=controls:SidebarMenu}, Converter={x:Static converters:BooleanToNullOrStringConverter.Instance}, ConverterParameter='CheckBox'}">
