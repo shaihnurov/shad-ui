@@ -23,7 +23,9 @@
         <ResourceInclude Source="avares://ShadUI/Controls/DateInput.axaml" />
         <ResourceInclude Source="avares://ShadUI/Controls/Loading.axaml" />
         <ResourceInclude Source="avares://ShadUI/Controls/Menu.axaml" />
+        <ResourceInclude Source="avares://ShadUI/Controls/MenuFlyoutPresenter.axaml" />
         <ResourceInclude Source="avares://ShadUI/Controls/MenuItem.axaml" />
+        <ResourceInclude Source="avares://ShadUI/Controls/SelectableTextBlock.axaml" />
         <ResourceInclude Source="avares://ShadUI/Controls/SidebarMenu.axaml" />
         <ResourceInclude Source="avares://ShadUI/Controls/SidebarMenuItem.axaml" />
         <ResourceInclude Source="avares://ShadUI/Controls/Skeleton.axaml" />
