@@ -245,13 +245,24 @@ public sealed partial class MainWindowViewModel(
         Environment.Exit(0);
     }
 
-    [ObservableProperty]
-    private string _selectedTheme = "System";
+    private ThemeMode _currentTheme;
+
+    public ThemeMode CurrentTheme
+    {
+        get => _currentTheme;
+        private set => SetProperty(ref _currentTheme, value);
+    }
 
     [RelayCommand]
-    private void SwitchTheme(ThemeMode mode)
+    private void SwitchTheme()
     {
-        themeWatcher.SwitchTheme(mode);
-        SelectedTheme = mode.ToString();
+        CurrentTheme = CurrentTheme switch
+        {
+            ThemeMode.System => ThemeMode.Light,
+            ThemeMode.Light => ThemeMode.Dark,
+            _ => ThemeMode.System
+        };
+
+        themeWatcher.SwitchTheme(CurrentTheme);
     }
 }
