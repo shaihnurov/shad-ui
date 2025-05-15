@@ -48,7 +48,9 @@ Include ShadTheme in your App.xaml:
 
 > Recommended: Use the `ShadUI.Controls.Window` instead of `Avalonia.Controls.Window` to get the full ShadUI experience.
 
-Install the [ShadUI App](https://apps.microsoft.com/detail/9N3358B0PHG4?hl=en-us&gl=PH&ocid=pdpshare) from Microsoft
+<img src="https://learn.microsoft.com/en-us/windows/apps/images/new-badge-dark.png" alt="App Screenshot" width="200"/>
+
+[Download](https://apps.microsoft.com/detail/9N3358B0PHG4?hl=en-us&gl=PH&ocid=pdpshare) ShadUI App from Microsoft
 Store for examples of how to use ShadUI controls.
 
 ## Features 🌟
