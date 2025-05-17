@@ -147,6 +147,9 @@
                 </Animation>
             </Style.Animations>
         </Style>
+        <Style Selector="^:open">
+            <Setter Property="Background" Value="{DynamicResource GhostColor}" />
+        </Style>
 
         <Style Selector="^:disabled">
             <Setter Property="Opacity" Value="0.50" />
