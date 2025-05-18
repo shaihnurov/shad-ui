@@ -1,0 +1,308 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:controls="clr-namespace:ShadUI.Controls"
+    xmlns:extensions="clr-namespace:ShadUI.Extensions"
+    xmlns:icons="clr-namespace:ShadUI.Contents"
+    xmlns:system="clr-namespace:System;assembly=System.Runtime"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <Panel Height="300" Width="600">
+            <controls:SimpleDropdown
+                HorizontalAlignment="Center"
+                TriggerContent="Click Me"
+                VerticalAlignment="Center">
+                <controls:SimpleDropdown.MenuLabel>
+                    <TextBlock
+                        FontSize="16"
+                        FontWeight="SemiBold"
+                        Text="Actions" />
+                </controls:SimpleDropdown.MenuLabel>
+                <Button Content="Click Me">
+                    <extensions:ButtonAssist.Icon>
+                        <PathIcon
+                            Data="{x:Static icons:Icons.Check}"
+                            DockPanel.Dock="Right"
+                            Foreground="{DynamicResource ForegroundColor}"
+                            Height="12"
+                            Margin="0,0,3,0"
+                            Name="CheckSelected"
+                            Width="12" />
+                    </extensions:ButtonAssist.Icon>
+                </Button>
+                <Button Content="Click Me" />
+                <Separator />
+                <Button Classes="Error" Content="Click Me" />
+            </controls:SimpleDropdown>
+        </Panel>
+    </Design.PreviewWith>
+    <ControlTheme TargetType="{x:Type controls:SimpleDropdown}" x:Key="{x:Type controls:SimpleDropdown}">
+        <Setter Property="FontWeight" Value="Medium" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="FontFamily" Value="{DynamicResource FontFamily}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource MdCornerRadius}" />
+        <Setter Property="Padding" Value="12 8" />
+        <Setter Property="PopupVerticalOffset" Value="8" />
+        <Setter Property="PopupWidth" Value="150" />
+        <Setter Property="PopupPlacement" Value="BottomEdgeAlignedLeft" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="{TemplateBinding CornerRadius}"
+                    Name="root">
+                    <Panel Background="Transparent">
+                        <Border
+                            Background="{DynamicResource GhostColor}"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            Name="ItemBackground"
+                            Opacity="0">
+                            <Border.Transitions>
+                                <Transitions>
+                                    <DoubleTransition Duration="0:0:0.20" Property="Opacity" />
+                                </Transitions>
+                            </Border.Transitions>
+                        </Border>
+                        <ContentPresenter
+                            Content="{TemplateBinding TriggerContent}"
+                            FontFamily="{TemplateBinding FontFamily}"
+                            FontSize="{TemplateBinding FontSize}"
+                            FontWeight="{TemplateBinding FontWeight}"
+                            HorizontalAlignment="Center"
+                            HorizontalContentAlignment="Left"
+                            Margin="{TemplateBinding Padding}"
+                            Name="PART_TriggerContent"
+                            VerticalAlignment="Center"
+                            VerticalContentAlignment="Center">
+                            <ContentPresenter.DataTemplates>
+                                <DataTemplate DataType="system:String">
+                                    <TextBlock
+                                        FontFamily="{DynamicResource FontFamily}"
+                                        FontSize="14"
+                                        FontWeight="DemiBold"
+                                        Name="PART_TriggerText"
+                                        Text="{CompiledBinding}" />
+                                </DataTemplate>
+                            </ContentPresenter.DataTemplates>
+                        </ContentPresenter>
+                        <Popup
+                            IsLightDismissEnabled="True"
+                            IsOpen="{TemplateBinding IsDropDownOpen,
+                                                     Mode=TwoWay}"
+                            Name="PART_Popup"
+                            Opacity="0"
+                            OverlayInputPassThroughElement="{Binding $parent[controls:SimpleDropdown]}"
+                            Placement="{TemplateBinding PopupPlacement}"
+                            VerticalOffset="{TemplateBinding PopupVerticalOffset}"
+                            Width="{TemplateBinding PopupWidth}">
+                            <LayoutTransformControl Name="PART_LayoutTransform" RenderTransformOrigin="50%, 0%">
+                                <Border
+                                    Background="{DynamicResource CardBackgroundColor}"
+                                    BorderBrush="{DynamicResource BorderColor}"
+                                    BorderThickness="1"
+                                    BoxShadow="{DynamicResource Shadow}"
+                                    ClipToBounds="True"
+                                    CornerRadius="{DynamicResource MdCornerRadius}"
+                                    Margin="2,0,2,4"
+                                    Name="PART_Border">
+                                    <StackPanel Margin="0,2">
+                                        <Border IsVisible="{TemplateBinding MenuLabel, Converter={x:Static ObjectConverters.IsNotNull}}" Padding="16,8">
+                                            <ContentPresenter Content="{TemplateBinding MenuLabel}" />
+                                        </Border>
+                                        <Separator IsVisible="{TemplateBinding MenuLabel, Converter={x:Static ObjectConverters.IsNotNull}}" Margin="0,2" />
+                                        <ScrollViewer Margin="0,2">
+                                            <ItemsPresenter
+                                                Grid.IsSharedSizeScope="True"
+                                                ItemsPanel="{TemplateBinding ItemsPanel}"
+                                                Name="PART_ItemsPresenter" />
+                                        </ScrollViewer>
+                                    </StackPanel>
+                                </Border>
+                            </LayoutTransformControl>
+                        </Popup>
+                    </Panel>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^:pointerover /template/ Border#ItemBackground">
+            <Setter Property="Opacity" Value="1" />
+        </Style>
+        <Style Selector="^[IsDropDownOpen=True] /template/ LayoutTransformControl#PART_LayoutTransform">
+            <Style.Animations>
+                <Animation
+                    Duration="0:0:0.10"
+                    Easing="SineEaseInOut"
+                    FillMode="Forward">
+                    <KeyFrame Cue="0%">
+                        <Setter Property="ScaleTransform.ScaleY" Value="0.90" />
+                        <Setter Property="ScaleTransform.ScaleX" Value="0.90" />
+                        <Setter Property="Opacity" Value="0" />
+                    </KeyFrame>
+                    <KeyFrame Cue="100%">
+                        <Setter Property="ScaleTransform.ScaleY" Value="1" />
+                        <Setter Property="ScaleTransform.ScaleX" Value="1" />
+                        <Setter Property="Opacity" Value="1" />
+                    </KeyFrame>
+                </Animation>
+            </Style.Animations>
+        </Style>
+        <Style Selector="^[IsDropDownOpen=True] /template/ Border#ItemBackground">
+            <Setter Property="Opacity" Value="1" />
+        </Style>
+
+        <!--  Primary  -->
+        <Style Selector="^.Primary">
+            <Setter Property="Height" Value="36" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Padding" Value="16,8" />
+            <Setter Property="CornerRadius" Value="{DynamicResource MdCornerRadius}" />
+            <Setter Property="Background" Value="{DynamicResource PrimaryColor}" />
+            <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundColor}" />
+            <Style Selector="^/template/ Border#ItemBackground">
+                <Setter Property="IsVisible" Value="False" />
+            </Style>
+            <Style Selector="^ /template/ TextBlock">
+                <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundColor}" />
+            </Style>
+            <Style Selector="^ /template/ ContentPresenter#PART_HeaderPresenter">
+                <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundColor}" />
+            </Style>
+            <Style Selector="^:pointerover /template/ Border#root">
+                <Setter Property="Transitions">
+                    <Setter.Value>
+                        <Transitions>
+                            <BrushTransition Duration="0:0:0.20" Property="Background" />
+                        </Transitions>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="Background" Value="{DynamicResource PrimaryColor50}" />
+            </Style>
+            <Style Selector="^:open /template/ Border#root">
+                <Setter Property="Background" Value="{DynamicResource PrimaryColor50}" />
+            </Style>
+            <Style Selector="^:pressed /template/ Border#root">
+                <Setter Property="RenderTransform">
+                    <Setter.Value>
+                        <ScaleTransform ScaleX="0.95" ScaleY="0.95" />
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </Style>
+
+        <!--  Secondary  -->
+        <Style Selector="^.Secondary">
+            <Setter Property="Height" Value="36" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Padding" Value="16,8" />
+            <Setter Property="CornerRadius" Value="{DynamicResource MdCornerRadius}" />
+            <Setter Property="Background" Value="{DynamicResource SecondaryColor}" />
+            <Setter Property="Foreground" Value="{DynamicResource SecondaryForegroundColor}" />
+            <Style Selector="^/template/ Border#ItemBackground">
+                <Setter Property="IsVisible" Value="False" />
+            </Style>
+            <Style Selector="^ /template/ TextBlock">
+                <Setter Property="Foreground" Value="{DynamicResource SecondaryForegroundColor}" />
+            </Style>
+            <Style Selector="^ /template/ ContentPresenter#PART_HeaderPresenter">
+                <Setter Property="Foreground" Value="{DynamicResource SecondaryForegroundColor}" />
+            </Style>
+            <Style Selector="^:pointerover /template/ Border#root">
+                <Setter Property="Transitions">
+                    <Setter.Value>
+                        <Transitions>
+                            <BrushTransition Duration="0:0:0.20" Property="Background" />
+                        </Transitions>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="Background" Value="{DynamicResource SecondaryColor50}" />
+            </Style>
+            <Style Selector="^:open /template/ Border#root">
+                <Setter Property="Background" Value="{DynamicResource SecondaryColor50}" />
+            </Style>
+            <Style Selector="^:pressed /template/ Border#root">
+                <Setter Property="RenderTransform">
+                    <Setter.Value>
+                        <ScaleTransform ScaleX="0.95" ScaleY="0.95" />
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </Style>
+
+        <!--  Outline  -->
+        <Style Selector="^.Outline">
+            <Setter Property="Height" Value="36" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Padding" Value="16,8" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="BorderBrush" Value="{DynamicResource BorderColor}" />
+            <Setter Property="CornerRadius" Value="{DynamicResource MdCornerRadius}" />
+            <Setter Property="Background" Value="{DynamicResource CardBackgroundColor}" />
+            <Style Selector="^/template/ Border#ItemBackground">
+                <Setter Property="IsVisible" Value="False" />
+            </Style>
+            <Style Selector="^ /template/ TextBlock">
+                <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
+            </Style>
+            <Style Selector="^ /template/ ContentPresenter#PART_HeaderPresenter">
+                <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
+            </Style>
+            <Style Selector="^:pointerover /template/ Border#root">
+                <Setter Property="Transitions">
+                    <Setter.Value>
+                        <Transitions>
+                            <BrushTransition Duration="0:0:0.20" Property="Background" />
+                            <BrushTransition Duration="0:0:0.20" Property="BorderBrush" />
+                        </Transitions>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="Background" Value="{DynamicResource OutlineColor}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource OutlineColor}" />
+            </Style>
+            <Style Selector="^:open /template/ Border#root">
+                <Setter Property="Background" Value="{DynamicResource OutlineColor}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource OutlineColor}" />
+            </Style>
+            <Style Selector="^:pressed /template/ Border#root">
+                <Setter Property="RenderTransform">
+                    <Setter.Value>
+                        <ScaleTransform ScaleX="0.95" ScaleY="0.95" />
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </Style>
+
+        <!--  Ghost  -->
+        <Style Selector="^.Ghost">
+            <Setter Property="Height" Value="36" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Padding" Value="16,8" />
+            <Setter Property="CornerRadius" Value="{DynamicResource MdCornerRadius}" />
+            <Style Selector="^:pressed /template/ Border#root">
+                <Setter Property="RenderTransform">
+                    <Setter.Value>
+                        <ScaleTransform ScaleX="0.95" ScaleY="0.95" />
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </Style>
+
+        <!--  Icon  -->
+        <Style Selector="^.Icon">
+            <Setter Property="Height" Value="36" />
+            <Setter Property="Width" Value="36" />
+            <Setter Property="CornerRadius" Value="{DynamicResource MdCornerRadius}" />
+            <Style Selector="^:pressed /template/ Border#root">
+                <Setter Property="RenderTransform">
+                    <Setter.Value>
+                        <ScaleTransform ScaleX="0.95" ScaleY="0.95" />
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style Selector="^.Grid">
+                <Setter Property="Height" Value="32" />
+                <Setter Property="Width" Value="32" />
+            </Style>
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>

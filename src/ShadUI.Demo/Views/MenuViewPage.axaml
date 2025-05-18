@@ -1,15 +1,16 @@
 ﻿<UserControl
-    d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d"
     x:Class="ShadUI.Demo.Views.MenuViewPage"
     x:DataType="viewModels:MenuViewModel"
     xmlns="https://github.com/avaloniaui"
+    xmlns:contents="clr-namespace:ShadUI.Contents;assembly=ShadUI"
     xmlns:controls="clr-namespace:ShadUI.Demo.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:extensions="clr-namespace:ShadUI.Extensions;assembly=ShadUI"
     xmlns:icons="clr-namespace:LucideAvalonia;assembly=LucideAvalonia"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:shadui="clr-namespace:ShadUI.Controls;assembly=ShadUI"
     xmlns:viewModels="clr-namespace:ShadUI.Demo.ViewModels"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <DockPanel LastChildFill="True">
@@ -27,6 +28,221 @@
         <ScrollViewer>
             <Panel Margin="48,24" MaxWidth="1536">
                 <StackPanel Spacing="32">
+                    <controls:ControlBlock
+                        Code="{Binding MenuBarCode}"
+                        Language="xaml"
+                        Title="Simple Dropdown">
+                        <StackPanel
+                            HorizontalAlignment="Center"
+                            Orientation="Horizontal"
+                            Spacing="16">
+                            <shadui:SimpleDropdown
+                                Classes="Primary"
+                                HorizontalAlignment="Center"
+                                TriggerContent="Primary"
+                                VerticalAlignment="Center">
+                                <shadui:SimpleDropdown.MenuLabel>
+                                    <TextBlock
+                                        Classes="Small"
+                                        FontFamily="{DynamicResource FontFamily}"
+                                        Text="Actions" />
+                                </shadui:SimpleDropdown.MenuLabel>
+                                <Button Content="Add New">
+                                    <extensions:ButtonAssist.Icon>
+                                        <icons:Lucide
+                                            Height="16"
+                                            Icon="Plus"
+                                            StrokeBrush="{DynamicResource ForegroundColor}"
+                                            Width="16" />
+                                    </extensions:ButtonAssist.Icon>
+                                </Button>
+                                <Button Content="Edit">
+                                    <extensions:ButtonAssist.Icon>
+                                        <icons:Lucide
+                                            Height="16"
+                                            Icon="Pencil"
+                                            StrokeBrush="{DynamicResource ForegroundColor}"
+                                            Width="16" />
+                                    </extensions:ButtonAssist.Icon>
+                                </Button>
+                                <Separator />
+                                <Button Classes="Error" Content="Delete">
+                                    <extensions:ButtonAssist.Icon>
+                                        <icons:Lucide
+                                            Height="16"
+                                            Icon="Trash"
+                                            StrokeBrush="{Binding $parent.Foreground}"
+                                            Width="16" />
+                                    </extensions:ButtonAssist.Icon>
+                                </Button>
+                            </shadui:SimpleDropdown>
+                            <shadui:SimpleDropdown
+                                Classes="Secondary"
+                                HorizontalAlignment="Center"
+                                TriggerContent="Secondary"
+                                VerticalAlignment="Center">
+                                <shadui:SimpleDropdown.MenuLabel>
+                                    <TextBlock
+                                        Classes="Small"
+                                        FontFamily="{DynamicResource FontFamily}"
+                                        Text="Actions" />
+                                </shadui:SimpleDropdown.MenuLabel>
+                                <Button Content="Add New">
+                                    <extensions:ButtonAssist.Icon>
+                                        <icons:Lucide
+                                            Height="16"
+                                            Icon="Plus"
+                                            StrokeBrush="{DynamicResource ForegroundColor}"
+                                            Width="16" />
+                                    </extensions:ButtonAssist.Icon>
+                                </Button>
+                                <Button Content="Edit">
+                                    <extensions:ButtonAssist.Icon>
+                                        <icons:Lucide
+                                            Height="16"
+                                            Icon="Pencil"
+                                            StrokeBrush="{DynamicResource ForegroundColor}"
+                                            Width="16" />
+                                    </extensions:ButtonAssist.Icon>
+                                </Button>
+                                <Separator />
+                                <Button Classes="Error" Content="Delete">
+                                    <extensions:ButtonAssist.Icon>
+                                        <icons:Lucide
+                                            Height="16"
+                                            Icon="Trash"
+                                            StrokeBrush="{Binding $parent.Foreground}"
+                                            Width="16" />
+                                    </extensions:ButtonAssist.Icon>
+                                </Button>
+                            </shadui:SimpleDropdown>
+                            <shadui:SimpleDropdown
+                                Classes="Outline"
+                                HorizontalAlignment="Center"
+                                TriggerContent="Outline"
+                                VerticalAlignment="Center">
+                                <shadui:SimpleDropdown.MenuLabel>
+                                    <TextBlock
+                                        Classes="Small"
+                                        FontFamily="{DynamicResource FontFamily}"
+                                        Text="Actions" />
+                                </shadui:SimpleDropdown.MenuLabel>
+                                <Button Content="Add New">
+                                    <extensions:ButtonAssist.Icon>
+                                        <icons:Lucide
+                                            Height="16"
+                                            Icon="Plus"
+                                            StrokeBrush="{DynamicResource ForegroundColor}"
+                                            Width="16" />
+                                    </extensions:ButtonAssist.Icon>
+                                </Button>
+                                <Button Content="Edit">
+                                    <extensions:ButtonAssist.Icon>
+                                        <icons:Lucide
+                                            Height="16"
+                                            Icon="Pencil"
+                                            StrokeBrush="{DynamicResource ForegroundColor}"
+                                            Width="16" />
+                                    </extensions:ButtonAssist.Icon>
+                                </Button>
+                                <Separator />
+                                <Button Classes="Error" Content="Delete">
+                                    <extensions:ButtonAssist.Icon>
+                                        <icons:Lucide
+                                            Height="16"
+                                            Icon="Trash"
+                                            StrokeBrush="{Binding $parent.Foreground}"
+                                            Width="16" />
+                                    </extensions:ButtonAssist.Icon>
+                                </Button>
+                            </shadui:SimpleDropdown>
+                            <shadui:SimpleDropdown
+                                Classes="Ghost"
+                                HorizontalAlignment="Center"
+                                TriggerContent="Ghost"
+                                VerticalAlignment="Center">
+                                <shadui:SimpleDropdown.MenuLabel>
+                                    <TextBlock
+                                        Classes="Small"
+                                        FontFamily="{DynamicResource FontFamily}"
+                                        Text="Actions" />
+                                </shadui:SimpleDropdown.MenuLabel>
+                                <Button Content="Add New">
+                                    <extensions:ButtonAssist.Icon>
+                                        <icons:Lucide
+                                            Height="16"
+                                            Icon="Plus"
+                                            StrokeBrush="{DynamicResource ForegroundColor}"
+                                            Width="16" />
+                                    </extensions:ButtonAssist.Icon>
+                                </Button>
+                                <Button Content="Edit">
+                                    <extensions:ButtonAssist.Icon>
+                                        <icons:Lucide
+                                            Height="16"
+                                            Icon="Pencil"
+                                            StrokeBrush="{DynamicResource ForegroundColor}"
+                                            Width="16" />
+                                    </extensions:ButtonAssist.Icon>
+                                </Button>
+                                <Separator />
+                                <Button Classes="Error" Content="Delete">
+                                    <extensions:ButtonAssist.Icon>
+                                        <icons:Lucide
+                                            Height="16"
+                                            Icon="Trash"
+                                            StrokeBrush="{Binding $parent.Foreground}"
+                                            Width="16" />
+                                    </extensions:ButtonAssist.Icon>
+                                </Button>
+                            </shadui:SimpleDropdown>
+                            <shadui:SimpleDropdown
+                                Classes="Icon"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center">
+                                <shadui:SimpleDropdown.TriggerContent>
+                                    <icons:Lucide
+                                        Icon="Ellipsis"
+                                        StrokeBrush="{DynamicResource ForegroundColor}"
+                                        Width="16" />
+                                </shadui:SimpleDropdown.TriggerContent>
+                                <shadui:SimpleDropdown.MenuLabel>
+                                    <TextBlock
+                                        Classes="Small"
+                                        FontFamily="{DynamicResource FontFamily}"
+                                        Text="Actions" />
+                                </shadui:SimpleDropdown.MenuLabel>
+                                <Button Content="Add New">
+                                    <extensions:ButtonAssist.Icon>
+                                        <icons:Lucide
+                                            Height="16"
+                                            Icon="Plus"
+                                            StrokeBrush="{DynamicResource ForegroundColor}"
+                                            Width="16" />
+                                    </extensions:ButtonAssist.Icon>
+                                </Button>
+                                <Button Content="Edit">
+                                    <extensions:ButtonAssist.Icon>
+                                        <icons:Lucide
+                                            Height="16"
+                                            Icon="Pencil"
+                                            StrokeBrush="{DynamicResource ForegroundColor}"
+                                            Width="16" />
+                                    </extensions:ButtonAssist.Icon>
+                                </Button>
+                                <Separator />
+                                <Button Classes="Error" Content="Delete">
+                                    <extensions:ButtonAssist.Icon>
+                                        <icons:Lucide
+                                            Height="16"
+                                            Icon="Trash"
+                                            StrokeBrush="{Binding $parent.Foreground}"
+                                            Width="16" />
+                                    </extensions:ButtonAssist.Icon>
+                                </Button>
+                            </shadui:SimpleDropdown>
+                        </StackPanel>
+                    </controls:ControlBlock>
                     <controls:ControlBlock
                         Code="{Binding MenuBarCode}"
                         Language="xaml"
@@ -112,200 +328,216 @@
                             </Menu>
                         </Border>
                     </controls:ControlBlock>
-                    <controls:ControlBlock
-                        Code="{Binding DropDownCode}"
-                        Language="xaml"
-                        Title="Dropdown Menu">
-                        <StackPanel
-                            HorizontalAlignment="Center"
-                            Orientation="Horizontal"
-                            Spacing="16"
-                            VerticalAlignment="Center">
-                            <StackPanel.Resources />
-                            <Menu>
-                                <MenuItem
-                                    Classes="Primary"
-                                    Header="Primary"
-                                    Margin="12,0"
-                                    extensions:MenuItemAssist.PopupPlacement="Bottom">
-                                    <extensions:MenuItemAssist.Label>
-                                        <TextBlock
-                                            FontSize="16"
-                                            FontWeight="SemiBold"
-                                            Text="My Account" />
-                                    </extensions:MenuItemAssist.Label>
+                    <StackPanel>
+
+                        <controls:ControlBlock
+                            Code="{Binding DropDownCode}"
+                            Language="xaml"
+                            Title="Dropdown Menu">
+                            <StackPanel
+                                HorizontalAlignment="Center"
+                                Orientation="Horizontal"
+                                Spacing="16"
+                                VerticalAlignment="Center">
+                                <StackPanel.Resources />
+                                <Menu>
                                     <MenuItem
-                                        Header="Profile"
-                                        InputGesture="Ctrl + Shift + P"
-                                        Width="224" />
-                                    <MenuItem Header="Billing" InputGesture="Ctrl + B" />
-                                    <MenuItem Header="Settings" InputGesture="Ctrl + S" />
-                                    <MenuItem Header="Keyboard shortcuts" InputGesture="Ctrl + K" />
-                                    <Separator />
-                                    <MenuItem Header="Team" />
-                                    <MenuItem Header="Invite users">
-                                        <MenuItem Header="Email" Width="128" />
-                                        <MenuItem Header="Message" />
-                                        <MenuItem Header="More..." />
+                                        Classes="Primary"
+                                        Header="Primary"
+                                        Margin="12,0"
+                                        extensions:MenuItemAssist.PopupPlacement="Bottom">
+                                        <extensions:MenuItemAssist.Label>
+                                            <TextBlock
+                                                Classes="Small"
+                                                FontFamily="{DynamicResource FontFamily}"
+                                                Text="My Account" />
+                                        </extensions:MenuItemAssist.Label>
+                                        <MenuItem
+                                            Header="Profile"
+                                            InputGesture="Ctrl + Shift + P"
+                                            Width="224" />
+                                        <MenuItem Header="Billing" InputGesture="Ctrl + B" />
+                                        <MenuItem Header="Settings" InputGesture="Ctrl + S" />
+                                        <MenuItem Header="Keyboard shortcuts" InputGesture="Ctrl + K" />
+                                        <Separator />
+                                        <MenuItem Header="Team" />
+                                        <MenuItem Header="Invite users">
+                                            <MenuItem Header="Email" Width="128" />
+                                            <MenuItem Header="Message" />
+                                            <MenuItem Header="More..." />
+                                        </MenuItem>
+                                        <MenuItem Header="New Team" InputGesture="Ctrl + T" />
+                                        <Separator />
+                                        <MenuItem Header="Github" />
+                                        <MenuItem Header="Support" />
+                                        <MenuItem Header="API" IsEnabled="False" />
+                                        <Separator />
+                                        <MenuItem Header="Log out" InputGesture="Ctrl + Shift + Q" />
+                                        <Separator />
+                                        <MenuItem Classes="Destructive" Header="Delete Account" />
                                     </MenuItem>
-                                    <MenuItem Header="New Team" InputGesture="Ctrl + T" />
-                                    <Separator />
-                                    <MenuItem Header="Github" />
-                                    <MenuItem Header="Support" />
-                                    <MenuItem Header="API" IsEnabled="False" />
-                                    <Separator />
-                                    <MenuItem Header="Log out" InputGesture="Ctrl + Shift + Q" />
-                                    <Separator />
-                                    <MenuItem Classes="Destructive" Header="Delete Account" />
-                                </MenuItem>
-                                <MenuItem
-                                    Classes="Secondary"
-                                    Header="Secondary"
-                                    Margin="12,0"
-                                    extensions:MenuItemAssist.PopupPlacement="Bottom">
-                                    <extensions:MenuItemAssist.Label>
-                                        <TextBlock
-                                            FontSize="16"
-                                            FontWeight="SemiBold"
-                                            Text="My Account" />
-                                    </extensions:MenuItemAssist.Label>
                                     <MenuItem
-                                        Header="Profile"
-                                        InputGesture="Ctrl + Shift + P"
-                                        Width="224" />
-                                    <MenuItem Header="Billing" InputGesture="Ctrl + B" />
-                                    <MenuItem Header="Settings" InputGesture="Ctrl + S" />
-                                    <MenuItem Header="Keyboard shortcuts" InputGesture="Ctrl + K" />
-                                    <Separator />
-                                    <MenuItem Header="Team" />
-                                    <MenuItem Header="Invite users">
-                                        <MenuItem Header="Email" Width="128" />
-                                        <MenuItem Header="Message" />
-                                        <MenuItem Header="More..." />
+                                        Classes="Secondary"
+                                        Header="Secondary"
+                                        Margin="12,0"
+                                        extensions:MenuItemAssist.PopupPlacement="Bottom">
+                                        <extensions:MenuItemAssist.Label>
+                                            <TextBlock
+                                                Classes="Small"
+                                                FontFamily="{DynamicResource FontFamily}"
+                                                Text="My Account" />
+                                        </extensions:MenuItemAssist.Label>
+                                        <MenuItem
+                                            Header="Profile"
+                                            InputGesture="Ctrl + Shift + P"
+                                            Width="224" />
+                                        <MenuItem Header="Billing" InputGesture="Ctrl + B" />
+                                        <MenuItem Header="Settings" InputGesture="Ctrl + S" />
+                                        <MenuItem Header="Keyboard shortcuts" InputGesture="Ctrl + K" />
+                                        <Separator />
+                                        <MenuItem Header="Team" />
+                                        <MenuItem Header="Invite users">
+                                            <MenuItem Header="Email" Width="128" />
+                                            <MenuItem Header="Message" />
+                                            <MenuItem Header="More..." />
+                                        </MenuItem>
+                                        <MenuItem Header="New Team" InputGesture="Ctrl + T" />
+                                        <Separator />
+                                        <MenuItem Header="Github" />
+                                        <MenuItem Header="Support" />
+                                        <MenuItem Header="API" IsEnabled="False" />
+                                        <Separator />
+                                        <MenuItem Header="Log out" InputGesture="Ctrl + Shift + Q" />
+                                        <Separator />
+                                        <MenuItem Classes="Destructive" Header="Delete Account" />
                                     </MenuItem>
-                                    <MenuItem Header="New Team" InputGesture="Ctrl + T" />
-                                    <Separator />
-                                    <MenuItem Header="Github" />
-                                    <MenuItem Header="Support" />
-                                    <MenuItem Header="API" IsEnabled="False" />
-                                    <Separator />
-                                    <MenuItem Header="Log out" InputGesture="Ctrl + Shift + Q" />
-                                    <Separator />
-                                    <MenuItem Classes="Destructive" Header="Delete Account" />
-                                </MenuItem>
-                                <MenuItem
-                                    Classes="Outline"
-                                    Header="Outline"
-                                    Margin="12,0"
-                                    extensions:MenuItemAssist.PopupPlacement="Bottom">
-                                    <extensions:MenuItemAssist.Label>
-                                        <TextBlock
-                                            FontSize="16"
-                                            FontWeight="SemiBold"
-                                            Text="My Account" />
-                                    </extensions:MenuItemAssist.Label>
                                     <MenuItem
-                                        Header="Profile"
-                                        InputGesture="Ctrl + Shift + P"
-                                        Width="224" />
-                                    <MenuItem Header="Billing" InputGesture="Ctrl + B" />
-                                    <MenuItem Header="Settings" InputGesture="Ctrl + S" />
-                                    <MenuItem Header="Keyboard shortcuts" InputGesture="Ctrl + K" />
-                                    <Separator />
-                                    <MenuItem Header="Team" />
-                                    <MenuItem Header="Invite users">
-                                        <MenuItem Header="Email" Width="128" />
-                                        <MenuItem Header="Message" />
-                                        <MenuItem Header="More..." />
+                                        Classes="Outline"
+                                        Header="Outline"
+                                        Margin="12,0"
+                                        extensions:MenuItemAssist.PopupPlacement="Bottom">
+                                        <extensions:MenuItemAssist.Label>
+                                            <TextBlock
+                                                Classes="Small"
+                                                FontFamily="{DynamicResource FontFamily}"
+                                                Text="My Account" />
+                                        </extensions:MenuItemAssist.Label>
+                                        <MenuItem
+                                            Header="Profile"
+                                            InputGesture="Ctrl + Shift + P"
+                                            Width="224" />
+                                        <MenuItem Header="Billing" InputGesture="Ctrl + B" />
+                                        <MenuItem Header="Settings" InputGesture="Ctrl + S" />
+                                        <MenuItem Header="Keyboard shortcuts" InputGesture="Ctrl + K" />
+                                        <Separator />
+                                        <MenuItem Header="Team" />
+                                        <MenuItem Header="Invite users">
+                                            <MenuItem Header="Email" Width="128" />
+                                            <MenuItem Header="Message" />
+                                            <MenuItem Header="More..." />
+                                        </MenuItem>
+                                        <MenuItem Header="New Team" InputGesture="Ctrl + T" />
+                                        <Separator />
+                                        <MenuItem Header="Github" />
+                                        <MenuItem Header="Support" />
+                                        <MenuItem Header="API" IsEnabled="False" />
+                                        <Separator />
+                                        <MenuItem Header="Log out" InputGesture="Ctrl + Shift + Q" />
+                                        <Separator />
+                                        <MenuItem Classes="Destructive" Header="Delete Account" />
                                     </MenuItem>
-                                    <MenuItem Header="New Team" InputGesture="Ctrl + T" />
-                                    <Separator />
-                                    <MenuItem Header="Github" />
-                                    <MenuItem Header="Support" />
-                                    <MenuItem Header="API" IsEnabled="False" />
-                                    <Separator />
-                                    <MenuItem Header="Log out" InputGesture="Ctrl + Shift + Q" />
-                                    <Separator />
-                                    <MenuItem Classes="Destructive" Header="Delete Account" />
-                                </MenuItem>
-                                <MenuItem
-                                    Classes="Ghost"
-                                    Header="Ghost"
-                                    Margin="12,0"
-                                    extensions:MenuItemAssist.PopupPlacement="Bottom">
-                                    <extensions:MenuItemAssist.Label>
-                                        <TextBlock
-                                            FontSize="16"
-                                            FontWeight="SemiBold"
-                                            Text="My Account" />
-                                    </extensions:MenuItemAssist.Label>
                                     <MenuItem
-                                        Header="Profile"
-                                        InputGesture="Ctrl + Shift + P"
-                                        Width="224" />
-                                    <MenuItem Header="Billing" InputGesture="Ctrl + B" />
-                                    <MenuItem Header="Settings" InputGesture="Ctrl + S" />
-                                    <MenuItem Header="Keyboard shortcuts" InputGesture="Ctrl + K" />
-                                    <Separator />
-                                    <MenuItem Header="Team" />
-                                    <MenuItem Header="Invite users">
-                                        <MenuItem Header="Email" Width="128" />
-                                        <MenuItem Header="Message" />
-                                        <MenuItem Header="More..." />
+                                        Classes="Ghost"
+                                        Header="Ghost"
+                                        Margin="12,0"
+                                        extensions:MenuItemAssist.PopupPlacement="Bottom">
+                                        <extensions:MenuItemAssist.Label>
+                                            <TextBlock
+                                                Classes="Small"
+                                                FontFamily="{DynamicResource FontFamily}"
+                                                Text="My Account" />
+                                        </extensions:MenuItemAssist.Label>
+                                        <MenuItem
+                                            Header="Profile"
+                                            InputGesture="Ctrl + Shift + P"
+                                            Width="224" />
+                                        <MenuItem Header="Billing" InputGesture="Ctrl + B" />
+                                        <MenuItem Header="Settings" InputGesture="Ctrl + S" />
+                                        <MenuItem Header="Keyboard shortcuts" InputGesture="Ctrl + K" />
+                                        <Separator />
+                                        <MenuItem Header="Team" />
+                                        <MenuItem Header="Invite users">
+                                            <MenuItem Header="Email" Width="128" />
+                                            <MenuItem Header="Message" />
+                                            <MenuItem Header="More..." />
+                                        </MenuItem>
+                                        <MenuItem Header="New Team" InputGesture="Ctrl + T" />
+                                        <Separator />
+                                        <MenuItem Header="Github" />
+                                        <MenuItem Header="Support" />
+                                        <MenuItem Header="API" IsEnabled="False" />
+                                        <Separator />
+                                        <MenuItem Header="Log out" InputGesture="Ctrl + Shift + Q" />
+                                        <Separator />
+                                        <MenuItem Classes="Destructive" Header="Delete Account" />
                                     </MenuItem>
-                                    <MenuItem Header="New Team" InputGesture="Ctrl + T" />
-                                    <Separator />
-                                    <MenuItem Header="Github" />
-                                    <MenuItem Header="Support" />
-                                    <MenuItem Header="API" IsEnabled="False" />
-                                    <Separator />
-                                    <MenuItem Header="Log out" InputGesture="Ctrl + Shift + Q" />
-                                    <Separator />
-                                    <MenuItem Classes="Destructive" Header="Delete Account" />
-                                </MenuItem>
-                                <MenuItem
-                                    Classes="Icon"
-                                    Margin="12,0"
-                                    extensions:MenuItemAssist.PopupPlacement="Bottom">
-                                    <MenuItem.Header>
-                                        <icons:Lucide
-                                            Icon="Ellipsis"
-                                            StrokeBrush="{DynamicResource ForegroundColor}"
-                                            Width="16" />
-                                    </MenuItem.Header>
-                                    <extensions:MenuItemAssist.Label>
-                                        <TextBlock
-                                            FontSize="16"
-                                            FontWeight="SemiBold"
-                                            Text="My Account" />
-                                    </extensions:MenuItemAssist.Label>
                                     <MenuItem
-                                        Header="Profile"
-                                        InputGesture="Ctrl + Shift + P"
-                                        Width="224" />
-                                    <MenuItem Header="Billing" InputGesture="Ctrl + B" />
-                                    <MenuItem Header="Settings" InputGesture="Ctrl + S" />
-                                    <MenuItem Header="Keyboard shortcuts" InputGesture="Ctrl + K" />
-                                    <Separator />
-                                    <MenuItem Header="Team" />
-                                    <MenuItem Header="Invite users">
-                                        <MenuItem Header="Email" Width="128" />
-                                        <MenuItem Header="Message" />
-                                        <MenuItem Header="More..." />
+                                        Classes="Icon"
+                                        Margin="12,0"
+                                        extensions:MenuItemAssist.PopupPlacement="Bottom">
+                                        <MenuItem.Header>
+                                            <icons:Lucide
+                                                Icon="Ellipsis"
+                                                StrokeBrush="{DynamicResource ForegroundColor}"
+                                                Width="16" />
+                                        </MenuItem.Header>
+                                        <extensions:MenuItemAssist.Label>
+                                            <TextBlock
+                                                Classes="Small"
+                                                FontFamily="{DynamicResource FontFamily}"
+                                                Text="My Account" />
+                                        </extensions:MenuItemAssist.Label>
+                                        <MenuItem
+                                            Header="Profile"
+                                            InputGesture="Ctrl + Shift + P"
+                                            Width="224" />
+                                        <MenuItem Header="Billing" InputGesture="Ctrl + B" />
+                                        <MenuItem Header="Settings" InputGesture="Ctrl + S" />
+                                        <MenuItem Header="Keyboard shortcuts" InputGesture="Ctrl + K" />
+                                        <Separator />
+                                        <MenuItem Header="Team" />
+                                        <MenuItem Header="Invite users">
+                                            <MenuItem Header="Email" Width="128" />
+                                            <MenuItem Header="Message" />
+                                            <MenuItem Header="More..." />
+                                        </MenuItem>
+                                        <MenuItem Header="New Team" InputGesture="Ctrl + T" />
+                                        <Separator />
+                                        <MenuItem Header="Github" />
+                                        <MenuItem Header="Support" />
+                                        <MenuItem Header="API" IsEnabled="False" />
+                                        <Separator />
+                                        <MenuItem Header="Log out" InputGesture="Ctrl + Shift + Q" />
+                                        <Separator />
+                                        <MenuItem Classes="Destructive" Header="Delete Account" />
                                     </MenuItem>
-                                    <MenuItem Header="New Team" InputGesture="Ctrl + T" />
-                                    <Separator />
-                                    <MenuItem Header="Github" />
-                                    <MenuItem Header="Support" />
-                                    <MenuItem Header="API" IsEnabled="False" />
-                                    <Separator />
-                                    <MenuItem Header="Log out" InputGesture="Ctrl + Shift + Q" />
-                                    <Separator />
-                                    <MenuItem Classes="Destructive" Header="Delete Account" />
-                                </MenuItem>
-                            </Menu>
-                        </StackPanel>
-                    </controls:ControlBlock>
+                                </Menu>
+                            </StackPanel>
+                        </controls:ControlBlock>
+                        <Grid ColumnDefinitions="Auto *">
+                            <PathIcon
+                                Data="{x:Static contents:Icons.Warning}"
+                                Foreground="{DynamicResource WarningColor}"
+                                Height="24"
+                                Width="24" />                            <TextBlock
+                                Classes="Small"
+                                Grid.Column="1"
+                                Margin="8,0,0,0"
+                                Text="Performance Alert: Complex MenuItems in collection controls (DataGrid/ItemsControl) may impact performance with large datasets. Consider using SimpleDropdown for better performance."
+                                TextWrapping="Wrap"
+                                VerticalAlignment="Center" />
+                        </Grid>
+                    </StackPanel>
                 </StackPanel>
             </Panel>
         </ScrollViewer>

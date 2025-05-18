@@ -11,6 +11,7 @@
     xmlns:extensions="clr-namespace:ShadUI.Extensions;assembly=ShadUI"
     xmlns:icons="clr-namespace:LucideAvalonia;assembly=LucideAvalonia"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:shadui="clr-namespace:ShadUI.Controls;assembly=ShadUI"
     xmlns:viewModels="clr-namespace:ShadUI.Demo.ViewModels"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <DockPanel LastChildFill="True">
@@ -149,26 +150,28 @@
                                     <DataGridTemplateColumn CanUserResize="False" CanUserSort="False">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate DataType="viewModels:DataGridItem">
-                                                <Menu>
-                                                    <MenuItem Classes="Icon Grid" extensions:MenuItemAssist.PopupPlacement="BottomEdgeAlignedRight">
-                                                        <extensions:MenuItemAssist.Label>
-                                                            <TextBlock
-                                                                Classes="Small"
-                                                                FontFamily="{DynamicResource FontFamily}"
-                                                                Text="Actions" />
-                                                        </extensions:MenuItemAssist.Label>
-                                                        <MenuItem.Header>
-                                                            <icons:Lucide
-                                                                Height="12"
-                                                                Icon="Ellipsis"
-                                                                StrokeBrush="{DynamicResource ForegroundColor}"
-                                                                Width="12" />
-                                                        </MenuItem.Header>
-                                                        <MenuItem Header="Copy payment ID" />
-                                                        <MenuItem Header="View customer" />
-                                                        <MenuItem Header="View payment details" />
-                                                    </MenuItem>
-                                                </Menu>
+                                                <shadui:SimpleDropdown
+                                                    Classes="Icon Grid"
+                                                    HorizontalAlignment="Center"
+                                                    PopupPlacement="BottomEdgeAlignedLeft"
+                                                    PopupWidth="190"
+                                                    VerticalAlignment="Center">
+                                                    <shadui:SimpleDropdown.TriggerContent>
+                                                        <icons:Lucide
+                                                            Icon="Ellipsis"
+                                                            StrokeBrush="{DynamicResource ForegroundColor}"
+                                                            Width="16" />
+                                                    </shadui:SimpleDropdown.TriggerContent>
+                                                    <shadui:SimpleDropdown.MenuLabel>
+                                                        <TextBlock
+                                                            Classes="Small"
+                                                            FontFamily="{DynamicResource FontFamily}"
+                                                            Text="Actions" />
+                                                    </shadui:SimpleDropdown.MenuLabel>
+                                                    <Button Content="Copy payment ID" />
+                                                    <Button Content="View customer" />
+                                                    <Button Content="View payment details" />
+                                                </shadui:SimpleDropdown>
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
                                     </DataGridTemplateColumn>

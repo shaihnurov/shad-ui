@@ -1,0 +1,103 @@
+﻿<Styles
+    xmlns="https://github.com/avaloniaui"
+    xmlns:controls="clr-namespace:ShadUI.Controls"
+    xmlns:extensions="clr-namespace:ShadUI.Extensions"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <Border Padding="20">
+            <!--  Add Controls for Previewer Here  -->
+        </Border>
+    </Design.PreviewWith>
+
+    <Style Selector="controls|SimpleDropdown Button">
+        <Setter Property="Margin" Value="4,0" />
+        <Setter Property="Padding" Value="12 8" />
+        <Setter Property="FontWeight" Value="Medium" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
+        <Setter Property="Background" Value="{DynamicResource CardBackgroundColor}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource SmCornerRadius}" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="extensions:ButtonAssist.Icon" Value="{x:Null}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Border
+                        Background="{TemplateBinding Background}"
+                        ClipToBounds="True"
+                        CornerRadius="{TemplateBinding CornerRadius}">
+                        <Panel Background="Transparent">
+                            <Border
+                                Background="{DynamicResource GhostColor}"
+                                CornerRadius="{TemplateBinding CornerRadius}"
+                                Name="ItemBackground"
+                                Opacity="0">
+                                <Border.Transitions>
+                                    <Transitions>
+                                        <DoubleTransition Duration="0:0:0.20" Property="Opacity" />
+                                    </Transitions>
+                                </Border.Transitions>
+                            </Border>
+                            <Grid Margin="{TemplateBinding Padding}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition SharedSizeGroup="A" Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <ContentPresenter
+                                    Content="{TemplateBinding extensions:ButtonAssist.Icon}"
+                                    IsVisible="{TemplateBinding extensions:ButtonAssist.Icon,
+                                                                Converter={x:Static ObjectConverters.IsNotNull}}"
+                                    Margin="0,0,8,0" />
+                                <ContentPresenter
+                                    Content="{TemplateBinding Content}"
+                                    FontFamily="{TemplateBinding FontFamily}"
+                                    FontSize="{TemplateBinding FontSize}"
+                                    FontWeight="{TemplateBinding FontWeight}"
+                                    Foreground="{TemplateBinding Foreground}"
+                                    Grid.Column="1"
+                                    HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                    RecognizesAccessKey="True"
+                                    VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+                            </Grid>
+                        </Panel>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style Selector="controls|SimpleDropdown Button:pressed">
+        <Style Selector="^ /template/ Border">
+            <Setter Property="RenderTransform">
+                <Setter.Value>
+                    <ScaleTransform ScaleX="1" ScaleY="1" />
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Style>
+    <Style Selector="controls|SimpleDropdown Button:pointerover /template/ Border#ItemBackground">
+        <Setter Property="Opacity" Value="1" />
+    </Style>
+    <Style Selector="controls|SimpleDropdown Separator">
+        <Setter Property="Margin" Value="0,4" />
+    </Style>
+    <Style Selector="controls|SimpleDropdown">
+        <Setter Property="Grid.IsSharedSizeScope" Value="True" />
+    </Style>
+    <Style Selector="controls|SimpleDropdown Button.Error">
+        <Setter Property="Foreground" Value="{DynamicResource DestructiveColor}" />
+        <Style Selector="^ /template/ Border#ItemBackground">
+            <Setter Property="IsVisible" Value="False" />
+        </Style>
+        <Style Selector="^:pointerover">
+            <Setter Property="Transitions">
+                <Setter.Value>
+                    <Transitions>
+                        <BrushTransition Duration="0:0:0.20" Property="Background" />
+                    </Transitions>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Background" Value="{DynamicResource DestructiveColor}" />
+            <Setter Property="Foreground" Value="{DynamicResource DestructiveForegroundColor}" />
+        </Style>
+    </Style>
+</Styles>

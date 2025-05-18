@@ -1,4 +1,7 @@
-﻿<Styles xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+﻿<Styles
+    xmlns="https://github.com/avaloniaui"
+    xmlns:controls="clr-namespace:ShadUI.Controls"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Style Selector="DataGrid[CanUserReorderColumns=False]">
         <Style Selector="^[GridLinesVisibility=Horizontal] DataGridColumnHeader">
             <Setter Property="AreSeparatorsVisible" Value="False" />
@@ -13,6 +16,9 @@
     <Style Selector="DataGrid DataGridRow:pointerover Menu &gt; MenuItem">
         <Setter Property="Background" Value="{DynamicResource GhostHoverColor50}" />
     </Style>
+    <Style Selector="DataGrid DataGridRow:pointerover controls|SimpleDropdown">
+        <Setter Property="Background" Value="{DynamicResource GhostHoverColor50}" />
+    </Style>
     <Style Selector="DataGrid DataGridRow CheckBox">
         <Setter Property="Opacity" Value="1" />
     </Style>
@@ -20,6 +26,9 @@
         <Setter Property="Foreground" Value="{DynamicResource MutedColor}" />
     </Style>
     <Style Selector="DataGrid DataGridRow:selected Menu &gt; MenuItem">
+        <Setter Property="Background" Value="{DynamicResource GhostHoverColor}" />
+    </Style>
+    <Style Selector="DataGrid DataGridRow:selected controls|SimpleDropdown">
         <Setter Property="Background" Value="{DynamicResource GhostHoverColor}" />
     </Style>
 </Styles>

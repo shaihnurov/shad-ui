@@ -28,6 +28,7 @@
         <ResourceInclude Source="avares://ShadUI/Controls/SelectableTextBlock.axaml" />
         <ResourceInclude Source="avares://ShadUI/Controls/SidebarMenu.axaml" />
         <ResourceInclude Source="avares://ShadUI/Controls/SidebarMenuItem.axaml" />
+        <ResourceInclude Source="avares://ShadUI/Controls/SimpleDropdown.axaml" />
         <ResourceInclude Source="avares://ShadUI/Controls/Skeleton.axaml" />
         <ResourceInclude Source="avares://ShadUI/Controls/Slider.axaml" />
         <ResourceInclude Source="avares://ShadUI/Controls/Switch.axaml" />
