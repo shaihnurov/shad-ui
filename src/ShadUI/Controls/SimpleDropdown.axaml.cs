@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using Avalonia;
 using Avalonia.Controls;
@@ -101,7 +102,7 @@ public class SimpleDropdown : ItemsControl
     /// </summary>
     public static readonly StyledProperty<double> PopupWidthProperty =
         AvaloniaProperty.Register<SimpleDropdown, double>(
-            nameof(PopupWidth));
+            nameof(PopupWidth), double.NaN);
 
     /// <summary>
     ///     Gets or sets the width of the popup.
