@@ -119,7 +119,7 @@ public class SimpleDropdown : ItemsControl
     protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
     {
         base.OnApplyTemplate(e);
-        DetachEventHandlers();// to avoid duplicate event handlers
+        DetachEventHandlers(); // to avoid duplicate event handlers
         AttachEventHandlers(e.NameScope);
     }
 
@@ -136,6 +136,11 @@ public class SimpleDropdown : ItemsControl
         {
             itemsPresenter.AttachedToVisualTree += OnItemsPresenterAttached;
         }
+
+        if (nameScope.Find<Border>("PART_Border") is { } popupBorder)
+        {
+            popupBorder.PointerPressed += OnPopupBorderPressed;
+        }
     }
 
     private void DetachEventHandlers()
@@ -151,6 +156,11 @@ public class SimpleDropdown : ItemsControl
             itemsPresenter)
         {
             itemsPresenter.AttachedToVisualTree -= OnItemsPresenterAttached;
+        }
+
+        if (this.GetTemplateChildren().FirstOrDefault(x => x.Name == "PART_Border") is Border popupBorder)
+        {
+            popupBorder.PointerPressed -= OnPopupBorderPressed;
         }
 
         // Remove click handlers from all items
@@ -221,6 +231,12 @@ public class SimpleDropdown : ItemsControl
         PseudoClasses.Set(":pressed", false);
     }
 
+    private void OnPopupBorderPressed(object? sender, PointerPressedEventArgs e)
+    {
+        // Stop the event from propagating to prevent the popup from closing
+        e.Handled = true;
+    }
+
     /// <summary>
     ///     Called when the control is unloaded from the visual tree.
     /// </summary>
@@ -250,6 +266,11 @@ public class SimpleDropdown : ItemsControl
             itemsPresenter)
         {
             itemsPresenter.AttachedToVisualTree += OnItemsPresenterAttached;
+        }
+
+        if (this.GetTemplateChildren().FirstOrDefault(x => x.Name == "PART_Border") is Border popupBorder)
+        {
+            popupBorder.PointerPressed += OnPopupBorderPressed;
         }
     }
 }
