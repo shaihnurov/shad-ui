@@ -56,7 +56,7 @@
                                             Width="16" />
                                     </extensions:ButtonAssist.Icon>
                                 </Button>
-                                <Button Content="Edit">
+                                <Button Content="Edit" IsEnabled="False">
                                     <extensions:ButtonAssist.Icon>
                                         <icons:Lucide
                                             Height="16"
@@ -96,7 +96,7 @@
                                             Width="16" />
                                     </extensions:ButtonAssist.Icon>
                                 </Button>
-                                <Button Content="Edit">
+                                <Button Content="Edit" IsEnabled="False">
                                     <extensions:ButtonAssist.Icon>
                                         <icons:Lucide
                                             Height="16"
@@ -136,7 +136,7 @@
                                             Width="16" />
                                     </extensions:ButtonAssist.Icon>
                                 </Button>
-                                <Button Content="Edit">
+                                <Button Content="Edit" IsEnabled="False">
                                     <extensions:ButtonAssist.Icon>
                                         <icons:Lucide
                                             Height="16"
@@ -176,7 +176,7 @@
                                             Width="16" />
                                     </extensions:ButtonAssist.Icon>
                                 </Button>
-                                <Button Content="Edit">
+                                <Button Content="Edit" IsEnabled="False">
                                     <extensions:ButtonAssist.Icon>
                                         <icons:Lucide
                                             Height="16"
@@ -221,7 +221,7 @@
                                             Width="16" />
                                     </extensions:ButtonAssist.Icon>
                                 </Button>
-                                <Button Content="Edit">
+                                <Button Content="Edit" IsEnabled="False">
                                     <extensions:ButtonAssist.Icon>
                                         <icons:Lucide
                                             Height="16"
@@ -529,7 +529,8 @@
                                 Data="{x:Static contents:Icons.Warning}"
                                 Foreground="{DynamicResource WarningColor}"
                                 Height="24"
-                                Width="24" />                            <TextBlock
+                                Width="24" />
+                            <TextBlock
                                 Classes="Small"
                                 Grid.Column="1"
                                 Margin="8,0,0,0"

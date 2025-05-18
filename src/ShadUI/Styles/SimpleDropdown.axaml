@@ -100,4 +100,7 @@
             <Setter Property="Foreground" Value="{DynamicResource DestructiveForegroundColor}" />
         </Style>
     </Style>
+    <Style Selector="controls|SimpleDropdown Button:disabled">
+        <Setter Property="Opacity" Value="0.5" />
+    </Style>
 </Styles>
