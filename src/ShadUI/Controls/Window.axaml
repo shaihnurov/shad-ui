@@ -95,13 +95,13 @@
                                     </Panel.Styles>
                                     <StackPanel>
                                         <LayoutTransformControl Name="PART_LayoutTransform" RenderTransformOrigin="0%,0%">
-                                            <Panel>
+                                            <Panel Margin="0,-1,0,0">
                                                 <Border IsVisible="{TemplateBinding ShowTitlebarBackground}" Name="PART_TitleBarBackground" />
                                                 <DockPanel LastChildFill="True">
                                                     <StackPanel
                                                         DockPanel.Dock="Right"
                                                         Orientation="Horizontal"
-                                                        Spacing="7"
+                                                        Spacing="8"
                                                         VerticalAlignment="Center">
                                                         <StackPanel.Styles>
                                                             <Style Selector="PathIcon">
