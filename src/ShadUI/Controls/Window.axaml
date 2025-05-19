@@ -74,7 +74,7 @@
                     Margin="{TemplateBinding Margin}">
                     <VisualLayerManager IsHitTestVisible="True" Name="PART_VisualLayerManager">
                         <VisualLayerManager.ChromeOverlayLayer>
-                            <ItemsControl ItemsSource="{Binding Hosts, RelativeSource={RelativeSource AncestorType={x:Type controls:Window}}}">
+                            <ItemsControl ItemsSource="{CompiledBinding Hosts, RelativeSource={RelativeSource AncestorType={x:Type controls:Window}}}">
                                 <ItemsControl.ItemsPanel>
                                     <ItemsPanelTemplate>
                                         <Panel />
@@ -145,7 +145,8 @@
                                                                 Theme="{StaticResource WindowButtonStyle}">
                                                                 <PathIcon
                                                                     Data="{x:Static icons:Icons.WindowClose}"
-                                                                    Foreground="{Binding Foreground, ElementName=PART_CloseButton}"
+                                                                    Foreground="{CompiledBinding Foreground,
+                                                                                                 ElementName=PART_CloseButton}"
                                                                     Name="CloseIcon" />
                                                             </Button>
                                                         </StackPanel>

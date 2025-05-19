@@ -79,7 +79,8 @@
                                     VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                                     Watermark="{TemplateBinding Watermark}" />
                                 <ContentControl
-                                    Content="{Binding Text, ElementName=PART_TextBox}"
+                                    Content="{CompiledBinding Text,
+                                                              ElementName=PART_TextBox}"
                                     FontFamily="{TemplateBinding FontFamily}"
                                     FontSize="{TemplateBinding FontSize}"
                                     FontWeight="{TemplateBinding FontWeight}"
@@ -101,11 +102,11 @@
                                     VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
                                     <TextBlock.IsVisible>
                                         <MultiBinding Converter="{x:Static BoolConverters.And}">
-                                            <Binding
+                                            <CompiledBinding
                                                 Converter="{x:Static StringConverters.IsNullOrEmpty}"
                                                 ElementName="PART_TextBox"
                                                 Path="Text" />
-                                            <Binding ElementName="PART_ReadOnlyContent" Path="IsVisible" />
+                                            <CompiledBinding ElementName="PART_ReadOnlyContent" Path="IsVisible" />
                                         </MultiBinding>
                                     </TextBlock.IsVisible>
                                 </TextBlock>
@@ -124,10 +125,12 @@
                                     IsLightDismissEnabled="True"
                                     IsOpen="{TemplateBinding IsDropDownOpen,
                                                              Mode=TwoWay}"
-                                    MinWidth="{Binding Bounds.Width, Converter={x:Static converters:PopupMinWidthConverter.Instance}, RelativeSource={RelativeSource TemplatedParent}}"
+                                    MinWidth="{CompiledBinding Bounds.Width,
+                                                               Converter={x:Static converters:PopupMinWidthConverter.Instance},
+                                                               RelativeSource={RelativeSource TemplatedParent}}"
                                     Name="PART_Popup"
                                     Placement="BottomEdgeAlignedLeft"
-                                    PlacementTarget="{Binding #PART_Border}"
+                                    PlacementTarget="{CompiledBinding #PART_Border}"
                                     VerticalOffset="5">
                                     <LayoutTransformControl Name="PART_LayoutTransform" RenderTransformOrigin="50%, 0%">
                                         <Calendar
@@ -139,7 +142,9 @@
                                             IsTodayHighlighted="{TemplateBinding IsTodayHighlighted}"
                                             Margin="-2,0,0,0"
                                             Name="PART_Calendar"
-                                            SelectedDate="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=SelectedDate, Mode=TwoWay}" />
+                                            SelectedDate="{CompiledBinding RelativeSource={RelativeSource TemplatedParent},
+                                                                           Path=SelectedDate,
+                                                                           Mode=TwoWay}" />
                                     </LayoutTransformControl>
                                 </Popup>
                             </Grid>

@@ -111,9 +111,12 @@
                         <Border
                             BorderBrush="{DynamicResource BorderColor}"
                             BorderThickness="0,0,1,0"
-                            Margin="{Binding ShowTitlebarBackground, Converter={x:Static converters:WindowBackgroundToMarginConverter.Instance}, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type controls:Window}}}">
+                            Margin="{CompiledBinding ShowTitlebarBackground,
+                                                     Converter={x:Static converters:WindowBackgroundToMarginConverter.Instance},
+                                                     RelativeSource={RelativeSource Mode=FindAncestor,
+                                                                                    AncestorType={x:Type controls:Window}}}">
                             <Grid Background="{TemplateBinding Background}">
-                                <Border BorderThickness="0,0,1,0" CornerRadius="{Binding ShowTitlebarBackground, Converter={x:Static converters:WindowBackgroundToCornerRadiusConverter.Instance}, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type controls:Window}}}" />
+                                <Border BorderThickness="0,0,1,0" CornerRadius="{CompiledBinding ShowTitlebarBackground, Converter={x:Static converters:WindowBackgroundToCornerRadiusConverter.Instance}, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type controls:Window}}}" />
                                 <DockPanel Background="{TemplateBinding Background}">
                                     <ToggleButton
                                         BorderBrush="{DynamicResource SidebarBackgroundColor}"

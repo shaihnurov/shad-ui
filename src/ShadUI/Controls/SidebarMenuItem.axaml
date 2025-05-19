@@ -68,7 +68,9 @@
                                     <TextBlock
                                         FontSize="{TemplateBinding FontSize}"
                                         Foreground="{TemplateBinding Foreground}"
-                                        IsVisible="{Binding IsMenuExpanded, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type controls:SidebarMenu}}}"
+                                        IsVisible="{CompiledBinding IsMenuExpanded,
+                                                                    RelativeSource={RelativeSource Mode=FindAncestor,
+                                                                                                   AncestorType={x:Type controls:SidebarMenu}}}"
                                         Margin="15,0"
                                         Name="PART_Header"
                                         Text="{TemplateBinding Header}"

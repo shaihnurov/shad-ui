@@ -58,7 +58,7 @@
                                         <TextBlock
                                             FontSize="14"
                                             FontWeight="Medium"
-                                            Text="{Binding}" />
+                                            Text="{CompiledBinding}" />
                                     </DataTemplate>
                                 </ContentPresenter.DataTemplates>
                             </ContentPresenter>
@@ -92,7 +92,7 @@
                                                      Mode=TwoWay}"
                             Name="PART_Popup"
                             Opacity="0"
-                            OverlayInputPassThroughElement="{Binding $parent[Menu]}"
+                            OverlayInputPassThroughElement="{CompiledBinding $parent[Menu]}"
                             Placement="RightEdgeAlignedTop"
                             VerticalOffset="-8">
                             <LayoutTransformControl Name="PART_LayoutTransform" RenderTransformOrigin="0%, 0%">

@@ -20,11 +20,11 @@
             <ControlTemplate TargetType="DataValidationErrors">
                 <DockPanel LastChildFill="True">
                     <ContentControl
-                        Content="{Binding (DataValidationErrors.Errors)}"
+                        Content="{CompiledBinding (DataValidationErrors.Errors)}"
                         ContentTemplate="{TemplateBinding ErrorTemplate}"
                         DataContext="{TemplateBinding Owner}"
                         DockPanel.Dock="Bottom"
-                        IsVisible="{Binding (DataValidationErrors.HasErrors)}"
+                        IsVisible="{CompiledBinding (DataValidationErrors.HasErrors)}"
                         Margin="0,4,0,0"
                         x:Name="InlineDataValidationContentControl" />
                     <ContentPresenter
@@ -42,7 +42,7 @@
             <DataTemplate>
                 <ItemsControl
                     Foreground="{DynamicResource SystemControlErrorTextForegroundBrush}"
-                    ItemsSource="{Binding}"
+                    ItemsSource="{CompiledBinding}"
                     x:DataType="DataValidationErrors">
                     <ItemsControl.Styles>
                         <Style Selector="TextBlock">

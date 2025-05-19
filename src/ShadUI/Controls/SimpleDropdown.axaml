@@ -91,7 +91,7 @@
                                                      Mode=TwoWay}"
                             Name="PART_Popup"
                             Opacity="0"
-                            OverlayInputPassThroughElement="{Binding $parent[controls:SimpleDropdown]}"
+                            OverlayInputPassThroughElement="{CompiledBinding $parent[controls:SimpleDropdown]}"
                             Placement="{TemplateBinding PopupPlacement}"
                             VerticalOffset="{TemplateBinding PopupVerticalOffset}"
                             Width="{TemplateBinding PopupWidth}">

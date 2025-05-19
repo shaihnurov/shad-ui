@@ -60,20 +60,20 @@
 
     <MenuFlyout Placement="Bottom" x:Key="SimpleTextBoxContextFlyout">
         <MenuItem
-            Command="{Binding $parent[TextBox].Cut}"
+            Command="{CompiledBinding $parent[TextBox].Cut}"
             Header="{DynamicResource StringTextFlyoutCutText}"
             InputGesture="{x:Static TextBox.CutGesture}"
-            IsEnabled="{Binding $parent[TextBox].CanCut}" />
+            IsEnabled="{CompiledBinding $parent[TextBox].CanCut}" />
         <MenuItem
-            Command="{Binding $parent[TextBox].Copy}"
+            Command="{CompiledBinding $parent[TextBox].Copy}"
             Header="{DynamicResource StringTextFlyoutCopyText}"
             InputGesture="{x:Static TextBox.CopyGesture}"
-            IsEnabled="{Binding $parent[TextBox].CanCopy}" />
+            IsEnabled="{CompiledBinding $parent[TextBox].CanCopy}" />
         <MenuItem
-            Command="{Binding $parent[TextBox].Paste}"
+            Command="{CompiledBinding $parent[TextBox].Paste}"
             Header="{DynamicResource StringTextFlyoutPasteText}"
             InputGesture="{x:Static TextBox.PasteGesture}"
-            IsEnabled="{Binding $parent[TextBox].CanPaste}" />
+            IsEnabled="{CompiledBinding $parent[TextBox].CanPaste}" />
     </MenuFlyout>
 
     <ControlTheme TargetType="Button" x:Key="SimpleTextBoxClearButtonTheme">
@@ -206,11 +206,11 @@
                                                 VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
                                                 <TextBlock.IsVisible>
                                                     <MultiBinding Converter="{x:Static BoolConverters.And}">
-                                                        <Binding
+                                                        <CompiledBinding
                                                             Converter="{x:Static StringConverters.IsNullOrEmpty}"
                                                             ElementName="PART_TextPresenter"
                                                             Path="PreeditText" />
-                                                        <Binding
+                                                        <CompiledBinding
                                                             Converter="{x:Static StringConverters.IsNullOrEmpty}"
                                                             Path="Text"
                                                             RelativeSource="{RelativeSource TemplatedParent}" />
@@ -330,7 +330,7 @@
                     <Template>
                         <Button
                             ClipToBounds="True"
-                            Command="{Binding $parent[TextBox].Clear}"
+                            Command="{CompiledBinding $parent[TextBox].Clear}"
                             Focusable="False"
                             Theme="{StaticResource SimpleTextBoxClearButtonTheme}" />
                     </Template>
@@ -378,7 +378,8 @@
                                 Background="Transparent"
                                 ClipToBounds="True"
                                 Focusable="False"
-                                IsChecked="{Binding $parent[TextBox].RevealPassword, Mode=TwoWay}"
+                                IsChecked="{CompiledBinding $parent[TextBox].RevealPassword,
+                                                            Mode=TwoWay}"
                                 Theme="{StaticResource SimplePasswordBoxRevealButtonTheme}" />
                         </Panel>
                     </Template>
@@ -396,7 +397,7 @@
                         <StackPanel Orientation="Horizontal" Spacing="8">
                             <Button
                                 ClipToBounds="True"
-                                Command="{Binding $parent[TextBox].Clear}"
+                                Command="{CompiledBinding $parent[TextBox].Clear}"
                                 Focusable="False"
                                 Theme="{StaticResource SimpleTextBoxClearButtonTheme}" />
                             <Panel>
@@ -412,7 +413,8 @@
                                     Background="Transparent"
                                     ClipToBounds="True"
                                     Focusable="False"
-                                    IsChecked="{Binding $parent[TextBox].RevealPassword, Mode=TwoWay}"
+                                    IsChecked="{CompiledBinding $parent[TextBox].RevealPassword,
+                                                                Mode=TwoWay}"
                                     Theme="{StaticResource SimplePasswordBoxRevealButtonTheme}" />
                             </Panel>
                         </StackPanel>

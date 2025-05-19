@@ -54,11 +54,11 @@
                             VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
                             <TextBlock.IsVisible>
                                 <MultiBinding Converter="{x:Static BoolConverters.And}">
-                                    <Binding
+                                    <CompiledBinding
                                         Converter="{x:Static StringConverters.IsNullOrEmpty}"
                                         ElementName="PART_TextPresenter"
                                         Path="PreeditText" />
-                                    <Binding
+                                    <CompiledBinding
                                         Converter="{x:Static StringConverters.IsNullOrEmpty}"
                                         Path="Text"
                                         RelativeSource="{RelativeSource TemplatedParent}" />

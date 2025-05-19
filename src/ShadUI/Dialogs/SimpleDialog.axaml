@@ -77,28 +77,36 @@
                             Spacing="8">
                             <Button
                                 Content="{TemplateBinding CancelButtonText}"
-                                IsVisible="{Binding Content, ElementName=PART_CancelButton, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
+                                IsVisible="{CompiledBinding Content,
+                                                            ElementName=PART_CancelButton,
+                                                            Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
                                 MinWidth="80"
                                 Name="PART_CancelButton"
                                 extensions:ElementAssist.Classes="{TemplateBinding CancelButtonStyle,
                                                                                    Converter={x:Static converters:DialogButtonStyleToButtonClassConverter.Instance}}" />
                             <Button
                                 Content="{TemplateBinding TertiaryButtonText}"
-                                IsVisible="{Binding Content, ElementName=PART_TertiaryButton, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
+                                IsVisible="{CompiledBinding Content,
+                                                            ElementName=PART_TertiaryButton,
+                                                            Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
                                 MinWidth="80"
                                 Name="PART_TertiaryButton"
                                 extensions:ElementAssist.Classes="{TemplateBinding TertiaryButtonStyle,
                                                                                    Converter={x:Static converters:DialogButtonStyleToButtonClassConverter.Instance}}" />
                             <Button
                                 Content="{TemplateBinding SecondaryButtonText}"
-                                IsVisible="{Binding Content, ElementName=PART_SecondaryButton, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
+                                IsVisible="{CompiledBinding Content,
+                                                            ElementName=PART_SecondaryButton,
+                                                            Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
                                 MinWidth="80"
                                 Name="PART_SecondaryButton"
                                 extensions:ElementAssist.Classes="{TemplateBinding SecondaryButtonStyle,
                                                                                    Converter={x:Static converters:DialogButtonStyleToButtonClassConverter.Instance}}" />
                             <Button
                                 Content="{TemplateBinding PrimaryButtonText}"
-                                IsVisible="{Binding Content, ElementName=PART_PrimaryButton, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
+                                IsVisible="{CompiledBinding Content,
+                                                            ElementName=PART_PrimaryButton,
+                                                            Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
                                 MinWidth="80"
                                 Name="PART_PrimaryButton"
                                 extensions:ElementAssist.Classes="{TemplateBinding PrimaryButtonStyle,

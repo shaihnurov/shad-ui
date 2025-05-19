@@ -113,9 +113,10 @@
                                                              Mode=TwoWay}"
                                     MaxHeight="{TemplateBinding MaxDropDownHeight,
                                                                 Converter={x:Static converters:PopupMaxDropDownHeightConverter.Instance}}"
-                                    MinWidth="{Binding #PART_Border.Bounds.Width, Converter={x:Static converters:PopupMinWidthConverter.Instance}}"
+                                    MinWidth="{CompiledBinding #PART_Border.Bounds.Width,
+                                                               Converter={x:Static converters:PopupMinWidthConverter.Instance}}"
                                     Name="PART_Popup"
-                                    PlacementTarget="{Binding #PART_Border}"
+                                    PlacementTarget="{CompiledBinding #PART_Border}"
                                     VerticalOffset="5">
                                     <LayoutTransformControl Name="PART_LayoutTransform" RenderTransformOrigin="50%, 0%">
                                         <Border
@@ -125,7 +126,7 @@
                                             BoxShadow="{DynamicResource Shadow}"
                                             CornerRadius="{DynamicResource MdCornerRadius}"
                                             Margin="2,0,2,4"
-                                            MinWidth="{Binding #PART_Border.Bounds.Width}">
+                                            MinWidth="{CompiledBinding #PART_Border.Bounds.Width}">
                                             <ScrollViewer HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}" VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
                                                 <ItemsPresenter
                                                     ItemsPanel="{TemplateBinding ItemsPanel}"

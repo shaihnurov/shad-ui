@@ -55,7 +55,7 @@
                                                      Mode=TwoWay}"
                             Name="PART_Popup"
                             Opacity="0"
-                            OverlayInputPassThroughElement="{Binding $parent[Menu]}"
+                            OverlayInputPassThroughElement="{CompiledBinding $parent[Menu]}"
                             Placement="{TemplateBinding extensions:MenuItemAssist.PopupPlacement}"
                             VerticalOffset="{TemplateBinding extensions:MenuItemAssist.PopupVerticalOffset}">
                             <LayoutTransformControl Name="PART_LayoutTransform" RenderTransformOrigin="50%, 0%">

@@ -203,7 +203,7 @@
                     Classes="Caption Muted"
                     HorizontalAlignment="Center"
                     Margin="0,4,0,4"
-                    Text="{Binding}"
+                    Text="{CompiledBinding}"
                     VerticalAlignment="Center" />
             </Template>
         </Setter>

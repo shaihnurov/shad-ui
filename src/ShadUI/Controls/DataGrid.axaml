@@ -152,9 +152,9 @@
     </ControlTheme>
 
     <ControlTheme TargetType="DataGridRow" x:Key="{x:Type DataGridRow}">
-        <Setter Property="TextBlock.FontWeight" Value="{Binding $parent[DataGrid].FontWeight}" />
-        <Setter Property="TextBlock.FontSize" Value="{Binding $parent[DataGrid].FontSize}" />
-        <Setter Property="Background" Value="{Binding $parent[DataGrid].RowBackground}" />
+        <Setter Property="TextBlock.FontWeight" Value="{CompiledBinding $parent[DataGrid].FontWeight}" />
+        <Setter Property="TextBlock.FontSize" Value="{CompiledBinding $parent[DataGrid].FontSize}" />
+        <Setter Property="Background" Value="{CompiledBinding $parent[DataGrid].RowBackground}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Border
@@ -261,7 +261,8 @@
                                         <ScrollGestureRecognizer
                                             CanHorizontallyScroll="True"
                                             CanVerticallyScroll="True"
-                                            IsScrollInertiaEnabled="{Binding (ScrollViewer.IsScrollInertiaEnabled), ElementName=PART_RowsPresenter}" />
+                                            IsScrollInertiaEnabled="{CompiledBinding (ScrollViewer.IsScrollInertiaEnabled),
+                                                                                     ElementName=PART_RowsPresenter}" />
                                     </DataGridRowsPresenter.GestureRecognizers>
                                 </DataGridRowsPresenter>
                             </ScrollViewer>

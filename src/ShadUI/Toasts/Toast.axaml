@@ -26,7 +26,9 @@
                                     Data="{x:Static icons:Icons.Warning}"
                                     Foreground="{DynamicResource ForegroundColor}"
                                     Height="20"
-                                    IsVisible="{Binding Data, ElementName=PART_Icon, Converter={x:Static ObjectConverters.IsNotNull}}"
+                                    IsVisible="{CompiledBinding Data,
+                                                                ElementName=PART_Icon,
+                                                                Converter={x:Static ObjectConverters.IsNotNull}}"
                                     Margin="0,0,8,0"
                                     Name="PART_Icon"
                                     Width="20" />

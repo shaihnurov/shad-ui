@@ -210,7 +210,7 @@
                                 WindowManagerAddShadowHint="False">
                                 <TimePickerPresenter Name="PART_PickerPresenter">
                                     <TimePickerPresenter.KeyBindings>
-                                        <KeyBinding Command="{Binding $parent[Popup].Close}" Gesture="Escape" />
+                                        <KeyBinding Command="{CompiledBinding $parent[Popup].Close}" Gesture="Escape" />
                                     </TimePickerPresenter.KeyBindings>
                                 </TimePickerPresenter>
                             </Popup>

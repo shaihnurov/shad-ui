@@ -18,9 +18,12 @@
                         VerticalSnapPointsType="{TemplateBinding VerticalSnapPointsType}">
                         <ScrollContentPresenter.GestureRecognizers>
                             <ScrollGestureRecognizer
-                                CanHorizontallyScroll="{Binding CanHorizontallyScroll, ElementName=PART_ContentPresenter}"
-                                CanVerticallyScroll="{Binding CanVerticallyScroll, ElementName=PART_ContentPresenter}"
-                                IsScrollInertiaEnabled="{Binding (ScrollViewer.IsScrollInertiaEnabled), ElementName=PART_ContentPresenter}" />
+                                CanHorizontallyScroll="{CompiledBinding CanHorizontallyScroll,
+                                                                        ElementName=PART_ContentPresenter}"
+                                CanVerticallyScroll="{CompiledBinding CanVerticallyScroll,
+                                                                      ElementName=PART_ContentPresenter}"
+                                IsScrollInertiaEnabled="{CompiledBinding (ScrollViewer.IsScrollInertiaEnabled),
+                                                                         ElementName=PART_ContentPresenter}" />
                         </ScrollContentPresenter.GestureRecognizers>
                     </ScrollContentPresenter>
                     <ScrollBar
@@ -50,8 +53,8 @@
                     <Panel>
                         <Panel.OpacityMask>
                             <MultiBinding Converter="{x:Static converters:SidebarMenuScrollerToOpacityMask.Top}">
-                                <Binding ElementName="PART_VerticalScrollBar" Path="Value" />
-                                <Binding ElementName="PART_VerticalScrollBar" Path="Minimum" />
+                                <CompiledBinding ElementName="PART_VerticalScrollBar" Path="Value" />
+                                <CompiledBinding ElementName="PART_VerticalScrollBar" Path="Minimum" />
                             </MultiBinding>
                         </Panel.OpacityMask>
                         <Panel.Transitions>
@@ -70,8 +73,8 @@
                             VerticalSnapPointsType="{TemplateBinding VerticalSnapPointsType}">
                             <ScrollContentPresenter.OpacityMask>
                                 <MultiBinding Converter="{x:Static converters:SidebarMenuScrollerToOpacityMask.Bottom}">
-                                    <Binding ElementName="PART_VerticalScrollBar" Path="Value" />
-                                    <Binding ElementName="PART_VerticalScrollBar" Path="Maximum" />
+                                    <CompiledBinding ElementName="PART_VerticalScrollBar" Path="Value" />
+                                    <CompiledBinding ElementName="PART_VerticalScrollBar" Path="Maximum" />
                                 </MultiBinding>
                             </ScrollContentPresenter.OpacityMask>
                             <ScrollContentPresenter.Transitions>
@@ -81,9 +84,12 @@
                             </ScrollContentPresenter.Transitions>
                             <ScrollContentPresenter.GestureRecognizers>
                                 <ScrollGestureRecognizer
-                                    CanHorizontallyScroll="{Binding CanHorizontallyScroll, ElementName=PART_ContentPresenter}"
-                                    CanVerticallyScroll="{Binding CanVerticallyScroll, ElementName=PART_ContentPresenter}"
-                                    IsScrollInertiaEnabled="{Binding (ScrollViewer.IsScrollInertiaEnabled), ElementName=PART_ContentPresenter}" />
+                                    CanHorizontallyScroll="{CompiledBinding CanHorizontallyScroll,
+                                                                            ElementName=PART_ContentPresenter}"
+                                    CanVerticallyScroll="{CompiledBinding CanVerticallyScroll,
+                                                                          ElementName=PART_ContentPresenter}"
+                                    IsScrollInertiaEnabled="{CompiledBinding (ScrollViewer.IsScrollInertiaEnabled),
+                                                                             ElementName=PART_ContentPresenter}" />
                             </ScrollContentPresenter.GestureRecognizers>
                         </ScrollContentPresenter>
                     </Panel>
