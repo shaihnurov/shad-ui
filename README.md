@@ -8,6 +8,8 @@ Our goal is to deliver a modern, beautiful, and intuitive UI library for [Avalon
 [![NuGet Downloads](https://img.shields.io/nuget/dt/ShadUI)](https://www.nuget.org/packages/ShadUI)
 [![GitHub stars](https://img.shields.io/github/stars/accntech/shad-ui)](https://github.com/accntech/shad-ui/stargazers)
 
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/F1F81FC5JH)
+
 **Forever free and open-source.** 🚀
 
 ![Hero Image](https://raw.githubusercontent.com/accntech/shad-ui/main/docs/hero.png)
