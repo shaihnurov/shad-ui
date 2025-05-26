@@ -53,7 +53,7 @@
                                     </TextBox.InnerRightContent>
                                 </TextBox>
                                 <Menu Grid.Column="1">
-                                    <MenuItem extensions:MenuItemAssist.PopupPlacement="Bottom" Classes="Outline">
+                                    <MenuItem extensions:MenuItemAssist.PopupPlacement="Bottom" Classes="Outline NoPressedAnimation">
                                         <MenuItem.Header>
                                             <StackPanel Orientation="Horizontal" Spacing="8">
                                                 <TextBlock Text="Columns" />
@@ -61,7 +61,7 @@
                                                     Width="12"
                                                     Height="12"
                                                     Icon="ChevronDown"
-                                                    StrokeBrush="{DynamicResource ForegroundColor}" />
+                                                    StrokeBrush="{Binding $parent[MenuItem].Foreground}" />
                                             </StackPanel>
                                         </MenuItem.Header>
                                         <MenuItem

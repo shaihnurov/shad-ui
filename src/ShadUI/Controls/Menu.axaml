@@ -161,6 +161,11 @@
             <Style Selector="^ /template/ Border#PART_HoverBackground">
                 <Setter Property="Background" Value="{DynamicResource PrimaryColor50}" />
             </Style>
+            <Style Selector="^.NoPressedAnimation">
+                <Style Selector="^:pressed /template/ Panel#RootPanel">
+                    <Setter Property="RenderTransform" Value="scale(1, 1)" />
+                </Style>
+            </Style>
         </Style>
 
         <!--  Secondary  -->
@@ -182,6 +187,11 @@
             </Style>
             <Style Selector="^ /template/ Border#PART_HoverBackground">
                 <Setter Property="Background" Value="{DynamicResource SecondaryColor50}" />
+            </Style>
+            <Style Selector="^.NoPressedAnimation">
+                <Style Selector="^:pressed /template/ Panel#RootPanel">
+                    <Setter Property="RenderTransform" Value="scale(1, 1)" />
+                </Style>
             </Style>
         </Style>
 
@@ -206,6 +216,11 @@
             <Style Selector="^ /template/ Border#PART_HoverBackground">
                 <Setter Property="Background" Value="{DynamicResource OutlineColor}" />
             </Style>
+            <Style Selector="^.NoPressedAnimation">
+                <Style Selector="^:pressed /template/ Panel#RootPanel">
+                    <Setter Property="RenderTransform" Value="scale(1, 1)" />
+                </Style>
+            </Style>
         </Style>
 
         <!--  Ghost  -->
@@ -220,6 +235,11 @@
             <Style Selector="^ /template/ Border#PART_HoverBackground">
                 <Setter Property="Background" Value="{DynamicResource GhostHoverColor}" />
             </Style>
+            <Style Selector="^.NoPressedAnimation">
+                <Style Selector="^:pressed /template/ Panel#RootPanel">
+                    <Setter Property="RenderTransform" Value="scale(1, 1)" />
+                </Style>
+            </Style>
         </Style>
 
         <!--  Icon  -->
@@ -232,6 +252,11 @@
             </Style>
             <Style Selector="^ /template/ Border#PART_HoverBackground">
                 <Setter Property="Background" Value="{DynamicResource OutlineColor}" />
+            </Style>
+            <Style Selector="^.NoPressedAnimation">
+                <Style Selector="^:pressed /template/ Panel#RootPanel">
+                    <Setter Property="RenderTransform" Value="scale(1, 1)" />
+                </Style>
             </Style>
         </Style>
     </ControlTheme>

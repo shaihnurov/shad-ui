@@ -147,6 +147,13 @@
             </Style.Animations>
         </Style>
 
+        <!--  NoPressedAnimation  -->
+        <Style Selector="^.NoPressedAnimation">
+            <Style Selector="^:pressed /template/ Panel#RootPanel">
+                <Setter Property="RenderTransform" Value="scale(1, 1)" />
+            </Style>
+        </Style>
+
         <!--  Primary  -->
         <Style Selector="^.Primary">
             <Setter Property="Height" Value="36" />
