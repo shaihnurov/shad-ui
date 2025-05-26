@@ -135,22 +135,18 @@
             <Setter Property="FontSize" Value="14" />
             <Setter Property="FontWeight" Value="Medium" />
         </Style>
-
-        <Style Selector="^:disabled /template/ Border#RootPanel">
+        <Style Selector="^:disabled">
             <Setter Property="Opacity" Value="0.5" />
         </Style>
-
         <Style Selector="^:pointerover /template/ Border#PART_HoverBackground">
             <Setter Property="Opacity" Value="1" />
         </Style>
         <Style Selector="^:pointerover /template/ Border#PART_BaseBackground">
             <Setter Property="Opacity" Value="0" />
         </Style>
-
         <Style Selector="^:pressed /template/ Panel#RootPanel">
             <Setter Property="RenderTransform" Value="scale(0.95, 0.95)" />
         </Style>
-
         <Style Selector="^:pointerover /template/ Border#RootPanel">
             <Setter Property="Cursor" Value="Hand" />
         </Style>

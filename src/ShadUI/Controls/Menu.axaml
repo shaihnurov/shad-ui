@@ -106,7 +106,9 @@
                 </Panel>
             </ControlTemplate>
         </Setter>
-
+        <Style Selector="^:disabled">
+            <Setter Property="Opacity" Value="0.5" />
+        </Style>
         <Style Selector="^:pointerover /template/ Border#PART_HoverBackground">
             <Setter Property="Opacity" Value="1" />
         </Style>
