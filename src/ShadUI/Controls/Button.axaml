@@ -79,6 +79,7 @@
                         </Border.Transitions>
                     </Border>
                     <Border
+                        Name="PART_BorderContainer"
                         Padding="{TemplateBinding Padding}"
                         Background="Transparent"
                         ClipToBounds="True"
@@ -144,10 +145,13 @@
         <Style Selector="^:pointerover /template/ Border#PART_BaseBackground">
             <Setter Property="Opacity" Value="0" />
         </Style>
+        <Style Selector="^:pointerover /template/ Border#RootPanel">
+            <Setter Property="Cursor" Value="Hand" />
+        </Style>
         <Style Selector="^:pressed /template/ Panel#RootPanel">
             <Setter Property="RenderTransform" Value="scale(0.95, 0.95)" />
         </Style>
-        <Style Selector="^:pointerover /template/ Border#RootPanel">
+        <Style Selector="^ /template/ Border#PART_BorderContainer:pointerover">
             <Setter Property="Cursor" Value="Hand" />
         </Style>
 

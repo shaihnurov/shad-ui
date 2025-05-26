@@ -1,4 +1,3 @@
-using System;
 using System.Linq;
 using Avalonia;
 using Avalonia.Controls;
@@ -126,7 +125,7 @@ public class SimpleDropdown : ItemsControl
 
     private void AttachEventHandlers(INameScope nameScope)
     {
-        if (nameScope.Find<Border>("root") is { } rootBorder)
+        if (nameScope.Find<Border>("PART_BorderContainer") is { } rootBorder)
         {
             rootBorder.PointerPressed += OnRootBorderPressed;
             rootBorder.PointerReleased += OnRootBorderReleased;
@@ -146,7 +145,7 @@ public class SimpleDropdown : ItemsControl
 
     private void DetachEventHandlers()
     {
-        if (this.GetTemplateChildren().FirstOrDefault(x => x.Name == "root") is Border rootBorder)
+        if (this.GetTemplateChildren().FirstOrDefault(x => x.Name == "PART_BorderContainer") is Border rootBorder)
         {
             rootBorder.PointerPressed -= OnRootBorderPressed;
             rootBorder.PointerReleased -= OnRootBorderReleased;
@@ -256,7 +255,7 @@ public class SimpleDropdown : ItemsControl
     {
         base.OnLoaded(e);
         // Use GetTemplateChildren for OnLoaded since we don't have access to a proper INameScope
-        if (this.GetTemplateChildren().FirstOrDefault(x => x.Name == "root") is Border rootBorder)
+        if (this.GetTemplateChildren().FirstOrDefault(x => x.Name == "PART_BorderContainer") is Border rootBorder)
         {
             rootBorder.PointerPressed += OnRootBorderPressed;
             rootBorder.PointerReleased += OnRootBorderReleased;
