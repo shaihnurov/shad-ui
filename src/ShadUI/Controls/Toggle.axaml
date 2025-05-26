@@ -1,14 +1,15 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Design.PreviewWith>
-        <StackPanel Spacing="12">
-            <ToggleButton Classes="Default">Default</ToggleButton>
-            <ToggleButton Classes="Outline">Default</ToggleButton>
-        </StackPanel>
+        <Panel>
+            <StackPanel Margin="36" Spacing="12">
+                <ToggleButton Classes="Default">Default</ToggleButton>
+                <ToggleButton Classes="Outline">Outline</ToggleButton>
+            </StackPanel>
+        </Panel>
     </Design.PreviewWith>
 
     <ControlTheme x:Key="{x:Type ToggleButton}" TargetType="ToggleButton">
         <Setter Property="MinHeight" Value="36" />
-        <Setter Property="Background" Value="{DynamicResource BackgroundColor}" />
         <Setter Property="BorderBrush" Value="{DynamicResource BorderColor}" />
         <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
         <Setter Property="CornerRadius" Value="{DynamicResource MdCornerRadius}" />
@@ -16,40 +17,69 @@
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Border
-                    Name="RootBorder"
-                    Background="{TemplateBinding Background}"
-                    BorderBrush="{TemplateBinding BorderBrush}"
-                    BorderThickness="{TemplateBinding BorderThickness}"
-                    CornerRadius="{TemplateBinding CornerRadius}">
-                    <ContentPresenter
-                        Name="PART_ContentPresenter"
-                        Padding="{TemplateBinding Padding}"
-                        HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                        VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                        Content="{TemplateBinding Content}"
-                        RecognizesAccessKey="True"
-                        TextElement.Foreground="{TemplateBinding Foreground}" />
-                </Border>
+                <Panel Name="RootPanel">
+                    <Panel.Transitions>
+                        <Transitions>
+                            <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.10" />
+                        </Transitions>
+                    </Panel.Transitions>
+                    <Border
+                        Name="PART_BaseBackground"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}"
+                        Opacity="1">
+                        <Border.Transitions>
+                            <Transitions>
+                                <DoubleTransition Property="Opacity" Duration="0:0:0.20" />
+                            </Transitions>
+                        </Border.Transitions>
+                    </Border>
+                    <Border
+                        Name="PART_HoverBackground"
+                        Background="{DynamicResource GhostColor}"
+                        CornerRadius="{TemplateBinding CornerRadius}"
+                        Opacity="0">
+                        <Border.Transitions>
+                            <Transitions>
+                                <DoubleTransition Property="Opacity" Duration="0:0:0.20" />
+                            </Transitions>
+                        </Border.Transitions>
+                    </Border>
+                    <Border
+                        Background="Transparent"
+                        ClipToBounds="True"
+                        CornerRadius="{TemplateBinding CornerRadius}"
+                        TextElement.Foreground="{TemplateBinding Foreground}">
+                        <ContentPresenter
+                            Name="PART_ContentPresenter"
+                            Padding="{TemplateBinding Padding}"
+                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Content="{TemplateBinding Content}"
+                            RecognizesAccessKey="True"
+                            TextElement.Foreground="{TemplateBinding Foreground}" />
+                    </Border>
+                </Panel>
             </ControlTemplate>
         </Setter>
-        <Style Selector="^:checked /template/ Border#RootBorder">
-            <Setter Property="Transitions">
-                <Transitions>
-                    <BrushTransition Property="Background" Duration="0:0:0.20" />
-                    <BrushTransition Property="BorderBrush" Duration="0:0:0.20" />
-                </Transitions>
-            </Setter>
+        <Style Selector="^:checked /template/ Border#PART_HoverBackground">
             <Setter Property="Background" Value="{DynamicResource GhostColor}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource GhostColor}" />
+            <Setter Property="Opacity" Value="1" />
         </Style>
-        <Style Selector="^:pointerover /template/ Border#RootBorder">
-            <Setter Property="Transitions">
-                <Transitions>
-                    <BrushTransition Property="BorderBrush" Duration="0:0:0.20" />
-                </Transitions>
-            </Setter>
-            <Setter Property="BorderBrush" Value="{DynamicResource GhostColor}" />
+        <Style Selector="^:checked /template/ Border#PART_BaseBackground">
+            <Setter Property="Opacity" Value="0" />
+        </Style>
+        <Style Selector="^:pressed /template/ Panel#RootPanel">
+            <Setter Property="RenderTransform" Value="scale(0.95, 0.95)" />
+        </Style>
+        <Style Selector="^:pointerover /template/ Border#PART_HoverBackground">
+            <Setter Property="Background" Value="{DynamicResource GhostColor}" />
+            <Setter Property="Opacity" Value="1" />
+        </Style>
+        <Style Selector="^:pointerover /template/ Border#PART_BaseBackground">
+            <Setter Property="Opacity" Value="0" />
         </Style>
         <Style Selector="^:disabled">
             <Setter Property="Opacity" Value="0.50" />
@@ -59,68 +89,19 @@
         <Style Selector="^.Default">
             <Setter Property="FontSize" Value="14" />
             <Setter Property="Padding" Value="12,8" />
-            <Setter Property="Background" Value="{DynamicResource CardBackgroundColor}" />
+            <Setter Property="Background" Value="{DynamicResource BackgroundColor}" />
             <Setter Property="BorderBrush" Value="{DynamicResource BorderColor}" />
             <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
-            <Style Selector="^ /template/ TextBlock">
-                <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
-            </Style>
-            <Style Selector="^ /template/ ContentPresenter">
-                <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
-            </Style>
-            <Style Selector="^:pointerover /template/ Border#RootBorder">
-                <Setter Property="Transitions">
-                    <Transitions>
-                        <BrushTransition Property="Background" Duration="0:0:0.20" />
-                    </Transitions>
-                </Setter>
-                <Setter Property="Background" Value="{DynamicResource GhostColor}" />
-            </Style>
-            <Style Selector="^:pressed">
-                <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
-                    <Setter Property="RenderTransform">
-                        <Setter.Value>
-                            <ScaleTransform ScaleX="0.95" ScaleY="0.95" />
-                        </Setter.Value>
-                    </Setter>
-                </Style>
-            </Style>
         </Style>
 
         <!--  Outline  -->
         <Style Selector="^.Outline">
             <Setter Property="FontSize" Value="14" />
             <Setter Property="Padding" Value="12,8" />
-            <Setter Property="Background" Value="{DynamicResource CardBackgroundColor}" />
             <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Background" Value="{DynamicResource BackgroundColor}" />
             <Setter Property="BorderBrush" Value="{DynamicResource BorderColor}" />
             <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
-            <Style Selector="^ /template/ TextBlock">
-                <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
-            </Style>
-            <Style Selector="^ /template/ ContentPresenter">
-                <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
-            </Style>
-            <Style Selector="^:pointerover /template/ Border#RootBorder">
-                <Setter Property="Transitions">
-                    <Transitions>
-                        <BrushTransition Property="Background" Duration="0:0:0.20" />
-                        <BrushTransition Property="BorderBrush" Duration="0:0:0.20" />
-                    </Transitions>
-                </Setter>
-                <Setter Property="Background" Value="{DynamicResource OutlineColor}" />
-                <Setter Property="BorderBrush" Value="{DynamicResource OutlineColor}" />
-            </Style>
-
-            <Style Selector="^:pressed">
-                <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
-                    <Setter Property="RenderTransform">
-                        <Setter.Value>
-                            <ScaleTransform ScaleX="0.95" ScaleY="0.95" />
-                        </Setter.Value>
-                    </Setter>
-                </Style>
-            </Style>
         </Style>
     </ControlTheme>
 </ResourceDictionary>
