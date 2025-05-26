@@ -268,7 +268,7 @@
         <Style Selector="^:disabled /template/ TextBox#PART_TextBox">
             <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />
         </Style>
-        <Style Selector="^[IsDropDownOpen=true]">
+        <Style Selector="^:dropdownopen">
             <Style Selector="^ /template/ LayoutTransformControl#PART_LayoutTransform">
                 <Style.Animations>
                     <Animation

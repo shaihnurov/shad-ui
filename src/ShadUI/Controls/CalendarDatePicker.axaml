@@ -160,7 +160,7 @@
                 </DataValidationErrors>
             </ControlTemplate>
         </Setter>
-        <Style Selector="^[IsDropDownOpen=true]">
+        <Style Selector="^:flyout-open">
             <Style Selector="^ /template/ LayoutTransformControl#PART_LayoutTransform">
                 <Style.Animations>
                     <Animation
@@ -220,7 +220,7 @@
                 <Setter Property="Cursor" Value="Hand" />
             </Style>
         </Style>
-        <Style Selector="^:disabled /template/ Border#PART_Border">
+        <Style Selector="^:disabled">
             <Setter Property="Opacity" Value="0.50" />
         </Style>
         <Style Selector="^:error">

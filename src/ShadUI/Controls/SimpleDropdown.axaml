@@ -127,7 +127,7 @@
         <Style Selector="^:open /template/ Border#PART_BaseBackground">
             <Setter Property="Opacity" Value="0" />
         </Style>
-        <Style Selector="^[IsDropDownOpen=True] /template/ LayoutTransformControl#PART_LayoutTransform">
+        <Style Selector="^:open /template/ LayoutTransformControl#PART_LayoutTransform">
             <Style.Animations>
                 <Animation
                     Easing="SineEaseInOut"

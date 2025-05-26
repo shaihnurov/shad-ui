@@ -164,7 +164,7 @@
                 </DataValidationErrors>
             </ControlTemplate>
         </Setter>
-        <Style Selector="^[IsDropDownOpen=true]">
+        <Style Selector="^:dropdownopen">
             <Style Selector="^ /template/ LayoutTransformControl#PART_LayoutTransform">
                 <Style.Animations>
                     <Animation
