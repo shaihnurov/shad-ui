@@ -71,7 +71,7 @@
         <Setter Property="CornerRadius" Value="{DynamicResource MdCornerRadius}" />
         <Setter Property="BorderBrush" Value="{DynamicResource BorderColor}" />
         <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
-        <Setter Property="Background" Value="{DynamicResource CardBackgroundColor}" />
+        <Setter Property="Background" Value="Transparent" />
         <Setter Property="FontSize" Value="14" />
         <Setter Property="FontWeight" Value="Medium" />
         <Setter Property="extensions:ControlAssist.MinHeight" Value="36" />
@@ -87,7 +87,18 @@
                             IsVisible="{TemplateBinding extensions:ControlAssist.Label,
                                                         Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
                             Text="{TemplateBinding extensions:ControlAssist.Label}" />
-                        <Grid Name="LayoutRoot" Background="Transparent">
+                        <Panel Name="LayoutRoot" Background="Transparent">
+                            <Border
+                                Name="PART_Background"
+                                Background="{DynamicResource OutlineColor}"
+                                CornerRadius="{TemplateBinding CornerRadius}"
+                                Opacity="0">
+                                <Border.Transitions>
+                                    <Transitions>
+                                        <DoubleTransition Property="Opacity" Duration="0:0:0.20" />
+                                    </Transitions>
+                                </Border.Transitions>
+                            </Border>
                             <Border
                                 Name="PART_Border"
                                 Height="{TemplateBinding extensions:ControlAssist.Height}"
@@ -118,7 +129,7 @@
                                             HorizontalAlignment="Right"
                                             Data="{x:Static icons:Icons.DateTime}"
                                             DockPanel.Dock="Right"
-                                            Foreground="{DynamicResource ForegroundColor}" />
+                                            Foreground="{DynamicResource MutedColor}" />
                                         <Grid Name="PART_FlyoutButtonContentGrid" ColumnDefinitions="Auto Auto Auto Auto Auto Auto Auto">
                                             <Border
                                                 x:Name="PART_FirstPickerHost"
@@ -214,7 +225,7 @@
                                     </TimePickerPresenter.KeyBindings>
                                 </TimePickerPresenter>
                             </Popup>
-                        </Grid>
+                        </Panel>
                         <TextBlock
                             Name="PART_Hint"
                             Margin="0,4,0,0"
@@ -237,12 +248,13 @@
         <Style Selector="^:pointerover">
             <Setter Property="Transitions">
                 <Transitions>
-                    <BrushTransition Property="Background" Duration="0:0:0.20" />
                     <BrushTransition Property="BorderBrush" Duration="0:0:0.20" />
                 </Transitions>
             </Setter>
-            <Setter Property="Background" Value="{DynamicResource OutlineColor}" />
             <Setter Property="BorderBrush" Value="{DynamicResource OutlineColor}" />
+            <Style Selector="^ /template/ Border#PART_Background">
+                <Setter Property="Opacity" Value="1" />
+            </Style>
         </Style>
 
         <Style Selector="^:error">
