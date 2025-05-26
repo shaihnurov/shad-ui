@@ -1,67 +1,67 @@
-<ResourceDictionary
-    x:ClassModifier="internal"
+﻿<ResourceDictionary
     xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:icons="clr-namespace:ShadUI.Contents"
     xmlns:toasts="clr-namespace:ShadUI.Toasts"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    x:ClassModifier="internal">
     <Design.PreviewWith>
-        <toasts:Toast Content="Message" Title="Title" />
+        <toasts:Toast Title="Title" Content="Message" />
     </Design.PreviewWith>
-    <ControlTheme TargetType="toasts:Toast" x:Key="ToastTheme">
+    <ControlTheme x:Key="ToastTheme" TargetType="toasts:Toast">
         <Setter Property="Template">
             <ControlTemplate>
                 <Border Name="PART_ToastCard" Padding="12,0,12,12">
                     <Border
+                        Name="PART_ToastCardInner"
+                        MinWidth="350"
                         Background="{DynamicResource CardBackgroundColor}"
                         BorderBrush="{DynamicResource BorderColor}"
                         BorderThickness="1"
                         ClipToBounds="True"
-                        CornerRadius="{DynamicResource MdCornerRadius}"
-                        MinWidth="350"
-                        Name="PART_ToastCardInner">
+                        CornerRadius="{DynamicResource MdCornerRadius}">
                         <Panel>
-                            <Border CornerRadius="{DynamicResource MdCornerRadius}" Name="PART_InnerCardBackground" />
-                            <Grid ColumnDefinitions="Auto * Auto" Margin="16">
+                            <Border Name="PART_InnerCardBackground" CornerRadius="{DynamicResource MdCornerRadius}" />
+                            <Grid Margin="16" ColumnDefinitions="Auto * Auto">
                                 <PathIcon
+                                    Name="PART_Icon"
+                                    Width="20"
+                                    Height="20"
+                                    Margin="0,0,8,0"
                                     Data="{x:Static icons:Icons.Warning}"
                                     Foreground="{DynamicResource ForegroundColor}"
-                                    Height="20"
                                     IsVisible="{CompiledBinding Data,
                                                                 ElementName=PART_Icon,
-                                                                Converter={x:Static ObjectConverters.IsNotNull}}"
-                                    Margin="0,0,8,0"
-                                    Name="PART_Icon"
-                                    Width="20" />
+                                                                Converter={x:Static ObjectConverters.IsNotNull}}" />
                                 <StackPanel Grid.Column="1">
                                     <TextBlock Name="PART_Title" Text="{TemplateBinding Title}" />
                                     <ContentPresenter
-                                        Content="{TemplateBinding Content}"
+                                        Name="PART_Content"
                                         Margin="0,4,0,0"
-                                        Name="PART_Content" />
+                                        Content="{TemplateBinding Content}" />
                                 </StackPanel>
                                 <Button
-                                    Content="{TemplateBinding ActionLabel}"
+                                    Name="PART_ActionButton"
                                     Grid.Column="2"
-                                    IsVisible="{TemplateBinding Action,
-                                                                Converter={x:Static ObjectConverters.IsNotNull}}"
                                     Margin="8,0,12,0"
-                                    Name="PART_ActionButton" />
+                                    Content="{TemplateBinding ActionLabel}"
+                                    IsVisible="{TemplateBinding Action,
+                                                                Converter={x:Static ObjectConverters.IsNotNull}}" />
                             </Grid>
                             <Button
-                                CornerRadius="{DynamicResource FullCornerRadius}"
-                                Height="20"
-                                HorizontalAlignment="Right"
-                                HotKey="Escape"
-                                Margin="4"
                                 Name="PART_CloseButton"
-                                Opacity="0"
+                                Width="20"
+                                Height="20"
+                                Margin="4"
+                                HorizontalAlignment="Right"
                                 VerticalAlignment="Top"
-                                Width="20">
+                                CornerRadius="{DynamicResource FullCornerRadius}"
+                                HotKey="Escape"
+                                Opacity="0">
                                 <PathIcon
-                                    Data="{x:Static icons:Icons.WindowClose}"
-                                    Height="8"
                                     Name="PART_CloseButtonIcon"
-                                    Width="8" />
+                                    Width="8"
+                                    Height="8"
+                                    Data="{x:Static icons:Icons.WindowClose}" />
                             </Button>
                         </Panel>
                     </Border>
@@ -104,8 +104,8 @@
                     <Setter Property="Transitions">
                         <Setter.Value>
                             <Transitions>
-                                <BrushTransition Duration="0:0:0.20" Property="Background" />
-                                <BrushTransition Duration="0:0:0.20" Property="BorderBrush" />
+                                <BrushTransition Property="Background" Duration="0:0:0.20" />
+                                <BrushTransition Property="BorderBrush" Duration="0:0:0.20" />
                             </Transitions>
                         </Setter.Value>
                     </Setter>
@@ -119,8 +119,8 @@
                     <Setter Property="Transitions">
                         <Setter.Value>
                             <Transitions>
-                                <BrushTransition Duration="0:0:0.20" Property="Background" />
-                                <BrushTransition Duration="0:0:0.20" Property="BorderBrush" />
+                                <BrushTransition Property="Background" Duration="0:0:0.20" />
+                                <BrushTransition Property="BorderBrush" Duration="0:0:0.20" />
                             </Transitions>
                         </Setter.Value>
                     </Setter>
@@ -163,8 +163,8 @@
                     <Setter Property="Transitions">
                         <Setter.Value>
                             <Transitions>
-                                <BrushTransition Duration="0:0:0.20" Property="Background" />
-                                <BrushTransition Duration="0:0:0.20" Property="BorderBrush" />
+                                <BrushTransition Property="Background" Duration="0:0:0.20" />
+                                <BrushTransition Property="BorderBrush" Duration="0:0:0.20" />
                             </Transitions>
                         </Setter.Value>
                     </Setter>
@@ -178,7 +178,7 @@
                     <Setter Property="Transitions">
                         <Setter.Value>
                             <Transitions>
-                                <BrushTransition Duration="0:0:0.20" Property="Background" />
+                                <BrushTransition Property="Background" Duration="0:0:0.20" />
                             </Transitions>
                         </Setter.Value>
                     </Setter>
@@ -220,8 +220,8 @@
                     <Setter Property="Transitions">
                         <Setter.Value>
                             <Transitions>
-                                <BrushTransition Duration="0:0:0.20" Property="Background" />
-                                <BrushTransition Duration="0:0:0.20" Property="BorderBrush" />
+                                <BrushTransition Property="Background" Duration="0:0:0.20" />
+                                <BrushTransition Property="BorderBrush" Duration="0:0:0.20" />
                             </Transitions>
                         </Setter.Value>
                     </Setter>
@@ -235,7 +235,7 @@
                     <Setter Property="Transitions">
                         <Setter.Value>
                             <Transitions>
-                                <BrushTransition Duration="0:0:0.20" Property="Background" />
+                                <BrushTransition Property="Background" Duration="0:0:0.20" />
                             </Transitions>
                         </Setter.Value>
                     </Setter>
@@ -277,8 +277,8 @@
                     <Setter Property="Transitions">
                         <Setter.Value>
                             <Transitions>
-                                <BrushTransition Duration="0:0:0.20" Property="Background" />
-                                <BrushTransition Duration="0:0:0.20" Property="BorderBrush" />
+                                <BrushTransition Property="Background" Duration="0:0:0.20" />
+                                <BrushTransition Property="BorderBrush" Duration="0:0:0.20" />
                             </Transitions>
                         </Setter.Value>
                     </Setter>
@@ -292,7 +292,7 @@
                     <Setter Property="Transitions">
                         <Setter.Value>
                             <Transitions>
-                                <BrushTransition Duration="0:0:0.20" Property="Background" />
+                                <BrushTransition Property="Background" Duration="0:0:0.20" />
                             </Transitions>
                         </Setter.Value>
                     </Setter>
@@ -334,8 +334,8 @@
                     <Setter Property="Transitions">
                         <Setter.Value>
                             <Transitions>
-                                <BrushTransition Duration="0:0:0.20" Property="Background" />
-                                <BrushTransition Duration="0:0:0.20" Property="BorderBrush" />
+                                <BrushTransition Property="Background" Duration="0:0:0.20" />
+                                <BrushTransition Property="BorderBrush" Duration="0:0:0.20" />
                             </Transitions>
                         </Setter.Value>
                     </Setter>
@@ -349,7 +349,7 @@
                     <Setter Property="Transitions">
                         <Setter.Value>
                             <Transitions>
-                                <BrushTransition Duration="0:0:0.20" Property="Background" />
+                                <BrushTransition Property="Background" Duration="0:0:0.20" />
                             </Transitions>
                         </Setter.Value>
                     </Setter>
@@ -363,7 +363,7 @@
 
     </ControlTheme>
     <ControlTheme
+        x:Key="{x:Type toasts:Toast}"
         BasedOn="{StaticResource ToastTheme}"
-        TargetType="toasts:Toast"
-        x:Key="{x:Type toasts:Toast}" />
+        TargetType="toasts:Toast" />
 </ResourceDictionary>

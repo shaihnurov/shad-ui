@@ -1,10 +1,10 @@
-<ResourceDictionary
+﻿<ResourceDictionary
     xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:contents="clr-namespace:ShadUI.Contents"
     xmlns:controls="clr-namespace:ShadUI.Controls"
     xmlns:converters="clr-namespace:ShadUI.Converters"
-    xmlns:extensions="clr-namespace:ShadUI.Extensions"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    xmlns:extensions="clr-namespace:ShadUI.Extensions">
     <ResourceDictionary.MergedDictionaries>
         <ResourceInclude Source="avares://ShadUI/Controls/Button.axaml" />
         <ResourceInclude Source="avares://ShadUI/Controls/Constants.axaml" />
@@ -14,23 +14,23 @@
             <controls:SidebarMenuItem Header="Header">
                 <controls:SidebarMenuItem.Icon>
                     <PathIcon
-                        Data="{x:Static contents:Icons.Cross}"
+                        Width="13"
                         Height="13"
-                        Width="13" />
+                        Data="{x:Static contents:Icons.Cross}" />
                 </controls:SidebarMenuItem.Icon>
             </controls:SidebarMenuItem>
             <controls:SidebarMenuItem Header="Header">
                 <controls:SidebarMenuItem.Icon>
                     <PathIcon
-                        Data="{x:Static contents:Icons.Cross}"
+                        Width="13"
                         Height="13"
-                        Width="13" />
+                        Data="{x:Static contents:Icons.Cross}" />
                 </controls:SidebarMenuItem.Icon>
                 <Grid />
             </controls:SidebarMenuItem>
         </controls:SidebarMenu>
     </Design.PreviewWith>
-    <ControlTheme TargetType="ToggleButton" x:Key="SideToggleButtonTheme">
+    <ControlTheme x:Key="SideToggleButtonTheme" TargetType="ToggleButton">
         <Setter Property="Height" Value="36" />
         <Setter Property="Width" Value="36" />
         <Setter Property="CornerRadius" Value="{DynamicResource MdCornerRadius}" />
@@ -39,37 +39,37 @@
             <Setter.Value>
                 <ControlTemplate>
                     <Border
+                        Height="{TemplateBinding Height}"
                         Background="{TemplateBinding Background}"
-                        CornerRadius="{TemplateBinding CornerRadius}"
-                        Height="{TemplateBinding Height}">
+                        CornerRadius="{TemplateBinding CornerRadius}">
                         <Border.Transitions>
                             <Transitions>
-                                <BrushTransition Duration="0:0:0.20" Property="Background" />
-                                <DoubleTransition Duration="0:0:0.20" Property="Opacity" />
+                                <BrushTransition Property="Background" Duration="0:0:0.20" />
+                                <DoubleTransition Property="Opacity" Duration="0:0:0.20" />
                             </Transitions>
                         </Border.Transitions>
                         <Panel>
                             <PathIcon
-                                Data="{x:Static contents:Icons.SidePanel}"
-                                Foreground="{DynamicResource ForegroundColor}"
-                                Height="14"
                                 Name="PART_ExpandIconLeft"
-                                Width="14">
+                                Width="14"
+                                Height="14"
+                                Data="{x:Static contents:Icons.SidePanel}"
+                                Foreground="{DynamicResource ForegroundColor}">
                                 <PathIcon.Transitions>
                                     <Transitions>
-                                        <DoubleTransition Duration="0:0:0.2" Property="Opacity" />
+                                        <DoubleTransition Property="Opacity" Duration="0:0:0.2" />
                                     </Transitions>
                                 </PathIcon.Transitions>
                             </PathIcon>
                             <PathIcon
-                                Data="{x:Static contents:Icons.ChevronLeft}"
-                                Foreground="{DynamicResource ForegroundColor}"
-                                Height="12"
                                 Name="PART_ExpandIconRight"
-                                Width="12">
+                                Width="12"
+                                Height="12"
+                                Data="{x:Static contents:Icons.ChevronLeft}"
+                                Foreground="{DynamicResource ForegroundColor}">
                                 <PathIcon.Transitions>
                                     <Transitions>
-                                        <DoubleTransition Duration="0:0:0.2" Property="Opacity" />
+                                        <DoubleTransition Property="Opacity" Duration="0:0:0.2" />
                                     </Transitions>
                                 </PathIcon.Transitions>
                             </PathIcon>
@@ -98,7 +98,7 @@
             </Style>
         </Style>
     </ControlTheme>
-    <ControlTheme TargetType="controls:SidebarMenu" x:Key="SidebarMenuStyle">
+    <ControlTheme x:Key="SidebarMenuStyle" TargetType="controls:SidebarMenu">
         <Setter Property="Background" Value="{DynamicResource SidebarBackgroundColor}" />
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
         <Setter Property="Template">
@@ -109,55 +109,55 @@
                     OpenPaneLength="{TemplateBinding OpenPaneLength}">
                     <SplitView.Pane>
                         <Border
-                            BorderBrush="{DynamicResource BorderColor}"
-                            BorderThickness="0,0,1,0"
                             Margin="{CompiledBinding ShowTitlebarBackground,
                                                      Converter={x:Static converters:WindowBackgroundToMarginConverter.Instance},
                                                      RelativeSource={RelativeSource Mode=FindAncestor,
-                                                                                    AncestorType={x:Type controls:Window}}}">
+                                                                                    AncestorType={x:Type controls:Window}}}"
+                            BorderBrush="{DynamicResource BorderColor}"
+                            BorderThickness="0,0,1,0">
                             <Grid Background="{TemplateBinding Background}">
                                 <Border BorderThickness="0,0,1,0" CornerRadius="{CompiledBinding ShowTitlebarBackground, Converter={x:Static converters:WindowBackgroundToCornerRadiusConverter.Instance}, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type controls:Window}}}" />
                                 <DockPanel Background="{TemplateBinding Background}">
                                     <ToggleButton
+                                        Name="PART_SidebarToggleButton"
+                                        Margin="8"
+                                        HorizontalAlignment="Stretch"
+                                        VerticalAlignment="Top"
                                         BorderBrush="{DynamicResource SidebarBackgroundColor}"
                                         Cursor="Hand"
                                         DockPanel.Dock="Top"
-                                        HorizontalAlignment="Stretch"
                                         IsChecked="{TemplateBinding IsMenuExpanded,
                                                                     Mode=TwoWay}"
                                         IsVisible="{TemplateBinding SidebarToggleEnabled}"
-                                        Margin="8"
-                                        Name="PART_SidebarToggleButton"
-                                        Theme="{StaticResource SideToggleButtonTheme}"
-                                        VerticalAlignment="Top" />
+                                        Theme="{StaticResource SideToggleButtonTheme}" />
                                     <Grid
+                                        MinHeight="{TemplateBinding HeaderMinHeight}"
                                         DockPanel.Dock="Top"
-                                        IsVisible="{TemplateBinding IsMenuExpanded}"
-                                        MinHeight="{TemplateBinding HeaderMinHeight}">
+                                        IsVisible="{TemplateBinding IsMenuExpanded}">
                                         <ContentPresenter Content="{TemplateBinding HeaderContent}" />
                                     </Grid>
                                     <ContentControl
+                                        Margin="0,0,0,12"
                                         Content="{TemplateBinding FooterContent}"
                                         DockPanel.Dock="Bottom"
-                                        IsVisible="{TemplateBinding IsMenuExpanded}"
-                                        Margin="0,0,0,12" />
+                                        IsVisible="{TemplateBinding IsMenuExpanded}" />
                                     <DockPanel>
                                         <ScrollViewer
+                                            Name="PART_ScrollViewer"
                                             AllowAutoHide="{TemplateBinding (ScrollViewer.AllowAutoHide)}"
                                             BringIntoViewOnFocusChange="{TemplateBinding (ScrollViewer.BringIntoViewOnFocusChange)}"
                                             Classes="Stack"
                                             HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
                                             HorizontalSnapPointsType="{TemplateBinding (ScrollViewer.HorizontalSnapPointsType)}"
                                             IsScrollChainingEnabled="{TemplateBinding (ScrollViewer.IsScrollChainingEnabled)}"
-                                            Name="PART_ScrollViewer"
                                             VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}"
                                             VerticalSnapPointsType="{TemplateBinding (ScrollViewer.VerticalSnapPointsType)}">
                                             <StackPanel extensions:StackPanelAssist.AnimatedScroll="True">
                                                 <ItemsPresenter
-                                                    ItemsPanel="{TemplateBinding ItemsPanel}"
-                                                    Margin="{TemplateBinding Padding}"
                                                     Name="PART_ItemsPresenter"
-                                                    extensions:ItemsPresenterAssist.AnimatedScroll="True" />
+                                                    Margin="{TemplateBinding Padding}"
+                                                    extensions:ItemsPresenterAssist.AnimatedScroll="True"
+                                                    ItemsPanel="{TemplateBinding ItemsPanel}" />
                                             </StackPanel>
                                         </ScrollViewer>
                                     </DockPanel>
@@ -182,7 +182,7 @@
         </Style>
     </ControlTheme>
     <ControlTheme
+        x:Key="{x:Type controls:SidebarMenu}"
         BasedOn="{StaticResource SidebarMenuStyle}"
-        TargetType="controls:SidebarMenu"
-        x:Key="{x:Type controls:SidebarMenu}" />
+        TargetType="controls:SidebarMenu" />
 </ResourceDictionary>

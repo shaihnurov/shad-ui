@@ -1,8 +1,8 @@
 ﻿<ResourceDictionary
     xmlns="https://github.com/avaloniaui"
-    xmlns:icons="clr-namespace:ShadUI.Contents"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <ControlTheme TargetType="ComboBoxItem" x:Key="ComboBoxItemTheme">
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:icons="clr-namespace:ShadUI.Contents">
+    <ControlTheme x:Key="ComboBoxItemTheme" TargetType="ComboBoxItem">
         <Setter Property="Background" Value="{DynamicResource CardBackgroundColor}" />
         <Setter Property="Padding" Value="2" />
         <Setter Property="HorizontalAlignment" Value="Stretch" />
@@ -13,38 +13,38 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <Border
+                    Name="BorderBasicStyle"
+                    MinHeight="36"
+                    Margin="3,0,3,3"
+                    Padding="5,0"
                     Background="{TemplateBinding Background}"
                     BorderBrush="{TemplateBinding BorderBrush}"
                     BorderThickness="{TemplateBinding BorderThickness}"
-                    CornerRadius="{TemplateBinding CornerRadius}"
-                    Margin="3,0,3,3"
-                    MinHeight="36"
-                    Name="BorderBasicStyle"
-                    Padding="5,0">
+                    CornerRadius="{TemplateBinding CornerRadius}">
                     <Border.Transitions>
                         <Transitions>
-                            <BrushTransition Duration="0:0:0.15" Property="Background" />
+                            <BrushTransition Property="Background" Duration="0:0:0.15" />
                         </Transitions>
                     </Border.Transitions>
                     <DockPanel>
                         <PathIcon
-                            Data="{x:Static icons:Icons.Check}"
-                            DockPanel.Dock="Right"
-                            Foreground="{DynamicResource ForegroundColor}"
+                            Name="CheckSelected"
+                            Width="12"
                             Height="12"
                             Margin="0,0,3,0"
-                            Name="CheckSelected"
-                            Width="12" />
+                            Data="{x:Static icons:Icons.Check}"
+                            DockPanel.Dock="Right"
+                            Foreground="{DynamicResource ForegroundColor}" />
                         <ContentPresenter
+                            Name="PART_ContentPresenter"
+                            Margin="1"
+                            Padding="5"
+                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                             Background="Transparent"
                             Content="{TemplateBinding Content}"
                             ContentTemplate="{TemplateBinding ContentTemplate}"
-                            CornerRadius="{TemplateBinding CornerRadius}"
-                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                            Margin="1"
-                            Name="PART_ContentPresenter"
-                            Padding="5"
-                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+                            CornerRadius="{TemplateBinding CornerRadius}" />
 
                     </DockPanel>
                 </Border>
@@ -71,7 +71,7 @@
     </ControlTheme>
 
     <ControlTheme
+        x:Key="{x:Type ComboBoxItem}"
         BasedOn="{StaticResource ComboBoxItemTheme}"
-        TargetType="ComboBoxItem"
-        x:Key="{x:Type ComboBoxItem}" />
+        TargetType="ComboBoxItem" />
 </ResourceDictionary>

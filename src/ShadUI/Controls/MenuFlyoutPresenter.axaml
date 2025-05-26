@@ -1,8 +1,8 @@
 ﻿<ResourceDictionary
-    x:ClassModifier="internal"
     xmlns="https://github.com/avaloniaui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <ControlTheme TargetType="MenuFlyoutPresenter" x:Key="{x:Type MenuFlyoutPresenter}">
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:ClassModifier="internal">
+    <ControlTheme x:Key="{x:Type MenuFlyoutPresenter}" TargetType="MenuFlyoutPresenter">
         <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource BorderColor}" />
         <Setter Property="CornerRadius" Value="{DynamicResource MdCornerRadius}" />
@@ -15,18 +15,18 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <Border
+                    Name="LayoutRoot"
                     Background="{TemplateBinding Background}"
                     BorderBrush="{TemplateBinding BorderBrush}"
                     BorderThickness="{TemplateBinding BorderThickness}"
-                    CornerRadius="{TemplateBinding CornerRadius}"
-                    Name="LayoutRoot">
+                    CornerRadius="{TemplateBinding CornerRadius}">
                     <ScrollViewer HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}" VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
                         <ItemsPresenter
+                            Name="PART_ItemsPresenter"
+                            Margin="{TemplateBinding Padding}"
                             Grid.IsSharedSizeScope="True"
                             ItemsPanel="{TemplateBinding ItemsPanel}"
-                            KeyboardNavigation.TabNavigation="Continue"
-                            Margin="{TemplateBinding Padding}"
-                            Name="PART_ItemsPresenter" />
+                            KeyboardNavigation.TabNavigation="Continue" />
                     </ScrollViewer>
                 </Border>
             </ControlTemplate>

@@ -1,8 +1,8 @@
 ﻿<Styles
     xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="clr-namespace:ShadUI.Controls"
-    xmlns:extensions="clr-namespace:ShadUI.Extensions"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    xmlns:extensions="clr-namespace:ShadUI.Extensions">
     <Design.PreviewWith>
         <Border Padding="20">
             <!--  Add Controls for Previewer Here  -->
@@ -28,36 +28,36 @@
                         CornerRadius="{TemplateBinding CornerRadius}">
                         <Panel Background="Transparent">
                             <Border
+                                Name="ItemBackground"
                                 Background="{DynamicResource GhostColor}"
                                 CornerRadius="{TemplateBinding CornerRadius}"
-                                Name="ItemBackground"
                                 Opacity="0">
                                 <Border.Transitions>
                                     <Transitions>
-                                        <DoubleTransition Duration="0:0:0.20" Property="Opacity" />
+                                        <DoubleTransition Property="Opacity" Duration="0:0:0.20" />
                                     </Transitions>
                                 </Border.Transitions>
                             </Border>
                             <Grid Margin="{TemplateBinding Padding}">
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition SharedSizeGroup="A" Width="Auto" />
+                                    <ColumnDefinition Width="Auto" SharedSizeGroup="A" />
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
                                 <ContentPresenter
+                                    Margin="0,0,8,0"
                                     Content="{TemplateBinding extensions:ButtonAssist.Icon}"
                                     IsVisible="{TemplateBinding extensions:ButtonAssist.Icon,
-                                                                Converter={x:Static ObjectConverters.IsNotNull}}"
-                                    Margin="0,0,8,0" />
+                                                                Converter={x:Static ObjectConverters.IsNotNull}}" />
                                 <ContentPresenter
+                                    Grid.Column="1"
+                                    HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                    VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                                     Content="{TemplateBinding Content}"
                                     FontFamily="{TemplateBinding FontFamily}"
                                     FontSize="{TemplateBinding FontSize}"
                                     FontWeight="{TemplateBinding FontWeight}"
                                     Foreground="{TemplateBinding Foreground}"
-                                    Grid.Column="1"
-                                    HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                    RecognizesAccessKey="True"
-                                    VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+                                    RecognizesAccessKey="True" />
                             </Grid>
                         </Panel>
                     </Border>
@@ -92,7 +92,7 @@
             <Setter Property="Transitions">
                 <Setter.Value>
                     <Transitions>
-                        <BrushTransition Duration="0:0:0.20" Property="Background" />
+                        <BrushTransition Property="Background" Duration="0:0:0.20" />
                     </Transitions>
                 </Setter.Value>
             </Setter>

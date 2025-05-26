@@ -1,48 +1,48 @@
 ﻿<ResourceDictionary
     xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="clr-namespace:ShadUI.Controls"
-    xmlns:converters="clr-namespace:ShadUI.Converters"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    xmlns:converters="clr-namespace:ShadUI.Converters">
     <Design.PreviewWith>
         <controls:BusyArea
+            Width="140"
             Height="300"
-            IsBusy="True"
-            Width="140">
+            IsBusy="True">
             Busy...
         </controls:BusyArea>
     </Design.PreviewWith>
-    <ControlTheme TargetType="controls:BusyArea" x:Key="{x:Type controls:BusyArea}">
+    <ControlTheme x:Key="{x:Type controls:BusyArea}" TargetType="controls:BusyArea">
         <Setter Property="LoadingSize" Value="32" />
         <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Panel>
                     <Border
+                        Name="PART_AreaBackground"
+                        Width="{TemplateBinding Width}"
+                        Height="{TemplateBinding Height}"
                         Background="{DynamicResource BusyAreaOverlayColor}"
                         CornerRadius="{TemplateBinding CornerRadius}"
-                        Height="{TemplateBinding Height}"
-                        Name="PART_AreaBackground"
-                        Opacity="0"
-                        Width="{TemplateBinding Width}">
+                        Opacity="0">
                         <Border.Transitions>
                             <Transitions>
-                                <DoubleTransition Duration="0:0:0.4" Property="Opacity" />
+                                <DoubleTransition Property="Opacity" Duration="0:0:0.4" />
                             </Transitions>
                         </Border.Transitions>
                     </Border>
                     <StackPanel
-                        HorizontalAlignment="Center"
                         Name="PART_Content"
+                        HorizontalAlignment="Center"
                         VerticalAlignment="Center">
                         <StackPanel.Transitions>
                             <Transitions>
-                                <DoubleTransition Duration="0:0:0.4" Property="Opacity" />
+                                <DoubleTransition Property="Opacity" Duration="0:0:0.4" />
                             </Transitions>
                         </StackPanel.Transitions>
-                        <Viewbox Height="{TemplateBinding LoadingSize}" Width="{TemplateBinding LoadingSize}">
+                        <Viewbox Width="{TemplateBinding LoadingSize}" Height="{TemplateBinding LoadingSize}">
                             <ContentPresenter Content="{TemplateBinding IsBusy, Converter={x:Static converters:BooleanConverters.ToLoading}}" />
                         </Viewbox>
-                        <ContentPresenter Content="{TemplateBinding Content}" HorizontalContentAlignment="Center" />
+                        <ContentPresenter HorizontalContentAlignment="Center" Content="{TemplateBinding Content}" />
                     </StackPanel>
                     <Panel.Styles>
                         <Style Selector="controls|BusyArea[IsBusy=True]">

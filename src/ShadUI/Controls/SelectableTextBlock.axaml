@@ -1,22 +1,22 @@
 ﻿<ResourceDictionary
-    x:ClassModifier="internal"
     xmlns="https://github.com/avaloniaui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:ClassModifier="internal">
     <Design.PreviewWith>
         <SelectableTextBlock Text="Preview" />
     </Design.PreviewWith>
 
-    <MenuFlyout Placement="Bottom" x:Key="SelectableTextBlockContextFlyout">
+    <MenuFlyout x:Key="SelectableTextBlockContextFlyout" Placement="Bottom">
         <MenuItem
+            x:Name="SelectableTextBlockContextFlyoutCopyItem"
             Command="{CompiledBinding $parent[SelectableTextBlock].Copy}"
             Cursor="Arrow"
             Header="{DynamicResource StringTextFlyoutCopyText}"
             InputGesture="{x:Static TextBox.CopyGesture}"
-            IsEnabled="{CompiledBinding $parent[SelectableTextBlock].CanCopy}"
-            x:Name="SelectableTextBlockContextFlyoutCopyItem" />
+            IsEnabled="{CompiledBinding $parent[SelectableTextBlock].CanCopy}" />
     </MenuFlyout>
 
-    <ControlTheme TargetType="SelectableTextBlock" x:Key="{x:Type SelectableTextBlock}">
+    <ControlTheme x:Key="{x:Type SelectableTextBlock}" TargetType="SelectableTextBlock">
         <Setter Property="SelectionBrush" Value="{DynamicResource PrimaryColor}" />
         <Setter Property="SelectionForegroundBrush" Value="{DynamicResource PrimaryForegroundColor}" />
         <Style Selector="^[IsEnabled=True]">

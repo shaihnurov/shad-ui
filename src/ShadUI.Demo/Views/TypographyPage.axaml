@@ -1,120 +1,120 @@
 ﻿<UserControl
-    d:DesignWidth="800"
-    mc:Ignorable="d"
     x:Class="ShadUI.Demo.Views.TypographyPage"
-    x:DataType="viewModels:TypographyViewModel"
     xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="clr-namespace:ShadUI.Demo.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModels="clr-namespace:ShadUI.Demo.ViewModels"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    d:DesignWidth="800"
+    x:DataType="viewModels:TypographyViewModel"
+    mc:Ignorable="d">
     <DockPanel LastChildFill="True">
         <StackPanel
-            DockPanel.Dock="Top"
+            MaxWidth="1536"
             Margin="48,24"
-            MaxWidth="1536">
+            DockPanel.Dock="Top">
             <TextBlock Classes="h3" Text="Typography" />
             <TextBlock Classes="p" Text="Styles for headings, paragraphs, lists...etc." />
         </StackPanel>
         <ScrollViewer>
-            <Panel Margin="48,24" MaxWidth="1536">
+            <Panel MaxWidth="1536" Margin="48,24">
                 <StackPanel Spacing="32">
 
                     <controls:ControlBlock
+                        Title="h1"
                         Code="{Binding H1Code}"
-                        Language="xaml"
-                        Title="h1">
+                        Language="xaml">
                         <TextBlock
                             Classes="h1"
                             Text="Taxing Laughter: The Joke Tax Chronicles"
                             TextWrapping="Wrap" />
                     </controls:ControlBlock>
                     <controls:ControlBlock
+                        Title="h2"
                         Code="{Binding H2Code}"
-                        Language="xaml"
-                        Title="h2">
+                        Language="xaml">
                         <TextBlock
                             Classes="h2"
                             Text="The People of the Kingdom"
                             TextWrapping="Wrap" />
                     </controls:ControlBlock>
                     <controls:ControlBlock
+                        Title="h3"
                         Code="{Binding H3Code}"
-                        Language="xaml"
-                        Title="h3">
+                        Language="xaml">
                         <TextBlock
                             Classes="h3"
                             Text="The Joke Tax"
                             TextWrapping="Wrap" />
                     </controls:ControlBlock>
                     <controls:ControlBlock
+                        Title="h4"
                         Code="{Binding H4Code}"
-                        Language="xaml"
-                        Title="h4">
+                        Language="xaml">
                         <TextBlock
                             Classes="h4"
                             Text="People stopped telling jokes"
                             TextWrapping="Wrap" />
                     </controls:ControlBlock>
                     <controls:ControlBlock
+                        Title="p"
                         Code="{Binding PCode}"
-                        Language="xaml"
-                        Title="p">
+                        Language="xaml">
                         <TextBlock
                             Classes="p"
                             Text="The king, seeing how much happier his subjects were, realized the error of his ways and repealed the joke tax."
                             TextWrapping="Wrap" />
                     </controls:ControlBlock>
                     <controls:ControlBlock
+                        Title="Lead"
                         Code="{Binding LeadCode}"
-                        Language="xaml"
-                        Title="Lead">
+                        Language="xaml">
                         <TextBlock
                             Classes="Lead"
                             Text="A modal dialog that interrupts the user with important content and expects a response."
                             TextWrapping="Wrap" />
                     </controls:ControlBlock>
                     <controls:ControlBlock
+                        Title="Large"
                         Code="{Binding LargeCode}"
-                        Language="xaml"
-                        Title="Large">
+                        Language="xaml">
                         <TextBlock
                             Classes="Large"
                             Text="Are you absolutely sure?"
                             TextWrapping="Wrap" />
                     </controls:ControlBlock>
                     <controls:ControlBlock
+                        Title="Small"
                         Code="{Binding SmallCode}"
-                        Language="xaml"
-                        Title="Small">
+                        Language="xaml">
                         <TextBlock
                             Classes="Small"
                             Text="Email address"
                             TextWrapping="Wrap" />
                     </controls:ControlBlock>
                     <controls:ControlBlock
+                        Title="Caption"
                         Code="{Binding CaptionCode}"
-                        Language="xaml"
-                        Title="Caption">
+                        Language="xaml">
                         <TextBlock
                             Classes="Caption"
                             Text="Username"
                             TextWrapping="Wrap" />
                     </controls:ControlBlock>
                     <controls:ControlBlock
+                        Title="Muted"
                         Code="{Binding MutedCode}"
-                        Language="xaml"
-                        Title="Muted">
+                        Language="xaml">
                         <TextBlock
                             Classes="Muted"
                             Text="Enter your email address"
                             TextWrapping="Wrap" />
                     </controls:ControlBlock>
                     <controls:ControlBlock
+                        Title="Error"
                         Code="{Binding ErrorCode}"
-                        Language="xaml"
-                        Title="Error">
+                        Language="xaml">
                         <TextBlock
                             Classes="Caption Error"
                             Text="Invalid email address"

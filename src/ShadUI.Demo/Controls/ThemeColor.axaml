@@ -1,14 +1,14 @@
 ﻿<ResourceDictionary
     xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="clr-namespace:ShadUI.Demo.Controls"
-    xmlns:converters="clr-namespace:ShadUI.Demo.Converters"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    xmlns:converters="clr-namespace:ShadUI.Demo.Converters">
     <Design.PreviewWith>
-        <Panel Height="100" Width="500">
+        <Panel Width="500" Height="100">
             <controls:ThemeColor />
         </Panel>
     </Design.PreviewWith>
-    <ControlTheme TargetType="controls:ThemeColor" x:Key="{x:Type controls:ThemeColor}">
+    <ControlTheme x:Key="{x:Type controls:ThemeColor}" TargetType="controls:ThemeColor">
         <Setter Property="Background" Value="{DynamicResource BackgroundColor}" />
         <Setter Property="CornerRadius" Value="{DynamicResource MdCornerRadius}" />
         <Setter Property="BorderBrush" Value="{DynamicResource BorderColor}" />
@@ -17,34 +17,34 @@
             <ControlTemplate>
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition SharedSizeGroup="A" Width="Auto" />
-                        <ColumnDefinition SharedSizeGroup="B" Width="Auto" />
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="A" />
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="B" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <Border
-                        Background="{TemplateBinding Background}"
-                        BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}"
-                        CornerRadius="{TemplateBinding CornerRadius}"
+                        x:Name="Border"
+                        Width="36"
                         Height="36"
                         Margin="8,0"
                         VerticalAlignment="Center"
-                        Width="36"
-                        x:Name="Border" />
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}" />
                     <SelectableTextBlock
-                        FontSize="14"
-                        FontWeight="Medium"
                         Grid.Column="1"
                         Margin="8,0"
-                        Text="{Binding #Border.Background, Converter={x:Static converters:BrushConverters.ToHex}}"
-                        VerticalAlignment="Center" />
-                    <SelectableTextBlock
+                        VerticalAlignment="Center"
                         FontSize="14"
                         FontWeight="Medium"
+                        Text="{Binding #Border.Background, Converter={x:Static converters:BrushConverters.ToHex}}" />
+                    <SelectableTextBlock
                         Grid.Column="2"
                         Margin="8,0"
-                        Text="{TemplateBinding Title}"
-                        VerticalAlignment="Center" />
+                        VerticalAlignment="Center"
+                        FontSize="14"
+                        FontWeight="Medium"
+                        Text="{TemplateBinding Title}" />
                 </Grid>
             </ControlTemplate>
         </Setter>

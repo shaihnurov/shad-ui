@@ -1,44 +1,45 @@
 ﻿<ResourceDictionary
-    x:ClassModifier="internal"
     xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:converters="clr-namespace:ShadUI.Converters"
     xmlns:dialogs="clr-namespace:ShadUI.Dialogs"
     xmlns:extensions="clr-namespace:ShadUI.Extensions"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    x:ClassModifier="internal">
     <Design.PreviewWith>
         <Border Padding="24">
             <StackPanel Spacing="12">
                 <Border
+                    MaxWidth="500"
                     BorderBrush="{DynamicResource BorderColor}"
                     BorderThickness="1"
-                    CornerRadius="{DynamicResource MdCornerRadius}"
-                    MaxWidth="500">
+                    CornerRadius="{DynamicResource MdCornerRadius}">
                     <dialogs:SimpleDialog
+                        Title="Are you absolutely sure?"
                         CancelButtonStyle="Outline"
                         CancelButtonText="Cancel"
                         Message="This action cannot be undone. This will permanently delete your account and remove your data from our servers."
-                        PrimaryButtonText="Continue"
-                        Title="Are you absolutely sure?" />
+                        PrimaryButtonText="Continue" />
                 </Border>
                 <Border
+                    MaxWidth="500"
                     BorderBrush="{DynamicResource BorderColor}"
                     BorderThickness="1"
-                    CornerRadius="{DynamicResource MdCornerRadius}"
-                    MaxWidth="500">
+                    CornerRadius="{DynamicResource MdCornerRadius}">
                     <dialogs:SimpleDialog
+                        Title="Are you absolutely sure?"
                         CancelButtonStyle="Outline"
                         CancelButtonText="Cancel"
                         Message="This action cannot be undone. This will permanently delete your account and remove your data from our servers."
                         PrimaryButtonStyle="Destructive"
-                        PrimaryButtonText="Delete"
-                        Title="Are you absolutely sure?" />
+                        PrimaryButtonText="Delete" />
                 </Border>
                 <Border
+                    MaxWidth="500"
                     BorderBrush="{DynamicResource BorderColor}"
                     BorderThickness="1"
-                    CornerRadius="{DynamicResource MdCornerRadius}"
-                    MaxWidth="500">
+                    CornerRadius="{DynamicResource MdCornerRadius}">
                     <dialogs:SimpleDialog
+                        Title="Are you absolutely sure?"
                         CancelButtonStyle="Ghost"
                         CancelButtonText="Cancel"
                         Message="This action cannot be undone. This will permanently delete your account and remove your data from our servers."
@@ -46,13 +47,12 @@
                         SecondaryButtonStyle="Secondary"
                         SecondaryButtonText="No"
                         TertiaryButtonStyle="Outline"
-                        TertiaryButtonText="Maybe"
-                        Title="Are you absolutely sure?" />
+                        TertiaryButtonText="Maybe" />
                 </Border>
             </StackPanel>
         </Border>
     </Design.PreviewWith>
-    <ControlTheme TargetType="dialogs:SimpleDialog" x:Key="SimpleDialogTheme">
+    <ControlTheme x:Key="SimpleDialogTheme" TargetType="dialogs:SimpleDialog">
         <Setter Property="Padding" Value="24" />
         <Setter Property="Template">
             <Setter.Value>
@@ -71,47 +71,47 @@
                             Text="{TemplateBinding Message}"
                             TextWrapping="Wrap" />
                         <StackPanel
-                            HorizontalAlignment="Right"
                             Name="ButtonContainer"
+                            HorizontalAlignment="Right"
                             Orientation="Horizontal"
                             Spacing="8">
                             <Button
+                                Name="PART_CancelButton"
+                                MinWidth="80"
+                                extensions:ElementAssist.Classes="{TemplateBinding CancelButtonStyle,
+                                                                                   Converter={x:Static converters:DialogButtonStyleToButtonClassConverter.Instance}}"
                                 Content="{TemplateBinding CancelButtonText}"
                                 IsVisible="{CompiledBinding Content,
                                                             ElementName=PART_CancelButton,
-                                                            Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
-                                MinWidth="80"
-                                Name="PART_CancelButton"
-                                extensions:ElementAssist.Classes="{TemplateBinding CancelButtonStyle,
-                                                                                   Converter={x:Static converters:DialogButtonStyleToButtonClassConverter.Instance}}" />
+                                                            Converter={x:Static StringConverters.IsNotNullOrEmpty}}" />
                             <Button
+                                Name="PART_TertiaryButton"
+                                MinWidth="80"
+                                extensions:ElementAssist.Classes="{TemplateBinding TertiaryButtonStyle,
+                                                                                   Converter={x:Static converters:DialogButtonStyleToButtonClassConverter.Instance}}"
                                 Content="{TemplateBinding TertiaryButtonText}"
                                 IsVisible="{CompiledBinding Content,
                                                             ElementName=PART_TertiaryButton,
-                                                            Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
-                                MinWidth="80"
-                                Name="PART_TertiaryButton"
-                                extensions:ElementAssist.Classes="{TemplateBinding TertiaryButtonStyle,
-                                                                                   Converter={x:Static converters:DialogButtonStyleToButtonClassConverter.Instance}}" />
+                                                            Converter={x:Static StringConverters.IsNotNullOrEmpty}}" />
                             <Button
+                                Name="PART_SecondaryButton"
+                                MinWidth="80"
+                                extensions:ElementAssist.Classes="{TemplateBinding SecondaryButtonStyle,
+                                                                                   Converter={x:Static converters:DialogButtonStyleToButtonClassConverter.Instance}}"
                                 Content="{TemplateBinding SecondaryButtonText}"
                                 IsVisible="{CompiledBinding Content,
                                                             ElementName=PART_SecondaryButton,
-                                                            Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
-                                MinWidth="80"
-                                Name="PART_SecondaryButton"
-                                extensions:ElementAssist.Classes="{TemplateBinding SecondaryButtonStyle,
-                                                                                   Converter={x:Static converters:DialogButtonStyleToButtonClassConverter.Instance}}" />
+                                                            Converter={x:Static StringConverters.IsNotNullOrEmpty}}" />
                             <Button
+                                Name="PART_PrimaryButton"
+                                MinWidth="80"
+                                extensions:ElementAssist.Classes="{TemplateBinding PrimaryButtonStyle,
+                                                                                   Converter={x:Static converters:DialogButtonStyleToButtonClassConverter.Instance}}"
+                                extensions:ElementAssist.FocusOnLoad="True"
                                 Content="{TemplateBinding PrimaryButtonText}"
                                 IsVisible="{CompiledBinding Content,
                                                             ElementName=PART_PrimaryButton,
-                                                            Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
-                                MinWidth="80"
-                                Name="PART_PrimaryButton"
-                                extensions:ElementAssist.Classes="{TemplateBinding PrimaryButtonStyle,
-                                                                                   Converter={x:Static converters:DialogButtonStyleToButtonClassConverter.Instance}}"
-                                extensions:ElementAssist.FocusOnLoad="True" />
+                                                            Converter={x:Static StringConverters.IsNotNullOrEmpty}}" />
                         </StackPanel>
                     </StackPanel>
                 </ControlTemplate>
@@ -120,7 +120,7 @@
     </ControlTheme>
 
     <ControlTheme
+        x:Key="{x:Type dialogs:SimpleDialog}"
         BasedOn="{StaticResource SimpleDialogTheme}"
-        TargetType="dialogs:SimpleDialog"
-        x:Key="{x:Type dialogs:SimpleDialog}" />
+        TargetType="dialogs:SimpleDialog" />
 </ResourceDictionary>

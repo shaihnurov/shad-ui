@@ -1,41 +1,41 @@
 ﻿<UserControl
-    d:DesignHeight="450"
-    d:DesignWidth="800"
-    mc:Ignorable="d"
     x:Class="ShadUI.Demo.Views.AvatarPage"
-    x:DataType="viewModels:AvatarsViewModel"
     xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="clr-namespace:ShadUI.Demo.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:shadui="clr-namespace:ShadUI.Controls;assembly=ShadUI"
     xmlns:viewModels="clr-namespace:ShadUI.Demo.ViewModels"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    x:DataType="viewModels:AvatarsViewModel"
+    mc:Ignorable="d">
     <DockPanel LastChildFill="True">
         <StackPanel
-            DockPanel.Dock="Top"
+            MaxWidth="1536"
             Margin="48,24"
-            MaxWidth="1536">
+            DockPanel.Dock="Top">
             <TextBlock Classes="h3" Text="Avatar" />
             <TextBlock
-                Classes="p"
                 HorizontalAlignment="Left"
+                Classes="p"
                 Text="An image element with a fallback for representing the user."
                 TextWrapping="Wrap" />
         </StackPanel>
         <ScrollViewer>
-            <Panel Margin="48,24" MaxWidth="1536">
+            <Panel MaxWidth="1536" Margin="48,24">
                 <StackPanel Spacing="32">
                     <controls:ControlBlock
+                        Title="Usage"
                         Code="{Binding UsageCode}"
-                        Language="xaml"
-                        Title="Usage">
+                        Language="xaml">
                         <StackPanel>
                             <shadui:Avatar
-                                Fallback="CN"
+                                Width="80"
                                 Height="80"
-                                Source="../../Assets/user.png"
-                                Width="80" />
+                                Fallback="CN"
+                                Source="../../Assets/user.png" />
                         </StackPanel>
                     </controls:ControlBlock>
                 </StackPanel>

@@ -1,28 +1,28 @@
 ﻿<UserControl
-    d:DesignWidth="900"
-    mc:Ignorable="d"
     x:Class="ShadUI.Demo.Views.DialogsPage"
-    x:DataType="viewModels:DialogsViewModel"
     xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="clr-namespace:ShadUI.Demo.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModels="clr-namespace:ShadUI.Demo.ViewModels"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    d:DesignWidth="900"
+    x:DataType="viewModels:DialogsViewModel"
+    mc:Ignorable="d">
     <DockPanel LastChildFill="True">
         <StackPanel
-            DockPanel.Dock="Top"
+            MaxWidth="1536"
             Margin="48,24"
-            MaxWidth="1536">
+            DockPanel.Dock="Top">
             <TextBlock Classes="h3" Text="Dialogs" />
             <TextBlock
-                Classes="p"
                 HorizontalAlignment="Left"
+                Classes="p"
                 Text="A window overlaid on either the primary window or another dialog window, rendering the content underneath inert."
                 TextWrapping="Wrap" />
         </StackPanel>
         <ScrollViewer>
-            <Panel Margin="48,24" MaxWidth="1536">
+            <Panel MaxWidth="1536" Margin="48,24">
                 <StackPanel Spacing="32">
 
                     <StackPanel Orientation="Vertical" Spacing="8">
@@ -42,8 +42,8 @@
                             <Run Text="&lt;/controls:Window.Hosts&gt;" />
                         </controls:CodeTextBlock>
                         <TextBlock
-                            Classes="Small"
                             Margin="0,12,0,0"
+                            Classes="Small"
                             Text="Resolve DialogManager using dependency injection framework for easy access. Make sure to have only one instance of DialogManager."
                             TextWrapping="Wrap" />
                         <controls:CodeTextBlock Language="cs">
@@ -60,8 +60,8 @@
                             <Run Text="}" />
                         </controls:CodeTextBlock>
                         <TextBlock
-                            Classes="Small"
                             Margin="0,12,0,0"
+                            Classes="Small"
                             Text="When showing a custom dialog, make sure to register all dialog views with its related DataContext type." />
                         <controls:CodeTextBlock Language="cs">
                             <Run Text="// example of extension method to register dialogs" />
@@ -104,39 +104,39 @@
                         </controls:CodeTextBlock>
                     </StackPanel>
                     <controls:ControlBlock
+                        Title="Alert Dialog"
                         Code="{Binding AlertDialogCode}"
-                        Language="cs"
-                        Title="Alert Dialog">
+                        Language="cs">
                         <StackPanel>
                             <Button
+                                HorizontalAlignment="Center"
                                 Classes="Outline"
                                 Command="{Binding ShowDialogCommand}"
-                                Content="Show Dialog"
-                                HorizontalAlignment="Center" />
+                                Content="Show Dialog" />
                         </StackPanel>
                     </controls:ControlBlock>
                     <controls:ControlBlock
+                        Title="Destructive Style Dialog"
                         Code="{Binding DestructiveAlertDialogCode}"
-                        Language="cs"
-                        Title="Destructive Style Dialog">
+                        Language="cs">
                         <StackPanel>
                             <Button
+                                HorizontalAlignment="Center"
                                 Classes="Outline"
                                 Command="{Binding ShowDestructiveStyleDialogCommand}"
-                                Content="Show Dialog"
-                                HorizontalAlignment="Center" />
+                                Content="Show Dialog" />
                         </StackPanel>
                     </controls:ControlBlock>
                     <controls:ControlBlock
+                        Title="Custom Dialog"
                         Code="{Binding CustomDialogCode}"
-                        Language="cs"
-                        Title="Custom Dialog">
+                        Language="cs">
                         <StackPanel>
                             <Button
+                                HorizontalAlignment="Center"
                                 Classes="Outline"
                                 Command="{Binding ShowCustomDialogCommand}"
-                                Content="Show Dialog"
-                                HorizontalAlignment="Center" />
+                                Content="Show Dialog" />
                         </StackPanel>
                     </controls:ControlBlock>
                 </StackPanel>

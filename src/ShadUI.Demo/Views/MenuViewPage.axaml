@@ -1,9 +1,7 @@
 ﻿<UserControl
-    d:DesignWidth="800"
-    mc:Ignorable="d"
     x:Class="ShadUI.Demo.Views.MenuViewPage"
-    x:DataType="viewModels:MenuViewModel"
     xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:contents="clr-namespace:ShadUI.Contents;assembly=ShadUI"
     xmlns:controls="clr-namespace:ShadUI.Demo.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -12,35 +10,37 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:shadui="clr-namespace:ShadUI.Controls;assembly=ShadUI"
     xmlns:viewModels="clr-namespace:ShadUI.Demo.ViewModels"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    d:DesignWidth="800"
+    x:DataType="viewModels:MenuViewModel"
+    mc:Ignorable="d">
     <DockPanel LastChildFill="True">
         <StackPanel
-            DockPanel.Dock="Top"
+            MaxWidth="1536"
             Margin="48,24"
-            MaxWidth="1536">
+            DockPanel.Dock="Top">
             <TextBlock Classes="h3" Text="Menus" />
             <TextBlock
-                Classes="p"
                 HorizontalAlignment="Left"
+                Classes="p"
                 Text="A menu component that provides a set of options or commands for the user to choose from."
                 TextWrapping="Wrap" />
         </StackPanel>
         <ScrollViewer>
-            <Panel Margin="48,24" MaxWidth="1536">
+            <Panel MaxWidth="1536" Margin="48,24">
                 <StackPanel Spacing="32">
                     <controls:ControlBlock
+                        Title="Simple Dropdown"
                         Code="{Binding MenuBarCode}"
-                        Language="xaml"
-                        Title="Simple Dropdown">
+                        Language="xaml">
                         <StackPanel
                             HorizontalAlignment="Center"
                             Orientation="Horizontal"
                             Spacing="16">
                             <shadui:SimpleDropdown
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
                                 Classes="Primary"
-                                HorizontalAlignment="Center"
-                                TriggerContent="Primary"
-                                VerticalAlignment="Center">
+                                TriggerContent="Primary">
                                 <shadui:SimpleDropdown.MenuLabel>
                                     <TextBlock
                                         Classes="Small"
@@ -50,37 +50,37 @@
                                 <Button Content="Add New">
                                     <extensions:ButtonAssist.Icon>
                                         <icons:Lucide
+                                            Width="16"
                                             Height="16"
                                             Icon="Plus"
-                                            StrokeBrush="{DynamicResource ForegroundColor}"
-                                            Width="16" />
+                                            StrokeBrush="{DynamicResource ForegroundColor}" />
                                     </extensions:ButtonAssist.Icon>
                                 </Button>
                                 <Button Content="Edit" IsEnabled="False">
                                     <extensions:ButtonAssist.Icon>
                                         <icons:Lucide
+                                            Width="16"
                                             Height="16"
                                             Icon="Pencil"
-                                            StrokeBrush="{DynamicResource ForegroundColor}"
-                                            Width="16" />
+                                            StrokeBrush="{DynamicResource ForegroundColor}" />
                                     </extensions:ButtonAssist.Icon>
                                 </Button>
                                 <Separator />
                                 <Button Classes="Error" Content="Delete">
                                     <extensions:ButtonAssist.Icon>
                                         <icons:Lucide
+                                            Width="16"
                                             Height="16"
                                             Icon="Trash"
-                                            StrokeBrush="{Binding $parent.Foreground}"
-                                            Width="16" />
+                                            StrokeBrush="{Binding $parent.Foreground}" />
                                     </extensions:ButtonAssist.Icon>
                                 </Button>
                             </shadui:SimpleDropdown>
                             <shadui:SimpleDropdown
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
                                 Classes="Secondary"
-                                HorizontalAlignment="Center"
-                                TriggerContent="Secondary"
-                                VerticalAlignment="Center">
+                                TriggerContent="Secondary">
                                 <shadui:SimpleDropdown.MenuLabel>
                                     <TextBlock
                                         Classes="Small"
@@ -90,37 +90,37 @@
                                 <Button Content="Add New">
                                     <extensions:ButtonAssist.Icon>
                                         <icons:Lucide
+                                            Width="16"
                                             Height="16"
                                             Icon="Plus"
-                                            StrokeBrush="{DynamicResource ForegroundColor}"
-                                            Width="16" />
+                                            StrokeBrush="{DynamicResource ForegroundColor}" />
                                     </extensions:ButtonAssist.Icon>
                                 </Button>
                                 <Button Content="Edit" IsEnabled="False">
                                     <extensions:ButtonAssist.Icon>
                                         <icons:Lucide
+                                            Width="16"
                                             Height="16"
                                             Icon="Pencil"
-                                            StrokeBrush="{DynamicResource ForegroundColor}"
-                                            Width="16" />
+                                            StrokeBrush="{DynamicResource ForegroundColor}" />
                                     </extensions:ButtonAssist.Icon>
                                 </Button>
                                 <Separator />
                                 <Button Classes="Error" Content="Delete">
                                     <extensions:ButtonAssist.Icon>
                                         <icons:Lucide
+                                            Width="16"
                                             Height="16"
                                             Icon="Trash"
-                                            StrokeBrush="{Binding $parent.Foreground}"
-                                            Width="16" />
+                                            StrokeBrush="{Binding $parent.Foreground}" />
                                     </extensions:ButtonAssist.Icon>
                                 </Button>
                             </shadui:SimpleDropdown>
                             <shadui:SimpleDropdown
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
                                 Classes="Outline"
-                                HorizontalAlignment="Center"
-                                TriggerContent="Outline"
-                                VerticalAlignment="Center">
+                                TriggerContent="Outline">
                                 <shadui:SimpleDropdown.MenuLabel>
                                     <TextBlock
                                         Classes="Small"
@@ -130,37 +130,37 @@
                                 <Button Content="Add New">
                                     <extensions:ButtonAssist.Icon>
                                         <icons:Lucide
+                                            Width="16"
                                             Height="16"
                                             Icon="Plus"
-                                            StrokeBrush="{DynamicResource ForegroundColor}"
-                                            Width="16" />
+                                            StrokeBrush="{DynamicResource ForegroundColor}" />
                                     </extensions:ButtonAssist.Icon>
                                 </Button>
                                 <Button Content="Edit" IsEnabled="False">
                                     <extensions:ButtonAssist.Icon>
                                         <icons:Lucide
+                                            Width="16"
                                             Height="16"
                                             Icon="Pencil"
-                                            StrokeBrush="{DynamicResource ForegroundColor}"
-                                            Width="16" />
+                                            StrokeBrush="{DynamicResource ForegroundColor}" />
                                     </extensions:ButtonAssist.Icon>
                                 </Button>
                                 <Separator />
                                 <Button Classes="Error" Content="Delete">
                                     <extensions:ButtonAssist.Icon>
                                         <icons:Lucide
+                                            Width="16"
                                             Height="16"
                                             Icon="Trash"
-                                            StrokeBrush="{Binding $parent.Foreground}"
-                                            Width="16" />
+                                            StrokeBrush="{Binding $parent.Foreground}" />
                                     </extensions:ButtonAssist.Icon>
                                 </Button>
                             </shadui:SimpleDropdown>
                             <shadui:SimpleDropdown
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
                                 Classes="Ghost"
-                                HorizontalAlignment="Center"
-                                TriggerContent="Ghost"
-                                VerticalAlignment="Center">
+                                TriggerContent="Ghost">
                                 <shadui:SimpleDropdown.MenuLabel>
                                     <TextBlock
                                         Classes="Small"
@@ -170,41 +170,41 @@
                                 <Button Content="Add New">
                                     <extensions:ButtonAssist.Icon>
                                         <icons:Lucide
+                                            Width="16"
                                             Height="16"
                                             Icon="Plus"
-                                            StrokeBrush="{DynamicResource ForegroundColor}"
-                                            Width="16" />
+                                            StrokeBrush="{DynamicResource ForegroundColor}" />
                                     </extensions:ButtonAssist.Icon>
                                 </Button>
                                 <Button Content="Edit" IsEnabled="False">
                                     <extensions:ButtonAssist.Icon>
                                         <icons:Lucide
+                                            Width="16"
                                             Height="16"
                                             Icon="Pencil"
-                                            StrokeBrush="{DynamicResource ForegroundColor}"
-                                            Width="16" />
+                                            StrokeBrush="{DynamicResource ForegroundColor}" />
                                     </extensions:ButtonAssist.Icon>
                                 </Button>
                                 <Separator />
                                 <Button Classes="Error" Content="Delete">
                                     <extensions:ButtonAssist.Icon>
                                         <icons:Lucide
+                                            Width="16"
                                             Height="16"
                                             Icon="Trash"
-                                            StrokeBrush="{Binding $parent.Foreground}"
-                                            Width="16" />
+                                            StrokeBrush="{Binding $parent.Foreground}" />
                                     </extensions:ButtonAssist.Icon>
                                 </Button>
                             </shadui:SimpleDropdown>
                             <shadui:SimpleDropdown
-                                Classes="Icon"
                                 HorizontalAlignment="Center"
-                                VerticalAlignment="Center">
+                                VerticalAlignment="Center"
+                                Classes="Icon">
                                 <shadui:SimpleDropdown.TriggerContent>
                                     <icons:Lucide
+                                        Width="16"
                                         Icon="Ellipsis"
-                                        StrokeBrush="{DynamicResource ForegroundColor}"
-                                        Width="16" />
+                                        StrokeBrush="{DynamicResource ForegroundColor}" />
                                 </shadui:SimpleDropdown.TriggerContent>
                                 <shadui:SimpleDropdown.MenuLabel>
                                     <TextBlock
@@ -215,46 +215,46 @@
                                 <Button Content="Add New">
                                     <extensions:ButtonAssist.Icon>
                                         <icons:Lucide
+                                            Width="16"
                                             Height="16"
                                             Icon="Plus"
-                                            StrokeBrush="{DynamicResource ForegroundColor}"
-                                            Width="16" />
+                                            StrokeBrush="{DynamicResource ForegroundColor}" />
                                     </extensions:ButtonAssist.Icon>
                                 </Button>
                                 <Button Content="Edit" IsEnabled="False">
                                     <extensions:ButtonAssist.Icon>
                                         <icons:Lucide
+                                            Width="16"
                                             Height="16"
                                             Icon="Pencil"
-                                            StrokeBrush="{DynamicResource ForegroundColor}"
-                                            Width="16" />
+                                            StrokeBrush="{DynamicResource ForegroundColor}" />
                                     </extensions:ButtonAssist.Icon>
                                 </Button>
                                 <Separator />
                                 <Button Classes="Error" Content="Delete">
                                     <extensions:ButtonAssist.Icon>
                                         <icons:Lucide
+                                            Width="16"
                                             Height="16"
                                             Icon="Trash"
-                                            StrokeBrush="{Binding $parent.Foreground}"
-                                            Width="16" />
+                                            StrokeBrush="{Binding $parent.Foreground}" />
                                     </extensions:ButtonAssist.Icon>
                                 </Button>
                             </shadui:SimpleDropdown>
                         </StackPanel>
                     </controls:ControlBlock>
                     <controls:ControlBlock
+                        Title="Menu Bar"
                         Code="{Binding MenuBarCode}"
-                        Language="xaml"
-                        Title="Menu Bar">
+                        Language="xaml">
                         <Border
+                            Height="36"
+                            Padding="4"
+                            HorizontalAlignment="Center"
                             BorderBrush="{DynamicResource BorderColor}"
                             BorderThickness="1"
                             BoxShadow="{DynamicResource Shadow}"
-                            CornerRadius="{DynamicResource MdCornerRadius}"
-                            Height="36"
-                            HorizontalAlignment="Center"
-                            Padding="4">
+                            CornerRadius="{DynamicResource MdCornerRadius}">
                             <Menu>
                                 <MenuItem Header="File">
                                     <MenuItem Header="New Tab" InputGesture="Ctrl + T" />
@@ -262,7 +262,7 @@
                                     <MenuItem Header="New Incognito Window" IsEnabled="False" />
                                     <Separator />
                                     <MenuItem Header="Share">
-                                        <MenuItem Header="Email link" Width="128" />
+                                        <MenuItem Width="128" Header="Email link" />
                                         <MenuItem Header="Messages" />
                                         <MenuItem Header="Notes" />
                                     </MenuItem>
@@ -271,9 +271,9 @@
                                 </MenuItem>
                                 <MenuItem Header="Edit">
                                     <MenuItem
+                                        Width="192"
                                         Header="Undo"
-                                        InputGesture="Ctrl + Z"
-                                        Width="192" />
+                                        InputGesture="Ctrl + Z" />
                                     <MenuItem Header="Redo" InputGesture="Ctrl + Shift + Z" />
                                     <Separator />
                                     <MenuItem Header="Find">
@@ -292,9 +292,9 @@
                                     <MenuItem Header="Always Show Full URLs">
                                         <MenuItem.Icon>
                                             <icons:Lucide
+                                                Width="12"
                                                 Icon="Check"
-                                                StrokeBrush="{DynamicResource ForegroundColor}"
-                                                Width="12" />
+                                                StrokeBrush="{DynamicResource ForegroundColor}" />
                                         </MenuItem.Icon>
                                     </MenuItem>
                                     <Separator />
@@ -309,14 +309,14 @@
                                     <MenuItem Header="Hide Sidebar" />
                                 </MenuItem>
                                 <MenuItem Header="Profiles">
-                                    <MenuItem Header="Andy" Width="192" />
+                                    <MenuItem Width="192" Header="Andy" />
                                     <MenuItem Header="Benoit">
                                         <MenuItem.Icon>
                                             <Border
-                                                Background="{DynamicResource ForegroundColor}"
-                                                CornerRadius="{DynamicResource FullCornerRadius}"
+                                                Width="12"
                                                 Height="12"
-                                                Width="12" />
+                                                Background="{DynamicResource ForegroundColor}"
+                                                CornerRadius="{DynamicResource FullCornerRadius}" />
                                         </MenuItem.Icon>
                                     </MenuItem>
                                     <MenuItem Header="Luis" />
@@ -331,21 +331,21 @@
                     <StackPanel>
 
                         <controls:ControlBlock
+                            Title="Dropdown Menu"
                             Code="{Binding DropDownCode}"
-                            Language="xaml"
-                            Title="Dropdown Menu">
+                            Language="xaml">
                             <StackPanel
                                 HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
                                 Orientation="Horizontal"
-                                Spacing="16"
-                                VerticalAlignment="Center">
+                                Spacing="16">
                                 <StackPanel.Resources />
                                 <Menu>
                                     <MenuItem
+                                        Margin="12,0"
+                                        extensions:MenuItemAssist.PopupPlacement="Bottom"
                                         Classes="Primary"
-                                        Header="Primary"
-                                        Margin="12,0"
-                                        extensions:MenuItemAssist.PopupPlacement="Bottom">
+                                        Header="Primary">
                                         <extensions:MenuItemAssist.Label>
                                             <TextBlock
                                                 Classes="Small"
@@ -353,16 +353,16 @@
                                                 Text="My Account" />
                                         </extensions:MenuItemAssist.Label>
                                         <MenuItem
+                                            Width="224"
                                             Header="Profile"
-                                            InputGesture="Ctrl + Shift + P"
-                                            Width="224" />
+                                            InputGesture="Ctrl + Shift + P" />
                                         <MenuItem Header="Billing" InputGesture="Ctrl + B" />
                                         <MenuItem Header="Settings" InputGesture="Ctrl + S" />
                                         <MenuItem Header="Keyboard shortcuts" InputGesture="Ctrl + K" />
                                         <Separator />
                                         <MenuItem Header="Team" />
                                         <MenuItem Header="Invite users">
-                                            <MenuItem Header="Email" Width="128" />
+                                            <MenuItem Width="128" Header="Email" />
                                             <MenuItem Header="Message" />
                                             <MenuItem Header="More..." />
                                         </MenuItem>
@@ -377,10 +377,10 @@
                                         <MenuItem Classes="Destructive" Header="Delete Account" />
                                     </MenuItem>
                                     <MenuItem
+                                        Margin="12,0"
+                                        extensions:MenuItemAssist.PopupPlacement="Bottom"
                                         Classes="Secondary"
-                                        Header="Secondary"
-                                        Margin="12,0"
-                                        extensions:MenuItemAssist.PopupPlacement="Bottom">
+                                        Header="Secondary">
                                         <extensions:MenuItemAssist.Label>
                                             <TextBlock
                                                 Classes="Small"
@@ -388,16 +388,16 @@
                                                 Text="My Account" />
                                         </extensions:MenuItemAssist.Label>
                                         <MenuItem
+                                            Width="224"
                                             Header="Profile"
-                                            InputGesture="Ctrl + Shift + P"
-                                            Width="224" />
+                                            InputGesture="Ctrl + Shift + P" />
                                         <MenuItem Header="Billing" InputGesture="Ctrl + B" />
                                         <MenuItem Header="Settings" InputGesture="Ctrl + S" />
                                         <MenuItem Header="Keyboard shortcuts" InputGesture="Ctrl + K" />
                                         <Separator />
                                         <MenuItem Header="Team" />
                                         <MenuItem Header="Invite users">
-                                            <MenuItem Header="Email" Width="128" />
+                                            <MenuItem Width="128" Header="Email" />
                                             <MenuItem Header="Message" />
                                             <MenuItem Header="More..." />
                                         </MenuItem>
@@ -412,10 +412,10 @@
                                         <MenuItem Classes="Destructive" Header="Delete Account" />
                                     </MenuItem>
                                     <MenuItem
+                                        Margin="12,0"
+                                        extensions:MenuItemAssist.PopupPlacement="Bottom"
                                         Classes="Outline"
-                                        Header="Outline"
-                                        Margin="12,0"
-                                        extensions:MenuItemAssist.PopupPlacement="Bottom">
+                                        Header="Outline">
                                         <extensions:MenuItemAssist.Label>
                                             <TextBlock
                                                 Classes="Small"
@@ -423,16 +423,16 @@
                                                 Text="My Account" />
                                         </extensions:MenuItemAssist.Label>
                                         <MenuItem
+                                            Width="224"
                                             Header="Profile"
-                                            InputGesture="Ctrl + Shift + P"
-                                            Width="224" />
+                                            InputGesture="Ctrl + Shift + P" />
                                         <MenuItem Header="Billing" InputGesture="Ctrl + B" />
                                         <MenuItem Header="Settings" InputGesture="Ctrl + S" />
                                         <MenuItem Header="Keyboard shortcuts" InputGesture="Ctrl + K" />
                                         <Separator />
                                         <MenuItem Header="Team" />
                                         <MenuItem Header="Invite users">
-                                            <MenuItem Header="Email" Width="128" />
+                                            <MenuItem Width="128" Header="Email" />
                                             <MenuItem Header="Message" />
                                             <MenuItem Header="More..." />
                                         </MenuItem>
@@ -447,10 +447,10 @@
                                         <MenuItem Classes="Destructive" Header="Delete Account" />
                                     </MenuItem>
                                     <MenuItem
+                                        Margin="12,0"
+                                        extensions:MenuItemAssist.PopupPlacement="Bottom"
                                         Classes="Ghost"
-                                        Header="Ghost"
-                                        Margin="12,0"
-                                        extensions:MenuItemAssist.PopupPlacement="Bottom">
+                                        Header="Ghost">
                                         <extensions:MenuItemAssist.Label>
                                             <TextBlock
                                                 Classes="Small"
@@ -458,16 +458,16 @@
                                                 Text="My Account" />
                                         </extensions:MenuItemAssist.Label>
                                         <MenuItem
+                                            Width="224"
                                             Header="Profile"
-                                            InputGesture="Ctrl + Shift + P"
-                                            Width="224" />
+                                            InputGesture="Ctrl + Shift + P" />
                                         <MenuItem Header="Billing" InputGesture="Ctrl + B" />
                                         <MenuItem Header="Settings" InputGesture="Ctrl + S" />
                                         <MenuItem Header="Keyboard shortcuts" InputGesture="Ctrl + K" />
                                         <Separator />
                                         <MenuItem Header="Team" />
                                         <MenuItem Header="Invite users">
-                                            <MenuItem Header="Email" Width="128" />
+                                            <MenuItem Width="128" Header="Email" />
                                             <MenuItem Header="Message" />
                                             <MenuItem Header="More..." />
                                         </MenuItem>
@@ -482,14 +482,14 @@
                                         <MenuItem Classes="Destructive" Header="Delete Account" />
                                     </MenuItem>
                                     <MenuItem
-                                        Classes="Icon"
                                         Margin="12,0"
-                                        extensions:MenuItemAssist.PopupPlacement="Bottom">
+                                        extensions:MenuItemAssist.PopupPlacement="Bottom"
+                                        Classes="Icon">
                                         <MenuItem.Header>
                                             <icons:Lucide
+                                                Width="16"
                                                 Icon="Ellipsis"
-                                                StrokeBrush="{DynamicResource ForegroundColor}"
-                                                Width="16" />
+                                                StrokeBrush="{DynamicResource ForegroundColor}" />
                                         </MenuItem.Header>
                                         <extensions:MenuItemAssist.Label>
                                             <TextBlock
@@ -498,16 +498,16 @@
                                                 Text="My Account" />
                                         </extensions:MenuItemAssist.Label>
                                         <MenuItem
+                                            Width="224"
                                             Header="Profile"
-                                            InputGesture="Ctrl + Shift + P"
-                                            Width="224" />
+                                            InputGesture="Ctrl + Shift + P" />
                                         <MenuItem Header="Billing" InputGesture="Ctrl + B" />
                                         <MenuItem Header="Settings" InputGesture="Ctrl + S" />
                                         <MenuItem Header="Keyboard shortcuts" InputGesture="Ctrl + K" />
                                         <Separator />
                                         <MenuItem Header="Team" />
                                         <MenuItem Header="Invite users">
-                                            <MenuItem Header="Email" Width="128" />
+                                            <MenuItem Width="128" Header="Email" />
                                             <MenuItem Header="Message" />
                                             <MenuItem Header="More..." />
                                         </MenuItem>
@@ -526,17 +526,17 @@
                         </controls:ControlBlock>
                         <Grid ColumnDefinitions="Auto *">
                             <PathIcon
-                                Data="{x:Static contents:Icons.Warning}"
-                                Foreground="{DynamicResource WarningColor}"
+                                Width="24"
                                 Height="24"
-                                Width="24" />
+                                Data="{x:Static contents:Icons.Warning}"
+                                Foreground="{DynamicResource WarningColor}" />
                             <TextBlock
-                                Classes="Small"
                                 Grid.Column="1"
                                 Margin="8,0,0,0"
+                                VerticalAlignment="Center"
+                                Classes="Small"
                                 Text="Performance Alert: Complex MenuItems in collection controls (DataGrid/ItemsControl) may impact performance with large datasets. Consider using SimpleDropdown for better performance."
-                                TextWrapping="Wrap"
-                                VerticalAlignment="Center" />
+                                TextWrapping="Wrap" />
                         </Grid>
                     </StackPanel>
                 </StackPanel>

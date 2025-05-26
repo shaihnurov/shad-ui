@@ -1,9 +1,9 @@
-<ResourceDictionary
+﻿<ResourceDictionary
     xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:extensions="clr-namespace:ShadUI.Extensions"
-    xmlns:system="clr-namespace:System;assembly=netstandard"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <ControlTheme TargetType="MenuItem" x:Key="TopLevelMenuItem">
+    xmlns:system="clr-namespace:System;assembly=netstandard">
+    <ControlTheme x:Key="TopLevelMenuItem" TargetType="MenuItem">
         <Setter Property="FontWeight" Value="DemiBold" />
         <Setter Property="CornerRadius" Value="{DynamicResource SmCornerRadius}" />
         <Setter Property="Background" Value="{DynamicResource CardBackgroundColor}" />
@@ -13,71 +13,71 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <Border
+                    Name="root"
                     Background="{TemplateBinding Background}"
                     BorderBrush="{TemplateBinding BorderBrush}"
                     BorderThickness="{TemplateBinding BorderThickness}"
                     ClipToBounds="True"
-                    CornerRadius="{TemplateBinding CornerRadius}"
-                    Name="root">
+                    CornerRadius="{TemplateBinding CornerRadius}">
                     <Panel Background="Transparent">
                         <Border
+                            Name="ItemBackground"
                             Background="{DynamicResource GhostColor}"
                             CornerRadius="{TemplateBinding CornerRadius}"
-                            Name="ItemBackground"
                             Opacity="0">
                             <Border.Transitions>
                                 <Transitions>
-                                    <DoubleTransition Duration="0:0:0.20" Property="Opacity" />
+                                    <DoubleTransition Property="Opacity" Duration="0:0:0.20" />
                                 </Transitions>
                             </Border.Transitions>
                         </Border>
                         <ContentPresenter
-                            Content="{TemplateBinding Header}"
-                            HorizontalAlignment="Center"
-                            HorizontalContentAlignment="Left"
-                            Margin="{TemplateBinding Padding}"
                             Name="PART_HeaderPresenter"
+                            Margin="{TemplateBinding Padding}"
+                            HorizontalAlignment="Center"
                             VerticalAlignment="Center"
-                            VerticalContentAlignment="Center">
+                            HorizontalContentAlignment="Left"
+                            VerticalContentAlignment="Center"
+                            Content="{TemplateBinding Header}">
                             <ContentPresenter.DataTemplates>
                                 <DataTemplate DataType="system:String">
                                     <TextBlock
+                                        Name="PART_HeaderText"
                                         FontSize="14"
                                         FontWeight="Medium"
-                                        Name="PART_HeaderText"
                                         Text="{CompiledBinding}" />
                                 </DataTemplate>
                             </ContentPresenter.DataTemplates>
                         </ContentPresenter>
                         <Popup
+                            Name="PART_Popup"
                             IsLightDismissEnabled="True"
                             IsOpen="{TemplateBinding IsSubMenuOpen,
                                                      Mode=TwoWay}"
-                            Name="PART_Popup"
                             Opacity="0"
                             OverlayInputPassThroughElement="{CompiledBinding $parent[Menu]}"
                             Placement="{TemplateBinding extensions:MenuItemAssist.PopupPlacement}"
                             VerticalOffset="{TemplateBinding extensions:MenuItemAssist.PopupVerticalOffset}">
                             <LayoutTransformControl Name="PART_LayoutTransform" RenderTransformOrigin="50%, 0%">
                                 <Border
+                                    Name="PART_Border"
+                                    Margin="2,0,2,4"
                                     Background="{DynamicResource CardBackgroundColor}"
                                     BorderBrush="{DynamicResource BorderColor}"
                                     BorderThickness="1"
                                     BoxShadow="{DynamicResource Shadow}"
                                     ClipToBounds="True"
-                                    CornerRadius="{DynamicResource MdCornerRadius}"
-                                    Margin="2,0,2,4"
-                                    Name="PART_Border">
+                                    CornerRadius="{DynamicResource MdCornerRadius}">
                                     <StackPanel Margin="0,2">
-                                        <Border IsVisible="{TemplateBinding extensions:MenuItemAssist.Label, Converter={x:Static ObjectConverters.IsNotNull}}" Padding="16,8">
+                                        <Border Padding="16,8" IsVisible="{TemplateBinding extensions:MenuItemAssist.Label, Converter={x:Static ObjectConverters.IsNotNull}}">
                                             <ContentPresenter Content="{TemplateBinding extensions:MenuItemAssist.Label}" />
                                         </Border>
-                                        <Separator IsVisible="{TemplateBinding extensions:MenuItemAssist.Label, Converter={x:Static ObjectConverters.IsNotNull}}" Margin="0,2" />
+                                        <Separator Margin="0,2" IsVisible="{TemplateBinding extensions:MenuItemAssist.Label, Converter={x:Static ObjectConverters.IsNotNull}}" />
                                         <ScrollViewer Margin="0,2">
                                             <ItemsPresenter
+                                                Name="PART_ItemsPresenter"
                                                 Grid.IsSharedSizeScope="True"
-                                                ItemsPanel="{TemplateBinding ItemsPanel}"
-                                                Name="PART_ItemsPresenter" />
+                                                ItemsPanel="{TemplateBinding ItemsPanel}" />
                                         </ScrollViewer>
                                     </StackPanel>
                                 </Border>
@@ -96,9 +96,9 @@
         <Style Selector="^:open /template/ LayoutTransformControl#PART_LayoutTransform">
             <Style.Animations>
                 <Animation
-                    Duration="0:0:0.10"
                     Easing="SineEaseInOut"
-                    FillMode="Forward">
+                    FillMode="Forward"
+                    Duration="0:0:0.10">
                     <KeyFrame Cue="0%">
                         <Setter Property="ScaleTransform.ScaleY" Value="0.90" />
                         <Setter Property="ScaleTransform.ScaleX" Value="0.90" />
@@ -134,7 +134,7 @@
                 <Setter Property="Transitions">
                     <Setter.Value>
                         <Transitions>
-                            <BrushTransition Duration="0:0:0.20" Property="Background" />
+                            <BrushTransition Property="Background" Duration="0:0:0.20" />
                         </Transitions>
                     </Setter.Value>
                 </Setter>
@@ -173,7 +173,7 @@
                 <Setter Property="Transitions">
                     <Setter.Value>
                         <Transitions>
-                            <BrushTransition Duration="0:0:0.20" Property="Background" />
+                            <BrushTransition Property="Background" Duration="0:0:0.20" />
                         </Transitions>
                     </Setter.Value>
                 </Setter>
@@ -213,8 +213,8 @@
                 <Setter Property="Transitions">
                     <Setter.Value>
                         <Transitions>
-                            <BrushTransition Duration="0:0:0.20" Property="Background" />
-                            <BrushTransition Duration="0:0:0.20" Property="BorderBrush" />
+                            <BrushTransition Property="Background" Duration="0:0:0.20" />
+                            <BrushTransition Property="BorderBrush" Duration="0:0:0.20" />
                         </Transitions>
                     </Setter.Value>
                 </Setter>
@@ -268,7 +268,7 @@
         </Style>
     </ControlTheme>
 
-    <ControlTheme TargetType="Menu" x:Key="{x:Type Menu}">
+    <ControlTheme x:Key="{x:Type Menu}" TargetType="Menu">
         <Setter Property="FontWeight" Value="DemiBold" />
         <Setter Property="Background" Value="{DynamicResource CardBackgroundColor}" />
         <Setter Property="ItemContainerTheme" Value="{StaticResource TopLevelMenuItem}" />
@@ -276,17 +276,17 @@
             <ControlTemplate>
                 <LayoutTransformControl Name="PART_LayoutTransform" RenderTransformOrigin="50%, 0%">
                     <Border
+                        Height="{TemplateBinding Height}"
+                        Padding="{TemplateBinding Padding}"
                         BorderBrush="{DynamicResource BorderColor}"
                         BorderThickness="0"
                         ClipToBounds="True"
-                        CornerRadius="{TemplateBinding CornerRadius}"
-                        Height="{TemplateBinding Height}"
-                        Padding="{TemplateBinding Padding}">
+                        CornerRadius="{TemplateBinding CornerRadius}">
                         <ItemsPresenter
+                            Name="PART_ItemsPresenter"
                             Grid.IsSharedSizeScope="True"
                             ItemsPanel="{TemplateBinding ItemsPanel}"
-                            KeyboardNavigation.TabNavigation="Continue"
-                            Name="PART_ItemsPresenter" />
+                            KeyboardNavigation.TabNavigation="Continue" />
                     </Border>
                 </LayoutTransformControl>
             </ControlTemplate>
@@ -294,9 +294,9 @@
         <Style Selector="^[IsEnabled=True] /template/ LayoutTransformControl#PART_LayoutTransform">
             <Style.Animations>
                 <Animation
-                    Duration="0:0:0.15"
                     Easing="SineEaseInOut"
-                    FillMode="Forward">
+                    FillMode="Forward"
+                    Duration="0:0:0.15">
                     <KeyFrame Cue="0%">
                         <Setter Property="ScaleTransform.ScaleY" Value="0.90" />
                         <Setter Property="ScaleTransform.ScaleX" Value="0.90" />
@@ -314,9 +314,9 @@
         <Style Selector="^[IsEnabled=False] /template/ LayoutTransformControl#PART_LayoutTransform">
             <Style.Animations>
                 <Animation
-                    Duration="0:0:0.15"
                     Easing="SineEaseInOut"
-                    FillMode="Forward">
+                    FillMode="Forward"
+                    Duration="0:0:0.15">
                     <KeyFrame Cue="0%">
                         <Setter Property="ScaleTransform.ScaleY" Value="1" />
                         <Setter Property="ScaleTransform.ScaleX" Value="1" />

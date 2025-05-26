@@ -1,16 +1,16 @@
-<ResourceDictionary
+﻿<ResourceDictionary
     xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="clr-namespace:ShadUI.Controls"
     xmlns:extensions="clr-namespace:ShadUI.Extensions"
     xmlns:icons="clr-namespace:ShadUI.Contents"
-    xmlns:system="clr-namespace:System;assembly=System.Runtime"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    xmlns:system="clr-namespace:System;assembly=System.Runtime">
     <Design.PreviewWith>
-        <Panel Height="300" Width="600">
+        <Panel Width="600" Height="300">
             <controls:SimpleDropdown
                 HorizontalAlignment="Center"
-                TriggerContent="Click Me"
-                VerticalAlignment="Center">
+                VerticalAlignment="Center"
+                TriggerContent="Click Me">
                 <controls:SimpleDropdown.MenuLabel>
                     <TextBlock
                         FontSize="16"
@@ -20,13 +20,13 @@
                 <Button Content="Click Me">
                     <extensions:ButtonAssist.Icon>
                         <PathIcon
-                            Data="{x:Static icons:Icons.Check}"
-                            DockPanel.Dock="Right"
-                            Foreground="{DynamicResource ForegroundColor}"
+                            Name="CheckSelected"
+                            Width="12"
                             Height="12"
                             Margin="0,0,3,0"
-                            Name="CheckSelected"
-                            Width="12" />
+                            Data="{x:Static icons:Icons.Check}"
+                            DockPanel.Dock="Right"
+                            Foreground="{DynamicResource ForegroundColor}" />
                     </extensions:ButtonAssist.Icon>
                 </Button>
                 <Button Content="Click Me" />
@@ -35,7 +35,7 @@
             </controls:SimpleDropdown>
         </Panel>
     </Design.PreviewWith>
-    <ControlTheme TargetType="{x:Type controls:SimpleDropdown}" x:Key="{x:Type controls:SimpleDropdown}">
+    <ControlTheme x:Key="{x:Type controls:SimpleDropdown}" TargetType="{x:Type controls:SimpleDropdown}">
         <Setter Property="FontWeight" Value="Medium" />
         <Setter Property="FontSize" Value="14" />
         <Setter Property="FontFamily" Value="{DynamicResource FontFamily}" />
@@ -46,75 +46,75 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <Border
+                    Name="root"
                     Background="{TemplateBinding Background}"
                     BorderBrush="{TemplateBinding BorderBrush}"
                     BorderThickness="{TemplateBinding BorderThickness}"
-                    CornerRadius="{TemplateBinding CornerRadius}"
-                    Name="root">
+                    CornerRadius="{TemplateBinding CornerRadius}">
                     <Panel Background="Transparent">
                         <Border
+                            Name="ItemBackground"
                             Background="{DynamicResource GhostColor}"
                             CornerRadius="{TemplateBinding CornerRadius}"
-                            Name="ItemBackground"
                             Opacity="0">
                             <Border.Transitions>
                                 <Transitions>
-                                    <DoubleTransition Duration="0:0:0.20" Property="Opacity" />
+                                    <DoubleTransition Property="Opacity" Duration="0:0:0.20" />
                                 </Transitions>
                             </Border.Transitions>
                         </Border>
                         <ContentPresenter
+                            Name="PART_TriggerContent"
+                            Margin="{TemplateBinding Padding}"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            HorizontalContentAlignment="Left"
+                            VerticalContentAlignment="Center"
                             Content="{TemplateBinding TriggerContent}"
                             FontFamily="{TemplateBinding FontFamily}"
                             FontSize="{TemplateBinding FontSize}"
-                            FontWeight="{TemplateBinding FontWeight}"
-                            HorizontalAlignment="Center"
-                            HorizontalContentAlignment="Left"
-                            Margin="{TemplateBinding Padding}"
-                            Name="PART_TriggerContent"
-                            VerticalAlignment="Center"
-                            VerticalContentAlignment="Center">
+                            FontWeight="{TemplateBinding FontWeight}">
                             <ContentPresenter.DataTemplates>
                                 <DataTemplate DataType="system:String">
                                     <TextBlock
+                                        Name="PART_TriggerText"
                                         FontFamily="{DynamicResource FontFamily}"
                                         FontSize="14"
                                         FontWeight="DemiBold"
-                                        Name="PART_TriggerText"
                                         Text="{CompiledBinding}" />
                                 </DataTemplate>
                             </ContentPresenter.DataTemplates>
                         </ContentPresenter>
                         <Popup
+                            Name="PART_Popup"
+                            Width="{TemplateBinding PopupWidth}"
                             IsLightDismissEnabled="True"
                             IsOpen="{TemplateBinding IsDropDownOpen,
                                                      Mode=TwoWay}"
-                            Name="PART_Popup"
                             Opacity="0"
                             OverlayInputPassThroughElement="{CompiledBinding $parent[controls:SimpleDropdown]}"
                             Placement="{TemplateBinding PopupPlacement}"
-                            VerticalOffset="{TemplateBinding PopupVerticalOffset}"
-                            Width="{TemplateBinding PopupWidth}">
+                            VerticalOffset="{TemplateBinding PopupVerticalOffset}">
                             <LayoutTransformControl Name="PART_LayoutTransform" RenderTransformOrigin="50%, 0%">
                                 <Border
+                                    Name="PART_Border"
+                                    Margin="2,0,2,4"
                                     Background="{DynamicResource CardBackgroundColor}"
                                     BorderBrush="{DynamicResource BorderColor}"
                                     BorderThickness="1"
                                     BoxShadow="{DynamicResource Shadow}"
                                     ClipToBounds="True"
-                                    CornerRadius="{DynamicResource MdCornerRadius}"
-                                    Margin="2,0,2,4"
-                                    Name="PART_Border">
+                                    CornerRadius="{DynamicResource MdCornerRadius}">
                                     <StackPanel Margin="0,2">
-                                        <Border IsVisible="{TemplateBinding MenuLabel, Converter={x:Static ObjectConverters.IsNotNull}}" Padding="16,8">
+                                        <Border Padding="16,8" IsVisible="{TemplateBinding MenuLabel, Converter={x:Static ObjectConverters.IsNotNull}}">
                                             <ContentPresenter Content="{TemplateBinding MenuLabel}" />
                                         </Border>
-                                        <Separator IsVisible="{TemplateBinding MenuLabel, Converter={x:Static ObjectConverters.IsNotNull}}" Margin="0,2" />
+                                        <Separator Margin="0,2" IsVisible="{TemplateBinding MenuLabel, Converter={x:Static ObjectConverters.IsNotNull}}" />
                                         <ScrollViewer Margin="0,2">
                                             <ItemsPresenter
+                                                Name="PART_ItemsPresenter"
                                                 Grid.IsSharedSizeScope="True"
-                                                ItemsPanel="{TemplateBinding ItemsPanel}"
-                                                Name="PART_ItemsPresenter" />
+                                                ItemsPanel="{TemplateBinding ItemsPanel}" />
                                         </ScrollViewer>
                                     </StackPanel>
                                 </Border>
@@ -130,9 +130,9 @@
         <Style Selector="^[IsDropDownOpen=True] /template/ LayoutTransformControl#PART_LayoutTransform">
             <Style.Animations>
                 <Animation
-                    Duration="0:0:0.10"
                     Easing="SineEaseInOut"
-                    FillMode="Forward">
+                    FillMode="Forward"
+                    Duration="0:0:0.10">
                     <KeyFrame Cue="0%">
                         <Setter Property="ScaleTransform.ScaleY" Value="0.90" />
                         <Setter Property="ScaleTransform.ScaleX" Value="0.90" />
@@ -171,7 +171,7 @@
                 <Setter Property="Transitions">
                     <Setter.Value>
                         <Transitions>
-                            <BrushTransition Duration="0:0:0.20" Property="Background" />
+                            <BrushTransition Property="Background" Duration="0:0:0.20" />
                         </Transitions>
                     </Setter.Value>
                 </Setter>
@@ -210,7 +210,7 @@
                 <Setter Property="Transitions">
                     <Setter.Value>
                         <Transitions>
-                            <BrushTransition Duration="0:0:0.20" Property="Background" />
+                            <BrushTransition Property="Background" Duration="0:0:0.20" />
                         </Transitions>
                     </Setter.Value>
                 </Setter>
@@ -250,8 +250,8 @@
                 <Setter Property="Transitions">
                     <Setter.Value>
                         <Transitions>
-                            <BrushTransition Duration="0:0:0.20" Property="Background" />
-                            <BrushTransition Duration="0:0:0.20" Property="BorderBrush" />
+                            <BrushTransition Property="Background" Duration="0:0:0.20" />
+                            <BrushTransition Property="BorderBrush" Duration="0:0:0.20" />
                         </Transitions>
                     </Setter.Value>
                 </Setter>

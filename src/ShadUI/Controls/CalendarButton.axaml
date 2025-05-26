@@ -1,10 +1,10 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Design.PreviewWith>
-        <Panel Height="500" Width="500">
+        <Panel Width="500" Height="500">
             <CalendarButton HorizontalAlignment="Center" VerticalAlignment="Center" />
         </Panel>
     </Design.PreviewWith>
-    <ControlTheme TargetType="CalendarButton" x:Key="{x:Type CalendarButton}">
+    <ControlTheme x:Key="{x:Type CalendarButton}" TargetType="CalendarButton">
         <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
         <Setter Property="Background" Value="{DynamicResource CardBackgroundColor}" />
         <Setter Property="FontSize" Value="14" />
@@ -21,19 +21,19 @@
             <ControlTemplate>
                 <Grid>
                     <Border
+                        Name="Background"
                         Background="{TemplateBinding Background}"
                         BorderThickness="{TemplateBinding}"
-                        CornerRadius="{TemplateBinding CornerRadius}"
-                        Name="Background" />
+                        CornerRadius="{TemplateBinding CornerRadius}" />
                     <ContentPresenter
+                        x:Name="PART_ContentPresenter"
+                        Margin="{TemplateBinding Padding}"
+                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                         Content="{TemplateBinding Content}"
                         ContentTemplate="{TemplateBinding ContentTemplate}"
                         FontSize="{TemplateBinding FontSize}"
-                        Foreground="{TemplateBinding Foreground}"
-                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                        Margin="{TemplateBinding Padding}"
-                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                        x:Name="PART_ContentPresenter" />
+                        Foreground="{TemplateBinding Foreground}" />
                 </Grid>
             </ControlTemplate>
         </Setter>
@@ -42,7 +42,7 @@
             <Setter Property="Transitions">
                 <Setter.Value>
                     <Transitions>
-                        <BrushTransition Duration="0:0:0.2" Property="Background" />
+                        <BrushTransition Property="Background" Duration="0:0:0.2" />
                     </Transitions>
                 </Setter.Value>
             </Setter>
@@ -61,7 +61,7 @@
             <Setter Property="Transitions">
                 <Setter.Value>
                     <Transitions>
-                        <BrushTransition Duration="0:0:0.2" Property="BorderBrush" />
+                        <BrushTransition Property="BorderBrush" Duration="0:0:0.2" />
                     </Transitions>
                 </Setter.Value>
             </Setter>

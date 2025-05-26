@@ -1,8 +1,8 @@
 ﻿<ResourceDictionary
-    x:ClassModifier="internal"
     xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:sys="using:System"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    x:ClassModifier="internal">
     <Design.PreviewWith>
         <Border Padding="20">
             <StackPanel Spacing="20">
@@ -27,7 +27,7 @@
 
     <sys:Double x:Key="ToolTipContentMaxWidth">320</sys:Double>
 
-    <ControlTheme TargetType="ToolTip" x:Key="{x:Type ToolTip}">
+    <ControlTheme x:Key="{x:Type ToolTip}" TargetType="ToolTip">
         <Setter Property="FontFamily" Value="{DynamicResource FontFamily}" />
         <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundColor}" />
         <Setter Property="Background" Value="{DynamicResource PrimaryColor}" />
@@ -38,23 +38,23 @@
         <Setter Property="Opacity" Value="0" />
         <Setter Property="Transitions">
             <Transitions>
-                <DoubleTransition Duration="0:0:0.20" Property="Opacity" />
+                <DoubleTransition Property="Opacity" Duration="0:0:0.20" />
             </Transitions>
         </Setter>
         <Setter Property="Template">
             <ControlTemplate>
                 <Border
+                    Name="PART_LayoutRoot"
+                    Padding="{TemplateBinding Padding}"
                     Background="{TemplateBinding Background}"
                     BorderBrush="{TemplateBinding BorderBrush}"
                     BorderThickness="{TemplateBinding BorderThickness}"
-                    CornerRadius="{TemplateBinding CornerRadius}"
-                    Name="PART_LayoutRoot"
-                    Padding="{TemplateBinding Padding}">
+                    CornerRadius="{TemplateBinding CornerRadius}">
                     <ContentPresenter
+                        Name="PART_ContentPresenter"
+                        MaxWidth="{TemplateBinding MaxWidth}"
                         Content="{TemplateBinding Content}"
                         ContentTemplate="{TemplateBinding ContentTemplate}"
-                        MaxWidth="{TemplateBinding MaxWidth}"
-                        Name="PART_ContentPresenter"
                         TextBlock.TextWrapping="Wrap" />
                 </Border>
             </ControlTemplate>

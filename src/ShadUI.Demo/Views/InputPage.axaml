@@ -1,9 +1,7 @@
 ﻿<UserControl
-    d:DesignWidth="800"
-    mc:Ignorable="d"
     x:Class="ShadUI.Demo.Views.InputPage"
-    x:DataType="viewModels:InputViewModel"
     xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:contents="clr-namespace:ShadUI.Contents;assembly=ShadUI"
     xmlns:controls="clr-namespace:ShadUI.Demo.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -11,114 +9,116 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:shadui="clr-namespace:ShadUI.Controls;assembly=ShadUI"
     xmlns:viewModels="clr-namespace:ShadUI.Demo.ViewModels"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    d:DesignWidth="800"
+    x:DataType="viewModels:InputViewModel"
+    mc:Ignorable="d">
     <DockPanel LastChildFill="True">
         <StackPanel
-            DockPanel.Dock="Top"
+            MaxWidth="1536"
             Margin="48,24"
-            MaxWidth="1536">
+            DockPanel.Dock="Top">
             <TextBlock Classes="h3" Text="Inputs" />
             <TextBlock
-                Classes="p"
                 HorizontalAlignment="Left"
+                Classes="p"
                 Text="Displays a form input field or a component that looks like an input field."
                 TextWrapping="Wrap" />
         </StackPanel>
         <ScrollViewer>
-            <Panel Margin="48,24" MaxWidth="1536">
+            <Panel MaxWidth="1536" Margin="48,24">
                 <StackPanel Spacing="32">
 
                     <controls:ControlBlock
+                        Title="Default"
                         Code="{Binding DefaultInputCode}"
-                        Language="xaml"
-                        Title="Default">
+                        Language="xaml">
                         <StackPanel>
-                            <TextBox Watermark="Email" Width="225" />
+                            <TextBox Width="225" Watermark="Email" />
                         </StackPanel>
                     </controls:ControlBlock>
                     <controls:ControlBlock
+                        Title="Disabled"
                         Code="{Binding DisabledCode}"
-                        Language="xaml"
-                        Title="Disabled">
+                        Language="xaml">
                         <StackPanel>
                             <TextBox
+                                Width="225"
                                 IsEnabled="False"
-                                Watermark="Email"
-                                Width="225" />
+                                Watermark="Email" />
                         </StackPanel>
                     </controls:ControlBlock>
                     <controls:ControlBlock
+                        Title="With Label"
                         Code="{Binding WithLabelCode}"
-                        Language="xaml"
-                        Title="With Label">
+                        Language="xaml">
                         <StackPanel>
                             <TextBox
+                                Width="225"
                                 Classes="Clearable"
                                 UseFloatingWatermark="True"
-                                Watermark="Email"
-                                Width="225" />
+                                Watermark="Email" />
                         </StackPanel>
                     </controls:ControlBlock>
                     <controls:ControlBlock
+                        Title="With Custom Label"
                         Code="{Binding WithCustomLabelCode}"
-                        Language="xaml"
-                        Title="With Custom Label">
+                        Language="xaml">
                         <StackPanel>
                             <TextBox
-                                Classes="Clearable"
-                                Watermark="user@example.com"
                                 Width="225"
-                                extensions:ControlAssist.Label="Email" />
+                                extensions:ControlAssist.Label="Email"
+                                Classes="Clearable"
+                                Watermark="user@example.com" />
                         </StackPanel>
                     </controls:ControlBlock>
                     <controls:ControlBlock
+                        Title="Search Box"
                         Code="{Binding SearchBoxCode}"
-                        Language="xaml"
-                        Title="Search Box">
+                        Language="xaml">
                         <StackPanel>
                             <TextBox
+                                Width="225"
+                                extensions:ControlAssist.ShowProgress="{Binding IsSearching}"
                                 Classes="Clearable"
                                 Text="{Binding SearchString, Mode=TwoWay}"
-                                Watermark="Search here..."
-                                Width="225"
-                                extensions:ControlAssist.ShowProgress="{Binding IsSearching}">
+                                Watermark="Search here...">
                                 <TextBox.InnerRightContent>
                                     <PathIcon
+                                        Width="16"
                                         Data="{x:Static contents:Icons.Search}"
-                                        Opacity="0.75"
-                                        Width="16" />
+                                        Opacity="0.75" />
                                 </TextBox.InnerRightContent>
                             </TextBox>
                         </StackPanel>
                     </controls:ControlBlock>
                     <controls:ControlBlock
+                        Title="Auto Complete Box"
                         Code="{Binding AutoCompleteBoxCode}"
-                        Language="xaml"
-                        Title="Auto Complete Box">
+                        Language="xaml">
                         <StackPanel>
                             <AutoCompleteBox
-                                FilterMode="Contains"
-                                ItemsSource="{Binding WebFrameworks}"
-                                Watermark="Search here..."
                                 Width="225"
                                 extensions:ControlAssist.Hint="Your favorite web framework"
                                 extensions:ControlAssist.Label="Search a framework"
-                                extensions:ElementAssist.Classes="Clearable">
+                                extensions:ElementAssist.Classes="Clearable"
+                                FilterMode="Contains"
+                                ItemsSource="{Binding WebFrameworks}"
+                                Watermark="Search here...">
                                 <AutoCompleteBox.InnerRightContent>
                                     <PathIcon
+                                        Width="16"
                                         Data="{x:Static contents:Icons.Search}"
-                                        Opacity="0.75"
-                                        Width="16" />
+                                        Opacity="0.75" />
                                 </AutoCompleteBox.InnerRightContent>
                             </AutoCompleteBox>
                         </StackPanel>
                     </controls:ControlBlock>
                     <controls:ControlBlock
+                        Title="Form Validation"
                         Code="{Binding FormValidationCode}"
-                        Language="xaml"
-                        Title="Form Validation">
+                        Language="xaml">
                         <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-                            <shadui:Card HorizontalAlignment="Center" Width="350">
+                            <shadui:Card Width="350" HorizontalAlignment="Center">
                                 <shadui:Card.Header>
                                     <StackPanel Spacing="4">
                                         <shadui:CardTitle FontSize="18">Creat new account</shadui:CardTitle>
@@ -127,23 +127,23 @@
                                 </shadui:Card.Header>
                                 <StackPanel Spacing="16">
                                     <TextBox
+                                        extensions:ControlAssist.Hint="This is your public display name."
+                                        extensions:ControlAssist.Label="Email"
                                         Classes="Clearable"
                                         Text="{Binding Email, Mode=TwoWay}"
-                                        Watermark="user@example.com"
-                                        extensions:ControlAssist.Hint="This is your public display name."
-                                        extensions:ControlAssist.Label="Email" />
+                                        Watermark="user@example.com" />
                                     <TextBox
+                                        extensions:ControlAssist.Label="Password"
                                         Classes="PasswordReveal"
                                         PasswordChar="•"
                                         Text="{Binding Password, Mode=TwoWay}"
-                                        Watermark="Enter password"
-                                        extensions:ControlAssist.Label="Password" />
+                                        Watermark="Enter password" />
                                     <TextBox
+                                        extensions:ControlAssist.Label="Confirm"
                                         Classes="PasswordReveal"
                                         PasswordChar="•"
                                         Text="{Binding ConfirmPassword, Mode=TwoWay}"
-                                        Watermark="Confirm password"
-                                        extensions:ControlAssist.Label="Confirm" />
+                                        Watermark="Confirm password" />
                                 </StackPanel>
                                 <shadui:Card.Footer>
                                     <Button Classes="Primary" Command="{Binding SubmitCommand}">Submit</Button>

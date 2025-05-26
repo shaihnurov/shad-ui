@@ -1,19 +1,19 @@
-<ResourceDictionary
+﻿<ResourceDictionary
     xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="clr-namespace:ShadUI.Controls"
     xmlns:extensions="clr-namespace:ShadUI.Extensions"
-    xmlns:system="clr-namespace:System;assembly=netstandard"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    xmlns:system="clr-namespace:System;assembly=netstandard">
     <Design.PreviewWith>
         <Border Height="500" Padding="24">
             <StackPanel Spacing="8">
                 <controls:DateInput
-                    HorizontalAlignment="Left"
                     Width="255"
+                    HorizontalAlignment="Left"
                     extensions:ElementAssist.FocusOnLoad="True" />
                 <controls:DateInput extensions:ControlAssist.Label="Start date" />
                 <controls:DateInput extensions:ControlAssist.Hint="Set end date" extensions:ControlAssist.Label="End date" />
-                <controls:DateInput IsEnabled="False" extensions:ControlAssist.Label="Disable" />
+                <controls:DateInput extensions:ControlAssist.Label="Disable" IsEnabled="False" />
                 <controls:DateInput Width="255">
                     <DataValidationErrors.Error>
                         <system:Exception />
@@ -23,7 +23,7 @@
         </Border>
     </Design.PreviewWith>
 
-    <ControlTheme TargetType="TextBox" x:Key="InputBoxTheme">
+    <ControlTheme x:Key="InputBoxTheme" TargetType="TextBox">
         <Setter Property="MinWidth" Value="32" />
         <Setter Property="CornerRadius" Value="{DynamicResource SmCornerRadius}" />
         <Setter Property="Padding" Value="4" />
@@ -36,19 +36,19 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <Border
-                    Background="{TemplateBinding Background}"
-                    CornerRadius="{TemplateBinding CornerRadius}"
                     Height="{TemplateBinding Height}"
-                    Padding="{TemplateBinding Padding}">
+                    Padding="{TemplateBinding Padding}"
+                    Background="{TemplateBinding Background}"
+                    CornerRadius="{TemplateBinding CornerRadius}">
                     <Panel Name="PART_TextContainer">
                         <TextBlock
-                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                             Name="watermark"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                             Opacity="0.5"
                             Text="{TemplateBinding Watermark}"
                             TextAlignment="{TemplateBinding TextAlignment}"
-                            TextWrapping="{TemplateBinding TextWrapping}"
-                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                            TextWrapping="{TemplateBinding TextWrapping}">
                             <TextBlock.IsVisible>
                                 <MultiBinding Converter="{x:Static BoolConverters.And}">
                                     <CompiledBinding
@@ -63,10 +63,12 @@
                             </TextBlock.IsVisible>
                         </TextBlock>
                         <TextPresenter
+                            x:Name="PART_TextPresenter"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                             CaretBlinkInterval="{TemplateBinding CaretBlinkInterval}"
                             CaretBrush="{TemplateBinding CaretBrush}"
                             CaretIndex="{TemplateBinding CaretIndex}"
-                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                             LetterSpacing="{TemplateBinding LetterSpacing}"
                             LineHeight="{TemplateBinding LineHeight}"
                             PasswordChar="{TemplateBinding PasswordChar}"
@@ -78,16 +80,14 @@
                             Text="{TemplateBinding Text,
                                                    Mode=TwoWay}"
                             TextAlignment="{TemplateBinding TextAlignment}"
-                            TextWrapping="{TemplateBinding TextWrapping}"
-                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                            x:Name="PART_TextPresenter" />
+                            TextWrapping="{TemplateBinding TextWrapping}" />
                     </Panel>
                 </Border>
             </ControlTemplate>
         </Setter>
     </ControlTheme>
 
-    <ControlTheme TargetType="{x:Type controls:DateInput}" x:Key="{x:Type controls:DateInput}">
+    <ControlTheme x:Key="{x:Type controls:DateInput}" TargetType="{x:Type controls:DateInput}">
         <Setter Property="MinHeight" Value="36" />
         <Setter Property="Padding" Value="8,4" />
         <Setter Property="FontSize" Value="14" />
@@ -101,67 +101,67 @@
             <ControlTemplate>
                 <StackPanel Background="Transparent" Focusable="False">
                     <TextBlock
+                        Name="PART_Label"
+                        Margin="0,0,0,6"
                         Classes="Small"
                         IsVisible="{TemplateBinding extensions:ControlAssist.Label,
                                                     Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
-                        Margin="0,0,0,6"
-                        Name="PART_Label"
                         Text="{TemplateBinding extensions:ControlAssist.Label}" />
                     <DataValidationErrors Focusable="False">
                         <StackPanel>
                             <Border
+                                Name="PART_Container"
+                                Width="{TemplateBinding Width}"
+                                Height="{TemplateBinding Height}"
+                                Padding="{TemplateBinding Padding}"
+                                HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalAlignment}"
                                 Background="{TemplateBinding Background}"
                                 BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="{TemplateBinding BorderThickness}"
-                                CornerRadius="{TemplateBinding CornerRadius}"
-                                Height="{TemplateBinding Height}"
-                                HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
-                                Name="PART_Container"
-                                Padding="{TemplateBinding Padding}"
-                                VerticalAlignment="{TemplateBinding VerticalAlignment}"
-                                Width="{TemplateBinding Width}">
+                                CornerRadius="{TemplateBinding CornerRadius}">
                                 <Grid ColumnDefinitions="* Auto * Auto *">
                                     <TextBox
+                                        Name="PART_MonthTextBox"
+                                        Grid.Column="0"
+                                        extensions:ElementAssist.FocusOnLoad="{TemplateBinding extensions:ElementAssist.FocusOnLoad}"
                                         Background="{TemplateBinding Background}"
                                         Cursor="IBeam"
-                                        Grid.Column="0"
                                         MaxLength="2"
-                                        Name="PART_MonthTextBox"
                                         Text="{TemplateBinding MonthString,
                                                                Mode=TwoWay}"
                                         Theme="{StaticResource InputBoxTheme}"
-                                        Watermark="mm"
-                                        extensions:ElementAssist.FocusOnLoad="{TemplateBinding extensions:ElementAssist.FocusOnLoad}" />
+                                        Watermark="mm" />
                                     <TextBlock
-                                        FontSize="18"
                                         Grid.Column="1"
                                         Margin="8,0"
-                                        VerticalAlignment="Center">
+                                        VerticalAlignment="Center"
+                                        FontSize="18">
                                         /
                                     </TextBlock>
                                     <TextBox
+                                        Name="PART_DayTextBox"
+                                        Grid.Column="2"
                                         Background="{TemplateBinding Background}"
                                         Cursor="IBeam"
-                                        Grid.Column="2"
                                         MaxLength="2"
-                                        Name="PART_DayTextBox"
                                         Text="{TemplateBinding DayString,
                                                                Mode=TwoWay}"
                                         Theme="{StaticResource InputBoxTheme}"
                                         Watermark="dd" />
                                     <TextBlock
-                                        FontSize="18"
                                         Grid.Column="3"
                                         Margin="8,0"
-                                        VerticalAlignment="Center">
+                                        VerticalAlignment="Center"
+                                        FontSize="18">
                                         /
                                     </TextBlock>
                                     <TextBox
+                                        Name="PART_YearTextBox"
+                                        Grid.Column="4"
                                         Background="{TemplateBinding Background}"
                                         Cursor="IBeam"
-                                        Grid.Column="4"
                                         MaxLength="4"
-                                        Name="PART_YearTextBox"
                                         Text="{TemplateBinding YearString,
                                                                Mode=TwoWay}"
                                         Theme="{StaticResource InputBoxTheme}"
@@ -169,11 +169,11 @@
                                 </Grid>
                             </Border>
                             <TextBlock
+                                Name="PART_Hint"
+                                Margin="0,4,0,0"
                                 Classes="Caption Muted"
                                 IsVisible="{TemplateBinding extensions:ControlAssist.Hint,
                                                             Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
-                                Margin="0,4,0,0"
-                                Name="PART_Hint"
                                 Text="{TemplateBinding extensions:ControlAssist.Hint}" />
                         </StackPanel>
                     </DataValidationErrors>
@@ -184,7 +184,7 @@
             <Setter Property="Transitions">
                 <Setter.Value>
                     <Transitions>
-                        <BrushTransition Duration="0:0:0.20" Property="BorderBrush" />
+                        <BrushTransition Property="BorderBrush" Duration="0:0:0.20" />
                     </Transitions>
                 </Setter.Value>
             </Setter>
@@ -194,7 +194,7 @@
             <Setter Property="Transitions">
                 <Setter.Value>
                     <Transitions>
-                        <BrushTransition Duration="0:0:0.20" Property="BorderBrush" />
+                        <BrushTransition Property="BorderBrush" Duration="0:0:0.20" />
                     </Transitions>
                 </Setter.Value>
             </Setter>
@@ -205,7 +205,7 @@
                 <Setter Property="Transitions">
                     <Setter.Value>
                         <Transitions>
-                            <BrushTransition Duration="0:0:0.20" Property="Background" />
+                            <BrushTransition Property="Background" Duration="0:0:0.20" />
                         </Transitions>
                     </Setter.Value>
                 </Setter>

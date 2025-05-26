@@ -1,14 +1,14 @@
-<ResourceDictionary
+﻿<ResourceDictionary
     xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="clr-namespace:ShadUI.Controls"
-    xmlns:icons="clr-namespace:ShadUI.Contents"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    xmlns:icons="clr-namespace:ShadUI.Contents">
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceInclude Source="avares://ShadUI/Controls/Constants.axaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <ControlTheme TargetType="Button" x:Key="WindowButtonStyle">
+    <ControlTheme x:Key="WindowButtonStyle" TargetType="Button">
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
@@ -19,21 +19,21 @@
         <Setter Property="Padding" Value="0" />
         <Setter Property="Transitions">
             <Transitions>
-                <BrushTransition Duration="0.001" Property="Background" />
+                <BrushTransition Property="Background" Duration="0.001" />
             </Transitions>
         </Setter>
         <Setter Property="Template">
             <ControlTemplate>
-                <Border Background="{TemplateBinding Background}" Name="PART_Container">
+                <Border Name="PART_Container" Background="{TemplateBinding Background}">
                     <ContentPresenter
+                        Width="{TemplateBinding Width}"
+                        Height="{TemplateBinding Height}"
+                        Padding="{TemplateBinding Padding}"
+                        HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                        VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                         Content="{TemplateBinding Content}"
                         Foreground="{TemplateBinding Foreground}"
-                        Height="{TemplateBinding Height}"
-                        HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                        Padding="{TemplateBinding Padding}"
-                        RecognizesAccessKey="True"
-                        VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                        Width="{TemplateBinding Width}" />
+                        RecognizesAccessKey="True" />
                 </Border>
             </ControlTemplate>
         </Setter>
@@ -48,7 +48,7 @@
         </Style>
     </ControlTheme>
 
-    <ControlTheme TargetType="controls:Window" x:Key="WindowTheme">
+    <ControlTheme x:Key="WindowTheme" TargetType="controls:Window">
         <Setter Property="Margin" Value="0" />
         <Setter Property="Background" Value="{DynamicResource WindowBackgroundColor}" />
         <Setter Property="FontFamily" Value="{DynamicResource FontFamily}" />
@@ -64,15 +64,15 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <Border
+                    Margin="{TemplateBinding Margin}"
                     Background="{TemplateBinding Background}"
                     BorderBrush="{TemplateBinding BorderBrush}"
                     BorderThickness="{TemplateBinding BorderThickness}"
                     ClipToBounds="True"
                     CornerRadius="{OnPlatform '0',
                                               Linux='10',
-                                              x:TypeArguments=CornerRadius}"
-                    Margin="{TemplateBinding Margin}">
-                    <VisualLayerManager IsHitTestVisible="True" Name="PART_VisualLayerManager">
+                                              x:TypeArguments=CornerRadius}">
+                    <VisualLayerManager Name="PART_VisualLayerManager" IsHitTestVisible="True">
                         <VisualLayerManager.ChromeOverlayLayer>
                             <ItemsControl ItemsSource="{CompiledBinding Hosts, RelativeSource={RelativeSource AncestorType={x:Type controls:Window}}}">
                                 <ItemsControl.ItemsPanel>
@@ -96,13 +96,13 @@
                                     <StackPanel>
                                         <LayoutTransformControl Name="PART_LayoutTransform" RenderTransformOrigin="0%,0%">
                                             <Panel Margin="0,-1,0,0">
-                                                <Border IsVisible="{TemplateBinding ShowTitlebarBackground}" Name="PART_TitleBarBackground" />
+                                                <Border Name="PART_TitleBarBackground" IsVisible="{TemplateBinding ShowTitlebarBackground}" />
                                                 <DockPanel LastChildFill="True">
                                                     <StackPanel
+                                                        VerticalAlignment="Center"
                                                         DockPanel.Dock="Right"
                                                         Orientation="Horizontal"
-                                                        Spacing="8"
-                                                        VerticalAlignment="Center">
+                                                        Spacing="8">
                                                         <StackPanel.Styles>
                                                             <Style Selector="PathIcon">
                                                                 <Setter Property="Height" Value="10" />
@@ -118,79 +118,79 @@
                                                         </ItemsControl>
                                                         <StackPanel
                                                             Name="PART_ButtonsPanel"
-                                                            Orientation="Horizontal"
-                                                            VerticalAlignment="Stretch">
+                                                            VerticalAlignment="Stretch"
+                                                            Orientation="Horizontal">
                                                             <Button
-                                                                IsVisible="{TemplateBinding CanMinimize}"
-                                                                Margin="0,0,0,1"
                                                                 Name="PART_MinimizeButton"
+                                                                Margin="0,0,0,1"
+                                                                IsVisible="{TemplateBinding CanMinimize}"
                                                                 Theme="{StaticResource WindowButtonStyle}">
-                                                                <PathIcon Data="{x:Static icons:Icons.WindowMinimize}" Name="MinimizeIcon" />
+                                                                <PathIcon Name="MinimizeIcon" Data="{x:Static icons:Icons.WindowMinimize}" />
                                                             </Button>
                                                             <Button
-                                                                IsVisible="{TemplateBinding CanMaximize}"
-                                                                Margin="0,0,0,1"
                                                                 Name="PART_MaximizeButton"
-                                                                Theme="{StaticResource WindowButtonStyle}"
-                                                                Width="46">
-                                                                <PathIcon
-                                                                    Data="{x:Static icons:Icons.WindowMaximize}"
-                                                                    IsHitTestVisible="False"
-                                                                    Name="MaximizeIcon" />
-                                                            </Button>
-                                                            <Button
-                                                                Classes="Close"
+                                                                Width="46"
                                                                 Margin="0,0,0,1"
-                                                                Name="PART_CloseButton"
+                                                                IsVisible="{TemplateBinding CanMaximize}"
                                                                 Theme="{StaticResource WindowButtonStyle}">
                                                                 <PathIcon
+                                                                    Name="MaximizeIcon"
+                                                                    Data="{x:Static icons:Icons.WindowMaximize}"
+                                                                    IsHitTestVisible="False" />
+                                                            </Button>
+                                                            <Button
+                                                                Name="PART_CloseButton"
+                                                                Margin="0,0,0,1"
+                                                                Classes="Close"
+                                                                Theme="{StaticResource WindowButtonStyle}">
+                                                                <PathIcon
+                                                                    Name="CloseIcon"
                                                                     Data="{x:Static icons:Icons.WindowClose}"
                                                                     Foreground="{CompiledBinding Foreground,
-                                                                                                 ElementName=PART_CloseButton}"
-                                                                    Name="CloseIcon" />
+                                                                                                 ElementName=PART_CloseButton}" />
                                                             </Button>
                                                         </StackPanel>
                                                     </StackPanel>
                                                     <StackPanel
+                                                        VerticalAlignment="Center"
                                                         IsHitTestVisible="False"
                                                         Orientation="Horizontal"
-                                                        Spacing="10"
-                                                        VerticalAlignment="Center">
+                                                        Spacing="10">
                                                         <ContentPresenter
-                                                            Content="{TemplateBinding LogoContent}"
                                                             HorizontalAlignment="Left"
+                                                            Content="{TemplateBinding LogoContent}"
                                                             IsHitTestVisible="False" />
                                                         <TextBlock
+                                                            VerticalAlignment="Center"
                                                             FontSize="{TemplateBinding TitleFontSize}"
                                                             FontWeight="{TemplateBinding TitleFontWeight}"
                                                             IsHitTestVisible="False"
-                                                            Text="{TemplateBinding Title}"
-                                                            VerticalAlignment="Center" />
+                                                            Text="{TemplateBinding Title}" />
                                                     </StackPanel>
                                                 </DockPanel>
                                             </Panel>
                                         </LayoutTransformControl>
                                         <Panel
-                                            Background="{DynamicResource TitleBarBackgroundColor}"
                                             Height="36"
+                                            Background="{DynamicResource TitleBarBackgroundColor}"
                                             IsVisible="{TemplateBinding IsMenuVisible}">
                                             <Menu
-                                                IsEnabled="{TemplateBinding IsMenuVisible}"
-                                                ItemsSource="{TemplateBinding MenuItems}"
+                                                Name="PART_Menu"
                                                 Margin="8,0,8,4"
-                                                Name="PART_Menu" />
+                                                IsEnabled="{TemplateBinding IsMenuVisible}"
+                                                ItemsSource="{TemplateBinding MenuItems}" />
                                         </Panel>
-                                        <Border BorderBrush="{DynamicResource BorderColor}" Name="PART_BottomBorder" />
+                                        <Border Name="PART_BottomBorder" BorderBrush="{DynamicResource BorderColor}" />
                                     </StackPanel>
                                 </Panel>
                                 <ContentPresenter
+                                    x:Name="PART_ContentPresenter"
+                                    HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                    VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                                     Content="{TemplateBinding Content}"
                                     ContentTemplate="{TemplateBinding ContentTemplate}"
                                     CornerRadius="10"
-                                    HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                    IsHitTestVisible="True"
-                                    VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                                    x:Name="PART_ContentPresenter" />
+                                    IsHitTestVisible="True" />
                             </DockPanel>
                         </Panel>
                     </VisualLayerManager>
@@ -215,9 +215,9 @@
                 <Style Selector="^ /template/ LayoutTransformControl#PART_LayoutTransform">
                     <Style.Animations>
                         <Animation
-                            Duration="0:0:0.35"
                             Easing="CircularEaseOut"
-                            FillMode="Forward">
+                            FillMode="Forward"
+                            Duration="0:0:0.35">
                             <KeyFrame Cue="0%">
                                 <Setter Property="ScaleTransform.ScaleY" Value="0" />
                                 <Setter Property="IsVisible" Value="True" />
@@ -273,9 +273,9 @@
                 <Style Selector="^ /template/ LayoutTransformControl#PART_LayoutTransform">
                     <Style.Animations>
                         <Animation
-                            Duration="0:0:0.35"
                             Easing="CircularEaseOut"
-                            FillMode="Forward">
+                            FillMode="Forward"
+                            Duration="0:0:0.35">
                             <KeyFrame Cue="0%">
                                 <Setter Property="ScaleTransform.ScaleY" Value="1" />
                             </KeyFrame>
@@ -303,7 +303,7 @@
         </Style>
     </ControlTheme>
     <ControlTheme
+        x:Key="{x:Type controls:Window}"
         BasedOn="{StaticResource WindowTheme}"
-        TargetType="controls:Window"
-        x:Key="{x:Type controls:Window}" />
+        TargetType="controls:Window" />
 </ResourceDictionary>

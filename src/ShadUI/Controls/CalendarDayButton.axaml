@@ -1,15 +1,15 @@
 ﻿<ResourceDictionary
-    x:ClassModifier="internal"
     xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:contents="clr-namespace:ShadUI.Contents"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    x:ClassModifier="internal">
     <Design.PreviewWith>
-        <Panel Height="500" Width="500">
+        <Panel Width="500" Height="500">
             <CalendarDayButton HorizontalAlignment="Center" VerticalAlignment="Center" />
         </Panel>
     </Design.PreviewWith>
 
-    <ControlTheme TargetType="CalendarDayButton" x:Key="{x:Type CalendarDayButton}">
+    <ControlTheme x:Key="{x:Type CalendarDayButton}" TargetType="CalendarDayButton">
         <Setter Property="Background" Value="{DynamicResource CardBackgroundColor}" />
         <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
         <Setter Property="CornerRadius" Value="{DynamicResource MdCornerRadius}" />
@@ -24,26 +24,26 @@
             <ControlTemplate>
                 <Panel>
                     <Border
+                        Name="Background"
                         Background="{DynamicResource CardBackgroundColor}"
-                        CornerRadius="{TemplateBinding CornerRadius}"
-                        Name="Background" />
+                        CornerRadius="{TemplateBinding CornerRadius}" />
                     <ContentPresenter
+                        Name="PART_ContentPresenter"
+                        Margin="{TemplateBinding Padding}"
+                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                         Content="{TemplateBinding Content}"
                         ContentTemplate="{TemplateBinding ContentTemplate}"
                         FontSize="{TemplateBinding FontSize}"
                         Foreground="{TemplateBinding Foreground}"
-                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                        Margin="{TemplateBinding Padding}"
-                        Name="PART_ContentPresenter"
-                        Opacity="1"
-                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                        Opacity="1" />
                     <Path
+                        Name="BlackoutVisual"
+                        Width="24"
+                        Height="24"
                         Data="{x:Static contents:Icons.Cross}"
                         Fill="{DynamicResource ForegroundColor}"
-                        Height="24"
-                        IsVisible="False"
-                        Name="BlackoutVisual"
-                        Width="24" />
+                        IsVisible="False" />
                 </Panel>
             </ControlTemplate>
         </Setter>
@@ -51,7 +51,7 @@
             <Setter Property="Transitions">
                 <Setter.Value>
                     <Transitions>
-                        <BrushTransition Duration="0:0:0.2" Property="Background" />
+                        <BrushTransition Property="Background" Duration="0:0:0.2" />
                     </Transitions>
                 </Setter.Value>
             </Setter>
