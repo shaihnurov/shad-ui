@@ -23,8 +23,7 @@
                 <CalendarDatePicker
                     Width="240"
                     extensions:ControlAssist.Hint="Your date of birth is used to calculate your age"
-                    extensions:ControlAssist.Label="Date of birth"
-                    extensions:ControlAssist.ReadOnly="True">
+                    extensions:ControlAssist.Label="Date of birth">
                     <DataValidationErrors.Error>
                         <system:Exception />
                     </DataValidationErrors.Error>
@@ -33,6 +32,126 @@
         </Panel>
     </Design.PreviewWith>
 
+    <ControlTheme x:Key="InnerTextBoxTheme" TargetType="TextBox">
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="LineHeight" Value="20" />
+        <Setter Property="FontFamily" Value="{DynamicResource FontFamily}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Padding" Value="12,4" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="CornerRadius" Value="{DynamicResource MdCornerRadius}" />
+        <Setter Property="SelectionBrush" Value="{DynamicResource PrimaryColor}" />
+        <Setter Property="SelectionForegroundBrush" Value="{DynamicResource PrimaryForegroundColor}" />
+        <Setter Property="CaretBrush" Value="{DynamicResource ForegroundColor}" />
+        <Setter Property="FocusAdorner" Value="{x:Null}" />
+        <Setter Property="IsReadOnly" Value="True" />
+        <Setter Property="extensions:ControlAssist.ShowProgress" Value="False" />
+        <Setter Property="extensions:ControlAssist.MinHeight" Value="36" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <StackPanel Background="Transparent" Focusable="False">
+                    <Border
+                        Name="PART_Border"
+                        Height="{TemplateBinding extensions:ControlAssist.Height}"
+                        MinHeight="{TemplateBinding extensions:ControlAssist.MinHeight}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}">
+                        <Grid
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            ColumnDefinitions="Auto * Auto">
+                            <ContentPresenter
+                                Grid.Column="0"
+                                VerticalAlignment="Center"
+                                Content="{TemplateBinding InnerLeftContent}" />
+                            <ScrollViewer
+                                Name="PART_ScrollViewer"
+                                Grid.Column="1"
+                                AllowAutoHide="{TemplateBinding (ScrollViewer.AllowAutoHide)}"
+                                BringIntoViewOnFocusChange="{TemplateBinding (ScrollViewer.BringIntoViewOnFocusChange)}"
+                                HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
+                                IsScrollChainingEnabled="{TemplateBinding (ScrollViewer.IsScrollChainingEnabled)}"
+                                VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
+                                <Panel Name="PART_TextContainer">
+                                    <TextBlock
+                                        Name="watermark"
+                                        Margin="{TemplateBinding Padding}"
+                                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                        Opacity="0.5"
+                                        Text="{TemplateBinding Watermark}"
+                                        TextAlignment="{TemplateBinding TextAlignment}"
+                                        TextWrapping="{TemplateBinding TextWrapping}">
+                                        <TextBlock.IsVisible>
+                                            <MultiBinding Converter="{x:Static BoolConverters.And}">
+                                                <CompiledBinding
+                                                    Converter="{x:Static StringConverters.IsNullOrEmpty}"
+                                                    ElementName="PART_TextPresenter"
+                                                    Path="PreeditText" />
+                                                <CompiledBinding
+                                                    Converter="{x:Static StringConverters.IsNullOrEmpty}"
+                                                    Path="Text"
+                                                    RelativeSource="{RelativeSource TemplatedParent}" />
+                                            </MultiBinding>
+                                        </TextBlock.IsVisible>
+                                    </TextBlock>
+                                    <TextPresenter
+                                        Name="PART_TextPresenter"
+                                        Margin="{TemplateBinding Padding}"
+                                        VerticalAlignment="Center"
+                                        CaretBlinkInterval="{TemplateBinding CaretBlinkInterval}"
+                                        CaretBrush="{TemplateBinding CaretBrush}"
+                                        CaretIndex="{TemplateBinding CaretIndex}"
+                                        LetterSpacing="{TemplateBinding LetterSpacing}"
+                                        LineHeight="{TemplateBinding LineHeight}"
+                                        PasswordChar="{TemplateBinding PasswordChar}"
+                                        RevealPassword="{TemplateBinding RevealPassword}"
+                                        SelectionBrush="{TemplateBinding SelectionBrush}"
+                                        SelectionEnd="{TemplateBinding SelectionEnd}"
+                                        SelectionForegroundBrush="{TemplateBinding SelectionForegroundBrush}"
+                                        SelectionStart="{TemplateBinding SelectionStart}"
+                                        Text="{TemplateBinding Text,
+                                                               Mode=TwoWay}"
+                                        TextAlignment="{TemplateBinding TextAlignment}"
+                                        TextWrapping="{TemplateBinding TextWrapping}" />
+                                </Panel>
+                                <ScrollViewer.Styles>
+                                    <Style Selector="ScrollContentPresenter#PART_ContentPresenter">
+                                        <Setter Property="Cursor" Value="IBeam" />
+                                    </Style>
+                                </ScrollViewer.Styles>
+                            </ScrollViewer>
+                            <Path
+                                Name="PART_Icon"
+                                Grid.Column="2"
+                                Height="16"
+                                Margin="0,4,16,4"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Data="{x:Static contents:Icons.Calendar}"
+                                Fill="{DynamicResource MutedColor}"
+                                Stretch="Uniform" />
+                        </Grid>
+                    </Border>
+                </StackPanel>
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^:readonly">
+            <Setter Property="CaretBrush" Value="Transparent" />
+        </Style>
+        <Style Selector="^:focus">
+            <Setter Property="BorderBrush" Value="{DynamicResource PrimaryColor}" />
+        </Style>
+        <Style Selector="^:error">
+            <Setter Property="BorderBrush" Value="{DynamicResource ErrorColor}" />
+            <Style Selector="^ /template/ Path#PART_Icon">
+                <Setter Property="Fill" Value="{DynamicResource ErrorColor}" />
+            </Style>
+        </Style>
+    </ControlTheme>
+    <ControlTheme x:Key="DatePickerToggle" TargetType="ToggleButton" />
     <ControlTheme x:Key="{x:Type CalendarDatePicker}" TargetType="CalendarDatePicker">
         <Setter Property="BorderThickness" Value="1,1,1,1" />
         <Setter Property="CornerRadius" Value="{DynamicResource MdCornerRadius}" />
@@ -40,11 +159,11 @@
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="BorderBrush" Value="{DynamicResource BorderColor}" />
         <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
-        <Setter Property="Background" Value="{DynamicResource CardBackgroundColor}" />
+        <Setter Property="Background" Value="Transparent" />
         <Setter Property="FontSize" Value="14" />
+        <Setter Property="Padding" Value="12,4" />
         <Setter Property="FontWeight" Value="Medium" />
         <Setter Property="Watermark" Value="Pick a date" />
-        <Setter Property="extensions:ControlAssist.MinHeight" Value="36" />
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
         <Setter Property="Template">
             <ControlTemplate>
@@ -57,98 +176,68 @@
                             IsVisible="{TemplateBinding extensions:ControlAssist.Label,
                                                         Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
                             Text="{TemplateBinding extensions:ControlAssist.Label}" />
-                        <Border
-                            Name="PART_Border"
-                            Height="{TemplateBinding extensions:ControlAssist.Height}"
-                            MinHeight="{TemplateBinding extensions:ControlAssist.MinHeight}"
-                            Padding="{TemplateBinding Padding}"
-                            Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="{TemplateBinding CornerRadius}">
-                            <Grid ColumnDefinitions="*,Auto">
-                                <TextBox
-                                    Name="PART_TextBox"
-                                    Grid.Column="0"
-                                    Margin="0,-1,0,0"
-                                    HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                    VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                                    BorderThickness="0"
-                                    IsVisible="{TemplateBinding extensions:ControlAssist.ReadOnly,
-                                                                Converter={x:Static BoolConverters.Not}}"
-                                    UseFloatingWatermark="False"
-                                    Watermark="{TemplateBinding Watermark}" />
-                                <ContentControl
-                                    Name="PART_ReadOnlyContent"
-                                    Grid.Column="0"
-                                    Margin="12,0,0,0"
-                                    HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                    VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                                    Content="{CompiledBinding Text,
-                                                              ElementName=PART_TextBox}"
-                                    FontFamily="{TemplateBinding FontFamily}"
-                                    FontSize="{TemplateBinding FontSize}"
-                                    FontWeight="{TemplateBinding FontWeight}"
-                                    Foreground="{TemplateBinding Foreground}"
-                                    IsVisible="{TemplateBinding extensions:ControlAssist.ReadOnly}" />
-                                <TextBlock
-                                    Name="ReadOnlyWatermark"
-                                    Grid.Column="0"
-                                    Margin="12,0,0,0"
-                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                    FontFamily="{TemplateBinding FontFamily}"
-                                    Opacity="0.5"
-                                    Text="{TemplateBinding Watermark}">
-                                    <TextBlock.IsVisible>
-                                        <MultiBinding Converter="{x:Static BoolConverters.And}">
-                                            <CompiledBinding
-                                                Converter="{x:Static StringConverters.IsNullOrEmpty}"
-                                                ElementName="PART_TextBox"
-                                                Path="Text" />
-                                            <CompiledBinding ElementName="PART_ReadOnlyContent" Path="IsVisible" />
-                                        </MultiBinding>
-                                    </TextBlock.IsVisible>
-                                </TextBlock>
-                                <Path
-                                    Name="PART_Icon"
-                                    Grid.Column="1"
-                                    Height="16"
-                                    Margin="5,0,18,0"
-                                    HorizontalAlignment="Center"
-                                    VerticalAlignment="Center"
-                                    Data="{x:Static contents:Icons.Calendar}"
-                                    Fill="{DynamicResource MutedColor}"
-                                    Stretch="Uniform" />
-                                <Popup
-                                    Name="PART_Popup"
-                                    Grid.Column="0"
-                                    MinWidth="{CompiledBinding Bounds.Width,
-                                                               Converter={x:Static converters:PopupMinWidthConverter.Instance},
-                                                               RelativeSource={RelativeSource TemplatedParent}}"
-                                    IsLightDismissEnabled="True"
-                                    IsOpen="{TemplateBinding IsDropDownOpen,
-                                                             Mode=TwoWay}"
-                                    Placement="BottomEdgeAlignedLeft"
-                                    PlacementTarget="{CompiledBinding #PART_Border}"
-                                    VerticalOffset="5">
-                                    <LayoutTransformControl Name="PART_LayoutTransform" RenderTransformOrigin="50%, 0%">
-                                        <Calendar
-                                            Name="PART_Calendar"
-                                            Margin="-2,0,0,0"
-                                            DisplayDate="{TemplateBinding DisplayDate}"
-                                            DisplayDateEnd="{TemplateBinding DisplayDateEnd}"
-                                            DisplayDateStart="{TemplateBinding DisplayDateStart}"
-                                            FirstDayOfWeek="{TemplateBinding FirstDayOfWeek}"
-                                            FontFamily="{TemplateBinding FontFamily}"
-                                            IsTodayHighlighted="{TemplateBinding IsTodayHighlighted}"
-                                            SelectedDate="{CompiledBinding RelativeSource={RelativeSource TemplatedParent},
-                                                                           Path=SelectedDate,
-                                                                           Mode=TwoWay}" />
-                                    </LayoutTransformControl>
-                                </Popup>
-                            </Grid>
-                        </Border>
+                        <Panel>
+                            <Border
+                                Name="PART_Background"
+                                Background="{DynamicResource OutlineColor}"
+                                CornerRadius="{TemplateBinding CornerRadius}"
+                                IsVisible="{TemplateBinding extensions:ControlAssist.ReadOnly}"
+                                Opacity="0">
+                                <Border.Transitions>
+                                    <Transitions>
+                                        <DoubleTransition Property="Opacity" Duration="0:0:0.20" />
+                                    </Transitions>
+                                </Border.Transitions>
+                            </Border>
+                            <TextBox
+                                Name="PART_TextBox"
+                                Padding="{TemplateBinding Padding}"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="{TemplateBinding CornerRadius}"
+                                DataValidationErrors.Errors="{TemplateBinding DataValidationErrors.Errors}"
+                                IsHitTestVisible="{TemplateBinding extensions:ControlAssist.ReadOnly,
+                                                                   Converter={x:Static BoolConverters.Not}}"
+                                IsReadOnly="{TemplateBinding extensions:ControlAssist.ReadOnly}"
+                                Theme="{StaticResource InnerTextBoxTheme}"
+                                UseFloatingWatermark="False"
+                                Watermark="{TemplateBinding Watermark}" />
+                            <Border
+                                Width="40"
+                                HorizontalAlignment="Right"
+                                Background="Transparent"
+                                CornerRadius="{TemplateBinding CornerRadius}"
+                                IsVisible="{TemplateBinding extensions:ControlAssist.ReadOnly,
+                                                            Converter={x:Static BoolConverters.Not}}" />
+                            <Popup
+                                Name="PART_Popup"
+                                MinWidth="{CompiledBinding Bounds.Width,
+                                                           Converter={x:Static converters:PopupMinWidthConverter.Instance},
+                                                           RelativeSource={RelativeSource TemplatedParent}}"
+                                IsLightDismissEnabled="True"
+                                IsOpen="{TemplateBinding IsDropDownOpen,
+                                                         Mode=TwoWay}"
+                                Placement="BottomEdgeAlignedLeft"
+                                PlacementTarget="{CompiledBinding #PART_TextBox}"
+                                VerticalOffset="5">
+                                <LayoutTransformControl Name="PART_LayoutTransform" RenderTransformOrigin="50%, 0%">
+                                    <Calendar
+                                        Name="PART_Calendar"
+                                        Margin="-2,0,0,0"
+                                        extensions:ElementAssist.FocusOnLoad="True"
+                                        DisplayDate="{TemplateBinding DisplayDate}"
+                                        DisplayDateEnd="{TemplateBinding DisplayDateEnd}"
+                                        DisplayDateStart="{TemplateBinding DisplayDateStart}"
+                                        FirstDayOfWeek="{TemplateBinding FirstDayOfWeek}"
+                                        FontFamily="{TemplateBinding FontFamily}"
+                                        IsTodayHighlighted="{TemplateBinding IsTodayHighlighted}"
+                                        SelectedDate="{CompiledBinding RelativeSource={RelativeSource TemplatedParent},
+                                                                       Path=SelectedDate,
+                                                                       Mode=TwoWay}" />
+                                </LayoutTransformControl>
+                            </Popup>
+                        </Panel>
                         <TextBlock
                             Name="PART_Hint"
                             Classes="Caption Muted"
@@ -160,6 +249,9 @@
                 </DataValidationErrors>
             </ControlTemplate>
         </Setter>
+        <Style Selector="^ /template/ TextBox#PART_TextBox[IsReadOnly=True]">
+            <Setter Property="CaretBrush" Value="Transparent" />
+        </Style>
         <Style Selector="^:flyout-open">
             <Style Selector="^ /template/ LayoutTransformControl#PART_LayoutTransform">
                 <Style.Animations>
@@ -182,54 +274,27 @@
             </Style>
         </Style>
         <Style Selector="^:focus">
-            <Style Selector="^ /template/ Border#PART_Border">
-                <Setter Property="Transitions">
-                    <Setter.Value>
-                        <Transitions>
-                            <BrushTransition Property="BorderBrush" Duration="0:0:0.20" />
-                        </Transitions>
-                    </Setter.Value>
-                </Setter>
-                <Setter Property="BorderBrush" Value="{DynamicResource PrimaryColor}" />
-            </Style>
+            <Setter Property="BorderBrush" Value="{DynamicResource PrimaryColor}" />
         </Style>
         <Style Selector="^:pointerover">
-            <Style Selector="^ /template/ Border#PART_Border">
-                <Setter Property="Transitions">
-                    <Setter.Value>
-                        <Transitions>
-                            <BrushTransition Property="BorderBrush" Duration="0:0:0.20" />
-                        </Transitions>
-                    </Setter.Value>
-                </Setter>
-                <Setter Property="BorderBrush" Value="{DynamicResource PrimaryColor}" />
-            </Style>
+            <Setter Property="Transitions">
+                <Setter.Value>
+                    <Transitions>
+                        <BrushTransition Property="BorderBrush" Duration="0:0:0.20" />
+                    </Transitions>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="BorderBrush" Value="{DynamicResource OutlineColor}" />
+            <Setter Property="Cursor" Value="Hand" />
         </Style>
-        <Style Selector="^ /template/ Border#PART_Border">
-            <Style Selector="^:pointerover">
-                <Setter Property="Transitions">
-                    <Setter.Value>
-                        <Transitions>
-                            <BrushTransition Property="BorderBrush" Duration="0:0:0.20" />
-                            <BrushTransition Property="Background" Duration="0:0:0.20" />
-                        </Transitions>
-                    </Setter.Value>
-                </Setter>
-                <Setter Property="BorderBrush" Value="{DynamicResource OutlineColor}" />
-                <Setter Property="Background" Value="{DynamicResource OutlineColor}" />
-                <Setter Property="Cursor" Value="Hand" />
-            </Style>
+        <Style Selector="^:pointerover /template/ Border#PART_Background">
+            <Setter Property="Opacity" Value="1" />
         </Style>
         <Style Selector="^:disabled">
             <Setter Property="Opacity" Value="0.50" />
         </Style>
         <Style Selector="^:error">
-            <Style Selector="^/template/ Border#PART_Border">
-                <Setter Property="BorderBrush" Value="{DynamicResource ErrorColor}" />
-            </Style>
-            <Style Selector="^/template/ Path#PART_Icon">
-                <Setter Property="Fill" Value="{DynamicResource ErrorColor}" />
-            </Style>
+            <Setter Property="BorderBrush" Value="{DynamicResource ErrorColor}" />
             <Style Selector="^/template/ TextBlock#PART_Label">
                 <Setter Property="Foreground" Value="{DynamicResource ErrorColor}" />
             </Style>

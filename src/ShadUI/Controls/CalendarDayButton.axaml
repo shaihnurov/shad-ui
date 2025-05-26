@@ -24,9 +24,29 @@
             <ControlTemplate>
                 <Panel>
                     <Border
-                        Name="Background"
-                        Background="{DynamicResource CardBackgroundColor}"
-                        CornerRadius="{TemplateBinding CornerRadius}" />
+                        Name="PART_BaseBackground"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}"
+                        Opacity="1">
+                        <Border.Transitions>
+                            <Transitions>
+                                <DoubleTransition Property="Opacity" Duration="0:0:0.20" />
+                            </Transitions>
+                        </Border.Transitions>
+                    </Border>
+                    <Border
+                        Name="PART_HoverBackground"
+                        Background="{DynamicResource GhostColor}"
+                        CornerRadius="{TemplateBinding CornerRadius}"
+                        Opacity="0">
+                        <Border.Transitions>
+                            <Transitions>
+                                <DoubleTransition Property="Opacity" Duration="0:0:0.20" />
+                            </Transitions>
+                        </Border.Transitions>
+                    </Border>
                     <ContentPresenter
                         Name="PART_ContentPresenter"
                         Margin="{TemplateBinding Padding}"
@@ -43,49 +63,64 @@
                         Height="24"
                         Data="{x:Static contents:Icons.Cross}"
                         Fill="{DynamicResource ForegroundColor}"
-                        IsVisible="False" />
+                        IsVisible="False"
+                        Opacity="0">
+                        <Path.Transitions>
+                            <Transitions>
+                                <DoubleTransition Property="Opacity" Duration="0:0:0.20" />
+                            </Transitions>
+                        </Path.Transitions>
+                    </Path>
                 </Panel>
             </ControlTemplate>
         </Setter>
-        <Style Selector="^:pointerover /template/ Border#Background">
-            <Setter Property="Transitions">
-                <Setter.Value>
-                    <Transitions>
-                        <BrushTransition Property="Background" Duration="0:0:0.2" />
-                    </Transitions>
-                </Setter.Value>
-            </Setter>
-            <Setter Property="Background" Value="{DynamicResource GhostColor}" />
+        <Style Selector="^:pointerover /template/ Border#PART_HoverBackground">
+            <Setter Property="Opacity" Value="1" />
         </Style>
-        <Style Selector="^:pressed /template/ Border#Background">
-            <Setter Property="Background" Value="{DynamicResource GhostColor}" />
+        <Style Selector="^:pointerover /template/ Border#PART_BaseBackground">
+            <Setter Property="Opacity" Value="0" />
         </Style>
-
         <Style Selector="^:selected">
-            <Style Selector="^ /template/ Border#Background">
-                <Setter Property="Background" Value="{DynamicResource PrimaryColor}" />
-            </Style>
             <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundColor}" />
+            <Setter Property="Background" Value="{DynamicResource PrimaryColor}" />
+            <Style Selector="^ /template/ Border#PART_BaseBackground">
+                <Setter Property="Opacity" Value="1" />
+            </Style>
+            <Style Selector="^ /template/ Border#PART_HoverBackground">
+                <Setter Property="Opacity" Value="0" />
+            </Style>
         </Style>
 
-        <Style Selector="^:disabled">
-            <Setter Property="Opacity" Value="0.50" />
+        <Style Selector="^:dayfocused">
+            <Style Selector="^ /template/ Border#PART_BaseBackground">
+                <Setter Property="Background" Value="{DynamicResource OutlineColor}" />
+                <Setter Property="Opacity" Value="1" />
+            </Style>
+            <Style Selector="^ /template/ Border#PART_HoverBackground">
+                <Setter Property="Opacity" Value="0" />
+            </Style>
         </Style>
 
-        <Style Selector="^:dayfocused /template/ Border#Background">
-            <Setter Property="BorderBrush" Value="{DynamicResource BorderColor}" />
+        <Style Selector="^:today:not(:selected)">
+            <Style Selector="^ /template/ Border#PART_BaseBackground">
+                <Setter Property="Background" Value="{DynamicResource PrimaryColor10}" />
+                <Setter Property="Opacity" Value="1" />
+            </Style>
+            <Style Selector="^ /template/ Border#PART_HoverBackground">
+                <Setter Property="Opacity" Value="0" />
+            </Style>
         </Style>
 
-        <Style Selector="^:today:not(:selected) /template/ Border#Background">
-            <Setter Property="Background" Value="{DynamicResource GhostColor}" />
-        </Style>
-
-        <Style Selector="^:inactive /template/ ContentPresenter#PART_ContentPresenter">
+        <Style Selector="^:inactive">
             <Setter Property="Opacity" Value="0.50" />
         </Style>
 
         <Style Selector="^:blackout /template/ Path#BlackoutVisual">
             <Setter Property="Opacity" Value="0.3" />
+        </Style>
+
+        <Style Selector="^:disabled">
+            <Setter Property="Opacity" Value="0.50" />
         </Style>
     </ControlTheme>
 </ResourceDictionary>
