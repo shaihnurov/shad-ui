@@ -59,6 +59,23 @@ public class ToastHost : ItemsControl
     }
 
     /// <summary>
+    ///     Gets or sets a value indicating whether only a single toast should be displayed at a time.
+    ///     If true, any new toast will clear all existing toasts before being shown.
+    /// </summary>
+    public static readonly StyledProperty<bool> SingleToastProperty = AvaloniaProperty.Register<ToastHost, bool>(
+        nameof(SingleToast));
+
+    /// <summary>
+    ///     Gets or sets a value indicating whether only a single toast should be displayed at a time.
+    ///     If true, any new toast will clear all existing toasts before being shown.
+    /// </summary>
+    public bool SingleToast
+    {
+        get => GetValue(SingleToastProperty);
+        set => SetValue(SingleToastProperty, value);
+    }
+    
+    /// <summary>
     ///     Called when the template is applied.
     /// </summary>
     /// <param name="e"></param>
@@ -141,16 +158,19 @@ public class ToastHost : ItemsControl
     {
         if (MaxToasts <= 0) return;
 
+        if (SingleToast) foreach (var t in Items) ClearToast((Toast) t!);
+
         if (Position != toast.Position)
         {
-            foreach (var t in Items)
-                ClearToast((Toast) t!);
+            foreach (var t in Items) ClearToast((Toast)t!);
+
             Task.Delay(300).ContinueWith(_ => ShowToast(), TaskScheduler.FromCurrentSynchronizationContext());
         }
         else
         {
             ShowToast();
         }
+
         return;
 
         void ShowToast()
@@ -180,3 +200,4 @@ public class ToastHost : ItemsControl
                 OnManagerPropertyChanged(x.Sender, x)));
     }
 }
+
