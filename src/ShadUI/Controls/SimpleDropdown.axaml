@@ -1,131 +1,128 @@
 ﻿<ResourceDictionary
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:controls="clr-namespace:ShadUI.Controls"
-    xmlns:extensions="clr-namespace:ShadUI.Extensions"
-    xmlns:icons="clr-namespace:ShadUI.Contents"
+    xmlns:shadui="clr-namespace:ShadUI.Controls"
     xmlns:system="clr-namespace:System;assembly=System.Runtime">
-    <Design.PreviewWith>
-        <Panel Width="600" Height="300">
-            <controls:SimpleDropdown
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                TriggerContent="Click Me">
-                <controls:SimpleDropdown.MenuLabel>
-                    <TextBlock
-                        FontSize="16"
-                        FontWeight="SemiBold"
-                        Text="Actions" />
-                </controls:SimpleDropdown.MenuLabel>
-                <Button Content="Click Me">
-                    <extensions:ButtonAssist.Icon>
-                        <PathIcon
-                            Name="CheckSelected"
-                            Width="12"
-                            Height="12"
-                            Margin="0,0,3,0"
-                            Data="{x:Static icons:Icons.Check}"
-                            DockPanel.Dock="Right"
-                            Foreground="{DynamicResource ForegroundColor}" />
-                    </extensions:ButtonAssist.Icon>
-                </Button>
-                <Button Content="Click Me" />
-                <Separator />
-                <Button Classes="Error" Content="Click Me" />
-            </controls:SimpleDropdown>
-        </Panel>
-    </Design.PreviewWith>
-    <ControlTheme x:Key="{x:Type controls:SimpleDropdown}" TargetType="{x:Type controls:SimpleDropdown}">
+    <ControlTheme x:Key="{x:Type shadui:SimpleDropdown}" TargetType="{x:Type shadui:SimpleDropdown}">
         <Setter Property="FontWeight" Value="Medium" />
         <Setter Property="FontSize" Value="14" />
         <Setter Property="FontFamily" Value="{DynamicResource FontFamily}" />
         <Setter Property="CornerRadius" Value="{DynamicResource MdCornerRadius}" />
-        <Setter Property="Padding" Value="12 8" />
+        <Setter Property="Padding" Value="12 4" />
         <Setter Property="PopupVerticalOffset" Value="8" />
         <Setter Property="PopupPlacement" Value="BottomEdgeAlignedLeft" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Border
-                    Name="root"
-                    Background="{TemplateBinding Background}"
-                    BorderBrush="{TemplateBinding BorderBrush}"
-                    BorderThickness="{TemplateBinding BorderThickness}"
-                    CornerRadius="{TemplateBinding CornerRadius}">
-                    <Panel Background="Transparent">
-                        <Border
-                            Name="ItemBackground"
-                            Background="{DynamicResource GhostColor}"
-                            CornerRadius="{TemplateBinding CornerRadius}"
-                            Opacity="0">
-                            <Border.Transitions>
-                                <Transitions>
-                                    <DoubleTransition Property="Opacity" Duration="0:0:0.20" />
-                                </Transitions>
-                            </Border.Transitions>
-                        </Border>
-                        <ContentPresenter
-                            Name="PART_TriggerContent"
-                            Margin="{TemplateBinding Padding}"
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
-                            HorizontalContentAlignment="Left"
-                            VerticalContentAlignment="Center"
-                            Content="{TemplateBinding TriggerContent}"
-                            FontFamily="{TemplateBinding FontFamily}"
-                            FontSize="{TemplateBinding FontSize}"
-                            FontWeight="{TemplateBinding FontWeight}">
-                            <ContentPresenter.DataTemplates>
-                                <DataTemplate DataType="system:String">
-                                    <TextBlock
-                                        Name="PART_TriggerText"
-                                        FontFamily="{DynamicResource FontFamily}"
-                                        FontSize="14"
-                                        FontWeight="DemiBold"
-                                        Text="{CompiledBinding}" />
-                                </DataTemplate>
-                            </ContentPresenter.DataTemplates>
-                        </ContentPresenter>
-                        <Popup
-                            Name="PART_Popup"
-                            Width="{TemplateBinding PopupWidth}"
-                            IsLightDismissEnabled="True"
-                            IsOpen="{TemplateBinding IsDropDownOpen,
-                                                     Mode=TwoWay}"
-                            Opacity="0"
-                            OverlayInputPassThroughElement="{CompiledBinding $parent[controls:SimpleDropdown]}"
-                            Placement="{TemplateBinding PopupPlacement}"
-                            VerticalOffset="{TemplateBinding PopupVerticalOffset}">
-                            <LayoutTransformControl Name="PART_LayoutTransform" RenderTransformOrigin="50%, 0%">
-                                <Border
-                                    Name="PART_Border"
-                                    Margin="2,0,2,4"
-                                    Background="{DynamicResource CardBackgroundColor}"
-                                    BorderBrush="{DynamicResource BorderColor}"
-                                    BorderThickness="1"
-                                    BoxShadow="{DynamicResource Shadow}"
-                                    ClipToBounds="True"
-                                    CornerRadius="{DynamicResource MdCornerRadius}">
-                                    <StackPanel Margin="0,2">
-                                        <Border Padding="16,8" IsVisible="{TemplateBinding MenuLabel, Converter={x:Static ObjectConverters.IsNotNull}}">
-                                            <ContentPresenter Content="{TemplateBinding MenuLabel}" />
-                                        </Border>
-                                        <Separator Margin="0,2" IsVisible="{TemplateBinding MenuLabel, Converter={x:Static ObjectConverters.IsNotNull}}" />
-                                        <ScrollViewer Margin="0,2">
-                                            <ItemsPresenter
-                                                Name="PART_ItemsPresenter"
-                                                Grid.IsSharedSizeScope="True"
-                                                ItemsPanel="{TemplateBinding ItemsPanel}" />
-                                        </ScrollViewer>
-                                    </StackPanel>
-                                </Border>
-                            </LayoutTransformControl>
-                        </Popup>
-                    </Panel>
-                </Border>
+                <Panel Name="RootPanel">
+                    <Panel.Transitions>
+                        <Transitions>
+                            <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.10" />
+                        </Transitions>
+                    </Panel.Transitions>
+                    <Border
+                        Name="PART_BaseBackground"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}"
+                        Opacity="1">
+                        <Border.Transitions>
+                            <Transitions>
+                                <DoubleTransition Property="Opacity" Duration="0:0:0.20" />
+                            </Transitions>
+                        </Border.Transitions>
+                    </Border>
+                    <Border
+                        Name="PART_HoverBackground"
+                        CornerRadius="{TemplateBinding CornerRadius}"
+                        Opacity="0">
+                        <Border.Transitions>
+                            <Transitions>
+                                <DoubleTransition Property="Opacity" Duration="0:0:0.20" />
+                            </Transitions>
+                        </Border.Transitions>
+                    </Border>
+                    <Border
+                        Name="root"
+                        Background="Transparent"
+                        ClipToBounds="True"
+                        CornerRadius="{TemplateBinding CornerRadius}"
+                        TextElement.Foreground="{TemplateBinding Foreground}">
+                        <Panel>
+                            <ContentPresenter
+                                Name="PART_TriggerContent"
+                                Margin="{TemplateBinding Padding}"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Content="{TemplateBinding TriggerContent}"
+                                FontFamily="{TemplateBinding FontFamily}"
+                                FontSize="{TemplateBinding FontSize}"
+                                FontWeight="{TemplateBinding FontWeight}">
+                                <ContentPresenter.DataTemplates>
+                                    <DataTemplate DataType="system:String">
+                                        <TextBlock
+                                            Name="PART_TriggerText"
+                                            FontFamily="{DynamicResource FontFamily}"
+                                            FontSize="14"
+                                            FontWeight="DemiBold"
+                                            Text="{CompiledBinding}" />
+                                    </DataTemplate>
+                                </ContentPresenter.DataTemplates>
+                            </ContentPresenter>
+                            <Popup
+                                Name="PART_Popup"
+                                Width="{TemplateBinding PopupWidth}"
+                                IsLightDismissEnabled="True"
+                                IsOpen="{TemplateBinding IsDropDownOpen,
+                                                         Mode=TwoWay}"
+                                Opacity="0"
+                                OverlayInputPassThroughElement="{CompiledBinding $parent[shadui:SimpleDropdown]}"
+                                Placement="{TemplateBinding PopupPlacement}"
+                                VerticalOffset="{TemplateBinding PopupVerticalOffset}">
+                                <LayoutTransformControl Name="PART_LayoutTransform" RenderTransformOrigin="50%, 0%">
+                                    <Border
+                                        Name="PART_Border"
+                                        Margin="2,0,2,4"
+                                        Background="{DynamicResource CardBackgroundColor}"
+                                        BorderBrush="{DynamicResource BorderColor}"
+                                        BorderThickness="1"
+                                        BoxShadow="{DynamicResource Shadow}"
+                                        ClipToBounds="True"
+                                        CornerRadius="{DynamicResource MdCornerRadius}">
+                                        <StackPanel Margin="0,2">
+                                            <Border Padding="16,8" IsVisible="{TemplateBinding MenuLabel, Converter={x:Static ObjectConverters.IsNotNull}}">
+                                                <ContentPresenter Content="{TemplateBinding MenuLabel}" />
+                                            </Border>
+                                            <Separator Margin="0,2" IsVisible="{TemplateBinding MenuLabel, Converter={x:Static ObjectConverters.IsNotNull}}" />
+                                            <ScrollViewer Margin="0,2">
+                                                <ItemsPresenter
+                                                    Name="PART_ItemsPresenter"
+                                                    Grid.IsSharedSizeScope="True"
+                                                    ItemsPanel="{TemplateBinding ItemsPanel}" />
+                                            </ScrollViewer>
+                                        </StackPanel>
+                                    </Border>
+                                </LayoutTransformControl>
+                            </Popup>
+                        </Panel>
+                    </Border>
+                </Panel>
             </ControlTemplate>
         </Setter>
-        <Style Selector="^:pointerover /template/ Border#ItemBackground">
+        <Style Selector="^:pressed /template/ Panel#RootPanel">
+            <Setter Property="RenderTransform" Value="scale(0.95, 0.95)" />
+        </Style>
+        <Style Selector="^:pointerover /template/ Border#PART_HoverBackground">
             <Setter Property="Opacity" Value="1" />
+        </Style>
+        <Style Selector="^:pointerover /template/ Border#PART_BaseBackground">
+            <Setter Property="Opacity" Value="0" />
+        </Style>
+        <Style Selector="^:open /template/ Border#PART_HoverBackground">
+            <Setter Property="Opacity" Value="1" />
+        </Style>
+        <Style Selector="^:open /template/ Border#PART_BaseBackground">
+            <Setter Property="Opacity" Value="0" />
         </Style>
         <Style Selector="^[IsDropDownOpen=True] /template/ LayoutTransformControl#PART_LayoutTransform">
             <Style.Animations>
@@ -146,9 +143,6 @@
                 </Animation>
             </Style.Animations>
         </Style>
-        <Style Selector="^[IsDropDownOpen=True] /template/ Border#ItemBackground">
-            <Setter Property="Opacity" Value="1" />
-        </Style>
 
         <!--  Primary  -->
         <Style Selector="^.Primary">
@@ -158,34 +152,14 @@
             <Setter Property="CornerRadius" Value="{DynamicResource MdCornerRadius}" />
             <Setter Property="Background" Value="{DynamicResource PrimaryColor}" />
             <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundColor}" />
-            <Style Selector="^/template/ Border#ItemBackground">
-                <Setter Property="IsVisible" Value="False" />
-            </Style>
             <Style Selector="^ /template/ TextBlock">
                 <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundColor}" />
             </Style>
             <Style Selector="^ /template/ ContentPresenter#PART_HeaderPresenter">
                 <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundColor}" />
             </Style>
-            <Style Selector="^:pointerover /template/ Border#root">
-                <Setter Property="Transitions">
-                    <Setter.Value>
-                        <Transitions>
-                            <BrushTransition Property="Background" Duration="0:0:0.20" />
-                        </Transitions>
-                    </Setter.Value>
-                </Setter>
+            <Style Selector="^ /template/ Border#PART_HoverBackground">
                 <Setter Property="Background" Value="{DynamicResource PrimaryColor50}" />
-            </Style>
-            <Style Selector="^:open /template/ Border#root">
-                <Setter Property="Background" Value="{DynamicResource PrimaryColor50}" />
-            </Style>
-            <Style Selector="^:pressed /template/ Border#root">
-                <Setter Property="RenderTransform">
-                    <Setter.Value>
-                        <ScaleTransform ScaleX="0.95" ScaleY="0.95" />
-                    </Setter.Value>
-                </Setter>
             </Style>
         </Style>
 
@@ -197,34 +171,14 @@
             <Setter Property="CornerRadius" Value="{DynamicResource MdCornerRadius}" />
             <Setter Property="Background" Value="{DynamicResource SecondaryColor}" />
             <Setter Property="Foreground" Value="{DynamicResource SecondaryForegroundColor}" />
-            <Style Selector="^/template/ Border#ItemBackground">
-                <Setter Property="IsVisible" Value="False" />
-            </Style>
             <Style Selector="^ /template/ TextBlock">
                 <Setter Property="Foreground" Value="{DynamicResource SecondaryForegroundColor}" />
             </Style>
             <Style Selector="^ /template/ ContentPresenter#PART_HeaderPresenter">
                 <Setter Property="Foreground" Value="{DynamicResource SecondaryForegroundColor}" />
             </Style>
-            <Style Selector="^:pointerover /template/ Border#root">
-                <Setter Property="Transitions">
-                    <Setter.Value>
-                        <Transitions>
-                            <BrushTransition Property="Background" Duration="0:0:0.20" />
-                        </Transitions>
-                    </Setter.Value>
-                </Setter>
+            <Style Selector="^ /template/ Border#PART_HoverBackground">
                 <Setter Property="Background" Value="{DynamicResource SecondaryColor50}" />
-            </Style>
-            <Style Selector="^:open /template/ Border#root">
-                <Setter Property="Background" Value="{DynamicResource SecondaryColor50}" />
-            </Style>
-            <Style Selector="^:pressed /template/ Border#root">
-                <Setter Property="RenderTransform">
-                    <Setter.Value>
-                        <ScaleTransform ScaleX="0.95" ScaleY="0.95" />
-                    </Setter.Value>
-                </Setter>
             </Style>
         </Style>
 
@@ -236,38 +190,15 @@
             <Setter Property="BorderThickness" Value="1" />
             <Setter Property="BorderBrush" Value="{DynamicResource BorderColor}" />
             <Setter Property="CornerRadius" Value="{DynamicResource MdCornerRadius}" />
-            <Setter Property="Background" Value="{DynamicResource CardBackgroundColor}" />
-            <Style Selector="^/template/ Border#ItemBackground">
-                <Setter Property="IsVisible" Value="False" />
-            </Style>
+            <Setter Property="Background" Value="{DynamicResource BackgroundColor}" />
             <Style Selector="^ /template/ TextBlock">
                 <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
             </Style>
             <Style Selector="^ /template/ ContentPresenter#PART_HeaderPresenter">
                 <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
             </Style>
-            <Style Selector="^:pointerover /template/ Border#root">
-                <Setter Property="Transitions">
-                    <Setter.Value>
-                        <Transitions>
-                            <BrushTransition Property="Background" Duration="0:0:0.20" />
-                            <BrushTransition Property="BorderBrush" Duration="0:0:0.20" />
-                        </Transitions>
-                    </Setter.Value>
-                </Setter>
+            <Style Selector="^ /template/ Border#PART_HoverBackground">
                 <Setter Property="Background" Value="{DynamicResource OutlineColor}" />
-                <Setter Property="BorderBrush" Value="{DynamicResource OutlineColor}" />
-            </Style>
-            <Style Selector="^:open /template/ Border#root">
-                <Setter Property="Background" Value="{DynamicResource OutlineColor}" />
-                <Setter Property="BorderBrush" Value="{DynamicResource OutlineColor}" />
-            </Style>
-            <Style Selector="^:pressed /template/ Border#root">
-                <Setter Property="RenderTransform">
-                    <Setter.Value>
-                        <ScaleTransform ScaleX="0.95" ScaleY="0.95" />
-                    </Setter.Value>
-                </Setter>
             </Style>
         </Style>
 
@@ -277,12 +208,8 @@
             <Setter Property="FontSize" Value="14" />
             <Setter Property="Padding" Value="16,8" />
             <Setter Property="CornerRadius" Value="{DynamicResource MdCornerRadius}" />
-            <Style Selector="^:pressed /template/ Border#root">
-                <Setter Property="RenderTransform">
-                    <Setter.Value>
-                        <ScaleTransform ScaleX="0.95" ScaleY="0.95" />
-                    </Setter.Value>
-                </Setter>
+            <Style Selector="^ /template/ Border#PART_HoverBackground">
+                <Setter Property="Background" Value="{DynamicResource GhostHoverColor}" />
             </Style>
         </Style>
 
@@ -291,16 +218,8 @@
             <Setter Property="Height" Value="36" />
             <Setter Property="Width" Value="36" />
             <Setter Property="CornerRadius" Value="{DynamicResource MdCornerRadius}" />
-            <Style Selector="^:pressed /template/ Border#root">
-                <Setter Property="RenderTransform">
-                    <Setter.Value>
-                        <ScaleTransform ScaleX="0.95" ScaleY="0.95" />
-                    </Setter.Value>
-                </Setter>
-            </Style>
-            <Style Selector="^.Grid">
-                <Setter Property="Height" Value="32" />
-                <Setter Property="Width" Value="32" />
+            <Style Selector="^ /template/ Border#PART_HoverBackground">
+                <Setter Property="Background" Value="{DynamicResource OutlineColor}" />
             </Style>
         </Style>
     </ControlTheme>
