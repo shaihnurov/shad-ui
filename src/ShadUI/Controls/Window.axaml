@@ -180,7 +180,7 @@
                                                 IsEnabled="{TemplateBinding IsMenuVisible}"
                                                 ItemsSource="{TemplateBinding MenuItems}" />
                                         </Panel>
-                                        <Border Name="PART_BottomBorder" BorderBrush="{DynamicResource BorderColor}" />
+                                        <Border Name="PART_BottomBorder" BorderBrush="{DynamicResource BorderColor30}" />
                                     </StackPanel>
                                 </Panel>
                                 <ContentPresenter

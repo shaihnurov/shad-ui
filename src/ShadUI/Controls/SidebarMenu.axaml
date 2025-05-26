@@ -10,25 +10,27 @@
         <ResourceInclude Source="avares://ShadUI/Controls/Constants.axaml" />
     </ResourceDictionary.MergedDictionaries>
     <Design.PreviewWith>
-        <controls:SidebarMenu>
-            <controls:SidebarMenuItem Header="Header">
-                <controls:SidebarMenuItem.Icon>
-                    <PathIcon
-                        Width="13"
-                        Height="13"
-                        Data="{x:Static contents:Icons.Cross}" />
-                </controls:SidebarMenuItem.Icon>
-            </controls:SidebarMenuItem>
-            <controls:SidebarMenuItem Header="Header">
-                <controls:SidebarMenuItem.Icon>
-                    <PathIcon
-                        Width="13"
-                        Height="13"
-                        Data="{x:Static contents:Icons.Cross}" />
-                </controls:SidebarMenuItem.Icon>
-                <Grid />
-            </controls:SidebarMenuItem>
-        </controls:SidebarMenu>
+        <Panel Width="500" Height="500">
+            <controls:SidebarMenu>
+                <controls:SidebarMenuItem Header="Header">
+                    <controls:SidebarMenuItem.Icon>
+                        <PathIcon
+                            Width="13"
+                            Height="13"
+                            Data="{x:Static contents:Icons.Cross}" />
+                    </controls:SidebarMenuItem.Icon>
+                </controls:SidebarMenuItem>
+                <controls:SidebarMenuItem Header="Header">
+                    <controls:SidebarMenuItem.Icon>
+                        <PathIcon
+                            Width="13"
+                            Height="13"
+                            Data="{x:Static contents:Icons.Cross}" />
+                    </controls:SidebarMenuItem.Icon>
+                    <Grid />
+                </controls:SidebarMenuItem>
+            </controls:SidebarMenu>
+        </Panel>
     </Design.PreviewWith>
     <ControlTheme x:Key="SideToggleButtonTheme" TargetType="ToggleButton">
         <Setter Property="Height" Value="36" />
@@ -122,24 +124,24 @@
                 <SplitView
                     DisplayMode="CompactInline"
                     IsPaneOpen="{TemplateBinding IsMenuExpanded}"
-                    OpenPaneLength="{TemplateBinding OpenPaneLength}">
+                    OpenPaneLength="{TemplateBinding OpenPaneLength}"
+                    PaneBackground="{DynamicResource SidebarBackgroundColor}">
                     <SplitView.Pane>
                         <Border
                             Margin="{CompiledBinding ShowTitlebarBackground,
                                                      Converter={x:Static converters:WindowBackgroundToMarginConverter.Instance},
                                                      RelativeSource={RelativeSource Mode=FindAncestor,
                                                                                     AncestorType={x:Type controls:Window}}}"
-                            BorderBrush="{DynamicResource BorderColor}"
+                            BorderBrush="{DynamicResource BorderColor30}"
                             BorderThickness="0,0,1,0">
-                            <Grid Background="{TemplateBinding Background}">
-                                <Border BorderThickness="0,0,1,0" CornerRadius="{CompiledBinding ShowTitlebarBackground, Converter={x:Static converters:WindowBackgroundToCornerRadiusConverter.Instance}, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type controls:Window}}}" />
-                                <DockPanel Background="{TemplateBinding Background}">
+                            <Grid>
+                                <Border BorderBrush="{DynamicResource BorderColor30}" CornerRadius="{CompiledBinding ShowTitlebarBackground, Converter={x:Static converters:WindowBackgroundToCornerRadiusConverter.Instance}, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type controls:Window}}}" />
+                                <DockPanel>
                                     <ToggleButton
                                         Name="PART_SidebarToggleButton"
                                         Margin="8"
                                         HorizontalAlignment="Stretch"
                                         VerticalAlignment="Top"
-                                        BorderBrush="{DynamicResource SidebarBackgroundColor}"
                                         DockPanel.Dock="Top"
                                         IsChecked="{TemplateBinding IsMenuExpanded,
                                                                     Mode=TwoWay}"

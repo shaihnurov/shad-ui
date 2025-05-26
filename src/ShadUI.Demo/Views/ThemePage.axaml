@@ -56,6 +56,7 @@
                                 <controls:ThemeColor Title="BackgroundColor" Background="{DynamicResource BackgroundColor}" />
                                 <controls:ThemeColor Title="MutedColor" Background="{DynamicResource MutedColor}" />
                                 <controls:ThemeColor Title="BorderColor" Background="{DynamicResource BorderColor}" />
+                                <controls:ThemeColor Title="BorderColor30" Background="{DynamicResource BorderColor30}" />
                                 <controls:ThemeColor Title="OutlineColor" Background="{DynamicResource OutlineColor}" />
                                 <controls:ThemeColor Title="GhostColor" Background="{DynamicResource GhostColor}" />
                                 <controls:ThemeColor Title="GhostHoverColor" Background="{DynamicResource GhostHoverColor}" />
