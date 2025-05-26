@@ -91,7 +91,7 @@
     </ControlTheme>
     <ControlTheme x:Key="ToggleButtonTheme" TargetType="ToggleButton">
         <Setter Property="Padding" Value="8,4" />
-        <Setter Property="Background" Value="{DynamicResource CardBackgroundColor}" />
+        <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="{DynamicResource BorderColor}" />
         <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
         <Setter Property="FontSize" Value="14" />
@@ -102,28 +102,41 @@
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Border
-                    Name="RootBorder"
-                    Padding="{TemplateBinding Padding}"
-                    Background="{TemplateBinding Background}"
-                    BorderBrush="{TemplateBinding BorderBrush}"
-                    BorderThickness="{TemplateBinding BorderThickness}"
-                    CornerRadius="{TemplateBinding CornerRadius}"
-                    TextElement.Foreground="{TemplateBinding Foreground}">
-                    <Border.Transitions>
-                        <Transitions>
-                            <DoubleTransition Property="Opacity" Duration="0:0:0.35" />
-                        </Transitions>
-                    </Border.Transitions>
-                    <ContentPresenter
-                        HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                        VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                        Content="{TemplateBinding Content}"
-                        FontFamily="{TemplateBinding FontFamily}"
-                        FontSize="{TemplateBinding FontSize}"
-                        FontWeight="SemiBold"
-                        RecognizesAccessKey="True" />
-                </Border>
+                <Panel>
+                    <Border
+                        Name="Background"
+                        Background="{DynamicResource GhostColor}"
+                        CornerRadius="{TemplateBinding CornerRadius}"
+                        Opacity="0">
+                        <Border.Transitions>
+                            <Transitions>
+                                <DoubleTransition Property="Opacity" Duration="0:0:0.20" />
+                            </Transitions>
+                        </Border.Transitions>
+                    </Border>
+                    <Border
+                        Name="RootBorder"
+                        Padding="{TemplateBinding Padding}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}"
+                        TextElement.Foreground="{TemplateBinding Foreground}">
+                        <Border.Transitions>
+                            <Transitions>
+                                <DoubleTransition Property="Opacity" Duration="0:0:0.20" />
+                            </Transitions>
+                        </Border.Transitions>
+                        <ContentPresenter
+                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Content="{TemplateBinding Content}"
+                            FontFamily="{TemplateBinding FontFamily}"
+                            FontSize="{TemplateBinding FontSize}"
+                            FontWeight="SemiBold"
+                            RecognizesAccessKey="True" />
+                    </Border>
+                </Panel>
             </ControlTemplate>
         </Setter>
         <Style Selector="^ /template/ TextBlock">
@@ -132,13 +145,8 @@
         <Style Selector="^ /template/ ContentPresenter">
             <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
         </Style>
-        <Style Selector="^:pointerover /template/ Border#RootBorder">
-            <Setter Property="Transitions">
-                <Transitions>
-                    <BrushTransition Property="Background" Duration="0:0:0.20" />
-                </Transitions>
-            </Setter>
-            <Setter Property="Background" Value="{DynamicResource GhostColor}" />
+        <Style Selector="^:pointerover /template/ Border#Background">
+            <Setter Property="Opacity" Value="1" />
         </Style>
         <Style Selector="^:pressed">
             <Style Selector="^ /template/ Border">
