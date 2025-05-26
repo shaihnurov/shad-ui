@@ -6,6 +6,7 @@
     <Color x:Key="BackgroundColor">Transparent</Color>
     <Color x:Key="MutedColor">#A0A0A9</Color>
     <Color x:Key="BorderColor">#353535</Color>
+    <Color x:Key="BorderColor60">#262626</Color>
     <Color x:Key="BorderColor30">#4C353535</Color>
     <Color x:Key="OutlineColor">#BF27272A</Color>
     <Color x:Key="GhostColor">#27272A</Color>

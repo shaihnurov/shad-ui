@@ -60,7 +60,7 @@
         <Setter Property="ExtendClientAreaToDecorationsHint" Value="True" />
         <Setter Property="TextElement.Foreground" Value="{DynamicResource ForegroundColor}" />
         <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="BorderBrush" Value="{DynamicResource BorderColor}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderColor60}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Border
@@ -109,7 +109,7 @@
                                                                 <Setter Property="Width" Value="10" />
                                                             </Style>
                                                         </StackPanel.Styles>
-                                                        <ItemsControl ItemsSource="{TemplateBinding RightWindowTitleBarControls}">
+                                                        <ItemsControl Name="PART_RightButtons" ItemsSource="{TemplateBinding RightWindowTitleBarControls}">
                                                             <ItemsControl.ItemsPanel>
                                                                 <ItemsPanelTemplate>
                                                                     <StackPanel Orientation="Horizontal" />
@@ -152,6 +152,7 @@
                                                         </StackPanel>
                                                     </StackPanel>
                                                     <StackPanel
+                                                        Name="AppTitlePanel"
                                                         VerticalAlignment="Center"
                                                         IsHitTestVisible="False"
                                                         Orientation="Horizontal"
@@ -254,6 +255,12 @@
                         <Setter Property="Opacity" Value="1" />
                     </Style>
                 </Style>
+                <Style Selector="^ StackPanel#AppTitlePanel">
+                    <Setter Property="Opacity" Value="0.60" />
+                </Style>
+                <Style Selector="^ ItemsControl#PART_RightButtons">
+                    <Setter Property="Opacity" Value="0.60" />
+                </Style>
             </Style>
             <Style Selector="^[TitleBarAnimationEnabled=False]">
                 <Style Selector="^ /template/ LayoutTransformControl#PART_LayoutTransform">
@@ -261,6 +268,7 @@
                 </Style>
             </Style>
             <Style Selector="^[IsActive=True]">
+                <Setter Property="BorderBrush" Value="{DynamicResource BorderColor}" />
                 <Style Selector="^ /template/ Button#PART_CloseButton">
                     <Style Selector="^:pointerover">
                         <Setter Property="Foreground" Value="{DynamicResource DestructiveForegroundColor}" />
