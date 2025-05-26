@@ -75,7 +75,7 @@
                             Name="PART_ExpandIconRight"
                             Width="12"
                             Height="12"
-                            Data="{x:Static contents:Icons.ChevronRight}"
+                            Data="{x:Static contents:Icons.ChevronLeft}"
                             Foreground="{DynamicResource ForegroundColor}">
                             <PathIcon.Transitions>
                                 <Transitions>
@@ -93,13 +93,11 @@
                 <Setter Property="Opacity" Value="0" />
             </Style>
             <Style Selector="^ /template/ PathIcon#PART_ExpandIconRight">
-                <Setter Property="RenderTransform" Value="rotate(180deg)" />
                 <Setter Property="Opacity" Value="1" />
             </Style>
         </Style>
         <Style Selector="^:not(:checked)">
             <Style Selector="^ /template/ PathIcon#PART_ExpandIconLeft">
-                <Setter Property="RenderTransform" Value="rotate(180deg)" />
                 <Setter Property="Opacity" Value="1" />
             </Style>
             <Style Selector="^ /template/ PathIcon#PART_ExpandIconRight">
