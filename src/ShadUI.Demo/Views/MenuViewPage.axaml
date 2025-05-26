@@ -374,7 +374,7 @@
                                         <Separator />
                                         <MenuItem Header="Log out" InputGesture="Ctrl + Shift + Q" />
                                         <Separator />
-                                        <MenuItem Classes="DestructiveMenu" Header="Delete Account" />
+                                        <MenuItem Classes="Destructive" Header="Delete Account" />
                                     </MenuItem>
                                     <MenuItem
                                         Margin="12,0"
@@ -409,7 +409,7 @@
                                         <Separator />
                                         <MenuItem Header="Log out" InputGesture="Ctrl + Shift + Q" />
                                         <Separator />
-                                        <MenuItem Classes="DestructiveMenu" Header="Delete Account" />
+                                        <MenuItem Classes="Destructive" Header="Delete Account" />
                                     </MenuItem>
                                     <MenuItem
                                         Margin="12,0"
@@ -444,7 +444,7 @@
                                         <Separator />
                                         <MenuItem Header="Log out" InputGesture="Ctrl + Shift + Q" />
                                         <Separator />
-                                        <MenuItem Classes="DestructiveMenu" Header="Delete Account" />
+                                        <MenuItem Classes="Destructive" Header="Delete Account" />
                                     </MenuItem>
                                     <MenuItem
                                         Margin="12,0"
@@ -479,7 +479,7 @@
                                         <Separator />
                                         <MenuItem Header="Log out" InputGesture="Ctrl + Shift + Q" />
                                         <Separator />
-                                        <MenuItem Classes="DestructiveMenu" Header="Delete Account" />
+                                        <MenuItem Classes="Destructive" Header="Delete Account" />
                                     </MenuItem>
                                     <MenuItem
                                         Margin="12,0"
@@ -519,7 +519,7 @@
                                         <Separator />
                                         <MenuItem Header="Log out" InputGesture="Ctrl + Shift + Q" />
                                         <Separator />
-                                        <MenuItem Classes="DestructiveMenu" Header="Delete Account" />
+                                        <MenuItem Classes="Destructive" Header="Delete Account" />
                                     </MenuItem>
                                 </Menu>
                             </StackPanel>
