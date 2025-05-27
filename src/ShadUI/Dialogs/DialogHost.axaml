@@ -64,15 +64,10 @@
                                 Margin="8"
                                 HorizontalAlignment="Right"
                                 VerticalAlignment="Top"
-                                Background="{DynamicResource DialogBackgroundColor}"
                                 CornerRadius="{DynamicResource MdCornerRadius}"
+                                Cursor="Arrow"
                                 HotKey="Escape"
                                 IsVisible="{TemplateBinding Dismissible}">
-                                <Button.Styles>
-                                    <Style Selector="Button:pointerover">
-                                        <Setter Property="Background" Value="{DynamicResource BorderColor}" />
-                                    </Style>
-                                </Button.Styles>
                                 <PathIcon
                                     Width="10"
                                     Height="10"

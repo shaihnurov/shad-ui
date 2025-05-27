@@ -8,6 +8,11 @@
         <Border Padding="12">
             <StackPanel Spacing="8">
                 <Button
+                    Height="36"
+                    Padding="16,8"
+                    extensions:ButtonAssist.ShowProgress="True"
+                    Content="Default" />
+                <Button
                     extensions:ButtonAssist.ShowProgress="True"
                     Classes="Primary"
                     Content="Primary" />
@@ -19,7 +24,10 @@
                     extensions:ButtonAssist.ShowProgress="True"
                     Classes="Destructive"
                     Content="Destructive" />
-                <Button Classes="Outline" Content="Outline" />
+                <Button
+                    extensions:ButtonAssist.ShowProgress="True"
+                    Classes="Outline"
+                    Content="Outline" />
                 <Button
                     extensions:ButtonAssist.ShowProgress="True"
                     Classes="Ghost"
@@ -40,13 +48,17 @@
         </Border>
     </Design.PreviewWith>
     <ControlTheme x:Key="ButtonStyle" TargetType="Button">
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="FontWeight" Value="Medium" />
         <Setter Property="FontFamily" Value="{DynamicResource FontFamily}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource MediumBorderBrushColor}" />
         <Setter Property="CornerRadius" Value="{DynamicResource MdCornerRadius}" />
+        <Setter Property="Background" Value="{DynamicResource BackgroundColor}" />
+        <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="extensions:ButtonAssist.Icon" Value="{x:Null}" />
         <Setter Property="extensions:ButtonAssist.ShowProgress" Value="False" />
+        <Setter Property="extensions:ButtonAssist.HoverBackground" Value="{DynamicResource GhostColor}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Panel Name="RootPanel">
@@ -70,6 +82,7 @@
                     </Border>
                     <Border
                         Name="PART_HoverBackground"
+                        Background="{TemplateBinding extensions:ButtonAssist.HoverBackground}"
                         CornerRadius="{TemplateBinding CornerRadius}"
                         Opacity="0">
                         <Border.Transitions>
@@ -90,8 +103,7 @@
                                 Width="{TemplateBinding extensions:ButtonAssist.ShowProgress,
                                                         Converter={x:Static converters:BoolToWidthProgressConverter.Instance}}"
                                 Height="16"
-                                Margin="0,-4"
-                                Classes="IconContent">
+                                Margin="0,-4">
                                 <Viewbox.Transitions>
                                     <Transitions>
                                         <DoubleTransition Property="Width" Duration="0:0:0.10" />
@@ -104,7 +116,6 @@
                                                         Converter={x:Static converters:BoolToInverseWidthProgressConverter.Instance}}"
                                 Height="24"
                                 Margin="0,-4"
-                                Classes="IconContent"
                                 IsVisible="{TemplateBinding extensions:ButtonAssist.Icon,
                                                             Converter={x:Static ObjectConverters.IsNotNull}}"
                                 Opacity="{TemplateBinding extensions:ButtonAssist.ShowProgress,
@@ -144,9 +155,6 @@
         </Style>
         <Style Selector="^:pointerover /template/ Border#PART_BaseBackground">
             <Setter Property="Opacity" Value="0" />
-        </Style>
-        <Style Selector="^:pointerover /template/ Border#RootPanel">
-            <Setter Property="Cursor" Value="Hand" />
         </Style>
         <Style Selector="^:pressed /template/ Panel#RootPanel">
             <Setter Property="RenderTransform" Value="scale(0.95, 0.95)" />

@@ -1,5 +1,6 @@
 using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Media;
 
 namespace ShadUI.Extensions;
 
@@ -53,4 +54,24 @@ public static class ButtonAssist
     {
         textBox.SetValue(IconProperty, value);
     }
+
+    /// <summary>
+    ///     Attached property for setting the hover background brush of a <see cref="Button"/>.
+    /// </summary>
+    public static readonly AttachedProperty<IBrush> HoverBackgroundProperty =
+        AvaloniaProperty.RegisterAttached<Button, IBrush>("HoverBackground", typeof(Button));
+
+    /// <summary>
+    ///     Sets the hover background brush for the specified <see cref="Button"/>.
+    /// </summary>
+    /// <param name="btn">The button to set the hover background for.</param>
+    /// <param name="value">The brush to use as the hover background.</param>
+    public static void SetHoverBackground(Button btn, IBrush value) => btn.SetValue(HoverBackgroundProperty, value);
+
+    /// <summary>
+    ///     Gets the hover background brush for the specified <see cref="Button"/>.
+    /// </summary>
+    /// <param name="btn">The button to get the hover background from.</param>
+    /// <returns>The brush used as the hover background.</returns>
+    public static IBrush GetHoverBackground(Button btn) => btn.GetValue(HoverBackgroundProperty);
 }

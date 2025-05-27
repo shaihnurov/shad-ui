@@ -3,6 +3,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="clr-namespace:ShadUI.Controls">
     <Style Selector="Button controls|Loading">
+        <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
+    </Style>
+    <Style Selector="Button.Primary controls|Loading">
         <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundColor}" />
     </Style>
 
