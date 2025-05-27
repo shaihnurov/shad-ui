@@ -55,48 +55,35 @@ public class ThemeWatcher
     private ThemeColors GetThemeColors() =>
         new()
         {
-            // Base Colors
+            // Basic Colors
             ForegroundColor = TryGetColor("ForegroundColor"),
             ForegroundLeadColor = TryGetColor("ForegroundLeadColor"),
             BackgroundColor = TryGetColor("BackgroundColor"),
             MutedColor = TryGetColor("MutedColor"),
             BorderColor = TryGetColor("BorderColor"),
-            // Window Related Colors
-            CardBackgroundColor = TryGetColor("CardBackgroundColor"),
-            SidebarBackgroundColor = TryGetColor("SidebarBackgroundColor"),
-            TitleBarBackgroundColor = TryGetColor("TitleBarBackgroundColor"),
-            WindowBackgroundColor = TryGetColor("WindowBackgroundColor"),
-            WindowButtonHoverColor = TryGetColor("WindowButtonHoverColor"),
-            // Switch Colors
-            SwitchForegroundColor = TryGetColor("SwitchForegroundColor"),
-            SwitchBackgroundColor = TryGetColor("SwitchBackgroundColor"),
-            // Primary Colors
+            BorderColor60 = TryGetColor("BorderColor60"),
+            BorderColor30 = TryGetColor("BorderColor30"),
+            OutlineColor = TryGetColor("OutlineColor"),
+            GhostColor = TryGetColor("GhostColor"),
+            GhostHoverColor = TryGetColor("GhostHoverColor"),
+            GhostHoverColor50 = TryGetColor("GhostHoverColor50"),
+
+            // Theme Colors
             PrimaryColor = TryGetColor("PrimaryColor"),
             PrimaryColor75 = TryGetColor("PrimaryColor75"),
             PrimaryColor50 = TryGetColor("PrimaryColor50"),
             PrimaryColor10 = TryGetColor("PrimaryColor10"),
             PrimaryForegroundColor = TryGetColor("PrimaryForegroundColor"),
-            // Secondary Colors
             SecondaryColor = TryGetColor("SecondaryColor"),
             SecondaryColor75 = TryGetColor("SecondaryColor75"),
             SecondaryColor50 = TryGetColor("SecondaryColor50"),
             SecondaryForegroundColor = TryGetColor("SecondaryForegroundColor"),
-            // Destructive Colors
             DestructiveColor = TryGetColor("DestructiveColor"),
             DestructiveColor75 = TryGetColor("DestructiveColor75"),
             DestructiveColor50 = TryGetColor("DestructiveColor50"),
             DestructiveForegroundColor = TryGetColor("DestructiveForegroundColor"),
-            // Special Colors
-            TabItemSelectedColor = TryGetColor("TabItemSelectedColor"),
-            TabItemsBackgroundColor = TryGetColor("TabItemsBackgroundColor"),
-            OutlineColor = TryGetColor("OutlineColor"),
-            GhostColor = TryGetColor("GhostColor"),
-            GhostHoverColor = TryGetColor("GhostHoverColor"),
-            // Overlay Colors
-            BusyAreaOverlayColor = TryGetColor("BusyAreaOverlayColor"),
-            DialogOverlayColor = TryGetColor("DialogOverlayColor"),
-            DialogBackgroundColor = TryGetColor("DialogBackgroundColor"),
-            // Status Colors
+
+            // Notification Colors
             InfoColor = TryGetColor("InfoColor"),
             InfoColor60 = TryGetColor("InfoColor60"),
             InfoColor20 = TryGetColor("InfoColor20"),
@@ -116,7 +103,21 @@ public class ThemeWatcher
             ErrorColor60 = TryGetColor("ErrorColor60"),
             ErrorColor20 = TryGetColor("ErrorColor20"),
             ErrorColor10 = TryGetColor("ErrorColor10"),
-            ErrorColor5 = TryGetColor("ErrorColor5")
+            ErrorColor5 = TryGetColor("ErrorColor5"),
+
+            // Specific Control Colors
+            BusyAreaOverlayColor = TryGetColor("BusyAreaOverlayColor"),
+            CardBackgroundColor = TryGetColor("CardBackgroundColor"),
+            DialogOverlayColor = TryGetColor("DialogOverlayColor"),
+            DialogBackgroundColor = TryGetColor("DialogBackgroundColor"),
+            TitleBarBackgroundColor = TryGetColor("TitleBarBackgroundColor"),
+            WindowBackgroundColor = TryGetColor("WindowBackgroundColor"),
+            WindowButtonHoverColor = TryGetColor("WindowButtonHoverColor"),
+            SidebarBackgroundColor = TryGetColor("SidebarBackgroundColor"),
+            SwitchBackgroundColor = TryGetColor("SwitchBackgroundColor"),
+            SwitchForegroundColor = TryGetColor("SwitchForegroundColor"),
+            TabItemSelectedColor = TryGetColor("TabItemSelectedColor"),
+            TabItemsBackgroundColor = TryGetColor("TabItemsBackgroundColor")
         };
 
     /// <summary>
