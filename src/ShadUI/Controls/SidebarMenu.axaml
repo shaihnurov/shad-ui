@@ -125,7 +125,7 @@
                     DisplayMode="CompactInline"
                     IsPaneOpen="{TemplateBinding IsMenuExpanded}"
                     OpenPaneLength="{TemplateBinding OpenPaneLength}"
-                    PaneBackground="{DynamicResource SidebarBackgroundColor}">
+                    PaneBackground="{TemplateBinding Background}">
                     <SplitView.Pane>
                         <Border
                             Margin="{CompiledBinding ShowTitlebarBackground,
