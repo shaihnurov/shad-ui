@@ -3,11 +3,6 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:contents="clr-namespace:ShadUI.Contents">
     <Thickness x:Key="DataGridTextColumnCellTextBlockMargin">4</Thickness>
-    <ControlTheme x:Key="DataGridCellTextBlockTheme" TargetType="TextBlock">
-        <Setter Property="Margin" Value="{DynamicResource DataGridTextColumnCellTextBlockMargin}" />
-        <Setter Property="VerticalAlignment" Value="Center" />
-    </ControlTheme>
-
     <ControlTheme x:Key="{x:Type DataGridCell}" TargetType="DataGridCell">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
@@ -86,19 +81,12 @@
                 </Border>
             </ControlTemplate>
         </Setter>
-
-        <Style Selector="^:focus-visible /template/ Grid#FocusVisual">
-            <Setter Property="IsVisible" Value="True" />
-        </Style>
-
         <Style Selector="^:dragIndicator">
             <Setter Property="Opacity" Value="0.5" />
         </Style>
-
         <Style Selector="^:sortascending /template/ Path#SortIcon">
             <Setter Property="IsVisible" Value="True" />
         </Style>
-
         <Style Selector="^:sortdescending /template/ Path#SortIcon">
             <Setter Property="IsVisible" Value="True" />
             <Setter Property="RenderTransform">
