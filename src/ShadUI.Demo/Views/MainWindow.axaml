@@ -14,6 +14,7 @@
     xmlns:toasts="clr-namespace:ShadUI.Toasts;assembly=ShadUI"
     xmlns:ui="clr-namespace:ShadUI;assembly=ShadUI"
     xmlns:viewModels="clr-namespace:ShadUI.Demo.ViewModels"
+    x:Name="Window"
     Title="ShadUI App"
     Width="1024"
     Height="768"
@@ -59,10 +60,8 @@
     </controls:Window.MenuItems>
     <controls:Window.RightWindowTitleBarControls>
         <Button
-            x:Name="ThemeButton"
-            Width="32"
-            Height="32"
-            Margin="0,2,0,0"
+            Width="30"
+            Height="30"
             Background="{DynamicResource SidebarBackgroundColor}"
             Classes="Icon"
             Command="{Binding SwitchThemeCommand}"
@@ -73,6 +72,38 @@
                     <Setter Property="StrokeBrush" Value="{DynamicResource ForegroundColor}" />
                 </Style>
             </Button.Styles>
+        </Button>
+        <Button
+            x:Name="FullscreenButton"
+            Width="30"
+            Height="30"
+            Margin="8,0,0,0"
+            Background="{DynamicResource SidebarBackgroundColor}"
+            Classes="Icon"
+            IsVisible="{Binding #Window.WindowState, Converter={x:Static converters:WindowStateConverters.IsNotFullScreen}}"
+            ToolTip.Tip="Fullscreen">
+            <icons:Lucide
+                Width="16"
+                Height="16"
+                Icon="Fullscreen"
+                StrokeBrush="{DynamicResource ForegroundColor}"
+                StrokeThickness="1.5" />
+        </Button>
+        <Button
+            x:Name="ExitFullscreenButton"
+            Width="30"
+            Height="30"
+            Margin="8,0,0,0"
+            Background="{DynamicResource SidebarBackgroundColor}"
+            Classes="Icon"
+            IsVisible="{Binding #Window.WindowState, Converter={x:Static converters:WindowStateConverters.IsFullScreen}}"
+            ToolTip.Tip="Exit Fullscreen">
+            <icons:Lucide
+                Width="16"
+                Height="16"
+                Icon="Minimize2"
+                StrokeBrush="{DynamicResource ForegroundColor}"
+                StrokeThickness="1.5" />
         </Button>
     </controls:Window.RightWindowTitleBarControls>
     <Panel>

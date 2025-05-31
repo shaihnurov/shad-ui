@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Avalonia.Controls;
 using Avalonia.Data.Converters;
 using LucideAvalonia;
 using LucideAvalonia.Enum;
@@ -17,4 +18,19 @@ public static class ThemeModeConverters
 
     public static readonly IValueConverter ToLucideIcon =
         new FuncValueConverter<ThemeMode, Lucide>(mode => Icons.TryGetValue(mode, out var icon) ? icon : Icons[0]);
+}
+
+public static class WindowStateConverters
+{
+    public static readonly IValueConverter IsFullScreen =
+        new FuncValueConverter<WindowState, bool>(state =>
+        {
+            return state == WindowState.FullScreen;
+        });
+    
+    public static readonly IValueConverter IsNotFullScreen =
+        new FuncValueConverter<WindowState, bool>(state =>
+        {
+            return state != WindowState.FullScreen;
+        });
 }
