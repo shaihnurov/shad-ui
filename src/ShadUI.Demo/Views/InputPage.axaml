@@ -101,6 +101,7 @@
                                 extensions:ControlAssist.Hint="Your favorite web framework"
                                 extensions:ControlAssist.Label="Search a framework"
                                 extensions:ElementAssist.Classes="Clearable"
+                                Classes="Clearable"
                                 FilterMode="Contains"
                                 ItemsSource="{Binding WebFrameworks}"
                                 Watermark="Search here...">

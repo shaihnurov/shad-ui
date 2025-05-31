@@ -181,6 +181,7 @@
                                 BorderThickness="{TemplateBinding BorderThickness}"
                                 CaretIndex="{TemplateBinding CaretIndex,
                                                              Mode=TwoWay}"
+                                Classes="Clearable"
                                 CornerRadius="{TemplateBinding CornerRadius}"
                                 FocusAdorner="{TemplateBinding FocusAdorner}"
                                 FontFamily="{TemplateBinding FontFamily}"
