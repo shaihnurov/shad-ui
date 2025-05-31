@@ -30,7 +30,7 @@
                 <StackPanel Spacing="32">
                     <controls:ControlBlock
                         Title="Simple Dropdown"
-                        Code="{Binding MenuBarCode}"
+                        Code="{Binding SimpleDropdownCode}"
                         Language="xaml">
                         <StackPanel
                             HorizontalAlignment="Center"

@@ -5,6 +5,220 @@ namespace ShadUI.Demo.ViewModels;
 public sealed partial class MenuViewModel : ViewModelBase
 {
     [ObservableProperty]
+    private string _simpleDropdownCode ="""
+                                        <StackPanel
+                                            HorizontalAlignment="Center"
+                                            Orientation="Horizontal"
+                                            Spacing="16">
+                                            <shadui:SimpleDropdown
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                Classes="Primary"
+                                                TriggerContent="Primary">
+                                                <shadui:SimpleDropdown.MenuLabel>
+                                                    <TextBlock
+                                                        Classes="Small"
+                                                        FontFamily="{DynamicResource FontFamily}"
+                                                        Text="Actions" />
+                                                </shadui:SimpleDropdown.MenuLabel>
+                                                <Button Content="Add New">
+                                                    <extensions:ButtonAssist.Icon>
+                                                        <icons:Lucide
+                                                            Width="16"
+                                                            Height="16"
+                                                            Icon="Plus"
+                                                            StrokeBrush="{DynamicResource ForegroundColor}" />
+                                                    </extensions:ButtonAssist.Icon>
+                                                </Button>
+                                                <Button Content="Edit" IsEnabled="False">
+                                                    <extensions:ButtonAssist.Icon>
+                                                        <icons:Lucide
+                                                            Width="16"
+                                                            Height="16"
+                                                            Icon="Pencil"
+                                                            StrokeBrush="{DynamicResource ForegroundColor}" />
+                                                    </extensions:ButtonAssist.Icon>
+                                                </Button>
+                                                <Separator />
+                                                <Button Classes="DestructiveMenu" Content="Delete">
+                                                    <extensions:ButtonAssist.Icon>
+                                                        <icons:Lucide
+                                                            Width="16"
+                                                            Height="16"
+                                                            Icon="Trash"
+                                                            StrokeBrush="{Binding $parent.Foreground}" />
+                                                    </extensions:ButtonAssist.Icon>
+                                                </Button>
+                                            </shadui:SimpleDropdown>
+                                            <shadui:SimpleDropdown
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                Classes="Secondary"
+                                                TriggerContent="Secondary">
+                                                <shadui:SimpleDropdown.MenuLabel>
+                                                    <TextBlock
+                                                        Classes="Small"
+                                                        FontFamily="{DynamicResource FontFamily}"
+                                                        Text="Actions" />
+                                                </shadui:SimpleDropdown.MenuLabel>
+                                                <Button Content="Add New">
+                                                    <extensions:ButtonAssist.Icon>
+                                                        <icons:Lucide
+                                                            Width="16"
+                                                            Height="16"
+                                                            Icon="Plus"
+                                                            StrokeBrush="{DynamicResource ForegroundColor}" />
+                                                    </extensions:ButtonAssist.Icon>
+                                                </Button>
+                                                <Button Content="Edit" IsEnabled="False">
+                                                    <extensions:ButtonAssist.Icon>
+                                                        <icons:Lucide
+                                                            Width="16"
+                                                            Height="16"
+                                                            Icon="Pencil"
+                                                            StrokeBrush="{DynamicResource ForegroundColor}" />
+                                                    </extensions:ButtonAssist.Icon>
+                                                </Button>
+                                                <Separator />
+                                                <Button Classes="DestructiveMenu" Content="Delete">
+                                                    <extensions:ButtonAssist.Icon>
+                                                        <icons:Lucide
+                                                            Width="16"
+                                                            Height="16"
+                                                            Icon="Trash"
+                                                            StrokeBrush="{Binding $parent.Foreground}" />
+                                                    </extensions:ButtonAssist.Icon>
+                                                </Button>
+                                            </shadui:SimpleDropdown>
+                                            <shadui:SimpleDropdown
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                Classes="Outline"
+                                                TriggerContent="Outline">
+                                                <shadui:SimpleDropdown.MenuLabel>
+                                                    <TextBlock
+                                                        Classes="Small"
+                                                        FontFamily="{DynamicResource FontFamily}"
+                                                        Text="Actions" />
+                                                </shadui:SimpleDropdown.MenuLabel>
+                                                <Button Content="Add New">
+                                                    <extensions:ButtonAssist.Icon>
+                                                        <icons:Lucide
+                                                            Width="16"
+                                                            Height="16"
+                                                            Icon="Plus"
+                                                            StrokeBrush="{DynamicResource ForegroundColor}" />
+                                                    </extensions:ButtonAssist.Icon>
+                                                </Button>
+                                                <Button Content="Edit" IsEnabled="False">
+                                                    <extensions:ButtonAssist.Icon>
+                                                        <icons:Lucide
+                                                            Width="16"
+                                                            Height="16"
+                                                            Icon="Pencil"
+                                                            StrokeBrush="{DynamicResource ForegroundColor}" />
+                                                    </extensions:ButtonAssist.Icon>
+                                                </Button>
+                                                <Separator />
+                                                <Button Classes="DestructiveMenu" Content="Delete">
+                                                    <extensions:ButtonAssist.Icon>
+                                                        <icons:Lucide
+                                                            Width="16"
+                                                            Height="16"
+                                                            Icon="Trash"
+                                                            StrokeBrush="{Binding $parent.Foreground}" />
+                                                    </extensions:ButtonAssist.Icon>
+                                                </Button>
+                                            </shadui:SimpleDropdown>
+                                            <shadui:SimpleDropdown
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                Classes="Ghost"
+                                                TriggerContent="Ghost">
+                                                <shadui:SimpleDropdown.MenuLabel>
+                                                    <TextBlock
+                                                        Classes="Small"
+                                                        FontFamily="{DynamicResource FontFamily}"
+                                                        Text="Actions" />
+                                                </shadui:SimpleDropdown.MenuLabel>
+                                                <Button Content="Add New">
+                                                    <extensions:ButtonAssist.Icon>
+                                                        <icons:Lucide
+                                                            Width="16"
+                                                            Height="16"
+                                                            Icon="Plus"
+                                                            StrokeBrush="{DynamicResource ForegroundColor}" />
+                                                    </extensions:ButtonAssist.Icon>
+                                                </Button>
+                                                <Button Content="Edit" IsEnabled="False">
+                                                    <extensions:ButtonAssist.Icon>
+                                                        <icons:Lucide
+                                                            Width="16"
+                                                            Height="16"
+                                                            Icon="Pencil"
+                                                            StrokeBrush="{DynamicResource ForegroundColor}" />
+                                                    </extensions:ButtonAssist.Icon>
+                                                </Button>
+                                                <Separator />
+                                                <Button Classes="DestructiveMenu" Content="Delete">
+                                                    <extensions:ButtonAssist.Icon>
+                                                        <icons:Lucide
+                                                            Width="16"
+                                                            Height="16"
+                                                            Icon="Trash"
+                                                            StrokeBrush="{Binding $parent.Foreground}" />
+                                                    </extensions:ButtonAssist.Icon>
+                                                </Button>
+                                            </shadui:SimpleDropdown>
+                                            <shadui:SimpleDropdown
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                Classes="Icon">
+                                                <shadui:SimpleDropdown.TriggerContent>
+                                                    <icons:Lucide
+                                                        Width="16"
+                                                        Icon="Ellipsis"
+                                                        StrokeBrush="{DynamicResource ForegroundColor}" />
+                                                </shadui:SimpleDropdown.TriggerContent>
+                                                <shadui:SimpleDropdown.MenuLabel>
+                                                    <TextBlock
+                                                        Classes="Small"
+                                                        FontFamily="{DynamicResource FontFamily}"
+                                                        Text="Actions" />
+                                                </shadui:SimpleDropdown.MenuLabel>
+                                                <Button Content="Add New">
+                                                    <extensions:ButtonAssist.Icon>
+                                                        <icons:Lucide
+                                                            Width="16"
+                                                            Height="16"
+                                                            Icon="Plus"
+                                                            StrokeBrush="{DynamicResource ForegroundColor}" />
+                                                    </extensions:ButtonAssist.Icon>
+                                                </Button>
+                                                <Button Content="Edit" IsEnabled="False">
+                                                    <extensions:ButtonAssist.Icon>
+                                                        <icons:Lucide
+                                                            Width="16"
+                                                            Height="16"
+                                                            Icon="Pencil"
+                                                            StrokeBrush="{DynamicResource ForegroundColor}" />
+                                                    </extensions:ButtonAssist.Icon>
+                                                </Button>
+                                                <Separator />
+                                                <Button Classes="DestructiveMenu" Content="Delete">
+                                                    <extensions:ButtonAssist.Icon>
+                                                        <icons:Lucide
+                                                            Width="16"
+                                                            Height="16"
+                                                            Icon="Trash"
+                                                            StrokeBrush="{Binding $parent.Foreground}" />
+                                                    </extensions:ButtonAssist.Icon>
+                                                </Button>
+                                            </shadui:SimpleDropdown>
+                                        </StackPanel>
+                                        """;
+    
+    [ObservableProperty]
     private string _menuBarCode = """
                                   <Border HorizontalAlignment="Center" CornerRadius="{DynamicResource MdCornerRadius}"
                                           BorderBrush="{DynamicResource BorderColor}" BorderThickness="1"
