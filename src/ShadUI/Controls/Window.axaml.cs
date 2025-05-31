@@ -333,15 +333,15 @@ public class Window : Avalonia.Controls.Window
                     var point = new PixelPoint(
                         (short) (ToInt32(lParam) & 0xffff),
                         (short) (ToInt32(lParam) >> 16));
-                    var desiredSize = maximize.DesiredSize;
+                    var size = maximize.Bounds;
                     var buttonLeftTop = maximize.PointToScreen(FlowDirection == FlowDirection.LeftToRight
-                        ? new Point(desiredSize.Width, 0)
+                        ? new Point(size.Width, 0)
                         : new Point(0, 0));
                     var x = (buttonLeftTop.X - point.X) / RenderScaling;
                     var y = (point.Y - buttonLeftTop.Y) / RenderScaling;
                     if (new Rect(0, 0,
-                            desiredSize.Width,
-                            desiredSize.Height)
+                            size.Width,
+                            size.Height)
                         .Contains(new Point(x, y)))
                     {
                         if (HasOpenDialog) return (IntPtr) 9;

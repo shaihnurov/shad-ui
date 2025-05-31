@@ -15,7 +15,6 @@
         <Setter Property="Background" Value="{DynamicResource BackgroundColor}" />
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="Width" Value="46" />
-        <Setter Property="Height" Value="32" />
         <Setter Property="Padding" Value="0" />
         <Setter Property="Transitions">
             <Transitions>
@@ -99,7 +98,6 @@
                                                 <Border Name="PART_TitleBarBackground" IsVisible="{TemplateBinding ShowTitlebarBackground}" />
                                                 <DockPanel LastChildFill="True">
                                                     <StackPanel
-                                                        VerticalAlignment="Center"
                                                         DockPanel.Dock="Right"
                                                         Orientation="Horizontal"
                                                         Spacing="8">
@@ -109,17 +107,17 @@
                                                                 <Setter Property="Width" Value="10" />
                                                             </Style>
                                                         </StackPanel.Styles>
-                                                        <ItemsControl Name="PART_RightButtons" ItemsSource="{TemplateBinding RightWindowTitleBarControls}">
+                                                        <ItemsControl
+                                                            Name="PART_RightButtons"
+                                                            Margin="0,3,0,2"
+                                                            ItemsSource="{TemplateBinding RightWindowTitleBarControls}">
                                                             <ItemsControl.ItemsPanel>
                                                                 <ItemsPanelTemplate>
                                                                     <StackPanel Orientation="Horizontal" />
                                                                 </ItemsPanelTemplate>
                                                             </ItemsControl.ItemsPanel>
                                                         </ItemsControl>
-                                                        <StackPanel
-                                                            Name="PART_ButtonsPanel"
-                                                            VerticalAlignment="Stretch"
-                                                            Orientation="Horizontal">
+                                                        <StackPanel Name="PART_ButtonsPanel" Orientation="Horizontal">
                                                             <Button
                                                                 Name="PART_MinimizeButton"
                                                                 Margin="0,0,0,1"
@@ -129,7 +127,6 @@
                                                             </Button>
                                                             <Button
                                                                 Name="PART_MaximizeButton"
-                                                                Width="46"
                                                                 Margin="0,0,0,1"
                                                                 IsVisible="{TemplateBinding CanMaximize}"
                                                                 Theme="{StaticResource WindowButtonStyle}">
@@ -172,7 +169,7 @@
                                             </Panel>
                                         </LayoutTransformControl>
                                         <Panel
-                                            Height="36"
+                                            Height="32"
                                             Background="{DynamicResource TitleBarBackgroundColor}"
                                             IsVisible="{TemplateBinding IsMenuVisible}">
                                             <Menu
@@ -303,11 +300,11 @@
         </Style>
 
         <Style Selector="^ /template/ Border#PART_TitleBarBackground">
-            <Setter Property="Height" Value="32" />
+            <Setter Property="MinHeight" Value="32" />
             <Setter Property="Background" Value="{DynamicResource TitleBarBackgroundColor}" />
         </Style>
         <Style Selector="^ /template/ StackPanel#PART_ButtonsPanel">
-            <Setter Property="Height" Value="32" />
+            <Setter Property="MinHeight" Value="32" />
         </Style>
     </ControlTheme>
     <ControlTheme
