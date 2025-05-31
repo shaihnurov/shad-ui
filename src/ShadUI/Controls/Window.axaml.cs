@@ -258,6 +258,8 @@ public class Window : Avalonia.Controls.Window
         if (desktop.MainWindow is Window window && window != this) Icon ??= window.Icon;
     }
 
+    private WindowState _lastState = WindowState.Normal;
+
     /// <summary>
     ///     Called when a property is changed.
     /// </summary>
@@ -265,9 +267,15 @@ public class Window : Avalonia.Controls.Window
     protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)
     {
         base.OnPropertyChanged(change);
-        if (change.Property == WindowStateProperty && change.NewValue is WindowState windowState)
-            OnWindowStateChanged(windowState);
+        if (change.Property == WindowStateProperty &&
+            change is { OldValue: WindowState oldState, NewValue: WindowState newState })
+        {
+            _lastState = oldState;
+            OnWindowStateChanged(newState);
+        }
     }
+
+    private Button? _maximizeButton;
 
     /// <summary>
     ///     Called when the template is applied.
@@ -282,7 +290,8 @@ public class Window : Avalonia.Controls.Window
             // Create handlers for buttons
             if (e.NameScope.Get<Button>("PART_MaximizeButton") is { } maximize)
             {
-                maximize.Click += OnMaximizeButtonClicked;
+                _maximizeButton = maximize;
+                _maximizeButton.Click += OnMaximizeButtonClicked;
                 EnableWindowsSnapLayout(maximize);
             }
 
@@ -306,7 +315,7 @@ public class Window : Avalonia.Controls.Window
 
     private void OnMaximizeButtonClicked(object? sender, RoutedEventArgs args)
     {
-        if (!CanMaximize) return;
+        if (!CanMaximize || WindowState == WindowState.FullScreen) return;
         WindowState = WindowState == WindowState.Maximized
             ? WindowState.Normal
             : WindowState.Maximized;
@@ -314,12 +323,15 @@ public class Window : Avalonia.Controls.Window
 
     internal bool HasOpenDialog { get; set; }
 
+    private bool _snapLayoutEnabled = true;
     private void EnableWindowsSnapLayout(Button maximize)
     {
         var pointerOnMaxButton = false;
         var setter = typeof(Button).GetProperty("IsPointerOver");
         var proc = (IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam, ref bool handled) =>
         {
+            if (!_snapLayoutEnabled) return IntPtr.Zero;
+
             switch (msg)
             {
                 case 533:
@@ -331,8 +343,8 @@ public class Window : Avalonia.Controls.Window
                     break;
                 case 0x0084:
                     var point = new PixelPoint(
-                        (short) (ToInt32(lParam) & 0xffff),
-                        (short) (ToInt32(lParam) >> 16));
+                        (short)(ToInt32(lParam) & 0xffff),
+                        (short)(ToInt32(lParam) >> 16));
                     var size = maximize.Bounds;
                     var buttonLeftTop = maximize.PointToScreen(FlowDirection == FlowDirection.LeftToRight
                         ? new Point(size.Width, 0)
@@ -363,7 +375,7 @@ public class Window : Avalonia.Controls.Window
             {
                 return IntPtr.Size == 4
                     ? ptr.ToInt32()
-                    : (int) (ptr.ToInt64() & 0xffffffff);
+                    : (int)(ptr.ToInt64() & 0xffffffff);
             }
         };
 
@@ -372,21 +384,19 @@ public class Window : Avalonia.Controls.Window
 
     private void OnWindowStateChanged(WindowState state)
     {
+        _snapLayoutEnabled = WindowState != WindowState.FullScreen && CanMaximize;
         switch (state)
         {
             case WindowState.FullScreen:
-                CanMaximize = false;
-                CanMove = false;
-                CanResize = false;
+                ToggleMaxButtonVisibility(false);
                 Margin = new Thickness(0);
                 break;
             case WindowState.Maximized:
+                ToggleMaxButtonVisibility(CanMaximize);
                 Margin = new Thickness(7);
                 break;
             case WindowState.Normal:
-                CanMaximize = true;
-                CanMove = true;
-                CanResize = true;
+                ToggleMaxButtonVisibility(CanMaximize);
                 Margin = new Thickness(0);
                 break;
             default:
@@ -395,12 +405,25 @@ public class Window : Avalonia.Controls.Window
         }
     }
 
+    private void ToggleMaxButtonVisibility(bool visible)
+    {
+        if (_maximizeButton is null) return;
+
+        _maximizeButton.IsVisible = visible;
+    }
+
     private void OnTitleBarPointerPressed(object? sender, PointerPressedEventArgs e)
     {
         base.OnPointerPressed(e);
+        if (WindowState != WindowState.FullScreen) BeginMoveDrag(e);
+    }
 
-        if (WindowState != WindowState.FullScreen)
-            BeginMoveDrag(e);
+    /// <summary>
+    ///     Exits full screen mode and restores the previous window state.
+    /// </summary>
+    protected void ExitFullScreen()
+    {
+        if (WindowState == WindowState.FullScreen) WindowState = _lastState;
     }
 
     static Window()
