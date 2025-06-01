@@ -1,5 +1,6 @@
 ﻿using System;
 using Avalonia.Media;
+using Avalonia.Platform;
 using CommunityToolkit.Mvvm.ComponentModel;
 using LiveChartsCore;
 using LiveChartsCore.SkiaSharpView;
@@ -13,14 +14,10 @@ public sealed partial class DashboardViewModel : ViewModelBase
 {
     public ThemeWatcher ThemeWatcher { get; }
 
-    private const string FontName = "Geist";
+    private readonly SKTypeface _typeface;
 
     [ObservableProperty]
-    private static SolidColorPaint _tooltipTextPaint = new()
-    {
-        Color = SKColors.Black,
-        SKTypeface = SKTypeface.FromFamilyName(FontName)
-    };
+    private static SolidColorPaint _tooltipTextPaint = null!;
 
     public DashboardViewModel(ThemeWatcher themeWatcher)
     {
@@ -30,6 +27,41 @@ public sealed partial class DashboardViewModel : ViewModelBase
             UpdateAxesLabelPaints(colors);
             UpdateSeriesFill(colors.PrimaryColor);
         };
+
+        var fontUri = new Uri("avares://ShadUI.Demo/Assets/Fonts/Geist-Regular.ttf");
+        var fontAsset = AssetLoader.Open(fontUri);
+
+        using var skData = SKData.Create(fontAsset);
+        _typeface = SKTypeface.FromData(skData);
+
+        _tooltipTextPaint = new SolidColorPaint
+        {
+            Color = SKColors.Black,
+            SKTypeface = _typeface
+        };
+
+        XAxes =
+        [
+            new Axis
+            {
+                Labels = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+                LabelsPaint = new SolidColorPaint { Color = SKColors.Gray, SKTypeface = _typeface },
+                TextSize = 12,
+                MinStep = 1
+            }
+        ];
+
+        YAxes =
+        [
+            new Axis
+            {
+                Labeler = Labelers.Currency,
+                LabelsPaint = new SolidColorPaint { Color = SKColors.Gray, SKTypeface = _typeface },
+                TextSize = 12,
+                MinStep = 1500,
+                ShowSeparatorLines = false
+            }
+        ];
     }
 
     public void Initialize()
@@ -52,10 +84,11 @@ public sealed partial class DashboardViewModel : ViewModelBase
             colors.ForegroundColor.G,
             colors.ForegroundColor.B,
             colors.ForegroundColor.A);
+
         var foregroundPaint = new SolidColorPaint
         {
             Color = foreground,
-            SKTypeface = SKTypeface.FromFamilyName(FontName)
+            SKTypeface = _typeface
         };
 
         XAxes[0].LabelsPaint = foregroundPaint;
@@ -84,34 +117,7 @@ public sealed partial class DashboardViewModel : ViewModelBase
         return values;
     }
 
-    public Axis[] XAxes { get; set; } =
-    [
-        new()
-        {
-            Labels = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-            LabelsPaint = new SolidColorPaint
-            {
-                Color = SKColors.Gray,
-                SKTypeface = SKTypeface.FromFamilyName(FontName)
-            },
-            TextSize = 12,
-            MinStep = 1
-        }
-    ];
+    public Axis[] XAxes { get; set; }
 
-    public Axis[] YAxes { get; set; } =
-    [
-        new()
-        {
-            Labeler = Labelers.Currency,
-            LabelsPaint = new SolidColorPaint
-            {
-                Color = SKColors.Gray,
-                SKTypeface = SKTypeface.FromFamilyName(FontName)
-            },
-            TextSize = 12,
-            MinStep = 1500,
-            ShowSeparatorLines = false
-        }
-    ];
+    public Axis[] YAxes { get; set; }
 }
