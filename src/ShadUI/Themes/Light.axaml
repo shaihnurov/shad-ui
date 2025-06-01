@@ -69,5 +69,5 @@
     <Color x:Key="SwitchForegroundColor">#F2F2F2</Color>
 
     <Color x:Key="TabItemSelectedColor">#FFFFFF</Color>
-    <Color x:Key="TabItemsBackgroundColor">#F0F0F0</Color>
+    <Color x:Key="TabItemsBackgroundColor">#E8E8E8</Color>
 </ResourceDictionary>
