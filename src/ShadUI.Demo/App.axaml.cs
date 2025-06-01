@@ -29,8 +29,10 @@ public class App : Application
         var viewModel = provider.GetService<MainWindowViewModel>();
         viewModel.Initialize();
 
-        desktop.MainWindow = new MainWindow { DataContext = viewModel };
+        var mainWindow = new MainWindow { DataContext = viewModel };
+        this.RegisterTrayIconsEvents(mainWindow, viewModel);
 
+        desktop.MainWindow = mainWindow;
         base.OnFrameworkInitializationCompleted();
     }
 

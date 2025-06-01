@@ -4,6 +4,21 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:themes="clr-namespace:ShadUI.Themes;assembly=ShadUI"
     RequestedThemeVariant="Default">
+    <TrayIcon.Icons>
+        <TrayIcons>
+            <TrayIcon Icon="/Assets/favicon.ico" ToolTipText="ShadUI App">
+                <TrayIcon.Menu>
+                    <NativeMenu>
+                        <!--  added spaces to have a wider menu  -->
+                        <NativeMenuItem Header="Open            " />
+                        <NativeMenuItem Header="About" />
+                        <NativeMenuItemSeparator />
+                        <NativeMenuItem Header="Exit" />
+                    </NativeMenu>
+                </TrayIcon.Menu>
+            </TrayIcon>
+        </TrayIcons>
+    </TrayIcon.Icons>
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.ThemeDictionaries>
