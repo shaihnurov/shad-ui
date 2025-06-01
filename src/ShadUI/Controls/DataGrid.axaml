@@ -6,7 +6,7 @@
     <ControlTheme x:Key="{x:Type DataGridCell}" TargetType="DataGridCell">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
-        <Setter Property="VerticalContentAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Padding" Value="12,8" />
         <Setter Property="Template">
             <ControlTemplate>
@@ -33,6 +33,10 @@
                 </Border>
             </ControlTemplate>
         </Setter>
+
+        <Style Selector="^.AlignTop">
+            <Setter Property="VerticalContentAlignment" Value="Top" />
+        </Style>
     </ControlTheme>
     <ControlTheme x:Key="{x:Type DataGridColumnHeader}" TargetType="DataGridColumnHeader">
         <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
