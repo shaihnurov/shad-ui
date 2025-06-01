@@ -155,7 +155,7 @@ public sealed partial class DataGridViewModel : ViewModelBase
     {
         ShowAmountColumn = !ShowAmountColumn;
     }
-    
+
     [ObservableProperty]
     private string _code = """
                            <DataGrid
@@ -214,10 +214,7 @@ public sealed partial class DataGridViewModel : ViewModelBase
                                                <Menu>
                                                    <MenuItem Classes="Icon Grid" extensions:MenuItemAssist.PopupPlacement="BottomEdgeAlignedRight">
                                                        <extensions:MenuItemAssist.Label>
-                                                           <TextBlock
-                                                               Classes="Small"
-                                                               FontFamily="{DynamicResource FontFamily}"
-                                                               Text="Actions" />
+                                                           <TextBlock Classes="Small" Text="Actions" />
                                                        </extensions:MenuItemAssist.Label>
                                                        <MenuItem.Header>
                                                            <icons:Lucide

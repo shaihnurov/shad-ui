@@ -5,7 +5,7 @@ namespace ShadUI.Demo.ViewModels;
 public sealed partial class MenuViewModel : ViewModelBase
 {
     [ObservableProperty]
-    private string _simpleDropdownCode ="""
+    private string _simpleDropdownCode = """
                                         <StackPanel
                                             HorizontalAlignment="Center"
                                             Orientation="Horizontal"
@@ -16,10 +16,7 @@ public sealed partial class MenuViewModel : ViewModelBase
                                                 Classes="Primary"
                                                 TriggerContent="Primary">
                                                 <shadui:SimpleDropdown.MenuLabel>
-                                                    <TextBlock
-                                                        Classes="Small"
-                                                        FontFamily="{DynamicResource FontFamily}"
-                                                        Text="Actions" />
+                                                    <TextBlock Classes="Small" Text="Actions" />
                                                 </shadui:SimpleDropdown.MenuLabel>
                                                 <Button Content="Add New">
                                                     <extensions:ButtonAssist.Icon>
@@ -56,10 +53,7 @@ public sealed partial class MenuViewModel : ViewModelBase
                                                 Classes="Secondary"
                                                 TriggerContent="Secondary">
                                                 <shadui:SimpleDropdown.MenuLabel>
-                                                    <TextBlock
-                                                        Classes="Small"
-                                                        FontFamily="{DynamicResource FontFamily}"
-                                                        Text="Actions" />
+                                                    <TextBlock Classes="Small" Text="Actions" />
                                                 </shadui:SimpleDropdown.MenuLabel>
                                                 <Button Content="Add New">
                                                     <extensions:ButtonAssist.Icon>
@@ -96,10 +90,7 @@ public sealed partial class MenuViewModel : ViewModelBase
                                                 Classes="Outline"
                                                 TriggerContent="Outline">
                                                 <shadui:SimpleDropdown.MenuLabel>
-                                                    <TextBlock
-                                                        Classes="Small"
-                                                        FontFamily="{DynamicResource FontFamily}"
-                                                        Text="Actions" />
+                                                    <TextBlock Classes="Small" Text="Actions" />
                                                 </shadui:SimpleDropdown.MenuLabel>
                                                 <Button Content="Add New">
                                                     <extensions:ButtonAssist.Icon>
@@ -136,10 +127,7 @@ public sealed partial class MenuViewModel : ViewModelBase
                                                 Classes="Ghost"
                                                 TriggerContent="Ghost">
                                                 <shadui:SimpleDropdown.MenuLabel>
-                                                    <TextBlock
-                                                        Classes="Small"
-                                                        FontFamily="{DynamicResource FontFamily}"
-                                                        Text="Actions" />
+                                                    <TextBlock Classes="Small" Text="Actions" />
                                                 </shadui:SimpleDropdown.MenuLabel>
                                                 <Button Content="Add New">
                                                     <extensions:ButtonAssist.Icon>
@@ -181,10 +169,7 @@ public sealed partial class MenuViewModel : ViewModelBase
                                                         StrokeBrush="{DynamicResource ForegroundColor}" />
                                                 </shadui:SimpleDropdown.TriggerContent>
                                                 <shadui:SimpleDropdown.MenuLabel>
-                                                    <TextBlock
-                                                        Classes="Small"
-                                                        FontFamily="{DynamicResource FontFamily}"
-                                                        Text="Actions" />
+                                                    <TextBlock Classes="Small" Text="Actions" />
                                                 </shadui:SimpleDropdown.MenuLabel>
                                                 <Button Content="Add New">
                                                     <extensions:ButtonAssist.Icon>
@@ -217,7 +202,7 @@ public sealed partial class MenuViewModel : ViewModelBase
                                             </shadui:SimpleDropdown>
                                         </StackPanel>
                                         """;
-    
+
     [ObservableProperty]
     private string _menuBarCode = """
                                   <Border HorizontalAlignment="Center" CornerRadius="{DynamicResource MdCornerRadius}"

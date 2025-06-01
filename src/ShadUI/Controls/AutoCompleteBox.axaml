@@ -147,7 +147,6 @@
 
     <ControlTheme x:Key="{x:Type AutoCompleteBox}" TargetType="AutoCompleteBox">
         <Setter Property="FontSize" Value="14" />
-        <Setter Property="FontFamily" Value="{DynamicResource FontFamily}" />
         <Setter Property="FontWeight" Value="Medium" />
         <Setter Property="Background" Value="{DynamicResource BackgroundColor}" />
         <Setter Property="BorderThickness" Value="1" />
@@ -184,7 +183,6 @@
                                 Classes="Clearable"
                                 CornerRadius="{TemplateBinding CornerRadius}"
                                 FocusAdorner="{TemplateBinding FocusAdorner}"
-                                FontFamily="{TemplateBinding FontFamily}"
                                 FontSize="{TemplateBinding FontSize}"
                                 FontWeight="{TemplateBinding FontWeight}"
                                 InnerLeftContent="{TemplateBinding InnerLeftContent}"
@@ -222,7 +220,6 @@
                                     Padding="0,3,0,0"
                                     Background="{TemplateBinding Background}"
                                     BorderThickness="0"
-                                    FontFamily="{DynamicResource FontFamily}"
                                     FontSize="14"
                                     Foreground="{TemplateBinding Foreground}"
                                     ItemContainerTheme="{StaticResource ListBoxItemTheme}"

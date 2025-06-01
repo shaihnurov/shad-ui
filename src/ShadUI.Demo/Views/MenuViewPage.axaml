@@ -42,10 +42,7 @@
                                 Classes="Primary"
                                 TriggerContent="Primary">
                                 <shadui:SimpleDropdown.MenuLabel>
-                                    <TextBlock
-                                        Classes="Small"
-                                        FontFamily="{DynamicResource FontFamily}"
-                                        Text="Actions" />
+                                    <TextBlock Classes="Small" Text="Actions" />
                                 </shadui:SimpleDropdown.MenuLabel>
                                 <Button Content="Add New">
                                     <extensions:ButtonAssist.Icon>
@@ -82,10 +79,7 @@
                                 Classes="Secondary"
                                 TriggerContent="Secondary">
                                 <shadui:SimpleDropdown.MenuLabel>
-                                    <TextBlock
-                                        Classes="Small"
-                                        FontFamily="{DynamicResource FontFamily}"
-                                        Text="Actions" />
+                                    <TextBlock Classes="Small" Text="Actions" />
                                 </shadui:SimpleDropdown.MenuLabel>
                                 <Button Content="Add New">
                                     <extensions:ButtonAssist.Icon>
@@ -122,10 +116,7 @@
                                 Classes="Outline"
                                 TriggerContent="Outline">
                                 <shadui:SimpleDropdown.MenuLabel>
-                                    <TextBlock
-                                        Classes="Small"
-                                        FontFamily="{DynamicResource FontFamily}"
-                                        Text="Actions" />
+                                    <TextBlock Classes="Small" Text="Actions" />
                                 </shadui:SimpleDropdown.MenuLabel>
                                 <Button Content="Add New">
                                     <extensions:ButtonAssist.Icon>
@@ -162,10 +153,7 @@
                                 Classes="Ghost"
                                 TriggerContent="Ghost">
                                 <shadui:SimpleDropdown.MenuLabel>
-                                    <TextBlock
-                                        Classes="Small"
-                                        FontFamily="{DynamicResource FontFamily}"
-                                        Text="Actions" />
+                                    <TextBlock Classes="Small" Text="Actions" />
                                 </shadui:SimpleDropdown.MenuLabel>
                                 <Button Content="Add New">
                                     <extensions:ButtonAssist.Icon>
@@ -207,10 +195,7 @@
                                         StrokeBrush="{DynamicResource ForegroundColor}" />
                                 </shadui:SimpleDropdown.TriggerContent>
                                 <shadui:SimpleDropdown.MenuLabel>
-                                    <TextBlock
-                                        Classes="Small"
-                                        FontFamily="{DynamicResource FontFamily}"
-                                        Text="Actions" />
+                                    <TextBlock Classes="Small" Text="Actions" />
                                 </shadui:SimpleDropdown.MenuLabel>
                                 <Button Content="Add New">
                                     <extensions:ButtonAssist.Icon>
@@ -347,10 +332,7 @@
                                         Classes="Primary"
                                         Header="Primary">
                                         <extensions:MenuItemAssist.Label>
-                                            <TextBlock
-                                                Classes="Small"
-                                                FontFamily="{DynamicResource FontFamily}"
-                                                Text="My Account" />
+                                            <TextBlock Classes="Small" Text="My Account" />
                                         </extensions:MenuItemAssist.Label>
                                         <MenuItem
                                             Width="224"
@@ -382,10 +364,7 @@
                                         Classes="Secondary"
                                         Header="Secondary">
                                         <extensions:MenuItemAssist.Label>
-                                            <TextBlock
-                                                Classes="Small"
-                                                FontFamily="{DynamicResource FontFamily}"
-                                                Text="My Account" />
+                                            <TextBlock Classes="Small" Text="My Account" />
                                         </extensions:MenuItemAssist.Label>
                                         <MenuItem
                                             Width="224"
@@ -417,10 +396,7 @@
                                         Classes="Outline"
                                         Header="Outline">
                                         <extensions:MenuItemAssist.Label>
-                                            <TextBlock
-                                                Classes="Small"
-                                                FontFamily="{DynamicResource FontFamily}"
-                                                Text="My Account" />
+                                            <TextBlock Classes="Small" Text="My Account" />
                                         </extensions:MenuItemAssist.Label>
                                         <MenuItem
                                             Width="224"
@@ -452,10 +428,7 @@
                                         Classes="Ghost"
                                         Header="Ghost">
                                         <extensions:MenuItemAssist.Label>
-                                            <TextBlock
-                                                Classes="Small"
-                                                FontFamily="{DynamicResource FontFamily}"
-                                                Text="My Account" />
+                                            <TextBlock Classes="Small" Text="My Account" />
                                         </extensions:MenuItemAssist.Label>
                                         <MenuItem
                                             Width="224"
@@ -492,10 +465,7 @@
                                                 StrokeBrush="{DynamicResource ForegroundColor}" />
                                         </MenuItem.Header>
                                         <extensions:MenuItemAssist.Label>
-                                            <TextBlock
-                                                Classes="Small"
-                                                FontFamily="{DynamicResource FontFamily}"
-                                                Text="My Account" />
+                                            <TextBlock Classes="Small" Text="My Account" />
                                         </extensions:MenuItemAssist.Label>
                                         <MenuItem
                                             Width="224"

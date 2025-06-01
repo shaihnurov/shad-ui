@@ -10,7 +10,6 @@
         <Setter Property="Padding" Value="0,2" />
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
-        <Setter Property="TextBlock.FontFamily" Value="{DynamicResource FontFamily}" />
         <Setter Property="TextBlock.FontSize" Value="14" />
         <Setter Property="TextBlock.FontWeight" Value="Medium" />
         <Setter Property="Template">

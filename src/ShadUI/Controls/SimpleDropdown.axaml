@@ -13,10 +13,7 @@
                     Show
                 </shadui:SimpleDropdown.TriggerContent>
                 <shadui:SimpleDropdown.MenuLabel>
-                    <TextBlock
-                        Classes="Small"
-                        FontFamily="{DynamicResource FontFamily}"
-                        Text="Actions" />
+                    <TextBlock Classes="Small" Text="Actions" />
                 </shadui:SimpleDropdown.MenuLabel>
                 <Button Content="Add New" />
                 <Button Content="Edit" IsEnabled="False" />
@@ -28,7 +25,6 @@
     <ControlTheme x:Key="{x:Type shadui:SimpleDropdown}" TargetType="{x:Type shadui:SimpleDropdown}">
         <Setter Property="FontWeight" Value="Medium" />
         <Setter Property="FontSize" Value="14" />
-        <Setter Property="FontFamily" Value="{DynamicResource FontFamily}" />
         <Setter Property="CornerRadius" Value="{DynamicResource LgCornerRadius}" />
         <Setter Property="Padding" Value="12 4" />
         <Setter Property="PopupVerticalOffset" Value="8" />
@@ -82,7 +78,6 @@
                                     <DataTemplate DataType="system:String">
                                         <TextBlock
                                             Name="PART_TriggerText"
-                                            FontFamily="{DynamicResource FontFamily}"
                                             FontSize="14"
                                             FontWeight="DemiBold"
                                             Text="{CompiledBinding}" />
@@ -111,7 +106,7 @@
                                     CornerRadius="{DynamicResource LgCornerRadius}">
                                     <StackPanel Margin="0,2">
                                         <Border Padding="16,8" IsVisible="{TemplateBinding MenuLabel, Converter={x:Static ObjectConverters.IsNotNull}}">
-                                            <ContentPresenter Content="{TemplateBinding MenuLabel}" />
+                                            <ContentPresenter Content="{TemplateBinding MenuLabel}" FontFamily="{TemplateBinding FontFamily}" />
                                         </Border>
                                         <Separator Margin="0,2" IsVisible="{TemplateBinding MenuLabel, Converter={x:Static ObjectConverters.IsNotNull}}" />
                                         <ScrollViewer Margin="0,2">

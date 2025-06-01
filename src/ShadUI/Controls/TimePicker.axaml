@@ -141,7 +141,6 @@
                                                     x:Name="PART_HourTextBlock"
                                                     Padding="{DynamicResource TimePickerHostPadding}"
                                                     HorizontalAlignment="Center"
-                                                    FontFamily="{TemplateBinding FontFamily}"
                                                     FontSize="{TemplateBinding FontSize}"
                                                     FontWeight="{TemplateBinding FontWeight}"
                                                     Text="{DynamicResource StringTimePickerHourText}" />
@@ -162,7 +161,6 @@
                                                     x:Name="PART_MinuteTextBlock"
                                                     Padding="{DynamicResource TimePickerHostPadding}"
                                                     HorizontalAlignment="Center"
-                                                    FontFamily="{TemplateBinding FontFamily}"
                                                     FontSize="{TemplateBinding FontSize}"
                                                     FontWeight="{TemplateBinding FontWeight}"
                                                     Text="{DynamicResource StringTimePickerMinuteText}" />
@@ -183,7 +181,6 @@
                                                     x:Name="PART_SecondTextBlock"
                                                     Padding="{DynamicResource TimePickerHostPadding}"
                                                     HorizontalAlignment="Center"
-                                                    FontFamily="{TemplateBinding FontFamily}"
                                                     FontSize="{TemplateBinding FontSize}"
                                                     FontWeight="{TemplateBinding FontWeight}"
                                                     Text="{DynamicResource StringTimePickerSecondText}" />
@@ -204,7 +201,6 @@
                                                     x:Name="PART_PeriodTextBlock"
                                                     Padding="{DynamicResource TimePickerHostPadding}"
                                                     HorizontalAlignment="Center"
-                                                    FontFamily="{TemplateBinding FontFamily}"
                                                     FontSize="{TemplateBinding FontSize}"
                                                     FontWeight="{TemplateBinding FontWeight}" />
                                             </Border>
@@ -219,7 +215,7 @@
                                 PlacementTarget="{TemplateBinding}"
                                 VerticalOffset="50"
                                 WindowManagerAddShadowHint="False">
-                                <TimePickerPresenter Name="PART_PickerPresenter">
+                                <TimePickerPresenter Name="PART_PickerPresenter" FontFamily="{TemplateBinding FontFamily}">
                                     <TimePickerPresenter.KeyBindings>
                                         <KeyBinding Command="{CompiledBinding $parent[Popup].Close}" Gesture="Escape" />
                                     </TimePickerPresenter.KeyBindings>

@@ -28,7 +28,6 @@
     <sys:Double x:Key="ToolTipContentMaxWidth">320</sys:Double>
 
     <ControlTheme x:Key="{x:Type ToolTip}" TargetType="ToolTip">
-        <Setter Property="FontFamily" Value="{DynamicResource FontFamily}" />
         <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundColor}" />
         <Setter Property="Background" Value="{DynamicResource PrimaryColor}" />
         <Setter Property="FontSize" Value="12" />

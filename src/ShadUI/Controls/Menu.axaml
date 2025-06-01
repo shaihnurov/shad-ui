@@ -55,7 +55,8 @@
                                 VerticalAlignment="Center"
                                 HorizontalContentAlignment="Left"
                                 VerticalContentAlignment="Center"
-                                Content="{TemplateBinding Header}">
+                                Content="{TemplateBinding Header}"
+                                FontFamily="{TemplateBinding FontFamily}">
                                 <ContentPresenter.DataTemplates>
                                     <DataTemplate DataType="system:String">
                                         <TextBlock
@@ -89,7 +90,7 @@
                                     CornerRadius="{DynamicResource LgCornerRadius}">
                                     <StackPanel Margin="0,2">
                                         <Border Padding="16,8" IsVisible="{TemplateBinding extensions:MenuItemAssist.Label, Converter={x:Static ObjectConverters.IsNotNull}}">
-                                            <ContentPresenter Content="{TemplateBinding extensions:MenuItemAssist.Label}" />
+                                            <ContentPresenter Content="{TemplateBinding extensions:MenuItemAssist.Label}" FontFamily="{TemplateBinding FontFamily}" />
                                         </Border>
                                         <Separator Margin="0,2" IsVisible="{TemplateBinding extensions:MenuItemAssist.Label, Converter={x:Static ObjectConverters.IsNotNull}}" />
                                         <ScrollViewer>

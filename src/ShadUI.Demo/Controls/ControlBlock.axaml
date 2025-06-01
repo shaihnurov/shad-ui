@@ -54,7 +54,6 @@
                             Content="{TemplateBinding Header}"
                             ContentTemplate="{TemplateBinding HeaderTemplate}"
                             Foreground="{TemplateBinding Foreground}"
-                            TextBlock.FontFamily="{TemplateBinding FontFamily}"
                             TextBlock.FontSize="{TemplateBinding FontSize}"
                             TextBlock.FontWeight="{TemplateBinding FontWeight}"
                             TextBlock.Foreground="{TemplateBinding Foreground}">

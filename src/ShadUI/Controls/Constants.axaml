@@ -1,6 +1,5 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-    <FontFamily x:Key="FontFamily">Inter</FontFamily>
     <CornerRadius x:Key="SmCornerRadius">4</CornerRadius>
     <CornerRadius x:Key="MdCornerRadius">6</CornerRadius>
     <CornerRadius x:Key="LgCornerRadius">8</CornerRadius>

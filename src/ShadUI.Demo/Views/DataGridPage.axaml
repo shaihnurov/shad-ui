@@ -136,7 +136,6 @@
                                             <DataTemplate DataType="viewModels:DataGridItem">
                                                 <TextBlock
                                                     HorizontalAlignment="Right"
-                                                    VerticalAlignment="Center"
                                                     Text="{Binding Amount, StringFormat={}{0:C}}"
                                                     TextAlignment="Right" />
                                             </DataTemplate>
@@ -163,10 +162,7 @@
                                                             StrokeBrush="{DynamicResource ForegroundColor}" />
                                                     </shadui:SimpleDropdown.TriggerContent>
                                                     <shadui:SimpleDropdown.MenuLabel>
-                                                        <TextBlock
-                                                            Classes="Small"
-                                                            FontFamily="{DynamicResource FontFamily}"
-                                                            Text="Actions" />
+                                                        <TextBlock Classes="Small" Text="Actions" />
                                                     </shadui:SimpleDropdown.MenuLabel>
                                                     <Button Content="Copy payment ID" />
                                                     <Button Content="View customer" />

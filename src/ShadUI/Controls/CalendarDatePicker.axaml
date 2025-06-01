@@ -35,7 +35,6 @@
     <ControlTheme x:Key="InnerTextBoxTheme" TargetType="TextBox">
         <Setter Property="FontSize" Value="14" />
         <Setter Property="LineHeight" Value="20" />
-        <Setter Property="FontFamily" Value="{DynamicResource FontFamily}" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="Padding" Value="12,4" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
