@@ -426,6 +426,14 @@ public class Window : Avalonia.Controls.Window
         if (WindowState == WindowState.FullScreen) WindowState = _lastState;
     }
 
+    /// <summary>
+    ///     Restores the last window state.
+    /// </summary>
+    public void RestoreWindowState()
+    {
+        WindowState = _lastState == WindowState.FullScreen ? WindowState.Maximized : _lastState;
+    }
+
     static Window()
     {
         if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) OnScreenKeyboard.Integrate();
