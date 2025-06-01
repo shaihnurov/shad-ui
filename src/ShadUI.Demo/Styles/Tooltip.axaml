@@ -1,12 +1,5 @@
-﻿<Styles
-    xmlns="https://github.com/avaloniaui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.Avalonia;assembly=LiveChartsCore.SkiaSharpView.Avalonia">
+﻿<Styles xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Style Selector="ToolTip">
-        <Setter Property="FontFamily" Value="{StaticResource GeistFont}" />
-    </Style>
-
-    <Style Selector="lvc|CartesianChart">
         <Setter Property="FontFamily" Value="{StaticResource GeistFont}" />
     </Style>
 </Styles>
