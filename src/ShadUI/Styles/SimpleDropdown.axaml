@@ -16,7 +16,7 @@
         <Setter Property="FontSize" Value="14" />
         <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
         <Setter Property="Background" Value="{DynamicResource BackgroundColor}" />
-        <Setter Property="CornerRadius" Value="{DynamicResource SmCornerRadius}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource MdCornerRadius}" />
         <Setter Property="HorizontalContentAlignment" Value="Left" />
         <Setter Property="extensions:ButtonAssist.Icon" Value="{x:Null}" />
         <Setter Property="Template">
@@ -85,7 +85,7 @@
     </Style>
     <Style Selector="controls|SimpleDropdown Button:pressed">
         <Style Selector="^ /template/ Panel#RootPanel">
-            <Setter Property="RenderTransform" Value="scale(0.95, 0.95)" />
+            <Setter Property="RenderTransform" Value="scale(1, 1)" />
         </Style>
     </Style>
     <Style Selector="controls|SimpleDropdown Button:pointerover">
@@ -98,11 +98,8 @@
     </Style>
     <Style Selector="controls|SimpleDropdown Button.DestructiveMenu">
         <Setter Property="Foreground" Value="{DynamicResource DestructiveColor}" />
-        <Style Selector="^:pointerover">
-            <Setter Property="Foreground" Value="{DynamicResource DestructiveForegroundColor}" />
-            <Style Selector="^ /template/ Border#PART_HoverBackground">
-                <Setter Property="Background" Value="{DynamicResource DestructiveColor}" />
-            </Style>
+        <Style Selector="^ /template/ Border#PART_HoverBackground">
+            <Setter Property="Background" Value="{DynamicResource DestructiveColor10}" />
         </Style>
     </Style>
     <Style Selector="controls|SimpleDropdown Button:disabled">

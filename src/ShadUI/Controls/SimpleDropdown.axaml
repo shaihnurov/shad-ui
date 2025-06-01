@@ -3,11 +3,33 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:shadui="clr-namespace:ShadUI.Controls"
     xmlns:system="clr-namespace:System;assembly=System.Runtime">
+    <Design.PreviewWith>
+        <Panel Width="500" Height="500">
+            <shadui:SimpleDropdown
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Classes="Outline">
+                <shadui:SimpleDropdown.TriggerContent>
+                    Show
+                </shadui:SimpleDropdown.TriggerContent>
+                <shadui:SimpleDropdown.MenuLabel>
+                    <TextBlock
+                        Classes="Small"
+                        FontFamily="{DynamicResource FontFamily}"
+                        Text="Actions" />
+                </shadui:SimpleDropdown.MenuLabel>
+                <Button Content="Add New" />
+                <Button Content="Edit" IsEnabled="False" />
+                <Separator />
+                <Button Classes="DestructiveMenu" Content="Delete" />
+            </shadui:SimpleDropdown>
+        </Panel>
+    </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type shadui:SimpleDropdown}" TargetType="{x:Type shadui:SimpleDropdown}">
         <Setter Property="FontWeight" Value="Medium" />
         <Setter Property="FontSize" Value="14" />
         <Setter Property="FontFamily" Value="{DynamicResource FontFamily}" />
-        <Setter Property="CornerRadius" Value="{DynamicResource MdCornerRadius}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource LgCornerRadius}" />
         <Setter Property="Padding" Value="12 4" />
         <Setter Property="PopupVerticalOffset" Value="8" />
         <Setter Property="PopupPlacement" Value="BottomEdgeAlignedLeft" />
@@ -49,7 +71,6 @@
                             ClipToBounds="True"
                             CornerRadius="{TemplateBinding CornerRadius}">
                             <ContentPresenter
-                                Name="PART_TriggerContent"
                                 Margin="{TemplateBinding Padding}"
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Center"
@@ -70,25 +91,24 @@
                             </ContentPresenter>
                         </Border>
                         <Popup
-                            Name="PART_Popup"
                             Width="{TemplateBinding PopupWidth}"
                             IsLightDismissEnabled="True"
                             IsOpen="{TemplateBinding IsDropDownOpen,
                                                      Mode=TwoWay}"
-                            Opacity="0"
                             OverlayInputPassThroughElement="{CompiledBinding $parent[shadui:SimpleDropdown]}"
                             Placement="{TemplateBinding PopupPlacement}"
                             VerticalOffset="{TemplateBinding PopupVerticalOffset}">
-                            <LayoutTransformControl Name="PART_LayoutTransform" RenderTransformOrigin="50%, 0%">
+                            <LayoutTransformControl
+                                Name="PART_LayoutTransform"
+                                Margin="-1,0,0,0"
+                                RenderTransformOrigin="50%, 0%">
                                 <Border
-                                    Name="PART_Border"
                                     Margin="2,0,2,4"
                                     Background="{DynamicResource CardBackgroundColor}"
                                     BorderBrush="{DynamicResource BorderColor}"
                                     BorderThickness="1"
                                     BoxShadow="{DynamicResource Shadow}"
-                                    ClipToBounds="True"
-                                    CornerRadius="{DynamicResource MdCornerRadius}">
+                                    CornerRadius="{DynamicResource LgCornerRadius}">
                                     <StackPanel Margin="0,2">
                                         <Border Padding="16,8" IsVisible="{TemplateBinding MenuLabel, Converter={x:Static ObjectConverters.IsNotNull}}">
                                             <ContentPresenter Content="{TemplateBinding MenuLabel}" />

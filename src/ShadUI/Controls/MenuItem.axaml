@@ -7,8 +7,8 @@
     xmlns:system="clr-namespace:System;assembly=netstandard">
     <converters:PlatformKeyGestureConverter x:Key="KeyGestureConverter" />
     <ControlTheme x:Key="{x:Type MenuItem}" TargetType="MenuItem">
-        <Setter Property="Background" Value="{DynamicResource CardBackgroundColor}" />
-        <Setter Property="CornerRadius" Value="{DynamicResource SmCornerRadius}" />
+        <Setter Property="Background" Value="{DynamicResource BackgroundColor}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource MdCornerRadius}" />
         <Setter Property="BorderThickness" Value="1.5" />
         <Setter Property="Margin" Value="4,2" />
         <Setter Property="Padding" Value="12,8" />
@@ -23,87 +23,108 @@
         </Setter>
         <Setter Property="Template">
             <ControlTemplate>
-                <Border
-                    Name="root"
-                    Padding="{TemplateBinding Padding}"
-                    Background="{TemplateBinding Background}"
-                    BorderBrush="{TemplateBinding BorderBrush}"
-                    ClipToBounds="True"
-                    CornerRadius="{TemplateBinding CornerRadius}">
+                <Panel>
+                    <Border
+                        Name="PART_BaseBackground"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}"
+                        Opacity="1">
+                        <Border.Transitions>
+                            <Transitions>
+                                <DoubleTransition Property="Opacity" Duration="0:0:0.20" />
+                            </Transitions>
+                        </Border.Transitions>
+                    </Border>
+                    <Border
+                        Name="PART_HoverBackground"
+                        Background="{DynamicResource GhostColor}"
+                        CornerRadius="{TemplateBinding CornerRadius}"
+                        Opacity="0">
+                        <Border.Transitions>
+                            <Transitions>
+                                <DoubleTransition Property="Opacity" Duration="0:0:0.20" />
+                            </Transitions>
+                        </Border.Transitions>
+                    </Border>
                     <Panel>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto" SharedSizeGroup="A" />
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="Auto" />
-                            </Grid.ColumnDefinitions>
-                            <ContentPresenter
-                                Name="PART_Icon"
-                                Height="8"
-                                Margin="0,0,8,0"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
-                                Content="{TemplateBinding Icon}"
-                                IsVisible="{TemplateBinding Icon,
-                                                            Converter={x:Static ObjectConverters.IsNotNull}}" />
-                            <ContentPresenter
-                                Name="PART_HeaderPresenter"
-                                Grid.Column="1"
-                                HorizontalAlignment="Left"
-                                VerticalAlignment="Center"
-                                Content="{TemplateBinding Header}">
-                                <ContentPresenter.DataTemplates>
-                                    <DataTemplate DataType="system:String">
-                                        <TextBlock
-                                            FontSize="14"
-                                            FontWeight="Medium"
-                                            Text="{CompiledBinding}" />
-                                    </DataTemplate>
-                                </ContentPresenter.DataTemplates>
-                            </ContentPresenter>
-                            <PathIcon
-                                Name="PART_RightArrow"
-                                Grid.Column="2"
-                                Width="10"
-                                Height="10"
-                                Margin="16,0,0,0"
-                                HorizontalAlignment="Right"
-                                VerticalAlignment="Center"
-                                Data="{x:Static contents:Icons.ChevronRight}"
-                                DockPanel.Dock="Right"
-                                Foreground="{DynamicResource ForegroundColor}" />
-                            <TextBlock
-                                Name="PART_InputGestureText"
-                                Grid.Column="3"
-                                Margin="8,0,0,0"
-                                VerticalAlignment="Center"
-                                FontSize="12"
-                                IsVisible="{TemplateBinding InputGesture,
-                                                            Converter={x:Static ObjectConverters.IsNotNull}}"
-                                Opacity="0.5"
-                                Text="{TemplateBinding InputGesture,
-                                                       Converter={StaticResource KeyGestureConverter}}" />
-                        </Grid>
+                        <Border
+                            Name="PART_BorderContainer"
+                            Background="Transparent"
+                            ClipToBounds="True"
+                            CornerRadius="{TemplateBinding CornerRadius}">
+                            <Grid Margin="{TemplateBinding Padding}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" SharedSizeGroup="A" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <ContentPresenter
+                                    Name="PART_Icon"
+                                    Height="8"
+                                    Margin="0,0,8,0"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Content="{TemplateBinding Icon}"
+                                    IsVisible="{TemplateBinding Icon,
+                                                                Converter={x:Static ObjectConverters.IsNotNull}}" />
+                                <ContentPresenter
+                                    Name="PART_HeaderPresenter"
+                                    Grid.Column="1"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    Content="{TemplateBinding Header}">
+                                    <ContentPresenter.DataTemplates>
+                                        <DataTemplate DataType="system:String">
+                                            <TextBlock
+                                                FontSize="14"
+                                                FontWeight="Medium"
+                                                Text="{CompiledBinding}" />
+                                        </DataTemplate>
+                                    </ContentPresenter.DataTemplates>
+                                </ContentPresenter>
+                                <PathIcon
+                                    Name="PART_RightArrow"
+                                    Grid.Column="2"
+                                    Width="10"
+                                    Height="10"
+                                    Margin="16,0,0,0"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Center"
+                                    Data="{x:Static contents:Icons.ChevronRight}"
+                                    DockPanel.Dock="Right"
+                                    Foreground="{DynamicResource ForegroundColor}" />
+                                <TextBlock
+                                    Name="PART_InputGestureText"
+                                    Grid.Column="3"
+                                    Margin="8,0,0,0"
+                                    VerticalAlignment="Center"
+                                    FontSize="12"
+                                    IsVisible="{TemplateBinding InputGesture,
+                                                                Converter={x:Static ObjectConverters.IsNotNull}}"
+                                    Opacity="0.5"
+                                    Text="{TemplateBinding InputGesture,
+                                                           Converter={StaticResource KeyGestureConverter}}" />
+                            </Grid>
+                        </Border>
                         <Popup
-                            Name="PART_Popup"
                             HorizontalOffset="-24"
                             IsLightDismissEnabled="False"
                             IsOpen="{TemplateBinding IsSubMenuOpen,
                                                      Mode=TwoWay}"
                             Opacity="0"
                             OverlayInputPassThroughElement="{CompiledBinding $parent[Menu]}"
-                            Placement="RightEdgeAlignedTop"
-                            VerticalOffset="-8">
+                            Placement="RightEdgeAlignedTop">
                             <LayoutTransformControl Name="PART_LayoutTransform" RenderTransformOrigin="0%, 0%">
                                 <Border
-                                    Name="PART_Border"
-                                    Margin="32,0,2,4"
+                                    Margin="24,0,2,4"
                                     Background="{DynamicResource CardBackgroundColor}"
                                     BorderBrush="{DynamicResource BorderColor}"
                                     BorderThickness="1"
                                     BoxShadow="{DynamicResource Shadow}"
-                                    CornerRadius="{DynamicResource MdCornerRadius}">
+                                    CornerRadius="{DynamicResource LgCornerRadius}">
                                     <StackPanel Margin="0,2">
                                         <Border Padding="16,8" IsVisible="{TemplateBinding extensions:MenuItemAssist.Label, Converter={x:Static ObjectConverters.IsNotNull}}">
                                             <ContentPresenter Content="{TemplateBinding extensions:MenuItemAssist.Label}" />
@@ -120,12 +141,33 @@
                             </LayoutTransformControl>
                         </Popup>
                     </Panel>
-                </Border>
+                </Panel>
             </ControlTemplate>
         </Setter>
-
-        <Style Selector="^:pointerover">
-            <Setter Property="Background" Value="{DynamicResource GhostColor}" />
+        <Style Selector="^:disabled">
+            <Setter Property="Opacity" Value="0.50" />
+            <Setter Property="IsHitTestVisible" Value="False" />
+        </Style>
+        <Style Selector="^:not(.Menu):disabled">
+            <Setter Property="Opacity" Value="0.56" />
+        </Style>
+        <Style Selector="^:empty /template/ PathIcon#PART_RightArrow">
+            <Setter Property="IsVisible" Value="False" />
+        </Style>
+        <Style Selector="^[FlowDirection=RightToLeft] /template/ Popup#PART_Popup">
+            <Setter Property="HorizontalOffset" Value="25" />
+        </Style>
+        <Style Selector="^:pointerover /template/ Border#PART_HoverBackground">
+            <Setter Property="Opacity" Value="1" />
+        </Style>
+        <Style Selector="^:pointerover /template/ Border#PART_BaseBackground">
+            <Setter Property="Opacity" Value="0" />
+        </Style>
+        <Style Selector="^:open /template/ Border#PART_HoverBackground">
+            <Setter Property="Opacity" Value="1" />
+        </Style>
+        <Style Selector="^:open /template/ Border#PART_BaseBackground">
+            <Setter Property="Opacity" Value="0" />
         </Style>
 
         <Style Selector="^:open /template/ LayoutTransformControl#PART_LayoutTransform">
@@ -147,30 +189,11 @@
                 </Animation>
             </Style.Animations>
         </Style>
-        <Style Selector="^:open">
-            <Setter Property="Background" Value="{DynamicResource GhostColor}" />
-        </Style>
 
-        <Style Selector="^:disabled">
-            <Setter Property="Opacity" Value="0.50" />
-            <Setter Property="IsHitTestVisible" Value="False" />
-        </Style>
-
-        <Style Selector="^:not(.Menu):disabled">
-            <Setter Property="Opacity" Value="0.56" />
-        </Style>
-
-        <Style Selector="^:empty /template/ PathIcon#PART_RightArrow">
-            <Setter Property="IsVisible" Value="False" />
-        </Style>
-        <Style Selector="^[FlowDirection=RightToLeft] /template/ Popup#PART_Popup">
-            <Setter Property="HorizontalOffset" Value="25" />
-        </Style>
         <Style Selector="^.Destructive">
             <Setter Property="Foreground" Value="{DynamicResource DestructiveColor}" />
-            <Style Selector="^:pointerover">
-                <Setter Property="Background" Value="{DynamicResource DestructiveColor}" />
-                <Setter Property="Foreground" Value="{DynamicResource DestructiveForegroundColor}" />
+            <Style Selector="^ /template/ Border#PART_HoverBackground">
+                <Setter Property="Background" Value="{DynamicResource DestructiveColor10}" />
             </Style>
         </Style>
     </ControlTheme>
