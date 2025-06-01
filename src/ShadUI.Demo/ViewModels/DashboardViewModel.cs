@@ -13,11 +13,13 @@ public sealed partial class DashboardViewModel : ViewModelBase
 {
     public ThemeWatcher ThemeWatcher { get; }
 
+    private const string FontName = "Geist";
+
     [ObservableProperty]
     private static SolidColorPaint _tooltipTextPaint = new()
     {
         Color = SKColors.Black,
-        SKTypeface = SKTypeface.FromFamilyName("Inter")
+        SKTypeface = SKTypeface.FromFamilyName(FontName)
     };
 
     public DashboardViewModel(ThemeWatcher themeWatcher)
@@ -53,7 +55,7 @@ public sealed partial class DashboardViewModel : ViewModelBase
         var foregroundPaint = new SolidColorPaint
         {
             Color = foreground,
-            SKTypeface = SKTypeface.FromFamilyName("Inter")
+            SKTypeface = SKTypeface.FromFamilyName(FontName)
         };
 
         XAxes[0].LabelsPaint = foregroundPaint;
@@ -90,7 +92,7 @@ public sealed partial class DashboardViewModel : ViewModelBase
             LabelsPaint = new SolidColorPaint
             {
                 Color = SKColors.Gray,
-                SKTypeface = SKTypeface.FromFamilyName("Inter")
+                SKTypeface = SKTypeface.FromFamilyName(FontName)
             },
             TextSize = 12,
             MinStep = 1
@@ -105,7 +107,7 @@ public sealed partial class DashboardViewModel : ViewModelBase
             LabelsPaint = new SolidColorPaint
             {
                 Color = SKColors.Gray,
-                SKTypeface = SKTypeface.FromFamilyName("Inter")
+                SKTypeface = SKTypeface.FromFamilyName(FontName)
             },
             TextSize = 12,
             MinStep = 1500,

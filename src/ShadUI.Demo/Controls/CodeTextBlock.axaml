@@ -20,9 +20,6 @@
     </Design.PreviewWith>
 
     <ControlTheme x:Key="{x:Type controls:CodeTextBlock}" TargetType="controls:CodeTextBlock">
-        <ControlTheme.Resources>
-            <FontFamily x:Key="JetbrainsFont">avares://ShadUI.Demo/Assets/Fonts#Jetbrains</FontFamily>
-        </ControlTheme.Resources>
         <Setter Property="Padding" Value="8" />
         <Setter Property="MinHeight" Value="50" />
         <Setter Property="CornerRadius" Value="{DynamicResource XlCornerRadius}" />

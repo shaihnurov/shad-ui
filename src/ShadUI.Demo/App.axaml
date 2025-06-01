@@ -29,11 +29,13 @@
                 <ResourceInclude Source="Controls/Index.axaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
-
+        <FontFamily x:Key="JetbrainsFont">avares://ShadUI.Demo/Assets/Fonts#Jetbrains</FontFamily>
+        <FontFamily x:Key="GeistFont">avares://ShadUI.Demo/Assets/Fonts#Geist Medium</FontFamily>
         <x:Double x:Key="ControlContentThemeFontSize">12</x:Double>
     </Application.Resources>
     <Application.Styles>
         <themes:ShadTheme />
         <StyleInclude Source="avares://AvaloniaEdit/Themes/Fluent/AvaloniaEdit.xaml" />
+        <StyleInclude Source="avares://ShadUI.Demo/Styles/Index.axaml" />
     </Application.Styles>
 </Application>
