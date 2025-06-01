@@ -81,6 +81,7 @@ public class ThemeWatcher
             DestructiveColor = TryGetColor("DestructiveColor"),
             DestructiveColor75 = TryGetColor("DestructiveColor75"),
             DestructiveColor50 = TryGetColor("DestructiveColor50"),
+            DestructiveColor10 = TryGetColor("DestructiveColor10"),
             DestructiveForegroundColor = TryGetColor("DestructiveForegroundColor"),
 
             // Notification Colors

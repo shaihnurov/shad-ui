@@ -26,6 +26,7 @@
     <Color x:Key="DestructiveColor">#C82323</Color>
     <Color x:Key="DestructiveColor75">#BFC82323</Color>
     <Color x:Key="DestructiveColor50">#80C82323</Color>
+    <Color x:Key="DestructiveColor10">#19C82323</Color>
     <Color x:Key="DestructiveForegroundColor">#FAFAFA</Color>
 
     <!--  notification colors  -->

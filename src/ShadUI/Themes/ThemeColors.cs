@@ -31,6 +31,7 @@ public class ThemeColors
     public Color DestructiveColor { get; set; }
     public Color DestructiveColor75 { get; set; }
     public Color DestructiveColor50 { get; set; }
+    public Color DestructiveColor10 { get; set; }
     public Color DestructiveForegroundColor { get; set; }
 
     // Notification Colors
