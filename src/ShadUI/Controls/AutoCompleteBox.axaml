@@ -152,7 +152,7 @@
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="BorderBrush" Value="{DynamicResource BorderColor}" />
         <Setter Property="Padding" Value="12,4" />
-        <Setter Property="CornerRadius" Value="{DynamicResource MdCornerRadius}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource LgCornerRadius}" />
         <Setter Property="FocusAdorner" Value="{x:Null}" />
         <Setter Property="extensions:ControlAssist.ShowProgress" Value="False" />
         <Setter Property="extensions:ControlAssist.MinHeight" Value="36" />
@@ -214,7 +214,7 @@
                                 BorderBrush="{DynamicResource BorderColor}"
                                 BorderThickness="1"
                                 BoxShadow="{DynamicResource Shadow}"
-                                CornerRadius="{DynamicResource MdCornerRadius}">
+                                CornerRadius="{TemplateBinding CornerRadius}">
                                 <ListBox
                                     Name="PART_SelectingItemsControl"
                                     Padding="0,3,0,0"

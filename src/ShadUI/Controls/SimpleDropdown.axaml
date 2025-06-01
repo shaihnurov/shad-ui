@@ -176,7 +176,6 @@
             <Setter Property="Height" Value="36" />
             <Setter Property="FontSize" Value="14" />
             <Setter Property="Padding" Value="16,8" />
-            <Setter Property="CornerRadius" Value="{DynamicResource MdCornerRadius}" />
             <Setter Property="Background" Value="{DynamicResource PrimaryColor}" />
             <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundColor}" />
             <Style Selector="^ /template/ TextBlock">
@@ -195,7 +194,6 @@
             <Setter Property="Height" Value="36" />
             <Setter Property="FontSize" Value="14" />
             <Setter Property="Padding" Value="16,8" />
-            <Setter Property="CornerRadius" Value="{DynamicResource MdCornerRadius}" />
             <Setter Property="Background" Value="{DynamicResource SecondaryColor}" />
             <Setter Property="Foreground" Value="{DynamicResource SecondaryForegroundColor}" />
             <Style Selector="^ /template/ TextBlock">
@@ -216,7 +214,6 @@
             <Setter Property="Padding" Value="16,8" />
             <Setter Property="BorderThickness" Value="1" />
             <Setter Property="BorderBrush" Value="{DynamicResource BorderColor}" />
-            <Setter Property="CornerRadius" Value="{DynamicResource MdCornerRadius}" />
             <Setter Property="Background" Value="{DynamicResource BackgroundColor}" />
             <Style Selector="^ /template/ TextBlock">
                 <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
@@ -234,7 +231,6 @@
             <Setter Property="Height" Value="36" />
             <Setter Property="FontSize" Value="14" />
             <Setter Property="Padding" Value="16,8" />
-            <Setter Property="CornerRadius" Value="{DynamicResource MdCornerRadius}" />
             <Style Selector="^ /template/ Border#PART_HoverBackground">
                 <Setter Property="Background" Value="{DynamicResource GhostHoverColor}" />
             </Style>
@@ -244,7 +240,6 @@
         <Style Selector="^.Icon">
             <Setter Property="Height" Value="36" />
             <Setter Property="Width" Value="36" />
-            <Setter Property="CornerRadius" Value="{DynamicResource MdCornerRadius}" />
             <Style Selector="^ /template/ Border#PART_HoverBackground">
                 <Setter Property="Background" Value="{DynamicResource OutlineColor}" />
             </Style>

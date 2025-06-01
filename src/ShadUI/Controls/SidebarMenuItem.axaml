@@ -35,7 +35,7 @@
                         Margin="15,2"
                         Padding="30,15,15,15"
                         Background="Transparent"
-                        CornerRadius="{DynamicResource MdCornerRadius}">
+                        CornerRadius="{DynamicResource LgCornerRadius}">
                         <Border.Transitions>
                             <Transitions>
                                 <DoubleTransition Property="MaxHeight" Duration="0:0:1">
@@ -89,7 +89,7 @@
         </Setter>
         <Style Selector="^.Compact /template/ Border#PART_Border">
             <Setter Property="Padding" Value="30,10,15,10" />
-            <Setter Property="CornerRadius" Value="{DynamicResource MdCornerRadius}" />
+            <Setter Property="CornerRadius" Value="{DynamicResource LgCornerRadius}" />
         </Style>
         <Style Selector="^:pointerover">
             <Style Selector="^ /template/ Border#PART_Border">

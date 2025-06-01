@@ -9,7 +9,7 @@
                             Padding="12"
                             BorderBrush="{DynamicResource BorderColor}"
                             BorderThickness="1"
-                            CornerRadius="{DynamicResource MdCornerRadius}">
+                            CornerRadius="{DynamicResource LgCornerRadius}">
                             <TextBlock
                                 FontSize="20"
                                 Foreground="Black"
@@ -22,7 +22,7 @@
                             Padding="12"
                             BorderBrush="{DynamicResource BorderColor}"
                             BorderThickness="1"
-                            CornerRadius="{DynamicResource MdCornerRadius}" />
+                            CornerRadius="{DynamicResource LgCornerRadius}" />
                     </TabItem>
                     <TabItem Header="Disabled" IsEnabled="False" />
                 </TabControl>
@@ -33,7 +33,7 @@
                             Padding="12"
                             BorderBrush="{DynamicResource BorderColor}"
                             BorderThickness="1"
-                            CornerRadius="{DynamicResource MdCornerRadius}">
+                            CornerRadius="{DynamicResource LgCornerRadius}">
                             <TextBlock
                                 FontSize="20"
                                 Foreground="Black"
@@ -46,7 +46,7 @@
                             Padding="12"
                             BorderBrush="{DynamicResource BorderColor}"
                             BorderThickness="1"
-                            CornerRadius="{DynamicResource MdCornerRadius}" />
+                            CornerRadius="{DynamicResource LgCornerRadius}" />
                     </TabItem>
                     <TabItem Header="Disabled" IsEnabled="False" />
                 </TabControl>

@@ -239,7 +239,7 @@
                             BorderBrush="{DynamicResource BorderColor}"
                             BorderThickness="1"
                             BoxShadow="{DynamicResource Shadow}"
-                            CornerRadius="{DynamicResource MdCornerRadius}">
+                            CornerRadius="{DynamicResource LgCornerRadius}">
                             <Menu>
                                 <MenuItem Header="File">
                                     <MenuItem Header="New Tab" InputGesture="Ctrl + T" />

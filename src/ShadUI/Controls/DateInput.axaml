@@ -93,7 +93,7 @@
         <Setter Property="FontSize" Value="14" />
         <Setter Property="Background" Value="{DynamicResource BackgroundColor}" />
         <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
-        <Setter Property="CornerRadius" Value="{DynamicResource MdCornerRadius}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource LgCornerRadius}" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="BorderBrush" Value="{DynamicResource BorderColor}" />
         <Setter Property="extensions:ElementAssist.FocusOnLoad" Value="False" />
@@ -230,4 +230,4 @@
             <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />
         </Style>
     </ControlTheme>
-</ResourceDictionary> 
+</ResourceDictionary>

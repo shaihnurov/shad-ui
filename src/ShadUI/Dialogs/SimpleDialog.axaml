@@ -12,7 +12,7 @@
                     MaxWidth="500"
                     BorderBrush="{DynamicResource BorderColor}"
                     BorderThickness="1"
-                    CornerRadius="{DynamicResource MdCornerRadius}">
+                    CornerRadius="{DynamicResource LgCornerRadius}">
                     <dialogs:SimpleDialog
                         Title="Are you absolutely sure?"
                         CancelButtonStyle="Outline"
@@ -24,7 +24,7 @@
                     MaxWidth="500"
                     BorderBrush="{DynamicResource BorderColor}"
                     BorderThickness="1"
-                    CornerRadius="{DynamicResource MdCornerRadius}">
+                    CornerRadius="{DynamicResource LgCornerRadius}">
                     <dialogs:SimpleDialog
                         Title="Are you absolutely sure?"
                         CancelButtonStyle="Outline"
@@ -37,7 +37,7 @@
                     MaxWidth="500"
                     BorderBrush="{DynamicResource BorderColor}"
                     BorderThickness="1"
-                    CornerRadius="{DynamicResource MdCornerRadius}">
+                    CornerRadius="{DynamicResource LgCornerRadius}">
                     <dialogs:SimpleDialog
                         Title="Are you absolutely sure?"
                         CancelButtonStyle="Ghost"

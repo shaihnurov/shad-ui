@@ -66,6 +66,7 @@
             Classes="Icon"
             Command="{Binding SwitchThemeCommand}"
             Content="{Binding CurrentTheme, Converter={x:Static converters:ThemeModeConverters.ToLucideIcon}}"
+            CornerRadius="{DynamicResource MdCornerRadius}"
             ToolTip.Tip="Switch Theme">
             <Button.Styles>
                 <Style Selector="icons|Lucide">
@@ -80,6 +81,7 @@
             Margin="8,0,0,0"
             Background="{DynamicResource SidebarBackgroundColor}"
             Classes="Icon"
+            CornerRadius="{DynamicResource MdCornerRadius}"
             IsVisible="{Binding #Window.WindowState, Converter={x:Static converters:WindowStateConverters.IsNotFullScreen}}"
             ToolTip.Tip="Fullscreen">
             <icons:Lucide
@@ -96,6 +98,7 @@
             Margin="8,0,0,0"
             Background="{DynamicResource SidebarBackgroundColor}"
             Classes="Icon"
+            CornerRadius="{DynamicResource MdCornerRadius}"
             IsVisible="{Binding #Window.WindowState, Converter={x:Static converters:WindowStateConverters.IsFullScreen}}"
             ToolTip.Tip="Exit Fullscreen">
             <icons:Lucide

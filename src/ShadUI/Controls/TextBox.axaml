@@ -150,7 +150,7 @@
         <Setter Property="BorderBrush" Value="{DynamicResource BorderColor}" />
         <Setter Property="Padding" Value="12,4" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="CornerRadius" Value="{DynamicResource MdCornerRadius}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource LgCornerRadius}" />
         <Setter Property="SelectionBrush" Value="{DynamicResource PrimaryColor}" />
         <Setter Property="SelectionForegroundBrush" Value="{DynamicResource PrimaryForegroundColor}" />
         <Setter Property="CaretBrush" Value="{DynamicResource ForegroundColor}" />

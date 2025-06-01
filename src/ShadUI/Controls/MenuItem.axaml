@@ -110,6 +110,7 @@
                             </Grid>
                         </Border>
                         <Popup
+                            Name="PART_Popup"
                             HorizontalOffset="-24"
                             IsLightDismissEnabled="False"
                             IsOpen="{TemplateBinding IsSubMenuOpen,

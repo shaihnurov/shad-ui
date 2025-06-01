@@ -4,7 +4,7 @@
     xmlns:dialogs="clr-namespace:ShadUI.Dialogs"
     xmlns:icons="clr-namespace:ShadUI.Contents">
     <ControlTheme x:Key="DialogHostTheme" TargetType="dialogs:DialogHost">
-        <Setter Property="CornerRadius" Value="{DynamicResource LgCornerRadius}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource XlCornerRadius}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Panel>

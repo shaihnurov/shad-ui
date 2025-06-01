@@ -11,7 +11,7 @@
         </Panel>
     </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type CalendarItem}" TargetType="CalendarItem">
-        <Setter Property="CornerRadius" Value="{DynamicResource MdCornerRadius}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource LgCornerRadius}" />
         <Setter Property="BorderBrush" Value="{DynamicResource BorderColor}" />
         <Setter Property="Background" Value="{DynamicResource BackgroundColor}" />
         <Setter Property="BorderThickness" Value="1" />

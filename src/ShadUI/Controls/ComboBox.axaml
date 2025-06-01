@@ -37,7 +37,7 @@
     </Design.PreviewWith>
     <ControlTheme x:Key="ComboBoxControlTheme" TargetType="ComboBox">
         <Setter Property="BorderThickness" Value="1,1,1,1" />
-        <Setter Property="CornerRadius" Value="{DynamicResource MdCornerRadius}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource LgCornerRadius}" />
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="BorderBrush" Value="{DynamicResource BorderColor}" />
@@ -138,7 +138,7 @@
                                                 BorderBrush="{DynamicResource BorderColor}"
                                                 BorderThickness="1"
                                                 BoxShadow="{DynamicResource Shadow}"
-                                                CornerRadius="{DynamicResource MdCornerRadius}">
+                                                CornerRadius="{TemplateBinding CornerRadius}">
                                                 <ScrollViewer HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}" VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
                                                     <ItemsPresenter
                                                         Name="PART_ItemsPresenter"
