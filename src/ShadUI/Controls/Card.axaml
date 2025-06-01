@@ -82,7 +82,7 @@
         </Setter>
         <Style Selector="^[HasShadow=True]">
             <Style Selector="^ /template/ Border#PART_Container">
-                <Setter Property="BoxShadow" Value="0 2 4 0 #20000000" />
+                <Setter Property="BoxShadow" Value="{DynamicResource Shadow}" />
             </Style>
             <Style Selector="^ /template/ Border#PART_OuterBorder">
                 <Setter Property="Padding" Value="2,0,2,4" />

@@ -34,7 +34,7 @@
                         Background="{DynamicResource CardBackgroundColor}"
                         BorderBrush="{DynamicResource BorderColor}"
                         BorderThickness="1"
-                        BoxShadow="0 2 4 0 #20000000"
+                        BoxShadow="{DynamicResource Shadow}"
                         CornerRadius="{DynamicResource 2XlCornerRadius}">
                         <StackPanel Margin="24">
                             <Grid ColumnDefinitions="* Auto">

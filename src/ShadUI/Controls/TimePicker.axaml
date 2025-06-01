@@ -335,7 +335,7 @@
                     Background="{TemplateBinding Background}"
                     BorderBrush="{TemplateBinding BorderBrush}"
                     BorderThickness="{TemplateBinding BorderThickness}"
-                    BoxShadow="0 2 4 0 #20000000"
+                    BoxShadow="{DynamicResource Shadow}"
                     CornerRadius="{TemplateBinding CornerRadius}">
                     <Border.Styles>
                         <Style Selector="RepeatButton">

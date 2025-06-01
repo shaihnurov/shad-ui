@@ -162,7 +162,7 @@
                                             Background="{DynamicResource CardBackgroundColor}"
                                             BorderBrush="{DynamicResource BorderColor}"
                                             BorderThickness="1"
-                                            BoxShadow="0 2 4 0 #20000000"
+                                            BoxShadow="{DynamicResource Shadow}"
                                             CornerRadius="{DynamicResource 2XlCornerRadius}">
                                             <DockPanel>
                                                 <TextBlock
@@ -187,7 +187,7 @@
                                             Background="{DynamicResource CardBackgroundColor}"
                                             BorderBrush="{DynamicResource BorderColor}"
                                             BorderThickness="1"
-                                            BoxShadow="0 2 4 0 #20000000"
+                                            BoxShadow="{DynamicResource Shadow}"
                                             CornerRadius="{DynamicResource 2XlCornerRadius}">
                                             <DockPanel>
                                                 <StackPanel
@@ -304,7 +304,7 @@
                                             Background="{DynamicResource CardBackgroundColor}"
                                             BorderBrush="{DynamicResource BorderColor}"
                                             BorderThickness="1"
-                                            BoxShadow="0 2 4 0 #20000000"
+                                            BoxShadow="{DynamicResource Shadow}"
                                             CornerRadius="{DynamicResource 2XlCornerRadius}">
                                             <DockPanel>
                                                 <TextBlock
@@ -329,7 +329,7 @@
                                             Background="{DynamicResource CardBackgroundColor}"
                                             BorderBrush="{DynamicResource BorderColor}"
                                             BorderThickness="1"
-                                            BoxShadow="0 2 4 0 #20000000"
+                                            BoxShadow="{DynamicResource Shadow}"
                                             CornerRadius="{DynamicResource 2XlCornerRadius}">
                                             <DockPanel>
                                                 <StackPanel
