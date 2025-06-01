@@ -27,7 +27,7 @@ public class Window : Avalonia.Controls.Window
     ///     The font size of the title.
     /// </summary>
     public static readonly StyledProperty<double> TitleFontSizeProperty =
-        AvaloniaProperty.Register<Window, double>(nameof(TitleFontSize), 13);
+        AvaloniaProperty.Register<Window, double>(nameof(TitleFontSize), 14);
 
     /// <summary>
     ///     Gets or sets the value of the <see cref="TitleFontSizeProperty" />.
@@ -42,7 +42,7 @@ public class Window : Avalonia.Controls.Window
     ///     The font weight of the title.
     /// </summary>
     public static readonly StyledProperty<FontWeight> TitleFontWeightProperty =
-        AvaloniaProperty.Register<Window, FontWeight>(nameof(TitleFontWeight), FontWeight.Bold);
+        AvaloniaProperty.Register<Window, FontWeight>(nameof(TitleFontWeight), FontWeight.Medium);
 
     /// <summary>
     ///     Gets or sets the value of the <see cref="TitleFontWeightProperty" />.
