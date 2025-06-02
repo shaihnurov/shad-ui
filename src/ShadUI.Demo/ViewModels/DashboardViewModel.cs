@@ -28,7 +28,7 @@ public sealed partial class DashboardViewModel : ViewModelBase
             UpdateSeriesFill(colors.PrimaryColor);
         };
 
-        var fontUri = new Uri("avares://ShadUI.Demo/Assets/Fonts/Geist-Regular.ttf");
+        var fontUri = new Uri("avares://ShadUI.Demo/Assets/Fonts/Manrope-Regular.ttf");
         var fontAsset = AssetLoader.Open(fontUri);
 
         using var skData = SKData.Create(fontAsset);
