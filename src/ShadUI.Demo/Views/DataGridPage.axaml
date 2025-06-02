@@ -153,6 +153,7 @@
                                                     HorizontalAlignment="Center"
                                                     VerticalAlignment="Center"
                                                     Classes="Icon Grid"
+                                                    CornerRadius="{DynamicResource MdCornerRadius}"
                                                     PopupPlacement="BottomEdgeAlignedLeft"
                                                     PopupWidth="190">
                                                     <shadui:SimpleDropdown.TriggerContent>
