@@ -31,7 +31,7 @@ public sealed class ToastBuilder
 
     internal bool DismissOnClick { get; set; }
 
-    internal ToastPosition Position { get; set; }
+    internal ToastPosition? Position { get; set; }
 
     internal ToastBuilder CreateToast(string title)
     {

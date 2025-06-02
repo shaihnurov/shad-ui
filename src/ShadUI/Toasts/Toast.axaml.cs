@@ -16,7 +16,7 @@ internal class Toast : ContentControl
     /// </summary>
     public double Delay { get; set; }
 
-    public ToastPosition Position { get; set; } = ToastPosition.BottomRight;
+    public ToastPosition? Position { get; set; }
 
     public Toast()
     {

@@ -74,7 +74,9 @@ public class ToastHost : ItemsControl
         get => GetValue(SingleToastProperty);
         set => SetValue(SingleToastProperty, value);
     }
-    
+
+    private ToastPosition _originalPosition;
+
     /// <summary>
     ///     Called when the template is applied.
     /// </summary>
@@ -83,6 +85,7 @@ public class ToastHost : ItemsControl
     {
         base.OnApplyTemplate(e);
         OnPositionChanged(Position);
+        _originalPosition = Position; // use this as the default position if none is specified in the toast
     }
 
     /// <summary>
@@ -151,46 +154,51 @@ public class ToastHost : ItemsControl
     private void ManagerOnAllToastsDismissed(object sender, EventArgs e)
     {
         foreach (var toast in Items)
-            ClearToast((Toast) toast!);
+            ClearToast((Toast)toast!);
     }
 
     private void ManagerOnToastQueued(object sender, Toast toast)
     {
         if (MaxToasts <= 0) return;
 
-        if (SingleToast) foreach (var t in Items) ClearToast((Toast) t!);
+        if (SingleToast)
+            foreach (var t in Items)
+                ClearToast((Toast)t!);
 
-        if (Position != toast.Position)
+        var position = toast.Position ?? _originalPosition;
+        if (Position == position)
         {
-            foreach (var t in Items) ClearToast((Toast)t!);
+            ShowToast(toast);
+            return;
+        }
 
-            Task.Delay(300).ContinueWith(_ => ShowToast(), TaskScheduler.FromCurrentSynchronizationContext());
+        var count = Items.Count;
+        foreach (var t in Items) ClearToast((Toast)t!);
+
+        if (count > 0)
+        {
+            Task.Delay(300).ContinueWith(_ => ShowToast(toast), TaskScheduler.FromCurrentSynchronizationContext());
         }
         else
         {
-            ShowToast();
+            ShowToast(toast);
         }
+    }
 
-        return;
+    private void ShowToast(Toast toast)
+    {
+        Items.Add(toast);
+        Manager.EnsureMaximum(MaxToasts);
 
-        void ShowToast()
-        {
-            Items.Add(toast);
-            Manager.EnsureMaximum(MaxToasts);
-
-            Position = toast.Position;
-            toast.AnimateShow();
-        }
+        Position = toast.Position ?? _originalPosition;
+        toast.AnimateShow();
     }
 
     private void ClearToast(Toast toast)
     {
         if (Manager.IsDismissed(toast)) return;
         toast.AnimateDismiss();
-        Task.Delay(300).ContinueWith(_ =>
-        {
-            Items.Remove(toast);
-        }, TaskScheduler.FromCurrentSynchronizationContext());
+        Task.Delay(300).ContinueWith(_ => { Items.Remove(toast); }, TaskScheduler.FromCurrentSynchronizationContext());
     }
 
     static ToastHost()
@@ -200,4 +208,3 @@ public class ToastHost : ItemsControl
                 OnManagerPropertyChanged(x.Sender, x)));
     }
 }
-
