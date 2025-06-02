@@ -11,6 +11,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShadUI.Demo", "src\ShadUI.D
 EndProject
 Project("{C7167F0D-BC9F-4E6E-AFE1-012C56B48DB5}") = "ShadUI.Package", "src\ShadUI.Package\ShadUI.Package.wapproj", "{FACFCC37-FB25-420A-89DF-CAC5915135C7}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{BDF88755-E2E7-438D-A15D-DFDA0FB3836F}"
+	ProjectSection(SolutionItems) = preProject
+		docs\demo-01.gif = docs\demo-01.gif
+		docs\demo-02.gif = docs\demo-02.gif
+		docs\demo-03.gif = docs\demo-03.gif
+		docs\demo-04.gif = docs\demo-04.gif
+		docs\hero.png = docs\hero.png
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
