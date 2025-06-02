@@ -52,13 +52,11 @@ public sealed partial class MainWindowViewModel(
 
     private async Task<bool> SwitchPageAsync(object page)
     {
+        if (SelectedPage == page) return false;
         IsBusy = true;
         try
         {
-            await Task.Delay(200); // prevent flickering
-
-            if (SelectedPage == page) return false;
-
+            await Task.Delay(200); // prevent animate delay
             SelectedPage = page;
             return true;
         }
