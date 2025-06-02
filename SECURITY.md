@@ -8,7 +8,7 @@ The following versions of ShadUI are currently being supported with security upd
 |---------| --------- |
 | 0.0.4   | ✅        |
 | 0.0.5   | ✅        |
-
+| 0.0.6   | ✅        |
 
 ## Reporting a Vulnerability
 
