@@ -26,6 +26,8 @@
         </controls:SidebarMenu>
     </Design.PreviewWith>
     <ControlTheme x:Key="SidebarMenuItemStyle" TargetType="controls:SidebarMenuItem">
+        <Setter Property="FontWeight" Value="Medium" />
+        <Setter Property="FontSize" Value="14" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Panel>
@@ -70,6 +72,7 @@
                                         Margin="15,0"
                                         VerticalAlignment="Center"
                                         FontSize="{TemplateBinding FontSize}"
+                                        FontWeight="{TemplateBinding FontWeight}"
                                         Foreground="{TemplateBinding Foreground}"
                                         IsVisible="{CompiledBinding IsMenuExpanded,
                                                                     RelativeSource={RelativeSource Mode=FindAncestor,
@@ -128,7 +131,6 @@
                 </Style>
             </Style>
         </Style>
-        <Setter Property="FontSize" Value="14" />
     </ControlTheme>
     <ControlTheme
         x:Key="{x:Type controls:SidebarMenuItem}"
