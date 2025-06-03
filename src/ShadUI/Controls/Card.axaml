@@ -4,7 +4,7 @@
     xmlns:extensions="clr-namespace:ShadUI.Extensions"
     xmlns:shadui="clr-namespace:ShadUI.Controls">
     <Design.PreviewWith>
-        <Border MinHeight="600" Padding="24">
+        <Border Padding="24">
             <shadui:Card VerticalAlignment="Center" HasShadow="True">
                 <shadui:Card.Header>
                     <StackPanel>
@@ -55,26 +55,37 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate>
-                    <Border Name="PART_OuterBorder" Margin="{TemplateBinding Margin}">
+                    <Border
+                        Name="PART_OuterBorder"
+                        Width="{TemplateBinding Width}"
+                        Height="{TemplateBinding Height}"
+                        Margin="{TemplateBinding Margin}">
                         <Border
                             Name="PART_Container"
                             Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
                             CornerRadius="{TemplateBinding CornerRadius}">
-                            <StackPanel Margin="{TemplateBinding Padding}">
+                            <Grid Margin="{TemplateBinding Padding}" RowDefinitions="Auto * Auto">
                                 <ContentPresenter
+                                    Grid.Row="0"
                                     Margin="0,0,0,24"
                                     Content="{TemplateBinding Header}"
                                     IsVisible="{TemplateBinding Header,
                                                                 Converter={x:Static ObjectConverters.IsNotNull}}" />
-                                <ContentPresenter Content="{TemplateBinding Content}" />
+                                <ScrollViewer
+                                    Grid.Row="1"
+                                    HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
+                                    VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
+                                    <ContentPresenter Content="{TemplateBinding Content}" />
+                                </ScrollViewer>
                                 <ContentPresenter
+                                    Grid.Row="2"
                                     Margin="0,24,0,0"
                                     Content="{TemplateBinding Footer}"
                                     IsVisible="{TemplateBinding Footer,
                                                                 Converter={x:Static ObjectConverters.IsNotNull}}" />
-                            </StackPanel>
+                            </Grid>
                         </Border>
                     </Border>
                 </ControlTemplate>
