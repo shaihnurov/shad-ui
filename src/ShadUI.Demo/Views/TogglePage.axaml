@@ -4,7 +4,6 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="clr-namespace:ShadUI.Demo.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:icons="clr-namespace:LucideAvalonia;assembly=LucideAvalonia"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModels="clr-namespace:ShadUI.Demo.ViewModels"
     d:DesignHeight="450"
@@ -30,12 +29,7 @@
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
                             Classes="Default">
-                            <icons:Lucide
-                                Width="10"
-                                Height="16"
-                                Icon="Bold"
-                                StrokeBrush="{DynamicResource ForegroundColor}"
-                                StrokeThickness="1.5" />
+                            <TextBlock Classes="Font" Text="&#57441;" />
                         </ToggleButton>
                     </controls:ControlBlock>
                     <controls:ControlBlock
@@ -46,12 +40,7 @@
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
                             Classes="Outline">
-                            <icons:Lucide
-                                Width="10"
-                                Height="16"
-                                Icon="Bold"
-                                StrokeBrush="{DynamicResource ForegroundColor}"
-                                StrokeThickness="1.5" />
+                            <TextBlock Classes="Font" Text="&#57441;" />
                         </ToggleButton>
                     </controls:ControlBlock>
                     <controls:ControlBlock
@@ -63,12 +52,7 @@
                             VerticalAlignment="Center"
                             Classes="Default">
                             <StackPanel Orientation="Horizontal" Spacing="8">
-                                <icons:Lucide
-                                    Width="10"
-                                    Height="16"
-                                    Icon="Italic"
-                                    StrokeBrush="{DynamicResource ForegroundColor}"
-                                    StrokeThickness="1.5" />
+                                <TextBlock Classes="Font" Text="&#57601;" />
                                 <TextBlock Text="Italic" />
                             </StackPanel>
                         </ToggleButton>
@@ -82,12 +66,7 @@
                             VerticalAlignment="Center"
                             Classes="Default"
                             IsEnabled="False">
-                            <icons:Lucide
-                                Width="10"
-                                Height="16"
-                                Icon="Bold"
-                                StrokeBrush="{DynamicResource ForegroundColor}"
-                                StrokeThickness="1.5" />
+                            <TextBlock Classes="Font" Text="&#57441;" />
                         </ToggleButton>
                     </controls:ControlBlock>
                 </StackPanel>

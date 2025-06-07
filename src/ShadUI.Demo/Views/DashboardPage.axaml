@@ -8,7 +8,6 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:dashboard="clr-namespace:ShadUI.Demo.Controls.Dashboard"
     xmlns:extensions="clr-namespace:ShadUI.Extensions;assembly=ShadUI"
-    xmlns:icons="clr-namespace:LucideAvalonia;assembly=LucideAvalonia"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:system="clr-namespace:System;assembly=System.Runtime"
     xmlns:viewModels="clr-namespace:ShadUI.Demo.ViewModels"
@@ -33,12 +32,10 @@
                     Classes="Primary"
                     Content="Download">
                     <extensions:ButtonAssist.Icon>
-                        <icons:Lucide
-                            Width="10"
-                            Height="16"
-                            Icon="Download"
-                            StrokeBrush="{DynamicResource PrimaryForegroundColor}"
-                            StrokeThickness="1.5" />
+                        <TextBlock
+                            Margin="0,0,6,0"
+                            Classes="Font"
+                            Text="&#57526;" />
                     </extensions:ButtonAssist.Icon>
                 </Button>
             </StackPanel>
@@ -50,17 +47,17 @@
                         <StackPanel>
                             <breakpoints:ViewPort>
                                 <breakpoints:View Breakpoint="MdAndUp">
-                                    <UniformGrid Margin="-8,0" Columns="4">
+                                    <UniformGrid Margin="-6,0" Columns="4">
                                         <dashboard:OverviewCard
                                             Title="Total Revenue"
                                             Hint="+180.1% from last month"
                                             Value="$45,231.89">
                                             <dashboard:OverviewCard.Icon>
-                                                <icons:Lucide
-                                                    Width="16"
-                                                    Height="16"
-                                                    Icon="DollarSign"
-                                                    StrokeBrush="{DynamicResource MutedColor}" />
+                                                <TextBlock
+                                                    Margin="0"
+                                                    Classes="Font"
+                                                    Foreground="{DynamicResource MutedColor}"
+                                                    Text="&#57525;" />
                                             </dashboard:OverviewCard.Icon>
                                         </dashboard:OverviewCard>
                                         <dashboard:OverviewCard
@@ -68,11 +65,11 @@
                                             Hint="-20.1% from last month"
                                             Value="+2350">
                                             <dashboard:OverviewCard.Icon>
-                                                <icons:Lucide
-                                                    Width="16"
-                                                    Height="16"
-                                                    Icon="Users"
-                                                    StrokeBrush="{DynamicResource MutedColor}" />
+                                                <TextBlock
+                                                    Margin="0"
+                                                    Classes="Font"
+                                                    Foreground="{DynamicResource MutedColor}"
+                                                    Text="&#57764;" />
                                             </dashboard:OverviewCard.Icon>
                                         </dashboard:OverviewCard>
                                         <dashboard:OverviewCard
@@ -80,11 +77,11 @@
                                             Hint="+19% from last month"
                                             Value="+12,234">
                                             <dashboard:OverviewCard.Icon>
-                                                <icons:Lucide
-                                                    Width="16"
-                                                    Height="16"
-                                                    Icon="CreditCard"
-                                                    StrokeBrush="{DynamicResource MutedColor}" />
+                                                <TextBlock
+                                                    Margin="0"
+                                                    Classes="Font"
+                                                    Foreground="{DynamicResource MutedColor}"
+                                                    Text="&#57518;" />
                                             </dashboard:OverviewCard.Icon>
                                         </dashboard:OverviewCard>
                                         <dashboard:OverviewCard
@@ -92,27 +89,27 @@
                                             Hint="+201 since last hour"
                                             Value="+573">
                                             <dashboard:OverviewCard.Icon>
-                                                <icons:Lucide
-                                                    Width="16"
-                                                    Height="16"
-                                                    Icon="Activity"
-                                                    StrokeBrush="{DynamicResource MutedColor}" />
+                                                <TextBlock
+                                                    Margin="0"
+                                                    Classes="Font"
+                                                    Foreground="{DynamicResource MutedColor}"
+                                                    Text="&#57400;" />
                                             </dashboard:OverviewCard.Icon>
                                         </dashboard:OverviewCard>
                                     </UniformGrid>
                                 </breakpoints:View>
                                 <breakpoints:View Breakpoint="MdAndDown">
-                                    <UniformGrid Margin="-8,0" Columns="2">
+                                    <UniformGrid Margin="-6,0" Columns="2">
                                         <dashboard:OverviewCard
                                             Title="Total Revenue"
                                             Hint="+180.1% from last month"
                                             Value="$45,231.89">
                                             <dashboard:OverviewCard.Icon>
-                                                <icons:Lucide
-                                                    Width="16"
-                                                    Height="16"
-                                                    Icon="DollarSign"
-                                                    StrokeBrush="{DynamicResource MutedColor}" />
+                                                <TextBlock
+                                                    Margin="0"
+                                                    Classes="Font"
+                                                    Foreground="{DynamicResource MutedColor}"
+                                                    Text="&#57525;" />
                                             </dashboard:OverviewCard.Icon>
                                         </dashboard:OverviewCard>
                                         <dashboard:OverviewCard
@@ -120,11 +117,11 @@
                                             Hint="-20.1% from last month"
                                             Value="+2350">
                                             <dashboard:OverviewCard.Icon>
-                                                <icons:Lucide
-                                                    Width="16"
-                                                    Height="16"
-                                                    Icon="Users"
-                                                    StrokeBrush="{DynamicResource MutedColor}" />
+                                                <TextBlock
+                                                    Margin="0"
+                                                    Classes="Font"
+                                                    Foreground="{DynamicResource MutedColor}"
+                                                    Text="&#57764;" />
                                             </dashboard:OverviewCard.Icon>
                                         </dashboard:OverviewCard>
                                         <dashboard:OverviewCard
@@ -132,11 +129,11 @@
                                             Hint="+19% from last month"
                                             Value="+12,234">
                                             <dashboard:OverviewCard.Icon>
-                                                <icons:Lucide
-                                                    Width="16"
-                                                    Height="16"
-                                                    Icon="CreditCard"
-                                                    StrokeBrush="{DynamicResource MutedColor}" />
+                                                <TextBlock
+                                                    Margin="0"
+                                                    Classes="Font"
+                                                    Foreground="{DynamicResource MutedColor}"
+                                                    Text="&#57518;" />
                                             </dashboard:OverviewCard.Icon>
                                         </dashboard:OverviewCard>
                                         <dashboard:OverviewCard
@@ -144,11 +141,11 @@
                                             Hint="+201 since last hour"
                                             Value="+573">
                                             <dashboard:OverviewCard.Icon>
-                                                <icons:Lucide
-                                                    Width="16"
-                                                    Height="16"
-                                                    Icon="Activity"
-                                                    StrokeBrush="{DynamicResource MutedColor}" />
+                                                <TextBlock
+                                                    Margin="0"
+                                                    Classes="Font"
+                                                    Foreground="{DynamicResource MutedColor}"
+                                                    Text="&#57400;" />
                                             </dashboard:OverviewCard.Icon>
                                         </dashboard:OverviewCard>
                                     </UniformGrid>

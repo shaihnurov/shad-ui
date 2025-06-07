@@ -31,6 +31,7 @@
         </ResourceDictionary>
         <FontFamily x:Key="JetbrainsFont">avares://ShadUI.Demo/Assets/Fonts#Jetbrains</FontFamily>
         <FontFamily x:Key="ManropeFont">avares://ShadUI.Demo/Assets/Fonts#Manrope</FontFamily>
+        <FontFamily x:Key="Lucide">avares://ShadUI.Demo/Assets/Fonts#lucide</FontFamily>
         <x:Double x:Key="ControlContentThemeFontSize">12</x:Double>
     </Application.Resources>
     <Application.Styles>

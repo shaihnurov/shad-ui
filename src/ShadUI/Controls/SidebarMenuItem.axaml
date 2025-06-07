@@ -12,7 +12,6 @@
                         Height="13"
                         Data="{x:Static content:Icons.Cross}" />
                 </controls:SidebarMenuItem.Icon>
-
             </controls:SidebarMenuItem>
             <controls:SidebarMenuItem Header="Header">
                 <controls:SidebarMenuItem.Icon>
@@ -52,7 +51,6 @@
                         <Panel>
                             <DockPanel Name="PART_NormalDisplay" LastChildFill="True">
                                 <DockPanel.Resources />
-
                                 <ContentControl
                                     Name="PART_Icon"
                                     Width="24"
@@ -61,7 +59,7 @@
                                     DockPanel.Dock="Left">
                                     <ContentControl.Transitions>
                                         <Transitions>
-                                            <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.2" />
+                                            <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.10" />
                                             <DoubleTransition Property="Opacity" Duration="0:0:0.2" />
                                         </Transitions>
                                     </ContentControl.Transitions>
@@ -84,7 +82,6 @@
                                 Name="PART_AltDisplay"
                                 Content="{TemplateBinding Content}"
                                 ContentTemplate="{TemplateBinding ContentTemplate}" />
-
                         </Panel>
                     </Border>
                 </Panel>
@@ -119,10 +116,7 @@
                     <Setter Property="Opacity" Value="0" />
                 </Style>
                 <Style Selector="^[IsTopMenuExpanded=False] /template/ ContentControl#PART_Icon">
-                    <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundColor}" />
-                    <Setter Property="RenderTransform">
-                        <ScaleTransform ScaleX="1.12" ScaleY="1.12" />
-                    </Setter>
+                    <Setter Property="RenderTransform" Value="scale(1.15, 1.15)" />
                 </Style>
             </Style>
             <Style Selector="^[AnimateContent=False]">

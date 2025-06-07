@@ -5,7 +5,6 @@
     xmlns:controls="clr-namespace:ShadUI.Demo.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:extensions="clr-namespace:ShadUI.Extensions;assembly=ShadUI"
-    xmlns:icons="clr-namespace:LucideAvalonia;assembly=LucideAvalonia"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModels="clr-namespace:ShadUI.Demo.ViewModels"
     d:DesignWidth="800"
@@ -41,12 +40,10 @@
                                 Command="{Binding SubmitCommand}"
                                 Content="Edit">
                                 <extensions:ButtonAssist.Icon>
-                                    <icons:Lucide
-                                        Width="10"
-                                        Height="16"
-                                        Icon="Pencil"
-                                        StrokeBrush="{DynamicResource PrimaryForegroundColor}"
-                                        StrokeThickness="1.5" />
+                                    <TextBlock
+                                        Margin="0,0,6,0"
+                                        Classes="Font"
+                                        Text="&#57849;" />
                                 </extensions:ButtonAssist.Icon>
                             </Button>
                             <Button
@@ -74,12 +71,10 @@
                                 Command="{Binding SubmitCommand}"
                                 Content="Edit">
                                 <extensions:ButtonAssist.Icon>
-                                    <icons:Lucide
-                                        Width="10"
-                                        Height="16"
-                                        Icon="Pencil"
-                                        StrokeBrush="{DynamicResource SecondaryForegroundColor}"
-                                        StrokeThickness="1.5" />
+                                    <TextBlock
+                                        Margin="0,0,6,0"
+                                        Classes="Font"
+                                        Text="&#57849;" />
                                 </extensions:ButtonAssist.Icon>
                             </Button>
                             <Button
@@ -107,12 +102,10 @@
                                 Command="{Binding SubmitCommand}"
                                 Content="Delete">
                                 <extensions:ButtonAssist.Icon>
-                                    <icons:Lucide
-                                        Width="10"
-                                        Height="16"
-                                        Icon="Trash"
-                                        StrokeBrush="{DynamicResource DestructiveForegroundColor}"
-                                        StrokeThickness="1.5" />
+                                    <TextBlock
+                                        Margin="0,0,6,0"
+                                        Classes="Font"
+                                        Text="&#57741;" />
                                 </extensions:ButtonAssist.Icon>
                             </Button>
                             <Button
@@ -140,12 +133,10 @@
                                 Command="{Binding SubmitCommand}"
                                 Content="Edit">
                                 <extensions:ButtonAssist.Icon>
-                                    <icons:Lucide
-                                        Width="10"
-                                        Height="16"
-                                        Icon="Pencil"
-                                        StrokeBrush="{DynamicResource ForegroundColor}"
-                                        StrokeThickness="1.5" />
+                                    <TextBlock
+                                        Margin="0,0,6,0"
+                                        Classes="Font"
+                                        Text="&#57849;" />
                                 </extensions:ButtonAssist.Icon>
                             </Button>
                             <Button
@@ -173,12 +164,10 @@
                                 Command="{Binding SubmitCommand}"
                                 Content="Edit">
                                 <extensions:ButtonAssist.Icon>
-                                    <icons:Lucide
-                                        Width="10"
-                                        Height="16"
-                                        Icon="Pencil"
-                                        StrokeBrush="{DynamicResource ForegroundColor}"
-                                        StrokeThickness="1.5" />
+                                    <TextBlock
+                                        Margin="0,0,6,0"
+                                        Classes="Font"
+                                        Text="&#57849;" />
                                 </extensions:ButtonAssist.Icon>
                             </Button>
                             <Button
@@ -201,11 +190,10 @@
                                 Classes="Icon"
                                 Command="{Binding SubmitCommand}">
                                 <extensions:ButtonAssist.Icon>
-                                    <icons:Lucide
-                                        Width="16"
-                                        Icon="Pencil"
-                                        StrokeBrush="{DynamicResource ForegroundColor}"
-                                        StrokeThickness="1.5" />
+                                    <TextBlock
+                                        Margin="0,8"
+                                        Classes="Font"
+                                        Text="&#57849;" />
                                 </extensions:ButtonAssist.Icon>
                             </Button>
                             <Button
@@ -213,11 +201,10 @@
                                 Classes="Icon"
                                 IsEnabled="False">
                                 <extensions:ButtonAssist.Icon>
-                                    <icons:Lucide
-                                        Width="16"
-                                        Icon="Pencil"
-                                        StrokeBrush="{DynamicResource ForegroundColor}"
-                                        StrokeThickness="1.5" />
+                                    <TextBlock
+                                        Margin="0,8"
+                                        Classes="Font"
+                                        Text="&#57849;" />
                                 </extensions:ButtonAssist.Icon>
                             </Button>
                         </StackPanel>
@@ -235,20 +222,18 @@
                                 Classes="DestructiveIcon"
                                 Command="{Binding SubmitCommand}">
                                 <extensions:ButtonAssist.Icon>
-                                    <icons:Lucide
-                                        Width="16"
-                                        Icon="Trash"
-                                        StrokeBrush="{DynamicResource DestructiveForegroundColor}"
-                                        StrokeThickness="1.5" />
+                                    <TextBlock
+                                        Margin="0,8"
+                                        Classes="Font"
+                                        Text="&#57741;" />
                                 </extensions:ButtonAssist.Icon>
                             </Button>
                             <Button Classes="DestructiveIcon" IsEnabled="False">
                                 <extensions:ButtonAssist.Icon>
-                                    <icons:Lucide
-                                        Width="16"
-                                        Icon="Trash"
-                                        StrokeBrush="{DynamicResource DestructiveForegroundColor}"
-                                        StrokeThickness="1.5" />
+                                    <TextBlock
+                                        Margin="0,8"
+                                        Classes="Font"
+                                        Text="&#57741;" />
                                 </extensions:ButtonAssist.Icon>
                             </Button>
                         </StackPanel>
