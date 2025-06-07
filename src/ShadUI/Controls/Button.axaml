@@ -98,11 +98,7 @@
                         CornerRadius="{TemplateBinding CornerRadius}"
                         TextElement.Foreground="{TemplateBinding Foreground}">
                         <StackPanel HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Orientation="Horizontal">
-                            <Viewbox
-                                Width="{TemplateBinding extensions:ButtonAssist.ShowProgress,
-                                                        Converter={x:Static converters:BoolToWidthProgressConverter.Instance}}"
-                                Height="16"
-                                Margin="0,-4">
+                            <Viewbox Width="{TemplateBinding extensions:ButtonAssist.ShowProgress, Converter={x:Static converters:BoolToWidthProgressConverter.Instance}}" Height="16">
                                 <Viewbox.Transitions>
                                     <Transitions>
                                         <DoubleTransition Property="Width" Duration="0:0:0.10" />
@@ -113,8 +109,6 @@
                             <Viewbox
                                 Width="{TemplateBinding extensions:ButtonAssist.ShowProgress,
                                                         Converter={x:Static converters:BoolToInverseWidthProgressConverter.Instance}}"
-                                Height="24"
-                                Margin="0,-4"
                                 IsVisible="{TemplateBinding extensions:ButtonAssist.Icon,
                                                             Converter={x:Static ObjectConverters.IsNotNull}}"
                                 Opacity="{TemplateBinding extensions:ButtonAssist.ShowProgress,
@@ -125,7 +119,7 @@
                                         <DoubleTransition Property="Width" Duration="0:0:0.10" />
                                     </Transitions>
                                 </Viewbox.Transitions>
-                                <ContentPresenter Content="{TemplateBinding extensions:ButtonAssist.Icon}" />
+                                <ContentPresenter x:Name="PART_Icon" Content="{TemplateBinding extensions:ButtonAssist.Icon}" />
                             </Viewbox>
                             <ContentPresenter
                                 HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -268,9 +262,6 @@
             <Setter Property="BorderThickness" Value="1" />
             <Setter Property="Background" Value="{DynamicResource BackgroundColor}" />
             <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
-            <Style Selector="^ /template/ TextBlock">
-                <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
-            </Style>
             <Style Selector="^ /template/ ContentPresenter">
                 <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
             </Style>
@@ -285,9 +276,6 @@
             <Setter Property="Height" Value="36" />
             <Setter Property="Background" Value="{DynamicResource DestructiveColor}" />
             <Setter Property="Foreground" Value="{DynamicResource DestructiveForegroundColor}" />
-            <Style Selector="^ /template/ TextBlock">
-                <Setter Property="Foreground" Value="{DynamicResource DestructiveForegroundColor}" />
-            </Style>
             <Style Selector="^ /template/ ContentPresenter">
                 <Setter Property="Foreground" Value="{DynamicResource DestructiveForegroundColor}" />
             </Style>
