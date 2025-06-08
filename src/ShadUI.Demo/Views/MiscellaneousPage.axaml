@@ -37,7 +37,7 @@
                         BorderBrush="{DynamicResource BorderColor}"
                         BorderThickness="1"
                         CornerRadius="{DynamicResource XlCornerRadius}">
-                        <Panel>
+                        <Panel Margin="1">
                             <Button
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Center"
