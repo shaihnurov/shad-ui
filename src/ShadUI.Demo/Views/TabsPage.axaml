@@ -23,34 +23,35 @@
                 TextWrapping="Wrap" />
         </StackPanel>
         <ScrollViewer>
-            <Panel MaxWidth="1536" Margin="48,24">
-                <StackPanel Spacing="32">
-                    <controls:ControlBlock
-                        Title="Basic Tab"
-                        Code="{Binding BasicTabCode}"
-                        Language="xaml">
-                        <TabControl>
-                            <TabControl.Items>
-                                <TabItem Header="Preview">
-                                    <shadui:Card Padding="48">
-                                        <TextBlock
-                                            Classes="h1"
-                                            Text="Taxing Laughter: The Joke Tax Chronicles"
-                                            TextWrapping="Wrap" />
-                                    </shadui:Card>
-                                </TabItem>
-                                <TabItem Header="Code">
-                                    <controls:CodeTextBlock Language="xaml">
-                                        <Run Text="&lt;TextBlock TextWrapping=&quot;Wrap&quot; Classes=&quot;h&quot;" />
-                                        <LineBreak />
-                                        <Run Text="           Text=&quot;Taxing Laughter: The Joke Tax Chronicles&quot;/&gt;" />
-                                    </controls:CodeTextBlock>
-                                </TabItem>
-                            </TabControl.Items>
-                        </TabControl>
-                    </controls:ControlBlock>
-                </StackPanel>
-            </Panel>
+            <StackPanel
+                MaxWidth="1536"
+                Margin="48,24"
+                Spacing="32">
+                <controls:ControlBlock
+                    Title="Basic Tab"
+                    Code="{Binding BasicTabCode}"
+                    Language="xaml">
+                    <TabControl>
+                        <TabControl.Items>
+                            <TabItem Header="Preview">
+                                <shadui:Card Padding="48">
+                                    <TextBlock
+                                        Classes="h1"
+                                        Text="Taxing Laughter: The Joke Tax Chronicles"
+                                        TextWrapping="Wrap" />
+                                </shadui:Card>
+                            </TabItem>
+                            <TabItem Header="Code">
+                                <controls:CodeTextBlock Language="xaml">
+                                    <Run Text="&lt;TextBlock TextWrapping=&quot;Wrap&quot; Classes=&quot;h&quot;" />
+                                    <LineBreak />
+                                    <Run Text="           Text=&quot;Taxing Laughter: The Joke Tax Chronicles&quot;/&gt;" />
+                                </controls:CodeTextBlock>
+                            </TabItem>
+                        </TabControl.Items>
+                    </TabControl>
+                </controls:ControlBlock>
+            </StackPanel>
         </ScrollViewer>
     </DockPanel>
 

@@ -19,58 +19,59 @@
             <TextBlock Classes="p" Text="A two-state button that can be either on or off." />
         </StackPanel>
         <ScrollViewer>
-            <Panel MaxWidth="1536" Margin="48,24">
-                <StackPanel Spacing="32">
-                    <controls:ControlBlock
-                        Title="Default"
-                        Code="{Binding Default}"
-                        Language="xaml">
-                        <ToggleButton
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
-                            Classes="Default">
-                            <TextBlock Classes="FontIcon" Text="&#57441;" />
-                        </ToggleButton>
-                    </controls:ControlBlock>
-                    <controls:ControlBlock
-                        Title="Outline"
-                        Code="{Binding Outline}"
-                        Language="xaml">
-                        <ToggleButton
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
-                            Classes="Outline">
-                            <TextBlock Classes="FontIcon" Text="&#57441;" />
-                        </ToggleButton>
-                    </controls:ControlBlock>
-                    <controls:ControlBlock
-                        Title="With Text"
-                        Code="{Binding WithText}"
-                        Language="xaml">
-                        <ToggleButton
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
-                            Classes="Default">
-                            <StackPanel Orientation="Horizontal" Spacing="8">
-                                <TextBlock Classes="FontIcon" Text="&#57601;" />
-                                <TextBlock Text="Italic" />
-                            </StackPanel>
-                        </ToggleButton>
-                    </controls:ControlBlock>
-                    <controls:ControlBlock
-                        Title="Disable"
-                        Code="{Binding Disable}"
-                        Language="xaml">
-                        <ToggleButton
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
-                            Classes="Default"
-                            IsEnabled="False">
-                            <TextBlock Classes="FontIcon" Text="&#57441;" />
-                        </ToggleButton>
-                    </controls:ControlBlock>
-                </StackPanel>
-            </Panel>
+            <StackPanel
+                MaxWidth="1536"
+                Margin="48,24"
+                Spacing="32">
+                <controls:ControlBlock
+                    Title="Default"
+                    Code="{Binding Default}"
+                    Language="xaml">
+                    <ToggleButton
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Classes="Default">
+                        <TextBlock Classes="FontIcon" Text="&#57441;" />
+                    </ToggleButton>
+                </controls:ControlBlock>
+                <controls:ControlBlock
+                    Title="Outline"
+                    Code="{Binding Outline}"
+                    Language="xaml">
+                    <ToggleButton
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Classes="Outline">
+                        <TextBlock Classes="FontIcon" Text="&#57441;" />
+                    </ToggleButton>
+                </controls:ControlBlock>
+                <controls:ControlBlock
+                    Title="With Text"
+                    Code="{Binding WithText}"
+                    Language="xaml">
+                    <ToggleButton
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Classes="Default">
+                        <StackPanel Orientation="Horizontal" Spacing="8">
+                            <TextBlock Classes="FontIcon" Text="&#57601;" />
+                            <TextBlock Text="Italic" />
+                        </StackPanel>
+                    </ToggleButton>
+                </controls:ControlBlock>
+                <controls:ControlBlock
+                    Title="Disable"
+                    Code="{Binding Disable}"
+                    Language="xaml">
+                    <ToggleButton
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Classes="Default"
+                        IsEnabled="False">
+                        <TextBlock Classes="FontIcon" Text="&#57441;" />
+                    </ToggleButton>
+                </controls:ControlBlock>
+            </StackPanel>
         </ScrollViewer>
     </DockPanel>
 </UserControl>

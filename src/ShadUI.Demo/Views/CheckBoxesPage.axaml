@@ -23,59 +23,60 @@
                 TextWrapping="Wrap" />
         </StackPanel>
         <ScrollViewer>
-            <Panel MaxWidth="1536" Margin="48,24">
-                <StackPanel Spacing="32">
-                    <controls:ControlBlock
-                        Title="Default"
-                        Code="{Binding DefaultCode}"
-                        Language="xaml">
-                        <StackPanel Spacing="8">
-                            <CheckBox HorizontalAlignment="Center">Accept terms and conditions</CheckBox>
+            <StackPanel
+                MaxWidth="1536"
+                Margin="48,24"
+                Spacing="32">
+                <controls:ControlBlock
+                    Title="Default"
+                    Code="{Binding DefaultCode}"
+                    Language="xaml">
+                    <StackPanel Spacing="8">
+                        <CheckBox HorizontalAlignment="Center">Accept terms and conditions</CheckBox>
+                    </StackPanel>
+                </controls:ControlBlock>
+                <controls:ControlBlock
+                    Title="Disabled"
+                    Code="{Binding DisabledCode}"
+                    Language="xaml">
+                    <StackPanel Spacing="8">
+                        <CheckBox HorizontalAlignment="Center" IsEnabled="False">Accept terms and conditions</CheckBox>
+                    </StackPanel>
+                </controls:ControlBlock>
+                <controls:ControlBlock
+                    Title="Indeterminate"
+                    Code="{Binding IndeterminateCode}"
+                    Language="xaml">
+                    <StackPanel Spacing="8">
+                        <CheckBox HorizontalAlignment="Center" IsChecked="{x:Null}">Accept terms and conditions</CheckBox>
+                    </StackPanel>
+                </controls:ControlBlock>
+                <controls:ControlBlock
+                    Title="Multiple"
+                    Code="{Binding MultipleCode}"
+                    Language="xaml">
+                    <StackPanel HorizontalAlignment="Center" Spacing="8">
+                        <StackPanel>
+                            <TextBlock
+                                FontSize="16"
+                                FontWeight="Medium"
+                                Text="Sidebar" />
+                            <TextBlock Classes="Caption Muted" Text="Select the items you want to display in the sidebar." />
                         </StackPanel>
-                    </controls:ControlBlock>
-                    <controls:ControlBlock
-                        Title="Disabled"
-                        Code="{Binding DisabledCode}"
-                        Language="xaml">
-                        <StackPanel Spacing="8">
-                            <CheckBox HorizontalAlignment="Center" IsEnabled="False">Accept terms and conditions</CheckBox>
-                        </StackPanel>
-                    </controls:ControlBlock>
-                    <controls:ControlBlock
-                        Title="Indeterminate"
-                        Code="{Binding IndeterminateCode}"
-                        Language="xaml">
-                        <StackPanel Spacing="8">
-                            <CheckBox HorizontalAlignment="Center" IsChecked="{x:Null}">Accept terms and conditions</CheckBox>
-                        </StackPanel>
-                    </controls:ControlBlock>
-                    <controls:ControlBlock
-                        Title="Multiple"
-                        Code="{Binding MultipleCode}"
-                        Language="xaml">
-                        <StackPanel HorizontalAlignment="Center" Spacing="8">
-                            <StackPanel>
-                                <TextBlock
-                                    FontSize="16"
-                                    FontWeight="Medium"
-                                    Text="Sidebar" />
-                                <TextBlock Classes="Caption Muted" Text="Select the items you want to display in the sidebar." />
-                            </StackPanel>
-                            <CheckBox IsChecked="{Binding IsChecked}">Select All</CheckBox>
-                            <ItemsControl Margin="28,0,0,0" ItemsSource="{Binding Items}">
-                                <ItemsControl.ItemTemplate>
-                                    <DataTemplate DataType="{x:Type viewModels:CheckBoxItem}">
-                                        <CheckBox
-                                            Margin="0,2"
-                                            Content="{Binding Text}"
-                                            IsChecked="{Binding IsChecked}" />
-                                    </DataTemplate>
-                                </ItemsControl.ItemTemplate>
-                            </ItemsControl>
-                        </StackPanel>
-                    </controls:ControlBlock>
-                </StackPanel>
-            </Panel>
+                        <CheckBox IsChecked="{Binding IsChecked}">Select All</CheckBox>
+                        <ItemsControl Margin="28,0,0,0" ItemsSource="{Binding Items}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate DataType="{x:Type viewModels:CheckBoxItem}">
+                                    <CheckBox
+                                        Margin="0,2"
+                                        Content="{Binding Text}"
+                                        IsChecked="{Binding IsChecked}" />
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </StackPanel>
+                </controls:ControlBlock>
+            </StackPanel>
         </ScrollViewer>
     </DockPanel>
 </UserControl>

@@ -26,12 +26,15 @@
                 TextWrapping="Wrap" />
         </StackPanel>
         <ScrollViewer>
-            <Panel MaxWidth="1536" Margin="48,24">
-                <StackPanel Spacing="32">
-                    <controls:ControlBlock
-                        Title="Usage"
-                        Code="{Binding Code}"
-                        Language="xaml">
+            <StackPanel
+                MaxWidth="1536"
+                Margin="48,24"
+                Spacing="32">
+                <controls:ControlBlock
+                    Title="Usage"
+                    Code="{Binding Code}"
+                    Language="xaml">
+                    <ScrollViewer HorizontalScrollBarVisibility="Auto">
                         <StackPanel
                             Width="600"
                             HorizontalAlignment="Center"
@@ -179,9 +182,9 @@
                                 </StackPanel>
                             </Grid>
                         </StackPanel>
-                    </controls:ControlBlock>
-                </StackPanel>
-            </Panel>
+                    </ScrollViewer>
+                </controls:ControlBlock>
+            </StackPanel>
         </ScrollViewer>
     </DockPanel>
 </UserControl>

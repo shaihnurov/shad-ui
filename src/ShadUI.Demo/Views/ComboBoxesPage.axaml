@@ -25,63 +25,64 @@
                 TextWrapping="Wrap" />
         </StackPanel>
         <ScrollViewer>
-            <Panel MaxWidth="1536" Margin="48,24">
-                <StackPanel Spacing="32">
-                    <controls:ControlBlock
-                        Title="Select"
-                        Code="{Binding SelectComboBoxCode}"
-                        Language="xaml">
-                        <StackPanel Spacing="8">
-                            <ComboBox Width="255" SelectedIndex="0">
-                                <ComboBoxItem>Next.js</ComboBoxItem>
-                                <ComboBoxItem>SvelteKit</ComboBoxItem>
-                                <ComboBoxItem>Nuxt.js</ComboBoxItem>
-                                <ComboBoxItem>Remix</ComboBoxItem>
-                                <ComboBoxItem>Astro</ComboBoxItem>
-                            </ComboBox>
-                        </StackPanel>
-                    </controls:ControlBlock>
-                    <controls:ControlBlock
-                        Title="Disabled"
-                        Code="{Binding SelectComboBoxDisabledCode}"
-                        Language="xaml">
-                        <StackPanel Spacing="8">
-                            <ComboBox
-                                Width="255"
-                                IsEnabled="False"
-                                PlaceholderText="Select a framework" />
-                        </StackPanel>
-                    </controls:ControlBlock>
-                    <controls:ControlBlock
-                        Title="Form Validation"
-                        Code="{Binding FormValidationCode}"
-                        Language="xaml">
-                        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-                            <shadui:Card HorizontalAlignment="Center">
-                                <shadui:Card.Header>
-                                    <shadui:CardTitle>Framework Form</shadui:CardTitle>
-                                </shadui:Card.Header>
-                                <StackPanel Spacing="16">
-                                    <ComboBox
-                                        Width="255"
-                                        extensions:ControlAssist.Hint="Your favorite web framework"
-                                        extensions:ControlAssist.Label="Select a framework"
-                                        ItemsSource="{Binding Items}"
-                                        SelectedItem="{Binding SelectedItem, Mode=TwoWay}" />
-                                </StackPanel>
-                                <shadui:Card.Footer>
-                                    <Button
-                                        HorizontalAlignment="Right"
-                                        Classes="Outline"
-                                        Command="{Binding ClearCommand}">
-                                        Clear
-                                    </Button>
-                                </shadui:Card.Footer>
-                            </shadui:Card>
-                        </ScrollViewer>
-                    </controls:ControlBlock>
-                </StackPanel>
-            </Panel>
+            <StackPanel
+                MaxWidth="1536"
+                Margin="48,24"
+                Spacing="32">
+                <controls:ControlBlock
+                    Title="Select"
+                    Code="{Binding SelectComboBoxCode}"
+                    Language="xaml">
+                    <StackPanel Spacing="8">
+                        <ComboBox Width="255" SelectedIndex="0">
+                            <ComboBoxItem>Next.js</ComboBoxItem>
+                            <ComboBoxItem>SvelteKit</ComboBoxItem>
+                            <ComboBoxItem>Nuxt.js</ComboBoxItem>
+                            <ComboBoxItem>Remix</ComboBoxItem>
+                            <ComboBoxItem>Astro</ComboBoxItem>
+                        </ComboBox>
+                    </StackPanel>
+                </controls:ControlBlock>
+                <controls:ControlBlock
+                    Title="Disabled"
+                    Code="{Binding SelectComboBoxDisabledCode}"
+                    Language="xaml">
+                    <StackPanel Spacing="8">
+                        <ComboBox
+                            Width="255"
+                            IsEnabled="False"
+                            PlaceholderText="Select a framework" />
+                    </StackPanel>
+                </controls:ControlBlock>
+                <controls:ControlBlock
+                    Title="Form Validation"
+                    Code="{Binding FormValidationCode}"
+                    Language="xaml">
+                    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                        <shadui:Card HorizontalAlignment="Center">
+                            <shadui:Card.Header>
+                                <shadui:CardTitle>Framework Form</shadui:CardTitle>
+                            </shadui:Card.Header>
+                            <StackPanel Spacing="16">
+                                <ComboBox
+                                    Width="255"
+                                    extensions:ControlAssist.Hint="Your favorite web framework"
+                                    extensions:ControlAssist.Label="Select a framework"
+                                    ItemsSource="{Binding Items}"
+                                    SelectedItem="{Binding SelectedItem, Mode=TwoWay}" />
+                            </StackPanel>
+                            <shadui:Card.Footer>
+                                <Button
+                                    HorizontalAlignment="Right"
+                                    Classes="Outline"
+                                    Command="{Binding ClearCommand}">
+                                    Clear
+                                </Button>
+                            </shadui:Card.Footer>
+                        </shadui:Card>
+                    </ScrollViewer>
+                </controls:ControlBlock>
+            </StackPanel>
         </ScrollViewer>
     </DockPanel>
 </UserControl>

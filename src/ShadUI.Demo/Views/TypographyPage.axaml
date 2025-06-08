@@ -18,110 +18,110 @@
             <TextBlock Classes="p" Text="Styles for headings, paragraphs, lists...etc." />
         </StackPanel>
         <ScrollViewer>
-            <Panel MaxWidth="1536" Margin="48,24">
-                <StackPanel Spacing="32">
-
-                    <controls:ControlBlock
-                        Title="h1"
-                        Code="{Binding H1Code}"
-                        Language="xaml">
-                        <TextBlock
-                            Classes="h1"
-                            Text="Taxing Laughter: The Joke Tax Chronicles"
-                            TextWrapping="Wrap" />
-                    </controls:ControlBlock>
-                    <controls:ControlBlock
-                        Title="h2"
-                        Code="{Binding H2Code}"
-                        Language="xaml">
-                        <TextBlock
-                            Classes="h2"
-                            Text="The People of the Kingdom"
-                            TextWrapping="Wrap" />
-                    </controls:ControlBlock>
-                    <controls:ControlBlock
-                        Title="h3"
-                        Code="{Binding H3Code}"
-                        Language="xaml">
-                        <TextBlock
-                            Classes="h3"
-                            Text="The Joke Tax"
-                            TextWrapping="Wrap" />
-                    </controls:ControlBlock>
-                    <controls:ControlBlock
-                        Title="h4"
-                        Code="{Binding H4Code}"
-                        Language="xaml">
-                        <TextBlock
-                            Classes="h4"
-                            Text="People stopped telling jokes"
-                            TextWrapping="Wrap" />
-                    </controls:ControlBlock>
-                    <controls:ControlBlock
-                        Title="p"
-                        Code="{Binding PCode}"
-                        Language="xaml">
-                        <TextBlock
-                            Classes="p"
-                            Text="The king, seeing how much happier his subjects were, realized the error of his ways and repealed the joke tax."
-                            TextWrapping="Wrap" />
-                    </controls:ControlBlock>
-                    <controls:ControlBlock
-                        Title="Lead"
-                        Code="{Binding LeadCode}"
-                        Language="xaml">
-                        <TextBlock
-                            Classes="Lead"
-                            Text="A modal dialog that interrupts the user with important content and expects a response."
-                            TextWrapping="Wrap" />
-                    </controls:ControlBlock>
-                    <controls:ControlBlock
-                        Title="Large"
-                        Code="{Binding LargeCode}"
-                        Language="xaml">
-                        <TextBlock
-                            Classes="Large"
-                            Text="Are you absolutely sure?"
-                            TextWrapping="Wrap" />
-                    </controls:ControlBlock>
-                    <controls:ControlBlock
-                        Title="Small"
-                        Code="{Binding SmallCode}"
-                        Language="xaml">
-                        <TextBlock
-                            Classes="Small"
-                            Text="Email address"
-                            TextWrapping="Wrap" />
-                    </controls:ControlBlock>
-                    <controls:ControlBlock
-                        Title="Caption"
-                        Code="{Binding CaptionCode}"
-                        Language="xaml">
-                        <TextBlock
-                            Classes="Caption"
-                            Text="Username"
-                            TextWrapping="Wrap" />
-                    </controls:ControlBlock>
-                    <controls:ControlBlock
-                        Title="Muted"
-                        Code="{Binding MutedCode}"
-                        Language="xaml">
-                        <TextBlock
-                            Classes="Muted"
-                            Text="Enter your email address"
-                            TextWrapping="Wrap" />
-                    </controls:ControlBlock>
-                    <controls:ControlBlock
-                        Title="Error"
-                        Code="{Binding ErrorCode}"
-                        Language="xaml">
-                        <TextBlock
-                            Classes="Caption Error"
-                            Text="Invalid email address"
-                            TextWrapping="Wrap" />
-                    </controls:ControlBlock>
-                </StackPanel>
-            </Panel>
+            <StackPanel
+                MaxWidth="1536"
+                Margin="48,24"
+                Spacing="32">
+                <controls:ControlBlock
+                    Title="h1"
+                    Code="{Binding H1Code}"
+                    Language="xaml">
+                    <TextBlock
+                        Classes="h1"
+                        Text="Taxing Laughter: The Joke Tax Chronicles"
+                        TextWrapping="Wrap" />
+                </controls:ControlBlock>
+                <controls:ControlBlock
+                    Title="h2"
+                    Code="{Binding H2Code}"
+                    Language="xaml">
+                    <TextBlock
+                        Classes="h2"
+                        Text="The People of the Kingdom"
+                        TextWrapping="Wrap" />
+                </controls:ControlBlock>
+                <controls:ControlBlock
+                    Title="h3"
+                    Code="{Binding H3Code}"
+                    Language="xaml">
+                    <TextBlock
+                        Classes="h3"
+                        Text="The Joke Tax"
+                        TextWrapping="Wrap" />
+                </controls:ControlBlock>
+                <controls:ControlBlock
+                    Title="h4"
+                    Code="{Binding H4Code}"
+                    Language="xaml">
+                    <TextBlock
+                        Classes="h4"
+                        Text="People stopped telling jokes"
+                        TextWrapping="Wrap" />
+                </controls:ControlBlock>
+                <controls:ControlBlock
+                    Title="p"
+                    Code="{Binding PCode}"
+                    Language="xaml">
+                    <TextBlock
+                        Classes="p"
+                        Text="The king, seeing how much happier his subjects were, realized the error of his ways and repealed the joke tax."
+                        TextWrapping="Wrap" />
+                </controls:ControlBlock>
+                <controls:ControlBlock
+                    Title="Lead"
+                    Code="{Binding LeadCode}"
+                    Language="xaml">
+                    <TextBlock
+                        Classes="Lead"
+                        Text="A modal dialog that interrupts the user with important content and expects a response."
+                        TextWrapping="Wrap" />
+                </controls:ControlBlock>
+                <controls:ControlBlock
+                    Title="Large"
+                    Code="{Binding LargeCode}"
+                    Language="xaml">
+                    <TextBlock
+                        Classes="Large"
+                        Text="Are you absolutely sure?"
+                        TextWrapping="Wrap" />
+                </controls:ControlBlock>
+                <controls:ControlBlock
+                    Title="Small"
+                    Code="{Binding SmallCode}"
+                    Language="xaml">
+                    <TextBlock
+                        Classes="Small"
+                        Text="Email address"
+                        TextWrapping="Wrap" />
+                </controls:ControlBlock>
+                <controls:ControlBlock
+                    Title="Caption"
+                    Code="{Binding CaptionCode}"
+                    Language="xaml">
+                    <TextBlock
+                        Classes="Caption"
+                        Text="Username"
+                        TextWrapping="Wrap" />
+                </controls:ControlBlock>
+                <controls:ControlBlock
+                    Title="Muted"
+                    Code="{Binding MutedCode}"
+                    Language="xaml">
+                    <TextBlock
+                        Classes="Muted"
+                        Text="Enter your email address"
+                        TextWrapping="Wrap" />
+                </controls:ControlBlock>
+                <controls:ControlBlock
+                    Title="Error"
+                    Code="{Binding ErrorCode}"
+                    Language="xaml">
+                    <TextBlock
+                        Classes="Caption Error"
+                        Text="Invalid email address"
+                        TextWrapping="Wrap" />
+                </controls:ControlBlock>
+            </StackPanel>
         </ScrollViewer>
     </DockPanel>
 </UserControl>

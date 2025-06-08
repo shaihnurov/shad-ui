@@ -23,161 +23,162 @@
                 TextWrapping="Wrap" />
         </StackPanel>
         <ScrollViewer>
-            <Panel MaxWidth="1536" Margin="48,24">
-                <StackPanel Spacing="32">
-                    <StackPanel Orientation="Vertical" Spacing="8">
-                        <TextBlock Classes="h4" Text="Installation" />
-                        <Separator Margin="0" />
-                        <TextBlock
-                            Classes="Small"
-                            Text="Place ToastHost to any part of the application, preferably in main content of the MainWindow and should be on top of other elements."
-                            TextWrapping="Wrap" />
-                        <controls:CodeTextBlock Language="xaml">
-                            <Run Text="    &lt;!-- rest of the codes --&gt;" />
-                            <LineBreak />
-                            <Run Text="    &lt;toasts:ToastHost Manager=&quot;{Binding ToastManager}&quot; /&gt;" />
-                        </controls:CodeTextBlock>
-                        <TextBlock
-                            Margin="0,12,0,0"
-                            Classes="Small"
-                            Text="Resolve ToastManager using dependency injection framework for easy access. Make sure to have only one instance of ToastManager."
-                            TextWrapping="Wrap" />
-                        <controls:CodeTextBlock Language="cs">
-                            <Run Text="public static void AddServices(this IServiceCollection collection)" />
-                            <LineBreak />
-                            <Run Text="\{" />
-                            <LineBreak />
-                            <Run Text="    //...other service injection" />
-                            <LineBreak />
-                            <Run Text="    " />
-                            <LineBreak />
-                            <Run Text="    collection.AddSingleton&lt;ToastManager&gt;();" />
-                            <LineBreak />
-                            <Run Text="}" />
-                        </controls:CodeTextBlock>
-                    </StackPanel>
-                    <controls:ControlBlock
-                        Title="Simple"
-                        Code="{Binding SimpleToastCode}"
-                        Language="cs">
-                        <StackPanel
-                            HorizontalAlignment="Center"
-                            Orientation="Horizontal"
-                            Spacing="8">
-                            <Button
-                                HorizontalAlignment="Center"
-                                Classes="Outline"
-                                Command="{Binding ShowSimpleToastCommand}"
-                                Content="Show Toast" />
-                        </StackPanel>
-                    </controls:ControlBlock>
-                    <controls:ControlBlock
-                        Title="With Title"
-                        Code="{Binding WithTitleToastCode}"
-                        Language="cs">
-                        <StackPanel
-                            HorizontalAlignment="Center"
-                            Orientation="Horizontal"
-                            Spacing="8">
-                            <Button
-                                HorizontalAlignment="Center"
-                                Classes="Outline"
-                                Command="{Binding ShowWithTitleToastCommand}"
-                                Content="Show Toast" />
-                        </StackPanel>
-                    </controls:ControlBlock>
-                    <controls:ControlBlock
-                        Title="With Action"
-                        Code="{Binding WithActionToastCode}"
-                        Language="cs">
-                        <StackPanel
-                            HorizontalAlignment="Center"
-                            Orientation="Horizontal"
-                            Spacing="8">
-                            <Button
-                                HorizontalAlignment="Center"
-                                Classes="Outline"
-                                Command="{Binding ShowWithActionToastCommand}"
-                                Content="Show Toast" />
-                        </StackPanel>
-                    </controls:ControlBlock>
-                    <controls:ControlBlock
-                        Title="With Custom Delay"
-                        Code="{Binding WithDelayToastCode}"
-                        Language="cs">
-                        <StackPanel
-                            HorizontalAlignment="Center"
-                            Orientation="Horizontal"
-                            Spacing="8">
-                            <Button
-                                HorizontalAlignment="Center"
-                                Classes="Outline"
-                                Command="{Binding ShowWithDelayToastCommand}"
-                                Content="Show Toast" />
-                        </StackPanel>
-                    </controls:ControlBlock>
-                    <controls:ControlBlock
-                        Title="Info Toast"
-                        Code="{Binding InfoToastCode}"
-                        Language="cs">
-                        <StackPanel
-                            HorizontalAlignment="Center"
-                            Orientation="Horizontal"
-                            Spacing="8">
-                            <Button
-                                HorizontalAlignment="Center"
-                                Classes="Outline"
-                                Command="{Binding ShowInfoToastCommand}"
-                                Content="Show Toast" />
-                        </StackPanel>
-                    </controls:ControlBlock>
-                    <controls:ControlBlock
-                        Title="Success Toast"
-                        Code="{Binding SuccessToastCode}"
-                        Language="cs">
-                        <StackPanel
-                            HorizontalAlignment="Center"
-                            Orientation="Horizontal"
-                            Spacing="8">
-                            <Button
-                                HorizontalAlignment="Center"
-                                Classes="Outline"
-                                Command="{Binding ShowSuccessToastCommand}"
-                                Content="Show Toast" />
-                        </StackPanel>
-                    </controls:ControlBlock>
-                    <controls:ControlBlock
-                        Title="Warning Toast"
-                        Code="{Binding WarningToastCode}"
-                        Language="cs">
-                        <StackPanel
-                            HorizontalAlignment="Center"
-                            Orientation="Horizontal"
-                            Spacing="8">
-                            <Button
-                                HorizontalAlignment="Center"
-                                Classes="Outline"
-                                Command="{Binding ShowWarningToastCommand}"
-                                Content="Show Toast" />
-                        </StackPanel>
-                    </controls:ControlBlock>
-                    <controls:ControlBlock
-                        Title="Error Toast"
-                        Code="{Binding ErrorToastCode}"
-                        Language="cs">
-                        <StackPanel
-                            HorizontalAlignment="Center"
-                            Orientation="Horizontal"
-                            Spacing="8">
-                            <Button
-                                HorizontalAlignment="Center"
-                                Classes="Outline"
-                                Command="{Binding ShowErrorToastCommand}"
-                                Content="Show Toast" />
-                        </StackPanel>
-                    </controls:ControlBlock>
+            <StackPanel
+                MaxWidth="1536"
+                Margin="48,24"
+                Spacing="32">
+                <StackPanel Orientation="Vertical" Spacing="8">
+                    <TextBlock Classes="h4" Text="Installation" />
+                    <Separator Margin="0" />
+                    <TextBlock
+                        Classes="Small"
+                        Text="Place ToastHost to any part of the application, preferably in main content of the MainWindow and should be on top of other elements."
+                        TextWrapping="Wrap" />
+                    <controls:CodeTextBlock Language="xaml">
+                        <Run Text="    &lt;!-- rest of the codes --&gt;" />
+                        <LineBreak />
+                        <Run Text="    &lt;toasts:ToastHost Manager=&quot;{Binding ToastManager}&quot; /&gt;" />
+                    </controls:CodeTextBlock>
+                    <TextBlock
+                        Margin="0,12,0,0"
+                        Classes="Small"
+                        Text="Resolve ToastManager using dependency injection framework for easy access. Make sure to have only one instance of ToastManager."
+                        TextWrapping="Wrap" />
+                    <controls:CodeTextBlock Language="cs">
+                        <Run Text="public static void AddServices(this IServiceCollection collection)" />
+                        <LineBreak />
+                        <Run Text="\{" />
+                        <LineBreak />
+                        <Run Text="    //...other service injection" />
+                        <LineBreak />
+                        <Run Text="    " />
+                        <LineBreak />
+                        <Run Text="    collection.AddSingleton&lt;ToastManager&gt;();" />
+                        <LineBreak />
+                        <Run Text="}" />
+                    </controls:CodeTextBlock>
                 </StackPanel>
-            </Panel>
+                <controls:ControlBlock
+                    Title="Simple"
+                    Code="{Binding SimpleToastCode}"
+                    Language="cs">
+                    <StackPanel
+                        HorizontalAlignment="Center"
+                        Orientation="Horizontal"
+                        Spacing="8">
+                        <Button
+                            HorizontalAlignment="Center"
+                            Classes="Outline"
+                            Command="{Binding ShowSimpleToastCommand}"
+                            Content="Show Toast" />
+                    </StackPanel>
+                </controls:ControlBlock>
+                <controls:ControlBlock
+                    Title="With Title"
+                    Code="{Binding WithTitleToastCode}"
+                    Language="cs">
+                    <StackPanel
+                        HorizontalAlignment="Center"
+                        Orientation="Horizontal"
+                        Spacing="8">
+                        <Button
+                            HorizontalAlignment="Center"
+                            Classes="Outline"
+                            Command="{Binding ShowWithTitleToastCommand}"
+                            Content="Show Toast" />
+                    </StackPanel>
+                </controls:ControlBlock>
+                <controls:ControlBlock
+                    Title="With Action"
+                    Code="{Binding WithActionToastCode}"
+                    Language="cs">
+                    <StackPanel
+                        HorizontalAlignment="Center"
+                        Orientation="Horizontal"
+                        Spacing="8">
+                        <Button
+                            HorizontalAlignment="Center"
+                            Classes="Outline"
+                            Command="{Binding ShowWithActionToastCommand}"
+                            Content="Show Toast" />
+                    </StackPanel>
+                </controls:ControlBlock>
+                <controls:ControlBlock
+                    Title="With Custom Delay"
+                    Code="{Binding WithDelayToastCode}"
+                    Language="cs">
+                    <StackPanel
+                        HorizontalAlignment="Center"
+                        Orientation="Horizontal"
+                        Spacing="8">
+                        <Button
+                            HorizontalAlignment="Center"
+                            Classes="Outline"
+                            Command="{Binding ShowWithDelayToastCommand}"
+                            Content="Show Toast" />
+                    </StackPanel>
+                </controls:ControlBlock>
+                <controls:ControlBlock
+                    Title="Info Toast"
+                    Code="{Binding InfoToastCode}"
+                    Language="cs">
+                    <StackPanel
+                        HorizontalAlignment="Center"
+                        Orientation="Horizontal"
+                        Spacing="8">
+                        <Button
+                            HorizontalAlignment="Center"
+                            Classes="Outline"
+                            Command="{Binding ShowInfoToastCommand}"
+                            Content="Show Toast" />
+                    </StackPanel>
+                </controls:ControlBlock>
+                <controls:ControlBlock
+                    Title="Success Toast"
+                    Code="{Binding SuccessToastCode}"
+                    Language="cs">
+                    <StackPanel
+                        HorizontalAlignment="Center"
+                        Orientation="Horizontal"
+                        Spacing="8">
+                        <Button
+                            HorizontalAlignment="Center"
+                            Classes="Outline"
+                            Command="{Binding ShowSuccessToastCommand}"
+                            Content="Show Toast" />
+                    </StackPanel>
+                </controls:ControlBlock>
+                <controls:ControlBlock
+                    Title="Warning Toast"
+                    Code="{Binding WarningToastCode}"
+                    Language="cs">
+                    <StackPanel
+                        HorizontalAlignment="Center"
+                        Orientation="Horizontal"
+                        Spacing="8">
+                        <Button
+                            HorizontalAlignment="Center"
+                            Classes="Outline"
+                            Command="{Binding ShowWarningToastCommand}"
+                            Content="Show Toast" />
+                    </StackPanel>
+                </controls:ControlBlock>
+                <controls:ControlBlock
+                    Title="Error Toast"
+                    Code="{Binding ErrorToastCode}"
+                    Language="cs">
+                    <StackPanel
+                        HorizontalAlignment="Center"
+                        Orientation="Horizontal"
+                        Spacing="8">
+                        <Button
+                            HorizontalAlignment="Center"
+                            Classes="Outline"
+                            Command="{Binding ShowErrorToastCommand}"
+                            Content="Show Toast" />
+                    </StackPanel>
+                </controls:ControlBlock>
+            </StackPanel>
         </ScrollViewer>
     </DockPanel>
 </UserControl>

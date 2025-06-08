@@ -23,24 +23,25 @@
                 TextWrapping="Wrap" />
         </StackPanel>
         <ScrollViewer>
-            <Panel MaxWidth="1536" Margin="48,24">
-                <StackPanel Spacing="32">
-                    <controls:ControlBlock
-                        Title="Usage"
-                        Code="{Binding UsageCode}"
-                        Language="xaml">
-                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Button
-                                Classes="Outline"
-                                ToolTip.Placement="Top"
-                                ToolTip.Tip="Add to library"
-                                ToolTip.VerticalOffset="-5">
-                                Hover
-                            </Button>
-                        </StackPanel>
-                    </controls:ControlBlock>
-                </StackPanel>
-            </Panel>
+            <StackPanel
+                MaxWidth="1536"
+                Margin="48,24"
+                Spacing="32">
+                <controls:ControlBlock
+                    Title="Usage"
+                    Code="{Binding UsageCode}"
+                    Language="xaml">
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Button
+                            Classes="Outline"
+                            ToolTip.Placement="Top"
+                            ToolTip.Tip="Add to library"
+                            ToolTip.VerticalOffset="-5">
+                            Hover
+                        </Button>
+                    </StackPanel>
+                </controls:ControlBlock>
+            </StackPanel>
         </ScrollViewer>
     </DockPanel>
 </UserControl>

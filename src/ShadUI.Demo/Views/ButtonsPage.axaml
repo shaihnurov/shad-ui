@@ -19,227 +19,228 @@
             <TextBlock Classes="p" Text="Displays a button component" />
         </StackPanel>
         <ScrollViewer>
-            <Panel MaxWidth="1536" Margin="48,24">
-                <StackPanel Spacing="32">
-                    <controls:ControlBlock
-                        Title="Primary"
-                        Code="{Binding PrimaryCode}"
-                        Language="xaml">
-                        <StackPanel
-                            HorizontalAlignment="Center"
-                            Orientation="Horizontal"
-                            Spacing="8">
-                            <Button
-                                extensions:ButtonAssist.ShowProgress="{Binding IsBusy}"
-                                Classes="Primary"
-                                Command="{Binding SubmitCommand}"
-                                Content="Primary" />
-                            <Button
-                                extensions:ButtonAssist.ShowProgress="{Binding IsBusy}"
-                                Classes="Primary"
-                                Command="{Binding SubmitCommand}"
-                                Content="Edit">
-                                <extensions:ButtonAssist.Icon>
-                                    <TextBlock
-                                        Margin="0,0,6,0"
-                                        Classes="FontIcon"
-                                        Text="&#57849;" />
-                                </extensions:ButtonAssist.Icon>
-                            </Button>
-                            <Button
-                                Classes="Primary"
-                                Content="Disable"
-                                IsEnabled="False" />
-                        </StackPanel>
-                    </controls:ControlBlock>
-                    <controls:ControlBlock
-                        Title="Secondary"
-                        Code="{Binding SecondaryCode}"
-                        Language="xaml">
-                        <StackPanel
-                            HorizontalAlignment="Center"
-                            Orientation="Horizontal"
-                            Spacing="8">
-                            <Button
-                                extensions:ButtonAssist.ShowProgress="{Binding IsBusy}"
-                                Classes="Secondary"
-                                Command="{Binding SubmitCommand}"
-                                Content="Secondary" />
-                            <Button
-                                extensions:ButtonAssist.ShowProgress="{Binding IsBusy}"
-                                Classes="Secondary"
-                                Command="{Binding SubmitCommand}"
-                                Content="Edit">
-                                <extensions:ButtonAssist.Icon>
-                                    <TextBlock
-                                        Margin="0,0,6,0"
-                                        Classes="FontIcon"
-                                        Text="&#57849;" />
-                                </extensions:ButtonAssist.Icon>
-                            </Button>
-                            <Button
-                                Classes="Secondary"
-                                Content="Disable"
-                                IsEnabled="False" />
-                        </StackPanel>
-                    </controls:ControlBlock>
-                    <controls:ControlBlock
-                        Title="Destructive"
-                        Code="{Binding DestructiveCode}"
-                        Language="xaml">
-                        <StackPanel
-                            HorizontalAlignment="Center"
-                            Orientation="Horizontal"
-                            Spacing="8">
-                            <Button
-                                extensions:ButtonAssist.ShowProgress="{Binding IsBusy}"
-                                Classes="Destructive"
-                                Command="{Binding SubmitCommand}"
-                                Content="Destructive" />
-                            <Button
-                                extensions:ButtonAssist.ShowProgress="{Binding IsBusy}"
-                                Classes="Destructive"
-                                Command="{Binding SubmitCommand}"
-                                Content="Delete">
-                                <extensions:ButtonAssist.Icon>
-                                    <TextBlock
-                                        Margin="0,0,6,0"
-                                        Classes="FontIcon"
-                                        Text="&#57741;" />
-                                </extensions:ButtonAssist.Icon>
-                            </Button>
-                            <Button
-                                Classes="Destructive"
-                                Content="Disable"
-                                IsEnabled="False" />
-                        </StackPanel>
-                    </controls:ControlBlock>
-                    <controls:ControlBlock
-                        Title="Outline"
-                        Code="{Binding OutlineCode}"
-                        Language="xaml">
-                        <StackPanel
-                            HorizontalAlignment="Center"
-                            Orientation="Horizontal"
-                            Spacing="8">
-                            <Button
-                                extensions:ButtonAssist.ShowProgress="{Binding IsBusy}"
-                                Classes="Outline"
-                                Command="{Binding SubmitCommand}"
-                                Content="Outline" />
-                            <Button
-                                extensions:ButtonAssist.ShowProgress="{Binding IsBusy}"
-                                Classes="Outline"
-                                Command="{Binding SubmitCommand}"
-                                Content="Edit">
-                                <extensions:ButtonAssist.Icon>
-                                    <TextBlock
-                                        Margin="0,0,6,0"
-                                        Classes="FontIcon"
-                                        Text="&#57849;" />
-                                </extensions:ButtonAssist.Icon>
-                            </Button>
-                            <Button
-                                Classes="Outline"
-                                Content="Disable"
-                                IsEnabled="False" />
-                        </StackPanel>
-                    </controls:ControlBlock>
-                    <controls:ControlBlock
-                        Title="Ghost"
-                        Code="{Binding GhostCode}"
-                        Language="xaml">
-                        <StackPanel
-                            HorizontalAlignment="Center"
-                            Orientation="Horizontal"
-                            Spacing="8">
-                            <Button
-                                extensions:ButtonAssist.ShowProgress="{Binding IsBusy}"
-                                Classes="Ghost"
-                                Command="{Binding SubmitCommand}"
-                                Content="Ghost" />
-                            <Button
-                                extensions:ButtonAssist.ShowProgress="{Binding IsBusy}"
-                                Classes="Ghost"
-                                Command="{Binding SubmitCommand}"
-                                Content="Edit">
-                                <extensions:ButtonAssist.Icon>
-                                    <TextBlock
-                                        Margin="0,0,6,0"
-                                        Classes="FontIcon"
-                                        Text="&#57849;" />
-                                </extensions:ButtonAssist.Icon>
-                            </Button>
-                            <Button
-                                Classes="Ghost"
-                                Content="Disable"
-                                IsEnabled="False" />
-                        </StackPanel>
-                    </controls:ControlBlock>
-                    <controls:ControlBlock
-                        Title="Icon"
-                        Code="{Binding IconCode}"
-                        Language="xaml">
-                        <StackPanel
-                            HorizontalAlignment="Center"
-                            Orientation="Horizontal"
-                            Spacing="8">
-                            <Button
-                                extensions:ButtonAssist.ShowProgress="{Binding IsBusy}"
-                                BorderBrush="{DynamicResource BorderColor}"
-                                Classes="Icon"
-                                Command="{Binding SubmitCommand}">
-                                <extensions:ButtonAssist.Icon>
-                                    <TextBlock
-                                        Margin="0,8"
-                                        Classes="FontIcon"
-                                        Text="&#57849;" />
-                                </extensions:ButtonAssist.Icon>
-                            </Button>
-                            <Button
-                                BorderBrush="{DynamicResource BorderColor}"
-                                Classes="Icon"
-                                IsEnabled="False">
-                                <extensions:ButtonAssist.Icon>
-                                    <TextBlock
-                                        Margin="0,8"
-                                        Classes="FontIcon"
-                                        Text="&#57849;" />
-                                </extensions:ButtonAssist.Icon>
-                            </Button>
-                        </StackPanel>
-                    </controls:ControlBlock>
-                    <controls:ControlBlock
-                        Title="Destructive Icon"
-                        Code="{Binding DestructiveIconCode}"
-                        Language="xaml">
-                        <StackPanel
-                            HorizontalAlignment="Center"
-                            Orientation="Horizontal"
-                            Spacing="8">
-                            <Button
-                                extensions:ButtonAssist.ShowProgress="{Binding IsBusy}"
-                                Classes="DestructiveIcon"
-                                Command="{Binding SubmitCommand}">
-                                <extensions:ButtonAssist.Icon>
-                                    <TextBlock
-                                        Margin="0,8"
-                                        Classes="FontIcon"
-                                        Text="&#57741;" />
-                                </extensions:ButtonAssist.Icon>
-                            </Button>
-                            <Button Classes="DestructiveIcon" IsEnabled="False">
-                                <extensions:ButtonAssist.Icon>
-                                    <TextBlock
-                                        Margin="0,8"
-                                        Classes="FontIcon"
-                                        Text="&#57741;" />
-                                </extensions:ButtonAssist.Icon>
-                            </Button>
-                        </StackPanel>
-                    </controls:ControlBlock>
-                </StackPanel>
-            </Panel>
+            <StackPanel
+                MaxWidth="1536"
+                Margin="48,24"
+                Spacing="32">
+                <controls:ControlBlock
+                    Title="Primary"
+                    Code="{Binding PrimaryCode}"
+                    Language="xaml">
+                    <StackPanel
+                        HorizontalAlignment="Center"
+                        Orientation="Horizontal"
+                        Spacing="8">
+                        <Button
+                            extensions:ButtonAssist.ShowProgress="{Binding IsBusy}"
+                            Classes="Primary"
+                            Command="{Binding SubmitCommand}"
+                            Content="Primary" />
+                        <Button
+                            extensions:ButtonAssist.ShowProgress="{Binding IsBusy}"
+                            Classes="Primary"
+                            Command="{Binding SubmitCommand}"
+                            Content="Edit">
+                            <extensions:ButtonAssist.Icon>
+                                <TextBlock
+                                    Margin="0,0,6,0"
+                                    Classes="FontIcon"
+                                    Text="&#57849;" />
+                            </extensions:ButtonAssist.Icon>
+                        </Button>
+                        <Button
+                            Classes="Primary"
+                            Content="Disable"
+                            IsEnabled="False" />
+                    </StackPanel>
+                </controls:ControlBlock>
+                <controls:ControlBlock
+                    Title="Secondary"
+                    Code="{Binding SecondaryCode}"
+                    Language="xaml">
+                    <StackPanel
+                        HorizontalAlignment="Center"
+                        Orientation="Horizontal"
+                        Spacing="8">
+                        <Button
+                            extensions:ButtonAssist.ShowProgress="{Binding IsBusy}"
+                            Classes="Secondary"
+                            Command="{Binding SubmitCommand}"
+                            Content="Secondary" />
+                        <Button
+                            extensions:ButtonAssist.ShowProgress="{Binding IsBusy}"
+                            Classes="Secondary"
+                            Command="{Binding SubmitCommand}"
+                            Content="Edit">
+                            <extensions:ButtonAssist.Icon>
+                                <TextBlock
+                                    Margin="0,0,6,0"
+                                    Classes="FontIcon"
+                                    Text="&#57849;" />
+                            </extensions:ButtonAssist.Icon>
+                        </Button>
+                        <Button
+                            Classes="Secondary"
+                            Content="Disable"
+                            IsEnabled="False" />
+                    </StackPanel>
+                </controls:ControlBlock>
+                <controls:ControlBlock
+                    Title="Destructive"
+                    Code="{Binding DestructiveCode}"
+                    Language="xaml">
+                    <StackPanel
+                        HorizontalAlignment="Center"
+                        Orientation="Horizontal"
+                        Spacing="8">
+                        <Button
+                            extensions:ButtonAssist.ShowProgress="{Binding IsBusy}"
+                            Classes="Destructive"
+                            Command="{Binding SubmitCommand}"
+                            Content="Destructive" />
+                        <Button
+                            extensions:ButtonAssist.ShowProgress="{Binding IsBusy}"
+                            Classes="Destructive"
+                            Command="{Binding SubmitCommand}"
+                            Content="Delete">
+                            <extensions:ButtonAssist.Icon>
+                                <TextBlock
+                                    Margin="0,0,6,0"
+                                    Classes="FontIcon"
+                                    Text="&#57741;" />
+                            </extensions:ButtonAssist.Icon>
+                        </Button>
+                        <Button
+                            Classes="Destructive"
+                            Content="Disable"
+                            IsEnabled="False" />
+                    </StackPanel>
+                </controls:ControlBlock>
+                <controls:ControlBlock
+                    Title="Outline"
+                    Code="{Binding OutlineCode}"
+                    Language="xaml">
+                    <StackPanel
+                        HorizontalAlignment="Center"
+                        Orientation="Horizontal"
+                        Spacing="8">
+                        <Button
+                            extensions:ButtonAssist.ShowProgress="{Binding IsBusy}"
+                            Classes="Outline"
+                            Command="{Binding SubmitCommand}"
+                            Content="Outline" />
+                        <Button
+                            extensions:ButtonAssist.ShowProgress="{Binding IsBusy}"
+                            Classes="Outline"
+                            Command="{Binding SubmitCommand}"
+                            Content="Edit">
+                            <extensions:ButtonAssist.Icon>
+                                <TextBlock
+                                    Margin="0,0,6,0"
+                                    Classes="FontIcon"
+                                    Text="&#57849;" />
+                            </extensions:ButtonAssist.Icon>
+                        </Button>
+                        <Button
+                            Classes="Outline"
+                            Content="Disable"
+                            IsEnabled="False" />
+                    </StackPanel>
+                </controls:ControlBlock>
+                <controls:ControlBlock
+                    Title="Ghost"
+                    Code="{Binding GhostCode}"
+                    Language="xaml">
+                    <StackPanel
+                        HorizontalAlignment="Center"
+                        Orientation="Horizontal"
+                        Spacing="8">
+                        <Button
+                            extensions:ButtonAssist.ShowProgress="{Binding IsBusy}"
+                            Classes="Ghost"
+                            Command="{Binding SubmitCommand}"
+                            Content="Ghost" />
+                        <Button
+                            extensions:ButtonAssist.ShowProgress="{Binding IsBusy}"
+                            Classes="Ghost"
+                            Command="{Binding SubmitCommand}"
+                            Content="Edit">
+                            <extensions:ButtonAssist.Icon>
+                                <TextBlock
+                                    Margin="0,0,6,0"
+                                    Classes="FontIcon"
+                                    Text="&#57849;" />
+                            </extensions:ButtonAssist.Icon>
+                        </Button>
+                        <Button
+                            Classes="Ghost"
+                            Content="Disable"
+                            IsEnabled="False" />
+                    </StackPanel>
+                </controls:ControlBlock>
+                <controls:ControlBlock
+                    Title="Icon"
+                    Code="{Binding IconCode}"
+                    Language="xaml">
+                    <StackPanel
+                        HorizontalAlignment="Center"
+                        Orientation="Horizontal"
+                        Spacing="8">
+                        <Button
+                            extensions:ButtonAssist.ShowProgress="{Binding IsBusy}"
+                            BorderBrush="{DynamicResource BorderColor}"
+                            Classes="Icon"
+                            Command="{Binding SubmitCommand}">
+                            <extensions:ButtonAssist.Icon>
+                                <TextBlock
+                                    Margin="0,8"
+                                    Classes="FontIcon"
+                                    Text="&#57849;" />
+                            </extensions:ButtonAssist.Icon>
+                        </Button>
+                        <Button
+                            BorderBrush="{DynamicResource BorderColor}"
+                            Classes="Icon"
+                            IsEnabled="False">
+                            <extensions:ButtonAssist.Icon>
+                                <TextBlock
+                                    Margin="0,8"
+                                    Classes="FontIcon"
+                                    Text="&#57849;" />
+                            </extensions:ButtonAssist.Icon>
+                        </Button>
+                    </StackPanel>
+                </controls:ControlBlock>
+                <controls:ControlBlock
+                    Title="Destructive Icon"
+                    Code="{Binding DestructiveIconCode}"
+                    Language="xaml">
+                    <StackPanel
+                        HorizontalAlignment="Center"
+                        Orientation="Horizontal"
+                        Spacing="8">
+                        <Button
+                            extensions:ButtonAssist.ShowProgress="{Binding IsBusy}"
+                            Classes="DestructiveIcon"
+                            Command="{Binding SubmitCommand}">
+                            <extensions:ButtonAssist.Icon>
+                                <TextBlock
+                                    Margin="0,8"
+                                    Classes="FontIcon"
+                                    Text="&#57741;" />
+                            </extensions:ButtonAssist.Icon>
+                        </Button>
+                        <Button Classes="DestructiveIcon" IsEnabled="False">
+                            <extensions:ButtonAssist.Icon>
+                                <TextBlock
+                                    Margin="0,8"
+                                    Classes="FontIcon"
+                                    Text="&#57741;" />
+                            </extensions:ButtonAssist.Icon>
+                        </Button>
+                    </StackPanel>
+                </controls:ControlBlock>
+            </StackPanel>
         </ScrollViewer>
     </DockPanel>
 </UserControl>

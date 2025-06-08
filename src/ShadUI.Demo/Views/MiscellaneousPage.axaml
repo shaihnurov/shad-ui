@@ -24,56 +24,57 @@
                 TextWrapping="Wrap" />
         </StackPanel>
         <ScrollViewer>
-            <Panel MaxWidth="1536" Margin="48,24">
-                <StackPanel Spacing="32">
-                    <controls:ControlBlock
-                        Title="Busy Area"
-                        Code="{Binding BusyAreaCode}"
-                        Language="xaml">
-                        <Border
-                            Height="400"
-                            BorderBrush="{DynamicResource BorderColor}"
-                            BorderThickness="1"
-                            CornerRadius="{DynamicResource XlCornerRadius}">
-                            <Panel>
-                                <Button
-                                    HorizontalAlignment="Center"
-                                    VerticalAlignment="Center"
-                                    Classes="Outline"
-                                    Command="{Binding ToggleBusyCommand}">
-                                    Load
-                                </Button>
-                                <shadui:BusyArea CornerRadius="{DynamicResource LgCornerRadius}" IsBusy="{Binding IsBusy}" />
-                            </Panel>
-                        </Border>
-                    </controls:ControlBlock>
-                    <controls:ControlBlock
-                        Title="Skeleton"
-                        Code="{Binding SkeletonCode}"
-                        Language="xaml">
-                        <StackPanel
-                            Margin="24"
-                            HorizontalAlignment="Center"
-                            Orientation="Horizontal"
-                            Spacing="16">
+            <StackPanel
+                MaxWidth="1536"
+                Margin="48,24"
+                Spacing="32">
+                <controls:ControlBlock
+                    Title="Busy Area"
+                    Code="{Binding BusyAreaCode}"
+                    Language="xaml">
+                    <Border
+                        Height="400"
+                        BorderBrush="{DynamicResource BorderColor}"
+                        BorderThickness="1"
+                        CornerRadius="{DynamicResource XlCornerRadius}">
+                        <Panel>
+                            <Button
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Classes="Outline"
+                                Command="{Binding ToggleBusyCommand}">
+                                Load
+                            </Button>
+                            <shadui:BusyArea CornerRadius="{DynamicResource LgCornerRadius}" IsBusy="{Binding IsBusy}" />
+                        </Panel>
+                    </Border>
+                </controls:ControlBlock>
+                <controls:ControlBlock
+                    Title="Skeleton"
+                    Code="{Binding SkeletonCode}"
+                    Language="xaml">
+                    <StackPanel
+                        Margin="24"
+                        HorizontalAlignment="Center"
+                        Orientation="Horizontal"
+                        Spacing="16">
+                        <shadui:Skeleton
+                            Width="64"
+                            Height="64"
+                            CornerRadius="{DynamicResource FullCornerRadius}" />
+                        <StackPanel VerticalAlignment="Center" Spacing="8">
                             <shadui:Skeleton
-                                Width="64"
-                                Height="64"
-                                CornerRadius="{DynamicResource FullCornerRadius}" />
-                            <StackPanel VerticalAlignment="Center" Spacing="8">
-                                <shadui:Skeleton
-                                    Width="255"
-                                    Height="28"
-                                    HorizontalAlignment="Left" />
-                                <shadui:Skeleton
-                                    Width="200"
-                                    Height="20"
-                                    HorizontalAlignment="Left" />
-                            </StackPanel>
+                                Width="255"
+                                Height="28"
+                                HorizontalAlignment="Left" />
+                            <shadui:Skeleton
+                                Width="200"
+                                Height="20"
+                                HorizontalAlignment="Left" />
                         </StackPanel>
-                    </controls:ControlBlock>
-                </StackPanel>
-            </Panel>
+                    </StackPanel>
+                </controls:ControlBlock>
+            </StackPanel>
         </ScrollViewer>
     </DockPanel>
 </UserControl>

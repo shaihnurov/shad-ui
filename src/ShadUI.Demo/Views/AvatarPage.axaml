@@ -24,22 +24,23 @@
                 TextWrapping="Wrap" />
         </StackPanel>
         <ScrollViewer>
-            <Panel MaxWidth="1536" Margin="48,24">
-                <StackPanel Spacing="32">
-                    <controls:ControlBlock
-                        Title="Usage"
-                        Code="{Binding UsageCode}"
-                        Language="xaml">
-                        <StackPanel>
-                            <shadui:Avatar
-                                Width="80"
-                                Height="80"
-                                Fallback="CN"
-                                Source="../../Assets/user.png" />
-                        </StackPanel>
-                    </controls:ControlBlock>
-                </StackPanel>
-            </Panel>
+            <StackPanel
+                MaxWidth="1536"
+                Margin="48,24"
+                Spacing="32">
+                <controls:ControlBlock
+                    Title="Usage"
+                    Code="{Binding UsageCode}"
+                    Language="xaml">
+                    <StackPanel>
+                        <shadui:Avatar
+                            Width="80"
+                            Height="80"
+                            Fallback="CN"
+                            Source="../../Assets/user.png" />
+                    </StackPanel>
+                </controls:ControlBlock>
+            </StackPanel>
         </ScrollViewer>
     </DockPanel>
 </UserControl>
