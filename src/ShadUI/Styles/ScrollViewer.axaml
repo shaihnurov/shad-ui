@@ -102,6 +102,5 @@
                 </Panel>
             </ControlTemplate>
         </Setter>
-        <Style Selector="^ /template/ ScrollContentPresenter" />
     </Style>
 </Styles>

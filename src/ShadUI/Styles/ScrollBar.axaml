@@ -3,77 +3,6 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:content="clr-namespace:ShadUI.Contents"
     xmlns:converters="clr-namespace:ShadUI.Converters">
-    <Design.PreviewWith>
-        <StackPanel Width="200">
-            <Border Padding="20">
-                <ScrollViewer Width="200" Height="100">
-                    <StackPanel>
-                        <ListBoxItem>isse</ListBoxItem>
-                        <ListBoxItem>isse</ListBoxItem>
-                        <ListBoxItem>isse</ListBoxItem>
-                        <ListBoxItem>isse</ListBoxItem>
-                        <ListBoxItem>isse</ListBoxItem>
-                        <ListBoxItem>isse</ListBoxItem>
-                        <ListBoxItem>isse</ListBoxItem>
-                        <ListBoxItem>isse</ListBoxItem>
-                        <ListBoxItem>isse</ListBoxItem>
-                        <ListBoxItem>isse</ListBoxItem>
-                        <ListBoxItem>isse</ListBoxItem>
-                        <ListBoxItem>isse</ListBoxItem>
-                        <ListBoxItem>isse</ListBoxItem>
-                        <ListBoxItem>isse</ListBoxItem>
-                        <ListBoxItem>isse</ListBoxItem>
-                        <ListBoxItem>isse</ListBoxItem>
-                        <ListBoxItem>isse</ListBoxItem>
-                        <ListBoxItem>isse</ListBoxItem>
-                        <ListBoxItem>isse</ListBoxItem>
-                        <ListBoxItem>isse</ListBoxItem>
-                        <ListBoxItem>isse</ListBoxItem>
-                        <ListBoxItem>isse</ListBoxItem>
-                        <ListBoxItem>isse</ListBoxItem>
-                        <ListBoxItem>isse</ListBoxItem>
-                        <ListBoxItem>isse</ListBoxItem>
-                        <ListBoxItem>isse</ListBoxItem>
-                        <ListBoxItem>isse</ListBoxItem>
-                        <ListBoxItem>isse</ListBoxItem>
-                        <ListBoxItem>isse</ListBoxItem>
-                        <ListBoxItem>isse</ListBoxItem>
-                    </StackPanel>
-                </ScrollViewer>
-            </Border>
-
-            <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Auto">
-                <StackPanel Width="500" Orientation="Horizontal">
-                    <Panel
-                        Width="50"
-                        Height="50"
-                        Margin="5"
-                        Background="Gray" />
-                    <Panel
-                        Width="50"
-                        Height="50"
-                        Margin="5"
-                        Background="Gray" />
-                    <Panel
-                        Width="50"
-                        Height="50"
-                        Margin="5"
-                        Background="Gray" />
-                    <Panel
-                        Width="50"
-                        Height="50"
-                        Margin="5"
-                        Background="Gray" />
-                    <Panel
-                        Width="50"
-                        Height="50"
-                        Margin="5"
-                        Background="Gray" />
-                </StackPanel>
-            </ScrollViewer>
-        </StackPanel>
-    </Design.PreviewWith>
-
     <Style Selector="ScrollBar:vertical">
         <Setter Property="AllowAutoHide" Value="False" />
         <Setter Property="Template">
@@ -139,7 +68,7 @@
                 <Grid HorizontalAlignment="Stretch" RowDefinitions="Auto,*,Auto">
                     <RepeatButton
                         Name="PART_PageUpButton"
-                        Height="30"
+                        Height="40"
                         HorizontalAlignment="Stretch"
                         Background="Transparent"
                         BorderThickness="0"
@@ -163,7 +92,7 @@
                     <RepeatButton
                         Name="PART_PageDownButton"
                         Grid.Row="2"
-                        Height="30"
+                        Height="40"
                         HorizontalAlignment="Stretch"
                         Background="Transparent"
                         BorderThickness="0"
