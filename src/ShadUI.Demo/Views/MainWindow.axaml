@@ -325,7 +325,10 @@
                         CommandParameter="https://github.com/accntech/shad-ui"
                         ToolTip.Tip="Source repository">
                         <extensions:ButtonAssist.Icon>
-                            <PathIcon Data="{x:Static demo:CustomIcons.Github}" Foreground="{DynamicResource PrimaryColor}" />
+                            <TextBlock
+                                Classes="ShadUIIcon"
+                                Foreground="{DynamicResource PrimaryColor}"
+                                Text="&#xe900;" />
                         </extensions:ButtonAssist.Icon>
                     </Button>
                     <Button
@@ -333,7 +336,10 @@
                         CommandParameter="https://github.com/accntech/shad-ui/blob/main/LICENSE"
                         ToolTip.Tip="Open source license">
                         <extensions:ButtonAssist.Icon>
-                            <PathIcon Data="{x:Static demo:CustomIcons.License}" Foreground="{DynamicResource PrimaryColor}" />
+                            <TextBlock
+                                Classes="ShadUIIcon"
+                                Foreground="{DynamicResource PrimaryColor}"
+                                Text="&#xe903;" />
                         </extensions:ButtonAssist.Icon>
                     </Button>
                     <Button
@@ -341,7 +347,10 @@
                         CommandParameter="https://www.nuget.org/packages/ShadUI"
                         ToolTip.Tip="Nuget package">
                         <extensions:ButtonAssist.Icon>
-                            <PathIcon Data="{x:Static demo:CustomIcons.Nuget}" Foreground="{DynamicResource PrimaryColor}" />
+                            <TextBlock
+                                Classes="ShadUIIcon"
+                                Foreground="{DynamicResource PrimaryColor}"
+                                Text="&#xe901;" />
                         </extensions:ButtonAssist.Icon>
                     </Button>
                 </StackPanel>
