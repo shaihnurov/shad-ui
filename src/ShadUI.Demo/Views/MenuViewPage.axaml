@@ -47,18 +47,18 @@
                             </shadui:SimpleDropdown.MenuLabel>
                             <Button Content="Add New">
                                 <extensions:ButtonAssist.Icon>
-                                    <TextBlock Classes="FontIcon" Text="&#57665;" />
+                                    <TextBlock Classes="LucideIcon" Text="&#57665;" />
                                 </extensions:ButtonAssist.Icon>
                             </Button>
                             <Button Content="Edit" IsEnabled="False">
                                 <extensions:ButtonAssist.Icon>
-                                    <TextBlock Classes="FontIcon" Text="&#57849;" />
+                                    <TextBlock Classes="LucideIcon" Text="&#57849;" />
                                 </extensions:ButtonAssist.Icon>
                             </Button>
                             <Separator />
                             <Button Classes="DestructiveMenu" Content="Delete">
                                 <extensions:ButtonAssist.Icon>
-                                    <TextBlock Classes="FontIcon" Text="&#57741;" />
+                                    <TextBlock Classes="LucideIcon" Text="&#57741;" />
                                 </extensions:ButtonAssist.Icon>
                             </Button>
                         </shadui:SimpleDropdown>
@@ -72,18 +72,18 @@
                             </shadui:SimpleDropdown.MenuLabel>
                             <Button Content="Add New">
                                 <extensions:ButtonAssist.Icon>
-                                    <TextBlock Classes="FontIcon" Text="&#57665;" />
+                                    <TextBlock Classes="LucideIcon" Text="&#57665;" />
                                 </extensions:ButtonAssist.Icon>
                             </Button>
                             <Button Content="Edit" IsEnabled="False">
                                 <extensions:ButtonAssist.Icon>
-                                    <TextBlock Classes="FontIcon" Text="&#57849;" />
+                                    <TextBlock Classes="LucideIcon" Text="&#57849;" />
                                 </extensions:ButtonAssist.Icon>
                             </Button>
                             <Separator />
                             <Button Classes="DestructiveMenu" Content="Delete">
                                 <extensions:ButtonAssist.Icon>
-                                    <TextBlock Classes="FontIcon" Text="&#57741;" />
+                                    <TextBlock Classes="LucideIcon" Text="&#57741;" />
                                 </extensions:ButtonAssist.Icon>
                             </Button>
                         </shadui:SimpleDropdown>
@@ -97,18 +97,18 @@
                             </shadui:SimpleDropdown.MenuLabel>
                             <Button Content="Add New">
                                 <extensions:ButtonAssist.Icon>
-                                    <TextBlock Classes="FontIcon" Text="&#57665;" />
+                                    <TextBlock Classes="LucideIcon" Text="&#57665;" />
                                 </extensions:ButtonAssist.Icon>
                             </Button>
                             <Button Content="Edit" IsEnabled="False">
                                 <extensions:ButtonAssist.Icon>
-                                    <TextBlock Classes="FontIcon" Text="&#57849;" />
+                                    <TextBlock Classes="LucideIcon" Text="&#57849;" />
                                 </extensions:ButtonAssist.Icon>
                             </Button>
                             <Separator />
                             <Button Classes="DestructiveMenu" Content="Delete">
                                 <extensions:ButtonAssist.Icon>
-                                    <TextBlock Classes="FontIcon" Text="&#57741;" />
+                                    <TextBlock Classes="LucideIcon" Text="&#57741;" />
                                 </extensions:ButtonAssist.Icon>
                             </Button>
                         </shadui:SimpleDropdown>
@@ -122,18 +122,18 @@
                             </shadui:SimpleDropdown.MenuLabel>
                             <Button Content="Add New">
                                 <extensions:ButtonAssist.Icon>
-                                    <TextBlock Classes="FontIcon" Text="&#57665;" />
+                                    <TextBlock Classes="LucideIcon" Text="&#57665;" />
                                 </extensions:ButtonAssist.Icon>
                             </Button>
                             <Button Content="Edit" IsEnabled="False">
                                 <extensions:ButtonAssist.Icon>
-                                    <TextBlock Classes="FontIcon" Text="&#57849;" />
+                                    <TextBlock Classes="LucideIcon" Text="&#57849;" />
                                 </extensions:ButtonAssist.Icon>
                             </Button>
                             <Separator />
                             <Button Classes="DestructiveMenu" Content="Delete">
                                 <extensions:ButtonAssist.Icon>
-                                    <TextBlock Classes="FontIcon" Text="&#57741;" />
+                                    <TextBlock Classes="LucideIcon" Text="&#57741;" />
                                 </extensions:ButtonAssist.Icon>
                             </Button>
                         </shadui:SimpleDropdown>
@@ -142,25 +142,25 @@
                             VerticalAlignment="Center"
                             Classes="Icon">
                             <shadui:SimpleDropdown.TriggerContent>
-                                <TextBlock Classes="FontIcon" Text="&#57530;" />
+                                <TextBlock Classes="LucideIcon" Text="&#57530;" />
                             </shadui:SimpleDropdown.TriggerContent>
                             <shadui:SimpleDropdown.MenuLabel>
                                 <TextBlock Classes="Small" Text="Actions" />
                             </shadui:SimpleDropdown.MenuLabel>
                             <Button Content="Add New">
                                 <extensions:ButtonAssist.Icon>
-                                    <TextBlock Classes="FontIcon" Text="&#57665;" />
+                                    <TextBlock Classes="LucideIcon" Text="&#57665;" />
                                 </extensions:ButtonAssist.Icon>
                             </Button>
                             <Button Content="Edit" IsEnabled="False">
                                 <extensions:ButtonAssist.Icon>
-                                    <TextBlock Classes="FontIcon" Text="&#57849;" />
+                                    <TextBlock Classes="LucideIcon" Text="&#57849;" />
                                 </extensions:ButtonAssist.Icon>
                             </Button>
                             <Separator />
                             <Button Classes="DestructiveMenu" Content="Delete">
                                 <extensions:ButtonAssist.Icon>
-                                    <TextBlock Classes="FontIcon" Text="&#57741;" />
+                                    <TextBlock Classes="LucideIcon" Text="&#57741;" />
                                 </extensions:ButtonAssist.Icon>
                             </Button>
                         </shadui:SimpleDropdown>
@@ -214,7 +214,7 @@
                                 <MenuItem Header="Always Show Bookmarks Bar" />
                                 <MenuItem Header="Always Show Full URLs">
                                     <MenuItem.Icon>
-                                        <TextBlock Classes="FontIcon" Text="&#57456;" />
+                                        <TextBlock Classes="LucideIcon" Text="&#57456;" />
                                     </MenuItem.Icon>
                                 </MenuItem>
                                 <Separator />
@@ -393,7 +393,7 @@
                                     extensions:MenuItemAssist.PopupPlacement="Bottom"
                                     Classes="Icon">
                                     <MenuItem.Header>
-                                        <TextBlock Classes="FontIcon" Text="&#57530;" />
+                                        <TextBlock Classes="LucideIcon" Text="&#57530;" />
                                     </MenuItem.Header>
                                     <extensions:MenuItemAssist.Label>
                                         <TextBlock Classes="Small" Text="My Account" />

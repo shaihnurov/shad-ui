@@ -34,7 +34,7 @@
                     <extensions:ButtonAssist.Icon>
                         <TextBlock
                             Margin="0,0,6,0"
-                            Classes="FontIcon"
+                            Classes="LucideIcon"
                             Text="&#57526;" />
                     </extensions:ButtonAssist.Icon>
                 </Button>
@@ -55,7 +55,7 @@
                                             <dashboard:OverviewCard.Icon>
                                                 <TextBlock
                                                     Margin="0"
-                                                    Classes="FontIcon"
+                                                    Classes="LucideIcon"
                                                     Foreground="{DynamicResource MutedColor}"
                                                     Text="&#57525;" />
                                             </dashboard:OverviewCard.Icon>
@@ -67,7 +67,7 @@
                                             <dashboard:OverviewCard.Icon>
                                                 <TextBlock
                                                     Margin="0"
-                                                    Classes="FontIcon"
+                                                    Classes="LucideIcon"
                                                     Foreground="{DynamicResource MutedColor}"
                                                     Text="&#57764;" />
                                             </dashboard:OverviewCard.Icon>
@@ -79,7 +79,7 @@
                                             <dashboard:OverviewCard.Icon>
                                                 <TextBlock
                                                     Margin="0"
-                                                    Classes="FontIcon"
+                                                    Classes="LucideIcon"
                                                     Foreground="{DynamicResource MutedColor}"
                                                     Text="&#57518;" />
                                             </dashboard:OverviewCard.Icon>
@@ -91,7 +91,7 @@
                                             <dashboard:OverviewCard.Icon>
                                                 <TextBlock
                                                     Margin="0"
-                                                    Classes="FontIcon"
+                                                    Classes="LucideIcon"
                                                     Foreground="{DynamicResource MutedColor}"
                                                     Text="&#57400;" />
                                             </dashboard:OverviewCard.Icon>
@@ -107,7 +107,7 @@
                                             <dashboard:OverviewCard.Icon>
                                                 <TextBlock
                                                     Margin="0"
-                                                    Classes="FontIcon"
+                                                    Classes="LucideIcon"
                                                     Foreground="{DynamicResource MutedColor}"
                                                     Text="&#57525;" />
                                             </dashboard:OverviewCard.Icon>
@@ -119,7 +119,7 @@
                                             <dashboard:OverviewCard.Icon>
                                                 <TextBlock
                                                     Margin="0"
-                                                    Classes="FontIcon"
+                                                    Classes="LucideIcon"
                                                     Foreground="{DynamicResource MutedColor}"
                                                     Text="&#57764;" />
                                             </dashboard:OverviewCard.Icon>
@@ -131,7 +131,7 @@
                                             <dashboard:OverviewCard.Icon>
                                                 <TextBlock
                                                     Margin="0"
-                                                    Classes="FontIcon"
+                                                    Classes="LucideIcon"
                                                     Foreground="{DynamicResource MutedColor}"
                                                     Text="&#57518;" />
                                             </dashboard:OverviewCard.Icon>
@@ -143,7 +143,7 @@
                                             <dashboard:OverviewCard.Icon>
                                                 <TextBlock
                                                     Margin="0"
-                                                    Classes="FontIcon"
+                                                    Classes="LucideIcon"
                                                     Foreground="{DynamicResource MutedColor}"
                                                     Text="&#57400;" />
                                             </dashboard:OverviewCard.Icon>
