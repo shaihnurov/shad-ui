@@ -47,20 +47,17 @@
                             VerticalScrollBarVisibility="Auto" />
                         <Button
                             Name="PART_ClipBoardButton"
-                            Width="28"
-                            MinHeight="28"
-                            Margin="0,8,8,0"
-                            Padding="0"
+                            Margin="8"
+                            Padding="6"
                             HorizontalAlignment="Right"
                             VerticalAlignment="Top"
-                            HorizontalContentAlignment="Center"
-                            VerticalContentAlignment="Center"
                             extensions:ButtonAssist.HoverBackground="{DynamicResource CodeForegroundColor50}"
-                            CornerRadius="6">
+                            Classes="Icon">
                             <extensions:ButtonAssist.Icon>
                                 <PathIcon
                                     Name="PART_ClipBoardIcon"
                                     Width="12"
+                                    Height="16"
                                     Data="{x:Static content:Icons.ClipBoard}"
                                     Foreground="#FAFAFA" />
                             </extensions:ButtonAssist.Icon>
@@ -69,8 +66,5 @@
                 </Border>
             </ControlTemplate>
         </Setter>
-        <Style Selector="^ /template/ Button#PART_ClipBoardButton">
-            <Setter Property="Background" Value="Transparent" />
-        </Style>
     </ControlTheme>
 </ResourceDictionary>

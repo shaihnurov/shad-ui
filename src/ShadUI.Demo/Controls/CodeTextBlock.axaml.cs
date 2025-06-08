@@ -126,6 +126,7 @@ public class CodeTextBlock : UserControl
             // Show feedback that text was copied
             ShowCopyNotification();
             _clipboardIcon.Data = Icons.Check;
+
             _timer.Stop();
             _timer.Start();
         }
