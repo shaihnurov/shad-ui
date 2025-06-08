@@ -42,7 +42,7 @@
                                 <extensions:ButtonAssist.Icon>
                                     <TextBlock
                                         Margin="0,0,6,0"
-                                        Classes="Font"
+                                        Classes="FontIcon"
                                         Text="&#57849;" />
                                 </extensions:ButtonAssist.Icon>
                             </Button>
@@ -73,7 +73,7 @@
                                 <extensions:ButtonAssist.Icon>
                                     <TextBlock
                                         Margin="0,0,6,0"
-                                        Classes="Font"
+                                        Classes="FontIcon"
                                         Text="&#57849;" />
                                 </extensions:ButtonAssist.Icon>
                             </Button>
@@ -104,7 +104,7 @@
                                 <extensions:ButtonAssist.Icon>
                                     <TextBlock
                                         Margin="0,0,6,0"
-                                        Classes="Font"
+                                        Classes="FontIcon"
                                         Text="&#57741;" />
                                 </extensions:ButtonAssist.Icon>
                             </Button>
@@ -135,7 +135,7 @@
                                 <extensions:ButtonAssist.Icon>
                                     <TextBlock
                                         Margin="0,0,6,0"
-                                        Classes="Font"
+                                        Classes="FontIcon"
                                         Text="&#57849;" />
                                 </extensions:ButtonAssist.Icon>
                             </Button>
@@ -166,7 +166,7 @@
                                 <extensions:ButtonAssist.Icon>
                                     <TextBlock
                                         Margin="0,0,6,0"
-                                        Classes="Font"
+                                        Classes="FontIcon"
                                         Text="&#57849;" />
                                 </extensions:ButtonAssist.Icon>
                             </Button>
@@ -192,7 +192,7 @@
                                 <extensions:ButtonAssist.Icon>
                                     <TextBlock
                                         Margin="0,8"
-                                        Classes="Font"
+                                        Classes="FontIcon"
                                         Text="&#57849;" />
                                 </extensions:ButtonAssist.Icon>
                             </Button>
@@ -203,7 +203,7 @@
                                 <extensions:ButtonAssist.Icon>
                                     <TextBlock
                                         Margin="0,8"
-                                        Classes="Font"
+                                        Classes="FontIcon"
                                         Text="&#57849;" />
                                 </extensions:ButtonAssist.Icon>
                             </Button>
@@ -224,7 +224,7 @@
                                 <extensions:ButtonAssist.Icon>
                                     <TextBlock
                                         Margin="0,8"
-                                        Classes="Font"
+                                        Classes="FontIcon"
                                         Text="&#57741;" />
                                 </extensions:ButtonAssist.Icon>
                             </Button>
@@ -232,7 +232,7 @@
                                 <extensions:ButtonAssist.Icon>
                                     <TextBlock
                                         Margin="0,8"
-                                        Classes="Font"
+                                        Classes="FontIcon"
                                         Text="&#57741;" />
                                 </extensions:ButtonAssist.Icon>
                             </Button>
