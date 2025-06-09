@@ -55,7 +55,10 @@
                         <Panel>
                             <!--  add border for proper clip  -->
                             <Border ClipToBounds="True" CornerRadius="{TemplateBinding CornerRadius}">
-                                <ContentControl Content="{TemplateBinding Dialog}" KeyboardNavigation.TabNavigation="Cycle" />
+                                <ContentControl
+                                    Name="PART_DialogContainer"
+                                    Content="{TemplateBinding Dialog}"
+                                    KeyboardNavigation.TabNavigation="Cycle" />
                             </Border>
                             <Button
                                 Name="PART_CloseButton"
@@ -66,6 +69,7 @@
                                 VerticalAlignment="Top"
                                 CornerRadius="{DynamicResource MdCornerRadius}"
                                 Cursor="Arrow"
+                                Focusable="False"
                                 HotKey="Escape"
                                 IsVisible="{TemplateBinding Dismissible}">
                                 <PathIcon
@@ -118,6 +122,9 @@
                 <Setter Property="IsHitTestVisible" Value="False" />
                 <Setter Property="RenderTransform" Value="scale(0.70)" />
                 <Setter Property="Margin" Value="0,50,0,0" />
+            </Style>
+            <Style Selector="^/template/ ContentControl#PART_DialogContainer">
+                <Setter Property="KeyboardNavigation.TabNavigation" Value="None" />
             </Style>
         </Style>
     </ControlTheme>
