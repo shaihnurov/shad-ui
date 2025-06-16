@@ -7,7 +7,7 @@ namespace ShadUI.Demo;
 
 [ServiceProvider]
 [Transient<AboutViewModel>]
-[Transient<AvatarsViewModel>]
+[Transient<AvatarViewModel>]
 [Transient<ButtonsViewModel>]
 [Transient<CardsViewModel>]
 [Transient<DataGridViewModel>]
@@ -26,7 +26,7 @@ namespace ShadUI.Demo;
 [Transient<TimeViewModel>]
 [Transient<ThemeViewModel>]
 [Transient<ToastsViewModel>]
-[Transient<TogglesViewModel>]
+[Transient<ToggleViewModel>]
 [Transient<ToolTipViewModel>]
 [Transient<TypographyViewModel>]
 [Transient<MainWindowViewModel>]

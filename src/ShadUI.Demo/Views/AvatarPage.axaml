@@ -9,7 +9,7 @@
     xmlns:viewModels="clr-namespace:ShadUI.Demo.ViewModels"
     d:DesignHeight="450"
     d:DesignWidth="800"
-    x:DataType="viewModels:AvatarsViewModel"
+    x:DataType="viewModels:AvatarViewModel"
     mc:Ignorable="d">
     <DockPanel LastChildFill="True">
         <StackPanel

@@ -6,12 +6,10 @@
     xmlns:controls="clr-namespace:ShadUI.Controls;assembly=ShadUI"
     xmlns:converters="clr-namespace:ShadUI.Demo.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:demo="clr-namespace:ShadUI.Demo"
     xmlns:dialogs="clr-namespace:ShadUI.Dialogs;assembly=ShadUI"
     xmlns:extensions="clr-namespace:ShadUI.Extensions;assembly=ShadUI"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:toasts="clr-namespace:ShadUI.Toasts;assembly=ShadUI"
-    xmlns:ui="clr-namespace:ShadUI;assembly=ShadUI"
     xmlns:viewModels="clr-namespace:ShadUI.Demo.ViewModels"
     x:Name="Window"
     Title="ShadUI App"
@@ -23,9 +21,6 @@
     IsMenuVisible="True"
     TitleFontWeight="SemiBold"
     mc:Ignorable="d">
-    <controls:Window.DataTemplates>
-        <ui:DataTemplateInclude Source="avares://ShadUI.Demo/Views/PageDataTemplates.axaml" />
-    </controls:Window.DataTemplates>
     <controls:Window.LogoContent>
         <PathIcon
             Width="14"

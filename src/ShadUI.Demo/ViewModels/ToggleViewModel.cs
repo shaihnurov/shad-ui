@@ -2,7 +2,7 @@
 
 namespace ShadUI.Demo.ViewModels;
 
-public sealed partial class TogglesViewModel : ViewModelBase
+public sealed partial class ToggleViewModel : ViewModelBase
 {
     [ObservableProperty]
     private string _default = """

@@ -1,5 +1,5 @@
 ﻿<UserControl
-    x:Class="ShadUI.Demo.Views.MenuViewPage"
+    x:Class="ShadUI.Demo.Views.MenuPage"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:contents="clr-namespace:ShadUI.Contents;assembly=ShadUI"

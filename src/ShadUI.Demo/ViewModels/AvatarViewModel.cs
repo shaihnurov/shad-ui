@@ -2,7 +2,7 @@
 
 namespace ShadUI.Demo.ViewModels;
 
-public sealed partial class AvatarsViewModel : ViewModelBase
+public sealed partial class AvatarViewModel : ViewModelBase
 {
     [ObservableProperty]
     private string _usageCode = """

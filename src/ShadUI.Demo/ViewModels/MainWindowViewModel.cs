@@ -18,7 +18,7 @@ public sealed partial class MainWindowViewModel(
     DashboardViewModel dashboardViewModel,
     ThemeViewModel themeViewModel,
     TypographyViewModel typographyViewModel,
-    AvatarsViewModel avatarsViewModel,
+    AvatarViewModel avatarViewModel,
     ButtonsViewModel buttonsViewModel,
     CardsViewModel cardsViewModel,
     DataGridViewModel dataGridViewModel,
@@ -33,7 +33,7 @@ public sealed partial class MainWindowViewModel(
     SlidersViewModel slidersViewModel,
     SwitchViewModel switchViewModel,
     ToastsViewModel toastsViewModel,
-    TogglesViewModel togglesViewModel,
+    ToggleViewModel toggleViewModel,
     ToolTipViewModel toolTipViewModel,
     MiscellaneousViewModel miscellaneousViewModel)
     : ViewModelBase
@@ -96,7 +96,7 @@ public sealed partial class MainWindowViewModel(
     [RelayCommand]
     private async Task OpenAvatar()
     {
-        await SwitchPageAsync(avatarsViewModel);
+        await SwitchPageAsync(avatarViewModel);
     }
 
     [RelayCommand]
@@ -183,7 +183,7 @@ public sealed partial class MainWindowViewModel(
     [RelayCommand]
     private async Task OpenToggle()
     {
-        await SwitchPageAsync(togglesViewModel);
+        await SwitchPageAsync(toggleViewModel);
     }
 
     [RelayCommand]

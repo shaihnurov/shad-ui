@@ -12,7 +12,7 @@
     <DataTemplate DataType="{x:Type viewModels:TypographyViewModel}">
         <views:TypographyPage />
     </DataTemplate>
-    <DataTemplate DataType="{x:Type viewModels:AvatarsViewModel}">
+    <DataTemplate DataType="{x:Type viewModels:AvatarViewModel}">
         <views:AvatarPage />
     </DataTemplate>
     <DataTemplate DataType="{x:Type viewModels:ButtonsViewModel}">
@@ -37,7 +37,7 @@
         <views:InputPage />
     </DataTemplate>
     <DataTemplate DataType="{x:Type viewModels:MenuViewModel}">
-        <views:MenuViewPage />
+        <views:MenuPage />
     </DataTemplate>
     <DataTemplate DataType="{x:Type viewModels:TabsViewModel}">
         <views:TabsPage />
@@ -57,7 +57,7 @@
     <DataTemplate DataType="{x:Type viewModels:ToastsViewModel}">
         <views:ToastsPage />
     </DataTemplate>
-    <DataTemplate DataType="{x:Type viewModels:TogglesViewModel}">
+    <DataTemplate DataType="{x:Type viewModels:ToggleViewModel}">
         <views:TogglePage />
     </DataTemplate>
     <DataTemplate DataType="{x:Type viewModels:ToolTipViewModel}">

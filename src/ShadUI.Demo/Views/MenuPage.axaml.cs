@@ -2,9 +2,9 @@
 
 namespace ShadUI.Demo.Views;
 
-public partial class MenuViewPage : UserControl
+public partial class MenuPage : UserControl
 {
-    public MenuViewPage()
+    public MenuPage()
     {
         InitializeComponent();
     }
