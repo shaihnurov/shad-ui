@@ -98,7 +98,6 @@
             </Style>
         </Style>
         <Style Selector="^[IsSelected=True]">
-            <Setter Property="Foreground" Value="{DynamicResource PrimaryColor}" />
             <Style Selector="^ /template/ Border#PART_Border">
                 <Setter Property="Background" Value="{DynamicResource PrimaryColor10}" />
             </Style>
