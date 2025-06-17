@@ -41,7 +41,7 @@ public sealed class DialogManager
             var last = Dialogs.Last();
             if (last.Key != control)
             {
-                OnDialogClosed?.Invoke(this, new DialogClosedEventArgs { Control = last.Key });
+                OnDialogClosed?.Invoke(this, new DialogClosedEventArgs { ReplaceExisting = true, Control = last.Key });
             }
         }
 
@@ -52,7 +52,13 @@ public sealed class DialogManager
     internal void CloseDialog(Control control)
     {
         Dialogs.Remove(control);
-        OnDialogClosed?.Invoke(this, new DialogClosedEventArgs { Control = control });
+
+        OnDialogClosed?.Invoke(this, new DialogClosedEventArgs
+            {
+                ReplaceExisting = Dialogs.Count > 0,
+                Control = control
+            }
+        );
     }
 
     internal void OpenLast()
@@ -175,5 +181,6 @@ internal sealed class DialogShownEventArgs : EventArgs
 
 internal sealed class DialogClosedEventArgs : EventArgs
 {
+    public bool ReplaceExisting { get; set; }
     public Control Control { get; set; } = null!;
 }

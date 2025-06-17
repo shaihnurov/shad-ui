@@ -1,6 +1,5 @@
 using System;
 using System.Linq;
-using System.Threading.Tasks;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
@@ -8,7 +7,6 @@ using Avalonia.Controls.Primitives;
 using Avalonia.Input;
 using Avalonia.Interactivity;
 using Avalonia.Reactive;
-using Avalonia.Threading;
 using Window = ShadUI.Controls.Window;
 
 namespace ShadUI.Dialogs;
@@ -270,24 +268,17 @@ public class DialogHost : TemplatedControl
         Owner.HasOpenDialog = true;
     }
 
-    private async void ManagerOnDialogClosed(object sender, DialogClosedEventArgs e)
+    private void ManagerOnDialogClosed(object sender, DialogClosedEventArgs e)
     {
-        try
-        {
-            if (Manager is null || Owner is null) return;
-            if (e.Control != Dialog) return;
+        if (Manager is null || Owner is null) return;
+        if (e.Control != Dialog) return;
 
-            IsDialogOpen = false;
+        IsDialogOpen = false;
+        if (e.ReplaceExisting) return;
 
-            await Task.Delay(150);
-            Dialog = null;
-            HasOpenDialog = Manager.Dialogs.Count > 0;
-            Owner.HasOpenDialog = Manager.Dialogs.Count > 0;
-        }
-        catch (Exception)
-        {
-            //ignore
-        }
+        Dialog = null;
+        HasOpenDialog = Manager.Dialogs.Count > 0;
+        Owner.HasOpenDialog = Manager.Dialogs.Count > 0;
     }
 
     private void AllowDismissChanged(object sender, bool e)
