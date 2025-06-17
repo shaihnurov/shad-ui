@@ -316,7 +316,7 @@
             <Setter Property="Cursor" Value="IBeam" />
         </Style>
         <Style Selector="^:disabled /template/ Border#PART_Border">
-            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />
+            <Setter Property="Opacity" Value="0.5" />
         </Style>
 
         <Style Selector="^.Clearable[AcceptsReturn=False][IsReadOnly=False]:focus:not(TextBox:empty)">

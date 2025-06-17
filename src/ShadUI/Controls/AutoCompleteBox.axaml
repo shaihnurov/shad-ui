@@ -264,7 +264,7 @@
             <Setter Property="Cursor" Value="IBeam" />
         </Style>
         <Style Selector="^:disabled /template/ TextBox#PART_TextBox">
-            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />
+            <Setter Property="Opacity" Value="0.5" />
         </Style>
         <Style Selector="^:dropdownopen">
             <Style Selector="^ /template/ LayoutTransformControl#PART_LayoutTransform">
