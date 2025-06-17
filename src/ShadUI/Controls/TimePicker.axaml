@@ -1,6 +1,7 @@
 ﻿<ResourceDictionary
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converters="clr-namespace:ShadUI.Converters"
     xmlns:extensions="clr-namespace:ShadUI.Extensions"
     xmlns:icons="clr-namespace:ShadUI.Contents"
     xmlns:system="clr-namespace:System;assembly=netstandard">
@@ -22,14 +23,8 @@
     </Design.PreviewWith>
 
     <x:Double x:Key="TimePickerFlyoutPresenterItemHeight">40</x:Double>
-    <x:Double x:Key="TimePickerSpacerThemeWidth">1</x:Double>
-    <Thickness x:Key="TimePickerBorderThemeThickness">1</Thickness>
-    <x:Double x:Key="TimePickerFlyoutPresenterHighlightHeight">40</x:Double>
-    <x:Double x:Key="TimePickerFlyoutPresenterAcceptDismissHostGridHeight">41</x:Double>
     <x:Double x:Key="TimePickerThemeMinWidth">242</x:Double>
     <x:Double x:Key="TimePickerThemeMaxWidth">456</x:Double>
-    <Thickness x:Key="TimePickerFlyoutPresenterItemPadding">0,3,0,6</Thickness>
-    <Thickness x:Key="TimePickerHostPadding">0,3,0,6</Thickness>
 
     <ControlTheme x:Key="SimpleTimePickerFlyoutButton" TargetType="Button">
         <Setter Property="RenderTransform" Value="none" />
@@ -62,7 +57,7 @@
         </Style>
 
         <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
-            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />
+            <Setter Property="Opacity" Value="0.5" />
         </Style>
     </ControlTheme>
 
@@ -71,7 +66,7 @@
         <Setter Property="CornerRadius" Value="{DynamicResource LgCornerRadius}" />
         <Setter Property="BorderBrush" Value="{DynamicResource BorderColor}" />
         <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
-        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Background" Value="{DynamicResource SelectionColor}" />
         <Setter Property="FontSize" Value="14" />
         <Setter Property="FontWeight" Value="Medium" />
         <Setter Property="extensions:ControlAssist.MinHeight" Value="36" />
@@ -90,7 +85,7 @@
                         <Panel Name="LayoutRoot" Background="Transparent">
                             <Border
                                 Name="PART_Background"
-                                Background="{DynamicResource OutlineColor}"
+                                Background="{TemplateBinding Background}"
                                 CornerRadius="{TemplateBinding CornerRadius}"
                                 Opacity="0">
                                 <Border.Transitions>
@@ -139,8 +134,8 @@
                                                 Background="Transparent">
                                                 <TextBlock
                                                     x:Name="PART_HourTextBlock"
-                                                    Padding="{DynamicResource TimePickerHostPadding}"
                                                     HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"
                                                     FontSize="{TemplateBinding FontSize}"
                                                     FontWeight="{TemplateBinding FontWeight}"
                                                     Text="{DynamicResource StringTimePickerHourText}" />
@@ -148,9 +143,10 @@
                                             <Rectangle
                                                 Name="PART_FirstColumnDivider"
                                                 Grid.Column="1"
-                                                Width="{DynamicResource TimePickerSpacerThemeWidth}"
+                                                Width="{TemplateBinding BorderThickness,
+                                                                        Converter={x:Static converters:ThicknessConverters.ToLargest}}"
                                                 HorizontalAlignment="Center"
-                                                Fill="{DynamicResource BorderColor}" />
+                                                Fill="{TemplateBinding BorderBrush}" />
                                             <Border
                                                 x:Name="PART_SecondPickerHost"
                                                 Grid.Column="2"
@@ -159,8 +155,8 @@
                                                 Background="Transparent">
                                                 <TextBlock
                                                     x:Name="PART_MinuteTextBlock"
-                                                    Padding="{DynamicResource TimePickerHostPadding}"
                                                     HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"
                                                     FontSize="{TemplateBinding FontSize}"
                                                     FontWeight="{TemplateBinding FontWeight}"
                                                     Text="{DynamicResource StringTimePickerMinuteText}" />
@@ -168,9 +164,10 @@
                                             <Rectangle
                                                 Name="PART_SecondColumnDivider"
                                                 Grid.Column="3"
-                                                Width="{DynamicResource TimePickerSpacerThemeWidth}"
+                                                Width="{TemplateBinding BorderThickness,
+                                                                        Converter={x:Static converters:ThicknessConverters.ToLargest}}"
                                                 HorizontalAlignment="Center"
-                                                Fill="{DynamicResource BorderColor}" />
+                                                Fill="{TemplateBinding BorderBrush}" />
                                             <Border
                                                 x:Name="PART_ThirdPickerHost"
                                                 Grid.Column="4"
@@ -179,8 +176,8 @@
                                                 Background="Transparent">
                                                 <TextBlock
                                                     x:Name="PART_SecondTextBlock"
-                                                    Padding="{DynamicResource TimePickerHostPadding}"
                                                     HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"
                                                     FontSize="{TemplateBinding FontSize}"
                                                     FontWeight="{TemplateBinding FontWeight}"
                                                     Text="{DynamicResource StringTimePickerSecondText}" />
@@ -188,9 +185,10 @@
                                             <Rectangle
                                                 Name="PART_ThirdColumnDivider"
                                                 Grid.Column="5"
-                                                Width="{DynamicResource TimePickerSpacerThemeWidth}"
+                                                Width="{TemplateBinding BorderThickness,
+                                                                        Converter={x:Static converters:ThicknessConverters.ToLargest}}"
                                                 HorizontalAlignment="Center"
-                                                Fill="{DynamicResource BorderColor}" />
+                                                Fill="{TemplateBinding BorderBrush}" />
                                             <Border
                                                 x:Name="PART_FourthPickerHost"
                                                 Grid.Column="6"
@@ -199,8 +197,8 @@
                                                 Background="Transparent">
                                                 <TextBlock
                                                     x:Name="PART_PeriodTextBlock"
-                                                    Padding="{DynamicResource TimePickerHostPadding}"
                                                     HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"
                                                     FontSize="{TemplateBinding FontSize}"
                                                     FontWeight="{TemplateBinding FontWeight}" />
                                             </Border>
@@ -321,7 +319,7 @@
         <Setter Property="MinWidth" Value="262" />
         <Setter Property="MaxHeight" Value="398" />
         <Setter Property="FontWeight" Value="Normal" />
-        <Setter Property="CornerRadius" Value="{DynamicResource MdCornerRadius}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource LgCornerRadius}" />
         <Setter Property="Background" Value="{DynamicResource CardBackgroundColor}" />
         <Setter Property="BorderBrush" Value="{DynamicResource BorderColor}" />
         <Setter Property="BorderThickness" Value="1" />
@@ -363,7 +361,7 @@
                                 <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
                                     <DateTimePickerPanel
                                         Name="PART_HourSelector"
-                                        ItemHeight="{DynamicResource TimePickerFlyoutPresenterItemHeight}"
+                                        ItemHeight="40"
                                         PanelType="Hour"
                                         ShouldLoop="True" />
                                 </ScrollViewer>
@@ -375,7 +373,7 @@
                                 <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
                                     <DateTimePickerPanel
                                         Name="PART_MinuteSelector"
-                                        ItemHeight="{DynamicResource TimePickerFlyoutPresenterItemHeight}"
+                                        ItemHeight="40"
                                         PanelType="Minute"
                                         ShouldLoop="True" />
                                 </ScrollViewer>
@@ -387,7 +385,7 @@
                                 <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
                                     <DateTimePickerPanel
                                         Name="PART_SecondSelector"
-                                        ItemHeight="{DynamicResource TimePickerFlyoutPresenterItemHeight}"
+                                        ItemHeight="40"
                                         PanelType="Second"
                                         ShouldLoop="True" />
                                 </ScrollViewer>
@@ -399,7 +397,7 @@
                                 <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
                                     <DateTimePickerPanel
                                         Name="PART_PeriodSelector"
-                                        ItemHeight="{DynamicResource TimePickerFlyoutPresenterItemHeight}"
+                                        ItemHeight="40"
                                         PanelType="TimePeriod"
                                         ShouldLoop="False" />
                                 </ScrollViewer>
@@ -410,7 +408,7 @@
                                 x:Name="HighlightRect"
                                 Grid.Column="0"
                                 Grid.ColumnSpan="7"
-                                Height="{DynamicResource TimePickerFlyoutPresenterHighlightHeight}"
+                                Height="40"
                                 Margin="4,0"
                                 VerticalAlignment="Center"
                                 Background="{DynamicResource PrimaryColor10}"
@@ -419,7 +417,8 @@
                             <Rectangle
                                 Name="PART_FirstSpacer"
                                 Grid.Column="1"
-                                Width="{DynamicResource TimePickerSpacerThemeWidth}"
+                                Width="{TemplateBinding BorderThickness,
+                                                        Converter={x:Static converters:ThicknessConverters.ToLargest}}"
                                 HorizontalAlignment="Center">
                                 <Rectangle.Fill>
                                     <LinearGradientBrush StartPoint="48%,0%" EndPoint="50%,100%">
@@ -432,7 +431,8 @@
                             <Rectangle
                                 Name="PART_SecondSpacer"
                                 Grid.Column="3"
-                                Width="{DynamicResource TimePickerSpacerThemeWidth}"
+                                Width="{TemplateBinding BorderThickness,
+                                                        Converter={x:Static converters:ThicknessConverters.ToLargest}}"
                                 HorizontalAlignment="Center">
                                 <Rectangle.Fill>
                                     <LinearGradientBrush StartPoint="48%,0%" EndPoint="50%,100%">
@@ -445,7 +445,8 @@
                             <Rectangle
                                 Name="PART_ThirdSpacer"
                                 Grid.Column="4"
-                                Width="{DynamicResource TimePickerSpacerThemeWidth}"
+                                Width="{TemplateBinding BorderThickness,
+                                                        Converter={x:Static converters:ThicknessConverters.ToLargest}}"
                                 HorizontalAlignment="Center">
                                 <Rectangle.Fill>
                                     <LinearGradientBrush StartPoint="48%,0%" EndPoint="50%,100%">
@@ -462,9 +463,10 @@
                             ColumnDefinitions="*,*">
                             <Rectangle
                                 Grid.ColumnSpan="2"
-                                Height="{DynamicResource TimePickerSpacerThemeWidth}"
+                                Width="{TemplateBinding BorderThickness,
+                                                        Converter={x:Static converters:ThicknessConverters.ToLargest}}"
                                 VerticalAlignment="Top"
-                                Fill="{DynamicResource ThemeControlMidHighBrush}"
+                                Fill="{TemplateBinding BorderBrush}"
                                 IsVisible="False" />
                             <Button
                                 Name="PART_AcceptButton"

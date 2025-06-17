@@ -5,14 +5,16 @@
     xmlns:converters="clr-namespace:ShadUI.Converters"
     xmlns:extensions="clr-namespace:ShadUI.Extensions"
     xmlns:system="clr-namespace:System;assembly=netstandard">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceInclude Source="DateTimeCommon.axaml" />
+    </ResourceDictionary.MergedDictionaries>
     <Design.PreviewWith>
-        <Border Height="500" Padding="24">
+        <Border
+            Width="255"
+            Height="500"
+            Padding="24">
             <StackPanel Spacing="8">
-                <controls:TimeInput
-                    Width="255"
-                    HorizontalAlignment="Left"
-                    ClockIdentifier="12HourClock"
-                    UseSeconds="True" />
+                <controls:TimeInput ClockIdentifier="12HourClock" UseSeconds="True" />
                 <controls:TimeInput extensions:ControlAssist.Label="Start time" />
                 <controls:TimeInput extensions:ControlAssist.Hint="Set end time" extensions:ControlAssist.Label="End time" />
                 <controls:TimeInput extensions:ControlAssist.Label="Disable" IsEnabled="False" />
@@ -24,79 +26,14 @@
             </StackPanel>
         </Border>
     </Design.PreviewWith>
-
-    <ControlTheme x:Key="InputBoxTheme" TargetType="TextBox">
-        <Setter Property="MinWidth" Value="32" />
-        <Setter Property="CornerRadius" Value="{DynamicResource SmCornerRadius}" />
-        <Setter Property="Padding" Value="4" />
-        <Setter Property="HorizontalContentAlignment" Value="Center" />
-        <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="SelectionBrush" Value="{DynamicResource PrimaryColor}" />
-        <Setter Property="SelectionForegroundBrush" Value="{DynamicResource PrimaryForegroundColor}" />
-        <Setter Property="CaretBrush" Value="{DynamicResource ForegroundColor}" />
-        <Setter Property="FocusAdorner" Value="{x:Null}" />
-        <Setter Property="MaxLength" Value="2" />
-        <Setter Property="Template">
-            <ControlTemplate>
-                <Border
-                    Height="{TemplateBinding Height}"
-                    Padding="{TemplateBinding Padding}"
-                    Background="{TemplateBinding Background}"
-                    CornerRadius="{TemplateBinding CornerRadius}">
-                    <Panel Name="PART_TextContainer">
-                        <TextBlock
-                            Name="watermark"
-                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                            Opacity="0.5"
-                            Text="{TemplateBinding Watermark}"
-                            TextAlignment="{TemplateBinding TextAlignment}"
-                            TextWrapping="{TemplateBinding TextWrapping}">
-                            <TextBlock.IsVisible>
-                                <MultiBinding Converter="{x:Static BoolConverters.And}">
-                                    <CompiledBinding
-                                        Converter="{x:Static StringConverters.IsNullOrEmpty}"
-                                        ElementName="PART_TextPresenter"
-                                        Path="PreeditText" />
-                                    <CompiledBinding
-                                        Converter="{x:Static StringConverters.IsNullOrEmpty}"
-                                        Path="Text"
-                                        RelativeSource="{RelativeSource TemplatedParent}" />
-                                </MultiBinding>
-                            </TextBlock.IsVisible>
-                        </TextBlock>
-                        <TextPresenter
-                            x:Name="PART_TextPresenter"
-                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                            CaretBlinkInterval="{TemplateBinding CaretBlinkInterval}"
-                            CaretBrush="{TemplateBinding CaretBrush}"
-                            CaretIndex="{TemplateBinding CaretIndex}"
-                            LetterSpacing="{TemplateBinding LetterSpacing}"
-                            LineHeight="{TemplateBinding LineHeight}"
-                            PasswordChar="{TemplateBinding PasswordChar}"
-                            RevealPassword="{TemplateBinding RevealPassword}"
-                            SelectionBrush="{TemplateBinding SelectionBrush}"
-                            SelectionEnd="{TemplateBinding SelectionEnd}"
-                            SelectionForegroundBrush="{TemplateBinding SelectionForegroundBrush}"
-                            SelectionStart="{TemplateBinding SelectionStart}"
-                            Text="{TemplateBinding Text,
-                                                   Mode=TwoWay}"
-                            TextAlignment="{TemplateBinding TextAlignment}"
-                            TextWrapping="{TemplateBinding TextWrapping}" />
-                    </Panel>
-                </Border>
-            </ControlTemplate>
-        </Setter>
-    </ControlTheme>
     <ControlTheme x:Key="ToggleButtonTheme" TargetType="ToggleButton">
-        <Setter Property="Padding" Value="8,4" />
+        <Setter Property="Padding" Value="8,0" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="{DynamicResource BorderColor}" />
         <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
         <Setter Property="FontSize" Value="14" />
         <Setter Property="FontWeight" Value="Medium" />
-        <Setter Property="CornerRadius" Value="{DynamicResource SmCornerRadius}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource MdCornerRadius}" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="Template">
@@ -163,12 +100,11 @@
         </Style>
     </ControlTheme>
     <ControlTheme x:Key="{x:Type controls:TimeInput}" TargetType="{x:Type controls:TimeInput}">
-        <Setter Property="MinHeight" Value="36" />
-        <Setter Property="Padding" Value="8,4" />
+        <Setter Property="Padding" Value="4" />
         <Setter Property="FontSize" Value="14" />
-        <Setter Property="Background" Value="{DynamicResource BackgroundColor}" />
+        <Setter Property="Background" Value="{DynamicResource SelectionColor}" />
         <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
-        <Setter Property="CornerRadius" Value="{DynamicResource MdCornerRadius}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource LgCornerRadius}" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="BorderBrush" Value="{DynamicResource BorderColor}" />
         <Setter Property="extensions:ElementAssist.FocusOnLoad" Value="False" />
@@ -186,8 +122,6 @@
                         <StackPanel>
                             <Border
                                 Name="PART_Container"
-                                Width="{TemplateBinding Width}"
-                                Height="{TemplateBinding Height}"
                                 Padding="{TemplateBinding Padding}"
                                 HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
                                 VerticalAlignment="{TemplateBinding VerticalAlignment}"
@@ -200,7 +134,6 @@
                                         Name="PART_HourTextBox"
                                         Grid.Column="0"
                                         extensions:ElementAssist.FocusOnLoad="{TemplateBinding extensions:ElementAssist.FocusOnLoad}"
-                                        Background="{TemplateBinding Background}"
                                         Cursor="IBeam"
                                         Text="{TemplateBinding HourString,
                                                                Mode=TwoWay}"
@@ -208,7 +141,7 @@
                                         Watermark="hh" />
                                     <TextBlock
                                         Grid.Column="1"
-                                        Margin="8,0"
+                                        Margin="8,0,8,2"
                                         VerticalAlignment="Center"
                                         FontSize="18">
                                         :
@@ -216,7 +149,6 @@
                                     <TextBox
                                         Name="PART_MinuteTextBox"
                                         Grid.Column="2"
-                                        Background="{TemplateBinding Background}"
                                         Cursor="IBeam"
                                         Text="{TemplateBinding MinuteString,
                                                                Mode=TwoWay}"
@@ -224,7 +156,7 @@
                                         Watermark="mm" />
                                     <TextBlock
                                         Grid.Column="3"
-                                        Margin="8,0"
+                                        Margin="8,0,8,2"
                                         VerticalAlignment="Center"
                                         FontSize="18"
                                         IsVisible="{TemplateBinding UseSeconds}">
@@ -233,7 +165,6 @@
                                     <TextBox
                                         Name="PART_SecondTextBox"
                                         Grid.Column="4"
-                                        Background="{TemplateBinding Background}"
                                         Cursor="IBeam"
                                         IsVisible="{TemplateBinding UseSeconds}"
                                         Text="{TemplateBinding SecondString,
@@ -275,19 +206,10 @@
             </Setter>
             <Setter Property="BorderBrush" Value="{DynamicResource PrimaryColor}" />
         </Style>
-        <Style Selector="^ /template/ TextBox">
-            <Style Selector="^:focus">
-                <Setter Property="Transitions">
-                    <Transitions>
-                        <BrushTransition Property="Background" Duration="0:0:0.20" />
-                        <BrushTransition Property="SelectionBrush" Duration="0:0:0.20" />
-                    </Transitions>
-                </Setter>
-                <Setter Property="Background" Value="{DynamicResource PrimaryColor}" />
-                <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundColor}" />
-                <Setter Property="CaretBrush" Value="{DynamicResource PrimaryForegroundColor}" />
-                <Setter Property="SelectionBrush" Value="{DynamicResource MutedColor}" />
-            </Style>
+        <Style Selector="^ /template/ TextBox:focus">
+            <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundColor}" />
+            <Setter Property="CaretBrush" Value="{DynamicResource PrimaryForegroundColor}" />
+            <Setter Property="SelectionBrush" Value="{DynamicResource MutedColor}" />
         </Style>
         <Style Selector="^:pointerover /template/ Border#PART_Container">
             <Setter Property="Transitions">
@@ -307,7 +229,7 @@
         </Style>
 
         <Style Selector="^:disabled /template/ Border#PART_Container">
-            <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />
+            <Setter Property="Opacity" Value="0.5" />
         </Style>
     </ControlTheme>
 

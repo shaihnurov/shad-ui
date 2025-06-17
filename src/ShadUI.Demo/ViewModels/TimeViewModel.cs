@@ -45,7 +45,11 @@ public sealed partial class TimeViewModel : ViewModelBase
     public TimeOnly? StartTime
     {
         get => _startTime;
-        set => SetProperty(ref _startTime, value, true);
+        set
+        {
+            SetProperty(ref _startTime, value, true);
+            ValidateProperty(EndTime, nameof(EndTime));
+        }
     }
 
     private TimeOnly? _endTime;
@@ -55,7 +59,11 @@ public sealed partial class TimeViewModel : ViewModelBase
     public TimeOnly? EndTime
     {
         get => _endTime;
-        set => SetProperty(ref _endTime, value, true);
+        set
+        {
+            SetProperty(ref _endTime, value, true);
+            ValidateProperty(StartTime, nameof(StartTime));
+        }
     }
 
     [RelayCommand]
