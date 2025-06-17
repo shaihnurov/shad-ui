@@ -12,16 +12,16 @@
     mc:Ignorable="d">
     <DockPanel LastChildFill="True">
         <StackPanel
-            MaxWidth="1536"
-            Margin="48,24"
+            MaxWidth="{StaticResource PageMaxWidth}"
+            Margin="{StaticResource PageMargin}"
             DockPanel.Dock="Top">
-            <TextBlock Classes="h3" Text="Button" />
+            <TextBlock Classes="h2" Text="Button" />
             <TextBlock Classes="p" Text="Displays a button component" />
         </StackPanel>
         <ScrollViewer>
             <StackPanel
-                MaxWidth="1536"
-                Margin="48,24"
+                MaxWidth="{StaticResource PageMaxWidth}"
+                Margin="{StaticResource PageMargin}"
                 Spacing="32">
                 <controls:ControlBlock
                     Title="Primary"

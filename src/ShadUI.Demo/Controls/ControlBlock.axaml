@@ -182,7 +182,7 @@
                     <TabControl Theme="{StaticResource TabControlTheme}">
                         <TabControl.Items>
                             <TabItem Header="Preview" Theme="{StaticResource TabItemTheme}">
-                                <shadui:Card Padding="48">
+                                <shadui:Card Padding="48" Background="{DynamicResource WindowBackgroundColor}">
                                     <ContentPresenter Content="{TemplateBinding Content}" />
                                 </shadui:Card>
                             </TabItem>

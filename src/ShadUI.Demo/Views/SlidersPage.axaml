@@ -12,10 +12,10 @@
     mc:Ignorable="d">
     <DockPanel LastChildFill="True">
         <StackPanel
-            MaxWidth="1536"
-            Margin="48,24"
+            MaxWidth="{StaticResource PageMaxWidth}"
+            Margin="{StaticResource PageMargin}"
             DockPanel.Dock="Top">
-            <TextBlock Classes="h3" Text="Sliders" />
+            <TextBlock Classes="h2" Text="Sliders" />
             <TextBlock
                 HorizontalAlignment="Left"
                 Classes="p"
@@ -24,14 +24,15 @@
         </StackPanel>
         <ScrollViewer>
             <StackPanel
-                MaxWidth="1536"
-                Margin="48,24"
+                MaxWidth="{StaticResource PageMaxWidth}"
+                Margin="{StaticResource PageMargin}"
                 Spacing="32">
                 <controls:ControlBlock
                     Title="Default"
                     Code="{Binding DefaultSliderCode}"
                     Language="xaml">
                     <Slider
+                        Width="375"
                         Maximum="10"
                         TickFrequency="1"
                         Value="5" />
@@ -41,6 +42,7 @@
                     Code="{Binding DisabledSliderCode}"
                     Language="xaml">
                     <Slider
+                        Width="375"
                         IsEnabled="False"
                         Maximum="10"
                         TickFrequency="1"
@@ -51,6 +53,7 @@
                     Code="{Binding TickEnabledSliderCode}"
                     Language="xaml">
                     <Slider
+                        Width="375"
                         IsSnapToTickEnabled="True"
                         Maximum="10"
                         TickFrequency="1"

@@ -1,4 +1,7 @@
-﻿<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+﻿<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=System.Runtime">
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceInclude Source="CodeTextBlock.axaml" />
@@ -7,4 +10,6 @@
         <ResourceInclude Source="ThemeCornerRadius.axaml" />
         <ResourceInclude Source="Dashboard/OverviewCard.axaml" />
     </ResourceDictionary.MergedDictionaries>
+    <Thickness x:Key="PageMargin">48,24</Thickness>
+    <system:Double x:Key="PageMaxWidth">800</system:Double>
 </ResourceDictionary>

@@ -12,10 +12,10 @@
     mc:Ignorable="d">
     <DockPanel LastChildFill="True">
         <StackPanel
-            MaxWidth="1536"
-            Margin="48,24"
+            MaxWidth="{StaticResource PageMaxWidth}"
+            Margin="{StaticResource PageMargin}"
             DockPanel.Dock="Top">
-            <TextBlock Classes="h3" Text="Theming" />
+            <TextBlock Classes="h2" Text="Theming" />
             <TextBlock
                 Classes="p"
                 Text="Colors and resources used to create a cohesive visual identity for application."
@@ -23,8 +23,8 @@
         </StackPanel>
         <ScrollViewer>
             <StackPanel
-                MaxWidth="1536"
-                Margin="48,24"
+                MaxWidth="{StaticResource PageMaxWidth}"
+                Margin="{StaticResource PageMargin}"
                 Spacing="32">
                 <StackPanel Spacing="16">
                     <TextBlock Classes="h4" Text="Basic Colors" />
