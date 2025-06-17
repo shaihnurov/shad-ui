@@ -64,6 +64,7 @@
                             <controls:ThemeColor Title="GhostColor" Background="{DynamicResource GhostColor}" />
                             <controls:ThemeColor Title="GhostHoverColor" Background="{DynamicResource GhostHoverColor}" />
                             <controls:ThemeColor Title="GhostHoverColor50" Background="{DynamicResource GhostHoverColor50}" />
+                            <controls:ThemeColor Title="SelectionColor" Background="{DynamicResource SelectionColor}" />
                         </StackPanel>
                     </Grid>
                 </StackPanel>
