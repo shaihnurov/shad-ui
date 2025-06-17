@@ -65,8 +65,8 @@
 
     <Color x:Key="SidebarBackgroundColor">#FFFFFF</Color>
 
-    <Color x:Key="SwitchBackgroundColor">#C0C0C2</Color>
-    <Color x:Key="SwitchForegroundColor">#F2F2F2</Color>
+    <Color x:Key="SwitchBackgroundColor">#E5E5E5</Color>
+    <Color x:Key="SwitchForegroundColor">#FFFFFF</Color>
 
     <Color x:Key="TabItemSelectedColor">#FFFFFF</Color>
     <Color x:Key="TabItemsBackgroundColor">#E8E8E8</Color>
