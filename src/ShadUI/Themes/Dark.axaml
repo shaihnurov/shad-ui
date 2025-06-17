@@ -8,10 +8,10 @@
     <Color x:Key="BorderColor">#353535</Color>
     <Color x:Key="BorderColor60">#262626</Color>
     <Color x:Key="BorderColor30">#4C353535</Color>
-    <Color x:Key="OutlineColor">#BF27272A</Color>
-    <Color x:Key="GhostColor">#27272A</Color>
-    <Color x:Key="GhostHoverColor">#121214</Color>
-    <Color x:Key="GhostHoverColor50">#7F121214</Color>
+    <Color x:Key="OutlineColor">#BF252525</Color>
+    <Color x:Key="GhostColor">#252525</Color>
+    <Color x:Key="GhostHoverColor">#181818</Color>
+    <Color x:Key="GhostHoverColor50">#7F181818</Color>
 
     <!--  theme colors  -->
     <Color x:Key="PrimaryColor">#E5E5E5</Color>
