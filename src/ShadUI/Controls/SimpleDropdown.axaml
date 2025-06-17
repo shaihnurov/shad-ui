@@ -214,7 +214,7 @@
             <Setter Property="Padding" Value="16,8" />
             <Setter Property="BorderThickness" Value="1" />
             <Setter Property="BorderBrush" Value="{DynamicResource BorderColor}" />
-            <Setter Property="Background" Value="{DynamicResource BackgroundColor}" />
+            <Setter Property="Background" Value="{DynamicResource SelectionColor}" />
             <Style Selector="^ /template/ TextBlock">
                 <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
             </Style>
@@ -240,12 +240,14 @@
         <Style Selector="^.Icon">
             <Setter Property="Height" Value="36" />
             <Setter Property="Width" Value="36" />
+            <Setter Property="Background" Value="{DynamicResource GhostHoverColor50}" />
             <Style Selector="^ /template/ Border#PART_HoverBackground">
-                <Setter Property="Background" Value="{DynamicResource OutlineColor}" />
+                <Setter Property="Background" Value="{DynamicResource GhostColor}" />
             </Style>
             <Style Selector="^.Grid">
                 <Setter Property="Height" Value="28" />
                 <Setter Property="Width" Value="28" />
+                <Setter Property="Background" Value="{DynamicResource BackgroundColor}" />
             </Style>
         </Style>
     </ControlTheme>
