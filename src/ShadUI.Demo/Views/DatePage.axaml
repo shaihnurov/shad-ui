@@ -60,7 +60,7 @@
                     Title="Date Picker Form Validation"
                     Code="{Binding DatePickerFormValidationCode}"
                     Language="xaml">
-                    <shadui:Card HorizontalAlignment="Center">
+                    <shadui:Card HorizontalAlignment="Center" HasShadow="True">
                         <shadui:Card.Header>
                             <shadui:CardTitle>Add Birthday</shadui:CardTitle>
                         </shadui:Card.Header>
@@ -97,7 +97,7 @@
                     Code="{Binding DateInputFormCode}"
                     Language="xaml">
                     <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-                        <shadui:Card HorizontalAlignment="Center">
+                        <shadui:Card HorizontalAlignment="Center" HasShadow="True">
                             <shadui:Card.Header>
                                 <shadui:CardTitle>Create a schedule</shadui:CardTitle>
                             </shadui:Card.Header>

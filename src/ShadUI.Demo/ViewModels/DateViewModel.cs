@@ -74,7 +74,11 @@ public sealed partial class DateViewModel : ViewModelBase
     public DateOnly? StartDate
     {
         get => _startDate;
-        set => SetProperty(ref _startDate, value, true);
+        set
+        {
+            SetProperty(ref _startDate, value, true);
+            ValidateProperty(EndDate, nameof(EndDate));
+        }
     }
 
     private DateOnly? _endDate;
@@ -84,7 +88,11 @@ public sealed partial class DateViewModel : ViewModelBase
     public DateOnly? EndDate
     {
         get => _endDate;
-        set => SetProperty(ref _endDate, value, true);
+        set
+        {
+            SetProperty(ref _endDate, value, true);
+            ValidateProperty(StartDate, nameof(StartDate));
+        }
     }
 
     [RelayCommand]
