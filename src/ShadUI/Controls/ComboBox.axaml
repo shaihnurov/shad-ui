@@ -43,7 +43,7 @@
         <Setter Property="BorderBrush" Value="{DynamicResource BorderColor}" />
         <Setter Property="PlaceholderForeground" Value="{DynamicResource MutedColor}" />
         <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
-        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Background" Value="{DynamicResource SelectionColor}" />
         <Setter Property="FontSize" Value="14" />
         <Setter Property="FontWeight" Value="Medium" />
         <Setter Property="extensions:ControlAssist.MinHeight" Value="36" />
@@ -62,8 +62,11 @@
                         <Panel>
                             <Border
                                 Name="PART_Background"
-                                Background="{DynamicResource SelectionColor}"
-                                CornerRadius="{TemplateBinding CornerRadius}">
+                                Background="{DynamicResource GhostColor}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="{TemplateBinding CornerRadius}"
+                                Opacity="0">
                                 <Border.Transitions>
                                     <Transitions>
                                         <DoubleTransition Property="Opacity" Duration="0:0:0.20" />
