@@ -41,8 +41,8 @@
         </Style>
         <Style Selector="^.Close">
             <Style Selector="^:pointerover">
-                <Setter Property="Background" Value="{DynamicResource DestructiveColor}" />
-                <Setter Property="Foreground" Value="{DynamicResource DestructiveForegroundColor}" />
+                <Setter Property="Background" Value="#C42B1C" />
+                <Setter Property="Foreground" Value="#FFFFFF" />
             </Style>
         </Style>
     </ControlTheme>
