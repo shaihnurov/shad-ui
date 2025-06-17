@@ -66,6 +66,7 @@
                         <Border
                             Name="PART_Underline"
                             Height="2"
+                            Margin="16,0"
                             Background="{DynamicResource PrimaryColor}"
                             CornerRadius="{DynamicResource FullCornerRadius}"
                             Opacity="0">
@@ -123,10 +124,7 @@
                     CornerRadius="{TemplateBinding CornerRadius}">
                     <DockPanel>
                         <LayoutTransformControl Name="PART_LayoutTransform" DockPanel.Dock="{TemplateBinding TabStripPlacement}">
-                            <Panel>
-                                <Border BorderBrush="{DynamicResource BorderColor}" BorderThickness="0,0,0,1" />
-                                <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
-                            </Panel>
+                            <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
                         </LayoutTransformControl>
                         <ContentPresenter
                             Name="PART_SelectedContentHost"
@@ -176,8 +174,10 @@
             <ControlTemplate>
                 <StackPanel Spacing="16">
                     <StackPanel IsVisible="{TemplateBinding Title, Converter={x:Static StringConverters.IsNotNullOrEmpty}}">
-                        <TextBlock Classes="h4" Text="{TemplateBinding Title}" />
-                        <Separator Margin="0,8,0,0" />
+                        <TextBlock
+                            Margin="16,0,0,0"
+                            Classes="h4"
+                            Text="{TemplateBinding Title}" />
                     </StackPanel>
                     <TabControl Theme="{StaticResource TabControlTheme}">
                         <TabControl.Items>
