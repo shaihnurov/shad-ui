@@ -31,7 +31,7 @@
                             Name="CheckSelected"
                             Width="12"
                             Height="12"
-                            Margin="0,0,3,0"
+                            Margin="0,0,8,0"
                             Data="{x:Static icons:Icons.Check}"
                             DockPanel.Dock="Right"
                             Foreground="{DynamicResource ForegroundColor}" />
@@ -63,7 +63,7 @@
             <Setter Property="Background" Value="{DynamicResource CardBackgroundColor}" />
         </Style>
         <Style Selector="^:pointerover /template/ Border#BorderBasicStyle">
-            <Setter Property="Background" Value="{DynamicResource GhostHoverColor}" />
+            <Setter Property="Background" Value="{DynamicResource GhostColor}" />
         </Style>
         <Style Selector="^:focus /template/ Border#BorderBasicStyle">
             <Setter Property="Background" Value="{DynamicResource GhostColor}" />

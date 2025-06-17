@@ -62,9 +62,9 @@
                         <Panel>
                             <Border
                                 Name="PART_Background"
-                                Background="{DynamicResource OutlineColor}"
+                                Background="{DynamicResource CardBackgroundColor}"
                                 CornerRadius="{TemplateBinding CornerRadius}"
-                                Opacity="0">
+                                Opacity="0.4">
                                 <Border.Transitions>
                                     <Transitions>
                                         <DoubleTransition Property="Opacity" Duration="0:0:0.20" />
