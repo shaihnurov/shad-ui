@@ -4,6 +4,11 @@
         <TargetFramework>net9.0</TargetFramework>
         <Nullable>enable</Nullable>
         <Version>1.0.6</Version>
+        <AssemblyName>shadui-app</AssemblyName>
+        <AssemblyTitle>ShadUI App</AssemblyTitle>
+        <Product>ShadUI App</Product>
+        <Company>AccounTech Business Management Services</Company>
+        <Copyright>Copyright © ShadUI App 2025</Copyright>
         <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
         <ApplicationManifest>app.manifest</ApplicationManifest>
         <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>

@@ -33,15 +33,15 @@
                 <ResourceInclude Source="Controls/Index.axaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
-        <FontFamily x:Key="JetbrainsFont">avares://ShadUI.Demo/Assets/Fonts#Jetbrains</FontFamily>
-        <FontFamily x:Key="ManropeFont">avares://ShadUI.Demo/Assets/Fonts#Manrope</FontFamily>
-        <FontFamily x:Key="LucideIcon">avares://ShadUI.Demo/Assets/Fonts#lucide</FontFamily>
-        <FontFamily x:Key="ShadUIIcon">avares://ShadUI.Demo/Assets/Fonts#shadui</FontFamily>
+        <FontFamily x:Key="JetbrainsFont">avares://shadui-app/Assets/Fonts#Jetbrains</FontFamily>
+        <FontFamily x:Key="ManropeFont">avares://shadui-app/Assets/Fonts#Manrope</FontFamily>
+        <FontFamily x:Key="LucideIcon">avares://shadui-app/Assets/Fonts#lucide</FontFamily>
+        <FontFamily x:Key="ShadUIIcon">avares://shadui-app/Assets/Fonts#shadui</FontFamily>
         <x:Double x:Key="ControlContentThemeFontSize">12</x:Double>
     </Application.Resources>
     <Application.Styles>
         <themes:ShadTheme />
         <StyleInclude Source="avares://AvaloniaEdit/Themes/Fluent/AvaloniaEdit.xaml" />
-        <StyleInclude Source="avares://ShadUI.Demo/Styles/Index.axaml" />
+        <StyleInclude Source="avares://shadui-app/Styles/Index.axaml" />
     </Application.Styles>
 </Application>
