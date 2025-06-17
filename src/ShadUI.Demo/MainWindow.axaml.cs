@@ -1,6 +1,5 @@
 using Avalonia.Controls;
 using Avalonia.Interactivity;
-using ShadUI.Demo.ViewModels;
 using Window = ShadUI.Controls.Window;
 
 namespace ShadUI.Demo;

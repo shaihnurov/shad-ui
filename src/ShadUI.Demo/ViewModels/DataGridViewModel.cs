@@ -30,7 +30,7 @@ public sealed partial class DataGridViewModel : ViewModelBase
     {
         var path = Path.Combine(AppContext.BaseDirectory, "views", "DataGridPage.axaml");
         Code = path.ExtractByLineRange(37, 185).CleanIndentation();
-        
+
         _searchTimer = new Timer(500); // 500ms debounce
         _searchTimer.Elapsed += SearchTimerElapsed;
         _searchTimer.AutoReset = false;

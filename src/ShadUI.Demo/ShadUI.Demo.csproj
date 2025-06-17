@@ -37,18 +37,11 @@
         <ProjectReference Include="..\ShadUI\ShadUI.csproj"/>
     </ItemGroup>
 
-    <ItemGroup>
-      <Compile Update="MainWindow.axaml.cs">
-        <DependentUpon>MainWindow.axaml</DependentUpon>
-        <SubType>Code</SubType>
-      </Compile>
-    </ItemGroup>
-
     <Target Name="GenerateXamlTextCopies" AfterTargets="Build">
         <ItemGroup>
             <XamlFiles Include="Views\*.axaml"/>
         </ItemGroup>
- 
+
         <Copy SourceFiles="@(XamlFiles)"
               DestinationFiles="@(XamlFiles->'$(OutDir)%(RecursiveDir)/views/%(Filename).axaml')"
               SkipUnchangedFiles="true"/>

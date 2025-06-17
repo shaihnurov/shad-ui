@@ -11,7 +11,6 @@ using Avalonia.Threading;
 using AvaloniaEdit;
 using AvaloniaEdit.TextMate;
 using ShadUI.Contents;
-using ShadUI.Demo.ViewModels;
 using ShadUI.Toasts;
 using TextMateSharp.Grammars;
 using Window = ShadUI.Controls.Window;
@@ -96,7 +95,9 @@ public class CodeTextBlock : UserControl
             // Set initial text if available
 
             if (Inlines?.Count > 0)
+            {
                 _editor.Text = Inlines.Text;
+            }
             else if (!string.IsNullOrEmpty(Text)) _editor.Text = Text;
         }
 
@@ -113,11 +114,17 @@ public class CodeTextBlock : UserControl
             if (clipboard == null) return;
             string? textToCopy;
             if (!string.IsNullOrEmpty(Text))
+            {
                 textToCopy = Text;
+            }
             else if (Inlines is { Count: > 0 })
+            {
                 textToCopy = Inlines.Text;
+            }
             else
+            {
                 return;
+            }
 
             await clipboard.SetTextAsync(textToCopy);
 

@@ -30,12 +30,14 @@ public sealed partial class DateViewModel : ViewModelBase
     private string _calendarCode = string.Empty;
 
     [ObservableProperty]
-    private string _datePickerCode =  string.Empty;
+    private string _datePickerCode = string.Empty;
 
     [ObservableProperty]
-    private string _readOnlyDatePickerCode =  string.Empty;
+    private string _readOnlyDatePickerCode = string.Empty;
+
     [ObservableProperty]
-    private string _datePickerFormValidationCode =  string.Empty;
+    private string _datePickerFormValidationCode = string.Empty;
+
     private DateTime? _selectedDate;
 
     [Required(ErrorMessage = "A date of birth is required.")]
@@ -60,10 +62,10 @@ public sealed partial class DateViewModel : ViewModelBase
     }
 
     [ObservableProperty]
-    private string _dateInputCode =  string.Empty;
+    private string _dateInputCode = string.Empty;
 
     [ObservableProperty]
-    private string _disabledDateInputCode =  string.Empty;
+    private string _disabledDateInputCode = string.Empty;
 
     private DateOnly? _startDate;
 
@@ -101,5 +103,5 @@ public sealed partial class DateViewModel : ViewModelBase
     }
 
     [ObservableProperty]
-    private string _dateInputFormCode =  string.Empty;
+    private string _dateInputFormCode = string.Empty;
 }

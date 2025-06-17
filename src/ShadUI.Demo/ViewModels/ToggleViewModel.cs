@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace ShadUI.Demo.ViewModels;
@@ -7,8 +8,8 @@ public sealed partial class ToggleViewModel : ViewModelBase
 {
     public ToggleViewModel()
     {
-        var path = System.IO.Path.Combine(AppContext.BaseDirectory, "views", "TogglePage.axaml");
-        DefaultCode = path.ExtractByLineRange(30,35).CleanIndentation();
+        var path = Path.Combine(AppContext.BaseDirectory, "views", "TogglePage.axaml");
+        DefaultCode = path.ExtractByLineRange(30, 35).CleanIndentation();
         OutlineCode = path.ExtractByLineRange(41, 46).CleanIndentation();
         WithTextCode = path.ExtractByLineRange(52, 60).CleanIndentation();
         DisableCode = path.ExtractByLineRange(66, 72).CleanIndentation();

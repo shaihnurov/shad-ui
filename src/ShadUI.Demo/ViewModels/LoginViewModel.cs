@@ -27,7 +27,10 @@ public sealed partial class LoginViewModel(DialogManager dialogManager) : ViewMo
         set => SetProperty(ref _password, value, true);
     }
 
-    private bool CanSubmit() => !HasErrors;
+    private bool CanSubmit()
+    {
+        return !HasErrors;
+    }
 
     public void Initialize()
     {
@@ -48,5 +51,8 @@ public sealed partial class LoginViewModel(DialogManager dialogManager) : ViewMo
     }
 
     [RelayCommand]
-    private void Cancel() => dialogManager.Close(this);
+    private void Cancel()
+    {
+        dialogManager.Close(this);
+    }
 }

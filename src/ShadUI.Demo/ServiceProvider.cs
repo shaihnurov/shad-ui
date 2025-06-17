@@ -34,5 +34,8 @@ namespace ShadUI.Demo;
 [Singleton(typeof(ThemeWatcher), Factory = nameof(ThemeWatcherFactory))]
 public partial class ServiceProvider
 {
-    public ThemeWatcher ThemeWatcherFactory() => new(Application.Current!);
+    public ThemeWatcher ThemeWatcherFactory()
+    {
+        return new ThemeWatcher(Application.Current!);
+    }
 }

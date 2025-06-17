@@ -14,7 +14,7 @@ public sealed partial class ToastsViewModel : ViewModelBase
     {
         _toastManager = toastManager;
         var path = Path.Combine(AppContext.BaseDirectory, "viewModels", "ToastsViewModel.cs");
-        SimpleToastCode = WrapCode(path.ExtractByLineRange(40,44).CleanIndentation());
+        SimpleToastCode = WrapCode(path.ExtractByLineRange(40, 44).CleanIndentation());
         WithTitleToastCode = WrapCode(path.ExtractByLineRange(49, 55).CleanIndentation());
         WithActionToastCode = WrapCode(path.ExtractByLineRange(60, 67).CleanIndentation());
         WithDelayToastCode = WrapCode(path.ExtractByLineRange(72, 79).CleanIndentation());

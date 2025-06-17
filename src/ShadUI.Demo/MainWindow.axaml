@@ -11,7 +11,6 @@
     xmlns:extensions="clr-namespace:ShadUI.Extensions;assembly=ShadUI"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:toasts="clr-namespace:ShadUI.Toasts;assembly=ShadUI"
-    xmlns:viewModels="clr-namespace:ShadUI.Demo.ViewModels"
     x:Name="Window"
     Title="ShadUI App"
     Width="1024"

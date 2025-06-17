@@ -16,7 +16,9 @@ public sealed partial class AboutViewModel(DialogManager dialogManager) : ViewMo
     [ObservableProperty]
     private string _appVersion = $"version {GetAssemblyVersion()}";
 
-    private static string GetAssemblyVersion() =>
-        Assembly.GetExecutingAssembly().GetName().Version?.ToString()
-        ?? string.Empty;
+    private static string GetAssemblyVersion()
+    {
+        return Assembly.GetExecutingAssembly().GetName().Version?.ToString()
+               ?? string.Empty;
+    }
 }

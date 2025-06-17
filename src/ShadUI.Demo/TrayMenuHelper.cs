@@ -2,8 +2,6 @@
 using System.Linq;
 using Avalonia;
 using Avalonia.Controls;
-using ShadUI.Demo.ViewModels;
-using ShadUI.Demo.Views;
 
 namespace ShadUI.Demo;
 
@@ -32,6 +30,7 @@ public static class TrayMenuHelper
                 window.RestoreWindowState();
                 window.Show();
             }
+
             window.Activate();
         };
 
@@ -42,6 +41,7 @@ public static class TrayMenuHelper
                 window.RestoreWindowState();
                 window.Show();
             }
+
             window.Activate();
             viewModel.ShowAboutCommand.Execute(null);
         };

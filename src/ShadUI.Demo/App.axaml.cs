@@ -3,8 +3,6 @@ using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Data.Core.Plugins;
 using Avalonia.Markup.Xaml;
-using ShadUI.Demo.ViewModels;
-using ShadUI.Demo.Views;
 using ShadUI.Themes;
 
 namespace ShadUI.Demo;

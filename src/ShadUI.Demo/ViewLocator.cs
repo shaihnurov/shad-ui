@@ -10,7 +10,7 @@ namespace ShadUI.Demo;
 public class ViewLocator : IDataTemplate
 {
     private static readonly ConcurrentDictionary<Type, Type?> Cache = [];
-    
+
     private static readonly Assembly CurrentAssembly = Assembly.GetExecutingAssembly();
 
     public Control? Build(object? param)
@@ -26,18 +26,18 @@ public class ViewLocator : IDataTemplate
         {
             var nameSpace = type.Namespace;
             if (nameSpace is null) return null;
-                
+
             var name = type.Name;
             var viewNameSpace = nameSpace.Replace("ViewModel", "View", StringComparison.Ordinal);
-            
+
             var viewName = name.Replace("ViewModel", "Page", StringComparison.Ordinal);
             var fullName = $"{viewNameSpace}.{viewName}";
-            
+
             return CurrentAssembly.GetType(fullName);
         });
 
         if (viewType is null) return new TextBlock { Text = "View not found: " + viewModelType.FullName };
-        
+
         var control = (Control)Activator.CreateInstance(viewType)!;
         control.DataContext = param;
         return control;
