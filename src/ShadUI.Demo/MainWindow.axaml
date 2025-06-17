@@ -92,14 +92,7 @@
                 </Style>
             </controls:SidebarMenu.Styles>
             <controls:SidebarMenu.BodyContent>
-                <Panel>
-                    <TransitioningContentControl Content="{Binding SelectedPage}" />
-                    <controls:BusyArea IsBusy="{Binding IsBusy}">
-                        <TextBlock Margin="0,8,0,0" Classes="Small Muted">
-                            Loading...
-                        </TextBlock>
-                    </controls:BusyArea>
-                </Panel>
+                <TransitioningContentControl Content="{Binding SelectedPage}" />
             </controls:SidebarMenu.BodyContent>
             <controls:SidebarMenu.HeaderContent>
                 <controls:Avatar

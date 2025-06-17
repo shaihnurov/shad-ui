@@ -48,23 +48,13 @@ public sealed partial class MainWindowViewModel(
     [ObservableProperty]
     private object? _selectedPage;
 
-    [ObservableProperty]
-    private bool _isBusy;
-
     private async Task<bool> SwitchPageAsync(object page)
     {
         if (SelectedPage == page) return false;
-        IsBusy = true;
-        try
-        {
-            await Task.Delay(200); // prevent animate delay
-            SelectedPage = page;
-            return true;
-        }
-        finally
-        {
-            IsBusy = false;
-        }
+
+        await Task.Delay(200); // prevent animate delay
+        SelectedPage = page;
+        return true;
     }
 
     [RelayCommand]
