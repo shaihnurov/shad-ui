@@ -251,7 +251,7 @@
                 <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
             </Style>
             <Style Selector="^ /template/ Border#PART_HoverBackground">
-                <Setter Property="Background" Value="{DynamicResource GhostHoverColor}" />
+                <Setter Property="Background" Value="{DynamicResource GhostColor}" />
             </Style>
         </Style>
 
