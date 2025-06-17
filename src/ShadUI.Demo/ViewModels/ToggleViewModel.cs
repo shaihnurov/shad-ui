@@ -1,42 +1,28 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using System;
+using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace ShadUI.Demo.ViewModels;
 
 public sealed partial class ToggleViewModel : ViewModelBase
 {
-    [ObservableProperty]
-    private string _default = """
-                              <ToggleButton Classes="Default" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                  <icons:Lucide Icon="Bold" StrokeThickness="1.5" Width="10" Height="16"
-                                                StrokeBrush="{DynamicResource ForegroundColor}" />
-                              </ToggleButton>
-                              """;
+    public ToggleViewModel()
+    {
+        var path = System.IO.Path.Combine(AppContext.BaseDirectory, "views", "TogglePage.axaml");
+        DefaultCode = path.ExtractByLineRange(30,35).CleanIndentation();
+        OutlineCode = path.ExtractByLineRange(41, 46).CleanIndentation();
+        WithTextCode = path.ExtractByLineRange(52, 60).CleanIndentation();
+        DisableCode = path.ExtractByLineRange(66, 72).CleanIndentation();
+    }
 
     [ObservableProperty]
-    private string _outline = """
-                              <ToggleButton Classes="Outline" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                  <icons:Lucide Icon="Bold" StrokeThickness="1.5" Width="10" Height="16"
-                                                StrokeBrush="{DynamicResource ForegroundColor}" />
-                              </ToggleButton>
-                              """;
+    private string _defaultCode = string.Empty;
 
     [ObservableProperty]
-    private string _withText = """
-                               <ToggleButton Classes="Default" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                   <StackPanel Orientation="Horizontal" Spacing="8">
-                                       <icons:Lucide Icon="Italic" StrokeThickness="1.5" Width="10" Height="16"
-                                                     StrokeBrush="{DynamicResource ForegroundColor}" />
-                                       <TextBlock Text="Italic" />
-                                   </StackPanel>
-                               </ToggleButton>
-                               """;
+    private string _outlineCode = string.Empty;
 
     [ObservableProperty]
-    private string _disable = """
-                              <ToggleButton Classes="Default" HorizontalAlignment="Center" VerticalAlignment="Center"
-                                            IsEnabled="False">
-                                  <icons:Lucide Icon="Bold" StrokeThickness="1.5" Width="10" Height="16"
-                                                StrokeBrush="{DynamicResource ForegroundColor}" />
-                              </ToggleButton>
-                              """;
+    private string _withTextCode = string.Empty;
+
+    [ObservableProperty]
+    private string _disableCode = string.Empty;
 }

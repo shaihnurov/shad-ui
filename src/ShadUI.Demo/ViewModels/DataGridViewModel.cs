@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.IO;
 using System.Linq;
 using System.Timers;
 using Avalonia.Threading;
@@ -27,6 +28,9 @@ public sealed partial class DataGridViewModel : ViewModelBase
 
     public DataGridViewModel()
     {
+        var path = Path.Combine(AppContext.BaseDirectory, "views", "DataGridPage.axaml");
+        Code = path.ExtractByLineRange(37, 185).CleanIndentation();
+        
         _searchTimer = new Timer(500); // 500ms debounce
         _searchTimer.Elapsed += SearchTimerElapsed;
         _searchTimer.AutoReset = false;
@@ -157,83 +161,7 @@ public sealed partial class DataGridViewModel : ViewModelBase
     }
 
     [ObservableProperty]
-    private string _code = """
-                           <DataGrid
-                               CanUserReorderColumns="False"
-                               CanUserSortColumns="True"
-                               GridLinesVisibility="Horizontal"
-                               ItemsSource="{Binding Items}"
-                               SelectionMode="Single"
-                               x:Name="DataGrid">
-                               <DataGrid.Columns>
-                                   <DataGridCheckBoxColumn Binding="{Binding IsSelected}" CanUserSort="False">
-                                       <DataGridCheckBoxColumn.Header>
-                                           <CheckBox
-                                               Command="{Binding ToggleSelectionCommand}"
-                                               CommandParameter="{Binding #SelectToggler.IsChecked}"
-                                               IsChecked="{Binding SelectAll}"
-                                               x:Name="SelectToggler" />
-                                       </DataGridCheckBoxColumn.Header>
-                                   </DataGridCheckBoxColumn>
-                                   <DataGridTextColumn
-                                       Binding="{Binding Status}"
-                                       CanUserSort="False"
-                                       Header="Status"
-                                       IsReadOnly="True"
-                                       IsVisible="{Binding ShowStatusColumn}" />
-                                   <DataGridTextColumn
-                                       Binding="{Binding Email, Mode=TwoWay}"
-                                       Header="Email"
-                                       IsVisible="{Binding ShowEmailColumn}"
-                                       Width="*" />
-                                   <DataGridTemplateColumn IsVisible="{Binding ShowAmountColumn}" SortMemberPath="Amount">
-                                       <DataGridTemplateColumn.Header>
-                                           <TextBlock
-                                               HorizontalAlignment="Center"
-                                               Text="Amount"
-                                               TextAlignment="Center" />
-                                       </DataGridTemplateColumn.Header>
-                                       <DataGridTemplateColumn.CellTemplate>
-                                           <DataTemplate DataType="viewModels:DataGridItem">
-                                               <TextBlock
-                                                   HorizontalAlignment="Right"
-                                                   Text="{Binding Amount, StringFormat={}{0:C}}"
-                                                   TextAlignment="Right"
-                                                   VerticalAlignment="Center" />
-                                           </DataTemplate>
-                                       </DataGridTemplateColumn.CellTemplate>
-                                       <DataGridTemplateColumn.CellEditingTemplate>
-                                           <DataTemplate DataType="viewModels:DataGridItem">
-                                               <TextBox Text="{Binding Amount}" TextAlignment="End" />
-                                           </DataTemplate>
-                                       </DataGridTemplateColumn.CellEditingTemplate>
-                                   </DataGridTemplateColumn>
-                                   <DataGridTemplateColumn CanUserResize="False" CanUserSort="False">
-                                       <DataGridTemplateColumn.CellTemplate>
-                                           <DataTemplate DataType="viewModels:DataGridItem">
-                                               <Menu>
-                                                   <MenuItem Classes="Icon Grid" extensions:MenuItemAssist.PopupPlacement="BottomEdgeAlignedRight">
-                                                       <extensions:MenuItemAssist.Label>
-                                                           <TextBlock Classes="Small" Text="Actions" />
-                                                       </extensions:MenuItemAssist.Label>
-                                                       <MenuItem.Header>
-                                                           <icons:Lucide
-                                                               Height="12"
-                                                               Icon="Ellipsis"
-                                                               StrokeBrush="{DynamicResource ForegroundColor}"
-                                                               Width="12" />
-                                                       </MenuItem.Header>
-                                                       <MenuItem Header="Copy payment ID" />
-                                                       <MenuItem Header="View customer" />
-                                                       <MenuItem Header="View payment details" />
-                                                   </MenuItem>
-                                               </Menu>
-                                           </DataTemplate>
-                                       </DataGridTemplateColumn.CellTemplate>
-                                   </DataGridTemplateColumn>
-                               </DataGrid.Columns>
-                           </DataGrid>
-                           """;
+    private string _code = string.Empty;
 }
 
 public sealed partial class DataGridItem : ObservableValidator

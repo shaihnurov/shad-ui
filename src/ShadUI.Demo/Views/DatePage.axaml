@@ -31,9 +31,11 @@
                 Spacing="32">
                 <controls:ControlBlock
                     Title="Calendar"
-                    Code="{Binding DefaultCode}"
+                    Code="{Binding CalendarCode}"
                     Language="xaml">
-                    <Calendar HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    <StackPanel>
+                        <Calendar HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </StackPanel>
                 </controls:ControlBlock>
                 <controls:ControlBlock
                     Title="Date Picker"

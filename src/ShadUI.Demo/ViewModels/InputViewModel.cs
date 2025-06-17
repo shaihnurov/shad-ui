@@ -1,5 +1,7 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.IO;
 using System.Timers;
 using Avalonia.Threading;
 using CommunityToolkit.Mvvm.ComponentModel;
@@ -23,6 +25,15 @@ public sealed partial class InputViewModel : ViewModelBase
         _searchTimer = new Timer(500); // 500ms debounce
         _searchTimer.Elapsed += SearchTimerElapsed;
         _searchTimer.AutoReset = false;
+
+        var path = Path.Combine(AppContext.BaseDirectory, "views", "InputPage.axaml");
+        DefaultInputCode = path.ExtractByLineRange(36, 38).CleanIndentation();
+        DisabledCode = path.ExtractByLineRange(44, 49).CleanIndentation();
+        WithLabelCode = path.ExtractByLineRange(55, 61).CleanIndentation();
+        WithCustomLabelCode = path.ExtractByLineRange(67, 73).CleanIndentation();
+        SearchBoxCode = path.ExtractByLineRange(79, 93).CleanIndentation();
+        AutoCompleteBoxCode = path.ExtractByLineRange(99, 116).CleanIndentation();
+        FormValidationCode = path.ExtractByLineRange(122, 154).CleanIndentation();
     }
 
     private void OnPropertyChanged(object? sender, PropertyChangedEventArgs e)
@@ -55,65 +66,19 @@ public sealed partial class InputViewModel : ViewModelBase
     }
 
     [ObservableProperty]
-    private string _defaultInputCode = """
-                                       <StackPanel>
-                                           <TextBox Width="225" Watermark="Insert here..." />
-                                       </StackPanel>
-                                       """;
+    private string _defaultInputCode = string.Empty;
 
     [ObservableProperty]
-    private string _disabledCode = """
-                                   <StackPanel>
-                                       <TextBox Width="225" IsEnabled="False" Watermark="Email" />
-                                   </StackPanel>
-                                   """;
+    private string _disabledCode = string.Empty;
 
     [ObservableProperty]
-    private string _withLabelCode = """
-                                    <StackPanel>
-                                        <TextBox Classes="Clearable" Width="225" UseFloatingWatermark="True" Watermark="Email" />
-                                    </StackPanel>
-                                    """;
+    private string _withLabelCode = string.Empty;
 
     [ObservableProperty]
-    private string _withCustomLabelCode = """
-                                          <StackPanel>
-                                              <TextBox Classes="Clearable" Width="225" extensions:ControlAssist.Label="Email"
-                                                       Watermark="user@example.com" />
-                                          </StackPanel>
-                                          """;
+    private string _withCustomLabelCode = string.Empty;
 
     [ObservableProperty]
-    private string _formValidationCode = """
-                                         <shadui:Card HorizontalAlignment="Center" Width="350">
-                                             <shadui:Card.Header>
-                                                 <StackPanel Spacing="4">
-                                                     <shadui:CardTitle FontSize="18">Creat new account</shadui:CardTitle>
-                                                     <shadui:CardDescription>Enter your account details</shadui:CardDescription>
-                                                 </StackPanel>
-                                             </shadui:Card.Header>
-                                             <StackPanel Spacing="16">
-                                                 <TextBox Classes="Clearable"
-                                                          extensions:ControlAssist.Label="Email"
-                                                          extensions:ControlAssist.Hint="This is your public display name."
-                                                          Watermark="user@example.com"
-                                                          Text="{Binding Email, Mode=TwoWay}" />
-                                                 <TextBox Classes="PasswordReveal"
-                                                          extensions:ControlAssist.Label="Password"
-                                                          PasswordChar="•"
-                                                          Watermark="Enter password"
-                                                          Text="{Binding Password, Mode=TwoWay}" />
-                                                 <TextBox Classes="PasswordReveal"
-                                                          PasswordChar="•"
-                                                          extensions:ControlAssist.Label="Confirm"
-                                                          Watermark="Confirm password"
-                                                          Text="{Binding ConfirmPassword, Mode=TwoWay}" />
-                                             </StackPanel>
-                                             <shadui:Card.Footer>
-                                                 <Button Classes="Primary" Command="{Binding SubmitCommand}">Submit</Button>
-                                             </shadui:Card.Footer>
-                                         </shadui:Card>
-                                         """;
+    private string _formValidationCode = string.Empty;
 
     [ObservableProperty]
     private string _searchString = string.Empty;
@@ -122,42 +87,13 @@ public sealed partial class InputViewModel : ViewModelBase
     private bool _isSearching;
 
     [ObservableProperty]
-    private string _searchBoxCode = """
-                                    <StackPanel>
-                                        <TextBox Classes="Clearable" Width="225"
-                                                 Text="{Binding SearchString, Mode=TwoWay}"
-                                                 extensions:ControlAssist.ShowProgress="{Binding IsSearching}"
-                                                 Watermark="Search here...">
-                                            <TextBox.InnerRightContent>
-                                                <PathIcon Data="{x:Static contents:Icons.Search}" Opacity="0.75" Width="16" />
-                                            </TextBox.InnerRightContent>
-                                        </TextBox>
-                                    </StackPanel>
-                                    """;
+    private string _searchBoxCode = string.Empty;
 
     [ObservableProperty]
     private string[] _webFrameworks = ["Next.js", "Sveltekit", "Nuxt.js", "Remix", "Astro"];
 
     [ObservableProperty]
-    private string _autoCompleteBoxCode = """
-                                          <StackPanel>
-                                              <AutoCompleteBox
-                                                  FilterMode="Contains"
-                                                  ItemsSource="{Binding WebFrameworks}"
-                                                  Watermark="Search here..."
-                                                  Width="225"
-                                                  extensions:ControlAssist.Hint="Your favorite web framework"
-                                                  extensions:ControlAssist.Label="Search a framework"
-                                                  extensions:ElementAssist.Classes="Clearable">
-                                                  <AutoCompleteBox.InnerRightContent>
-                                                      <PathIcon
-                                                          Data="{x:Static contents:Icons.Search}"
-                                                          Opacity="0.75"
-                                                          Width="16" />
-                                                  </AutoCompleteBox.InnerRightContent>
-                                              </AutoCompleteBox>
-                                          </StackPanel>
-                                          """;
+    private string _autoCompleteBoxCode = string.Empty;
 
     private string _email = string.Empty;
 
@@ -189,7 +125,7 @@ public sealed partial class InputViewModel : ViewModelBase
         set => SetProperty(ref _confirmPassword, value, true);
     }
 
-    [RelayCommand(CanExecute = nameof(CanSubmit))]
+    [RelayCommand]
     private void Submit()
     {
         ClearAllErrors();
@@ -204,8 +140,6 @@ public sealed partial class InputViewModel : ViewModelBase
 
         Initialize();
     }
-
-    private bool CanSubmit() => !HasErrors;
 
     public void Initialize()
     {

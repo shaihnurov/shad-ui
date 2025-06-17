@@ -1,18 +1,17 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using System;
+using System.IO;
+using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace ShadUI.Demo.ViewModels;
 
 public sealed partial class ToolTipViewModel : ViewModelBase
 {
+    public ToolTipViewModel()
+    {
+        var path = Path.Combine(AppContext.BaseDirectory, "views", "ToolTipPage.axaml");
+        UsageCode = path.ExtractByLineRange(34, 41).CleanIndentation();
+    }
+
     [ObservableProperty]
-    private string _usageCode = """
-                                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-                                    <Button ToolTip.Tip="Add to library"
-                                            ToolTip.Placement="Top"
-                                            ToolTip.VerticalOffset="-5"
-                                            Classes="Outline">
-                                        Hover
-                                    </Button>
-                                </StackPanel>
-                                """;
+    private string _usageCode = string.Empty;
 }

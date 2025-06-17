@@ -31,15 +31,14 @@
                     Title="Usage"
                     Code="{Binding UsageCode}"
                     Language="xaml">
-                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <Button
-                            Classes="Outline"
-                            ToolTip.Placement="Top"
-                            ToolTip.Tip="Add to library"
-                            ToolTip.VerticalOffset="-5">
-                            Hover
-                        </Button>
-                    </StackPanel>
+                    <Button
+                        HorizontalAlignment="Center"
+                        Classes="Outline"
+                        ToolTip.Placement="Top"
+                        ToolTip.Tip="Add to library"
+                        ToolTip.VerticalOffset="-5">
+                        Hover
+                    </Button>
                 </controls:ControlBlock>
             </StackPanel>
         </ScrollViewer>

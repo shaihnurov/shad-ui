@@ -4,11 +4,12 @@ using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using ShadUI.Demo.ViewModels;
 using ShadUI.Dialogs;
 using ShadUI.Themes;
 using ShadUI.Toasts;
 
-namespace ShadUI.Demo.ViewModels;
+namespace ShadUI.Demo;
 
 public sealed partial class MainWindowViewModel(
     DialogManager dialogManager,

@@ -25,7 +25,7 @@
                 Spacing="32">
                 <controls:ControlBlock
                     Title="Default"
-                    Code="{Binding Default}"
+                    Code="{Binding DefaultCode}"
                     Language="xaml">
                     <ToggleButton
                         HorizontalAlignment="Center"
@@ -36,7 +36,7 @@
                 </controls:ControlBlock>
                 <controls:ControlBlock
                     Title="Outline"
-                    Code="{Binding Outline}"
+                    Code="{Binding OutlineCode}"
                     Language="xaml">
                     <ToggleButton
                         HorizontalAlignment="Center"
@@ -47,7 +47,7 @@
                 </controls:ControlBlock>
                 <controls:ControlBlock
                     Title="With Text"
-                    Code="{Binding WithText}"
+                    Code="{Binding WithTextCode}"
                     Language="xaml">
                     <ToggleButton
                         HorizontalAlignment="Center"
@@ -61,7 +61,7 @@
                 </controls:ControlBlock>
                 <controls:ControlBlock
                     Title="Disable"
-                    Code="{Binding Disable}"
+                    Code="{Binding DisableCode}"
                     Language="xaml">
                     <ToggleButton
                         HorizontalAlignment="Center"

@@ -1,201 +1,131 @@
 ﻿using System;
+using System.IO;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using ShadUI.Toasts;
 
 namespace ShadUI.Demo.ViewModels;
 
-public sealed partial class ToastsViewModel(ToastManager toastManager) : ViewModelBase
+public sealed partial class ToastsViewModel : ViewModelBase
 {
+    private readonly ToastManager _toastManager;
+
+    public ToastsViewModel(ToastManager toastManager)
+    {
+        _toastManager = toastManager;
+        var path = Path.Combine(AppContext.BaseDirectory, "viewModels", "ToastsViewModel.cs");
+        SimpleToastCode = WrapCode(path.ExtractByLineRange(40,44).CleanIndentation());
+        WithTitleToastCode = WrapCode(path.ExtractByLineRange(49, 55).CleanIndentation());
+        WithActionToastCode = WrapCode(path.ExtractByLineRange(60, 67).CleanIndentation());
+        WithDelayToastCode = WrapCode(path.ExtractByLineRange(72, 79).CleanIndentation());
+        InfoToastCode = WrapCode(path.ExtractByLineRange(84, 91).CleanIndentation());
+        SuccessToastCode = WrapCode(path.ExtractByLineRange(96, 103).CleanIndentation());
+        WarningToastCode = WrapCode(path.ExtractByLineRange(108, 115).CleanIndentation());
+        ErrorToastCode = WrapCode(path.ExtractByLineRange(120, 127).CleanIndentation());
+    }
+
+    private string WrapCode(string code)
+    {
+        return $"""
+                using CommunityToolkit.Mvvm.Input;
+
+                //..other code
+
+                {code}
+
+                //..rest of the code
+                """;
+    }
+
     [RelayCommand]
     private void ShowSimpleToast()
     {
-        toastManager.CreateToast("Your message has been sent.").Show();
+        _toastManager.CreateToast("Your message has been sent.").Show();
     }
 
     [ObservableProperty]
-    private string _simpleToastCode = """
-                                      // Using CommunityToolkit.Mvvm
-
-                                      // ..other code
-
-                                      [RelayCommand]
-                                      private void ShowSimpleToast()
-                                      {
-                                          toastManager.CreateToast("Your message has been sent.").Show();
-                                      }
-                                      """;
+    private string _simpleToastCode = string.Empty;
 
     [RelayCommand]
-    private void ShowWithTitleToast()
+    private void ShowToastWithTitle()
     {
-        toastManager.CreateToast("Uh oh! Something went wrong.")
+        _toastManager.CreateToast("Uh oh! Something went wrong.")
             .WithContent("There was a problem with your request.")
             .Show();
     }
 
     [ObservableProperty]
-    private string _withTitleToastCode = """
-                                         // Using CommunityToolkit.Mvvm
-
-                                         // ..other code
-
-                                         [RelayCommand]
-                                         private void ShowWithTitleToast()
-                                         {
-                                             toastManager.CreateToast("Uh oh! Something went wrong.")
-                                                 .WithContent("There was a problem with your request.")
-                                                 .Show();
-                                         }
-                                         """;
+    private string _withTitleToastCode = string.Empty;
 
     [RelayCommand]
-    private void ShowWithActionToast()
+    private void ShowToastWithAction()
     {
-        toastManager.CreateToast("Uh oh! Something went wrong.")
+        _toastManager.CreateToast("Uh oh! Something went wrong.")
             .WithContent("There was a problem with your request.")
-            .WithAction("Try again", () => toastManager.CreateToast("Retry clicked").Show())
+            .WithAction("Try again", () => _toastManager.CreateToast("Retry clicked").Show())
             .Show();
     }
 
     [ObservableProperty]
-    private string _withActionToastCode = """
-                                          // Using CommunityToolkit.Mvvm
-
-                                          // ..other code
-
-                                          [RelayCommand]
-                                          private void ShowWithActionToast()
-                                          {
-                                              toastManager.CreateToast("Uh oh! Something went wrong.")
-                                                  .WithContent("There was a problem with your request.")
-                                                  .WithAction("Try again", () => toastManager.CreateToast("Retry clicked").Show())
-                                                  .Show();
-                                          }
-                                          """;
+    private string _withActionToastCode = string.Empty;
 
     [RelayCommand]
-    private void ShowWithDelayToast()
+    private void ShowToastWithDelay()
     {
-        toastManager.CreateToast("This toast will disappear in 5 seconds.")
+        _toastManager.CreateToast("This toast will disappear in 5 seconds.")
             .WithContent("You can hover over it to prevent it from disappearing.")
             .WithDelay(5)
             .Show();
     }
 
     [ObservableProperty]
-    private string _withDelayToastCode = """
-                                         // Using CommunityToolkit.Mvvm
-
-                                         // ..other code
-
-                                         [RelayCommand]
-                                         private void ShowWithDelayToast()
-                                         {
-                                             toastManager.CreateToast("This toast will disappear in 5 seconds.")
-                                                 .WithContent("You can hover over it to prevent it from disappearing.")
-                                                 .WithDelay(5)
-                                                 .Show();
-                                         }
-                                         """;
+    private string _withDelayToastCode = string.Empty;
 
     [RelayCommand]
     private void ShowInfoToast()
     {
-        toastManager.CreateToast("Event has been created")
+        _toastManager.CreateToast("Event has been created")
             .WithContent($"{DateTime.Now:dddd, MMMM d 'at' h:mm tt}")
             .DismissOnClick()
             .ShowInfo();
     }
 
     [ObservableProperty]
-    private string _infoToastCode = """
-                                    // Using CommunityToolkit.Mvvm
-
-                                    // ..other code
-
-                                    [RelayCommand]
-                                    private void ShowInfoToast()
-                                    {
-                                        toastManager.CreateToast("Event has been created")
-                                            .WithContent($"{DateTime.Now:dddd, MMMM d 'at' h:mm tt}")
-                                            .DismissOnClick()
-                                            .ShowInfo();
-                                    }
-                                    """;
+    private string _infoToastCode = string.Empty;
 
     [RelayCommand]
     private void ShowSuccessToast()
     {
-        toastManager.CreateToast("Event has been created successfully")
+        _toastManager.CreateToast("Event has been created successfully")
             .WithContent($"{DateTime.Now:dddd, MMMM d 'at' h:mm tt}")
             .DismissOnClick()
             .ShowSuccess();
     }
 
     [ObservableProperty]
-    private string _successToastCode = """
-                                       // Using CommunityToolkit.Mvvm
-
-                                       // ..other code
-
-                                       [RelayCommand]
-                                       private void ShowSuccessToast()
-                                       {
-                                           toastManager.CreateToast("Event has been created successfully")
-                                               .WithContent($"{DateTime.Now:dddd, MMMM d 'at' h:mm tt}")
-                                               .DismissOnClick()
-                                               .ShowSuccess();
-                                       }
-                                       """;
+    private string _successToastCode = string.Empty;
 
     [RelayCommand]
     private void ShowWarningToast()
     {
-        toastManager.CreateToast("Event has been created with warnings")
+        _toastManager.CreateToast("Event has been created with warnings")
             .WithContent($"{DateTime.Now:dddd, MMMM d 'at' h:mm tt}")
             .DismissOnClick()
             .ShowWarning();
     }
 
     [ObservableProperty]
-    private string _warningToastCode = """
-                                       // Using CommunityToolkit.Mvvm
-
-                                       // ..other code
-
-                                       [RelayCommand]
-                                       private void ShowWarningToast()
-                                       {
-                                           toastManager.CreateToast("Event has been created with warnings")
-                                               .WithContent($"{DateTime.Now:dddd, MMMM d 'at' h:mm tt}")
-                                               .DismissOnClick()
-                                               .ShowWarning();
-                                       }
-                                       """;
+    private string _warningToastCode = string.Empty;
 
     [RelayCommand]
     private void ShowErrorToast()
     {
-        toastManager.CreateToast("Failed to create event")
+        _toastManager.CreateToast("Failed to create event")
             .WithContent("Unable to connect to the server.")
-            .WithAction("Retry", () => toastManager.CreateToast("Retry clicked").Show())
+            .WithAction("Retry", () => _toastManager.CreateToast("Retry clicked").Show())
             .ShowError();
     }
 
     [ObservableProperty]
-    private string _errorToastCode = """
-                                     // Using CommunityToolkit.Mvvm
-
-                                     // ..other code
-
-                                     [RelayCommand]
-                                     private void ShowErrorToast()
-                                     {
-                                         toastManager.CreateToast("Failed to create event")
-                                             .WithContent("Unable to connect to the server.")
-                                             .WithAction("Retry", () => toastManager.CreateToast("Retry clicked").Show())
-                                             .ShowError();
-                                     }
-                                     """;
+    private string _errorToastCode = string.Empty;
 }

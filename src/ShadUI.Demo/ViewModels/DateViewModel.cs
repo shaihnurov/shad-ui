@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.IO;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using ShadUI.Demo.Validators;
@@ -7,51 +8,34 @@ using ShadUI.Toasts;
 
 namespace ShadUI.Demo.ViewModels;
 
-public sealed partial class DateViewModel(ToastManager toastManager) : ViewModelBase
+public sealed partial class DateViewModel : ViewModelBase
 {
-    [ObservableProperty]
-    private string _defaultCode = """
-                                  <Calendar 
-                                      HorizontalAlignment="Center"
-                                      VerticalAlignment="Center" />
-                                  """;
+    private readonly ToastManager _toastManager;
+
+    public DateViewModel(ToastManager toastManager)
+    {
+        _toastManager = toastManager;
+
+        var path = Path.Combine(AppContext.BaseDirectory, "views", "DatePage.axaml");
+        CalendarCode = path.ExtractByLineRange(36, 38).CleanIndentation();
+        DatePickerCode = path.ExtractByLineRange(44, 47).CleanIndentation();
+        ReadOnlyDatePickerCode = path.ExtractByLineRange(53, 57).CleanIndentation();
+        DatePickerFormValidationCode = path.ExtractByLineRange(63, 77).CleanIndentation();
+        DateInputCode = path.ExtractByLineRange(83, 85).CleanIndentation();
+        DisabledDateInputCode = path.ExtractByLineRange(91, 93).CleanIndentation();
+        DateInputFormCode = path.ExtractByLineRange(99, 122).CleanIndentation();
+    }
 
     [ObservableProperty]
-    private string _datePickerCode = """
-                                     <CalendarDatePicker
-                                         HorizontalAlignment="Center"
-                                         VerticalAlignment="Center"
-                                         Width="240" />
-                                     """;
+    private string _calendarCode = string.Empty;
 
     [ObservableProperty]
-    private string _readOnlyDatePickerCode = """
-                                             <CalendarDatePicker
-                                                 HorizontalAlignment="Center"
-                                                 VerticalAlignment="Center"
-                                                 Width="240"
-                                                 extensions:ControlAssist.ReadOnly="True" />
-                                             """;
+    private string _datePickerCode =  string.Empty;
 
     [ObservableProperty]
-    private string _datePickerFormValidationCode = """
-                                                   <shadui:Card HorizontalAlignment="Center">
-                                                       <shadui:Card.Header>
-                                                           <shadui:CardTitle>Add Birthday</shadui:CardTitle>
-                                                       </shadui:Card.Header>
-                                                       <CalendarDatePicker
-                                                           SelectedDate="{Binding SelectedDate}"
-                                                           Width="240"
-                                                           extensions:ControlAssist.Hint="Your date of birth is used to calculate your age."
-                                                           extensions:ControlAssist.Label="Date of birth" />
-                                                       <shadui:Card.Footer>
-                                                           <Button Classes="Primary" Command="{Binding SubmitCommand}">
-                                                               Submit
-                                                           </Button>
-                                                       </shadui:Card.Footer>
-                                                   </shadui:Card>
-                                                   """;
-
+    private string _readOnlyDatePickerCode =  string.Empty;
+    [ObservableProperty]
+    private string _datePickerFormValidationCode =  string.Empty;
     private DateTime? _selectedDate;
 
     [Required(ErrorMessage = "A date of birth is required.")]
@@ -69,25 +53,17 @@ public sealed partial class DateViewModel(ToastManager toastManager) : ViewModel
         ValidateProperty(SelectedDate, nameof(SelectedDate));
         if (HasErrors) return;
 
-        toastManager.CreateToast("Add birthday")
+        _toastManager.CreateToast("Add birthday")
             .WithContent("Birthday has been submitted.")
             .DismissOnClick()
             .ShowSuccess();
     }
 
     [ObservableProperty]
-    private string _dateInputCode = """
-                                     <StackPanel>
-                                        <shadui:DateInput HorizontalAlignment="Center" />
-                                    </StackPanel>
-                                    """;
+    private string _dateInputCode =  string.Empty;
 
     [ObservableProperty]
-    private string _disabledDateInputCode = """
-                                            <StackPanel>
-                                                <shadui:DateInput IsEnabled="False" HorizontalAlignment="Center" />
-                                            </StackPanel>
-                                            """;
+    private string _disabledDateInputCode =  string.Empty;
 
     private DateOnly? _startDate;
 
@@ -118,35 +94,12 @@ public sealed partial class DateViewModel(ToastManager toastManager) : ViewModel
         ValidateProperty(EndDate, nameof(EndDate));
         if (HasErrors) return;
 
-        toastManager.CreateToast("Create schedule")
+        _toastManager.CreateToast("Create schedule")
             .WithContent("Schedule created successfully.")
             .DismissOnClick()
             .ShowSuccess();
     }
 
     [ObservableProperty]
-    private string _dateInputFormCode = """
-                                        <shadui:Card HorizontalAlignment="Center">
-                                            <shadui:Card.Header>
-                                                <shadui:CardTitle>Create a schedule</shadui:CardTitle>
-                                            </shadui:Card.Header>
-                                            <StackPanel Spacing="16">
-                                                <shadui:DateInput
-                                                    Value="{Binding StartDate, Converter={x:Static converters:DateOnlyToDateTimeOffsetConverter.Instance}}"
-                                                    Width="255"
-                                                    extensions:ControlAssist.Hint="Set the starting date"
-                                                    extensions:ControlAssist.Label="Start date" />
-                                                <shadui:DateInput
-                                                    Value="{Binding EndDate, Converter={x:Static converters:DateOnlyToDateTimeOffsetConverter.Instance}}"
-                                                    Width="255"
-                                                    extensions:ControlAssist.Hint="Set the cut-off date"
-                                                    extensions:ControlAssist.Label="End date" />
-                                            </StackPanel>
-                                            <shadui:Card.Footer>
-                                                <Button Classes="Primary" Command="{Binding SubmitDateFormCommand}">
-                                                    Submit
-                                                </Button>
-                                            </shadui:Card.Footer>
-                                        </shadui:Card>
-                                        """;
+    private string _dateInputFormCode =  string.Empty;
 }

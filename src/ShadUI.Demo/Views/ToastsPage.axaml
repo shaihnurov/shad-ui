@@ -84,7 +84,7 @@
                         <Button
                             HorizontalAlignment="Center"
                             Classes="Outline"
-                            Command="{Binding ShowWithTitleToastCommand}"
+                            Command="{Binding ShowToastWithTitleCommand}"
                             Content="Show Toast" />
                     </StackPanel>
                 </controls:ControlBlock>
@@ -99,7 +99,7 @@
                         <Button
                             HorizontalAlignment="Center"
                             Classes="Outline"
-                            Command="{Binding ShowWithActionToastCommand}"
+                            Command="{Binding ShowToastWithActionCommand}"
                             Content="Show Toast" />
                     </StackPanel>
                 </controls:ControlBlock>
@@ -114,7 +114,7 @@
                         <Button
                             HorizontalAlignment="Center"
                             Classes="Outline"
-                            Command="{Binding ShowWithDelayToastCommand}"
+                            Command="{Binding ShowToastWithDelayCommand}"
                             Content="Show Toast" />
                     </StackPanel>
                 </controls:ControlBlock>

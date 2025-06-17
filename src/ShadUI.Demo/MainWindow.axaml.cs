@@ -3,7 +3,7 @@ using Avalonia.Interactivity;
 using ShadUI.Demo.ViewModels;
 using Window = ShadUI.Controls.Window;
 
-namespace ShadUI.Demo.Views;
+namespace ShadUI.Demo;
 
 public partial class MainWindow : Window
 {

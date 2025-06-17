@@ -1,72 +1,57 @@
+using System;
+using System.IO;
 using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace ShadUI.Demo.ViewModels;
 
 public sealed partial class TypographyViewModel : ViewModelBase
 {
-    [ObservableProperty]
-    private string _h1Code = """
-                             <TextBlock TextWrapping="Wrap" Classes="h1" 
-                                        Text="Taxing Laughter: The Joke Tax Chronicles" />
-                             """;
+    public TypographyViewModel()
+    {
+        var path = Path.Combine(AppContext.BaseDirectory, "views", "TypographyPage.axaml");
+        H1Code = path.ExtractByLineRange(29, 32).CleanIndentation();
+        H2Code = path.ExtractByLineRange(38, 41).CleanIndentation();
+        H3Code = path.ExtractByLineRange(47, 50).CleanIndentation();
+        H4Code = path.ExtractByLineRange(56, 59).CleanIndentation();
+        PCode = path.ExtractByLineRange(65, 68).CleanIndentation();
+        LeadCode = path.ExtractByLineRange(74, 77).CleanIndentation();
+        LargeCode = path.ExtractByLineRange(83, 86).CleanIndentation();
+        SmallCode = path.ExtractByLineRange(92, 95).CleanIndentation();
+        CaptionCode = path.ExtractByLineRange(101, 104).CleanIndentation();
+        MutedCode = path.ExtractByLineRange(110, 113).CleanIndentation();
+        ErrorCode = path.ExtractByLineRange(119, 122).CleanIndentation();
+    }
 
     [ObservableProperty]
-    private string _h2Code = """
-                             <TextBlock TextWrapping="Wrap" Classes="h2" 
-                                        Text="The People of the Kingdom" />
-                             """;
+    private string _h1Code = string.Empty;
 
     [ObservableProperty]
-    private string _h3Code = """
-                             <TextBlock TextWrapping="Wrap" Classes="h3" 
-                                        Text="The Joke Tax" />
-                             """;
+    private string _h2Code = string.Empty;
 
     [ObservableProperty]
-    private string _h4Code = """
-                             <TextBlock TextWrapping="Wrap" Classes="h4" 
-                                        Text="People stopped telling jokes" />
-                             """;
+    private string _h3Code = string.Empty;
 
     [ObservableProperty]
-    private string _pCode = """
-                            <TextBlock TextWrapping="Wrap" Classes="p"
-                                       Text="The king, seeing how much happier his subjects were, realized the error of his ways and repealed the joke tax." />
-                            """;
+    private string _h4Code = string.Empty;
 
     [ObservableProperty]
-    private string _leadCode = """
-                               <TextBlock TextWrapping="Wrap" Classes="Lead"
-                                          Text="A modal dialog that interrupts the user with important content and expects a response." />
-                               """;
+    private string _pCode = string.Empty;
 
     [ObservableProperty]
-    private string _largeCode = """
-                                <TextBlock TextWrapping="Wrap" TextAlignment="Center" Classes="Large"
-                                           Text="Are you absolutely sure?" />
-                                """;
+    private string _leadCode = string.Empty;
 
     [ObservableProperty]
-    private string _smallCode = """
-                                <TextBlock TextWrapping="Wrap" Classes="Small" 
-                                           Text="Email address" />
-                                """;
+    private string _largeCode = string.Empty;
 
     [ObservableProperty]
-    private string _captionCode = """
-                                  <TextBlock TextWrapping="Wrap" TextAlignment="Center" Classes="Caption" 
-                                             Text="Username" />
-                                  """;
+    private string _smallCode = string.Empty;
 
     [ObservableProperty]
-    private string _mutedCode = """
-                                <TextBlock TextWrapping="Wrap" Classes="Muted" 
-                                           Text="Enter your email address" />
-                                """;
+    private string _captionCode = string.Empty;
 
     [ObservableProperty]
-    private string _errorCode = """
-                                <TextBlock TextWrapping="Wrap" Classes="Caption Error" 
-                                           Text="Invalid email address" />
-                                """;
+    private string _mutedCode = string.Empty;
+
+    [ObservableProperty]
+    private string _errorCode = string.Empty;
 }

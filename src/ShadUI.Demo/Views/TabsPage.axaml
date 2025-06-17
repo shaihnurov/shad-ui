@@ -54,5 +54,4 @@
             </StackPanel>
         </ScrollViewer>
     </DockPanel>
-
 </UserControl>

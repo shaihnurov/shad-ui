@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.IO;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 
@@ -6,29 +8,22 @@ namespace ShadUI.Demo.ViewModels;
 
 public sealed partial class ComboBoxesViewModel : ViewModelBase
 {
-    [ObservableProperty]
-    private string _selectComboBoxCode = """
-                                         <StackPanel>
-                                             <ComboBox Width="255"
-                                                       HorizontalContentAlignment="Center"
-                                                       SelectedIndex="0">
-                                                 <ComboBoxItem>Next.js</ComboBoxItem>
-                                                 <ComboBoxItem>SvelteKit</ComboBoxItem>
-                                                 <ComboBoxItem>Nuxt.js</ComboBoxItem>
-                                                 <ComboBoxItem>Remix</ComboBoxItem>
-                                                 <ComboBoxItem>Astro</ComboBoxItem>
-                                             </ComboBox>
-                                         </StackPanel>
-                                         """;
+    public ComboBoxesViewModel()
+    {
+        var path = Path.Combine(AppContext.BaseDirectory, "views", "ComboBoxesPage.axaml");
+        SelectComboBoxCode = path.ExtractByLineRange(36, 44).CleanIndentation();
+        SelectComboBoxDisabledCode = path.ExtractByLineRange(50, 55).CleanIndentation();
+        FormValidationCode = path.ExtractByLineRange(61, 83).CleanIndentation();
+    }
 
     [ObservableProperty]
-    private string _selectComboBoxDisabledCode = """
-                                                 <StackPanel Spacing="8">
-                                                     <ComboBox Width="255"
-                                                               IsEnabled="False"
-                                                               PlaceholderText="Select a framework" />
-                                                 </StackPanel>
-                                                 """;
+    private string _selectComboBoxCode = string.Empty;
+
+    [ObservableProperty]
+    private string _selectComboBoxDisabledCode = string.Empty;
+
+    [ObservableProperty]
+    private string _formValidationCode = string.Empty;
 
     [ObservableProperty]
     private string[] _items =
@@ -54,21 +49,4 @@ public sealed partial class ComboBoxesViewModel : ViewModelBase
     {
         SelectedItem = null;
     }
-
-    [ObservableProperty]
-    private string _formValidationCode = """
-                                         <shadui:Card HorizontalAlignment="Center">
-                                             <StackPanel Spacing="16">
-                                                 <ComboBox Width="255"
-                                                           SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
-                                                           ItemsSource="{Binding Items}"
-                                                           extensions:ControlAssist.Label="Select a framework"
-                                                           extensions:ControlAssist.Hint="Your favorite web framework" />
-                                                 <Button HorizontalAlignment="Right" Margin="0,20,0,0" Classes="Outline"
-                                                         Command="{Binding ClearCommand}">
-                                                     Clear
-                                                 </Button>
-                                             </StackPanel>
-                                         </shadui:Card>
-                                         """;
 }

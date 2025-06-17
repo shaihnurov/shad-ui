@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.IO;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using ShadUI.Demo.Validators;
@@ -7,52 +8,35 @@ using ShadUI.Toasts;
 
 namespace ShadUI.Demo.ViewModels;
 
-public sealed partial class TimeViewModel(ToastManager toastManager) : ViewModelBase
+public sealed partial class TimeViewModel : ViewModelBase
 {
-    [ObservableProperty]
-    private string _hour12ClockTimePickerCode = """
-                                                <StackPanel>
-                                                    <TimePicker HorizontalAlignment="Center" />
-                                                </StackPanel>
-                                                """;
+    private readonly ToastManager _toastManager;
+
+    public TimeViewModel(ToastManager toastManager)
+    {
+        _toastManager = toastManager;
+        var path = Path.Combine(AppContext.BaseDirectory, "views", "TimePage.axaml");
+        Hour12ClockTimePickerCode = path.ExtractByLineRange(36, 38).CleanIndentation();
+        Hour24ClockTimePickerCode = path.ExtractByLineRange(44, 47).CleanIndentation();
+        DisabledTimePickerCode = path.ExtractByLineRange(53, 55).CleanIndentation();
+        FormTimePickerCode = path.ExtractByLineRange(61, 84).CleanIndentation();
+        Hour12ClockTimeInputCode = path.ExtractByLineRange(90, 92).CleanIndentation();
+        Hour24ClockTimeInputCode = path.ExtractByLineRange(98, 101).CleanIndentation();
+        DisabledTimeInputCode = path.ExtractByLineRange(107, 109).CleanIndentation();
+        FormTimeInputCode = path.ExtractByLineRange(115, 138).CleanIndentation();
+    }
 
     [ObservableProperty]
-    private string _hour24ClockTimePickerCode = """
-                                                <StackPanel>
-                                                    <TimePicker ClockIdentifier="24HourClock" HorizontalAlignment="Center" UseSeconds="True"/>
-                                                </StackPanel>
-                                                """;
+    private string _hour12ClockTimePickerCode = string.Empty;
 
     [ObservableProperty]
-    private string _disabledTimePickerCode = """
-                                             <StackPanel>
-                                                 <TimePicker IsEnabled="False" HorizontalAlignment="Center" />
-                                             </StackPanel>
-                                             """;
+    private string _hour24ClockTimePickerCode = string.Empty;
 
     [ObservableProperty]
-    private string _formTimePickerCode = """
-                                         <shadui:Card HorizontalAlignment="Center">
-                                             <shadui:Card.Header>
-                                                 <shadui:CardTitle>Create a schedule</shadui:CardTitle>
-                                             </shadui:Card.Header>
-                                             <StackPanel Spacing="16">
-                                                 <TimePicker Width="255"
-                                                             extensions:ControlAssist.Label="Start Time"
-                                                             extensions:ControlAssist.Hint="Set the beginning time"
-                                                             SelectedTime="{Binding StartTime, Converter={x:Static converters:TimeOnlyToTimeSpanConverter.Instance}}" />
-                                                 <TimePicker Width="255"
-                                                             extensions:ControlAssist.Label="End Time"
-                                                             extensions:ControlAssist.Hint="Set the cut-off time"
-                                                             SelectedTime="{Binding EndTime, Converter={x:Static converters:TimeOnlyToTimeSpanConverter.Instance}}" />
-                                             </StackPanel>
-                                             <shadui:Card.Footer>
-                                                 <Button Classes="Primary" Command="{Binding SubmitTimeFormCommand}">
-                                                     Submit
-                                                 </Button>
-                                             </shadui:Card.Footer>
-                                         </shadui:Card>
-                                         """;
+    private string _disabledTimePickerCode = string.Empty;
+
+    [ObservableProperty]
+    private string _formTimePickerCode = string.Empty;
 
     private TimeOnly? _startTime;
 
@@ -83,54 +67,21 @@ public sealed partial class TimeViewModel(ToastManager toastManager) : ViewModel
         ValidateProperty(EndTime, nameof(EndTime));
         if (HasErrors) return;
 
-        toastManager.CreateToast("Create schedule")
+        _toastManager.CreateToast("Create schedule")
             .WithContent("Schedule created successfully.")
             .DismissOnClick()
             .ShowSuccess();
     }
 
     [ObservableProperty]
-    private string _hour12ClockTimeInputCode = """
-                                               <StackPanel>
-                                                   <shadui:TimeInput HorizontalAlignment="Center" />
-                                               </StackPanel>
-                                               """;
+    private string _hour12ClockTimeInputCode = string.Empty;
 
     [ObservableProperty]
-    private string _hour24ClockTimeInputCode = """
-                                               <StackPanel>
-                                                   <shadui:TimeInput ClockIdentifier="24HourClock" HorizontalAlignment="Center" UseSeconds="True"/>
-                                               </StackPanel>
-                                               """;
+    private string _hour24ClockTimeInputCode = string.Empty;
 
     [ObservableProperty]
-    private string _disabledTimeInputCode = """
-                                            <StackPanel>
-                                                <shadui:TimeInput IsEnabled="False" HorizontalAlignment="Center" />
-                                            </StackPanel>
-                                            """;
+    private string _disabledTimeInputCode = string.Empty;
 
     [ObservableProperty]
-    private string _formTimeInputCode = """
-                                        <shadui:Card HorizontalAlignment="Center">
-                                            <shadui:Card.Header>
-                                                <shadui:CardTitle>Create a schedule</shadui:CardTitle>
-                                            </shadui:Card.Header>
-                                            <StackPanel Spacing="16">
-                                                <shadui:TimeInput Width="255"
-                                                                  extensions:ControlAssist.Label="Start Time"
-                                                                  extensions:ControlAssist.Hint="Set the beginning time"
-                                                                  Value="{Binding StartTime, Converter={x:Static converters:TimeOnlyToTimeSpanConverter.Instance}}" />
-                                                <shadui:TimeInput Width="255"
-                                                                  extensions:ControlAssist.Label="End Time"
-                                                                  extensions:ControlAssist.Hint="Set the cut-off time"
-                                                                  Value="{Binding EndTime, Converter={x:Static converters:TimeOnlyToTimeSpanConverter.Instance}}" />
-                                            </StackPanel>
-                                            <shadui:Card.Footer>
-                                                <Button Classes="Primary" Command="{Binding SubmitTimeFormCommand}">
-                                                    Submit
-                                                </Button>
-                                            </shadui:Card.Footer>
-                                        </shadui:Card>
-                                        """;
+    private string _formTimeInputCode = string.Empty;
 }

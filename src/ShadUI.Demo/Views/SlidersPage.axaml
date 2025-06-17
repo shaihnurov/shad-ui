@@ -31,37 +31,31 @@
                     Title="Default"
                     Code="{Binding DefaultSliderCode}"
                     Language="xaml">
-                    <StackPanel>
-                        <Slider
-                            Maximum="10"
-                            TickFrequency="1"
-                            Value="5" />
-                    </StackPanel>
+                    <Slider
+                        Maximum="10"
+                        TickFrequency="1"
+                        Value="5" />
                 </controls:ControlBlock>
                 <controls:ControlBlock
                     Title="Disabled"
                     Code="{Binding DisabledSliderCode}"
                     Language="xaml">
-                    <StackPanel>
-                        <Slider
-                            IsEnabled="False"
-                            Maximum="10"
-                            TickFrequency="1"
-                            Value="5" />
-                    </StackPanel>
+                    <Slider
+                        IsEnabled="False"
+                        Maximum="10"
+                        TickFrequency="1"
+                        Value="5" />
                 </controls:ControlBlock>
                 <controls:ControlBlock
                     Title="Tick Enabled"
                     Code="{Binding TickEnabledSliderCode}"
                     Language="xaml">
-                    <StackPanel>
-                        <Slider
-                            IsSnapToTickEnabled="True"
-                            Maximum="10"
-                            TickFrequency="1"
-                            TickPlacement="BottomRight"
-                            Value="5" />
-                    </StackPanel>
+                    <Slider
+                        IsSnapToTickEnabled="True"
+                        Maximum="10"
+                        TickFrequency="1"
+                        TickPlacement="BottomRight"
+                        Value="5" />
                 </controls:ControlBlock>
             </StackPanel>
         </ScrollViewer>
