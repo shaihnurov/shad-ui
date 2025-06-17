@@ -14,19 +14,19 @@
     <Color x:Key="GhostHoverColor50">#7FF0F0F0</Color>
 
     <!--  theme colors  -->
-    <Color x:Key="PrimaryColor">#09090B</Color>
-    <Color x:Key="PrimaryColor75">#BF09090B</Color>
-    <Color x:Key="PrimaryColor50">#8009090B</Color>
-    <Color x:Key="PrimaryColor10">#1909090B</Color>
+    <Color x:Key="PrimaryColor">#171717</Color>
+    <Color x:Key="PrimaryColor75">#BF171717</Color>
+    <Color x:Key="PrimaryColor50">#80171717</Color>
+    <Color x:Key="PrimaryColor10">#19171717</Color>
     <Color x:Key="PrimaryForegroundColor">#FAFAFA</Color>
     <Color x:Key="SecondaryColor">#D9D9D9</Color>
     <Color x:Key="SecondaryColor75">#BFD9D9D9</Color>
     <Color x:Key="SecondaryColor50">#80D9D9D9</Color>
     <Color x:Key="SecondaryForegroundColor">#18181B</Color>
-    <Color x:Key="DestructiveColor">#DC2626</Color>
-    <Color x:Key="DestructiveColor75">#BFDC2626</Color>
-    <Color x:Key="DestructiveColor50">#80DC2626</Color>
-    <Color x:Key="DestructiveColor10">#19DC2626</Color>
+    <Color x:Key="DestructiveColor">#E7000B</Color>
+    <Color x:Key="DestructiveColor75">#BFE7000B</Color>
+    <Color x:Key="DestructiveColor50">#80E7000B</Color>
+    <Color x:Key="DestructiveColor10">#19E7000B</Color>
     <Color x:Key="DestructiveForegroundColor">#FAFAFA</Color>
 
     <!--  notification colors  -->
@@ -54,16 +54,16 @@
     <!--  specific control colors  -->
     <Color x:Key="BusyAreaOverlayColor">#F2F2F2</Color>
 
-    <Color x:Key="CardBackgroundColor">#F7F7F7</Color>
+    <Color x:Key="CardBackgroundColor">#FFFFFF</Color>
 
     <Color x:Key="DialogOverlayColor">#000000</Color>
     <Color x:Key="DialogBackgroundColor">#F2F2F2</Color>
 
-    <Color x:Key="TitleBarBackgroundColor">#FAFAFA</Color>
-    <Color x:Key="WindowBackgroundColor">#FAFAFA</Color>
+    <Color x:Key="TitleBarBackgroundColor">#FFFFFF</Color>
+    <Color x:Key="WindowBackgroundColor">#FFFFFF</Color>
     <Color x:Key="WindowButtonHoverColor">#0D09090B</Color>
 
-    <Color x:Key="SidebarBackgroundColor">#FAFAFA</Color>
+    <Color x:Key="SidebarBackgroundColor">#FFFFFF</Color>
 
     <Color x:Key="SwitchBackgroundColor">#C0C0C2</Color>
     <Color x:Key="SwitchForegroundColor">#F2F2F2</Color>
