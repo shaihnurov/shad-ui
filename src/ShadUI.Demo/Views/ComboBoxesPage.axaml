@@ -59,7 +59,7 @@
                     Code="{Binding FormValidationCode}"
                     Language="xaml">
                     <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-                        <shadui:Card HorizontalAlignment="Center">
+                        <shadui:Card HorizontalAlignment="Center" HasShadow="True">
                             <shadui:Card.Header>
                                 <shadui:CardTitle>Framework Form</shadui:CardTitle>
                             </shadui:Card.Header>
