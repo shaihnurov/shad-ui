@@ -82,6 +82,8 @@
                     <Border
                         Name="PART_HoverBackground"
                         Background="{TemplateBinding extensions:ButtonAssist.HoverBackground}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
                         CornerRadius="{TemplateBinding CornerRadius}"
                         Opacity="0">
                         <Border.Transitions>
@@ -221,7 +223,7 @@
             <Setter Property="Height" Value="36" />
             <Setter Property="FontSize" Value="14" />
             <Setter Property="Padding" Value="16,8" />
-            <Setter Property="Background" Value="{DynamicResource BackgroundColor}" />
+            <Setter Property="Background" Value="{DynamicResource SelectionColor}" />
             <Setter Property="BorderThickness" Value="1" />
             <Setter Property="BorderBrush" Value="{DynamicResource BorderColor}" />
             <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
@@ -232,7 +234,7 @@
                 <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
             </Style>
             <Style Selector="^ /template/ Border#PART_HoverBackground">
-                <Setter Property="Background" Value="{DynamicResource OutlineColor}" />
+                <Setter Property="Background" Value="{DynamicResource GhostColor}" />
             </Style>
         </Style>
 
@@ -259,14 +261,13 @@
         <Style Selector="^.Icon">
             <Setter Property="Width" Value="36" />
             <Setter Property="Height" Value="36" />
-            <Setter Property="BorderThickness" Value="1" />
-            <Setter Property="Background" Value="{DynamicResource BackgroundColor}" />
+            <Setter Property="Background" Value="{DynamicResource GhostHoverColor50}" />
             <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
             <Style Selector="^ /template/ ContentPresenter">
                 <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
             </Style>
             <Style Selector="^ /template/ Border#PART_HoverBackground">
-                <Setter Property="Background" Value="{DynamicResource OutlineColor}" />
+                <Setter Property="Background" Value="{DynamicResource GhostColor}" />
             </Style>
         </Style>
 

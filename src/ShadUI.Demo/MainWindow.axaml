@@ -52,7 +52,6 @@
             Width="30"
             Height="30"
             Background="{DynamicResource SidebarBackgroundColor}"
-            Classes="Icon"
             Command="{Binding SwitchThemeCommand}"
             CornerRadius="{DynamicResource MdCornerRadius}"
             ToolTip.Tip="Switch Theme">
@@ -64,7 +63,6 @@
             Height="30"
             Margin="8,0,0,0"
             Background="{DynamicResource SidebarBackgroundColor}"
-            Classes="Icon"
             CornerRadius="{DynamicResource MdCornerRadius}"
             IsVisible="{Binding #Window.WindowState, Converter={x:Static converters:WindowStateConverters.IsNotFullScreen}}"
             ToolTip.Tip="Fullscreen">
@@ -76,7 +74,6 @@
             Height="30"
             Margin="8,0,0,0"
             Background="{DynamicResource SidebarBackgroundColor}"
-            Classes="Icon"
             CornerRadius="{DynamicResource MdCornerRadius}"
             IsVisible="{Binding #Window.WindowState, Converter={x:Static converters:WindowStateConverters.IsFullScreen}}"
             ToolTip.Tip="Exit Fullscreen">
@@ -309,7 +306,8 @@
                         </Style>
                     </StackPanel.Styles>
                     <Button
-                        Classes="Icon"
+                        Width="36"
+                        Height="36"
                         CommandParameter="https://github.com/accntech/shad-ui"
                         ToolTip.Tip="Source repository">
                         <extensions:ButtonAssist.Icon>
@@ -320,7 +318,8 @@
                         </extensions:ButtonAssist.Icon>
                     </Button>
                     <Button
-                        Classes="Icon"
+                        Width="36"
+                        Height="36"
                         CommandParameter="https://github.com/accntech/shad-ui/blob/main/LICENSE"
                         ToolTip.Tip="Open source license">
                         <extensions:ButtonAssist.Icon>
@@ -331,7 +330,8 @@
                         </extensions:ButtonAssist.Icon>
                     </Button>
                     <Button
-                        Classes="Icon"
+                        Width="36"
+                        Height="36"
                         CommandParameter="https://www.nuget.org/packages/ShadUI"
                         ToolTip.Tip="Nuget package">
                         <extensions:ButtonAssist.Icon>

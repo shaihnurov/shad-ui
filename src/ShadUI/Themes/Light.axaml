@@ -8,10 +8,11 @@
     <Color x:Key="BorderColor">#CECECE</Color>
     <Color x:Key="BorderColor60">#DEDEDE</Color>
     <Color x:Key="BorderColor30">#4CCECECE</Color>
-    <Color x:Key="OutlineColor">#BFE0E0E0</Color>
+    <Color x:Key="OutlineColor">#E5E5E5</Color>
     <Color x:Key="GhostColor">#E6E6E6</Color>
     <Color x:Key="GhostHoverColor">#F0F0F0</Color>
     <Color x:Key="GhostHoverColor50">#7FF0F0F0</Color>
+    <Color x:Key="SelectionColor">#0CE5E5E5</Color>
 
     <!--  theme colors  -->
     <Color x:Key="PrimaryColor">#171717</Color>

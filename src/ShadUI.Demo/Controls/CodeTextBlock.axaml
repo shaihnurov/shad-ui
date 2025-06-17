@@ -47,12 +47,13 @@
                             VerticalScrollBarVisibility="Auto" />
                         <Button
                             Name="PART_ClipBoardButton"
+                            Width="36"
+                            Height="36"
                             Margin="8"
                             Padding="6"
                             HorizontalAlignment="Right"
                             VerticalAlignment="Top"
-                            extensions:ButtonAssist.HoverBackground="{DynamicResource CodeForegroundColor50}"
-                            Classes="Icon">
+                            extensions:ButtonAssist.HoverBackground="{DynamicResource CodeForegroundColor50}">
                             <extensions:ButtonAssist.Icon>
                                 <PathIcon
                                     Name="PART_ClipBoardIcon"
