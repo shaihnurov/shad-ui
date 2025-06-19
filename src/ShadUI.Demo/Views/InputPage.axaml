@@ -106,6 +106,17 @@
                     </AutoCompleteBox>
                 </controls:ControlBlock>
                 <controls:ControlBlock
+                    Title="Text Area"
+                    Code="{Binding TextAreaCode}"
+                    Language="xaml">
+                    <TextBox
+                        Width="225"
+                        extensions:ControlAssist.Height="300"
+                        extensions:ControlAssist.Label="Description"
+                        AcceptsReturn="True"
+                        Watermark="Enter a long description here..." />
+                </controls:ControlBlock>
+                <controls:ControlBlock
                     Title="Form Validation"
                     Code="{Binding FormValidationCode}"
                     Language="xaml">

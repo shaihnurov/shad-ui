@@ -28,12 +28,13 @@ public sealed partial class InputViewModel : ViewModelBase
 
         var path = Path.Combine(AppContext.BaseDirectory, "views", "InputPage.axaml");
         DefaultInputCode = path.ExtractByLineRange(36, 38).CleanIndentation();
-        DisabledCode = path.ExtractByLineRange(44, 49).CleanIndentation();
-        WithLabelCode = path.ExtractByLineRange(55, 61).CleanIndentation();
-        WithCustomLabelCode = path.ExtractByLineRange(67, 73).CleanIndentation();
-        SearchBoxCode = path.ExtractByLineRange(79, 93).CleanIndentation();
-        AutoCompleteBoxCode = path.ExtractByLineRange(99, 116).CleanIndentation();
-        FormValidationCode = path.ExtractByLineRange(122, 154).CleanIndentation();
+        DisabledCode = path.ExtractByLineRange(44, 47).CleanIndentation();
+        WithLabelCode = path.ExtractByLineRange(53, 57).CleanIndentation();
+        WithCustomLabelCode = path.ExtractByLineRange(63, 67).CleanIndentation();
+        SearchBoxCode = path.ExtractByLineRange(73, 85).CleanIndentation();
+        AutoCompleteBoxCode = path.ExtractByLineRange(91, 106).CleanIndentation();
+        TextAreaCode = path.ExtractByLineRange(112, 117).CleanIndentation();
+        FormValidationCode = path.ExtractByLineRange(123, 155).CleanIndentation();
     }
 
     private void OnPropertyChanged(object? sender, PropertyChangedEventArgs e)
@@ -94,6 +95,9 @@ public sealed partial class InputViewModel : ViewModelBase
 
     [ObservableProperty]
     private string _autoCompleteBoxCode = string.Empty;
+    
+    [ObservableProperty]
+    private string _textAreaCode = string.Empty;
 
     private string _email = string.Empty;
 
