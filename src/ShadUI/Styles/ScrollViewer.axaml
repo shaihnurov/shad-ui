@@ -30,11 +30,13 @@
                         Name="PART_HorizontalScrollBar"
                         Grid.Row="1"
                         Grid.Column="0"
+                        Margin="0,-2,0,0"
                         Orientation="Horizontal" />
                     <ScrollBar
                         Name="PART_VerticalScrollBar"
                         Grid.Row="0"
                         Grid.Column="1"
+                        Margin="-2,0,0,0"
                         Orientation="Vertical" />
                     <Panel
                         Name="PART_ScrollBarsSeparator"
