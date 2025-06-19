@@ -4,14 +4,13 @@
     xmlns:icons="clr-namespace:ShadUI.Contents">
     <ControlTheme x:Key="ComboBoxItemTheme" TargetType="ComboBoxItem">
         <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
-        <Setter Property="Padding" Value="8,4" />
-        <Setter Property="Margin" Value="0,1" />
+        <Setter Property="Padding" Value="10,8" />
+        <Setter Property="Margin" Value="1" />
         <Setter Property="CornerRadius" Value="{DynamicResource MdCornerRadius}" />
         <Setter Property="HorizontalAlignment" Value="Stretch" />
         <Setter Property="HorizontalContentAlignment" Value="Left" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="FontSize" Value="14" />
-        <Setter Property="MinHeight" Value="36" />
         <Setter Property="FontWeight" Value="Medium" />
         <Setter Property="Template">
             <ControlTemplate>
@@ -22,26 +21,21 @@
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
                         CornerRadius="{TemplateBinding CornerRadius}"
-                        Opacity="1">
-                        <Border.Transitions>
-                            <Transitions>
-                                <DoubleTransition Property="Opacity" Duration="0:0:0.20" />
-                            </Transitions>
-                        </Border.Transitions>
-                    </Border>
+                        Opacity="1" />
                     <Border
                         Name="HoverBackground"
+                        Background="{DynamicResource GhostHoverColor}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}"
+                        Opacity="0" />
+                    <Border
+                        Name="SelectionBackground"
                         Background="{DynamicResource GhostColor}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
                         CornerRadius="{TemplateBinding CornerRadius}"
-                        Opacity="0">
-                        <Border.Transitions>
-                            <Transitions>
-                                <DoubleTransition Property="Opacity" Duration="0:0:0.20" />
-                            </Transitions>
-                        </Border.Transitions>
-                    </Border>
+                        Opacity="0" />
                     <DockPanel Margin="{TemplateBinding Padding}" LastChildFill="True">
                         <PathIcon
                             Name="CheckSelected"
@@ -55,7 +49,6 @@
                             Name="PART_ContentPresenter"
                             HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                             VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                            Background="Transparent"
                             Content="{TemplateBinding Content}"
                             ContentTemplate="{TemplateBinding ContentTemplate}"
                             CornerRadius="{TemplateBinding CornerRadius}" />
@@ -63,26 +56,33 @@
                 </Panel>
             </ControlTemplate>
         </Setter>
+        <Style Selector="^ /template/ Border">
+            <Setter Property="Transitions">
+                <Transitions>
+                    <DoubleTransition Property="Opacity" Duration="0:0:0.20" />
+                </Transitions>
+            </Setter>
+        </Style>
         <Style Selector="^ /template/ PathIcon#CheckSelected">
             <Setter Property="IsVisible" Value="False" />
         </Style>
         <Style Selector="^:selected /template/ PathIcon#CheckSelected">
             <Setter Property="IsVisible" Value="True" />
         </Style>
+        <Style Selector="^:selected:not(:pointerover) /template/ Border#SelectionBackground">
+            <Setter Property="Opacity" Value="1" />
+        </Style>
+        <Style Selector="^:focus /template/ Border#HoverBackground">
+            <Setter Property="Opacity" Value="1" />
+        </Style>
         <Style Selector="^:pointerover /template/ Border#HoverBackground">
             <Setter Property="Opacity" Value="1" />
         </Style>
-        <Style Selector="^:selected /template/ Border#HoverBackground">
+        <Style Selector="^:focus:pointerover /template/ Border#HoverBackground">
             <Setter Property="Opacity" Value="1" />
         </Style>
-        <Style Selector="^:pointerover /template/ Border#BaseBackground">
+        <Style Selector="^:not(:focus):not(:pointerover) /template/ Border#HoverBackground">
             <Setter Property="Opacity" Value="0" />
-        </Style>
-        <Style Selector="^:selected /template/ Border#BaseBackground">
-            <Setter Property="Opacity" Value="0" />
-        </Style>
-        <Style Selector="^:last-child">
-            <Setter Property="Margin" Value="0" />
         </Style>
     </ControlTheme>
 

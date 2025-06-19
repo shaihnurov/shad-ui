@@ -50,7 +50,7 @@
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
         <Setter Property="ItemsPanel">
             <ItemsPanelTemplate>
-                <VirtualizingStackPanel Margin="3,1" />
+                <VirtualizingStackPanel Margin="3" />
             </ItemsPanelTemplate>
         </Setter>
         <Setter Property="Template">
