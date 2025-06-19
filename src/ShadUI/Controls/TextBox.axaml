@@ -177,10 +177,7 @@
                                 BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="{TemplateBinding BorderThickness}"
                                 CornerRadius="{TemplateBinding CornerRadius}">
-                                <Grid
-                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                    ColumnDefinitions="Auto * Auto">
+                                <Grid ColumnDefinitions="Auto * Auto">
                                     <ContentPresenter
                                         Grid.Column="0"
                                         VerticalAlignment="Center"
@@ -219,7 +216,8 @@
                                             <TextPresenter
                                                 Name="PART_TextPresenter"
                                                 Margin="{TemplateBinding Padding}"
-                                                VerticalAlignment="Center"
+                                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                                 CaretBlinkInterval="{TemplateBinding CaretBlinkInterval}"
                                                 CaretBrush="{TemplateBinding CaretBrush}"
                                                 CaretIndex="{TemplateBinding CaretIndex}"
