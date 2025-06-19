@@ -35,11 +35,19 @@
                     Language="xaml">
                     <StackPanel Spacing="8">
                         <ComboBox Width="255" SelectedIndex="0">
-                            <ComboBoxItem>Next.js</ComboBoxItem>
-                            <ComboBoxItem>SvelteKit</ComboBoxItem>
-                            <ComboBoxItem>Nuxt.js</ComboBoxItem>
-                            <ComboBoxItem>Remix</ComboBoxItem>
+                            <ComboBoxItem>Angular</ComboBoxItem>
                             <ComboBoxItem>Astro</ComboBoxItem>
+                            <ComboBoxItem>Lit</ComboBoxItem>
+                            <ComboBoxItem>Next.js</ComboBoxItem>
+                            <ComboBoxItem>Nuxt.js</ComboBoxItem>
+                            <ComboBoxItem>Preact</ComboBoxItem>
+                            <ComboBoxItem>Qwik</ComboBoxItem>
+                            <ComboBoxItem>React</ComboBoxItem>
+                            <ComboBoxItem>Remix</ComboBoxItem>
+                            <ComboBoxItem>SolidJS</ComboBoxItem>
+                            <ComboBoxItem>Svelte</ComboBoxItem>
+                            <ComboBoxItem>SvelteKit</ComboBoxItem>
+                            <ComboBoxItem>Vue.js</ComboBoxItem>
                         </ComboBox>
                     </StackPanel>
                 </controls:ControlBlock>

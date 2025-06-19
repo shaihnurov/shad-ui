@@ -93,15 +93,19 @@ public sealed partial class InputViewModel : ViewModelBase
     [ObservableProperty]
     private string[] _webFrameworks =
     [
-        "Next.js",
-        "SvelteKitJS",
-        "Nuxt.js",
-        "Remix",
-        "Astro",
-        "Vue.js",
         "Angular",
+        "Astro",
+        "Lit",
+        "Next.js",
+        "Nuxt.js",
+        "Preact",
+        "Qwik",
         "React",
-        "SolidJS"
+        "Remix",
+        "SolidJS",
+        "Svelte",
+        "SvelteKit",
+        "Vue.js",
     ];
 
     [ObservableProperty]

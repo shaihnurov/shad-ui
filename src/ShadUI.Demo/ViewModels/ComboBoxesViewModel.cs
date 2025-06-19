@@ -28,11 +28,19 @@ public sealed partial class ComboBoxesViewModel : ViewModelBase
     [ObservableProperty]
     private string[] _items =
     [
+        "Angular",
+        "Astro",
+        "Lit",
         "Next.js",
-        "SvelteKit",
         "Nuxt.js",
+        "Preact",
+        "Qwik",
+        "React",
         "Remix",
-        "Astro"
+        "SolidJS",
+        "Svelte",
+        "SvelteKit",
+        "Vue.js"
     ];
 
     private string? _selectedItem = "Next.js";
