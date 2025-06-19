@@ -48,6 +48,11 @@
         <Setter Property="FontWeight" Value="Medium" />
         <Setter Property="extensions:ControlAssist.MinHeight" Value="36" />
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
+        <Setter Property="ItemsPanel">
+            <ItemsPanelTemplate>
+                <VirtualizingStackPanel Margin="3,1" />
+            </ItemsPanelTemplate>
+        </Setter>
         <Setter Property="Template">
             <ControlTemplate>
                 <DataValidationErrors>
@@ -144,7 +149,6 @@
                                                 <ScrollViewer HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}" VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
                                                     <ItemsPresenter
                                                         Name="PART_ItemsPresenter"
-                                                        Margin="0,3,0,0"
                                                         ItemsPanel="{TemplateBinding ItemsPanel}"
                                                         TextBlock.FontSize="{TemplateBinding FontSize}"
                                                         TextBlock.FontWeight="{TemplateBinding FontWeight}"
