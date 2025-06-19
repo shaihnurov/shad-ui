@@ -41,79 +41,69 @@
                     Title="Disabled"
                     Code="{Binding DisabledCode}"
                     Language="xaml">
-                    <StackPanel>
-                        <TextBox
-                            Width="225"
-                            IsEnabled="False"
-                            Watermark="Email" />
-                    </StackPanel>
+                    <TextBox
+                        Width="225"
+                        IsEnabled="False"
+                        Watermark="Email" />
                 </controls:ControlBlock>
                 <controls:ControlBlock
                     Title="With Label"
                     Code="{Binding WithLabelCode}"
                     Language="xaml">
-                    <StackPanel>
-                        <TextBox
-                            Width="225"
-                            Classes="Clearable"
-                            UseFloatingWatermark="True"
-                            Watermark="Email" />
-                    </StackPanel>
+                    <TextBox
+                        Width="225"
+                        Classes="Clearable"
+                        UseFloatingWatermark="True"
+                        Watermark="Email" />
                 </controls:ControlBlock>
                 <controls:ControlBlock
                     Title="With Custom Label"
                     Code="{Binding WithCustomLabelCode}"
                     Language="xaml">
-                    <StackPanel>
-                        <TextBox
-                            Width="225"
-                            extensions:ControlAssist.Label="Email"
-                            Classes="Clearable"
-                            Watermark="user@example.com" />
-                    </StackPanel>
+                    <TextBox
+                        Width="225"
+                        extensions:ControlAssist.Label="Email"
+                        Classes="Clearable"
+                        Watermark="user@example.com" />
                 </controls:ControlBlock>
                 <controls:ControlBlock
                     Title="Search Box"
                     Code="{Binding SearchBoxCode}"
                     Language="xaml">
-                    <StackPanel>
-                        <TextBox
-                            Width="225"
-                            extensions:ControlAssist.ShowProgress="{Binding IsSearching}"
-                            Classes="Clearable"
-                            Text="{Binding SearchString, Mode=TwoWay}"
-                            Watermark="Search here...">
-                            <TextBox.InnerRightContent>
-                                <PathIcon
-                                    Width="16"
-                                    Data="{x:Static contents:Icons.Search}"
-                                    Opacity="0.75" />
-                            </TextBox.InnerRightContent>
-                        </TextBox>
-                    </StackPanel>
+                    <TextBox
+                        Width="225"
+                        extensions:ControlAssist.ShowProgress="{Binding IsSearching}"
+                        Classes="Clearable"
+                        Text="{Binding SearchString, Mode=TwoWay}"
+                        Watermark="Search here...">
+                        <TextBox.InnerRightContent>
+                            <PathIcon
+                                Width="16"
+                                Data="{x:Static contents:Icons.Search}"
+                                Opacity="0.75" />
+                        </TextBox.InnerRightContent>
+                    </TextBox>
                 </controls:ControlBlock>
                 <controls:ControlBlock
                     Title="Auto Complete Box"
                     Code="{Binding AutoCompleteBoxCode}"
                     Language="xaml">
-                    <StackPanel>
-                        <AutoCompleteBox
-                            Width="225"
-                            extensions:ControlAssist.Hint="Your favorite web framework"
-                            extensions:ControlAssist.Label="Search a framework"
-                            extensions:ElementAssist.Classes="Clearable"
-                            Classes="Clearable"
-                            FilterMode="Contains"
-                            ItemsSource="{Binding WebFrameworks}"
-                            Watermark="Search here...">
-                            <AutoCompleteBox.InnerRightContent>
-                                <PathIcon
-                                    Width="16"
-                                    Data="{x:Static contents:Icons.Search}"
-                                    Opacity="0.75" />
-                            </AutoCompleteBox.InnerRightContent>
-                        </AutoCompleteBox>
-                    </StackPanel>
+                    <AutoCompleteBox
+                        Width="225"
+                        extensions:ControlAssist.Hint="Your favorite web framework"
+                        extensions:ControlAssist.Label="Search a framework"
+                        extensions:ElementAssist.Classes="Clearable"
+                        Classes="Clearable"
+                        FilterMode="Contains"
+                        ItemsSource="{Binding WebFrameworks}"
+                        Watermark="Search here...">
+                        <AutoCompleteBox.InnerRightContent>
+                            <PathIcon
+                                Width="16"
+                                Data="{x:Static contents:Icons.Search}"
+                                Opacity="0.75" />
+                        </AutoCompleteBox.InnerRightContent>
+                    </AutoCompleteBox>
                 </controls:ControlBlock>
                 <controls:ControlBlock
                     Title="Form Validation"
