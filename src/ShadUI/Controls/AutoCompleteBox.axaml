@@ -166,7 +166,13 @@
                                     Foreground="{TemplateBinding Foreground}"
                                     ItemTemplate="{TemplateBinding ItemTemplate}"
                                     ScrollViewer.HorizontalScrollBarVisibility="Auto"
-                                    ScrollViewer.VerticalScrollBarVisibility="Auto" />
+                                    ScrollViewer.VerticalScrollBarVisibility="Auto">
+                                    <ListBox.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <VirtualizingStackPanel />
+                                        </ItemsPanelTemplate>
+                                    </ListBox.ItemsPanel>
+                                </ListBox>
                             </Border>
                         </LayoutTransformControl>
                     </Popup>
