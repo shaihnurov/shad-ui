@@ -9,7 +9,7 @@ public sealed partial class CardsViewModel : ViewModelBase
     public CardsViewModel()
     {
         var path = Path.Combine(AppContext.BaseDirectory, "views", "CardsPage.axaml");
-        UsageCode = path.ExtractByLineRange(35, 75).CleanIndentation();
+        UsageCode = path.ExtractByLineRange(34, 74).CleanIndentation();
     }
 
     [ObservableProperty]

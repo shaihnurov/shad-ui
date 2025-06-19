@@ -18,7 +18,6 @@
             DockPanel.Dock="Top">
             <TextBlock Classes="h2" Text="Avatar" />
             <TextBlock
-                HorizontalAlignment="Left"
                 Classes="p"
                 Text="An image element with a fallback for representing the user."
                 TextWrapping="Wrap" />
@@ -32,13 +31,11 @@
                     Title="Usage"
                     Code="{Binding UsageCode}"
                     Language="xaml">
-                    <StackPanel>
-                        <shadui:Avatar
-                            Width="80"
-                            Height="80"
-                            Fallback="CN"
-                            Source="../../Assets/user.png" />
-                    </StackPanel>
+                    <shadui:Avatar
+                        Width="80"
+                        Height="80"
+                        Fallback="CN"
+                        Source="../../Assets/user.png" />
                 </controls:ControlBlock>
             </StackPanel>
         </ScrollViewer>

@@ -19,7 +19,6 @@
             DockPanel.Dock="Top">
             <TextBlock Classes="h2" Text="Inputs" />
             <TextBlock
-                HorizontalAlignment="Left"
                 Classes="p"
                 Text="Displays a form input field or a component that looks like an input field."
                 TextWrapping="Wrap" />
@@ -121,10 +120,13 @@
                     Code="{Binding FormValidationCode}"
                     Language="xaml">
                     <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-                        <shadui:Card Width="350" HorizontalAlignment="Center">
+                        <shadui:Card
+                            Width="350"
+                            HorizontalAlignment="Center"
+                            HasShadow="True">
                             <shadui:Card.Header>
                                 <StackPanel Spacing="4">
-                                    <shadui:CardTitle FontSize="18">Creat new account</shadui:CardTitle>
+                                    <shadui:CardTitle FontSize="18">Create new account</shadui:CardTitle>
                                     <shadui:CardDescription>Enter your account details</shadui:CardDescription>
                                 </StackPanel>
                             </shadui:Card.Header>

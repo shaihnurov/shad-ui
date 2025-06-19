@@ -9,7 +9,7 @@ public sealed partial class TabsViewModel : ViewModelBase
     public TabsViewModel()
     {
         var path = Path.Combine(AppContext.BaseDirectory, "views", "TabsPage.axaml");
-        BasicTabCode = path.ExtractByLineRange(34, 54).CleanIndentation();
+        BasicTabCode = path.ExtractByLineRange(33, 51).CleanIndentation();
     }
 
     [ObservableProperty]

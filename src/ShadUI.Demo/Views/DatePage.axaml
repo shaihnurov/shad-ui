@@ -19,7 +19,6 @@
             DockPanel.Dock="Top">
             <TextBlock Classes="h2" Text="Date Controls" />
             <TextBlock
-                HorizontalAlignment="Left"
                 Classes="p"
                 Text="A collection of calendar, date picker and input controls that enable users to enter and edit date."
                 TextWrapping="Wrap" />

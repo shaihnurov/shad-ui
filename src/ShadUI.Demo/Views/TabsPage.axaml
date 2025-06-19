@@ -17,7 +17,6 @@
             DockPanel.Dock="Top">
             <TextBlock Classes="h2" Text="Tabs" />
             <TextBlock
-                HorizontalAlignment="Left"
                 Classes="p"
                 Text="A set of layered sections of content—known as tab panels—that are displayed one at a time."
                 TextWrapping="Wrap" />
@@ -34,7 +33,7 @@
                     <TabControl>
                         <TabControl.Items>
                             <TabItem Header="Preview">
-                                <shadui:Card Padding="48">
+                                <shadui:Card Padding="48" HasShadow="True">
                                     <TextBlock
                                         Classes="h1"
                                         Text="Taxing Laughter: The Joke Tax Chronicles"

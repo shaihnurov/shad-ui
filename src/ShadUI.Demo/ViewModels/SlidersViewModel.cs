@@ -9,9 +9,9 @@ public sealed partial class SlidersViewModel : ViewModelBase
     public SlidersViewModel()
     {
         var path = Path.Combine(AppContext.BaseDirectory, "views", "SlidersPage.axaml");
-        DefaultSliderCode = path.ExtractByLineRange(34, 38).CleanIndentation();
-        DisabledSliderCode = path.ExtractByLineRange(44, 49).CleanIndentation();
-        TickEnabledSliderCode = path.ExtractByLineRange(55, 61).CleanIndentation();
+        DefaultSliderCode = path.ExtractByLineRange(33, 37).CleanIndentation();
+        DisabledSliderCode = path.ExtractByLineRange(43, 48).CleanIndentation();
+        TickEnabledSliderCode = path.ExtractByLineRange(54, 60).CleanIndentation();
     }
 
     [ObservableProperty]

@@ -16,7 +16,6 @@
             DockPanel.Dock="Top">
             <TextBlock Classes="h2" Text="Dialogs" />
             <TextBlock
-                HorizontalAlignment="Left"
                 Classes="p"
                 Text="A window overlaid on either the primary window or another dialog window, rendering the content underneath inert."
                 TextWrapping="Wrap" />

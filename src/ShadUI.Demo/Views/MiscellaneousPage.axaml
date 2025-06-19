@@ -19,9 +19,8 @@
             DockPanel.Dock="Top">
             <TextBlock Classes="h2" Text="Miscellaneous" />
             <TextBlock
-                HorizontalAlignment="Left"
                 Classes="p"
-                Text="A collection of miscellaneous controls that don’t fit into any specific category"
+                Text="A collection of miscellaneous controls that don't fit into any specific category"
                 TextWrapping="Wrap" />
         </StackPanel>
         <ScrollViewer>
@@ -54,7 +53,10 @@
                     Title="ListBox"
                     Code="{Binding ListBoxCode}"
                     Language="xaml">
-                    <shadui:Card Width="350" HorizontalAlignment="Center">
+                    <shadui:Card
+                        Width="350"
+                        HorizontalAlignment="Center"
+                        HasShadow="True">
                         <shadui:Card.Header>
                             <StackPanel Spacing="4">
                                 <shadui:CardTitle FontSize="18">Favorite Web Framework</shadui:CardTitle>

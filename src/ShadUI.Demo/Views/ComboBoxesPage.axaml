@@ -19,7 +19,6 @@
             DockPanel.Dock="Top">
             <TextBlock Classes="h2" Text="ComboBox" />
             <TextBlock
-                HorizontalAlignment="Left"
                 Classes="p"
                 Text="Displays a list of options for the user to pick from—triggered by a button."
                 TextWrapping="Wrap" />
@@ -55,12 +54,10 @@
                     Title="Disabled"
                     Code="{Binding SelectComboBoxDisabledCode}"
                     Language="xaml">
-                    <StackPanel Spacing="8">
-                        <ComboBox
-                            Width="255"
-                            IsEnabled="False"
-                            PlaceholderText="Select a framework" />
-                    </StackPanel>
+                    <ComboBox
+                        Width="255"
+                        IsEnabled="False"
+                        PlaceholderText="Select a framework" />
                 </controls:ControlBlock>
                 <controls:ControlBlock
                     Title="Form Validation"

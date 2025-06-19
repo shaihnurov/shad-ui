@@ -27,14 +27,14 @@ public sealed partial class InputViewModel : ViewModelBase
         _searchTimer.AutoReset = false;
 
         var path = Path.Combine(AppContext.BaseDirectory, "views", "InputPage.axaml");
-        DefaultInputCode = path.ExtractByLineRange(36, 38).CleanIndentation();
-        DisabledCode = path.ExtractByLineRange(44, 47).CleanIndentation();
-        WithLabelCode = path.ExtractByLineRange(53, 57).CleanIndentation();
-        WithCustomLabelCode = path.ExtractByLineRange(63, 67).CleanIndentation();
-        SearchBoxCode = path.ExtractByLineRange(73, 85).CleanIndentation();
-        AutoCompleteBoxCode = path.ExtractByLineRange(91, 106).CleanIndentation();
-        TextAreaCode = path.ExtractByLineRange(112, 117).CleanIndentation();
-        FormValidationCode = path.ExtractByLineRange(123, 155).CleanIndentation();
+        DefaultInputCode = path.ExtractByLineRange(35, 37).CleanIndentation();
+        DisabledCode = path.ExtractByLineRange(43, 46).CleanIndentation();
+        WithLabelCode = path.ExtractByLineRange(52, 56).CleanIndentation();
+        WithCustomLabelCode = path.ExtractByLineRange(62, 66).CleanIndentation();
+        SearchBoxCode = path.ExtractByLineRange(72, 84).CleanIndentation();
+        AutoCompleteBoxCode = path.ExtractByLineRange(90, 105).CleanIndentation();
+        TextAreaCode = path.ExtractByLineRange(111, 116).CleanIndentation();
+        FormValidationCode = path.ExtractByLineRange(122, 157).CleanIndentation();
     }
 
     private void OnPropertyChanged(object? sender, PropertyChangedEventArgs e)

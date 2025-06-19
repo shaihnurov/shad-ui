@@ -17,7 +17,6 @@
             DockPanel.Dock="Top">
             <TextBlock Classes="h2" Text="Tooltip" />
             <TextBlock
-                HorizontalAlignment="Left"
                 Classes="p"
                 Text="A popup that displays information related to an element when the mouse hovers over it."
                 TextWrapping="Wrap" />

@@ -17,7 +17,6 @@
             DockPanel.Dock="Top">
             <TextBlock Classes="h2" Text="Sliders" />
             <TextBlock
-                HorizontalAlignment="Left"
                 Classes="p"
                 Text="An input where the user selects a value from within a given range."
                 TextWrapping="Wrap" />

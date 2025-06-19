@@ -20,7 +20,6 @@
             DockPanel.Dock="Top">
             <TextBlock Classes="h2" Text="Data Table" />
             <TextBlock
-                HorizontalAlignment="Left"
                 Classes="p"
                 Text="Basic data table with sorting and filtering."
                 TextWrapping="Wrap" />

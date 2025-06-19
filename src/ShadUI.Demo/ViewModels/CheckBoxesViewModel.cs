@@ -11,10 +11,10 @@ public partial class CheckBoxesViewModel : ViewModelBase
     public CheckBoxesViewModel()
     {
         var path = Path.Combine(AppContext.BaseDirectory, "views", "CheckBoxesPage.axaml");
-        DefaultCode = path.ExtractByLineRange(34, 36).CleanIndentation();
-        DisabledCode = path.ExtractByLineRange(42, 44).CleanIndentation();
-        IndeterminateCode = path.ExtractByLineRange(50, 52).CleanIndentation();
-        MultipleCode = path.ExtractByLineRange(58, 77).CleanIndentation();
+        DefaultCode = path.ExtractByLineRange(33, 35).CleanIndentation();
+        DisabledCode = path.ExtractByLineRange(41, 43).CleanIndentation();
+        IndeterminateCode = path.ExtractByLineRange(49, 51).CleanIndentation();
+        MultipleCode = path.ExtractByLineRange(57, 76).CleanIndentation();
 
         Items.CollectionChanged += (_, _) => UpdateSelectAllState();
         foreach (var item in Items) item.PropertyChanged += (_, _) => UpdateSelectAllState();

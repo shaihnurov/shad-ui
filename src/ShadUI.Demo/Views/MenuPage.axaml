@@ -19,7 +19,6 @@
             DockPanel.Dock="Top">
             <TextBlock Classes="h2" Text="Menus" />
             <TextBlock
-                HorizontalAlignment="Left"
                 Classes="p"
                 Text="A menu component that provides a set of options or commands for the user to choose from."
                 TextWrapping="Wrap" />

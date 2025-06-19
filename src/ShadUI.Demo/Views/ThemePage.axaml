@@ -140,7 +140,7 @@
                             <Separator />
                             <controls:ThemeColor Title="InfoColor" Background="{DynamicResource InfoColor}" />
                             <controls:ThemeColor Title="InfoColor60" Background="{DynamicResource InfoColor60}" />
-                            <controls:ThemeColor Title="InfoColor20  " Background="{DynamicResource InfoColor20}" />
+                            <controls:ThemeColor Title="InfoColor20" Background="{DynamicResource InfoColor20}" />
                             <controls:ThemeColor Title="InfoColor10" Background="{DynamicResource InfoColor10}" />
                             <controls:ThemeColor Title="InfoColor5" Background="{DynamicResource InfoColor5}" />
                             <controls:ThemeColor Title="SuccessColor" Background="{DynamicResource SuccessColor}" />

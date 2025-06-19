@@ -10,14 +10,13 @@
     d:DesignWidth="800"
     x:DataType="viewModels:ToastsViewModel"
     mc:Ignorable="d">
-    <DockPanel>
+    <DockPanel LastChildFill="True">
         <StackPanel
             MaxWidth="{StaticResource PageMaxWidth}"
             Margin="{StaticResource PageMargin}"
             DockPanel.Dock="Top">
             <TextBlock Classes="h2" Text="Toast" />
             <TextBlock
-                HorizontalAlignment="Left"
                 Classes="p"
                 Text="A succinct message that is displayed temporarily."
                 TextWrapping="Wrap" />

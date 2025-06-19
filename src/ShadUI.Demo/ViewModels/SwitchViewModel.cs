@@ -9,9 +9,9 @@ public sealed partial class SwitchViewModel : ViewModelBase
     public SwitchViewModel()
     {
         var path = Path.Combine(AppContext.BaseDirectory, "views", "SwitchPage.axaml");
-        EnableCode = path.ExtractByLineRange(34, 52).CleanIndentation();
-        DisableCode = path.ExtractByLineRange(58, 76).CleanIndentation();
-        RightAlignedCode = path.ExtractByLineRange(82, 100).CleanIndentation();
+        EnableCode = path.ExtractByLineRange(33, 51).CleanIndentation();
+        DisableCode = path.ExtractByLineRange(57, 75).CleanIndentation();
+        RightAlignedCode = path.ExtractByLineRange(81, 99).CleanIndentation();
     }
 
     [ObservableProperty]

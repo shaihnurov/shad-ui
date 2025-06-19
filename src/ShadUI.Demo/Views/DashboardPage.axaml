@@ -15,7 +15,7 @@
     d:DesignWidth="870"
     x:DataType="viewModels:DashboardViewModel"
     mc:Ignorable="d">
-    <DockPanel>
+    <DockPanel LastChildFill="True">
         <StackPanel
             MaxWidth="{StaticResource PageMaxWidth}"
             Margin="{StaticResource PageMargin}"

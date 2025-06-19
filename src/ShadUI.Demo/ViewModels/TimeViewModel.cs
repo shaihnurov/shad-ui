@@ -16,14 +16,14 @@ public sealed partial class TimeViewModel : ViewModelBase
     {
         _toastManager = toastManager;
         var path = Path.Combine(AppContext.BaseDirectory, "views", "TimePage.axaml");
-        Hour12ClockTimePickerCode = path.ExtractByLineRange(36, 38).CleanIndentation();
-        Hour24ClockTimePickerCode = path.ExtractByLineRange(44, 47).CleanIndentation();
-        DisabledTimePickerCode = path.ExtractByLineRange(53, 55).CleanIndentation();
-        FormTimePickerCode = path.ExtractByLineRange(61, 84).CleanIndentation();
-        Hour12ClockTimeInputCode = path.ExtractByLineRange(90, 92).CleanIndentation();
-        Hour24ClockTimeInputCode = path.ExtractByLineRange(98, 101).CleanIndentation();
-        DisabledTimeInputCode = path.ExtractByLineRange(107, 109).CleanIndentation();
-        FormTimeInputCode = path.ExtractByLineRange(115, 138).CleanIndentation();
+        Hour12ClockTimePickerCode = path.ExtractByLineRange(35, 37).CleanIndentation();
+        Hour24ClockTimePickerCode = path.ExtractByLineRange(45, 46).CleanIndentation();
+        DisabledTimePickerCode = path.ExtractByLineRange(52, 54).CleanIndentation();
+        FormTimePickerCode = path.ExtractByLineRange(60, 83).CleanIndentation();
+        Hour12ClockTimeInputCode = path.ExtractByLineRange(89, 91).CleanIndentation();
+        Hour24ClockTimeInputCode = path.ExtractByLineRange(97, 100).CleanIndentation();
+        DisabledTimeInputCode = path.ExtractByLineRange(106, 108).CleanIndentation();
+        FormTimeInputCode = path.ExtractByLineRange(114, 137).CleanIndentation();
     }
 
     [ObservableProperty]

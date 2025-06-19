@@ -17,13 +17,13 @@ public sealed partial class DateViewModel : ViewModelBase
         _toastManager = toastManager;
 
         var path = Path.Combine(AppContext.BaseDirectory, "views", "DatePage.axaml");
-        CalendarCode = path.ExtractByLineRange(36, 38).CleanIndentation();
-        DatePickerCode = path.ExtractByLineRange(44, 47).CleanIndentation();
-        ReadOnlyDatePickerCode = path.ExtractByLineRange(53, 57).CleanIndentation();
-        DatePickerFormValidationCode = path.ExtractByLineRange(63, 77).CleanIndentation();
-        DateInputCode = path.ExtractByLineRange(83, 85).CleanIndentation();
-        DisabledDateInputCode = path.ExtractByLineRange(91, 93).CleanIndentation();
-        DateInputFormCode = path.ExtractByLineRange(99, 122).CleanIndentation();
+        CalendarCode = path.ExtractByLineRange(35, 37).CleanIndentation();
+        DatePickerCode = path.ExtractByLineRange(43, 46).CleanIndentation();
+        ReadOnlyDatePickerCode = path.ExtractByLineRange(52, 56).CleanIndentation();
+        DatePickerFormValidationCode = path.ExtractByLineRange(62, 76).CleanIndentation();
+        DateInputCode = path.ExtractByLineRange(82, 84).CleanIndentation();
+        DisabledDateInputCode = path.ExtractByLineRange(90, 92).CleanIndentation();
+        DateInputFormCode = path.ExtractByLineRange(98, 121).CleanIndentation();
     }
 
     [ObservableProperty]

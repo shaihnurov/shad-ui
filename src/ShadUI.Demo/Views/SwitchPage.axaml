@@ -17,7 +17,6 @@
             DockPanel.Dock="Top">
             <TextBlock Classes="h2" Text="Switch" />
             <TextBlock
-                HorizontalAlignment="Left"
                 Classes="p"
                 Text="A control that allows the user to toggle between checked and not checked."
                 TextWrapping="Wrap" />

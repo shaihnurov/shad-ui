@@ -9,7 +9,7 @@ public sealed partial class ToolTipViewModel : ViewModelBase
     public ToolTipViewModel()
     {
         var path = Path.Combine(AppContext.BaseDirectory, "views", "ToolTipPage.axaml");
-        UsageCode = path.ExtractByLineRange(34, 41).CleanIndentation();
+        UsageCode = path.ExtractByLineRange(33, 40).CleanIndentation();
     }
 
     [ObservableProperty]

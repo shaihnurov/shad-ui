@@ -11,9 +11,9 @@ public sealed partial class ComboBoxesViewModel : ViewModelBase
     public ComboBoxesViewModel()
     {
         var path = Path.Combine(AppContext.BaseDirectory, "views", "ComboBoxesPage.axaml");
-        SelectComboBoxCode = path.ExtractByLineRange(36, 44).CleanIndentation();
-        SelectComboBoxDisabledCode = path.ExtractByLineRange(50, 55).CleanIndentation();
-        FormValidationCode = path.ExtractByLineRange(61, 83).CleanIndentation();
+        SelectComboBoxCode = path.ExtractByLineRange(35, 51).CleanIndentation();
+        SelectComboBoxDisabledCode = path.ExtractByLineRange(57, 60).CleanIndentation();
+        FormValidationCode = path.ExtractByLineRange(66, 88).CleanIndentation();
     }
 
     [ObservableProperty]

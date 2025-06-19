@@ -9,9 +9,9 @@ public sealed partial class MenuViewModel : ViewModelBase
     public MenuViewModel()
     {
         var path = Path.Combine(AppContext.BaseDirectory, "views", "MenuPage.axaml");
-        SimpleDropdownCode = path.ExtractByLineRange(36, 167).CleanIndentation();
-        MenuBarCode = path.ExtractByLineRange(173, 249).CleanIndentation();
-        DropDownCode = path.ExtractByLineRange(256, 426).CleanIndentation();
+        SimpleDropdownCode = path.ExtractByLineRange(35, 166).CleanIndentation();
+        MenuBarCode = path.ExtractByLineRange(172, 248).CleanIndentation();
+        DropDownCode = path.ExtractByLineRange(255, 425).CleanIndentation();
     }
 
     [ObservableProperty]

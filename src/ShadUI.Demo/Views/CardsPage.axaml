@@ -18,7 +18,6 @@
             DockPanel.Dock="Top">
             <TextBlock Classes="h2" Text="Card" />
             <TextBlock
-                HorizontalAlignment="Left"
                 Classes="p"
                 Text="Displays a card with header, content, and footer."
                 TextWrapping="Wrap" />

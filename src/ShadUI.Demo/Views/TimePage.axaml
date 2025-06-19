@@ -19,7 +19,6 @@
             DockPanel.Dock="Top">
             <TextBlock Classes="h2" Text="Time Controls" />
             <TextBlock
-                HorizontalAlignment="Left"
                 Classes="p"
                 Text="A comprehensive collection of time input and picker controls supporting both 12-hour and 24-hour formats."
                 TextWrapping="Wrap" />
@@ -59,7 +58,7 @@
                     Code="{Binding FormTimePickerCode}"
                     Language="xaml">
                     <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-                        <shadui:Card HorizontalAlignment="Center">
+                        <shadui:Card HorizontalAlignment="Center" HasShadow="True">
                             <shadui:Card.Header>
                                 <shadui:CardTitle>Create a schedule</shadui:CardTitle>
                             </shadui:Card.Header>
@@ -113,7 +112,7 @@
                     Code="{Binding FormTimeInputCode}"
                     Language="xaml">
                     <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-                        <shadui:Card HorizontalAlignment="Center">
+                        <shadui:Card HorizontalAlignment="Center" HasShadow="True">
                             <shadui:Card.Header>
                                 <shadui:CardTitle>Create a schedule</shadui:CardTitle>
                             </shadui:Card.Header>
