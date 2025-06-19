@@ -91,11 +91,22 @@ public sealed partial class InputViewModel : ViewModelBase
     private string _searchBoxCode = string.Empty;
 
     [ObservableProperty]
-    private string[] _webFrameworks = ["Next.js", "Sveltekit", "Nuxt.js", "Remix", "Astro"];
+    private string[] _webFrameworks =
+    [
+        "Next.js",
+        "SvelteKitJS",
+        "Nuxt.js",
+        "Remix",
+        "Astro",
+        "Vue.js",
+        "Angular",
+        "React",
+        "SolidJS"
+    ];
 
     [ObservableProperty]
     private string _autoCompleteBoxCode = string.Empty;
-    
+
     [ObservableProperty]
     private string _textAreaCode = string.Empty;
 
