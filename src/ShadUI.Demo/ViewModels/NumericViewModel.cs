@@ -18,11 +18,12 @@ public sealed partial class NumericViewModel : ViewModelBase
         ErrorsChanged += (_, _) => SubmitCommand.NotifyCanExecuteChanged();
 
         var path = Path.Combine(AppContext.BaseDirectory, "views", "NumericPage.axaml");
-        DefaultNumericCode = path.ExtractByLineRange(35, 37).CleanIndentation();
-        DisabledCode = path.ExtractByLineRange(43, 46).CleanIndentation();
-        WithLabelCode = path.ExtractByLineRange(52, 56).CleanIndentation();
-        WithCustomLabelCode = path.ExtractByLineRange(62, 66).CleanIndentation();
-        FormValidationCode = path.ExtractByLineRange(72, 88).CleanIndentation();
+        DefaultNumericCode = path.ExtractByLineRange(34, 36).CleanIndentation();
+        DisabledCode = path.ExtractByLineRange(42, 44).CleanIndentation();
+        LeftAlignedCode = path.ExtractByLineRange(50, 52).CleanIndentation();
+        WithLabelCode = path.ExtractByLineRange(58, 61).CleanIndentation();
+        WithCustomLabelCode = path.ExtractByLineRange(67, 78).CleanIndentation();
+        FormValidationCode = path.ExtractByLineRange(84, 107).CleanIndentation();
     }
 
     private void OnPropertyChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e)
@@ -35,6 +36,10 @@ public sealed partial class NumericViewModel : ViewModelBase
 
     [ObservableProperty]
     private string _disabledCode = string.Empty;
+
+    
+    [ObservableProperty]
+    private string _leftAlignedCode = string.Empty;
 
     [ObservableProperty]
     private string _withLabelCode = string.Empty;
