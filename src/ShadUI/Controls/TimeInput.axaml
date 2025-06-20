@@ -6,7 +6,7 @@
     xmlns:extensions="clr-namespace:ShadUI.Extensions"
     xmlns:system="clr-namespace:System;assembly=netstandard">
     <ResourceDictionary.MergedDictionaries>
-        <ResourceInclude Source="DateTimeCommon.axaml" />
+        <ResourceInclude Source="Common.axaml" />
     </ResourceDictionary.MergedDictionaries>
     <Design.PreviewWith>
         <Border
