@@ -20,7 +20,7 @@ namespace ShadUI.Extensions;
 /// </code>
 ///     This will format the number as currency with 2 decimal places when the TextBox loses focus.
 /// </remarks>
-public static class TextBoxAssist
+public class TextBoxAssist
 {
     static TextBoxAssist()
     {
@@ -36,7 +36,7 @@ public static class TextBoxAssist
     ///     Supports standard numeric format strings including currency (C), percentage (P), etc.
     /// </remarks>
     public static readonly AttachedProperty<string> FormatNumberProperty =
-        AvaloniaProperty.RegisterAttached<ElementAssist, TextBox, string>(
+        AvaloniaProperty.RegisterAttached<TextBoxAssist, TextBox, string>(
             "FormatNumber", string.Empty, false, BindingMode.OneTime);
 
     /// <summary>
