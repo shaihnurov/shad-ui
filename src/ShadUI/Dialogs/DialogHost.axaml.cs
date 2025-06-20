@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using System.Threading.Tasks;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
@@ -268,17 +269,25 @@ public class DialogHost : TemplatedControl
         Owner.HasOpenDialog = true;
     }
 
-    private void ManagerOnDialogClosed(object sender, DialogClosedEventArgs e)
+    private async void ManagerOnDialogClosed(object sender, DialogClosedEventArgs e)
     {
-        if (Manager is null || Owner is null) return;
-        if (e.Control != Dialog) return;
+        try
+        {
+            if (Manager is null || Owner is null) return;
+            if (e.Control != Dialog) return;
 
-        IsDialogOpen = false;
-        if (e.ReplaceExisting) return;
+            IsDialogOpen = false;
+            if (e.ReplaceExisting) return;
 
-        Dialog = null;
-        HasOpenDialog = Manager.Dialogs.Count > 0;
-        Owner.HasOpenDialog = Manager.Dialogs.Count > 0;
+            await Task.Delay(200); // Allow animations to complete
+            Dialog = null;
+            HasOpenDialog = Manager.Dialogs.Count > 0;
+            Owner.HasOpenDialog = Manager.Dialogs.Count > 0;
+        }
+        catch (Exception)
+        {
+            //ignore
+        }
     }
 
     private void AllowDismissChanged(object sender, bool e)
