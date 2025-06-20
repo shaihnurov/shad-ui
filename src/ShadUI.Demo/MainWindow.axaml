@@ -210,6 +210,15 @@
                 </controls:SidebarMenuItem>
                 <controls:SidebarMenuItem
                     Classes="Compact"
+                    Command="{Binding OpenNumericsCommand}"
+                    Header="Numerics"
+                    ToolTip.Tip="{Binding IsMenuExpanded, RelativeSource={RelativeSource AncestorType=controls:SidebarMenu}, Converter={x:Static converters:BooleanToNullOrStringConverter.Instance}, ConverterParameter='Numerics'}">
+                    <controls:SidebarMenuItem.Icon>
+                        <TextBlock Classes="ShadUIIcon" Text="&#xe902;" />
+                    </controls:SidebarMenuItem.Icon>
+                </controls:SidebarMenuItem>
+                <controls:SidebarMenuItem
+                    Classes="Compact"
                     Command="{Binding OpenMenusCommand}"
                     Header="Menus"
                     ToolTip.Tip="{Binding IsMenuExpanded, RelativeSource={RelativeSource AncestorType=controls:SidebarMenu}, Converter={x:Static converters:BooleanToNullOrStringConverter.Instance}, ConverterParameter='Menus'}">

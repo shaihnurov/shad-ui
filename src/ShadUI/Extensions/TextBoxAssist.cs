@@ -95,4 +95,39 @@ public class TextBoxAssist
             textBox.Text = value.ToString(format);
         };
     }
+
+    /// <summary>
+    ///     Gets or sets whether a TextBox should display a clear button to allow users to easily clear its content.
+    /// </summary>
+    /// <remarks>
+    ///     This property enables a clear button functionality for TextBox controls. When set to true,
+    ///     a clear button will be displayed that allows users to quickly clear the text content.
+    ///     Example usage in XAML:
+    ///     <code>
+    /// &lt;TextBox Text="{Binding SearchText}" 
+    ///          extensions:TextBoxAssist.Clearable="True" /&gt;
+    /// </code>
+    /// </remarks>
+    public static readonly AttachedProperty<bool> ClearableProperty =
+        AvaloniaProperty.RegisterAttached<TextBoxAssist, TextBox, bool>("Clearable");
+
+    /// <summary>
+    ///     Sets whether the specified TextBox should display a clear button.
+    /// </summary>
+    /// <param name="obj">The TextBox element to set the clearable property on.</param>
+    /// <param name="value">True to enable the clear button; false to disable it.</param>
+    public static void SetClearable(TextBox obj, bool value)
+    {
+        obj.SetValue(ClearableProperty, value);
+    }
+
+    /// <summary>
+    ///     Gets whether the specified TextBox displays a clear button.
+    /// </summary>
+    /// <param name="obj">The TextBox element to get the clearable property from.</param>
+    /// <returns>True if the clear button is enabled; false otherwise.</returns>
+    public static bool GetClearable(TextBox obj)
+    {
+        return obj.GetValue(ClearableProperty);
+    }
 }

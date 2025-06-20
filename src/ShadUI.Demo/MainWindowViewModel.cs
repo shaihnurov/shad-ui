@@ -28,6 +28,7 @@ public sealed partial class MainWindowViewModel(
     DialogsViewModel dialogsViewModel,
     TimeViewModel timeViewModel,
     InputViewModel inputViewModel,
+    NumericViewModel numericViewModel,
     MenuViewModel menuViewModel,
     TabsViewModel tabsViewModel,
     ComboBoxesViewModel comboBoxesViewModel,
@@ -126,6 +127,15 @@ public sealed partial class MainWindowViewModel(
         if (await SwitchPageAsync(inputViewModel))
         {
             inputViewModel.Initialize();
+        }
+    }
+    
+    [RelayCommand]
+    private async Task OpenNumerics()
+    {
+        if (await SwitchPageAsync(numericViewModel))
+        {
+            numericViewModel.Initialize();
         }
     }
 

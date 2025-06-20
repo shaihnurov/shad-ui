@@ -1,4 +1,31 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <StreamGeometry x:Key="XIconData">M13.71,12.29c.39.39.39,1.03,0,1.42-.2.19-.45.29-.71.29s-.51-.1-.71-.29l-5.29-5.29L1.71,13.71c-.2.19-.45.29-.71.29s-.51-.1-.71-.29c-.39-.39-.39-1.03,0-1.42l5.29-5.29L.29,1.71C-.1,1.32-.1.68.29.29.68-.1,1.32-.1,1.71.29l5.29,5.29L12.29.29c.39-.39,1.03-.39,1.42,0,.39.39.39,1.03,0,1.42l-5.29,5.29,5.29,5.29Z</StreamGeometry>
+
+    <ControlTheme x:Key="ClearButtonTheme" TargetType="Button">
+        <Setter Property="Cursor" Value="Arrow" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border
+                        x:Name="PART_ButtonLayoutBorder"
+                        Padding="4"
+                        Background="Transparent"
+                        BorderThickness="{TemplateBinding BorderThickness}">
+                        <Path
+                            x:Name="PART_GlyphElement"
+                            Width="10"
+                            Height="10"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Data="{StaticResource XIconData}"
+                            Fill="{DynamicResource ForegroundColor}"
+                            Stretch="Uniform" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </ControlTheme>
+
     <ControlTheme x:Key="InputBoxTheme" TargetType="TextBox">
         <Setter Property="MinWidth" Value="32" />
         <Setter Property="CornerRadius" Value="{DynamicResource MdCornerRadius}" />
