@@ -227,6 +227,7 @@
                                         Name="PART_Calendar"
                                         Margin="-2,0,0,0"
                                         extensions:ElementAssist.FocusOnLoad="True"
+                                        extensions:ScrollEventAssist.PreventScrollPropagation="True"
                                         CornerRadius="{TemplateBinding CornerRadius}"
                                         DisplayDate="{TemplateBinding DisplayDate}"
                                         DisplayDateEnd="{TemplateBinding DisplayDateEnd}"

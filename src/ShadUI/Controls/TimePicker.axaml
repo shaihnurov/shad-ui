@@ -215,6 +215,7 @@
                                 WindowManagerAddShadowHint="False">
                                 <TimePickerPresenter
                                     Name="PART_PickerPresenter"
+                                    extensions:ScrollEventAssist.PreventScrollPropagation="True"
                                     CornerRadius="{TemplateBinding CornerRadius}"
                                     FontFamily="{TemplateBinding FontFamily}">
                                     <TimePickerPresenter.KeyBindings>
