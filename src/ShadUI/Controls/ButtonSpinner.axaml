@@ -82,65 +82,66 @@
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
-                        ClipToBounds="True"
                         CornerRadius="{TemplateBinding CornerRadius}">
-                        <DockPanel>
-                            <StackPanel
-                                Name="PART_SpinnerPanel"
-                                DockPanel.Dock="Right"
-                                IsVisible="{TemplateBinding ShowButtonSpinner}"
-                                Orientation="Horizontal"
-                                TabIndex="2">
-                                <Rectangle
-                                    Name="LeftBorder"
-                                    Width="1"
-                                    HorizontalAlignment="Center"
-                                    Fill="{DynamicResource BorderColor}" />
-                                <RepeatButton
-                                    Name="PART_IncreaseButton"
-                                    IsTabStop="{TemplateBinding IsTabStop}"
-                                    Theme="{StaticResource SpinnerRepeatButton}">
-                                    <Path
-                                        Width="12"
-                                        Height="8"
+                        <Border ClipToBounds="True" CornerRadius="{TemplateBinding CornerRadius}">
+                            <DockPanel>
+                                <StackPanel
+                                    Name="PART_SpinnerPanel"
+                                    DockPanel.Dock="Right"
+                                    IsVisible="{TemplateBinding ShowButtonSpinner}"
+                                    Orientation="Horizontal"
+                                    TabIndex="2">
+                                    <Rectangle
+                                        Name="LeftBorder"
+                                        Width="1"
                                         HorizontalAlignment="Center"
-                                        VerticalAlignment="Center"
-                                        Data="{x:Static content:Icons.ChevronUp}"
-                                        Fill="{TemplateBinding Foreground}"
-                                        Stretch="Uniform" />
-                                </RepeatButton>
-                                <Rectangle
-                                    Width="1"
-                                    HorizontalAlignment="Center"
-                                    Fill="{DynamicResource BorderColor}" />
-                                <RepeatButton
-                                    Name="PART_DecreaseButton"
-                                    IsTabStop="{TemplateBinding IsTabStop}"
-                                    Theme="{StaticResource SpinnerRepeatButton}">
-                                    <Path
-                                        Width="12"
-                                        Height="8"
+                                        Fill="{DynamicResource BorderColor}" />
+                                    <RepeatButton
+                                        Name="PART_IncreaseButton"
+                                        IsTabStop="{TemplateBinding IsTabStop}"
+                                        Theme="{StaticResource SpinnerRepeatButton}">
+                                        <Path
+                                            Width="12"
+                                            Height="8"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            Data="{x:Static content:Icons.ChevronUp}"
+                                            Fill="{TemplateBinding Foreground}"
+                                            Stretch="Uniform" />
+                                    </RepeatButton>
+                                    <Rectangle
+                                        Width="1"
                                         HorizontalAlignment="Center"
-                                        VerticalAlignment="Center"
-                                        Data="{x:Static content:Icons.ChevronDown}"
-                                        Fill="{TemplateBinding Foreground}"
-                                        Stretch="Uniform" />
-                                </RepeatButton>
-                                <Rectangle
-                                    Name="RightBorder"
-                                    Width="1"
-                                    HorizontalAlignment="Center"
-                                    Fill="{DynamicResource BorderColor}" />
-                            </StackPanel>
-                            <ContentPresenter
-                                Name="PART_ContentPresenter"
-                                Padding="{TemplateBinding Padding}"
-                                HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                                Content="{TemplateBinding Content}"
-                                ContentTemplate="{TemplateBinding ContentTemplate}"
-                                TabIndex="1" />
-                        </DockPanel>
+                                        Fill="{DynamicResource BorderColor}" />
+                                    <RepeatButton
+                                        Name="PART_DecreaseButton"
+                                        IsTabStop="{TemplateBinding IsTabStop}"
+                                        Theme="{StaticResource SpinnerRepeatButton}">
+                                        <Path
+                                            Width="12"
+                                            Height="8"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            Data="{x:Static content:Icons.ChevronDown}"
+                                            Fill="{TemplateBinding Foreground}"
+                                            Stretch="Uniform" />
+                                    </RepeatButton>
+                                    <Rectangle
+                                        Name="RightBorder"
+                                        Width="1"
+                                        HorizontalAlignment="Center"
+                                        Fill="{DynamicResource BorderColor}" />
+                                </StackPanel>
+                                <ContentPresenter
+                                    Name="PART_ContentPresenter"
+                                    Padding="{TemplateBinding Padding}"
+                                    HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                    VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                    Content="{TemplateBinding Content}"
+                                    ContentTemplate="{TemplateBinding ContentTemplate}"
+                                    TabIndex="1" />
+                            </DockPanel>
+                        </Border>
                     </Border>
                 </Panel>
             </ControlTemplate>
