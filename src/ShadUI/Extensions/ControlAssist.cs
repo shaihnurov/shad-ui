@@ -184,4 +184,32 @@ public static class ControlAssist
     ///     The value to set - true to make the control read-only, false to make it editable.
     /// </param>
     public static void SetReadOnly(TemplatedControl control, bool value) => control.SetValue(ReadOnlyProperty, value);
+
+    /// <summary>
+    ///     Defines an attached property that determines if a control should display an icon.
+    /// </summary>
+    public static readonly AttachedProperty<bool> ShowIconProperty =
+        AvaloniaProperty.RegisterAttached<TemplatedControl, bool>("ShowIcon", typeof(ControlAssist));
+
+    /// <summary>
+    ///     Sets the value of the <see cref="ShowIconProperty" />.
+    /// </summary>
+    /// <param name="obj">The control.</param>
+    /// <param name="value">
+    ///     The value to set - true to show the icon, false to hide it.
+    /// </param>
+    public static void SetShowIcon(TemplatedControl obj, bool value)
+    {
+        obj.SetValue(ShowIconProperty, value);
+    }
+
+    /// <summary>
+    ///     Gets the value of the <see cref="ShowIconProperty" />.
+    /// </summary>
+    /// <param name="obj">The control.</param>
+    /// <returns>A boolean value indicating whether the icon should be displayed.</returns>
+    public static bool GetShowIcon(TemplatedControl obj)
+    {
+        return obj.GetValue(ShowIconProperty);
+    }
 }

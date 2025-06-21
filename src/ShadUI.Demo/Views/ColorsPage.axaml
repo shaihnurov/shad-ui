@@ -1,0 +1,68 @@
+﻿<UserControl
+    x:Class="ShadUI.Demo.Views.ColorsPage"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:ShadUI.Demo.Controls"
+    xmlns:converters="clr-namespace:ShadUI.Demo.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:extensions="clr-namespace:ShadUI.Extensions;assembly=ShadUI"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:shadui="clr-namespace:ShadUI.Controls;assembly=ShadUI"
+    xmlns:viewModels="clr-namespace:ShadUI.Demo.ViewModels"
+    d:DesignWidth="800"
+    x:DataType="viewModels:ColorsViewModel"
+    mc:Ignorable="d">
+    <DockPanel LastChildFill="True">
+        <StackPanel
+            MaxWidth="{StaticResource PageMaxWidth}"
+            Margin="{StaticResource PageMargin}"
+            DockPanel.Dock="Top">
+            <TextBlock Classes="h2" Text="Colors" />
+            <TextBlock
+                Classes="p"
+                Text="Color components for picking and displaying colors."
+                TextWrapping="Wrap" />
+        </StackPanel>
+        <ScrollViewer>
+            <StackPanel
+                MaxWidth="{StaticResource PageMaxWidth}"
+                Margin="{StaticResource PageMargin}"
+                Spacing="32">
+                <controls:ControlBlock
+                    Title="Color View"
+                    Code="{Binding ColorViewCode}"
+                    Language="xaml">
+                    <shadui:Card
+                        Padding="0"
+                        HorizontalAlignment="Center"
+                        HasShadow="True">
+                        <ColorView Color="{Binding SelectedColor, Converter={x:Static converters:StringToColor.Instance}, Mode=TwoWay}" />
+                    </shadui:Card>
+                </controls:ControlBlock>
+                <controls:ControlBlock
+                    Title="Color Picker"
+                    Code="{Binding ColorPickerCode}"
+                    Language="xaml">
+                    <ColorPicker
+                        Width="255"
+                        HorizontalAlignment="Center"
+                        extensions:ControlAssist.Hint="Choose your favorite color"
+                        extensions:ControlAssist.Label="Select a color"
+                        Color="{Binding SelectedColor, Converter={x:Static converters:StringToColor.Instance}, Mode=TwoWay}" />
+                </controls:ControlBlock>
+                <controls:ControlBlock
+                    Title="Disabled Color Picker"
+                    Code="{Binding ColorPickerDisabledCode}"
+                    Language="xaml">
+                    <ColorPicker
+                        Width="255"
+                        HorizontalAlignment="Center"
+                        extensions:ControlAssist.Hint="Choose your favorite color"
+                        extensions:ControlAssist.Label="Select a color"
+                        IsEnabled="False"
+                        Color="{Binding SelectedColor, Converter={x:Static converters:StringToColor.Instance}, Mode=TwoWay}" />
+                </controls:ControlBlock>
+            </StackPanel>
+        </ScrollViewer>
+    </DockPanel>
+</UserControl>

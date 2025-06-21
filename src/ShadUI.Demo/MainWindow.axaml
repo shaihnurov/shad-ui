@@ -114,7 +114,7 @@
                     Header="Theming"
                     ToolTip.Tip="{Binding IsMenuExpanded, RelativeSource={RelativeSource AncestorType=controls:SidebarMenu}, Converter={x:Static converters:BooleanToNullOrStringConverter.Instance}, ConverterParameter='Theming'}">
                     <controls:SidebarMenuItem.Icon>
-                        <TextBlock Classes="LucideIcon" Text="&#57821;" />
+                        <TextBlock Classes="LucideIcon" Text="&#58088;" />
                     </controls:SidebarMenuItem.Icon>
                 </controls:SidebarMenuItem>
                 <controls:SidebarMenuItem
@@ -179,6 +179,15 @@
                     ToolTip.Tip="{Binding IsMenuExpanded, RelativeSource={RelativeSource AncestorType=controls:SidebarMenu}, Converter={x:Static converters:BooleanToNullOrStringConverter.Instance}, ConverterParameter='ComboBox'}">
                     <controls:SidebarMenuItem.Icon>
                         <TextBlock Classes="LucideIcon" Text="&#57873;" />
+                    </controls:SidebarMenuItem.Icon>
+                </controls:SidebarMenuItem>
+                <controls:SidebarMenuItem
+                    Classes="Compact"
+                    Command="{Binding OpenColorsCommand}"
+                    Header="Colors"
+                    ToolTip.Tip="{Binding IsMenuExpanded, RelativeSource={RelativeSource AncestorType=controls:SidebarMenu}, Converter={x:Static converters:BooleanToNullOrStringConverter.Instance}, ConverterParameter='Colors'}">
+                    <controls:SidebarMenuItem.Icon>
+                        <TextBlock Classes="LucideIcon" Text="&#57821;" />
                     </controls:SidebarMenuItem.Icon>
                 </controls:SidebarMenuItem>
                 <controls:SidebarMenuItem

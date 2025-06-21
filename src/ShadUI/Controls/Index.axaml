@@ -2,6 +2,11 @@
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceInclude Source="avares://ShadUI/Breakpoints/View.axaml" />
+        <ResourceInclude Source="avares://ShadUI/ColorPickers/ColorPreviewer.axaml" />
+        <ResourceInclude Source="avares://ShadUI/ColorPickers/ColorSlider.axaml" />
+        <ResourceInclude Source="avares://ShadUI/ColorPickers/ColorSpectrum.axaml" />
+        <ResourceInclude Source="avares://ShadUI/ColorPickers/ColorPicker.axaml" />
+        <ResourceInclude Source="avares://ShadUI/ColorPickers/ColorView.axaml" />
         <ResourceInclude Source="avares://ShadUI/Controls/AutoCompleteBox.axaml" />
         <ResourceInclude Source="avares://ShadUI/Controls/Avatar.axaml" />
         <ResourceInclude Source="avares://ShadUI/Controls/BusyArea.axaml" />
