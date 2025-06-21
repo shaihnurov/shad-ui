@@ -39,6 +39,8 @@
                     <Border
                         Name="PART_HoverBackground"
                         Background="{DynamicResource GhostColor}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
                         CornerRadius="{TemplateBinding CornerRadius}"
                         Opacity="0">
                         <Border.Transitions>
@@ -89,6 +91,13 @@
             <Setter Property="Cursor" Value="Hand" />
         </Style>
 
+        <!--  NoPressedAnimation  -->
+        <Style Selector="^.NoPressedAnimation">
+            <Style Selector="^:pressed /template/ Panel#RootPanel">
+                <Setter Property="RenderTransform" Value="scale(1, 1)" />
+            </Style>
+        </Style>
+
         <!--  Default  -->
         <Style Selector="^.Default">
             <Setter Property="FontSize" Value="14" />
@@ -103,7 +112,7 @@
             <Setter Property="FontSize" Value="14" />
             <Setter Property="Padding" Value="12,8" />
             <Setter Property="BorderThickness" Value="1" />
-            <Setter Property="Background" Value="{DynamicResource BackgroundColor}" />
+            <Setter Property="Background" Value="{DynamicResource SelectionColor}" />
             <Setter Property="BorderBrush" Value="{DynamicResource BorderColor}" />
             <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
         </Style>
