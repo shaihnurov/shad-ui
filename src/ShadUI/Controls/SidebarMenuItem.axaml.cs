@@ -2,6 +2,7 @@ using System;
 using System.Windows.Input;
 using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Controls.Metadata;
 using Avalonia.Controls.Presenters;
 using Avalonia.Controls.Primitives;
 using Avalonia.Input;
@@ -12,6 +13,7 @@ namespace ShadUI.Controls;
 /// <summary>
 ///     Represents a menu item in a <see cref="SidebarMenu" />.
 /// </summary>
+[TemplatePart("PART_AltDisplay", typeof(ContentPresenter))]
 public class SidebarMenuItem : ListBoxItem
 {
     /// <summary>
@@ -35,13 +37,13 @@ public class SidebarMenuItem : ListBoxItem
     /// <summary>
     ///     Header property.
     /// </summary>
-    public static readonly StyledProperty<string?> HeaderProperty =
-        AvaloniaProperty.Register<SidebarMenuItem, string?>(nameof(Header));
+    public static readonly StyledProperty<object?> HeaderProperty =
+        AvaloniaProperty.Register<SidebarMenuItem, object?>(nameof(Header));
 
     /// <summary>
     ///     Gets or sets the header of the menu item.
     /// </summary>
-    public string? Header
+    public object? Header
     {
         get => GetValue(HeaderProperty);
         set => SetValue(HeaderProperty, value);
