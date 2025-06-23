@@ -279,10 +279,11 @@ public class DialogHost : TemplatedControl
             IsDialogOpen = false;
             if (e.ReplaceExisting) return;
 
-            await Task.Delay(200); // Allow animations to complete
-            Dialog = null;
             HasOpenDialog = Manager.Dialogs.Count > 0;
             Owner.HasOpenDialog = Manager.Dialogs.Count > 0;
+
+            await Task.Delay(200); // Allow animations to complete
+            if (!HasOpenDialog) Dialog = null;
         }
         catch (Exception)
         {
