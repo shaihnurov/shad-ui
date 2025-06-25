@@ -95,6 +95,22 @@ public class SimpleDropdown : ItemsControl
         get => GetValue(PopupVerticalOffsetProperty);
         set => SetValue(PopupVerticalOffsetProperty, value);
     }
+    
+    /// <summary>
+    ///     Defines the <see cref="PopupHorizontalOffset" /> property.
+    /// </summary>
+    public static readonly StyledProperty<double> PopupHorizontalOffsetProperty =
+        AvaloniaProperty.Register<SimpleDropdown, double>(
+            nameof(PopupHorizontalOffset));
+
+    /// <summary>
+    ///     Gets or sets the horizontal offset of the popup relative to its default position.
+    /// </summary>
+    public double PopupHorizontalOffset
+    {
+        get => GetValue(PopupHorizontalOffsetProperty);
+        set => SetValue(PopupHorizontalOffsetProperty, value);
+    }
 
     /// <summary>
     ///     Defines the <see cref="PopupWidth" /> property.

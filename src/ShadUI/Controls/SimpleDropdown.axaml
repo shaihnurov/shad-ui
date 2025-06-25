@@ -88,6 +88,7 @@
                         </Border>
                         <Popup
                             Width="{TemplateBinding PopupWidth}"
+                            HorizontalOffset="{TemplateBinding PopupHorizontalOffset}"
                             IsLightDismissEnabled="True"
                             IsOpen="{TemplateBinding IsDropDownOpen,
                                                      Mode=TwoWay}"
