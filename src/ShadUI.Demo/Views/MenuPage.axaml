@@ -42,7 +42,7 @@
                             Classes="Primary"
                             TriggerContent="Primary">
                             <shadui:SimpleDropdown.MenuLabel>
-                                <TextBlock Classes="Small" Text="Actions" />
+                                <TextBlock Classes="Caption  Muted" Text="Actions" />
                             </shadui:SimpleDropdown.MenuLabel>
                             <Button Content="Add New">
                                 <extensions:ButtonAssist.Icon>
@@ -67,7 +67,7 @@
                             Classes="Secondary"
                             TriggerContent="Secondary">
                             <shadui:SimpleDropdown.MenuLabel>
-                                <TextBlock Classes="Small" Text="Actions" />
+                                <TextBlock Classes="Caption  Muted" Text="Actions" />
                             </shadui:SimpleDropdown.MenuLabel>
                             <Button Content="Add New">
                                 <extensions:ButtonAssist.Icon>
@@ -92,7 +92,7 @@
                             Classes="Outline"
                             TriggerContent="Outline">
                             <shadui:SimpleDropdown.MenuLabel>
-                                <TextBlock Classes="Small" Text="Actions" />
+                                <TextBlock Classes="Caption  Muted" Text="Actions" />
                             </shadui:SimpleDropdown.MenuLabel>
                             <Button Content="Add New">
                                 <extensions:ButtonAssist.Icon>
@@ -117,7 +117,7 @@
                             Classes="Ghost"
                             TriggerContent="Ghost">
                             <shadui:SimpleDropdown.MenuLabel>
-                                <TextBlock Classes="Small" Text="Actions" />
+                                <TextBlock Classes="Caption  Muted" Text="Actions" />
                             </shadui:SimpleDropdown.MenuLabel>
                             <Button Content="Add New">
                                 <extensions:ButtonAssist.Icon>
@@ -144,7 +144,7 @@
                                 <TextBlock Classes="LucideIcon" Text="&#57530;" />
                             </shadui:SimpleDropdown.TriggerContent>
                             <shadui:SimpleDropdown.MenuLabel>
-                                <TextBlock Classes="Small" Text="Actions" />
+                                <TextBlock Classes="Caption  Muted" Text="Actions" />
                             </shadui:SimpleDropdown.MenuLabel>
                             <Button Content="Add New">
                                 <extensions:ButtonAssist.Icon>
@@ -170,7 +170,6 @@
                     Code="{Binding MenuBarCode}"
                     Language="xaml">
                     <Border
-                        Height="36"
                         Padding="4"
                         HorizontalAlignment="Center"
                         BorderBrush="{DynamicResource BorderColor}"
@@ -265,7 +264,7 @@
                                     Classes="Primary"
                                     Header="Primary">
                                     <extensions:MenuItemAssist.Label>
-                                        <TextBlock Classes="Small" Text="My Account" />
+                                        <TextBlock Classes="Caption Muted" Text="My Account" />
                                     </extensions:MenuItemAssist.Label>
                                     <MenuItem
                                         Width="224"
@@ -297,7 +296,7 @@
                                     Classes="Secondary"
                                     Header="Secondary">
                                     <extensions:MenuItemAssist.Label>
-                                        <TextBlock Classes="Small" Text="My Account" />
+                                        <TextBlock Classes="Caption Muted" Text="My Account" />
                                     </extensions:MenuItemAssist.Label>
                                     <MenuItem
                                         Width="224"
@@ -329,7 +328,7 @@
                                     Classes="Outline"
                                     Header="Outline">
                                     <extensions:MenuItemAssist.Label>
-                                        <TextBlock Classes="Small" Text="My Account" />
+                                        <TextBlock Classes="Caption Muted" Text="My Account" />
                                     </extensions:MenuItemAssist.Label>
                                     <MenuItem
                                         Width="224"
@@ -361,7 +360,7 @@
                                     Classes="Ghost"
                                     Header="Ghost">
                                     <extensions:MenuItemAssist.Label>
-                                        <TextBlock Classes="Small" Text="My Account" />
+                                        <TextBlock Classes="Caption Muted" Text="My Account" />
                                     </extensions:MenuItemAssist.Label>
                                     <MenuItem
                                         Width="224"
@@ -395,7 +394,7 @@
                                         <TextBlock Classes="LucideIcon" Text="&#57530;" />
                                     </MenuItem.Header>
                                     <extensions:MenuItemAssist.Label>
-                                        <TextBlock Classes="Small" Text="My Account" />
+                                        <TextBlock Classes="Caption Muted" Text="My Account" />
                                     </extensions:MenuItemAssist.Label>
                                     <MenuItem
                                         Width="224"

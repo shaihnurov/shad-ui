@@ -154,8 +154,9 @@
                                                         <TextBlock Classes="LucideIcon" Text="&#57530;" />
                                                     </shadui:SimpleDropdown.TriggerContent>
                                                     <shadui:SimpleDropdown.MenuLabel>
-                                                        <TextBlock Classes="Small" Text="Actions" />
+                                                        <TextBlock Classes="Caption Muted" Text="Actions" />
                                                     </shadui:SimpleDropdown.MenuLabel>
+                                                    <Separator />
                                                     <Button Content="Copy payment ID" />
                                                     <Button Content="View customer" />
                                                     <Button Content="View payment details" />

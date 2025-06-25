@@ -111,7 +111,6 @@
                                         <Border Padding="16,8" IsVisible="{TemplateBinding MenuLabel, Converter={x:Static ObjectConverters.IsNotNull}}">
                                             <ContentPresenter Content="{TemplateBinding MenuLabel}" FontFamily="{TemplateBinding FontFamily}" />
                                         </Border>
-                                        <Separator Margin="0,2" IsVisible="{TemplateBinding MenuLabel, Converter={x:Static ObjectConverters.IsNotNull}}" />
                                         <ScrollViewer Margin="0,2">
                                             <ItemsPresenter
                                                 Name="PART_ItemsPresenter"

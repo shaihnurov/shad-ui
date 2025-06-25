@@ -130,7 +130,6 @@
                                         <Border Padding="16,8" IsVisible="{TemplateBinding extensions:MenuItemAssist.Label, Converter={x:Static ObjectConverters.IsNotNull}}">
                                             <ContentPresenter Content="{TemplateBinding extensions:MenuItemAssist.Label}" />
                                         </Border>
-                                        <Separator Margin="0,2" IsVisible="{TemplateBinding extensions:MenuItemAssist.Label, Converter={x:Static ObjectConverters.IsNotNull}}" />
                                         <ScrollViewer ClipToBounds="True">
                                             <ItemsPresenter
                                                 Name="PART_ItemsPresenter"
