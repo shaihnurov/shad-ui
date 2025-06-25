@@ -81,7 +81,7 @@
         </Button>
     </controls:Window.RightWindowTitleBarControls>
     <Panel>
-        <controls:SidebarMenu>
+        <controls:SidebarMenu OpenPaneLength="232">
             <controls:SidebarMenu.Styles>
                 <Style Selector="controls|SidebarMenuItem">
                     <Setter Property="ToolTip.Placement" Value="Top" />
