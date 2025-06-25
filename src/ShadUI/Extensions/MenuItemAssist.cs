@@ -33,6 +33,32 @@ public static class MenuItemAssist
     }
 
     /// <summary>
+    ///     Defines an attached property for setting the horizontal offset of a popup.
+    /// </summary>
+    public static readonly AttachedProperty<double> PopupHorizontalOffsetProperty =
+        AvaloniaProperty.RegisterAttached<MenuItem, double>("PopupHorizontalOffset", typeof(TemplatedControl));
+
+    /// <summary>
+    ///     Gets the value of the <see cref="PopupHorizontalOffsetProperty" />.
+    /// </summary>
+    /// <param name="ctrl">The menu item.</param>
+    /// <returns>The horizontal offset value.</returns>
+    public static double GetPopupHorizontalOffset(MenuItem ctrl)
+    {
+        return ctrl.GetValue(PopupHorizontalOffsetProperty);
+    }
+
+    /// <summary>
+    ///     Sets the value of the <see cref="PopupHorizontalOffsetProperty" />.
+    /// </summary>
+    /// <param name="ctrl">The menu item.</param>
+    /// <param name="value">The horizontal offset value to set.</param>
+    public static void SetPopupHorizontalOffset(MenuItem ctrl, double value)
+    {
+        ctrl.SetValue(PopupHorizontalOffsetProperty, value);
+    }
+
+    /// <summary>
     ///     Defines an attached property for setting the vertical offset of a popup.
     /// </summary>
     public static readonly AttachedProperty<double> PopupVerticalOffsetProperty =
