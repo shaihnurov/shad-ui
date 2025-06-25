@@ -51,10 +51,8 @@
                             <ContentPresenter
                                 Name="PART_HeaderPresenter"
                                 Margin="{TemplateBinding Padding}"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
-                                HorizontalContentAlignment="Left"
-                                VerticalContentAlignment="Center"
+                                HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalAlignment}"
                                 Content="{TemplateBinding Header}"
                                 FontFamily="{TemplateBinding FontFamily}">
                                 <ContentPresenter.DataTemplates>
@@ -341,6 +339,15 @@
                     </KeyFrame>
                 </Animation>
             </Style.Animations>
+        </Style>
+        <Style Selector="^.Single">
+            <Setter Property="ItemsPanel">
+                <Setter.Value>
+                    <ItemsPanelTemplate>
+                        <StackPanel />
+                    </ItemsPanelTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
     </ControlTheme>
 </ResourceDictionary>
