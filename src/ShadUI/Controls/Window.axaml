@@ -198,9 +198,6 @@
         <Style Selector="^[ShowTitlebarBackground=False] /template/ Menu#PART_Menu">
             <Setter Property="Margin" Value="10,0,0,7" />
         </Style>
-        <Style Selector="^[WindowState=Maximized]">
-            <Setter Property="BorderThickness" Value="2" />
-        </Style>
         <Style Selector="^[WindowState=Maximized] /template/ PathIcon#MaximizeIcon">
             <Setter Property="Data" Value="{x:Static icons:Icons.WindowRestore}" />
         </Style>
