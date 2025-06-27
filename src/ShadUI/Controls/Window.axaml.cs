@@ -7,6 +7,7 @@ using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Controls.Primitives;
 using Avalonia.Input;
 using Avalonia.Interactivity;
+using Avalonia.Layout;
 using Avalonia.Media;
 using ShadUI.Extensions;
 using Application = Avalonia.Application;
@@ -97,15 +98,15 @@ public class Window : Avalonia.Controls.Window
         get => GetValue(IsTitleBarVisibleProperty);
         set => SetValue(IsTitleBarVisibleProperty, value);
     }
-    
+
     /// <summary>
     ///     The corner radius of the window.
     /// </summary>
     public static readonly StyledProperty<CornerRadius> RootCornerRadiusProperty =
-        AvaloniaProperty.Register<Border, CornerRadius>(nameof(RootCornerRadius), defaultValue: default);
+        AvaloniaProperty.Register<Border, CornerRadius>(nameof(RootCornerRadius));
 
     /// <summary>
-    ///     Gets or sets the value of <see cref="RootCornerRadiusProperty"/>.
+    ///     Gets or sets the value of <see cref="RootCornerRadiusProperty" />.
     /// </summary>
     public CornerRadius RootCornerRadius
     {
@@ -268,8 +269,8 @@ public class Window : Avalonia.Controls.Window
     {
         base.OnLoaded(e);
 
-        if (Application.Current?.ApplicationLifetime is not IClassicDesktopStyleApplicationLifetime desktop)
-            return;
+        if (Application.Current?.ApplicationLifetime is not IClassicDesktopStyleApplicationLifetime desktop) return;
+
         if (desktop.MainWindow is Window window && window != this) Icon ??= window.Icon;
     }
 
@@ -311,26 +312,31 @@ public class Window : Avalonia.Controls.Window
             }
 
             if (e.NameScope.Get<Button>("PART_MinimizeButton") is { } minimize)
+            {
                 minimize.Click += (_, _) => WindowState = WindowState.Minimized;
+            }
 
             if (e.NameScope.Get<Button>("PART_CloseButton") is { } close)
+            {
                 close.Click += (_, _) => Close();
+            }
 
             if (e.NameScope.Get<Control>("PART_TitleBarBackground") is { } titleBar)
             {
                 titleBar.PointerPressed += OnTitleBarPointerPressed;
                 titleBar.DoubleTapped += OnMaximizeButtonClicked;
             }
-            if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+
+            if (!RuntimeInformation.IsOSPlatform(OSPlatform.Linux)) return;
+
+            if (e.NameScope.Get<Panel>("PART_Root") is { } rootPanel)
             {
-                if (e.NameScope.Get<Panel>("PART_Root") is { } rootPanel)
-                {
-                    AddResizeGripForLinux(rootPanel);
-                }
-                if (RootCornerRadius == default)
-                {
-                    RootCornerRadius = new CornerRadius(10);
-                }
+                AddResizeGripForLinux(rootPanel);
+            }
+
+            if (RootCornerRadius == default)
+            {
+                RootCornerRadius = new CornerRadius(10);
             }
         }
         catch
@@ -350,6 +356,7 @@ public class Window : Avalonia.Controls.Window
     internal bool HasOpenDialog { get; set; }
 
     private bool _snapLayoutEnabled = true;
+
     private void EnableWindowsSnapLayout(Button maximize)
     {
         var pointerOnMaxButton = false;
@@ -382,12 +389,12 @@ public class Window : Avalonia.Controls.Window
                             size.Height)
                         .Contains(new Point(x, y)))
                     {
-                        if (HasOpenDialog) return (IntPtr) 9;
+                        if (HasOpenDialog) return (IntPtr)9;
 
                         setter?.SetValue(maximize, true);
                         pointerOnMaxButton = true;
                         handled = true;
-                        return (IntPtr) 9;
+                        return (IntPtr)9;
                     }
 
                     pointerOnMaxButton = false;
@@ -419,7 +426,9 @@ public class Window : Avalonia.Controls.Window
                 break;
             case WindowState.Maximized:
                 ToggleMaxButtonVisibility(CanMaximize);
-                Margin = RuntimeInformation.IsOSPlatform(OSPlatform.Linux) ? new Thickness(0) : new Thickness(7);
+                Margin = RuntimeInformation.IsOSPlatform(OSPlatform.Linux) 
+                    ? new Thickness(0) 
+                    : new Thickness(7);
                 break;
             case WindowState.Normal:
                 ToggleMaxButtonVisibility(CanMaximize);
@@ -459,65 +468,73 @@ public class Window : Avalonia.Controls.Window
     {
         WindowState = _lastState == WindowState.FullScreen ? WindowState.Maximized : _lastState;
     }
-    
+
     private void AddResizeGripForLinux(Panel rootPanel)
     {
         var resizeBorders = new[]
         {
-            new {
+            new
+            {
                 Tag = "North",
-                VerticalAlignment = Avalonia.Layout.VerticalAlignment.Top,
-                HorizontalAlignment = Avalonia.Layout.HorizontalAlignment.Stretch,
+                VerticalAlignment = VerticalAlignment.Top,
+                HorizontalAlignment = HorizontalAlignment.Stretch,
                 Cursor = StandardCursorType.SizeNorthSouth,
                 IsCorner = false
             },
-            new {
+            new
+            {
                 Tag = "South",
-                VerticalAlignment = Avalonia.Layout.VerticalAlignment.Bottom,
-                HorizontalAlignment = Avalonia.Layout.HorizontalAlignment.Stretch,
+                VerticalAlignment = VerticalAlignment.Bottom,
+                HorizontalAlignment = HorizontalAlignment.Stretch,
                 Cursor = StandardCursorType.SizeNorthSouth,
                 IsCorner = false
             },
-            new {
+            new
+            {
                 Tag = "West",
-                VerticalAlignment = Avalonia.Layout.VerticalAlignment.Stretch,
-                HorizontalAlignment = Avalonia.Layout.HorizontalAlignment.Left,
+                VerticalAlignment = VerticalAlignment.Stretch,
+                HorizontalAlignment = HorizontalAlignment.Left,
                 Cursor = StandardCursorType.SizeWestEast,
                 IsCorner = false
             },
-            new {
+            new
+            {
                 Tag = "East",
-                VerticalAlignment = Avalonia.Layout.VerticalAlignment.Stretch,
-                HorizontalAlignment = Avalonia.Layout.HorizontalAlignment.Right,
+                VerticalAlignment = VerticalAlignment.Stretch,
+                HorizontalAlignment = HorizontalAlignment.Right,
                 Cursor = StandardCursorType.SizeWestEast,
                 IsCorner = false
             },
 
-            new {
+            new
+            {
                 Tag = "NW",
-                VerticalAlignment = Avalonia.Layout.VerticalAlignment.Top,
-                HorizontalAlignment = Avalonia.Layout.HorizontalAlignment.Left,
+                VerticalAlignment = VerticalAlignment.Top,
+                HorizontalAlignment = HorizontalAlignment.Left,
                 Cursor = StandardCursorType.TopLeftCorner,
                 IsCorner = true
             },
-            new {
+            new
+            {
                 Tag = "NE",
-                VerticalAlignment = Avalonia.Layout.VerticalAlignment.Top,
-                HorizontalAlignment = Avalonia.Layout.HorizontalAlignment.Right,
+                VerticalAlignment = VerticalAlignment.Top,
+                HorizontalAlignment = HorizontalAlignment.Right,
                 Cursor = StandardCursorType.TopRightCorner,
                 IsCorner = true
             },
-            new {
+            new
+            {
                 Tag = "SW",
-                VerticalAlignment = Avalonia.Layout.VerticalAlignment.Bottom,
-                HorizontalAlignment = Avalonia.Layout.HorizontalAlignment.Left,
+                VerticalAlignment = VerticalAlignment.Bottom,
+                HorizontalAlignment = HorizontalAlignment.Left,
                 Cursor = StandardCursorType.BottomLeftCorner,
                 IsCorner = true
             },
-            new {
+            new
+            {
                 Tag = "SE",
-                VerticalAlignment = Avalonia.Layout.VerticalAlignment.Bottom,
-                HorizontalAlignment = Avalonia.Layout.HorizontalAlignment.Right,
+                VerticalAlignment = VerticalAlignment.Bottom,
+                HorizontalAlignment = HorizontalAlignment.Right,
                 Cursor = StandardCursorType.BottomRightCorner,
                 IsCorner = true
             }
@@ -536,22 +553,15 @@ public class Window : Avalonia.Controls.Window
             {
                 border.Width = 8;
                 border.Height = 8;
-                border.VerticalAlignment = config.VerticalAlignment;
-                border.HorizontalAlignment = config.HorizontalAlignment;
             }
             else
             {
-                if (config.VerticalAlignment == Avalonia.Layout.VerticalAlignment.Stretch)
-                {
-                    border.Width = 6;
-                }
-                if (config.HorizontalAlignment == Avalonia.Layout.HorizontalAlignment.Stretch)
-                {
-                    border.Height = 6;
-                }
-                border.VerticalAlignment = config.VerticalAlignment;
-                border.HorizontalAlignment = config.HorizontalAlignment;
+                if (config.VerticalAlignment == VerticalAlignment.Stretch) border.Width = 6;
+                if (config.HorizontalAlignment == HorizontalAlignment.Stretch) border.Height = 6;
             }
+
+            border.VerticalAlignment = config.VerticalAlignment;
+            border.HorizontalAlignment = config.HorizontalAlignment;
 
             border.PointerPressed += RaiseResize;
             rootPanel.Children.Add(border);
@@ -561,9 +571,8 @@ public class Window : Avalonia.Controls.Window
     private void RaiseResize(object? sender, PointerPressedEventArgs e)
     {
         if (!CanResize) return;
-        if (sender is not Border border || border.Tag is not string edge) return;
-        if (VisualRoot is not Window window)
-            return;
+        if (sender is not Border { Tag: string edge }) return;
+        if (VisualRoot is not Window window) return;
 
         var windowEdge = edge switch
         {
@@ -578,7 +587,7 @@ public class Window : Avalonia.Controls.Window
             _ => throw new ArgumentOutOfRangeException()
         };
 
-        window?.BeginResizeDrag(windowEdge, e);
+        window.BeginResizeDrag(windowEdge, e);
         e.Handled = true;
     }
 
