@@ -1,5 +1,8 @@
-﻿using Avalonia;
+﻿using System;
+using System.IO;
+using Avalonia;
 using Jab;
+using Serilog;
 using ShadUI.Demo.ViewModels;
 using ShadUI.Themes;
 
@@ -34,8 +37,28 @@ namespace ShadUI.Demo;
 [Transient<MainWindowViewModel>]
 [Import<IUtilitiesModule>]
 [Singleton(typeof(ThemeWatcher), Factory = nameof(ThemeWatcherFactory))]
+[Singleton(typeof(ILogger), Factory = nameof(LoggerFactory))]
 public partial class ServiceProvider
 {
+    public ILogger LoggerFactory()
+    {
+        var currentFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+            "ShadUI\\logs");
+
+        Directory.CreateDirectory(currentFolder); //ensure the directory exists
+
+        var file = Path.Combine(currentFolder, "log.txt");
+
+        var config = new LoggerConfiguration()
+            .MinimumLevel.Debug()
+            .WriteTo.File(file, rollingInterval: RollingInterval.Day)
+            .CreateLogger();
+
+        Log.Logger = config; //set the global logger
+
+        return config;
+    }
+
     public ThemeWatcher ThemeWatcherFactory()
     {
         return new ThemeWatcher(Application.Current!);

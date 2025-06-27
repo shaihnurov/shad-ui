@@ -1,5 +1,6 @@
 ﻿using System;
 using Avalonia;
+using Serilog;
 
 namespace ShadUI.Demo;
 
@@ -11,8 +12,18 @@ internal sealed class Program
     [STAThread]
     public static void Main(string[] args)
     {
-        BuildAvaloniaApp()
-            .StartWithClassicDesktopLifetime(args);
+        try
+        {
+            BuildAvaloniaApp()
+                .StartWithClassicDesktopLifetime(args);
+        }
+        catch (Exception e)
+        {
+            var serviceProvider = new ServiceProvider();
+
+            var logger = serviceProvider.GetService<ILogger>();
+            logger.Fatal(e, "An unhandled exception occurred during bootstrapping the application.");
+        }
     }
 
     // Avalonia configuration, don't remove; also used by visual designer.
