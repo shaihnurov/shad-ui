@@ -10,6 +10,7 @@
     xmlns:dialogs="clr-namespace:ShadUI.Dialogs;assembly=ShadUI"
     xmlns:extensions="clr-namespace:ShadUI.Extensions;assembly=ShadUI"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:shadui="clr-namespace:ShadUI;assembly=ShadUI"
     xmlns:toasts="clr-namespace:ShadUI.Toasts;assembly=ShadUI"
     x:Name="Window"
     Title="ShadUI App"
@@ -61,296 +62,537 @@
         </StackPanel>
     </controls:Window.RightWindowTitleBarContent>
     <Panel>
-        <controls:SidebarMenu OpenPaneLength="232">
-            <controls:SidebarMenu.Styles>
-                <Style Selector="controls|SidebarMenuItem">
-                    <Setter Property="ToolTip.Placement" Value="Top" />
-                    <Setter Property="ToolTip.VerticalOffset" Value="-5" />
-                </Style>
-            </controls:SidebarMenu.Styles>
-            <controls:SidebarMenu.BodyContent>
-                <TransitioningContentControl Content="{Binding SelectedPage}" />
-            </controls:SidebarMenu.BodyContent>
-            <controls:SidebarMenu.HeaderContent>
-                <controls:Avatar
-                    Width="80"
-                    Height="80"
-                    Margin="30,10,30,30"
-                    Source="../Assets/user.png" />
-            </controls:SidebarMenu.HeaderContent>
-            <controls:SidebarMenu.Items>
-                <controls:SidebarMenuItem
-                    Classes="Compact"
-                    Command="{Binding OpenDashboardCommand}"
-                    Header="Dashboard"
-                    ToolTip.Tip="{Binding IsMenuExpanded, RelativeSource={RelativeSource AncestorType=controls:SidebarMenu}, Converter={x:Static converters:BooleanToNullOrStringConverter.Instance}, ConverterParameter='Dashboard'}">
-                    <controls:SidebarMenuItem.Icon>
-                        <TextBlock Classes="LucideIcon" Text="&#57793;" />
-                    </controls:SidebarMenuItem.Icon>
-                </controls:SidebarMenuItem>
-                <controls:SidebarMenuItem
-                    Classes="Compact"
-                    Command="{Binding OpenThemeCommand}"
-                    Header="Theming"
-                    ToolTip.Tip="{Binding IsMenuExpanded, RelativeSource={RelativeSource AncestorType=controls:SidebarMenu}, Converter={x:Static converters:BooleanToNullOrStringConverter.Instance}, ConverterParameter='Theming'}">
-                    <controls:SidebarMenuItem.Icon>
-                        <TextBlock Classes="LucideIcon" Text="&#58088;" />
-                    </controls:SidebarMenuItem.Icon>
-                </controls:SidebarMenuItem>
-                <controls:SidebarMenuItem
-                    Classes="Compact"
-                    Command="{Binding OpenTypographyCommand}"
-                    Header="Typography"
-                    ToolTip.Tip="{Binding IsMenuExpanded, RelativeSource={RelativeSource AncestorType=controls:SidebarMenu}, Converter={x:Static converters:BooleanToNullOrStringConverter.Instance}, ConverterParameter='Typography'}">
-                    <controls:SidebarMenuItem.Icon>
-                        <TextBlock Classes="LucideIcon" Text="&#58887;" />
-                    </controls:SidebarMenuItem.Icon>
-                </controls:SidebarMenuItem>
-                <Separator />
-                <controls:SidebarMenuItem
-                    Classes="Compact"
-                    Command="{Binding OpenAvatarCommand}"
-                    Header="Avatar"
-                    ToolTip.Tip="{Binding IsMenuExpanded, RelativeSource={RelativeSource AncestorType=controls:SidebarMenu}, Converter={x:Static converters:BooleanToNullOrStringConverter.Instance}, ConverterParameter='Avatar'}">
-                    <controls:SidebarMenuItem.Icon>
-                        <TextBlock Classes="LucideIcon" Text="&#58470;" />
-                    </controls:SidebarMenuItem.Icon>
-                </controls:SidebarMenuItem>
-                <controls:SidebarMenuItem
-                    Classes="Compact"
-                    Command="{Binding OpenButtonsCommand}"
-                    Header="Buttons"
-                    ToolTip.Tip="{Binding IsMenuExpanded, RelativeSource={RelativeSource AncestorType=controls:SidebarMenu}, Converter={x:Static converters:BooleanToNullOrStringConverter.Instance}, ConverterParameter='Buttons'}">
-                    <controls:SidebarMenuItem.Icon>
-                        <TextBlock Classes="LucideIcon" Text="&#57636;" />
-                    </controls:SidebarMenuItem.Icon>
-                </controls:SidebarMenuItem>
-                <controls:SidebarMenuItem
-                    Classes="Compact"
-                    Command="{Binding OpenCardsCommand}"
-                    Header="Cards"
-                    ToolTip.Tip="{Binding IsMenuExpanded, RelativeSource={RelativeSource AncestorType=controls:SidebarMenu}, Converter={x:Static converters:BooleanToNullOrStringConverter.Instance}, ConverterParameter='Cards'}">
-                    <controls:SidebarMenuItem.Icon>
-                        <TextBlock Classes="LucideIcon" Text="&#57506;" />
-                    </controls:SidebarMenuItem.Icon>
-                </controls:SidebarMenuItem>
-                <controls:SidebarMenuItem
-                    Classes="Compact"
-                    Command="{Binding OpenDataGridCommand}"
-                    Header="Data Table"
-                    ToolTip.Tip="{Binding IsMenuExpanded, RelativeSource={RelativeSource AncestorType=controls:SidebarMenu}, Converter={x:Static converters:BooleanToNullOrStringConverter.Instance}, ConverterParameter='Data Table'}">
-                    <controls:SidebarMenuItem.Icon>
-                        <TextBlock Classes="LucideIcon" Text="&#58628;" />
-                    </controls:SidebarMenuItem.Icon>
-                </controls:SidebarMenuItem>
-                <controls:SidebarMenuItem
-                    Classes="Compact"
-                    Command="{Binding OpenCheckBoxesCommand}"
-                    Header="CheckBox"
-                    ToolTip.Tip="{Binding IsMenuExpanded, RelativeSource={RelativeSource AncestorType=controls:SidebarMenu}, Converter={x:Static converters:BooleanToNullOrStringConverter.Instance}, ConverterParameter='CheckBox'}">
-                    <controls:SidebarMenuItem.Icon>
-                        <TextBlock Classes="LucideIcon" Text="&#58568;" />
-                    </controls:SidebarMenuItem.Icon>
-                </controls:SidebarMenuItem>
-                <controls:SidebarMenuItem
-                    Classes="Compact"
-                    Command="{Binding OpenComboBoxesCommand}"
-                    Header="ComboBox"
-                    ToolTip.Tip="{Binding IsMenuExpanded, RelativeSource={RelativeSource AncestorType=controls:SidebarMenu}, Converter={x:Static converters:BooleanToNullOrStringConverter.Instance}, ConverterParameter='ComboBox'}">
-                    <controls:SidebarMenuItem.Icon>
-                        <TextBlock Classes="LucideIcon" Text="&#57873;" />
-                    </controls:SidebarMenuItem.Icon>
-                </controls:SidebarMenuItem>
-                <controls:SidebarMenuItem
-                    Classes="Compact"
-                    Command="{Binding OpenColorsCommand}"
-                    Header="Colors"
-                    ToolTip.Tip="{Binding IsMenuExpanded, RelativeSource={RelativeSource AncestorType=controls:SidebarMenu}, Converter={x:Static converters:BooleanToNullOrStringConverter.Instance}, ConverterParameter='Colors'}">
-                    <controls:SidebarMenuItem.Icon>
-                        <TextBlock Classes="LucideIcon" Text="&#57821;" />
-                    </controls:SidebarMenuItem.Icon>
-                </controls:SidebarMenuItem>
-                <controls:SidebarMenuItem
-                    Classes="Compact"
-                    Command="{Binding OpenDateCommand}"
-                    Header="Date"
-                    ToolTip.Tip="{Binding IsMenuExpanded, RelativeSource={RelativeSource AncestorType=controls:SidebarMenu}, Converter={x:Static converters:BooleanToNullOrStringConverter.Instance}, ConverterParameter='Date'}">
-                    <controls:SidebarMenuItem.Icon>
-                        <TextBlock Classes="LucideIcon" Text="&#57447;" />
-                    </controls:SidebarMenuItem.Icon>
-                </controls:SidebarMenuItem>
-                <controls:SidebarMenuItem
-                    Classes="Compact"
-                    Command="{Binding OpenDialogsCommand}"
-                    Header="Dialogs"
-                    ToolTip.Tip="{Binding IsMenuExpanded, RelativeSource={RelativeSource AncestorType=controls:SidebarMenu}, Converter={x:Static converters:BooleanToNullOrStringConverter.Instance}, ConverterParameter='Dialogs'}">
-                    <controls:SidebarMenuItem.Icon>
-                        <TextBlock Classes="LucideIcon" Text="&#57627;" />
-                    </controls:SidebarMenuItem.Icon>
-                </controls:SidebarMenuItem>
-                <controls:SidebarMenuItem
-                    Classes="Compact"
-                    Command="{Binding OpenInputsCommand}"
-                    Header="Inputs"
-                    ToolTip.Tip="{Binding IsMenuExpanded, RelativeSource={RelativeSource AncestorType=controls:SidebarMenu}, Converter={x:Static converters:BooleanToNullOrStringConverter.Instance}, ConverterParameter='Inputs'}">
-                    <controls:SidebarMenuItem.Icon>
-                        <TextBlock Classes="LucideIcon" Text="&#57957;" />
-                    </controls:SidebarMenuItem.Icon>
-                </controls:SidebarMenuItem>
-                <controls:SidebarMenuItem
-                    Classes="Compact"
-                    Command="{Binding OpenNumericsCommand}"
-                    Header="Numerics"
-                    ToolTip.Tip="{Binding IsMenuExpanded, RelativeSource={RelativeSource AncestorType=controls:SidebarMenu}, Converter={x:Static converters:BooleanToNullOrStringConverter.Instance}, ConverterParameter='Numerics'}">
-                    <controls:SidebarMenuItem.Icon>
-                        <TextBlock Classes="ShadUIIcon" Text="&#xe902;" />
-                    </controls:SidebarMenuItem.Icon>
-                </controls:SidebarMenuItem>
-                <controls:SidebarMenuItem
-                    Classes="Compact"
-                    Command="{Binding OpenMenusCommand}"
-                    Header="Menus"
-                    ToolTip.Tip="{Binding IsMenuExpanded, RelativeSource={RelativeSource AncestorType=controls:SidebarMenu}, Converter={x:Static converters:BooleanToNullOrStringConverter.Instance}, ConverterParameter='Menus'}">
-                    <controls:SidebarMenuItem.Icon>
-                        <TextBlock Classes="LucideIcon" Text="&#58456;" />
-                    </controls:SidebarMenuItem.Icon>
-                </controls:SidebarMenuItem>
-                <controls:SidebarMenuItem
-                    Classes="Compact"
-                    Command="{Binding OpenSidebarCommand}"
-                    Header="Sidebar"
-                    ToolTip.Tip="{Binding IsMenuExpanded, RelativeSource={RelativeSource AncestorType=controls:SidebarMenu}, Converter={x:Static converters:BooleanToNullOrStringConverter.Instance}, ConverterParameter='Sidebar'}">
-                    <controls:SidebarMenuItem.Icon>
-                        <TextBlock Classes="LucideIcon" Text="&#57646;" />
-                    </controls:SidebarMenuItem.Icon>
-                </controls:SidebarMenuItem>
-                <controls:SidebarMenuItem
-                    Classes="Compact"
-                    Command="{Binding OpenSlidersCommand}"
-                    Header="Sliders"
-                    ToolTip.Tip="{Binding IsMenuExpanded, RelativeSource={RelativeSource AncestorType=controls:SidebarMenu}, Converter={x:Static converters:BooleanToNullOrStringConverter.Instance}, ConverterParameter='Sliders'}">
-                    <controls:SidebarMenuItem.Icon>
-                        <TextBlock Classes="LucideIcon" Text="&#58010;" />
-                    </controls:SidebarMenuItem.Icon>
-                </controls:SidebarMenuItem>
-                <controls:SidebarMenuItem
-                    Classes="Compact"
-                    Command="{Binding OpenSwitchCommand}"
-                    Header="Switch"
-                    ToolTip.Tip="{Binding IsMenuExpanded, RelativeSource={RelativeSource AncestorType=controls:SidebarMenu}, Converter={x:Static converters:BooleanToNullOrStringConverter.Instance}, ConverterParameter='Switch'}">
-                    <controls:SidebarMenuItem.Icon>
-                        <TextBlock Classes="LucideIcon" Text="&#57739;" />
-                    </controls:SidebarMenuItem.Icon>
-                </controls:SidebarMenuItem>
-                <controls:SidebarMenuItem
-                    Classes="Compact"
-                    Command="{Binding OpenTabsCommand}"
-                    Header="Tabs"
-                    ToolTip.Tip="{Binding IsMenuExpanded, RelativeSource={RelativeSource AncestorType=controls:SidebarMenu}, Converter={x:Static converters:BooleanToNullOrStringConverter.Instance}, ConverterParameter='Tabs'}">
-                    <controls:SidebarMenuItem.Icon>
-                        <TextBlock Classes="LucideIcon" Text="&#58411;" />
-                    </controls:SidebarMenuItem.Icon>
-                </controls:SidebarMenuItem>
-                <controls:SidebarMenuItem
-                    Classes="Compact"
-                    Command="{Binding OpenTimeCommand}"
-                    Header="Time"
-                    ToolTip.Tip="{Binding IsMenuExpanded, RelativeSource={RelativeSource AncestorType=controls:SidebarMenu}, Converter={x:Static converters:BooleanToNullOrStringConverter.Instance}, ConverterParameter='Time'}">
-                    <controls:SidebarMenuItem.Icon>
-                        <TextBlock Classes="LucideIcon" Text="&#57937;" />
-                    </controls:SidebarMenuItem.Icon>
-                </controls:SidebarMenuItem>
-                <controls:SidebarMenuItem
-                    Classes="Compact"
-                    Command="{Binding OpenToastCommand}"
-                    Header="Toasts"
-                    ToolTip.Tip="{Binding IsMenuExpanded, RelativeSource={RelativeSource AncestorType=controls:SidebarMenu}, Converter={x:Static converters:BooleanToNullOrStringConverter.Instance}, ConverterParameter='Toasts'}">
-                    <controls:SidebarMenuItem.Icon>
-                        <TextBlock Classes="LucideIcon" Text="&#57980;" />
-                    </controls:SidebarMenuItem.Icon>
-                </controls:SidebarMenuItem>
-                <controls:SidebarMenuItem
-                    Classes="Compact"
-                    Command="{Binding OpenToggleCommand}"
-                    Header="Toggle"
-                    ToolTip.Tip="{Binding IsMenuExpanded, RelativeSource={RelativeSource AncestorType=controls:SidebarMenu}, Converter={x:Static converters:BooleanToNullOrStringConverter.Instance}, ConverterParameter='Toggle'}">
-                    <controls:SidebarMenuItem.Icon>
-                        <TextBlock Classes="LucideIcon" Text="&#58751;" />
-                    </controls:SidebarMenuItem.Icon>
-                </controls:SidebarMenuItem>
-                <controls:SidebarMenuItem
-                    Classes="Compact"
-                    Command="{Binding OpenToolTipCommand}"
-                    Header="Tooltip"
-                    ToolTip.Tip="{Binding IsMenuExpanded, RelativeSource={RelativeSource AncestorType=controls:SidebarMenu}, Converter={x:Static converters:BooleanToNullOrStringConverter.Instance}, ConverterParameter='Tooltip'}">
-                    <controls:SidebarMenuItem.Icon>
-                        <TextBlock Classes="LucideIcon" Text="&#57626;" />
-                    </controls:SidebarMenuItem.Icon>
-                </controls:SidebarMenuItem>
-                <controls:SidebarMenuItem
-                    Classes="Compact"
-                    Command="{Binding OpenMiscellaneousCommand}"
-                    Header="Miscellaneous"
-                    ToolTip.Tip="{Binding IsMenuExpanded, RelativeSource={RelativeSource AncestorType=controls:SidebarMenu}, Converter={x:Static converters:BooleanToNullOrStringConverter.Instance}, ConverterParameter='Miscellaneous'}">
-                    <controls:SidebarMenuItem.Icon>
-                        <TextBlock Classes="LucideIcon" Text="&#58671;" />
-                    </controls:SidebarMenuItem.Icon>
-                </controls:SidebarMenuItem>
-            </controls:SidebarMenu.Items>
-            <controls:SidebarMenu.FooterContent>
-                <StackPanel
-                    HorizontalAlignment="Center"
-                    Orientation="Horizontal"
-                    Spacing="16">
+        <Grid ColumnDefinitions="Auto *">
+            <shadui:Sidebar
+                Grid.Column="0"
+                Width="220"
+                MinWidth="56"
+                Padding="{Binding #Toggler.IsChecked, Converter={x:Static converters:BooleanConverters.SidebarPadding}}"
+                BorderBrush="{DynamicResource BorderColor30}"
+                BorderThickness="0,0,1,0"
+                Expanded="{Binding #Toggler.IsChecked}">
+                <shadui:Sidebar.Header>
+                    <ToggleButton
+                        Name="Toggler"
+                        Width="32"
+                        Height="32"
+                        Padding="8"
+                        HorizontalAlignment="{Binding #Toggler.IsChecked, Converter={x:Static converters:BooleanConverters.SidebarTogglerHorizontalAlignment}}"
+                        CornerRadius="{DynamicResource LgCornerRadius}"
+                        Theme="{DynamicResource SideTogglerTheme}">
+                        <Viewbox>
+                            <TextBlock Classes="LucideIcon" Text="&#57646;" />
+                        </Viewbox>
+                    </ToggleButton>
+                </shadui:Sidebar.Header>
+                <StackPanel Spacing="4">
                     <StackPanel.Styles>
-                        <Style Selector="Button">
-                            <Setter Property="Command" Value="{Binding OpenUrlCommand}" />
-                            <Setter Property="ToolTip.Placement" Value="Top" />
-                            <Setter Property="ToolTip.VerticalOffset" Value="-5" />
-                        </Style>
-                        <Style Selector="PathIcon">
-                            <Setter Property="Height" Value="16" />
+                        <Style Selector="StackPanel &gt; TextBlock">
+                            <Setter Property="Margin" Value="8" />
+                            <Setter Property="FontSize" Value="12" />
+                            <Setter Property="Foreground" Value="{DynamicResource MutedColor}" />
+                            <Setter Property="FontWeight" Value="DemiBold" />
                         </Style>
                     </StackPanel.Styles>
-                    <Button
-                        Width="36"
-                        Height="36"
-                        CommandParameter="https://github.com/accntech/shad-ui"
-                        ToolTip.Tip="Source repository">
-                        <extensions:ButtonAssist.Icon>
-                            <TextBlock
-                                Classes="ShadUIIcon"
-                                Foreground="{DynamicResource PrimaryColor}"
-                                Text="&#xe900;" />
-                        </extensions:ButtonAssist.Icon>
-                    </Button>
-                    <Button
-                        Width="36"
-                        Height="36"
-                        CommandParameter="https://github.com/accntech/shad-ui/blob/main/LICENSE"
-                        ToolTip.Tip="Open source license">
-                        <extensions:ButtonAssist.Icon>
-                            <TextBlock
-                                Classes="ShadUIIcon"
-                                Foreground="{DynamicResource PrimaryColor}"
-                                Text="&#xe903;" />
-                        </extensions:ButtonAssist.Icon>
-                    </Button>
-                    <Button
-                        Width="36"
-                        Height="36"
-                        CommandParameter="https://www.nuget.org/packages/ShadUI"
-                        ToolTip.Tip="Nuget package">
-                        <extensions:ButtonAssist.Icon>
-                            <TextBlock
-                                Classes="ShadUIIcon"
-                                Foreground="{DynamicResource PrimaryColor}"
-                                Text="&#xe901;" />
-                        </extensions:ButtonAssist.Icon>
-                    </Button>
+                    <shadui:SidebarItem
+                        Command="{Binding OpenDashboardCommand}"
+                        Content="Dashboard"
+                        IsChecked="True"
+                        ToolTip.Tip="{Binding $parent[shadui:Sidebar].Expanded, Converter={x:Static converters:BooleanConverters.NullOrString}, ConverterParameter='Dashboard'}">
+                        <shadui:SidebarItem.Icon>
+                            <Viewbox>
+                                <TextBlock
+                                    Classes="LucideIcon"
+                                    Foreground="{DynamicResource ForegroundColor}"
+                                    Text="&#57793;" />
+                            </Viewbox>
+                        </shadui:SidebarItem.Icon>
+                    </shadui:SidebarItem>
+                    <shadui:SidebarItem 
+                        Command="{Binding OpenThemeCommand}" 
+                        Content="Theming"
+                        ToolTip.Tip="{Binding $parent[shadui:Sidebar].Expanded, Converter={x:Static converters:BooleanConverters.NullOrString}, ConverterParameter='Theming'}">
+                        <shadui:SidebarItem.Icon>
+                            <Viewbox>
+                                <TextBlock
+                                    Classes="LucideIcon"
+                                    Foreground="{DynamicResource ForegroundColor}"
+                                    Text="&#58088;" />
+                            </Viewbox>
+                        </shadui:SidebarItem.Icon>
+                    </shadui:SidebarItem>
+                    <shadui:SidebarItem 
+                        Command="{Binding OpenTypographyCommand}" 
+                        Content="Typography"
+                        ToolTip.Tip="{Binding $parent[shadui:Sidebar].Expanded, Converter={x:Static converters:BooleanConverters.NullOrString}, ConverterParameter='Typography'}">
+                        <shadui:SidebarItem.Icon>
+                            <Viewbox>
+                                <TextBlock
+                                    Classes="LucideIcon"
+                                    Foreground="{DynamicResource ForegroundColor}"
+                                    Text="&#58887;" />
+                            </Viewbox>
+                        </shadui:SidebarItem.Icon>
+                    </shadui:SidebarItem>
+                    <Separator Background="{Binding $parent[shadui:Sidebar].BorderBrush}" IsVisible="{Binding $parent[shadui:Sidebar].Expanded, Converter={x:Static BoolConverters.Not}}" />
+                    <TextBlock IsVisible="{Binding $parent[shadui:Sidebar].Expanded}" Text="Components" />
+                    <shadui:SidebarItem 
+                        Command="{Binding OpenAvatarCommand}" 
+                        Content="Avatar"
+                        ToolTip.Tip="{Binding $parent[shadui:Sidebar].Expanded, Converter={x:Static converters:BooleanConverters.NullOrString}, ConverterParameter='Avatar'}">
+                        <shadui:SidebarItem.Icon>
+                            <Viewbox>
+                                <TextBlock
+                                    Classes="LucideIcon"
+                                    Foreground="{DynamicResource ForegroundColor}"
+                                    Text="&#58470;" />
+                            </Viewbox>
+                        </shadui:SidebarItem.Icon>
+                    </shadui:SidebarItem>
+                    <shadui:SidebarItem 
+                        Command="{Binding OpenButtonsCommand}" 
+                        Content="Buttons"
+                        ToolTip.Tip="{Binding $parent[shadui:Sidebar].Expanded, Converter={x:Static converters:BooleanConverters.NullOrString}, ConverterParameter='Buttons'}">
+                        <shadui:SidebarItem.Icon>
+                            <Viewbox>
+                                <TextBlock
+                                    Classes="LucideIcon"
+                                    Foreground="{DynamicResource ForegroundColor}"
+                                    Text="&#57636;" />
+                            </Viewbox>
+                        </shadui:SidebarItem.Icon>
+                    </shadui:SidebarItem>
+                    <shadui:SidebarItem 
+                        Command="{Binding OpenCardsCommand}" 
+                        Content="Cards"
+                        ToolTip.Tip="{Binding $parent[shadui:Sidebar].Expanded, Converter={x:Static converters:BooleanConverters.NullOrString}, ConverterParameter='Cards'}">
+                        <shadui:SidebarItem.Icon>
+                            <Viewbox>
+                                <TextBlock
+                                    Classes="LucideIcon"
+                                    Foreground="{DynamicResource ForegroundColor}"
+                                    Text="&#57506;" />
+                            </Viewbox>
+                        </shadui:SidebarItem.Icon>
+                    </shadui:SidebarItem>
+                    <shadui:SidebarItem 
+                        Command="{Binding OpenDataGridCommand}" 
+                        Content="Data Table"
+                        ToolTip.Tip="{Binding $parent[shadui:Sidebar].Expanded, Converter={x:Static converters:BooleanConverters.NullOrString}, ConverterParameter='Data Table'}">
+                        <shadui:SidebarItem.Icon>
+                            <Viewbox>
+                                <TextBlock
+                                    Classes="LucideIcon"
+                                    Foreground="{DynamicResource ForegroundColor}"
+                                    Text="&#58628;" />
+                            </Viewbox>
+                        </shadui:SidebarItem.Icon>
+                    </shadui:SidebarItem>
+                    <shadui:SidebarItem 
+                        Command="{Binding OpenCheckBoxesCommand}" 
+                        Content="CheckBox"
+                        ToolTip.Tip="{Binding $parent[shadui:Sidebar].Expanded, Converter={x:Static converters:BooleanConverters.NullOrString}, ConverterParameter='CheckBox'}">
+                        <shadui:SidebarItem.Icon>
+                            <Viewbox>
+                                <TextBlock
+                                    Classes="LucideIcon"
+                                    Foreground="{DynamicResource ForegroundColor}"
+                                    Text="&#58568;" />
+                            </Viewbox>
+                        </shadui:SidebarItem.Icon>
+                    </shadui:SidebarItem>
+                    <shadui:SidebarItem 
+                        Command="{Binding OpenComboBoxesCommand}" 
+                        Content="ComboBox"
+                        ToolTip.Tip="{Binding $parent[shadui:Sidebar].Expanded, Converter={x:Static converters:BooleanConverters.NullOrString}, ConverterParameter='ComboBox'}">
+                        <shadui:SidebarItem.Icon>
+                            <Viewbox>
+                                <TextBlock
+                                    Classes="LucideIcon"
+                                    Foreground="{DynamicResource ForegroundColor}"
+                                    Text="&#57873;" />
+                            </Viewbox>
+                        </shadui:SidebarItem.Icon>
+                    </shadui:SidebarItem>
+                    <shadui:SidebarItem 
+                        Command="{Binding OpenColorsCommand}" 
+                        Content="Colors"
+                        ToolTip.Tip="{Binding $parent[shadui:Sidebar].Expanded, Converter={x:Static converters:BooleanConverters.NullOrString}, ConverterParameter='Colors'}">
+                        <shadui:SidebarItem.Icon>
+                            <Viewbox>
+                                <TextBlock
+                                    Classes="LucideIcon"
+                                    Foreground="{DynamicResource ForegroundColor}"
+                                    Text="&#57821;" />
+                            </Viewbox>
+                        </shadui:SidebarItem.Icon>
+                    </shadui:SidebarItem>
+                    <shadui:SidebarItem 
+                        Command="{Binding OpenDateCommand}" 
+                        Content="Date"
+                        ToolTip.Tip="{Binding $parent[shadui:Sidebar].Expanded, Converter={x:Static converters:BooleanConverters.NullOrString}, ConverterParameter='Date'}">
+                        <shadui:SidebarItem.Icon>
+                            <Viewbox>
+                                <TextBlock
+                                    Classes="LucideIcon"
+                                    Foreground="{DynamicResource ForegroundColor}"
+                                    Text="&#57447;" />
+                            </Viewbox>
+                        </shadui:SidebarItem.Icon>
+                    </shadui:SidebarItem>
+                    <shadui:SidebarItem 
+                        Command="{Binding OpenDialogsCommand}" 
+                        Content="Dialogs"
+                        ToolTip.Tip="{Binding $parent[shadui:Sidebar].Expanded, Converter={x:Static converters:BooleanConverters.NullOrString}, ConverterParameter='Dialogs'}">
+                        <shadui:SidebarItem.Icon>
+                            <Viewbox>
+                                <TextBlock
+                                    Classes="LucideIcon"
+                                    Foreground="{DynamicResource ForegroundColor}"
+                                    Text="&#57627;" />
+                            </Viewbox>
+                        </shadui:SidebarItem.Icon>
+                    </shadui:SidebarItem>
+                    <shadui:SidebarItem 
+                        Command="{Binding OpenInputsCommand}" 
+                        Content="Inputs"
+                        ToolTip.Tip="{Binding $parent[shadui:Sidebar].Expanded, Converter={x:Static converters:BooleanConverters.NullOrString}, ConverterParameter='Inputs'}">
+                        <shadui:SidebarItem.Icon>
+                            <Viewbox>
+                                <TextBlock
+                                    Classes="LucideIcon"
+                                    Foreground="{DynamicResource ForegroundColor}"
+                                    Text="&#57957;" />
+                            </Viewbox>
+                        </shadui:SidebarItem.Icon>
+                    </shadui:SidebarItem>
+                    <shadui:SidebarItem 
+                        Command="{Binding OpenNumericsCommand}" 
+                        Content="Numerics"
+                        ToolTip.Tip="{Binding $parent[shadui:Sidebar].Expanded, Converter={x:Static converters:BooleanConverters.NullOrString}, ConverterParameter='Numerics'}">
+                        <shadui:SidebarItem.Icon>
+                            <Viewbox>
+                                <TextBlock
+                                    Classes="ShadUIIcon"
+                                    Foreground="{DynamicResource ForegroundColor}"
+                                    Text="&#xe902;" />
+                            </Viewbox>
+                        </shadui:SidebarItem.Icon>
+                    </shadui:SidebarItem>
+                    <shadui:SidebarItem 
+                        Command="{Binding OpenMenusCommand}" 
+                        Content="Menus"
+                        ToolTip.Tip="{Binding $parent[shadui:Sidebar].Expanded, Converter={x:Static converters:BooleanConverters.NullOrString}, ConverterParameter='Menus'}">
+                        <shadui:SidebarItem.Icon>
+                            <Viewbox>
+                                <TextBlock
+                                    Classes="LucideIcon"
+                                    Foreground="{DynamicResource ForegroundColor}"
+                                    Text="&#58456;" />
+                            </Viewbox>
+                        </shadui:SidebarItem.Icon>
+                    </shadui:SidebarItem>
+                    <shadui:SidebarItem 
+                        Command="{Binding OpenSidebarCommand}" 
+                        Content="Sidebar"
+                        ToolTip.Tip="{Binding $parent[shadui:Sidebar].Expanded, Converter={x:Static converters:BooleanConverters.NullOrString}, ConverterParameter='Sidebar'}">
+                        <shadui:SidebarItem.Icon>
+                            <Viewbox>
+                                <TextBlock
+                                    Classes="LucideIcon"
+                                    Foreground="{DynamicResource ForegroundColor}"
+                                    Text="&#57646;" />
+                            </Viewbox>
+                        </shadui:SidebarItem.Icon>
+                    </shadui:SidebarItem>
+                    <shadui:SidebarItem 
+                        Command="{Binding OpenSlidersCommand}" 
+                        Content="Sliders"
+                        ToolTip.Tip="{Binding $parent[shadui:Sidebar].Expanded, Converter={x:Static converters:BooleanConverters.NullOrString}, ConverterParameter='Sliders'}">
+                        <shadui:SidebarItem.Icon>
+                            <Viewbox>
+                                <TextBlock
+                                    Classes="LucideIcon"
+                                    Foreground="{DynamicResource ForegroundColor}"
+                                    Text="&#58010;" />
+                            </Viewbox>
+                        </shadui:SidebarItem.Icon>
+                    </shadui:SidebarItem>
+                    <shadui:SidebarItem 
+                        Command="{Binding OpenSwitchCommand}" 
+                        Content="Switch"
+                        ToolTip.Tip="{Binding $parent[shadui:Sidebar].Expanded, Converter={x:Static converters:BooleanConverters.NullOrString}, ConverterParameter='Switch'}">
+                        <shadui:SidebarItem.Icon>
+                            <Viewbox>
+                                <TextBlock
+                                    Classes="LucideIcon"
+                                    Foreground="{DynamicResource ForegroundColor}"
+                                    Text="&#57739;" />
+                            </Viewbox>
+                        </shadui:SidebarItem.Icon>
+                    </shadui:SidebarItem>
+                    <shadui:SidebarItem 
+                        Command="{Binding OpenTabsCommand}" 
+                        Content="Tabs"
+                        ToolTip.Tip="{Binding $parent[shadui:Sidebar].Expanded, Converter={x:Static converters:BooleanConverters.NullOrString}, ConverterParameter='Tabs'}">
+                        <shadui:SidebarItem.Icon>
+                            <Viewbox>
+                                <TextBlock
+                                    Classes="LucideIcon"
+                                    Foreground="{DynamicResource ForegroundColor}"
+                                    Text="&#58411;" />
+                            </Viewbox>
+                        </shadui:SidebarItem.Icon>
+                    </shadui:SidebarItem>
+                    <shadui:SidebarItem 
+                        Command="{Binding OpenTimeCommand}" 
+                        Content="Time"
+                        ToolTip.Tip="{Binding $parent[shadui:Sidebar].Expanded, Converter={x:Static converters:BooleanConverters.NullOrString}, ConverterParameter='Time'}">
+                        <shadui:SidebarItem.Icon>
+                            <Viewbox>
+                                <TextBlock
+                                    Classes="LucideIcon"
+                                    Foreground="{DynamicResource ForegroundColor}"
+                                    Text="&#57937;" />
+                            </Viewbox>
+                        </shadui:SidebarItem.Icon>
+                    </shadui:SidebarItem>
+                    <shadui:SidebarItem 
+                        Command="{Binding OpenToastCommand}" 
+                        Content="Toasts"
+                        ToolTip.Tip="{Binding $parent[shadui:Sidebar].Expanded, Converter={x:Static converters:BooleanConverters.NullOrString}, ConverterParameter='Toasts'}">
+                        <shadui:SidebarItem.Icon>
+                            <Viewbox>
+                                <TextBlock
+                                    Classes="LucideIcon"
+                                    Foreground="{DynamicResource ForegroundColor}"
+                                    Text="&#57980;" />
+                            </Viewbox>
+                        </shadui:SidebarItem.Icon>
+                    </shadui:SidebarItem>
+                    <shadui:SidebarItem 
+                        Command="{Binding OpenToggleCommand}" 
+                        Content="Toggle"
+                        ToolTip.Tip="{Binding $parent[shadui:Sidebar].Expanded, Converter={x:Static converters:BooleanConverters.NullOrString}, ConverterParameter='Toggle'}">
+                        <shadui:SidebarItem.Icon>
+                            <Viewbox>
+                                <TextBlock
+                                    Classes="LucideIcon"
+                                    Foreground="{DynamicResource ForegroundColor}"
+                                    Text="&#58751;" />
+                            </Viewbox>
+                        </shadui:SidebarItem.Icon>
+                    </shadui:SidebarItem>
+                    <shadui:SidebarItem 
+                        Command="{Binding OpenToolTipCommand}" 
+                        Content="Tooltip"
+                        ToolTip.Tip="{Binding $parent[shadui:Sidebar].Expanded, Converter={x:Static converters:BooleanConverters.NullOrString}, ConverterParameter='Tooltip'}">
+                        <shadui:SidebarItem.Icon>
+                            <Viewbox>
+                                <TextBlock
+                                    Classes="LucideIcon"
+                                    Foreground="{DynamicResource ForegroundColor}"
+                                    Text="&#57626;" />
+                            </Viewbox>
+                        </shadui:SidebarItem.Icon>
+                    </shadui:SidebarItem>
+                    <shadui:SidebarItem 
+                        Command="{Binding OpenMiscellaneousCommand}" 
+                        Content="Miscellaneous"
+                        ToolTip.Tip="{Binding $parent[shadui:Sidebar].Expanded, Converter={x:Static converters:BooleanConverters.NullOrString}, ConverterParameter='Miscellaneous'}">
+                        <shadui:SidebarItem.Icon>
+                            <Viewbox>
+                                <TextBlock
+                                    Classes="LucideIcon"
+                                    Foreground="{DynamicResource ForegroundColor}"
+                                    Text="&#58671;" />
+                            </Viewbox>
+                        </shadui:SidebarItem.Icon>
+                    </shadui:SidebarItem>
+
                 </StackPanel>
-            </controls:SidebarMenu.FooterContent>
-        </controls:SidebarMenu>
+                <shadui:Sidebar.Footer>
+                    <Menu Classes="Single">
+                        <MenuItem
+                            Padding="8,0"
+                            HorizontalAlignment="Stretch"
+                            extensions:MenuItemAssist.PopupHorizontalOffset="4"
+                            extensions:MenuItemAssist.PopupPlacement="RightEdgeAlignedBottom"
+                            extensions:MenuItemAssist.PopupVerticalOffset="4"
+                            Classes="NoPressedAnimation"
+                            CornerRadius="{DynamicResource LgCornerRadius}">
+                            <MenuItem.Header>
+                                <Panel>
+                                    <controls:Avatar
+                                        CornerRadius="{DynamicResource LgCornerRadius}"
+                                        Fallback="CN"
+                                        IsVisible="{Binding !$parent[shadui:Sidebar].Expanded}"
+                                        Opacity="{Binding !$parent[shadui:Sidebar].Expanded, Converter={x:Static converters:BooleanConverters.Opaque}}"
+                                        Source="../../Assets/user.png">
+                                        <controls:Avatar.Transitions>
+                                            <Transitions>
+                                                <DoubleTransition Property="Opacity" Duration="0:0:0.20" />
+                                            </Transitions>
+                                        </controls:Avatar.Transitions>
+                                    </controls:Avatar>
+                                    <Grid
+                                        Margin="0,8"
+                                        ColumnDefinitions="Auto * Auto"
+                                        IsVisible="{Binding $parent[shadui:Sidebar].Expanded}">
+                                        <controls:Avatar
+                                            Width="36"
+                                            Height="36"
+                                            Margin="0,0,8,0"
+                                            CornerRadius="{DynamicResource XlCornerRadius}"
+                                            Fallback="CN"
+                                            Source="../../Assets/user.png" />
+                                        <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                                            <TextBlock Classes="Small" Text="shadui" />
+                                            <TextBlock
+                                                Margin="0,-4,0,0"
+                                                Classes="Caption"
+                                                Text="m@example.com" />
+                                        </StackPanel>
+                                        <Viewbox
+                                            Grid.Column="2"
+                                            Width="16"
+                                            Height="16">
+                                            <TextBlock
+                                                Classes="LucideIcon"
+                                                Foreground="{DynamicResource ForegroundColor}"
+                                                Text="&#57873;" />
+                                        </Viewbox>
+                                    </Grid>
+                                </Panel>
+                            </MenuItem.Header>
+                            <extensions:MenuItemAssist.Label>
+                                <Grid
+                                    Width="220"
+                                    HorizontalAlignment="Stretch"
+                                    ColumnDefinitions="Auto *">
+                                    <controls:Avatar
+                                        Width="36"
+                                        Height="36"
+                                        Margin="0,0,8,0"
+                                        CornerRadius="{DynamicResource XlCornerRadius}"
+                                        Fallback="CN"
+                                        Source="../../Assets/user.png" />
+                                    <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                                        <TextBlock Classes="Small" Text="shadui" />
+                                        <TextBlock
+                                            Margin="0,-4,0,0"
+                                            Classes="Caption"
+                                            Text="m@example.com" />
+                                    </StackPanel>
+                                </Grid>
+                            </extensions:MenuItemAssist.Label>
+                            <Separator />
+                            <MenuItem Command="{Binding ShowAboutCommand}" Header="About">
+                                <MenuItem.Icon>
+                                    <Viewbox Width="16" Height="16">
+                                        <TextBlock
+                                            Classes="LucideIcon"
+                                            Foreground="{DynamicResource MutedColor}"
+                                            Text="&#57599;" />
+                                    </Viewbox>
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem
+                                Command="{Binding OpenUrlCommand}"
+                                CommandParameter="https://github.com/accntech/shad-ui?tab=readme-ov-file#readme"
+                                Header="Readme">
+                                <MenuItem.Icon>
+                                    <Viewbox Width="16" Height="16">
+                                        <TextBlock
+                                            Classes="LucideIcon"
+                                            Foreground="{DynamicResource MutedColor}"
+                                            Text="&#57443;" />
+                                    </Viewbox>
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem
+                                Command="{Binding OpenUrlCommand}"
+                                CommandParameter="https://github.com/accntech/shad-ui"
+                                Header="Source repository">
+                                <MenuItem.Icon>
+                                    <Viewbox Width="16" Height="16">
+                                        <TextBlock
+                                            Classes="LucideIcon"
+                                            Foreground="{DynamicResource MutedColor}"
+                                            Text="&#57862;" />
+                                    </Viewbox>
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <Separator />
+                            <MenuItem
+                                Command="{Binding OpenUrlCommand}"
+                                CommandParameter="https://github.com/accntech/shad-ui?tab=MIT-1-ov-file#readme"
+                                Header="MIT License">
+                                <MenuItem.Icon>
+                                    <Viewbox Width="16" Height="16">
+                                        <TextBlock
+                                            Classes="LucideIcon"
+                                            Foreground="{DynamicResource MutedColor}"
+                                            Text="&#57874;" />
+                                    </Viewbox>
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem
+                                Command="{Binding OpenUrlCommand}"
+                                CommandParameter="https://github.com/accntech/shad-ui?tab=coc-ov-file#readme"
+                                Header="Code of Conduct">
+                                <MenuItem.Icon>
+                                    <Viewbox Width="16" Height="16">
+                                        <TextBlock
+                                            Classes="LucideIcon"
+                                            Foreground="{DynamicResource MutedColor}"
+                                            Text="&#58071;" />
+                                    </Viewbox>
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem
+                                Command="{Binding OpenUrlCommand}"
+                                CommandParameter="https://github.com/accntech/shad-ui?tab=security-ov-file"
+                                Header="Security">
+                                <MenuItem.Icon>
+                                    <Viewbox Width="16" Height="16">
+                                        <TextBlock
+                                            Classes="LucideIcon"
+                                            Foreground="{DynamicResource MutedColor}"
+                                            Text="&#57692;" />
+                                    </Viewbox>
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem
+                                Command="{Binding OpenUrlCommand}"
+                                CommandParameter="https://github.com/accntech/shad-ui/activity"
+                                Header="Activity">
+                                <MenuItem.Icon>
+                                    <Viewbox Width="16" Height="16">
+                                        <TextBlock
+                                            Classes="LucideIcon"
+                                            Foreground="{DynamicResource MutedColor}"
+                                            Text="&#57400;" />
+                                    </Viewbox>
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <Separator />
+                            <MenuItem Command="{Binding TryCloseCommand}" Header="Close application">
+                                <MenuItem.Icon>
+                                    <Viewbox Width="16" Height="16">
+                                        <TextBlock
+                                            Classes="LucideIcon"
+                                            Foreground="{DynamicResource MutedColor}"
+                                            Text="&#57668;" />
+                                    </Viewbox>
+                                </MenuItem.Icon>
+                            </MenuItem>
+                        </MenuItem>
+                    </Menu>
+                </shadui:Sidebar.Footer>
+            </shadui:Sidebar>
+            <TransitioningContentControl Grid.Column="1" Content="{Binding SelectedPage}" />
+        </Grid>
         <toasts:ToastHost Manager="{Binding ToastManager}" />
     </Panel>
 </controls:Window>
