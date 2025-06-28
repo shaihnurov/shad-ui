@@ -52,7 +52,8 @@
                                 BorderThickness="0,0,1,0"
                                 CornerRadius="{CompiledBinding #Border.CornerRadius,
                                                                Converter={x:Static shadconv:CornerRadiusConverter.LeftOnly}}"
-                                Expanded="{Binding #Toggler.IsChecked}">
+                                Expanded="{Binding #Toggler.IsChecked}"
+                                ItemIconContentSpacing="12">
                                 <shadui:Sidebar.Header>
                                     <Menu Classes="Single">
                                         <MenuItem
@@ -212,10 +213,7 @@
                                         FontWeight="DemiBold"
                                         IsVisible="{Binding $parent[shadui:Sidebar].Expanded}"
                                         Text="Projects" />
-                                    <shadui:SidebarItem
-                                        Content="Design Engineering"
-                                        GroupName="A"
-                                        SharedSizeGroup="A">
+                                    <shadui:SidebarItem Content="Design Engineering">
                                         <shadui:SidebarItem.Icon>
                                             <Viewbox>
                                                 <TextBlock
@@ -225,10 +223,7 @@
                                             </Viewbox>
                                         </shadui:SidebarItem.Icon>
                                     </shadui:SidebarItem>
-                                    <shadui:SidebarItem
-                                        Content="Sales &amp; Marketing"
-                                        GroupName="A"
-                                        SharedSizeGroup="A">
+                                    <shadui:SidebarItem Content="Sales &amp; Marketing">
                                         <shadui:SidebarItem.Icon>
                                             <Viewbox>
                                                 <TextBlock
@@ -238,10 +233,7 @@
                                             </Viewbox>
                                         </shadui:SidebarItem.Icon>
                                     </shadui:SidebarItem>
-                                    <shadui:SidebarItem
-                                        Content="Travel"
-                                        GroupName="A"
-                                        SharedSizeGroup="A">
+                                    <shadui:SidebarItem Content="Travel">
                                         <shadui:SidebarItem.Icon>
                                             <Viewbox>
                                                 <TextBlock
@@ -251,10 +243,7 @@
                                             </Viewbox>
                                         </shadui:SidebarItem.Icon>
                                     </shadui:SidebarItem>
-                                    <shadui:SidebarItem
-                                        Content="Support"
-                                        GroupName="A"
-                                        SharedSizeGroup="A">
+                                    <shadui:SidebarItem Content="Support">
                                         <shadui:SidebarItem.Icon>
                                             <Viewbox>
                                                 <TextBlock
@@ -264,10 +253,7 @@
                                             </Viewbox>
                                         </shadui:SidebarItem.Icon>
                                     </shadui:SidebarItem>
-                                    <shadui:SidebarItem
-                                        Content="Feedback"
-                                        GroupName="A"
-                                        SharedSizeGroup="A">
+                                    <shadui:SidebarItem Content="Feedback">
                                         <shadui:SidebarItem.Icon>
                                             <Viewbox>
                                                 <TextBlock
@@ -277,6 +263,7 @@
                                             </Viewbox>
                                         </shadui:SidebarItem.Icon>
                                     </shadui:SidebarItem>
+                                    <shadui:SidebarItem Content="More..." />
                                 </StackPanel>
                                 <shadui:Sidebar.Footer>
                                     <Menu Classes="Single">

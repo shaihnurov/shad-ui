@@ -1,6 +1,7 @@
 ﻿using System;
 using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Controls.Primitives;
 using ShadUI.Utilities;
 
 // ReSharper disable once CheckNamespace
@@ -54,6 +55,65 @@ public class Sidebar : ContentControl
     {
         get => GetValue(FooterProperty);
         set => SetValue(FooterProperty, value);
+    }
+
+    /// <summary>
+    ///     Defines the <see cref="ItemIconContentSpacing" /> property.
+    /// </summary>
+    public static readonly StyledProperty<double> ItemIconContentSpacingProperty =
+        AvaloniaProperty.Register<Sidebar, double>(
+            nameof(ItemIconContentSpacing));
+
+    /// <summary>
+    ///     Gets or sets the spacing between icon and content in sidebar items.
+    /// </summary>
+    public double ItemIconContentSpacing
+    {
+        get => GetValue(ItemIconContentSpacingProperty);
+        set => SetValue(ItemIconContentSpacingProperty, value);
+    }
+
+    /// <summary>
+    ///     Defines the <see cref="DefaultItemsSharedSizeGroup" /> property.
+    /// </summary>
+    public static readonly StyledProperty<string> DefaultItemsSharedSizeGroupProperty =
+        AvaloniaProperty.Register<Sidebar, string>(
+            nameof(DefaultItemsSharedSizeGroup));
+
+    /// <summary>
+    ///     Gets the default item SharedSizeGroup name for the sidebar.
+    /// </summary>
+    public string DefaultItemsSharedSizeGroup
+    {
+        get => GetValue(DefaultItemsSharedSizeGroupProperty);
+        private set => SetValue(DefaultItemsSharedSizeGroupProperty, value);
+    }
+
+    /// <summary>
+    ///     Defines the <see cref="DefaultItemsGroup" /> property.
+    /// </summary>
+    public static readonly StyledProperty<string> DefaultItemsGroupProperty =
+        AvaloniaProperty.Register<Sidebar, string>(
+            nameof(DefaultItemsGroup));
+
+    /// <summary>
+    ///     Gets the default item group name for the sidebar.
+    /// </summary>
+    public string DefaultItemsGroup
+    {
+        get => GetValue(DefaultItemsGroupProperty);
+        private set => SetValue(DefaultItemsGroupProperty, value);
+    }
+
+    /// <summary>
+    ///     Called when the template is applied to the control.
+    /// </summary>
+    /// <param name="e">The template applied event arguments.</param>
+    protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
+    {
+        base.OnApplyTemplate(e);
+        DefaultItemsSharedSizeGroup = $"Shared{Guid.NewGuid():N}";
+        DefaultItemsGroup = $"Group{Guid.NewGuid():N}";
     }
 
     private double _width;

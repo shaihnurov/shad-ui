@@ -18,7 +18,6 @@ namespace ShadUI;
 [TemplatePart("PART_ContentPresenter", typeof(ContentPresenter))]
 public class SidebarItem : RadioButton
 {
-
     /// <summary>
     ///     Defines the <see cref="IsSelected" /> property.
     /// </summary>
@@ -78,7 +77,7 @@ public class SidebarItem : RadioButton
         get => GetValue(SpacingProperty);
         set => SetValue(SpacingProperty, value);
     }
-    
+
     /// <summary>
     ///     Defines the <see cref="SharedSizeGroup" /> property.
     /// </summary>
@@ -100,6 +99,21 @@ public class SidebarItem : RadioButton
     private double _contentPresenterWidth;
 
     /// <summary>
+    ///     Defines the <see cref="HasIcon" /> property.
+    /// </summary>
+    public static readonly StyledProperty<bool> HasIconProperty = AvaloniaProperty.Register<SidebarItem, bool>(
+        nameof(HasIcon));
+
+    /// <summary>
+    ///     Gets a value indicating whether the sidebar item has an icon.
+    /// </summary>
+    public bool HasIcon
+    {
+        get => GetValue(HasIconProperty);
+        private set => SetValue(HasIconProperty, value);
+    }
+
+    /// <summary>
     ///     Called when the template is applied to the control.
     /// </summary>
     /// <param name="e">The template applied event arguments.</param>
@@ -117,7 +131,7 @@ public class SidebarItem : RadioButton
         {
             _contentPresenter = contentPresenter;
             _contentPresenterWidth = _contentPresenter.Width;
-            
+
             AnimateExpand(Expanded);
         }
     }
@@ -140,14 +154,19 @@ public class SidebarItem : RadioButton
             var toExpand = change.GetNewValue<bool>();
             AnimateExpand(toExpand);
         }
+
+        if (change.Property == IconProperty)
+        {
+            HasIcon = Icon != null;
+        }
     }
 
     private void AnimateExpand(bool toExpand)
     {
         if (toExpand)
         {
-            _contentPresenter?.SetValue(IsVisibleProperty,true);
-                
+            _contentPresenter?.SetValue(IsVisibleProperty, true);
+
             var originalTextWrapping = _contentPresenter?.GetValue(TextBlock.TextWrappingProperty);
             _contentPresenter?.SetValue(TextBlock.TextWrappingProperty, TextWrapping.NoWrap);
 
@@ -170,7 +189,7 @@ public class SidebarItem : RadioButton
         }
         else
         {
-            _contentPresenter?.SetValue(IsVisibleProperty,false);
+            _contentPresenter?.SetValue(IsVisibleProperty, false);
         }
     }
 

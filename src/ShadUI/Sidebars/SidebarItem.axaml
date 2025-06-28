@@ -6,12 +6,14 @@
     <ControlTheme x:Key="{x:Type shadui:SidebarItem}" TargetType="{x:Type shadui:SidebarItem}">
         <Setter Property="FontSize" Value="14" />
         <Setter Property="FontWeight" Value="Medium" />
+        <Setter Property="SharedSizeGroup" Value="{Binding $parent[shadui:Sidebar].DefaultItemsSharedSizeGroup}" />
+        <Setter Property="GroupName" Value="{Binding $parent[shadui:Sidebar].DefaultItemsGroup}" />
         <Setter Property="Expanded" Value="{Binding $parent[shadui:Sidebar].Expanded}" />
+        <Setter Property="Spacing" Value="{Binding $parent[shadui:Sidebar].ItemIconContentSpacing}" />
         <Setter Property="TextBlock.TextTrimming" Value="CharacterEllipsis" />
         <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
         <Setter Property="TextBlock.MaxLines" Value="2" />
         <Setter Property="Padding" Value="16,12" />
-        <Setter Property="Spacing" Value="8" />
         <Setter Property="CornerRadius" Value="{DynamicResource LgCornerRadius}" />
         <Setter Property="Background" Value="{DynamicResource BackgroundColor}" />
         <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
@@ -86,10 +88,7 @@
                                 Width="{TemplateBinding Spacing}">
                                 <Panel.IsVisible>
                                     <MultiBinding Converter="{x:Static BoolConverters.And}">
-                                        <Binding
-                                            Converter="{x:Static ObjectConverters.IsNotNull}"
-                                            Path="Icon"
-                                            RelativeSource="{RelativeSource TemplatedParent}" />
+                                        <Binding Converter="{x:Static ObjectConverters.IsNotNull}" Path="#PART_ContentPresenter.Content" />
                                         <Binding Path="#PART_ContentPresenter.IsVisible" />
                                     </MultiBinding>
                                 </Panel.IsVisible>
@@ -127,6 +126,9 @@
             <Setter Property="Padding" Value="4,10" />
             <Style Selector="^ /template/ Grid#Grid">
                 <Setter Property="HorizontalAlignment" Value="Center" />
+            </Style>
+            <Style Selector="^[HasIcon=False]">
+                <Setter Property="IsVisible" Value="False" />
             </Style>
         </Style>
         <Style Selector="^:disabled">

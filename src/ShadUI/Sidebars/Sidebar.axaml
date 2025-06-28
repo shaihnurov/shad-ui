@@ -1,7 +1,6 @@
 ﻿<ResourceDictionary
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:content="clr-namespace:ShadUI.Contents"
     xmlns:conv="clr-namespace:ShadUI.Converters"
     xmlns:shadui="clr-namespace:ShadUI">
     <ControlTheme x:Key="SideTogglerTheme" TargetType="ToggleButton">
@@ -62,6 +61,7 @@
 
     <ControlTheme x:Key="{x:Type shadui:Sidebar}" TargetType="{x:Type shadui:Sidebar}">
         <Setter Property="Background" Value="{DynamicResource BackgroundColor}" />
+        <Setter Property="ItemIconContentSpacing" Value="12" />
         <Setter Property="BorderBrush" Value="{DynamicResource BorderColor}" />
         <Setter Property="Template">
             <ControlTemplate>
