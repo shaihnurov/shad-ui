@@ -51,166 +51,165 @@ public sealed partial class MainWindowViewModel(
     [ObservableProperty]
     private object? _selectedPage;
 
-    private async Task<bool> SwitchPageAsync(object page)
+    private bool SwitchPage(object page)
     {
         if (SelectedPage == page) return false;
 
-        await Task.Delay(200); // prevent animate delay
         SelectedPage = page;
         return true;
     }
 
     [RelayCommand]
-    private async Task OpenDashboard()
+    private void OpenDashboard()
     {
-        if (await SwitchPageAsync(dashboardViewModel))
+        if (SwitchPage(dashboardViewModel))
         {
             dashboardViewModel.Initialize();
         }
     }
 
     [RelayCommand]
-    private async Task OpenTheme()
+    private void OpenTheme()
     {
-        await SwitchPageAsync(themeViewModel);
+        SwitchPage(themeViewModel);
     }
 
     [RelayCommand]
-    private async Task OpenTypography()
+    private void OpenTypography()
     {
-        await SwitchPageAsync(typographyViewModel);
+        SwitchPage(typographyViewModel);
     }
 
     [RelayCommand]
-    private async Task OpenButtons()
+    private void OpenButtons()
     {
-        await SwitchPageAsync(buttonsViewModel);
+        SwitchPage(buttonsViewModel);
     }
 
     [RelayCommand]
-    private async Task OpenAvatar()
+    private void OpenAvatar()
     {
-        await SwitchPageAsync(avatarViewModel);
+        SwitchPage(avatarViewModel);
     }
 
     [RelayCommand]
-    private async Task OpenCards()
+    private void OpenCards()
     {
-        await SwitchPageAsync(cardsViewModel);
+        SwitchPage(cardsViewModel);
     }
 
     [RelayCommand]
-    private async Task OpenDataGrid()
+    private void OpenDataGrid()
     {
-        await SwitchPageAsync(dataGridViewModel);
+        SwitchPage(dataGridViewModel);
     }
 
     [RelayCommand]
-    private async Task OpenDate()
+    private void OpenDate()
     {
-        await SwitchPageAsync(dateViewModel);
+        SwitchPage(dateViewModel);
     }
 
     [RelayCommand]
-    private async Task OpenCheckBoxes()
+    private void OpenCheckBoxes()
     {
-        await SwitchPageAsync(checkBoxesViewModel);
+        SwitchPage(checkBoxesViewModel);
     }
 
     [RelayCommand]
-    private async Task OpenDialogs()
+    private void OpenDialogs()
     {
-        await SwitchPageAsync(dialogsViewModel);
+        SwitchPage(dialogsViewModel);
     }
 
     [RelayCommand]
-    private async Task OpenInputs()
+    private void OpenInputs()
     {
-        if (await SwitchPageAsync(inputViewModel))
+        if (SwitchPage(inputViewModel))
         {
             inputViewModel.Initialize();
         }
     }
     
     [RelayCommand]
-    private async Task OpenNumerics()
+    private void OpenNumerics()
     {
-        if (await SwitchPageAsync(numericViewModel))
+        if (SwitchPage(numericViewModel))
         {
             numericViewModel.Initialize();
         }
     }
 
     [RelayCommand]
-    private async Task OpenMenus()
+    private void OpenMenus()
     {
-        await SwitchPageAsync(menuViewModel);
+        SwitchPage(menuViewModel);
     }
 
     [RelayCommand]
-    private async Task OpenTabs()
+    private void OpenTabs()
     {
-        await SwitchPageAsync(tabsViewModel);
+        SwitchPage(tabsViewModel);
     }
 
     [RelayCommand]
-    private async Task OpenComboBoxes()
+    private void OpenComboBoxes()
     {
-        await SwitchPageAsync(comboBoxesViewModel);
+        SwitchPage(comboBoxesViewModel);
     }
 
     [RelayCommand]
-    private async Task OpenColors()
+    private void OpenColors()
     {
-        await SwitchPageAsync(colorsViewModel);
+        SwitchPage(colorsViewModel);
     }
     
     [RelayCommand]
-    private async Task OpenSidebar()
+    private void OpenSidebar()
     {
-        await SwitchPageAsync(sidebarViewModel);
+        SwitchPage(sidebarViewModel);
     }
     
     [RelayCommand]
-    private async Task OpenSliders()
+    private void OpenSliders()
     {
-        await SwitchPageAsync(slidersViewModel);
+        SwitchPage(slidersViewModel);
     }
 
     [RelayCommand]
-    private async Task OpenSwitch()
+    private void OpenSwitch()
     {
-        await SwitchPageAsync(switchViewModel);
+        SwitchPage(switchViewModel);
     }
 
     [RelayCommand]
-    private async Task OpenTime()
+    private void OpenTime()
     {
-        await SwitchPageAsync(timeViewModel);
+        SwitchPage(timeViewModel);
     }
 
     [RelayCommand]
-    private async Task OpenToast()
+    private void OpenToast()
     {
-        await SwitchPageAsync(toastsViewModel);
+        SwitchPage(toastsViewModel);
     }
 
     [RelayCommand]
-    private async Task OpenToggle()
+    private void OpenToggle()
     {
-        await SwitchPageAsync(toggleViewModel);
+        SwitchPage(toggleViewModel);
     }
 
     [RelayCommand]
-    private async Task OpenToolTip()
+    private void OpenToolTip()
     {
-        await SwitchPageAsync(toolTipViewModel);
+        SwitchPage(toolTipViewModel);
     }
 
     [RelayCommand]
-    private async Task OpenMiscellaneous()
+    private void OpenMiscellaneous()
     {
-        await SwitchPageAsync(miscellaneousViewModel);
+        SwitchPage(miscellaneousViewModel);
     }
 
     [RelayCommand]
