@@ -300,47 +300,40 @@ public class Window : Avalonia.Controls.Window
     {
         base.OnApplyTemplate(e);
         OnWindowStateChanged(WindowState);
-        try
+
+        if (e.NameScope.Get<Button>("PART_MaximizeButton") is { } maximize)
         {
-            // Create handlers for buttons
-            if (e.NameScope.Get<Button>("PART_MaximizeButton") is { } maximize)
-            {
-                _maximizeButton = maximize;
-                _maximizeButton.Click += OnMaximizeButtonClicked;
-                EnableWindowsSnapLayout(maximize);
-            }
-
-            if (e.NameScope.Get<Button>("PART_MinimizeButton") is { } minimize)
-            {
-                minimize.Click += (_, _) => WindowState = WindowState.Minimized;
-            }
-
-            if (e.NameScope.Get<Button>("PART_CloseButton") is { } close)
-            {
-                close.Click += (_, _) => Close();
-            }
-
-            if (e.NameScope.Get<Control>("PART_TitleBarBackground") is { } titleBar)
-            {
-                titleBar.PointerPressed += OnTitleBarPointerPressed;
-                titleBar.DoubleTapped += OnMaximizeButtonClicked;
-            }
-
-            if (!RuntimeInformation.IsOSPlatform(OSPlatform.Linux)) return;
-
-            if (e.NameScope.Get<Panel>("PART_Root") is { } rootPanel)
-            {
-                AddResizeGripForLinux(rootPanel);
-            }
-
-            if (RootCornerRadius == default)
-            {
-                RootCornerRadius = new CornerRadius(10);
-            }
+            _maximizeButton = maximize;
+            _maximizeButton.Click += OnMaximizeButtonClicked;
+            EnableWindowsSnapLayout(maximize);
         }
-        catch
+
+        if (e.NameScope.Get<Button>("PART_MinimizeButton") is { } minimize)
         {
-            // ignored
+            minimize.Click += (_, _) => WindowState = WindowState.Minimized;
+        }
+
+        if (e.NameScope.Get<Button>("PART_CloseButton") is { } close)
+        {
+            close.Click += (_, _) => Close();
+        }
+
+        if (e.NameScope.Get<Control>("PART_TitleBarBackground") is { } titleBar)
+        {
+            titleBar.PointerPressed += OnTitleBarPointerPressed;
+            titleBar.DoubleTapped += OnMaximizeButtonClicked;
+        }
+
+        if (!RuntimeInformation.IsOSPlatform(OSPlatform.Linux)) return;
+
+        if (e.NameScope.Get<Panel>("PART_Root") is { } rootPanel)
+        {
+            AddResizeGripForLinux(rootPanel);
+        }
+
+        if (RootCornerRadius == default)
+        {
+            RootCornerRadius = new CornerRadius(10);
         }
     }
 
@@ -421,12 +414,12 @@ public class Window : Avalonia.Controls.Window
         {
             case WindowState.FullScreen:
                 ToggleMaxButtonVisibility(false);
-                Margin = new Thickness(0);
+                Margin = new Thickness(-1);
                 break;
             case WindowState.Maximized:
                 ToggleMaxButtonVisibility(CanMaximize);
-                Margin = RuntimeInformation.IsOSPlatform(OSPlatform.Linux) 
-                    ? new Thickness(0) 
+                Margin = RuntimeInformation.IsOSPlatform(OSPlatform.Linux)
+                    ? new Thickness(0)
                     : new Thickness(7);
                 break;
             case WindowState.Normal:
