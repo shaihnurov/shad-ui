@@ -12,27 +12,21 @@ public partial class MainWindow : Window
         InitializeComponent();
 
         Closing += OnClosing;
-        FullscreenButton.Click += OnFullScreen;
+        Initialize();
     }
     
     [AvaloniaHotReload]
-    // ReSharper disable once UnusedMember.Local
-    // Used by Avalonia Hot Reload. Do not remove.
     private void Initialize()
     {
         FullscreenButton.Click -= OnFullScreen;
         FullscreenButton.Click += OnFullScreen;
     }
 
-    private WindowState _cacheWindowState = WindowState.Normal;
-
     private void OnFullScreen(object? sender, RoutedEventArgs e)
     {
-        if (WindowState != WindowState.FullScreen) _cacheWindowState = WindowState;
-
         if (WindowState == WindowState.FullScreen)
         {
-            WindowState = _cacheWindowState;
+            ExitFullScreen();
             ToolTip.SetTip(FullscreenButton, "Fullscreen");
         }
         else
