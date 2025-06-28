@@ -47,39 +47,36 @@
                 Header="Close" />
         </MenuItem>
     </controls:Window.MenuItems>
-    <controls:Window.RightWindowTitleBarControls>
-        <Button
-            Width="30"
-            Height="30"
-            Background="{DynamicResource SidebarBackgroundColor}"
-            Command="{Binding SwitchThemeCommand}"
-            CornerRadius="{DynamicResource MdCornerRadius}"
-            ToolTip.Tip="Switch Theme">
-            <TextBlock Classes="LucideIcon" Text="{Binding CurrentTheme, Converter={x:Static converters:ThemeModeConverters.ToLucideIcon}}" />
-        </Button>
-        <Button
-            x:Name="FullscreenButton"
-            Width="30"
-            Height="30"
-            Margin="8,0,0,0"
-            Background="{DynamicResource SidebarBackgroundColor}"
-            CornerRadius="{DynamicResource MdCornerRadius}"
-            IsVisible="{Binding #Window.WindowState, Converter={x:Static converters:WindowStateConverters.IsNotFullScreen}}"
-            ToolTip.Tip="Fullscreen">
-            <TextBlock Classes="LucideIcon" Text="&#58681;" />
-        </Button>
-        <Button
-            x:Name="ExitFullscreenButton"
-            Width="30"
-            Height="30"
-            Margin="8,0,0,0"
-            Background="{DynamicResource SidebarBackgroundColor}"
-            CornerRadius="{DynamicResource MdCornerRadius}"
-            IsVisible="{Binding #Window.WindowState, Converter={x:Static converters:WindowStateConverters.IsFullScreen}}"
-            ToolTip.Tip="Exit Fullscreen">
-            <TextBlock Classes="LucideIcon" Text="&#57631;" />
-        </Button>
-    </controls:Window.RightWindowTitleBarControls>
+    <controls:Window.RightWindowTitleBarContent>
+        <StackPanel Orientation="Horizontal" Spacing="8">
+            <Button
+                Width="30"
+                Height="30"
+                Background="{DynamicResource SidebarBackgroundColor}"
+                Command="{Binding SwitchThemeCommand}"
+                CornerRadius="{DynamicResource MdCornerRadius}"
+                ToolTip.Tip="Switch Theme">
+                <TextBlock Classes="LucideIcon" Text="{Binding CurrentTheme, Converter={x:Static converters:ThemeModeConverters.ToLucideIcon}}" />
+            </Button>
+            <Button
+                x:Name="FullscreenButton"
+                Width="30"
+                Height="30"
+                Background="{DynamicResource SidebarBackgroundColor}"
+                CornerRadius="{DynamicResource MdCornerRadius}">
+                <Panel>
+                    <TextBlock
+                        Classes="LucideIcon"
+                        IsVisible="{Binding #Window.WindowState, Converter={x:Static converters:WindowStateConverters.IsNotFullScreen}}"
+                        Text="&#58681;" />
+                    <TextBlock
+                        Classes="LucideIcon"
+                        IsVisible="{Binding #Window.WindowState, Converter={x:Static converters:WindowStateConverters.IsFullScreen}}"
+                        Text="&#57631;" />
+                </Panel>
+            </Button>
+        </StackPanel>
+    </controls:Window.RightWindowTitleBarContent>
     <Panel>
         <controls:SidebarMenu OpenPaneLength="232">
             <controls:SidebarMenu.Styles>
