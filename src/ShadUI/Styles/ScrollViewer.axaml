@@ -6,7 +6,7 @@
         <Setter Property="IsScrollInertiaEnabled" Value="True" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Grid ColumnDefinitions="*,Auto" RowDefinitions="*,Auto">
+                <Panel>
                     <ScrollContentPresenter
                         Name="PART_ContentPresenter"
                         Padding="{TemplateBinding Padding}"
@@ -26,24 +26,26 @@
                                                                          ElementName=PART_ContentPresenter}" />
                         </ScrollContentPresenter.GestureRecognizers>
                     </ScrollContentPresenter>
-                    <ScrollBar
-                        Name="PART_HorizontalScrollBar"
-                        Grid.Row="1"
-                        Grid.Column="0"
-                        Margin="0,-2,0,0"
-                        Orientation="Horizontal" />
-                    <ScrollBar
-                        Name="PART_VerticalScrollBar"
-                        Grid.Row="0"
-                        Grid.Column="1"
-                        Margin="-2,0,0,0"
-                        Orientation="Vertical" />
-                    <Panel
-                        Name="PART_ScrollBarsSeparator"
-                        Grid.Row="1"
-                        Grid.Column="1"
-                        Background="Transparent" />
-                </Grid>
+                    <Grid ColumnDefinitions="*,Auto" RowDefinitions="*,Auto">
+                        <ScrollBar
+                            Name="PART_HorizontalScrollBar"
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Margin="0,-2,0,0"
+                            Orientation="Horizontal" />
+                        <ScrollBar
+                            Name="PART_VerticalScrollBar"
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            Margin="-2,0,0,0"
+                            Orientation="Vertical" />
+                        <Panel
+                            Name="PART_ScrollBarsSeparator"
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Background="Transparent" />
+                    </Grid>
+                </Panel>
             </ControlTemplate>
         </Setter>
     </Style>
