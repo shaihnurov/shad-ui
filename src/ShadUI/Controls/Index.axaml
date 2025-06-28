@@ -51,6 +51,8 @@
         <ResourceInclude Source="avares://ShadUI/Controls/Window.axaml" />
         <ResourceInclude Source="avares://ShadUI/Dialogs/DialogHost.axaml" />
         <ResourceInclude Source="avares://ShadUI/Dialogs/SimpleDialog.axaml" />
+        <ResourceInclude Source="avares://ShadUI/Sidebars/Sidebar.axaml" />
+        <ResourceInclude Source="avares://ShadUI/Sidebars/SidebarItem.axaml" />
         <ResourceInclude Source="avares://ShadUI/Toasts/Toast.axaml" />
         <ResourceInclude Source="avares://ShadUI/Toasts/ToastHost.axaml" />
     </ResourceDictionary.MergedDictionaries>

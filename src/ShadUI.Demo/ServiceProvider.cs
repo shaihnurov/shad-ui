@@ -25,6 +25,7 @@ namespace ShadUI.Demo;
 [Transient<LoginViewModel>]
 [Transient<MenuViewModel>]
 [Transient<MiscellaneousViewModel>]
+[Transient<SidebarViewModel>]
 [Transient<SlidersViewModel>]
 [Transient<SwitchViewModel>]
 [Transient<TabsViewModel>]

@@ -237,6 +237,15 @@
                 </controls:SidebarMenuItem>
                 <controls:SidebarMenuItem
                     Classes="Compact"
+                    Command="{Binding OpenSidebarCommand}"
+                    Header="Sidebar"
+                    ToolTip.Tip="{Binding IsMenuExpanded, RelativeSource={RelativeSource AncestorType=controls:SidebarMenu}, Converter={x:Static converters:BooleanToNullOrStringConverter.Instance}, ConverterParameter='Sidebar'}">
+                    <controls:SidebarMenuItem.Icon>
+                        <TextBlock Classes="LucideIcon" Text="&#57646;" />
+                    </controls:SidebarMenuItem.Icon>
+                </controls:SidebarMenuItem>
+                <controls:SidebarMenuItem
+                    Classes="Compact"
                     Command="{Binding OpenSlidersCommand}"
                     Header="Sliders"
                     ToolTip.Tip="{Binding IsMenuExpanded, RelativeSource={RelativeSource AncestorType=controls:SidebarMenu}, Converter={x:Static converters:BooleanToNullOrStringConverter.Instance}, ConverterParameter='Sliders'}">

@@ -33,6 +33,7 @@ public sealed partial class MainWindowViewModel(
     TabsViewModel tabsViewModel,
     ColorsViewModel colorsViewModel,
     ComboBoxesViewModel comboBoxesViewModel,
+    SidebarViewModel sidebarViewModel,
     SlidersViewModel slidersViewModel,
     SwitchViewModel switchViewModel,
     ToastsViewModel toastsViewModel,
@@ -162,6 +163,12 @@ public sealed partial class MainWindowViewModel(
     private async Task OpenColors()
     {
         await SwitchPageAsync(colorsViewModel);
+    }
+    
+    [RelayCommand]
+    private async Task OpenSidebar()
+    {
+        await SwitchPageAsync(sidebarViewModel);
     }
     
     [RelayCommand]
