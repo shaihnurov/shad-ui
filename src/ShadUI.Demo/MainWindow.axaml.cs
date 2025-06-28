@@ -18,6 +18,7 @@ public partial class MainWindow : Window
     [AvaloniaHotReload]
     private void Initialize()
     {
+        ToolTip.SetTip(FullscreenButton, "Fullscreen");
         FullscreenButton.Click -= OnFullScreen;
         FullscreenButton.Click += OnFullScreen;
     }
