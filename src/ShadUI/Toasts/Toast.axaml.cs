@@ -1,6 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using Avalonia;
+using Avalonia.Animation.Easings;
 using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
 using Avalonia.Input;
@@ -130,16 +131,45 @@ internal class Toast : ContentControl
 
     public void AnimateShow()
     {
-        this.Animate(OpacityProperty, 0d, 1d, TimeSpan.FromMilliseconds(500));
-        this.Animate<double>(MaxHeightProperty, 0, 500, TimeSpan.FromMilliseconds(500));
-        this.Animate(MarginProperty, new Thickness(0, 10, 0, -10), new Thickness(), TimeSpan.FromMilliseconds(500));
+        this.Animate(OpacityProperty)
+            .From(0d)
+            .To(1d)
+            .WithDuration(TimeSpan.FromMilliseconds(500))
+            .WithEasing(new CubicEaseInOut())
+            .Start();
+
+        this.Animate(MaxHeightProperty)
+            .From(0)
+            .To(500)
+            .WithDuration(TimeSpan.FromMilliseconds(500))
+            .WithEasing(new CubicEaseInOut())
+            .Start();
+
+        this.Animate(MarginProperty)
+            .From(new Thickness(0, 10, 0, -10))
+            .To(new Thickness())
+            .WithDuration(TimeSpan.FromMilliseconds(500))
+            .WithEasing(new CubicEaseInOut())
+            .Start();
+        
         StartCounter();
     }
 
     public void AnimateDismiss()
     {
-        this.Animate(OpacityProperty, 1d, 0d, TimeSpan.FromMilliseconds(500));
-        this.Animate(MarginProperty, new Thickness(), new Thickness(0, 0, 0, -100), TimeSpan.FromMilliseconds(500));
+        this.Animate(OpacityProperty)
+            .From(1d)
+            .To(0d)
+            .WithDuration(TimeSpan.FromMilliseconds(500))
+            .WithEasing(new CubicEaseInOut())
+            .Start();
+
+        this.Animate(MarginProperty)
+            .From(new Thickness())
+            .To(new Thickness(0, 0, 0, -100))
+            .WithDuration(TimeSpan.FromMilliseconds(500))
+            .WithEasing(new CubicEaseInOut())
+            .Start();
     }
 
     protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)
