@@ -31,22 +31,24 @@
     <controls:Window.Hosts>
         <dialogs:DialogHost Manager="{Binding DialogManager}" Owner="{Binding RelativeSource={RelativeSource AncestorType=controls:Window}}" />
     </controls:Window.Hosts>
-    <controls:Window.MenuItems>
-        <MenuItem Header="File">
-            <MenuItem
-                Width="175"
-                Command="{Binding ShowAboutCommand}"
-                Header="About">
-                <MenuItem.Icon>
-                    <TextBlock Classes="LucideIcon" Text="&#57599;" />
-                </MenuItem.Icon>
+    <controls:Window.MenuBarContent>
+        <Menu>
+            <MenuItem Header="File">
+                <MenuItem
+                    Width="175"
+                    Command="{Binding ShowAboutCommand}"
+                    Header="About">
+                    <MenuItem.Icon>
+                        <TextBlock Classes="LucideIcon" Text="&#57599;" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem
+                    Width="175"
+                    Command="{Binding TryCloseCommand}"
+                    Header="Close" />
             </MenuItem>
-            <MenuItem
-                Width="175"
-                Command="{Binding TryCloseCommand}"
-                Header="Close" />
-        </MenuItem>
-    </controls:Window.MenuItems>
+        </Menu>
+    </controls:Window.MenuBarContent>
     <controls:Window.RightWindowTitleBarContent>
         <StackPanel Orientation="Horizontal" Spacing="8">
             <Button

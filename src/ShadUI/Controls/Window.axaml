@@ -165,11 +165,10 @@
                                             Height="32"
                                             Background="{DynamicResource TitleBarBackgroundColor}"
                                             IsVisible="{TemplateBinding IsMenuVisible}">
-                                            <Menu
-                                                Name="PART_Menu"
+                                            <ContentPresenter
+                                                Name="MenuBar"
                                                 Margin="8,0,8,4"
-                                                IsEnabled="{TemplateBinding IsMenuVisible}"
-                                                ItemsSource="{TemplateBinding MenuItems}" />
+                                                Content="{TemplateBinding MenuBarContent}" />
                                         </Panel>
                                         <Border Name="PART_BottomBorder" BorderBrush="{DynamicResource BorderColor30}" />
                                     </StackPanel>
@@ -189,7 +188,7 @@
             </ControlTemplate>
         </Setter>
 
-        <Style Selector="^[ShowTitlebarBackground=False] /template/ Menu#PART_Menu">
+        <Style Selector="^[ShowTitlebarBackground=False] /template/ ContentPresenter#MenuBar">
             <Setter Property="Margin" Value="10,0,0,7" />
         </Style>
         <Style Selector="^[WindowState=Maximized] /template/ PathIcon#MaximizeIcon">

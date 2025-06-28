@@ -1,7 +1,6 @@
 using System;
 using System.Runtime.InteropServices;
 using Avalonia;
-using Avalonia.Collections;
 using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Controls.Primitives;
@@ -147,16 +146,16 @@ public class Window : Avalonia.Controls.Window
     /// <summary>
     ///     The menu items.
     /// </summary>
-    public static readonly StyledProperty<AvaloniaList<MenuItem>?> MenuItemsProperty =
-        AvaloniaProperty.Register<Window, AvaloniaList<MenuItem>?>(nameof(MenuItems));
+    public static readonly StyledProperty<object?> MenuBarContentProperty =
+        AvaloniaProperty.Register<Window, object?>(nameof(MenuBarContent));
 
     /// <summary>
-    ///     Gets or sets the value of the <see cref="MenuItemsProperty" />.
+    ///     Gets or sets the value of the <see cref="MenuBarContentProperty" />.
     /// </summary>
-    public AvaloniaList<MenuItem>? MenuItems
+    public object? MenuBarContent
     {
-        get => GetValue(MenuItemsProperty);
-        set => SetValue(MenuItemsProperty, value);
+        get => GetValue(MenuBarContentProperty);
+        set => SetValue(MenuBarContentProperty, value);
     }
 
     /// <summary>
@@ -256,7 +255,6 @@ public class Window : Avalonia.Controls.Window
     /// </summary>
     protected Window()
     {
-        MenuItems = [];
         Hosts = [];
     }
 

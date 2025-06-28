@@ -14,7 +14,7 @@ public partial class MainWindow : Window
         Closing += OnClosing;
         Initialize();
     }
-    
+
     [AvaloniaHotReload]
     private void Initialize()
     {
