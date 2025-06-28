@@ -66,7 +66,7 @@
             <shadui:Sidebar
                 Grid.Column="0"
                 Width="220"
-                MinWidth="56"
+                MinWidth="60"
                 Padding="{Binding #Toggler.IsChecked, Converter={x:Static converters:BooleanConverters.SidebarPadding}}"
                 BorderBrush="{DynamicResource BorderColor30}"
                 BorderThickness="0,0,1,0"
@@ -86,14 +86,6 @@
                     </ToggleButton>
                 </shadui:Sidebar.Header>
                 <StackPanel Spacing="4">
-                    <StackPanel.Styles>
-                        <Style Selector="StackPanel &gt; TextBlock">
-                            <Setter Property="Margin" Value="8" />
-                            <Setter Property="FontSize" Value="12" />
-                            <Setter Property="Foreground" Value="{DynamicResource MutedColor}" />
-                            <Setter Property="FontWeight" Value="DemiBold" />
-                        </Style>
-                    </StackPanel.Styles>
                     <shadui:SidebarItem
                         Command="{Binding OpenDashboardCommand}"
                         Content="Dashboard"
@@ -108,8 +100,8 @@
                             </Viewbox>
                         </shadui:SidebarItem.Icon>
                     </shadui:SidebarItem>
-                    <shadui:SidebarItem 
-                        Command="{Binding OpenThemeCommand}" 
+                    <shadui:SidebarItem
+                        Command="{Binding OpenThemeCommand}"
                         Content="Theming"
                         ToolTip.Tip="{Binding $parent[shadui:Sidebar].Expanded, Converter={x:Static converters:BooleanConverters.NullOrString}, ConverterParameter='Theming'}">
                         <shadui:SidebarItem.Icon>
@@ -121,8 +113,8 @@
                             </Viewbox>
                         </shadui:SidebarItem.Icon>
                     </shadui:SidebarItem>
-                    <shadui:SidebarItem 
-                        Command="{Binding OpenTypographyCommand}" 
+                    <shadui:SidebarItem
+                        Command="{Binding OpenTypographyCommand}"
                         Content="Typography"
                         ToolTip.Tip="{Binding $parent[shadui:Sidebar].Expanded, Converter={x:Static converters:BooleanConverters.NullOrString}, ConverterParameter='Typography'}">
                         <shadui:SidebarItem.Icon>
@@ -134,10 +126,12 @@
                             </Viewbox>
                         </shadui:SidebarItem.Icon>
                     </shadui:SidebarItem>
-                    <Separator Background="{Binding $parent[shadui:Sidebar].BorderBrush}" IsVisible="{Binding $parent[shadui:Sidebar].Expanded, Converter={x:Static BoolConverters.Not}}" />
-                    <TextBlock IsVisible="{Binding $parent[shadui:Sidebar].Expanded}" Text="Components" />
-                    <shadui:SidebarItem 
-                        Command="{Binding OpenAvatarCommand}" 
+                    <shadui:SidebarItemLabel
+                        Margin="8,20,8,8"
+                        AsSeparator="True"
+                        Text="Components" />
+                    <shadui:SidebarItem
+                        Command="{Binding OpenAvatarCommand}"
                         Content="Avatar"
                         ToolTip.Tip="{Binding $parent[shadui:Sidebar].Expanded, Converter={x:Static converters:BooleanConverters.NullOrString}, ConverterParameter='Avatar'}">
                         <shadui:SidebarItem.Icon>
@@ -149,8 +143,8 @@
                             </Viewbox>
                         </shadui:SidebarItem.Icon>
                     </shadui:SidebarItem>
-                    <shadui:SidebarItem 
-                        Command="{Binding OpenButtonsCommand}" 
+                    <shadui:SidebarItem
+                        Command="{Binding OpenButtonsCommand}"
                         Content="Buttons"
                         ToolTip.Tip="{Binding $parent[shadui:Sidebar].Expanded, Converter={x:Static converters:BooleanConverters.NullOrString}, ConverterParameter='Buttons'}">
                         <shadui:SidebarItem.Icon>
@@ -162,8 +156,8 @@
                             </Viewbox>
                         </shadui:SidebarItem.Icon>
                     </shadui:SidebarItem>
-                    <shadui:SidebarItem 
-                        Command="{Binding OpenCardsCommand}" 
+                    <shadui:SidebarItem
+                        Command="{Binding OpenCardsCommand}"
                         Content="Cards"
                         ToolTip.Tip="{Binding $parent[shadui:Sidebar].Expanded, Converter={x:Static converters:BooleanConverters.NullOrString}, ConverterParameter='Cards'}">
                         <shadui:SidebarItem.Icon>
@@ -175,8 +169,8 @@
                             </Viewbox>
                         </shadui:SidebarItem.Icon>
                     </shadui:SidebarItem>
-                    <shadui:SidebarItem 
-                        Command="{Binding OpenDataGridCommand}" 
+                    <shadui:SidebarItem
+                        Command="{Binding OpenDataGridCommand}"
                         Content="Data Table"
                         ToolTip.Tip="{Binding $parent[shadui:Sidebar].Expanded, Converter={x:Static converters:BooleanConverters.NullOrString}, ConverterParameter='Data Table'}">
                         <shadui:SidebarItem.Icon>
@@ -188,8 +182,8 @@
                             </Viewbox>
                         </shadui:SidebarItem.Icon>
                     </shadui:SidebarItem>
-                    <shadui:SidebarItem 
-                        Command="{Binding OpenCheckBoxesCommand}" 
+                    <shadui:SidebarItem
+                        Command="{Binding OpenCheckBoxesCommand}"
                         Content="CheckBox"
                         ToolTip.Tip="{Binding $parent[shadui:Sidebar].Expanded, Converter={x:Static converters:BooleanConverters.NullOrString}, ConverterParameter='CheckBox'}">
                         <shadui:SidebarItem.Icon>
@@ -201,8 +195,8 @@
                             </Viewbox>
                         </shadui:SidebarItem.Icon>
                     </shadui:SidebarItem>
-                    <shadui:SidebarItem 
-                        Command="{Binding OpenComboBoxesCommand}" 
+                    <shadui:SidebarItem
+                        Command="{Binding OpenComboBoxesCommand}"
                         Content="ComboBox"
                         ToolTip.Tip="{Binding $parent[shadui:Sidebar].Expanded, Converter={x:Static converters:BooleanConverters.NullOrString}, ConverterParameter='ComboBox'}">
                         <shadui:SidebarItem.Icon>
@@ -214,8 +208,8 @@
                             </Viewbox>
                         </shadui:SidebarItem.Icon>
                     </shadui:SidebarItem>
-                    <shadui:SidebarItem 
-                        Command="{Binding OpenColorsCommand}" 
+                    <shadui:SidebarItem
+                        Command="{Binding OpenColorsCommand}"
                         Content="Colors"
                         ToolTip.Tip="{Binding $parent[shadui:Sidebar].Expanded, Converter={x:Static converters:BooleanConverters.NullOrString}, ConverterParameter='Colors'}">
                         <shadui:SidebarItem.Icon>
@@ -227,8 +221,8 @@
                             </Viewbox>
                         </shadui:SidebarItem.Icon>
                     </shadui:SidebarItem>
-                    <shadui:SidebarItem 
-                        Command="{Binding OpenDateCommand}" 
+                    <shadui:SidebarItem
+                        Command="{Binding OpenDateCommand}"
                         Content="Date"
                         ToolTip.Tip="{Binding $parent[shadui:Sidebar].Expanded, Converter={x:Static converters:BooleanConverters.NullOrString}, ConverterParameter='Date'}">
                         <shadui:SidebarItem.Icon>
@@ -240,8 +234,8 @@
                             </Viewbox>
                         </shadui:SidebarItem.Icon>
                     </shadui:SidebarItem>
-                    <shadui:SidebarItem 
-                        Command="{Binding OpenDialogsCommand}" 
+                    <shadui:SidebarItem
+                        Command="{Binding OpenDialogsCommand}"
                         Content="Dialogs"
                         ToolTip.Tip="{Binding $parent[shadui:Sidebar].Expanded, Converter={x:Static converters:BooleanConverters.NullOrString}, ConverterParameter='Dialogs'}">
                         <shadui:SidebarItem.Icon>
@@ -253,8 +247,8 @@
                             </Viewbox>
                         </shadui:SidebarItem.Icon>
                     </shadui:SidebarItem>
-                    <shadui:SidebarItem 
-                        Command="{Binding OpenInputsCommand}" 
+                    <shadui:SidebarItem
+                        Command="{Binding OpenInputsCommand}"
                         Content="Inputs"
                         ToolTip.Tip="{Binding $parent[shadui:Sidebar].Expanded, Converter={x:Static converters:BooleanConverters.NullOrString}, ConverterParameter='Inputs'}">
                         <shadui:SidebarItem.Icon>
@@ -266,8 +260,8 @@
                             </Viewbox>
                         </shadui:SidebarItem.Icon>
                     </shadui:SidebarItem>
-                    <shadui:SidebarItem 
-                        Command="{Binding OpenNumericsCommand}" 
+                    <shadui:SidebarItem
+                        Command="{Binding OpenNumericsCommand}"
                         Content="Numerics"
                         ToolTip.Tip="{Binding $parent[shadui:Sidebar].Expanded, Converter={x:Static converters:BooleanConverters.NullOrString}, ConverterParameter='Numerics'}">
                         <shadui:SidebarItem.Icon>
@@ -279,8 +273,8 @@
                             </Viewbox>
                         </shadui:SidebarItem.Icon>
                     </shadui:SidebarItem>
-                    <shadui:SidebarItem 
-                        Command="{Binding OpenMenusCommand}" 
+                    <shadui:SidebarItem
+                        Command="{Binding OpenMenusCommand}"
                         Content="Menus"
                         ToolTip.Tip="{Binding $parent[shadui:Sidebar].Expanded, Converter={x:Static converters:BooleanConverters.NullOrString}, ConverterParameter='Menus'}">
                         <shadui:SidebarItem.Icon>
@@ -292,8 +286,8 @@
                             </Viewbox>
                         </shadui:SidebarItem.Icon>
                     </shadui:SidebarItem>
-                    <shadui:SidebarItem 
-                        Command="{Binding OpenSidebarCommand}" 
+                    <shadui:SidebarItem
+                        Command="{Binding OpenSidebarCommand}"
                         Content="Sidebar"
                         ToolTip.Tip="{Binding $parent[shadui:Sidebar].Expanded, Converter={x:Static converters:BooleanConverters.NullOrString}, ConverterParameter='Sidebar'}">
                         <shadui:SidebarItem.Icon>
@@ -305,8 +299,8 @@
                             </Viewbox>
                         </shadui:SidebarItem.Icon>
                     </shadui:SidebarItem>
-                    <shadui:SidebarItem 
-                        Command="{Binding OpenSlidersCommand}" 
+                    <shadui:SidebarItem
+                        Command="{Binding OpenSlidersCommand}"
                         Content="Sliders"
                         ToolTip.Tip="{Binding $parent[shadui:Sidebar].Expanded, Converter={x:Static converters:BooleanConverters.NullOrString}, ConverterParameter='Sliders'}">
                         <shadui:SidebarItem.Icon>
@@ -318,8 +312,8 @@
                             </Viewbox>
                         </shadui:SidebarItem.Icon>
                     </shadui:SidebarItem>
-                    <shadui:SidebarItem 
-                        Command="{Binding OpenSwitchCommand}" 
+                    <shadui:SidebarItem
+                        Command="{Binding OpenSwitchCommand}"
                         Content="Switch"
                         ToolTip.Tip="{Binding $parent[shadui:Sidebar].Expanded, Converter={x:Static converters:BooleanConverters.NullOrString}, ConverterParameter='Switch'}">
                         <shadui:SidebarItem.Icon>
@@ -331,8 +325,8 @@
                             </Viewbox>
                         </shadui:SidebarItem.Icon>
                     </shadui:SidebarItem>
-                    <shadui:SidebarItem 
-                        Command="{Binding OpenTabsCommand}" 
+                    <shadui:SidebarItem
+                        Command="{Binding OpenTabsCommand}"
                         Content="Tabs"
                         ToolTip.Tip="{Binding $parent[shadui:Sidebar].Expanded, Converter={x:Static converters:BooleanConverters.NullOrString}, ConverterParameter='Tabs'}">
                         <shadui:SidebarItem.Icon>
@@ -344,8 +338,8 @@
                             </Viewbox>
                         </shadui:SidebarItem.Icon>
                     </shadui:SidebarItem>
-                    <shadui:SidebarItem 
-                        Command="{Binding OpenTimeCommand}" 
+                    <shadui:SidebarItem
+                        Command="{Binding OpenTimeCommand}"
                         Content="Time"
                         ToolTip.Tip="{Binding $parent[shadui:Sidebar].Expanded, Converter={x:Static converters:BooleanConverters.NullOrString}, ConverterParameter='Time'}">
                         <shadui:SidebarItem.Icon>
@@ -357,8 +351,8 @@
                             </Viewbox>
                         </shadui:SidebarItem.Icon>
                     </shadui:SidebarItem>
-                    <shadui:SidebarItem 
-                        Command="{Binding OpenToastCommand}" 
+                    <shadui:SidebarItem
+                        Command="{Binding OpenToastCommand}"
                         Content="Toasts"
                         ToolTip.Tip="{Binding $parent[shadui:Sidebar].Expanded, Converter={x:Static converters:BooleanConverters.NullOrString}, ConverterParameter='Toasts'}">
                         <shadui:SidebarItem.Icon>
@@ -370,8 +364,8 @@
                             </Viewbox>
                         </shadui:SidebarItem.Icon>
                     </shadui:SidebarItem>
-                    <shadui:SidebarItem 
-                        Command="{Binding OpenToggleCommand}" 
+                    <shadui:SidebarItem
+                        Command="{Binding OpenToggleCommand}"
                         Content="Toggle"
                         ToolTip.Tip="{Binding $parent[shadui:Sidebar].Expanded, Converter={x:Static converters:BooleanConverters.NullOrString}, ConverterParameter='Toggle'}">
                         <shadui:SidebarItem.Icon>
@@ -383,8 +377,8 @@
                             </Viewbox>
                         </shadui:SidebarItem.Icon>
                     </shadui:SidebarItem>
-                    <shadui:SidebarItem 
-                        Command="{Binding OpenToolTipCommand}" 
+                    <shadui:SidebarItem
+                        Command="{Binding OpenToolTipCommand}"
                         Content="Tooltip"
                         ToolTip.Tip="{Binding $parent[shadui:Sidebar].Expanded, Converter={x:Static converters:BooleanConverters.NullOrString}, ConverterParameter='Tooltip'}">
                         <shadui:SidebarItem.Icon>
@@ -396,8 +390,8 @@
                             </Viewbox>
                         </shadui:SidebarItem.Icon>
                     </shadui:SidebarItem>
-                    <shadui:SidebarItem 
-                        Command="{Binding OpenMiscellaneousCommand}" 
+                    <shadui:SidebarItem
+                        Command="{Binding OpenMiscellaneousCommand}"
                         Content="Miscellaneous"
                         ToolTip.Tip="{Binding $parent[shadui:Sidebar].Expanded, Converter={x:Static converters:BooleanConverters.NullOrString}, ConverterParameter='Miscellaneous'}">
                         <shadui:SidebarItem.Icon>
