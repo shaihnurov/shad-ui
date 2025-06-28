@@ -106,16 +106,10 @@
                                                                 <Setter Property="Width" Value="10" />
                                                             </Style>
                                                         </StackPanel.Styles>
-                                                        <ItemsControl
+                                                        <ContentPresenter
                                                             Name="PART_RightButtons"
                                                             Margin="0,3,0,2"
-                                                            ItemsSource="{TemplateBinding RightWindowTitleBarControls}">
-                                                            <ItemsControl.ItemsPanel>
-                                                                <ItemsPanelTemplate>
-                                                                    <StackPanel Orientation="Horizontal" />
-                                                                </ItemsPanelTemplate>
-                                                            </ItemsControl.ItemsPanel>
-                                                        </ItemsControl>
+                                                            Content="{TemplateBinding RightWindowTitleBarContent}" />
                                                         <StackPanel Name="PART_ButtonsPanel" Orientation="Horizontal">
                                                             <Button
                                                                 Name="PART_MinimizeButton"
@@ -251,7 +245,7 @@
                 <Style Selector="^ StackPanel#AppTitlePanel">
                     <Setter Property="Opacity" Value="0.60" />
                 </Style>
-                <Style Selector="^ ItemsControl#PART_RightButtons">
+                <Style Selector="^ ContentPresenter#PART_RightButtons">
                     <Setter Property="Opacity" Value="0.60" />
                 </Style>
             </Style>

@@ -222,17 +222,17 @@ public class Window : Avalonia.Controls.Window
     /// <summary>
     ///     The controls on the right side of the title bar.
     /// </summary>
-    public static readonly StyledProperty<Avalonia.Controls.Controls> RightWindowTitleBarControlsProperty =
-        AvaloniaProperty.Register<Window, Avalonia.Controls.Controls>(nameof(RightWindowTitleBarControls),
+    public static readonly StyledProperty<object?> RightWindowTitleBarContentProperty =
+        AvaloniaProperty.Register<Window, object?>(nameof(RightWindowTitleBarContent),
             new Avalonia.Controls.Controls());
 
     /// <summary>
-    ///     Gets or sets the value of the <see cref="RightWindowTitleBarControlsProperty" />.
+    ///     Gets or sets the value of the <see cref="RightWindowTitleBarContentProperty" />.
     /// </summary>
-    public Avalonia.Controls.Controls RightWindowTitleBarControls
+    public object? RightWindowTitleBarContent
     {
-        get => GetValue(RightWindowTitleBarControlsProperty);
-        set => SetValue(RightWindowTitleBarControlsProperty, value);
+        get => GetValue(RightWindowTitleBarContentProperty);
+        set => SetValue(RightWindowTitleBarContentProperty, value);
     }
 
     /// <summary>
@@ -257,7 +257,6 @@ public class Window : Avalonia.Controls.Window
     protected Window()
     {
         MenuItems = [];
-        RightWindowTitleBarControls = [];
         Hosts = [];
     }
 
