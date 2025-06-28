@@ -19,7 +19,7 @@
                     </Panel.Transitions>
                     <Border
                         Name="HoverBackground"
-                        Background="{DynamicResource GhostColor}"
+                        Background="{DynamicResource GhostHoverColor}"
                         CornerRadius="{TemplateBinding CornerRadius}"
                         Opacity="0">
                         <Border.Transitions>
