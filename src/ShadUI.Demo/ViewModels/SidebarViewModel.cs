@@ -9,7 +9,7 @@ public sealed partial class SidebarViewModel : ViewModelBase
     public SidebarViewModel()
     {
         var path = Path.Combine(AppContext.BaseDirectory, "views", "SidebarPage.axaml");
-        DefaultCode = path.ExtractByLineRange(38, 465).CleanIndentation();
+        DefaultCode = path.ExtractByLineRange(38, 452).CleanIndentation();
     }
 
     [ObservableProperty]
