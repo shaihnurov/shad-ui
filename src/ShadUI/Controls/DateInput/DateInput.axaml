@@ -4,7 +4,7 @@
     xmlns:shadui="clr-namespace:ShadUI"
     xmlns:system="clr-namespace:System;assembly=netstandard">
     <ResourceDictionary.MergedDictionaries>
-        <ResourceInclude Source="Common.axaml" />
+        <ResourceInclude Source="avares://ShadUI/Controls/Common.axaml" />
     </ResourceDictionary.MergedDictionaries>
     <Design.PreviewWith>
         <Border Height="500" Padding="24">

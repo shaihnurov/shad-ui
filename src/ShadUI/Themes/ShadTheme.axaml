@@ -5,7 +5,7 @@
     <Styles.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceInclude Source="avares://ShadUI/Controls/Index.axaml" />
+                <ResourceInclude Source="avares://ShadUI/Controls/Themes.axaml" />
             </ResourceDictionary.MergedDictionaries>
             <ResourceDictionary.ThemeDictionaries>
                 <ResourceInclude x:Key="Light" Source="/Themes/Light.axaml" />
@@ -13,5 +13,5 @@
             </ResourceDictionary.ThemeDictionaries>
         </ResourceDictionary>
     </Styles.Resources>
-    <StyleInclude Source="avares://ShadUI/Styles/Index.axaml" />
+    <StyleInclude Source="avares://ShadUI/Controls/Styles.axaml" />
 </Styles>
