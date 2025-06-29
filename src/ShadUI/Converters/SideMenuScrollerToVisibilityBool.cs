@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Globalization;
 using Avalonia.Data.Converters;
 
-namespace ShadUI.Converters;
+// ReSharper disable once CheckNamespace
+namespace ShadUI;
 
 /// <summary>
 ///     Converts the value of the sidebar menu scroller to a visibility boolean.

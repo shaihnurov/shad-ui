@@ -1,10 +1,9 @@
 ﻿<ResourceDictionary
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:content="clr-namespace:ShadUI.Contents;assembly=ShadUI"
     xmlns:controls="clr-namespace:ShadUI.Demo.Controls"
     xmlns:editor="https://github.com/avaloniaui/avaloniaedit"
-    xmlns:extensions="clr-namespace:ShadUI.Extensions;assembly=ShadUI">
+    xmlns:shadui="clr-namespace:ShadUI;assembly=ShadUI">
     <Design.PreviewWith>
         <Border Width="500" Height="250">
             <controls:CodeTextBlock>
@@ -53,15 +52,15 @@
                             Padding="6"
                             HorizontalAlignment="Right"
                             VerticalAlignment="Top"
-                            extensions:ButtonAssist.HoverBackground="{DynamicResource CodeForegroundColor50}">
-                            <extensions:ButtonAssist.Icon>
+                            shadui:ButtonAssist.HoverBackground="{DynamicResource CodeForegroundColor50}">
+                            <shadui:ButtonAssist.Icon>
                                 <PathIcon
                                     Name="PART_ClipBoardIcon"
                                     Width="8"
                                     Height="12"
-                                    Data="{x:Static content:Icons.ClipBoard}"
+                                    Data="{x:Static shadui:Icons.ClipBoard}"
                                     Foreground="#FAFAFA" />
-                            </extensions:ButtonAssist.Icon>
+                            </shadui:ButtonAssist.Icon>
                         </Button>
                     </Panel>
                 </Border>

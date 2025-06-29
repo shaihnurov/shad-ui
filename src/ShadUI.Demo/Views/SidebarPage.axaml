@@ -4,11 +4,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="clr-namespace:ShadUI.Demo.Controls"
     xmlns:converters="clr-namespace:ShadUI.Demo.Converters"
-    xmlns:ctrls="clr-namespace:ShadUI.Controls;assembly=ShadUI"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:extensions="clr-namespace:ShadUI.Extensions;assembly=ShadUI"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:shadconv="clr-namespace:ShadUI.Converters;assembly=ShadUI"
     xmlns:shadui="clr-namespace:ShadUI;assembly=ShadUI"
     xmlns:viewModels="clr-namespace:ShadUI.Demo.ViewModels"
     d:DesignHeight="450"
@@ -51,7 +48,7 @@
                                 Background="{DynamicResource CardBackgroundColor}"
                                 BorderThickness="0,0,1,0"
                                 CornerRadius="{CompiledBinding #Border.CornerRadius,
-                                                               Converter={x:Static shadconv:CornerRadiusConverter.LeftOnly}}"
+                                                               Converter={x:Static shadui:CornerRadiusConverter.LeftOnly}}"
                                 Expanded="{Binding #Toggler.IsChecked}"
                                 ItemIconContentSpacing="12">
                                 <shadui:Sidebar.Header>
@@ -59,9 +56,9 @@
                                         <MenuItem
                                             Margin="0,0,0,16"
                                             HorizontalAlignment="Stretch"
-                                            extensions:MenuItemAssist.PopupHorizontalOffset="4"
-                                            extensions:MenuItemAssist.PopupPlacement="RightEdgeAlignedTop"
-                                            extensions:MenuItemAssist.PopupVerticalOffset="0"
+                                            shadui:MenuItemAssist.PopupHorizontalOffset="4"
+                                            shadui:MenuItemAssist.PopupPlacement="RightEdgeAlignedTop"
+                                            shadui:MenuItemAssist.PopupVerticalOffset="0"
                                             Classes="NoPressedAnimation"
                                             CornerRadius="{DynamicResource LgCornerRadius}">
                                             <MenuItem.Header>
@@ -124,12 +121,12 @@
                                                 </Panel>
 
                                             </MenuItem.Header>
-                                            <extensions:MenuItemAssist.Label>
+                                            <shadui:MenuItemAssist.Label>
                                                 <TextBlock
                                                     Width="220 "
                                                     Classes="Caption Muted"
                                                     Text="Teams" />
-                                            </extensions:MenuItemAssist.Label>
+                                            </shadui:MenuItemAssist.Label>
                                             <MenuItem Header="Acme Inc" InputGesture="Ctrl + F1">
                                                 <MenuItem.Icon>
                                                     <Border
@@ -270,30 +267,30 @@
                                         <MenuItem
                                             Padding="8,0"
                                             HorizontalAlignment="Stretch"
-                                            extensions:MenuItemAssist.PopupHorizontalOffset="4"
-                                            extensions:MenuItemAssist.PopupPlacement="RightEdgeAlignedBottom"
-                                            extensions:MenuItemAssist.PopupVerticalOffset="4"
+                                            shadui:MenuItemAssist.PopupHorizontalOffset="4"
+                                            shadui:MenuItemAssist.PopupPlacement="RightEdgeAlignedBottom"
+                                            shadui:MenuItemAssist.PopupVerticalOffset="4"
                                             Classes="NoPressedAnimation"
                                             CornerRadius="{DynamicResource LgCornerRadius}">
                                             <MenuItem.Header>
                                                 <Panel>
-                                                    <ctrls:Avatar
+                                                    <shadui:Avatar
                                                         CornerRadius="{DynamicResource LgCornerRadius}"
                                                         Fallback="CN"
                                                         IsVisible="{Binding !$parent[shadui:Sidebar].Expanded}"
                                                         Opacity="{Binding !$parent[shadui:Sidebar].Expanded, Converter={x:Static converters:BooleanConverters.Opaque}}"
                                                         Source="../../Assets/user.png">
-                                                        <ctrls:Avatar.Transitions>
+                                                        <shadui:Avatar.Transitions>
                                                             <Transitions>
                                                                 <DoubleTransition Property="Opacity" Duration="0:0:0.20" />
                                                             </Transitions>
-                                                        </ctrls:Avatar.Transitions>
-                                                    </ctrls:Avatar>
+                                                        </shadui:Avatar.Transitions>
+                                                    </shadui:Avatar>
                                                     <Grid
                                                         Margin="0,8"
                                                         ColumnDefinitions="Auto * Auto"
                                                         IsVisible="{Binding $parent[shadui:Sidebar].Expanded}">
-                                                        <ctrls:Avatar
+                                                        <shadui:Avatar
                                                             Width="36"
                                                             Height="36"
                                                             Margin="0,0,8,0"
@@ -319,12 +316,12 @@
                                                     </Grid>
                                                 </Panel>
                                             </MenuItem.Header>
-                                            <extensions:MenuItemAssist.Label>
+                                            <shadui:MenuItemAssist.Label>
                                                 <Grid
                                                     Width="220"
                                                     HorizontalAlignment="Stretch"
                                                     ColumnDefinitions="Auto *">
-                                                    <ctrls:Avatar
+                                                    <shadui:Avatar
                                                         Width="36"
                                                         Height="36"
                                                         Margin="0,0,8,0"
@@ -339,7 +336,7 @@
                                                             Text="m@example.com" />
                                                     </StackPanel>
                                                 </Grid>
-                                            </extensions:MenuItemAssist.Label>
+                                            </shadui:MenuItemAssist.Label>
                                             <Separator />
                                             <MenuItem Header="Upgrade to Pro">
                                                 <MenuItem.Icon>

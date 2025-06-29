@@ -6,7 +6,6 @@ using Avalonia.Controls.Presenters;
 using Avalonia.Controls.Primitives;
 using Avalonia.Media;
 using Avalonia.Threading;
-using ShadUI.Utilities;
 
 // ReSharper disable once CheckNamespace
 namespace ShadUI;

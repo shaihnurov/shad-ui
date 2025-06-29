@@ -1,8 +1,9 @@
 ﻿using Avalonia.Controls;
+// ReSharper disable once CheckNamespace
 using Avalonia.Data.Converters;
-using ShadUI.Controls;
 
-namespace ShadUI.Converters;
+// ReSharper disable once CheckNamespace
+namespace ShadUI;
 
 internal static class BooleanConverters
 {

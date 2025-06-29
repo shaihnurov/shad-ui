@@ -1,7 +1,8 @@
 ﻿using Avalonia;
 using Avalonia.Controls;
 
-namespace ShadUI.Controls;
+// ReSharper disable once CheckNamespace
+namespace ShadUI;
 
 /// <summary>
 ///     Represents a control that displays a busy indicator.

@@ -1,7 +1,6 @@
 ﻿using System.Reflection;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using ShadUI.Dialogs;
 
 namespace ShadUI.Demo.ViewModels;
 

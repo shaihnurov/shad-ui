@@ -5,9 +5,8 @@
     xmlns:controls="clr-namespace:ShadUI.Demo.Controls"
     xmlns:converters="clr-namespace:ShadUI.Demo.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:extensions="clr-namespace:ShadUI.Extensions;assembly=ShadUI"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:shadui="clr-namespace:ShadUI.Controls;assembly=ShadUI"
+    xmlns:shadui="clr-namespace:ShadUI;assembly=ShadUI"
     xmlns:viewModels="clr-namespace:ShadUI.Demo.ViewModels"
     d:DesignWidth="800"
     x:DataType="viewModels:ColorsViewModel"
@@ -46,8 +45,8 @@
                     <ColorPicker
                         Width="255"
                         HorizontalAlignment="Center"
-                        extensions:ControlAssist.Hint="Choose your favorite color"
-                        extensions:ControlAssist.Label="Select a color"
+                        shadui:ControlAssist.Hint="Choose your favorite color"
+                        shadui:ControlAssist.Label="Select a color"
                         Color="{Binding SelectedColor, Converter={x:Static converters:StringToColor.Instance}, Mode=TwoWay}" />
                 </controls:ControlBlock>
                 <controls:ControlBlock
@@ -57,8 +56,8 @@
                     <ColorPicker
                         Width="255"
                         HorizontalAlignment="Center"
-                        extensions:ControlAssist.Hint="Choose your favorite color"
-                        extensions:ControlAssist.Label="Select a color"
+                        shadui:ControlAssist.Hint="Choose your favorite color"
+                        shadui:ControlAssist.Label="Select a color"
                         IsEnabled="False"
                         Color="{Binding SelectedColor, Converter={x:Static converters:StringToColor.Instance}, Mode=TwoWay}" />
                 </controls:ControlBlock>

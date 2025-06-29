@@ -2,7 +2,8 @@
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.VisualTree;
 
-namespace ShadUI.Extensions;
+// ReSharper disable once CheckNamespace
+namespace ShadUI;
 
 /// <summary>
 ///     Provides extension methods for <see cref="Avalonia.Application" /> class.

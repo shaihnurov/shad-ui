@@ -1,6 +1,7 @@
 ﻿using System;
 
-namespace ShadUI.Toasts;
+// ReSharper disable once CheckNamespace
+namespace ShadUI;
 
 /// <summary>
 ///     Fluent API for creating toast notifications.

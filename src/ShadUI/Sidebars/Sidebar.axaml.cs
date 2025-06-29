@@ -3,7 +3,6 @@ using Avalonia;
 using Avalonia.Animation.Easings;
 using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
-using ShadUI.Utilities;
 
 // ReSharper disable once CheckNamespace
 namespace ShadUI;

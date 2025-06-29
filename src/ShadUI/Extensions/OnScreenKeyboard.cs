@@ -10,7 +10,8 @@ using Avalonia.Input;
 using Avalonia.Media;
 
 // Original source code from: https://gist.github.com/tobyfirth/65c5372be2e659141c1c4b7d99e3e268#file-mainwindow-axaml-cs
-namespace ShadUI.Extensions;
+// ReSharper disable once CheckNamespace
+namespace ShadUI;
 
 internal static class OnScreenKeyboard
 {

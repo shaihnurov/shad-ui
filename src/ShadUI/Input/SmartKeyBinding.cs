@@ -3,10 +3,9 @@ using System.Windows.Input;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Input;
-using ShadUI.Extensions;
-using Application = Avalonia.Application;
 
-namespace ShadUI.Input;
+// ReSharper disable once CheckNamespace
+namespace ShadUI;
 
 /// <summary>
 ///     A smart key binding that provides special handling for TextBox controls while maintaining regular key binding

@@ -3,12 +3,10 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:avalonia="clr-namespace:LiveChartsCore.SkiaSharpView.Avalonia;assembly=LiveChartsCore.SkiaSharpView.Avalonia"
-    xmlns:breakpoints="clr-namespace:ShadUI.Breakpoints;assembly=ShadUI"
-    xmlns:controls="clr-namespace:ShadUI.Controls;assembly=ShadUI"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:dashboard="clr-namespace:ShadUI.Demo.Controls.Dashboard"
-    xmlns:extensions="clr-namespace:ShadUI.Extensions;assembly=ShadUI"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:shadui="clr-namespace:ShadUI;assembly=ShadUI"
     xmlns:system="clr-namespace:System;assembly=System.Runtime"
     xmlns:viewModels="clr-namespace:ShadUI.Demo.ViewModels"
     d:DesignHeight="450"
@@ -31,18 +29,18 @@
                     HorizontalAlignment="Right"
                     Orientation="Horizontal"
                     Spacing="8">
-                    <CalendarDatePicker extensions:ControlAssist.Label="From" SelectedDate="{x:Static system:DateTime.Today}" />
-                    <CalendarDatePicker extensions:ControlAssist.Label="To" SelectedDate="{x:Static system:DateTime.Today}" />
+                    <CalendarDatePicker shadui:ControlAssist.Label="From" SelectedDate="{x:Static system:DateTime.Today}" />
+                    <CalendarDatePicker shadui:ControlAssist.Label="To" SelectedDate="{x:Static system:DateTime.Today}" />
                     <Button
                         VerticalAlignment="Bottom"
                         Classes="Primary"
                         Content="Download">
-                        <extensions:ButtonAssist.Icon>
+                        <shadui:ButtonAssist.Icon>
                             <TextBlock
                                 Margin="0,0,6,0"
                                 Classes="LucideIcon"
                                 Text="&#57526;" />
-                        </extensions:ButtonAssist.Icon>
+                        </shadui:ButtonAssist.Icon>
                     </Button>
                 </StackPanel>
 
@@ -50,8 +48,8 @@
                     <TabControl.Items>
                         <TabItem Header="Overview">
                             <StackPanel>
-                                <breakpoints:ViewPort>
-                                    <breakpoints:View Breakpoint="MdAndUp">
+                                <shadui:ViewPort>
+                                    <shadui:View Breakpoint="MdAndUp">
                                         <UniformGrid Margin="-6,0" Columns="4">
                                             <dashboard:OverviewCard
                                                 Title="Total Revenue"
@@ -102,8 +100,8 @@
                                                 </dashboard:OverviewCard.Icon>
                                             </dashboard:OverviewCard>
                                         </UniformGrid>
-                                    </breakpoints:View>
-                                    <breakpoints:View Breakpoint="MdAndDown">
+                                    </shadui:View>
+                                    <shadui:View Breakpoint="MdAndDown">
                                         <UniformGrid Margin="-6,0" Columns="2">
                                             <dashboard:OverviewCard
                                                 Title="Total Revenue"
@@ -154,10 +152,10 @@
                                                 </dashboard:OverviewCard.Icon>
                                             </dashboard:OverviewCard>
                                         </UniformGrid>
-                                    </breakpoints:View>
-                                </breakpoints:ViewPort>
-                                <breakpoints:ViewPort>
-                                    <breakpoints:View Breakpoint="MdAndUp">
+                                    </shadui:View>
+                                </shadui:ViewPort>
+                                <shadui:ViewPort>
+                                    <shadui:View Breakpoint="MdAndUp">
                                         <Grid Margin="-8,0" ColumnDefinitions="3* 2*">
                                             <Border
                                                 Margin="8"
@@ -204,7 +202,7 @@
                                                     </StackPanel>
                                                     <StackPanel Margin="24,0,24,24" Spacing="24">
                                                         <Grid ColumnDefinitions="Auto * Auto">
-                                                            <controls:Avatar
+                                                            <shadui:Avatar
                                                                 Width="36"
                                                                 Height="36"
                                                                 VerticalAlignment="Center"
@@ -222,7 +220,7 @@
                                                                 Text="+$1,999.00" />
                                                         </Grid>
                                                         <Grid ColumnDefinitions="Auto * Auto">
-                                                            <controls:Avatar
+                                                            <shadui:Avatar
                                                                 Width="36"
                                                                 Height="36"
                                                                 VerticalAlignment="Center"
@@ -240,7 +238,7 @@
                                                                 Text="+$39.00" />
                                                         </Grid>
                                                         <Grid ColumnDefinitions="Auto * Auto">
-                                                            <controls:Avatar
+                                                            <shadui:Avatar
                                                                 Width="36"
                                                                 Height="36"
                                                                 VerticalAlignment="Center"
@@ -258,7 +256,7 @@
                                                                 Text="+$299.00" />
                                                         </Grid>
                                                         <Grid ColumnDefinitions="Auto * Auto">
-                                                            <controls:Avatar
+                                                            <shadui:Avatar
                                                                 Width="36"
                                                                 Height="36"
                                                                 VerticalAlignment="Center"
@@ -276,7 +274,7 @@
                                                                 Text="+$99.00" />
                                                         </Grid>
                                                         <Grid ColumnDefinitions="Auto * Auto">
-                                                            <controls:Avatar
+                                                            <shadui:Avatar
                                                                 Width="36"
                                                                 Height="36"
                                                                 VerticalAlignment="Center"
@@ -297,8 +295,8 @@
                                                 </DockPanel>
                                             </Border>
                                         </Grid>
-                                    </breakpoints:View>
-                                    <breakpoints:View Breakpoint="MdAndDown">
+                                    </shadui:View>
+                                    <shadui:View Breakpoint="MdAndDown">
                                         <Grid Margin="-8,0" RowDefinitions="* *">
                                             <Border
                                                 MinHeight="360"
@@ -346,7 +344,7 @@
                                                     </StackPanel>
                                                     <StackPanel Margin="24,0,24,24" Spacing="24">
                                                         <Grid ColumnDefinitions="Auto * Auto">
-                                                            <controls:Avatar
+                                                            <shadui:Avatar
                                                                 Width="36"
                                                                 Height="36"
                                                                 VerticalAlignment="Center"
@@ -364,7 +362,7 @@
                                                                 Text="+$1,999.00" />
                                                         </Grid>
                                                         <Grid ColumnDefinitions="Auto * Auto">
-                                                            <controls:Avatar
+                                                            <shadui:Avatar
                                                                 Width="36"
                                                                 Height="36"
                                                                 VerticalAlignment="Center"
@@ -382,7 +380,7 @@
                                                                 Text="+$39.00" />
                                                         </Grid>
                                                         <Grid ColumnDefinitions="Auto * Auto">
-                                                            <controls:Avatar
+                                                            <shadui:Avatar
                                                                 Width="36"
                                                                 Height="36"
                                                                 VerticalAlignment="Center"
@@ -400,7 +398,7 @@
                                                                 Text="+$299.00" />
                                                         </Grid>
                                                         <Grid ColumnDefinitions="Auto * Auto">
-                                                            <controls:Avatar
+                                                            <shadui:Avatar
                                                                 Width="36"
                                                                 Height="36"
                                                                 VerticalAlignment="Center"
@@ -418,7 +416,7 @@
                                                                 Text="+$99.00" />
                                                         </Grid>
                                                         <Grid ColumnDefinitions="Auto * Auto">
-                                                            <controls:Avatar
+                                                            <shadui:Avatar
                                                                 Width="36"
                                                                 Height="36"
                                                                 VerticalAlignment="Center"
@@ -439,8 +437,8 @@
                                                 </DockPanel>
                                             </Border>
                                         </Grid>
-                                    </breakpoints:View>
-                                </breakpoints:ViewPort>
+                                    </shadui:View>
+                                </shadui:ViewPort>
                             </StackPanel>
                         </TabItem>
                         <TabItem Header="Analytics" IsEnabled="False" />

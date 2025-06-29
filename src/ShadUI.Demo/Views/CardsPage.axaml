@@ -4,9 +4,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="clr-namespace:ShadUI.Demo.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:extensions="clr-namespace:ShadUI.Extensions;assembly=ShadUI"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:shadui="clr-namespace:ShadUI.Controls;assembly=ShadUI"
+    xmlns:shadui="clr-namespace:ShadUI;assembly=ShadUI"
     xmlns:viewModels="clr-namespace:ShadUI.Demo.ViewModels"
     d:DesignWidth="800"
     x:DataType="viewModels:CardsViewModel"
@@ -42,10 +41,10 @@
                             </StackPanel>
                         </shadui:Card.Header>
                         <StackPanel Spacing="16">
-                            <TextBox extensions:ControlAssist.Label="Name" Watermark="Name of your project" />
+                            <TextBox shadui:ControlAssist.Label="Name" Watermark="Name of your project" />
                             <ComboBox
                                 Width="300"
-                                extensions:ControlAssist.Label="Framework"
+                                shadui:ControlAssist.Label="Framework"
                                 SelectedIndex="0">
                                 <ComboBox.Items>
                                     <ComboBoxItem>Next.js</ComboBoxItem>

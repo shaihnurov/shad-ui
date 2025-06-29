@@ -2,7 +2,8 @@ using System;
 using System.Globalization;
 using Avalonia.Data.Converters;
 
-namespace ShadUI.Converters;
+// ReSharper disable once CheckNamespace
+namespace ShadUI;
 
 internal class PopupMinWidthConverter : IValueConverter
 {

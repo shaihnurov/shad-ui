@@ -6,9 +6,9 @@ using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
 using Avalonia.Input;
 using Avalonia.Threading;
-using ShadUI.Utilities;
 
-namespace ShadUI.Toasts;
+// ReSharper disable once CheckNamespace
+namespace ShadUI;
 
 internal class Toast : ContentControl
 {

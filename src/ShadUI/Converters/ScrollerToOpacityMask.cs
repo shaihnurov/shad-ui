@@ -5,7 +5,8 @@ using Avalonia;
 using Avalonia.Data.Converters;
 using Avalonia.Media;
 
-namespace ShadUI.Converters;
+// ReSharper disable once CheckNamespace
+namespace ShadUI;
 
 /// <summary>
 ///     Converts the value of the sidebar menu scroller to an opacity mask.

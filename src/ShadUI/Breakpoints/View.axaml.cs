@@ -1,7 +1,8 @@
 ﻿using Avalonia;
 using Avalonia.Controls;
 
-namespace ShadUI.Breakpoints;
+// ReSharper disable once CheckNamespace
+namespace ShadUI;
 
 /// <summary>
 ///     Represents a view that can change its layout based on breakpoints.

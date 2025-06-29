@@ -4,8 +4,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="clr-namespace:ShadUI.Demo.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:extensions="clr-namespace:ShadUI.Extensions;assembly=ShadUI"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:shadui="clr-namespace:ShadUI;assembly=ShadUI"
     xmlns:viewModels="clr-namespace:ShadUI.Demo.ViewModels"
     d:DesignWidth="800"
     x:DataType="viewModels:ButtonsViewModel"
@@ -32,21 +32,21 @@
                         Orientation="Horizontal"
                         Spacing="8">
                         <Button
-                            extensions:ButtonAssist.ShowProgress="{Binding IsBusy}"
+                            shadui:ButtonAssist.ShowProgress="{Binding IsBusy}"
                             Classes="Primary"
                             Command="{Binding SubmitCommand}"
                             Content="Primary" />
                         <Button
-                            extensions:ButtonAssist.ShowProgress="{Binding IsBusy}"
+                            shadui:ButtonAssist.ShowProgress="{Binding IsBusy}"
                             Classes="Primary"
                             Command="{Binding SubmitCommand}"
                             Content="Edit">
-                            <extensions:ButtonAssist.Icon>
+                            <shadui:ButtonAssist.Icon>
                                 <TextBlock
                                     Margin="0,0,6,0"
                                     Classes="LucideIcon"
                                     Text="&#57849;" />
-                            </extensions:ButtonAssist.Icon>
+                            </shadui:ButtonAssist.Icon>
                         </Button>
                         <Button
                             Classes="Primary"
@@ -63,21 +63,21 @@
                         Orientation="Horizontal"
                         Spacing="8">
                         <Button
-                            extensions:ButtonAssist.ShowProgress="{Binding IsBusy}"
+                            shadui:ButtonAssist.ShowProgress="{Binding IsBusy}"
                             Classes="Secondary"
                             Command="{Binding SubmitCommand}"
                             Content="Secondary" />
                         <Button
-                            extensions:ButtonAssist.ShowProgress="{Binding IsBusy}"
+                            shadui:ButtonAssist.ShowProgress="{Binding IsBusy}"
                             Classes="Secondary"
                             Command="{Binding SubmitCommand}"
                             Content="Edit">
-                            <extensions:ButtonAssist.Icon>
+                            <shadui:ButtonAssist.Icon>
                                 <TextBlock
                                     Margin="0,0,6,0"
                                     Classes="LucideIcon"
                                     Text="&#57849;" />
-                            </extensions:ButtonAssist.Icon>
+                            </shadui:ButtonAssist.Icon>
                         </Button>
                         <Button
                             Classes="Secondary"
@@ -94,21 +94,21 @@
                         Orientation="Horizontal"
                         Spacing="8">
                         <Button
-                            extensions:ButtonAssist.ShowProgress="{Binding IsBusy}"
+                            shadui:ButtonAssist.ShowProgress="{Binding IsBusy}"
                             Classes="Destructive"
                             Command="{Binding SubmitCommand}"
                             Content="Destructive" />
                         <Button
-                            extensions:ButtonAssist.ShowProgress="{Binding IsBusy}"
+                            shadui:ButtonAssist.ShowProgress="{Binding IsBusy}"
                             Classes="Destructive"
                             Command="{Binding SubmitCommand}"
                             Content="Delete">
-                            <extensions:ButtonAssist.Icon>
+                            <shadui:ButtonAssist.Icon>
                                 <TextBlock
                                     Margin="0,0,6,0"
                                     Classes="LucideIcon"
                                     Text="&#57741;" />
-                            </extensions:ButtonAssist.Icon>
+                            </shadui:ButtonAssist.Icon>
                         </Button>
                         <Button
                             Classes="Destructive"
@@ -125,21 +125,21 @@
                         Orientation="Horizontal"
                         Spacing="8">
                         <Button
-                            extensions:ButtonAssist.ShowProgress="{Binding IsBusy}"
+                            shadui:ButtonAssist.ShowProgress="{Binding IsBusy}"
                             Classes="Outline"
                             Command="{Binding SubmitCommand}"
                             Content="Outline" />
                         <Button
-                            extensions:ButtonAssist.ShowProgress="{Binding IsBusy}"
+                            shadui:ButtonAssist.ShowProgress="{Binding IsBusy}"
                             Classes="Outline"
                             Command="{Binding SubmitCommand}"
                             Content="Edit">
-                            <extensions:ButtonAssist.Icon>
+                            <shadui:ButtonAssist.Icon>
                                 <TextBlock
                                     Margin="0,0,6,0"
                                     Classes="LucideIcon"
                                     Text="&#57849;" />
-                            </extensions:ButtonAssist.Icon>
+                            </shadui:ButtonAssist.Icon>
                         </Button>
                         <Button
                             Classes="Outline"
@@ -156,21 +156,21 @@
                         Orientation="Horizontal"
                         Spacing="8">
                         <Button
-                            extensions:ButtonAssist.ShowProgress="{Binding IsBusy}"
+                            shadui:ButtonAssist.ShowProgress="{Binding IsBusy}"
                             Classes="Ghost"
                             Command="{Binding SubmitCommand}"
                             Content="Ghost" />
                         <Button
-                            extensions:ButtonAssist.ShowProgress="{Binding IsBusy}"
+                            shadui:ButtonAssist.ShowProgress="{Binding IsBusy}"
                             Classes="Ghost"
                             Command="{Binding SubmitCommand}"
                             Content="Edit">
-                            <extensions:ButtonAssist.Icon>
+                            <shadui:ButtonAssist.Icon>
                                 <TextBlock
                                     Margin="0,0,6,0"
                                     Classes="LucideIcon"
                                     Text="&#57849;" />
-                            </extensions:ButtonAssist.Icon>
+                            </shadui:ButtonAssist.Icon>
                         </Button>
                         <Button
                             Classes="Ghost"
@@ -187,27 +187,27 @@
                         Orientation="Horizontal"
                         Spacing="8">
                         <Button
-                            extensions:ButtonAssist.ShowProgress="{Binding IsBusy}"
+                            shadui:ButtonAssist.ShowProgress="{Binding IsBusy}"
                             BorderBrush="{DynamicResource BorderColor}"
                             Classes="Icon"
                             Command="{Binding SubmitCommand}">
-                            <extensions:ButtonAssist.Icon>
+                            <shadui:ButtonAssist.Icon>
                                 <TextBlock
                                     Margin="0,8"
                                     Classes="LucideIcon"
                                     Text="&#57849;" />
-                            </extensions:ButtonAssist.Icon>
+                            </shadui:ButtonAssist.Icon>
                         </Button>
                         <Button
                             BorderBrush="{DynamicResource BorderColor}"
                             Classes="Icon"
                             IsEnabled="False">
-                            <extensions:ButtonAssist.Icon>
+                            <shadui:ButtonAssist.Icon>
                                 <TextBlock
                                     Margin="0,8"
                                     Classes="LucideIcon"
                                     Text="&#57849;" />
-                            </extensions:ButtonAssist.Icon>
+                            </shadui:ButtonAssist.Icon>
                         </Button>
                     </StackPanel>
                 </controls:ControlBlock>
@@ -220,23 +220,23 @@
                         Orientation="Horizontal"
                         Spacing="8">
                         <Button
-                            extensions:ButtonAssist.ShowProgress="{Binding IsBusy}"
+                            shadui:ButtonAssist.ShowProgress="{Binding IsBusy}"
                             Classes="DestructiveIcon"
                             Command="{Binding SubmitCommand}">
-                            <extensions:ButtonAssist.Icon>
+                            <shadui:ButtonAssist.Icon>
                                 <TextBlock
                                     Margin="0,8"
                                     Classes="LucideIcon"
                                     Text="&#57741;" />
-                            </extensions:ButtonAssist.Icon>
+                            </shadui:ButtonAssist.Icon>
                         </Button>
                         <Button Classes="DestructiveIcon" IsEnabled="False">
-                            <extensions:ButtonAssist.Icon>
+                            <shadui:ButtonAssist.Icon>
                                 <TextBlock
                                     Margin="0,8"
                                     Classes="LucideIcon"
                                     Text="&#57741;" />
-                            </extensions:ButtonAssist.Icon>
+                            </shadui:ButtonAssist.Icon>
                         </Button>
                     </StackPanel>
                 </controls:ControlBlock>

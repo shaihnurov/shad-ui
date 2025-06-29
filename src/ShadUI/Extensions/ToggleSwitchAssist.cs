@@ -1,7 +1,8 @@
 using Avalonia;
 using Avalonia.Controls;
 
-namespace ShadUI.Extensions;
+// ReSharper disable once CheckNamespace
+namespace ShadUI;
 
 /// <summary>
 ///     Useful extensions for the <see cref="Avalonia.Controls.ToggleSwitch" /> class.

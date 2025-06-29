@@ -4,9 +4,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="clr-namespace:ShadUI.Demo.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:extensions="clr-namespace:ShadUI.Extensions;assembly=ShadUI"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:shadui="clr-namespace:ShadUI.Controls;assembly=ShadUI"
+    xmlns:shadui="clr-namespace:ShadUI;assembly=ShadUI"
     xmlns:viewModels="clr-namespace:ShadUI.Demo.ViewModels"
     d:DesignWidth="800"
     x:DataType="viewModels:NumericViewModel"
@@ -57,7 +56,7 @@
                     Language="xaml">
                     <NumericUpDown
                         Width="225"
-                        extensions:ControlAssist.Label="Quantity"
+                        shadui:ControlAssist.Label="Quantity"
                         Watermark="Enter quantity" />
                 </controls:ControlBlock>
                 <controls:ControlBlock
@@ -66,8 +65,8 @@
                     Language="xaml">
                     <NumericUpDown
                         Width="225"
-                        extensions:ControlAssist.Hint="Enter the product price"
-                        extensions:ControlAssist.Label="Price"
+                        shadui:ControlAssist.Hint="Enter the product price"
+                        shadui:ControlAssist.Label="Price"
                         Classes="Clearable"
                         FormatString="N2"
                         ShowButtonSpinner="False"
@@ -94,8 +93,8 @@
                             </shadui:Card.Header>
                             <StackPanel Margin="0,0,0,36" Spacing="16">
                                 <NumericUpDown
-                                    extensions:ControlAssist.Hint="You must be at least 18 years old."
-                                    extensions:ControlAssist.Label="Age"
+                                    shadui:ControlAssist.Hint="You must be at least 18 years old."
+                                    shadui:ControlAssist.Label="Age"
                                     FormatString="N0"
                                     Watermark="Enter your age"
                                     Value="{Binding Age, Mode=TwoWay}" />

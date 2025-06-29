@@ -1,8 +1,7 @@
 ﻿<ResourceDictionary
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:extensions="clr-namespace:ShadUI.Extensions"
-    xmlns:shadui="clr-namespace:ShadUI.Controls"
+    xmlns:shadui="clr-namespace:ShadUI"
     xmlns:system="clr-namespace:System;assembly=System.Runtime">
     <Design.PreviewWith>
         <Panel Width="500" Height="500">
@@ -101,7 +100,7 @@
                                 RenderTransformOrigin="50%, 0%">
                                 <Border
                                     Margin="2,0,2,4"
-                                    extensions:ScrollEventAssist.PreventScrollPropagation="True"
+                                    shadui:ScrollEventAssist.PreventScrollPropagation="True"
                                     Background="{DynamicResource CardBackgroundColor}"
                                     BorderBrush="{DynamicResource BorderColor}"
                                     BorderThickness="1"

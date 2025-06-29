@@ -1,7 +1,8 @@
 ﻿using Avalonia.Controls.Converters;
 using Avalonia.Controls.Primitives.Converters;
 
-namespace ShadUI.Converters;
+// ReSharper disable once CheckNamespace
+namespace ShadUI;
 
 internal static class Wrapper
 {

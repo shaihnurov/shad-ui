@@ -2,7 +2,6 @@
 using Avalonia.Interactivity;
 using LiveChartsCore.Kernel;
 using ShadUI.Demo.ViewModels;
-using ShadUI.Themes;
 
 namespace ShadUI.Demo.Views;
 

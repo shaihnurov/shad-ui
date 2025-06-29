@@ -5,9 +5,8 @@
     xmlns:controls="clr-namespace:ShadUI.Demo.Controls"
     xmlns:converters="clr-namespace:ShadUI.Demo.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:extensions="clr-namespace:ShadUI.Extensions;assembly=ShadUI"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:shadui="clr-namespace:ShadUI.Controls;assembly=ShadUI"
+    xmlns:shadui="clr-namespace:ShadUI;assembly=ShadUI"
     xmlns:viewModels="clr-namespace:ShadUI.Demo.ViewModels"
     d:DesignWidth="800"
     x:DataType="viewModels:DateViewModel"
@@ -53,7 +52,7 @@
                         Width="240"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
-                        extensions:ControlAssist.ReadOnly="True" />
+                        shadui:ControlAssist.ReadOnly="True" />
                 </controls:ControlBlock>
                 <controls:ControlBlock
                     Title="Date Picker Form Validation"
@@ -65,8 +64,8 @@
                         </shadui:Card.Header>
                         <CalendarDatePicker
                             Width="240"
-                            extensions:ControlAssist.Hint="Your date of birth is used to calculate your age."
-                            extensions:ControlAssist.Label="Date of birth"
+                            shadui:ControlAssist.Hint="Your date of birth is used to calculate your age."
+                            shadui:ControlAssist.Label="Date of birth"
                             SelectedDate="{Binding SelectedDate}" />
                         <shadui:Card.Footer>
                             <Button Classes="Primary" Command="{Binding SubmitBirthdayCommand}">
@@ -103,13 +102,13 @@
                             <StackPanel Spacing="16">
                                 <shadui:DateInput
                                     Width="255"
-                                    extensions:ControlAssist.Hint="Set the starting date"
-                                    extensions:ControlAssist.Label="Start date"
+                                    shadui:ControlAssist.Hint="Set the starting date"
+                                    shadui:ControlAssist.Label="Start date"
                                     Value="{Binding StartDate, Converter={x:Static converters:DateOnlyToDateTimeOffsetConverter.Instance}}" />
                                 <shadui:DateInput
                                     Width="255"
-                                    extensions:ControlAssist.Hint="Set the cut-off date"
-                                    extensions:ControlAssist.Label="End date"
+                                    shadui:ControlAssist.Hint="Set the cut-off date"
+                                    shadui:ControlAssist.Label="End date"
                                     Value="{Binding EndDate, Converter={x:Static converters:DateOnlyToDateTimeOffsetConverter.Instance}}" />
                             </StackPanel>
                             <shadui:Card.Footer>

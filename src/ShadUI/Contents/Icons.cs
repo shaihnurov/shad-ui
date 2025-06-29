@@ -1,6 +1,7 @@
 using Avalonia.Media;
 
-namespace ShadUI.Contents;
+// ReSharper disable once CheckNamespace
+namespace ShadUI;
 
 /// <summary>
 ///     Collection of icons used in the application.

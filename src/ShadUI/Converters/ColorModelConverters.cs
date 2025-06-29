@@ -1,7 +1,8 @@
 ﻿using Avalonia.Controls;
 using Avalonia.Data.Converters;
 
-namespace ShadUI.Converters;
+// ReSharper disable once CheckNamespace
+namespace ShadUI;
 
 internal static class ColorModelConverters
 {

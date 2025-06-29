@@ -1,7 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using CommunityToolkit.Mvvm.Input;
 using ShadUI.Demo.Validators;
-using ShadUI.Dialogs;
 
 namespace ShadUI.Demo.ViewModels;
 

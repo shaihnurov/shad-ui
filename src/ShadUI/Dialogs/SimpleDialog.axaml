@@ -1,9 +1,7 @@
 ﻿<ResourceDictionary
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:converters="clr-namespace:ShadUI.Converters"
-    xmlns:dialogs="clr-namespace:ShadUI.Dialogs"
-    xmlns:extensions="clr-namespace:ShadUI.Extensions"
+    xmlns:shadui="clr-namespace:ShadUI"
     x:ClassModifier="internal">
     <Design.PreviewWith>
         <Border Padding="24">
@@ -13,7 +11,7 @@
                     BorderBrush="{DynamicResource BorderColor}"
                     BorderThickness="1"
                     CornerRadius="{DynamicResource LgCornerRadius}">
-                    <dialogs:SimpleDialog
+                    <shadui:SimpleDialog
                         Title="Are you absolutely sure?"
                         CancelButtonStyle="Outline"
                         CancelButtonText="Cancel"
@@ -25,7 +23,7 @@
                     BorderBrush="{DynamicResource BorderColor}"
                     BorderThickness="1"
                     CornerRadius="{DynamicResource LgCornerRadius}">
-                    <dialogs:SimpleDialog
+                    <shadui:SimpleDialog
                         Title="Are you absolutely sure?"
                         CancelButtonStyle="Outline"
                         CancelButtonText="Cancel"
@@ -38,7 +36,7 @@
                     BorderBrush="{DynamicResource BorderColor}"
                     BorderThickness="1"
                     CornerRadius="{DynamicResource LgCornerRadius}">
-                    <dialogs:SimpleDialog
+                    <shadui:SimpleDialog
                         Title="Are you absolutely sure?"
                         CancelButtonStyle="Ghost"
                         CancelButtonText="Cancel"
@@ -52,7 +50,7 @@
             </StackPanel>
         </Border>
     </Design.PreviewWith>
-    <ControlTheme x:Key="SimpleDialogTheme" TargetType="dialogs:SimpleDialog">
+    <ControlTheme x:Key="SimpleDialogTheme" TargetType="shadui:SimpleDialog">
         <Setter Property="Padding" Value="24" />
         <Setter Property="Template">
             <Setter.Value>
@@ -78,8 +76,8 @@
                             <Button
                                 Name="PART_CancelButton"
                                 MinWidth="80"
-                                extensions:ElementAssist.Classes="{TemplateBinding CancelButtonStyle,
-                                                                                   Converter={x:Static converters:DialogButtonStyleToButtonClassConverter.Instance}}"
+                                shadui:ElementAssist.Classes="{TemplateBinding CancelButtonStyle,
+                                                                               Converter={x:Static shadui:DialogButtonStyleToButtonClassConverter.Instance}}"
                                 Content="{TemplateBinding CancelButtonText}"
                                 IsVisible="{CompiledBinding Content,
                                                             ElementName=PART_CancelButton,
@@ -87,8 +85,8 @@
                             <Button
                                 Name="PART_TertiaryButton"
                                 MinWidth="80"
-                                extensions:ElementAssist.Classes="{TemplateBinding TertiaryButtonStyle,
-                                                                                   Converter={x:Static converters:DialogButtonStyleToButtonClassConverter.Instance}}"
+                                shadui:ElementAssist.Classes="{TemplateBinding TertiaryButtonStyle,
+                                                                               Converter={x:Static shadui:DialogButtonStyleToButtonClassConverter.Instance}}"
                                 Content="{TemplateBinding TertiaryButtonText}"
                                 IsVisible="{CompiledBinding Content,
                                                             ElementName=PART_TertiaryButton,
@@ -96,8 +94,8 @@
                             <Button
                                 Name="PART_SecondaryButton"
                                 MinWidth="80"
-                                extensions:ElementAssist.Classes="{TemplateBinding SecondaryButtonStyle,
-                                                                                   Converter={x:Static converters:DialogButtonStyleToButtonClassConverter.Instance}}"
+                                shadui:ElementAssist.Classes="{TemplateBinding SecondaryButtonStyle,
+                                                                               Converter={x:Static shadui:DialogButtonStyleToButtonClassConverter.Instance}}"
                                 Content="{TemplateBinding SecondaryButtonText}"
                                 IsVisible="{CompiledBinding Content,
                                                             ElementName=PART_SecondaryButton,
@@ -105,9 +103,9 @@
                             <Button
                                 Name="PART_PrimaryButton"
                                 MinWidth="80"
-                                extensions:ElementAssist.Classes="{TemplateBinding PrimaryButtonStyle,
-                                                                                   Converter={x:Static converters:DialogButtonStyleToButtonClassConverter.Instance}}"
-                                extensions:ElementAssist.FocusOnLoad="True"
+                                shadui:ElementAssist.Classes="{TemplateBinding PrimaryButtonStyle,
+                                                                               Converter={x:Static shadui:DialogButtonStyleToButtonClassConverter.Instance}}"
+                                shadui:ElementAssist.FocusOnLoad="True"
                                 Content="{TemplateBinding PrimaryButtonText}"
                                 IsVisible="{CompiledBinding Content,
                                                             ElementName=PART_PrimaryButton,
@@ -120,7 +118,7 @@
     </ControlTheme>
 
     <ControlTheme
-        x:Key="{x:Type dialogs:SimpleDialog}"
+        x:Key="{x:Type shadui:SimpleDialog}"
         BasedOn="{StaticResource SimpleDialogTheme}"
-        TargetType="dialogs:SimpleDialog" />
+        TargetType="shadui:SimpleDialog" />
 </ResourceDictionary>

@@ -1,7 +1,8 @@
 ﻿using Avalonia;
 using Avalonia.Data.Converters;
 
-namespace ShadUI.Converters;
+// ReSharper disable once CheckNamespace
+namespace ShadUI;
 
 /// <summary>
 ///     Provides value converters for manipulating CornerRadius values in XAML.

@@ -1,10 +1,9 @@
 ﻿<ResourceDictionary
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:contents="clr-namespace:ShadUI.Contents"
     xmlns:controls="using:Avalonia.Controls"
-    xmlns:conv="clr-namespace:ShadUI.Converters"
     xmlns:primitives="using:Avalonia.Controls.Primitives"
+    xmlns:shadui="clr-namespace:ShadUI"
     x:ClassModifier="internal">
 
     <ResourceDictionary.MergedDictionaries>
@@ -40,7 +39,7 @@
                                     <PathIcon
                                         Width="20"
                                         Height="20"
-                                        Data="{x:Static contents:Icons.Marker}" />
+                                        Data="{x:Static shadui:Icons.Marker}" />
                                 </Border>
                             </TabItem.Header>
                             <Grid
@@ -107,7 +106,7 @@
                                     <PathIcon
                                         Width="20"
                                         Height="20"
-                                        Data="{x:Static contents:Icons.Palette}" />
+                                        Data="{x:Static shadui:Icons.Palette}" />
                                 </Border>
                             </TabItem.Header>
                             <ListBox
@@ -115,7 +114,7 @@
                                 VerticalAlignment="Stretch"
                                 ItemContainerTheme="{StaticResource ColorViewPaletteListBoxItemTheme}"
                                 ItemsSource="{TemplateBinding PaletteColors}"
-                                SelectedItem="{Binding Color, RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static conv:Wrapper.DoNothingForNullConverter}, Mode=TwoWay}"
+                                SelectedItem="{Binding Color, RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static shadui:Wrapper.DoNothingForNullConverter}, Mode=TwoWay}"
                                 Theme="{StaticResource ColorViewPaletteListBoxTheme}"
                                 UseLayoutRounding="False">
                                 <ListBox.ItemTemplate>
@@ -123,9 +122,9 @@
                                         <Border
                                             HorizontalAlignment="Stretch"
                                             VerticalAlignment="Stretch"
-                                            AutomationProperties.Name="{Binding Converter={x:Static conv:Wrapper.ColorToDisplayNameConverter}}"
+                                            AutomationProperties.Name="{Binding Converter={x:Static shadui:Wrapper.ColorToDisplayNameConverter}}"
                                             CornerRadius="{DynamicResource MdCornerRadius}"
-                                            ToolTip.Tip="{Binding Converter={x:Static conv:Wrapper.ColorToDisplayNameConverter}}">
+                                            ToolTip.Tip="{Binding Converter={x:Static shadui:Wrapper.ColorToDisplayNameConverter}}">
                                             <Border.Background>
                                                 <SolidColorBrush Color="{Binding}" />
                                             </Border.Background>
@@ -146,7 +145,7 @@
                                     <PathIcon
                                         Width="20"
                                         Height="16"
-                                        Data="{x:Static contents:Icons.Settings}" />
+                                        Data="{x:Static shadui:Icons.Settings}" />
                                 </Border>
                             </TabItem.Header>
                             <StackPanel Margin="12" Spacing="16">
@@ -161,7 +160,7 @@
                                                 Height="{Binding ElementName=PART_HexTextBox, Path=Bounds.Height}"
                                                 Content="RGB"
                                                 IsChecked="{TemplateBinding ColorModel,
-                                                                            Converter={x:Static conv:Wrapper.EnumToBoolConverter},
+                                                                            Converter={x:Static shadui:Wrapper.EnumToBoolConverter},
                                                                             ConverterParameter={x:Static controls:ColorModel.Rgba},
                                                                             Mode=TwoWay}"
                                                 Theme="{StaticResource ColorViewColorModelRadioButtonTheme}" />
@@ -170,7 +169,7 @@
                                                 Height="{Binding ElementName=PART_HexTextBox, Path=Bounds.Height}"
                                                 Content="HSV"
                                                 IsChecked="{TemplateBinding ColorModel,
-                                                                            Converter={x:Static conv:Wrapper.EnumToBoolConverter},
+                                                                            Converter={x:Static shadui:Wrapper.EnumToBoolConverter},
                                                                             ConverterParameter={x:Static controls:ColorModel.Hsva},
                                                                             Mode=TwoWay}"
                                                 Theme="{StaticResource ColorViewColorModelRadioButtonTheme}" />
@@ -202,8 +201,8 @@
                                             Value="{Binding Value, ElementName=Component1Slider}">
                                             <NumericUpDown.InnerLeftContent>
                                                 <Panel Margin="12,0,0,0">
-                                                    <TextBlock IsVisible="{CompiledBinding $parent[ColorView].ColorModel, Converter={x:Static conv:Wrapper.EnumToBoolConverter}, ConverterParameter={x:Static controls:ColorModel.Rgba}}" Text="R" />
-                                                    <TextBlock IsVisible="{CompiledBinding $parent[ColorView].ColorModel, Converter={x:Static conv:Wrapper.EnumToBoolConverter}, ConverterParameter={x:Static controls:ColorModel.Hsva}}" Text="H" />
+                                                    <TextBlock IsVisible="{CompiledBinding $parent[ColorView].ColorModel, Converter={x:Static shadui:Wrapper.EnumToBoolConverter}, ConverterParameter={x:Static controls:ColorModel.Rgba}}" Text="R" />
+                                                    <TextBlock IsVisible="{CompiledBinding $parent[ColorView].ColorModel, Converter={x:Static shadui:Wrapper.EnumToBoolConverter}, ConverterParameter={x:Static controls:ColorModel.Hsva}}" Text="H" />
                                                 </Panel>
                                             </NumericUpDown.InnerLeftContent>
                                         </NumericUpDown>
@@ -235,8 +234,8 @@
                                             Value="{Binding Value, ElementName=Component2Slider}">
                                             <NumericUpDown.InnerLeftContent>
                                                 <Panel Margin="12,0,0,0">
-                                                    <TextBlock IsVisible="{CompiledBinding $parent[ColorView].ColorModel, Converter={x:Static conv:Wrapper.EnumToBoolConverter}, ConverterParameter={x:Static controls:ColorModel.Rgba}}" Text="G" />
-                                                    <TextBlock IsVisible="{CompiledBinding $parent[ColorView].ColorModel, Converter={x:Static conv:Wrapper.EnumToBoolConverter}, ConverterParameter={x:Static controls:ColorModel.Hsva}}" Text="S" />
+                                                    <TextBlock IsVisible="{CompiledBinding $parent[ColorView].ColorModel, Converter={x:Static shadui:Wrapper.EnumToBoolConverter}, ConverterParameter={x:Static controls:ColorModel.Rgba}}" Text="G" />
+                                                    <TextBlock IsVisible="{CompiledBinding $parent[ColorView].ColorModel, Converter={x:Static shadui:Wrapper.EnumToBoolConverter}, ConverterParameter={x:Static controls:ColorModel.Hsva}}" Text="S" />
                                                 </Panel>
                                             </NumericUpDown.InnerLeftContent>
                                         </NumericUpDown>
@@ -268,8 +267,8 @@
                                             Value="{Binding Value, ElementName=Component3Slider}">
                                             <NumericUpDown.InnerLeftContent>
                                                 <Panel Margin="12,0,0,0">
-                                                    <TextBlock IsVisible="{CompiledBinding $parent[ColorView].ColorModel, Converter={x:Static conv:Wrapper.EnumToBoolConverter}, ConverterParameter={x:Static controls:ColorModel.Rgba}}" Text="B" />
-                                                    <TextBlock IsVisible="{CompiledBinding $parent[ColorView].ColorModel, Converter={x:Static conv:Wrapper.EnumToBoolConverter}, ConverterParameter={x:Static controls:ColorModel.Hsva}}" Text="V" />
+                                                    <TextBlock IsVisible="{CompiledBinding $parent[ColorView].ColorModel, Converter={x:Static shadui:Wrapper.EnumToBoolConverter}, ConverterParameter={x:Static controls:ColorModel.Rgba}}" Text="B" />
+                                                    <TextBlock IsVisible="{CompiledBinding $parent[ColorView].ColorModel, Converter={x:Static shadui:Wrapper.EnumToBoolConverter}, ConverterParameter={x:Static controls:ColorModel.Hsva}}" Text="V" />
                                                 </Panel>
                                             </NumericUpDown.InnerLeftContent>
                                         </NumericUpDown>

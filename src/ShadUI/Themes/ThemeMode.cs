@@ -1,4 +1,5 @@
-﻿namespace ShadUI.Themes;
+﻿// ReSharper disable once CheckNamespace
+namespace ShadUI;
 
 /// <summary>
 ///     Represents the different theme modes available in the application.

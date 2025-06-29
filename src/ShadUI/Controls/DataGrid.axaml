@@ -1,7 +1,7 @@
 ﻿<ResourceDictionary
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:contents="clr-namespace:ShadUI.Contents">
+    xmlns:shadui="clr-namespace:ShadUI">
     <Thickness x:Key="DataGridTextColumnCellTextBlockMargin">4</Thickness>
     <ControlTheme x:Key="{x:Type DataGridCell}" TargetType="DataGridCell">
         <Setter Property="Background" Value="Transparent" />
@@ -69,7 +69,7 @@
                                 Margin="8,0,0,0"
                                 HorizontalAlignment="Left"
                                 VerticalAlignment="Center"
-                                Data="{x:Static contents:Icons.ArrowDown}"
+                                Data="{x:Static shadui:Icons.ArrowDown}"
                                 Fill="{DynamicResource MutedColor}"
                                 IsVisible="False"
                                 Stretch="Uniform" />

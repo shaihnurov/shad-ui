@@ -6,7 +6,8 @@ using Avalonia.Animation;
 using Avalonia.Animation.Easings;
 using Avalonia.Styling;
 
-namespace ShadUI.Utilities;
+// ReSharper disable once CheckNamespace
+namespace ShadUI;
 
 /// <summary>
 ///     Provides fluent extension methods for animating Avalonia controls.

@@ -6,7 +6,8 @@ using Avalonia.Input;
 using Avalonia.Interactivity;
 using System;
 
-namespace ShadUI.Extensions;
+// ReSharper disable once CheckNamespace
+namespace ShadUI;
 
 /// <summary>
 ///     Useful extensions for any element.

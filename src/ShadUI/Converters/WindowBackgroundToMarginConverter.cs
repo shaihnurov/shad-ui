@@ -3,7 +3,8 @@ using System.Globalization;
 using Avalonia;
 using Avalonia.Data.Converters;
 
-namespace ShadUI.Converters;
+// ReSharper disable once CheckNamespace
+namespace ShadUI;
 
 /// <summary>
 ///     Converts the value of the window background to a margin.

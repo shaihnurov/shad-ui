@@ -1,15 +1,14 @@
 ﻿<Styles
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:controls="clr-namespace:ShadUI.Controls"
-    xmlns:extensions="clr-namespace:ShadUI.Extensions">
+    xmlns:shadui="clr-namespace:ShadUI">
     <Design.PreviewWith>
         <Border Padding="20">
             <!--  Add Controls for Previewer Here  -->
         </Border>
     </Design.PreviewWith>
 
-    <Style Selector="controls|SimpleDropdown Button">
+    <Style Selector="shadui|SimpleDropdown Button">
         <Setter Property="Margin" Value="4,0" />
         <Setter Property="Padding" Value="12 8" />
         <Setter Property="FontWeight" Value="Medium" />
@@ -18,7 +17,7 @@
         <Setter Property="Background" Value="{DynamicResource BackgroundColor}" />
         <Setter Property="CornerRadius" Value="{DynamicResource MdCornerRadius}" />
         <Setter Property="HorizontalContentAlignment" Value="Left" />
-        <Setter Property="extensions:ButtonAssist.Icon" Value="{x:Null}" />
+        <Setter Property="shadui:ButtonAssist.Icon" Value="{x:Null}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate>
@@ -63,8 +62,8 @@
                                 </Grid.ColumnDefinitions>
                                 <ContentPresenter
                                     Margin="0,0,8,0"
-                                    Content="{TemplateBinding extensions:ButtonAssist.Icon}"
-                                    IsVisible="{TemplateBinding extensions:ButtonAssist.Icon,
+                                    Content="{TemplateBinding shadui:ButtonAssist.Icon}"
+                                    IsVisible="{TemplateBinding shadui:ButtonAssist.Icon,
                                                                 Converter={x:Static ObjectConverters.IsNotNull}}" />
                                 <ContentPresenter
                                     Grid.Column="1"
@@ -82,12 +81,12 @@
             </Setter.Value>
         </Setter>
     </Style>
-    <Style Selector="controls|SimpleDropdown Button:pressed">
+    <Style Selector="shadui|SimpleDropdown Button:pressed">
         <Style Selector="^ /template/ Panel#RootPanel">
             <Setter Property="RenderTransform" Value="scale(1, 1)" />
         </Style>
     </Style>
-    <Style Selector="controls|SimpleDropdown Button:pointerover">
+    <Style Selector="shadui|SimpleDropdown Button:pointerover">
         <Style Selector="^ /template/ Border#PART_HoverBackground">
             <Setter Property="Opacity" Value="1" />
         </Style>
@@ -95,19 +94,19 @@
             <Setter Property="Opacity" Value="0" />
         </Style>
     </Style>
-    <Style Selector="controls|SimpleDropdown Button.DestructiveMenu">
+    <Style Selector="shadui|SimpleDropdown Button.DestructiveMenu">
         <Setter Property="Foreground" Value="{DynamicResource DestructiveColor}" />
         <Style Selector="^ /template/ Border#PART_HoverBackground">
             <Setter Property="Background" Value="{DynamicResource DestructiveColor10}" />
         </Style>
     </Style>
-    <Style Selector="controls|SimpleDropdown Button:disabled">
+    <Style Selector="shadui|SimpleDropdown Button:disabled">
         <Setter Property="Opacity" Value="0.5" />
     </Style>
-    <Style Selector="controls|SimpleDropdown Separator">
+    <Style Selector="shadui|SimpleDropdown Separator">
         <Setter Property="Margin" Value="0,4" />
     </Style>
-    <Style Selector="controls|SimpleDropdown">
+    <Style Selector="shadui|SimpleDropdown">
         <Setter Property="Grid.IsSharedSizeScope" Value="True" />
     </Style>
 </Styles>

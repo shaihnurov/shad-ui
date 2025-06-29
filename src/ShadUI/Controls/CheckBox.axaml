@@ -1,7 +1,7 @@
 ﻿<ResourceDictionary
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:contents="clr-namespace:ShadUI.Contents">
+    xmlns:shadui="clr-namespace:ShadUI">
     <Design.PreviewWith>
         <Border Padding="24">
             <StackPanel Spacing="16">
@@ -43,7 +43,7 @@
                                 Margin="3"
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Center"
-                                Data="{x:Static contents:Icons.Check}"
+                                Data="{x:Static shadui:Icons.Check}"
                                 Fill="{DynamicResource PrimaryForegroundColor}"
                                 FlowDirection="LeftToRight"
                                 Stretch="Uniform" />
@@ -52,7 +52,7 @@
                                 Margin="3"
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Center"
-                                Data="{x:Static contents:Icons.Minus}"
+                                Data="{x:Static shadui:Icons.Minus}"
                                 Fill="{DynamicResource PrimaryForegroundColor}"
                                 FlowDirection="LeftToRight"
                                 IsVisible="False"

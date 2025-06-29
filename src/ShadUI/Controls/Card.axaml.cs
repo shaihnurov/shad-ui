@@ -1,7 +1,8 @@
 ﻿using Avalonia;
 using Avalonia.Controls;
 
-namespace ShadUI.Controls;
+// ReSharper disable once CheckNamespace
+namespace ShadUI;
 
 /// <summary>
 ///     Represents a card control with header, footer, and shadow properties.

@@ -2,7 +2,8 @@
 using System.Globalization;
 using Avalonia.Data.Converters;
 
-namespace ShadUI.Converters;
+// ReSharper disable once CheckNamespace
+namespace ShadUI;
 
 /// <summary>
 ///     Returns a width of 24 if the value is true, otherwise 0.

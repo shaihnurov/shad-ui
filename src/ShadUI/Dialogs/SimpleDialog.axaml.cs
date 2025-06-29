@@ -6,7 +6,8 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
 
-namespace ShadUI.Dialogs;
+// ReSharper disable once CheckNamespace
+namespace ShadUI;
 
 internal class SimpleDialog : TemplatedControl
 {

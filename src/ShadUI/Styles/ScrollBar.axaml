@@ -1,8 +1,7 @@
 ﻿<Styles
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:content="clr-namespace:ShadUI.Contents"
-    xmlns:converters="clr-namespace:ShadUI.Converters">
+    xmlns:shadui="clr-namespace:ShadUI">
     <Style Selector="ScrollBar:vertical">
         <Setter Property="AllowAutoHide" Value="False" />
         <Setter Property="Width" Value="10" />
@@ -73,7 +72,7 @@
                         BorderThickness="0"
                         Focusable="False">
                         <RepeatButton.IsVisible>
-                            <MultiBinding Converter="{x:Static converters:SidebarMenuScrollerToVisibilityBool.Up}">
+                            <MultiBinding Converter="{x:Static shadui:SidebarMenuScrollerToVisibilityBool.Up}">
                                 <CompiledBinding Path="Value" RelativeSource="{RelativeSource TemplatedParent}" />
                                 <CompiledBinding Path="Minimum" RelativeSource="{RelativeSource TemplatedParent}" />
                             </MultiBinding>
@@ -81,7 +80,7 @@
                         <PathIcon
                             Width="10"
                             Height="25"
-                            Data="{x:Static content:Icons.ChevronUp}"
+                            Data="{x:Static shadui:Icons.ChevronUp}"
                             Foreground="{DynamicResource ForegroundColor}">
                             <PathIcon.RenderTransform>
                                 <ScaleTransform ScaleX="1" />
@@ -97,7 +96,7 @@
                         BorderThickness="0"
                         Focusable="False">
                         <RepeatButton.IsVisible>
-                            <MultiBinding Converter="{x:Static converters:SideMenuScrollerToVisibilityBool.Down}">
+                            <MultiBinding Converter="{x:Static shadui:SideMenuScrollerToVisibilityBool.Down}">
                                 <CompiledBinding Path="Value" RelativeSource="{RelativeSource TemplatedParent}" />
                                 <CompiledBinding Path="Maximum" RelativeSource="{RelativeSource TemplatedParent}" />
                             </MultiBinding>
@@ -105,7 +104,7 @@
                         <PathIcon
                             Width="10"
                             Height="25"
-                            Data="{x:Static content:Icons.ChevronDown}"
+                            Data="{x:Static shadui:Icons.ChevronDown}"
                             Foreground="{DynamicResource ForegroundColor}">
                             <PathIcon.RenderTransform>
                                 <ScaleTransform ScaleX="1" />

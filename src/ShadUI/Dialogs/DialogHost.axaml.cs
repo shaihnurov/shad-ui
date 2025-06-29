@@ -8,9 +8,9 @@ using Avalonia.Controls.Primitives;
 using Avalonia.Input;
 using Avalonia.Interactivity;
 using Avalonia.Reactive;
-using Window = ShadUI.Controls.Window;
 
-namespace ShadUI.Dialogs;
+// ReSharper disable once CheckNamespace
+namespace ShadUI;
 
 /// <summary>
 ///     Dialog host control that manages the display and lifecycle of dialogs within a window.

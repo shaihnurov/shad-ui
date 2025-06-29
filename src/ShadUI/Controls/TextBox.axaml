@@ -1,9 +1,7 @@
 ﻿<ResourceDictionary
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:contents="clr-namespace:ShadUI.Contents"
-    xmlns:converters="clr-namespace:ShadUI.Converters"
-    xmlns:extensions="clr-namespace:ShadUI.Extensions"
+    xmlns:shadui="clr-namespace:ShadUI"
     xmlns:system="clr-namespace:System;assembly=netstandard">
     <ResourceDictionary.MergedDictionaries>
         <ResourceInclude Source="Common.axaml" />
@@ -24,7 +22,7 @@
                     Text="john"
                     Watermark="Username" />
                 <TextBox
-                    extensions:ControlAssist.Label="Search"
+                    shadui:ControlAssist.Label="Search"
                     Classes="Clearable"
                     Text="12321"
                     Watermark="Search here...">
@@ -32,20 +30,20 @@
                         <PathIcon
                             Width="16"
                             Height="32"
-                            Data="{x:Static contents:Icons.Search}"
+                            Data="{x:Static shadui:Icons.Search}"
                             Opacity="0.75" />
                     </TextBox.InnerRightContent>
                 </TextBox>
                 <TextBox
-                    extensions:ControlAssist.Label="Password"
+                    shadui:ControlAssist.Label="Password"
                     Classes="ClearablePassword"
                     PasswordChar="•"
                     Text="12321"
                     Watermark="Enter password" />
                 <TextBox
-                    extensions:ControlAssist.Height="250"
-                    extensions:ControlAssist.Hint="This is hint"
-                    extensions:ControlAssist.Label="Description"
+                    shadui:ControlAssist.Height="250"
+                    shadui:ControlAssist.Hint="This is hint"
+                    shadui:ControlAssist.Label="Description"
                     AcceptsReturn="True"
                     Watermark="Description" />
                 <TextBox>
@@ -130,8 +128,8 @@
         <Setter Property="SelectionForegroundBrush" Value="{DynamicResource PrimaryForegroundColor}" />
         <Setter Property="CaretBrush" Value="{DynamicResource ForegroundColor}" />
         <Setter Property="FocusAdorner" Value="{x:Null}" />
-        <Setter Property="extensions:ControlAssist.ShowProgress" Value="False" />
-        <Setter Property="extensions:ControlAssist.MinHeight" Value="36" />
+        <Setter Property="shadui:ControlAssist.ShowProgress" Value="False" />
+        <Setter Property="shadui:ControlAssist.MinHeight" Value="36" />
         <Setter Property="Template">
             <ControlTemplate>
                 <StackPanel Background="Transparent" Focusable="False">
@@ -146,8 +144,8 @@
                         <StackPanel>
                             <Border
                                 Name="PART_Border"
-                                Height="{TemplateBinding extensions:ControlAssist.Height}"
-                                MinHeight="{TemplateBinding extensions:ControlAssist.MinHeight}"
+                                Height="{TemplateBinding shadui:ControlAssist.Height}"
+                                MinHeight="{TemplateBinding shadui:ControlAssist.MinHeight}"
                                 Background="{TemplateBinding Background}"
                                 BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="{TemplateBinding BorderThickness}"
@@ -221,14 +219,14 @@
                                         Margin="0,4,12,4"
                                         VerticalAlignment="Center"
                                         Content="{TemplateBinding InnerRightContent}"
-                                        IsVisible="{TemplateBinding extensions:ControlAssist.ShowProgress,
+                                        IsVisible="{TemplateBinding shadui:ControlAssist.ShowProgress,
                                                                     Converter={x:Static BoolConverters.Not}}" />
                                     <ContentPresenter
                                         Name="PART_ClearButton"
                                         Grid.Column="2"
                                         Margin="0,4,12,4"
                                         VerticalAlignment="Center"
-                                        IsVisible="{TemplateBinding extensions:ControlAssist.ShowProgress,
+                                        IsVisible="{TemplateBinding shadui:ControlAssist.ShowProgress,
                                                                     Converter={x:Static BoolConverters.Not}}" />
                                     <ContentPresenter
                                         Name="PART_LoadingIndicator"
@@ -237,9 +235,9 @@
                                         Height="20"
                                         Margin="0,4,12,4"
                                         VerticalAlignment="Center"
-                                        Content="{TemplateBinding extensions:ControlAssist.ShowProgress,
-                                                                  Converter={x:Static converters:BooleanConverters.ToLoading}}"
-                                        IsVisible="{TemplateBinding extensions:ControlAssist.ShowProgress}" />
+                                        Content="{TemplateBinding shadui:ControlAssist.ShowProgress,
+                                                                  Converter={x:Static shadui:BooleanConverters.ToLoading}}"
+                                        IsVisible="{TemplateBinding shadui:ControlAssist.ShowProgress}" />
                                 </Grid>
                             </Border>
                             <TextBlock
@@ -247,9 +245,9 @@
                                 Margin="0,4,0,0"
                                 Classes="Caption Muted"
                                 Cursor="Arrow"
-                                IsVisible="{TemplateBinding extensions:ControlAssist.Hint,
+                                IsVisible="{TemplateBinding shadui:ControlAssist.Hint,
                                                             Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
-                                Text="{TemplateBinding extensions:ControlAssist.Hint}" />
+                                Text="{TemplateBinding shadui:ControlAssist.Hint}" />
                         </StackPanel>
                     </DataValidationErrors>
                 </StackPanel>

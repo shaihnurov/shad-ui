@@ -2,7 +2,8 @@
 using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
 
-namespace ShadUI.Extensions;
+// ReSharper disable once CheckNamespace
+namespace ShadUI;
 
 /// <summary>
 ///     Provides attached properties and methods for assisting with control behaviors.

@@ -2,12 +2,10 @@
     x:Class="ShadUI.Demo.Views.MenuPage"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:contents="clr-namespace:ShadUI.Contents;assembly=ShadUI"
     xmlns:controls="clr-namespace:ShadUI.Demo.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:extensions="clr-namespace:ShadUI.Extensions;assembly=ShadUI"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:shadui="clr-namespace:ShadUI.Controls;assembly=ShadUI"
+    xmlns:shadui="clr-namespace:ShadUI;assembly=ShadUI"
     xmlns:viewModels="clr-namespace:ShadUI.Demo.ViewModels"
     d:DesignWidth="800"
     x:DataType="viewModels:MenuViewModel"
@@ -45,20 +43,20 @@
                                 <TextBlock Classes="Caption  Muted" Text="Actions" />
                             </shadui:SimpleDropdown.MenuLabel>
                             <Button Content="Add New">
-                                <extensions:ButtonAssist.Icon>
+                                <shadui:ButtonAssist.Icon>
                                     <TextBlock Classes="LucideIcon" Text="&#57665;" />
-                                </extensions:ButtonAssist.Icon>
+                                </shadui:ButtonAssist.Icon>
                             </Button>
                             <Button Content="Edit" IsEnabled="False">
-                                <extensions:ButtonAssist.Icon>
+                                <shadui:ButtonAssist.Icon>
                                     <TextBlock Classes="LucideIcon" Text="&#57849;" />
-                                </extensions:ButtonAssist.Icon>
+                                </shadui:ButtonAssist.Icon>
                             </Button>
                             <Separator />
                             <Button Classes="DestructiveMenu" Content="Delete">
-                                <extensions:ButtonAssist.Icon>
+                                <shadui:ButtonAssist.Icon>
                                     <TextBlock Classes="LucideIcon" Text="&#57741;" />
-                                </extensions:ButtonAssist.Icon>
+                                </shadui:ButtonAssist.Icon>
                             </Button>
                         </shadui:SimpleDropdown>
                         <shadui:SimpleDropdown
@@ -70,20 +68,20 @@
                                 <TextBlock Classes="Caption  Muted" Text="Actions" />
                             </shadui:SimpleDropdown.MenuLabel>
                             <Button Content="Add New">
-                                <extensions:ButtonAssist.Icon>
+                                <shadui:ButtonAssist.Icon>
                                     <TextBlock Classes="LucideIcon" Text="&#57665;" />
-                                </extensions:ButtonAssist.Icon>
+                                </shadui:ButtonAssist.Icon>
                             </Button>
                             <Button Content="Edit" IsEnabled="False">
-                                <extensions:ButtonAssist.Icon>
+                                <shadui:ButtonAssist.Icon>
                                     <TextBlock Classes="LucideIcon" Text="&#57849;" />
-                                </extensions:ButtonAssist.Icon>
+                                </shadui:ButtonAssist.Icon>
                             </Button>
                             <Separator />
                             <Button Classes="DestructiveMenu" Content="Delete">
-                                <extensions:ButtonAssist.Icon>
+                                <shadui:ButtonAssist.Icon>
                                     <TextBlock Classes="LucideIcon" Text="&#57741;" />
-                                </extensions:ButtonAssist.Icon>
+                                </shadui:ButtonAssist.Icon>
                             </Button>
                         </shadui:SimpleDropdown>
                         <shadui:SimpleDropdown
@@ -95,20 +93,20 @@
                                 <TextBlock Classes="Caption  Muted" Text="Actions" />
                             </shadui:SimpleDropdown.MenuLabel>
                             <Button Content="Add New">
-                                <extensions:ButtonAssist.Icon>
+                                <shadui:ButtonAssist.Icon>
                                     <TextBlock Classes="LucideIcon" Text="&#57665;" />
-                                </extensions:ButtonAssist.Icon>
+                                </shadui:ButtonAssist.Icon>
                             </Button>
                             <Button Content="Edit" IsEnabled="False">
-                                <extensions:ButtonAssist.Icon>
+                                <shadui:ButtonAssist.Icon>
                                     <TextBlock Classes="LucideIcon" Text="&#57849;" />
-                                </extensions:ButtonAssist.Icon>
+                                </shadui:ButtonAssist.Icon>
                             </Button>
                             <Separator />
                             <Button Classes="DestructiveMenu" Content="Delete">
-                                <extensions:ButtonAssist.Icon>
+                                <shadui:ButtonAssist.Icon>
                                     <TextBlock Classes="LucideIcon" Text="&#57741;" />
-                                </extensions:ButtonAssist.Icon>
+                                </shadui:ButtonAssist.Icon>
                             </Button>
                         </shadui:SimpleDropdown>
                         <shadui:SimpleDropdown
@@ -120,20 +118,20 @@
                                 <TextBlock Classes="Caption  Muted" Text="Actions" />
                             </shadui:SimpleDropdown.MenuLabel>
                             <Button Content="Add New">
-                                <extensions:ButtonAssist.Icon>
+                                <shadui:ButtonAssist.Icon>
                                     <TextBlock Classes="LucideIcon" Text="&#57665;" />
-                                </extensions:ButtonAssist.Icon>
+                                </shadui:ButtonAssist.Icon>
                             </Button>
                             <Button Content="Edit" IsEnabled="False">
-                                <extensions:ButtonAssist.Icon>
+                                <shadui:ButtonAssist.Icon>
                                     <TextBlock Classes="LucideIcon" Text="&#57849;" />
-                                </extensions:ButtonAssist.Icon>
+                                </shadui:ButtonAssist.Icon>
                             </Button>
                             <Separator />
                             <Button Classes="DestructiveMenu" Content="Delete">
-                                <extensions:ButtonAssist.Icon>
+                                <shadui:ButtonAssist.Icon>
                                     <TextBlock Classes="LucideIcon" Text="&#57741;" />
-                                </extensions:ButtonAssist.Icon>
+                                </shadui:ButtonAssist.Icon>
                             </Button>
                         </shadui:SimpleDropdown>
                         <shadui:SimpleDropdown
@@ -147,20 +145,20 @@
                                 <TextBlock Classes="Caption  Muted" Text="Actions" />
                             </shadui:SimpleDropdown.MenuLabel>
                             <Button Content="Add New">
-                                <extensions:ButtonAssist.Icon>
+                                <shadui:ButtonAssist.Icon>
                                     <TextBlock Classes="LucideIcon" Text="&#57665;" />
-                                </extensions:ButtonAssist.Icon>
+                                </shadui:ButtonAssist.Icon>
                             </Button>
                             <Button Content="Edit" IsEnabled="False">
-                                <extensions:ButtonAssist.Icon>
+                                <shadui:ButtonAssist.Icon>
                                     <TextBlock Classes="LucideIcon" Text="&#57849;" />
-                                </extensions:ButtonAssist.Icon>
+                                </shadui:ButtonAssist.Icon>
                             </Button>
                             <Separator />
                             <Button Classes="DestructiveMenu" Content="Delete">
-                                <extensions:ButtonAssist.Icon>
+                                <shadui:ButtonAssist.Icon>
                                     <TextBlock Classes="LucideIcon" Text="&#57741;" />
-                                </extensions:ButtonAssist.Icon>
+                                </shadui:ButtonAssist.Icon>
                             </Button>
                         </shadui:SimpleDropdown>
                     </StackPanel>
@@ -260,12 +258,12 @@
                             <Menu>
                                 <MenuItem
                                     Margin="12,0"
-                                    extensions:MenuItemAssist.PopupPlacement="Bottom"
+                                    shadui:MenuItemAssist.PopupPlacement="Bottom"
                                     Classes="Primary"
                                     Header="Primary">
-                                    <extensions:MenuItemAssist.Label>
+                                    <shadui:MenuItemAssist.Label>
                                         <TextBlock Classes="Caption Muted" Text="My Account" />
-                                    </extensions:MenuItemAssist.Label>
+                                    </shadui:MenuItemAssist.Label>
                                     <MenuItem
                                         Width="224"
                                         Header="Profile"
@@ -292,12 +290,12 @@
                                 </MenuItem>
                                 <MenuItem
                                     Margin="12,0"
-                                    extensions:MenuItemAssist.PopupPlacement="Bottom"
+                                    shadui:MenuItemAssist.PopupPlacement="Bottom"
                                     Classes="Secondary"
                                     Header="Secondary">
-                                    <extensions:MenuItemAssist.Label>
+                                    <shadui:MenuItemAssist.Label>
                                         <TextBlock Classes="Caption Muted" Text="My Account" />
-                                    </extensions:MenuItemAssist.Label>
+                                    </shadui:MenuItemAssist.Label>
                                     <MenuItem
                                         Width="224"
                                         Header="Profile"
@@ -324,12 +322,12 @@
                                 </MenuItem>
                                 <MenuItem
                                     Margin="12,0"
-                                    extensions:MenuItemAssist.PopupPlacement="Bottom"
+                                    shadui:MenuItemAssist.PopupPlacement="Bottom"
                                     Classes="Outline"
                                     Header="Outline">
-                                    <extensions:MenuItemAssist.Label>
+                                    <shadui:MenuItemAssist.Label>
                                         <TextBlock Classes="Caption Muted" Text="My Account" />
-                                    </extensions:MenuItemAssist.Label>
+                                    </shadui:MenuItemAssist.Label>
                                     <MenuItem
                                         Width="224"
                                         Header="Profile"
@@ -356,12 +354,12 @@
                                 </MenuItem>
                                 <MenuItem
                                     Margin="12,0"
-                                    extensions:MenuItemAssist.PopupPlacement="Bottom"
+                                    shadui:MenuItemAssist.PopupPlacement="Bottom"
                                     Classes="Ghost"
                                     Header="Ghost">
-                                    <extensions:MenuItemAssist.Label>
+                                    <shadui:MenuItemAssist.Label>
                                         <TextBlock Classes="Caption Muted" Text="My Account" />
-                                    </extensions:MenuItemAssist.Label>
+                                    </shadui:MenuItemAssist.Label>
                                     <MenuItem
                                         Width="224"
                                         Header="Profile"
@@ -388,14 +386,14 @@
                                 </MenuItem>
                                 <MenuItem
                                     Margin="12,0"
-                                    extensions:MenuItemAssist.PopupPlacement="Bottom"
+                                    shadui:MenuItemAssist.PopupPlacement="Bottom"
                                     Classes="Icon">
                                     <MenuItem.Header>
                                         <TextBlock Classes="LucideIcon" Text="&#57530;" />
                                     </MenuItem.Header>
-                                    <extensions:MenuItemAssist.Label>
+                                    <shadui:MenuItemAssist.Label>
                                         <TextBlock Classes="Caption Muted" Text="My Account" />
-                                    </extensions:MenuItemAssist.Label>
+                                    </shadui:MenuItemAssist.Label>
                                     <MenuItem
                                         Width="224"
                                         Header="Profile"
@@ -427,7 +425,7 @@
                         <PathIcon
                             Width="24"
                             Height="24"
-                            Data="{x:Static contents:Icons.Warning}"
+                            Data="{x:Static shadui:Icons.Warning}"
                             Foreground="{DynamicResource WarningColor}" />
                         <TextBlock
                             Grid.Column="1"

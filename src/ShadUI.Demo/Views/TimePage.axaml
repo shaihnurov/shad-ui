@@ -5,9 +5,8 @@
     xmlns:controls="clr-namespace:ShadUI.Demo.Controls"
     xmlns:converters="clr-namespace:ShadUI.Demo.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:extensions="clr-namespace:ShadUI.Extensions;assembly=ShadUI"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:shadui="clr-namespace:ShadUI.Controls;assembly=ShadUI"
+    xmlns:shadui="clr-namespace:ShadUI;assembly=ShadUI"
     xmlns:viewModels="clr-namespace:ShadUI.Demo.ViewModels"
     d:DesignWidth="800"
     x:DataType="viewModels:TimeViewModel"
@@ -65,13 +64,13 @@
                             <StackPanel Spacing="16">
                                 <TimePicker
                                     Width="255"
-                                    extensions:ControlAssist.Hint="Set the beginning time"
-                                    extensions:ControlAssist.Label="Start Time"
+                                    shadui:ControlAssist.Hint="Set the beginning time"
+                                    shadui:ControlAssist.Label="Start Time"
                                     SelectedTime="{Binding StartTime, Converter={x:Static converters:TimeOnlyToTimeSpanConverter.Instance}}" />
                                 <TimePicker
                                     Width="255"
-                                    extensions:ControlAssist.Hint="Set the cut-off time"
-                                    extensions:ControlAssist.Label="End Time"
+                                    shadui:ControlAssist.Hint="Set the cut-off time"
+                                    shadui:ControlAssist.Label="End Time"
                                     SelectedTime="{Binding EndTime, Converter={x:Static converters:TimeOnlyToTimeSpanConverter.Instance}}" />
                             </StackPanel>
                             <shadui:Card.Footer>
@@ -119,13 +118,13 @@
                             <StackPanel Spacing="16">
                                 <shadui:TimeInput
                                     Width="255"
-                                    extensions:ControlAssist.Hint="Set the beginning time"
-                                    extensions:ControlAssist.Label="Start Time"
+                                    shadui:ControlAssist.Hint="Set the beginning time"
+                                    shadui:ControlAssist.Label="Start Time"
                                     Value="{Binding StartTime, Converter={x:Static converters:TimeOnlyToTimeSpanConverter.Instance}}" />
                                 <shadui:TimeInput
                                     Width="255"
-                                    extensions:ControlAssist.Hint="Set the cut-off time"
-                                    extensions:ControlAssist.Label="End Time"
+                                    shadui:ControlAssist.Hint="Set the cut-off time"
+                                    shadui:ControlAssist.Label="End Time"
                                     Value="{Binding EndTime, Converter={x:Static converters:TimeOnlyToTimeSpanConverter.Instance}}" />
                             </StackPanel>
                             <shadui:Card.Footer>

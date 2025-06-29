@@ -2,7 +2,8 @@ using System;
 using System.Threading.Tasks;
 using Avalonia.Controls;
 
-namespace ShadUI.Dialogs;
+// ReSharper disable once CheckNamespace
+namespace ShadUI;
 
 /// <summary>
 ///     Builds a dialog.

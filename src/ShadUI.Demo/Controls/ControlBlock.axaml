@@ -2,7 +2,7 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="clr-namespace:ShadUI.Demo.Controls"
-    xmlns:shadui="clr-namespace:ShadUI.Controls;assembly=ShadUI">
+    xmlns:shadui="clr-namespace:ShadUI;assembly=ShadUI">
     <Design.PreviewWith>
         <StackPanel Spacing="32">
             <controls:ControlBlock Title="Basic Tab" Language="xaml">

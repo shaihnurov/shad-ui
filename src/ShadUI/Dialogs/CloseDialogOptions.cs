@@ -1,4 +1,5 @@
-namespace ShadUI.Dialogs;
+// ReSharper disable once CheckNamespace
+namespace ShadUI;
 
 /// <summary>
 ///     Options for closing a dialog.

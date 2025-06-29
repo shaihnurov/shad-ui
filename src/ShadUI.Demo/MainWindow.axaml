@@ -1,18 +1,12 @@
-﻿<controls:Window
+﻿<shadui:Window
     x:Class="ShadUI.Demo.MainWindow"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:contents="clr-namespace:ShadUI.Contents;assembly=ShadUI"
-    xmlns:controls="clr-namespace:ShadUI.Controls;assembly=ShadUI"
     xmlns:converters="clr-namespace:ShadUI.Demo.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:demo="clr-namespace:ShadUI.Demo"
-    xmlns:dialogs="clr-namespace:ShadUI.Dialogs;assembly=ShadUI"
-    xmlns:extensions="clr-namespace:ShadUI.Extensions;assembly=ShadUI"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:shadui="clr-namespace:ShadUI;assembly=ShadUI"
-    xmlns:toasts="clr-namespace:ShadUI.Toasts;assembly=ShadUI"
-    xmlns:utilities="clr-namespace:ShadUI.Utilities;assembly=ShadUI"
     x:Name="Window"
     Title="ShadUI App"
     Width="1024"
@@ -22,17 +16,17 @@
     Icon="/Assets/favicon.ico"
     TitleFontWeight="SemiBold"
     mc:Ignorable="d">
-    <controls:Window.LogoContent>
+    <shadui:Window.LogoContent>
         <PathIcon
             Width="14"
             Height="14"
             Margin="8,8,0,8"
-            Data="{x:Static contents:Icons.Logo}" />
-    </controls:Window.LogoContent>
-    <controls:Window.Hosts>
-        <dialogs:DialogHost Manager="{Binding DialogManager}" Owner="{Binding RelativeSource={RelativeSource AncestorType=controls:Window}}" />
-    </controls:Window.Hosts>
-    <controls:Window.RightWindowTitleBarContent>
+            Data="{x:Static shadui:Icons.Logo}" />
+    </shadui:Window.LogoContent>
+    <shadui:Window.Hosts>
+        <shadui:DialogHost Manager="{Binding DialogManager}" Owner="{Binding RelativeSource={RelativeSource AncestorType=shadui:Window}}" />
+    </shadui:Window.Hosts>
+    <shadui:Window.RightWindowTitleBarContent>
         <StackPanel Orientation="Horizontal" Spacing="8">
             <Button
                 Width="30"
@@ -61,7 +55,7 @@
                 </Panel>
             </Button>
         </StackPanel>
-    </controls:Window.RightWindowTitleBarContent>
+    </shadui:Window.RightWindowTitleBarContent>
     <Panel>
         <Grid ColumnDefinitions="Auto *">
             <shadui:Sidebar
@@ -73,7 +67,7 @@
                 BorderThickness="0,0,1,0"
                 Expanded="{Binding #Toggler.IsChecked}">
                 <shadui:Sidebar.ExpandEasing>
-                    <utilities:EaseInOutBack BounceIntensity="Strong" />
+                    <shadui:EaseInOutBack BounceIntensity="Strong" />
                 </shadui:Sidebar.ExpandEasing>
                 <shadui:Sidebar.Header>
                     <ToggleButton
@@ -414,30 +408,30 @@
                         <MenuItem
                             Padding="8,0"
                             HorizontalAlignment="Stretch"
-                            extensions:MenuItemAssist.PopupHorizontalOffset="4"
-                            extensions:MenuItemAssist.PopupPlacement="RightEdgeAlignedBottom"
-                            extensions:MenuItemAssist.PopupVerticalOffset="4"
+                            shadui:MenuItemAssist.PopupHorizontalOffset="4"
+                            shadui:MenuItemAssist.PopupPlacement="RightEdgeAlignedBottom"
+                            shadui:MenuItemAssist.PopupVerticalOffset="4"
                             Classes="NoPressedAnimation"
                             CornerRadius="{DynamicResource LgCornerRadius}">
                             <MenuItem.Header>
                                 <Panel>
-                                    <controls:Avatar
+                                    <shadui:Avatar
                                         CornerRadius="{DynamicResource LgCornerRadius}"
                                         Fallback="CN"
                                         IsVisible="{Binding !$parent[shadui:Sidebar].Expanded}"
                                         Opacity="{Binding !$parent[shadui:Sidebar].Expanded, Converter={x:Static converters:BooleanConverters.Opaque}}"
                                         Source="../../Assets/user.png">
-                                        <controls:Avatar.Transitions>
+                                        <shadui:Avatar.Transitions>
                                             <Transitions>
                                                 <DoubleTransition Property="Opacity" Duration="0:0:0.20" />
                                             </Transitions>
-                                        </controls:Avatar.Transitions>
-                                    </controls:Avatar>
+                                        </shadui:Avatar.Transitions>
+                                    </shadui:Avatar>
                                     <Grid
                                         Margin="0,8"
                                         ColumnDefinitions="Auto * Auto"
                                         IsVisible="{Binding $parent[shadui:Sidebar].Expanded}">
-                                        <controls:Avatar
+                                        <shadui:Avatar
                                             Width="36"
                                             Height="36"
                                             Margin="0,0,8,0"
@@ -463,12 +457,12 @@
                                     </Grid>
                                 </Panel>
                             </MenuItem.Header>
-                            <extensions:MenuItemAssist.Label>
+                            <shadui:MenuItemAssist.Label>
                                 <Grid
                                     Width="220"
                                     HorizontalAlignment="Stretch"
                                     ColumnDefinitions="Auto *">
-                                    <controls:Avatar
+                                    <shadui:Avatar
                                         Width="36"
                                         Height="36"
                                         Margin="0,0,8,0"
@@ -483,7 +477,7 @@
                                             Text="m@example.com" />
                                     </StackPanel>
                                 </Grid>
-                            </extensions:MenuItemAssist.Label>
+                            </shadui:MenuItemAssist.Label>
                             <Separator />
                             <MenuItem Command="{Binding ShowAboutCommand}" Header="About">
                                 <MenuItem.Icon>
@@ -591,6 +585,6 @@
             </shadui:Sidebar>
             <TransitioningContentControl Grid.Column="1" Content="{Binding SelectedPage}" />
         </Grid>
-        <toasts:ToastHost Manager="{Binding ToastManager}" />
+        <shadui:ToastHost Manager="{Binding ToastManager}" />
     </Panel>
-</controls:Window>
+</shadui:Window>

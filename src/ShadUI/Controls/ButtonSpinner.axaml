@@ -1,7 +1,7 @@
 ﻿<ResourceDictionary
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:content="clr-namespace:ShadUI.Contents">
+    xmlns:shadui="clr-namespace:ShadUI">
     <ControlTheme x:Key="SpinnerRepeatButton" TargetType="RepeatButton">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="Transparent" />
@@ -105,7 +105,7 @@
                                             Height="8"
                                             HorizontalAlignment="Center"
                                             VerticalAlignment="Center"
-                                            Data="{x:Static content:Icons.ChevronUp}"
+                                            Data="{x:Static shadui:Icons.ChevronUp}"
                                             Fill="{TemplateBinding Foreground}"
                                             Stretch="Uniform" />
                                     </RepeatButton>
@@ -122,7 +122,7 @@
                                             Height="8"
                                             HorizontalAlignment="Center"
                                             VerticalAlignment="Center"
-                                            Data="{x:Static content:Icons.ChevronDown}"
+                                            Data="{x:Static shadui:Icons.ChevronDown}"
                                             Fill="{TemplateBinding Foreground}"
                                             Stretch="Uniform" />
                                     </RepeatButton>

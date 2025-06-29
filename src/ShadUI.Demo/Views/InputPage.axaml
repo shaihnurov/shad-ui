@@ -2,12 +2,10 @@
     x:Class="ShadUI.Demo.Views.InputPage"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:contents="clr-namespace:ShadUI.Contents;assembly=ShadUI"
     xmlns:controls="clr-namespace:ShadUI.Demo.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:extensions="clr-namespace:ShadUI.Extensions;assembly=ShadUI"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:shadui="clr-namespace:ShadUI.Controls;assembly=ShadUI"
+    xmlns:shadui="clr-namespace:ShadUI;assembly=ShadUI"
     xmlns:viewModels="clr-namespace:ShadUI.Demo.ViewModels"
     d:DesignWidth="800"
     x:DataType="viewModels:InputViewModel"
@@ -61,7 +59,7 @@
                     Language="xaml">
                     <TextBox
                         Width="225"
-                        extensions:ControlAssist.Label="Email"
+                        shadui:ControlAssist.Label="Email"
                         Classes="Clearable"
                         Watermark="user@example.com" />
                 </controls:ControlBlock>
@@ -71,14 +69,14 @@
                     Language="xaml">
                     <TextBox
                         Width="225"
-                        extensions:ControlAssist.ShowProgress="{Binding IsSearching}"
+                        shadui:ControlAssist.ShowProgress="{Binding IsSearching}"
                         Classes="Clearable"
                         Text="{Binding SearchString, Mode=TwoWay}"
                         Watermark="Search here...">
                         <TextBox.InnerRightContent>
                             <PathIcon
                                 Width="16"
-                                Data="{x:Static contents:Icons.Search}"
+                                Data="{x:Static shadui:Icons.Search}"
                                 Opacity="0.75" />
                         </TextBox.InnerRightContent>
                     </TextBox>
@@ -89,9 +87,9 @@
                     Language="xaml">
                     <AutoCompleteBox
                         Width="225"
-                        extensions:ControlAssist.Hint="Your favorite web framework"
-                        extensions:ControlAssist.Label="Search a framework"
-                        extensions:ElementAssist.Classes="Clearable"
+                        shadui:ControlAssist.Hint="Your favorite web framework"
+                        shadui:ControlAssist.Label="Search a framework"
+                        shadui:ElementAssist.Classes="Clearable"
                         Classes="Clearable"
                         FilterMode="Contains"
                         ItemsSource="{Binding WebFrameworks}"
@@ -99,7 +97,7 @@
                         <AutoCompleteBox.InnerRightContent>
                             <PathIcon
                                 Width="16"
-                                Data="{x:Static contents:Icons.Search}"
+                                Data="{x:Static shadui:Icons.Search}"
                                 Opacity="0.75" />
                         </AutoCompleteBox.InnerRightContent>
                     </AutoCompleteBox>
@@ -110,8 +108,8 @@
                     Language="xaml">
                     <TextBox
                         Width="225"
-                        extensions:ControlAssist.Height="300"
-                        extensions:ControlAssist.Label="Description"
+                        shadui:ControlAssist.Height="300"
+                        shadui:ControlAssist.Label="Description"
                         AcceptsReturn="True"
                         Watermark="Enter a long description here..." />
                 </controls:ControlBlock>
@@ -132,19 +130,19 @@
                             </shadui:Card.Header>
                             <StackPanel Spacing="16">
                                 <TextBox
-                                    extensions:ControlAssist.Hint="This is your public display name."
-                                    extensions:ControlAssist.Label="Email"
+                                    shadui:ControlAssist.Hint="This is your public display name."
+                                    shadui:ControlAssist.Label="Email"
                                     Classes="Clearable"
                                     Text="{Binding Email, Mode=TwoWay}"
                                     Watermark="user@example.com" />
                                 <TextBox
-                                    extensions:ControlAssist.Label="Password"
+                                    shadui:ControlAssist.Label="Password"
                                     Classes="PasswordReveal"
                                     PasswordChar="•"
                                     Text="{Binding Password, Mode=TwoWay}"
                                     Watermark="Enter password" />
                                 <TextBox
-                                    extensions:ControlAssist.Label="Confirm"
+                                    shadui:ControlAssist.Label="Confirm"
                                     Classes="PasswordReveal"
                                     PasswordChar="•"
                                     Text="{Binding ConfirmPassword, Mode=TwoWay}"

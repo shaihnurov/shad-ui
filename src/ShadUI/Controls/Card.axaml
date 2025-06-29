@@ -1,8 +1,7 @@
 ﻿<ResourceDictionary
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:extensions="clr-namespace:ShadUI.Extensions"
-    xmlns:shadui="clr-namespace:ShadUI.Controls">
+    xmlns:shadui="clr-namespace:ShadUI">
     <Design.PreviewWith>
         <Border Padding="24">
             <shadui:Card VerticalAlignment="Center" HasShadow="True">
@@ -13,10 +12,10 @@
                     </StackPanel>
                 </shadui:Card.Header>
                 <StackPanel Spacing="16">
-                    <TextBox extensions:ControlAssist.Label="Name" Watermark="Name of your project" />
+                    <TextBox shadui:ControlAssist.Label="Name" Watermark="Name of your project" />
                     <ComboBox
                         Width="300"
-                        extensions:ControlAssist.Label="Framework"
+                        shadui:ControlAssist.Label="Framework"
                         SelectedIndex="0">
                         <ComboBox.Items>
                             <ComboBoxItem>Next.js</ComboBoxItem>

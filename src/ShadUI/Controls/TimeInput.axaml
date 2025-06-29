@@ -1,9 +1,7 @@
 ﻿<ResourceDictionary
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:controls="clr-namespace:ShadUI.Controls"
-    xmlns:converters="clr-namespace:ShadUI.Converters"
-    xmlns:extensions="clr-namespace:ShadUI.Extensions"
+    xmlns:shadui="clr-namespace:ShadUI"
     xmlns:system="clr-namespace:System;assembly=netstandard">
     <ResourceDictionary.MergedDictionaries>
         <ResourceInclude Source="Common.axaml" />
@@ -14,15 +12,15 @@
             Height="500"
             Padding="24">
             <StackPanel Spacing="8">
-                <controls:TimeInput ClockIdentifier="12HourClock" UseSeconds="True" />
-                <controls:TimeInput extensions:ControlAssist.Label="Start time" />
-                <controls:TimeInput extensions:ControlAssist.Hint="Set end time" extensions:ControlAssist.Label="End time" />
-                <controls:TimeInput extensions:ControlAssist.Label="Disable" IsEnabled="False" />
-                <controls:TimeInput>
+                <shadui:TimeInput ClockIdentifier="12HourClock" UseSeconds="True" />
+                <shadui:TimeInput shadui:ControlAssist.Label="Start time" />
+                <shadui:TimeInput shadui:ControlAssist.Hint="Set end time" shadui:ControlAssist.Label="End time" />
+                <shadui:TimeInput shadui:ControlAssist.Label="Disable" IsEnabled="False" />
+                <shadui:TimeInput>
                     <DataValidationErrors.Error>
                         <system:Exception />
                     </DataValidationErrors.Error>
-                </controls:TimeInput>
+                </shadui:TimeInput>
             </StackPanel>
         </Border>
     </Design.PreviewWith>
@@ -99,7 +97,7 @@
             <Setter Property="Content" Value="AM" />
         </Style>
     </ControlTheme>
-    <ControlTheme x:Key="{x:Type controls:TimeInput}" TargetType="{x:Type controls:TimeInput}">
+    <ControlTheme x:Key="{x:Type shadui:TimeInput}" TargetType="{x:Type shadui:TimeInput}">
         <Setter Property="Padding" Value="4" />
         <Setter Property="FontSize" Value="14" />
         <Setter Property="Background" Value="{DynamicResource SelectionColor}" />
@@ -107,7 +105,7 @@
         <Setter Property="CornerRadius" Value="{DynamicResource LgCornerRadius}" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="BorderBrush" Value="{DynamicResource BorderColor}" />
-        <Setter Property="extensions:ElementAssist.FocusOnLoad" Value="False" />
+        <Setter Property="shadui:ElementAssist.FocusOnLoad" Value="False" />
         <Setter Property="Template">
             <ControlTemplate>
                 <StackPanel Background="Transparent" Focusable="False">
@@ -115,9 +113,9 @@
                         Name="PART_Label"
                         Margin="0,0,0,6"
                         Classes="Small"
-                        IsVisible="{TemplateBinding extensions:ControlAssist.Label,
+                        IsVisible="{TemplateBinding shadui:ControlAssist.Label,
                                                     Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
-                        Text="{TemplateBinding extensions:ControlAssist.Label}" />
+                        Text="{TemplateBinding shadui:ControlAssist.Label}" />
                     <DataValidationErrors Focusable="False">
                         <StackPanel>
                             <Border
@@ -133,7 +131,7 @@
                                     <TextBox
                                         Name="PART_HourTextBox"
                                         Grid.Column="0"
-                                        extensions:ElementAssist.FocusOnLoad="{TemplateBinding extensions:ElementAssist.FocusOnLoad}"
+                                        shadui:ElementAssist.FocusOnLoad="{TemplateBinding shadui:ElementAssist.FocusOnLoad}"
                                         Cursor="IBeam"
                                         Text="{TemplateBinding HourString,
                                                                Mode=TwoWay}"
@@ -176,7 +174,7 @@
                                         Grid.Column="5"
                                         Margin="8,0,0,0"
                                         IsVisible="{TemplateBinding ClockIdentifier,
-                                                                    Converter={x:Static converters:ClockIdentifierToIsVisibleConverter.Instance}}"
+                                                                    Converter={x:Static shadui:ClockIdentifierToIsVisibleConverter.Instance}}"
                                         Theme="{StaticResource ToggleButtonTheme}" />
                                 </Grid>
                             </Border>
@@ -184,9 +182,9 @@
                                 Name="PART_Hint"
                                 Margin="0,4,0,0"
                                 Classes="Caption Muted"
-                                IsVisible="{TemplateBinding extensions:ControlAssist.Hint,
+                                IsVisible="{TemplateBinding shadui:ControlAssist.Hint,
                                                             Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
-                                Text="{TemplateBinding extensions:ControlAssist.Hint}" />
+                                Text="{TemplateBinding shadui:ControlAssist.Hint}" />
                         </StackPanel>
                     </DataValidationErrors>
                 </StackPanel>

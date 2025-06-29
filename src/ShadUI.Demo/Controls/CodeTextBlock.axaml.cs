@@ -10,10 +10,7 @@ using Avalonia.Metadata;
 using Avalonia.Threading;
 using AvaloniaEdit;
 using AvaloniaEdit.TextMate;
-using ShadUI.Contents;
-using ShadUI.Toasts;
 using TextMateSharp.Grammars;
-using Window = ShadUI.Controls.Window;
 
 namespace ShadUI.Demo.Controls;
 

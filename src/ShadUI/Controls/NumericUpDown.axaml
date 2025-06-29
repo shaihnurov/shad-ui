@@ -1,7 +1,7 @@
 ﻿<ResourceDictionary
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:extensions="clr-namespace:ShadUI.Extensions">
+    xmlns:shadui="clr-namespace:ShadUI">
     <ResourceDictionary.MergedDictionaries>
         <ResourceInclude Source="Common.axaml" />
     </ResourceDictionary.MergedDictionaries>
@@ -15,7 +15,7 @@
         <Setter Property="CaretBrush" Value="{DynamicResource ForegroundColor}" />
         <Setter Property="FocusAdorner" Value="{x:Null}" />
         <Setter Property="IsReadOnly" Value="True" />
-        <Setter Property="extensions:TextBoxAssist.Clearable" Value="False" />
+        <Setter Property="shadui:TextBoxAssist.Clearable" Value="False" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Grid
@@ -99,7 +99,7 @@
         <Style Selector="^:readonly">
             <Setter Property="CaretBrush" Value="Transparent" />
         </Style>
-        <Style Selector="^[IsReadOnly=False][(extensions|TextBoxAssist.Clearable)=True]:focus:not(TextBox:empty)">
+        <Style Selector="^[IsReadOnly=False][(shadui|TextBoxAssist.Clearable)=True]:focus:not(TextBox:empty)">
             <Style Selector="^ /template/ ContentPresenter#PART_InnerRightContent">
                 <Setter Property="IsVisible" Value="False" />
                 <Setter Property="IsHitTestVisible" Value="False" />
@@ -123,7 +123,7 @@
         <Setter Property="CornerRadius" Value="{DynamicResource LgCornerRadius}" />
 
         <!--  setting this to prevent focus issues with the TextBox inside ButtonSpinner  -->
-        <Setter Property="extensions:ElementAssist.AttachFocus" Value="PART_TextBox" />
+        <Setter Property="shadui:ElementAssist.AttachFocus" Value="PART_TextBox" />
 
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="Padding" Value="12,7" />
@@ -134,9 +134,9 @@
                         Name="PART_Label"
                         Margin="0,0,0,6"
                         Classes="Small"
-                        IsVisible="{TemplateBinding extensions:ControlAssist.Label,
+                        IsVisible="{TemplateBinding shadui:ControlAssist.Label,
                                                     Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
-                        Text="{TemplateBinding extensions:ControlAssist.Label}" />
+                        Text="{TemplateBinding shadui:ControlAssist.Label}" />
                     <DataValidationErrors>
                         <StackPanel>
                             <ButtonSpinner
@@ -175,9 +175,9 @@
                                 Margin="0,4,0,0"
                                 Classes="Caption Muted"
                                 Cursor="Arrow"
-                                IsVisible="{TemplateBinding extensions:ControlAssist.Hint,
+                                IsVisible="{TemplateBinding shadui:ControlAssist.Hint,
                                                             Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
-                                Text="{TemplateBinding extensions:ControlAssist.Hint}" />
+                                Text="{TemplateBinding shadui:ControlAssist.Hint}" />
                         </StackPanel>
                     </DataValidationErrors>
                 </StackPanel>
@@ -195,7 +195,7 @@
             <Setter Property="Opacity" Value="0.5" />
         </Style>
         <Style Selector="^.Clearable /template/ TextBox#PART_TextBox">
-            <Setter Property="extensions:TextBoxAssist.Clearable" Value="True" />
+            <Setter Property="shadui:TextBoxAssist.Clearable" Value="True" />
         </Style>
     </ControlTheme>
 </ResourceDictionary>

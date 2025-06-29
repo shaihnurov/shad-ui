@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using Avalonia.Controls;
 using Avalonia.Data.Converters;
-using ShadUI.Themes;
 
 namespace ShadUI.Demo.Converters;
 

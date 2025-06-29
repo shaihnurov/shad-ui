@@ -4,7 +4,6 @@ using Avalonia;
 using Jab;
 using Serilog;
 using ShadUI.Demo.ViewModels;
-using ShadUI.Themes;
 
 namespace ShadUI.Demo;
 

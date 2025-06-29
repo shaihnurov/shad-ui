@@ -5,7 +5,6 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using LiveChartsCore;
 using LiveChartsCore.SkiaSharpView;
 using LiveChartsCore.SkiaSharpView.Painting;
-using ShadUI.Themes;
 using SkiaSharp;
 
 namespace ShadUI.Demo.ViewModels;

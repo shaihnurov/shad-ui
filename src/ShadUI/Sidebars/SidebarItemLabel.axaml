@@ -1,14 +1,14 @@
 ﻿<ResourceDictionary
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:shadUI="clr-namespace:ShadUI">
-    <ControlTheme x:Key="{x:Type shadUI:SidebarItemLabel}" TargetType="{x:Type shadUI:SidebarItemLabel}">
+    xmlns:shadui="clr-namespace:ShadUI">
+    <ControlTheme x:Key="{x:Type shadui:SidebarItemLabel}" TargetType="{x:Type shadui:SidebarItemLabel}">
         <Setter Property="Margin" Value="8" />
         <Setter Property="FontSize" Value="12" />
         <Setter Property="Foreground" Value="{DynamicResource MutedColor}" />
         <Setter Property="Background" Value="{DynamicResource BorderColor}" />
         <Setter Property="FontWeight" Value="DemiBold" />
-        <Setter Property="Expanded" Value="{Binding $parent[shadUI:Sidebar].Expanded}" />
+        <Setter Property="Expanded" Value="{Binding $parent[shadui:Sidebar].Expanded}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Panel>

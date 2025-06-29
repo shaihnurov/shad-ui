@@ -1,8 +1,7 @@
 ﻿<ResourceDictionary
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:controls="clr-namespace:ShadUI.Controls"
-    xmlns:icons="clr-namespace:ShadUI.Contents">
+    xmlns:shadui="clr-namespace:ShadUI">
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceInclude Source="avares://ShadUI/Controls/Constants.axaml" />
@@ -47,7 +46,7 @@
         </Style>
     </ControlTheme>
 
-    <ControlTheme x:Key="WindowTheme" TargetType="controls:Window">
+    <ControlTheme x:Key="WindowTheme" TargetType="shadui:Window">
         <Setter Property="Margin" Value="0" />
         <Setter Property="Background" Value="{DynamicResource WindowBackgroundColor}" />
         <Setter Property="TransparencyLevelHint" Value="Transparent" />
@@ -72,7 +71,7 @@
                                               x:TypeArguments=CornerRadius}">
                     <VisualLayerManager Name="PART_VisualLayerManager" IsHitTestVisible="True">
                         <VisualLayerManager.ChromeOverlayLayer>
-                            <ItemsControl ItemsSource="{CompiledBinding Hosts, RelativeSource={RelativeSource AncestorType={x:Type controls:Window}}}">
+                            <ItemsControl ItemsSource="{CompiledBinding Hosts, RelativeSource={RelativeSource AncestorType={x:Type shadui:Window}}}">
                                 <ItemsControl.ItemsPanel>
                                     <ItemsPanelTemplate>
                                         <Panel />
@@ -84,10 +83,10 @@
                             <DockPanel LastChildFill="True">
                                 <Panel DockPanel.Dock="Top">
                                     <Panel.Styles>
-                                        <Style Selector="controls|Window[ShowBottomBorder=True] /template/ Border#PART_BottomBorder">
+                                        <Style Selector="shadui|Window[ShowBottomBorder=True] /template/ Border#PART_BottomBorder">
                                             <Setter Property="BorderThickness" Value="0,0,0,1" />
                                         </Style>
-                                        <Style Selector="controls|Window[ShowBottomBorder=False] /template/ Border#PART_BottomBorder">
+                                        <Style Selector="shadui|Window[ShowBottomBorder=False] /template/ Border#PART_BottomBorder">
                                             <Setter Property="BorderThickness" Value="0,0,0,0" />
                                         </Style>
                                     </Panel.Styles>
@@ -116,7 +115,7 @@
                                                                 Margin="0,0,0,1"
                                                                 IsVisible="{TemplateBinding CanMinimize}"
                                                                 Theme="{StaticResource WindowButtonStyle}">
-                                                                <PathIcon Name="MinimizeIcon" Data="{x:Static icons:Icons.WindowMinimize}" />
+                                                                <PathIcon Name="MinimizeIcon" Data="{x:Static shadui:Icons.WindowMinimize}" />
                                                             </Button>
                                                             <Button
                                                                 Name="PART_MaximizeButton"
@@ -125,7 +124,7 @@
                                                                 Theme="{StaticResource WindowButtonStyle}">
                                                                 <PathIcon
                                                                     Name="MaximizeIcon"
-                                                                    Data="{x:Static icons:Icons.WindowMaximize}"
+                                                                    Data="{x:Static shadui:Icons.WindowMaximize}"
                                                                     IsHitTestVisible="False" />
                                                             </Button>
                                                             <Button
@@ -135,7 +134,7 @@
                                                                 Theme="{StaticResource WindowButtonStyle}">
                                                                 <PathIcon
                                                                     Name="CloseIcon"
-                                                                    Data="{x:Static icons:Icons.WindowClose}"
+                                                                    Data="{x:Static shadui:Icons.WindowClose}"
                                                                     Foreground="{CompiledBinding Foreground,
                                                                                                  ElementName=PART_CloseButton}" />
                                                             </Button>
@@ -192,10 +191,10 @@
             <Setter Property="Margin" Value="10,0,0,7" />
         </Style>
         <Style Selector="^[WindowState=Maximized] /template/ PathIcon#MaximizeIcon">
-            <Setter Property="Data" Value="{x:Static icons:Icons.WindowRestore}" />
+            <Setter Property="Data" Value="{x:Static shadui:Icons.WindowRestore}" />
         </Style>
         <Style Selector="^[WindowState=Normal] /template/ PathIcon#MaximizeIcon">
-            <Setter Property="Data" Value="{x:Static icons:Icons.WindowMaximize}" />
+            <Setter Property="Data" Value="{x:Static shadui:Icons.WindowMaximize}" />
         </Style>
         <Style Selector="^[IsTitleBarVisible=True]">
             <Style Selector="^[TitleBarAnimationEnabled=True]">
@@ -297,7 +296,7 @@
         </Style>
     </ControlTheme>
     <ControlTheme
-        x:Key="{x:Type controls:Window}"
+        x:Key="{x:Type shadui:Window}"
         BasedOn="{StaticResource WindowTheme}"
-        TargetType="controls:Window" />
+        TargetType="shadui:Window" />
 </ResourceDictionary>

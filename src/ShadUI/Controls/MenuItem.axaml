@@ -1,9 +1,8 @@
 ﻿<ResourceDictionary
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:contents="clr-namespace:ShadUI.Contents"
     xmlns:converters="clr-namespace:Avalonia.Controls.Converters;assembly=Avalonia.Controls"
-    xmlns:extensions="clr-namespace:ShadUI.Extensions"
+    xmlns:shadui="clr-namespace:ShadUI"
     xmlns:system="clr-namespace:System;assembly=netstandard">
     <converters:PlatformKeyGestureConverter x:Key="KeyGestureConverter" />
     <ControlTheme x:Key="{x:Type MenuItem}" TargetType="MenuItem">
@@ -13,7 +12,7 @@
         <Setter Property="Margin" Value="4,2" />
         <Setter Property="Padding" Value="12,8" />
         <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
-        <Setter Property="extensions:MenuItemAssist.Label" Value="{x:Null}" />
+        <Setter Property="shadui:MenuItemAssist.Label" Value="{x:Null}" />
         <Setter Property="Transitions">
             <Setter.Value>
                 <Transitions>
@@ -93,7 +92,7 @@
                                     Margin="16,0,0,0"
                                     HorizontalAlignment="Right"
                                     VerticalAlignment="Center"
-                                    Data="{x:Static contents:Icons.ChevronRight}"
+                                    Data="{x:Static shadui:Icons.ChevronRight}"
                                     DockPanel.Dock="Right"
                                     Foreground="{DynamicResource ForegroundColor}" />
                                 <TextBlock
@@ -127,8 +126,8 @@
                                     BoxShadow="{DynamicResource Shadow}"
                                     CornerRadius="{DynamicResource LgCornerRadius}">
                                     <StackPanel Margin="0,2">
-                                        <Border Padding="16,8" IsVisible="{TemplateBinding extensions:MenuItemAssist.Label, Converter={x:Static ObjectConverters.IsNotNull}}">
-                                            <ContentPresenter Content="{TemplateBinding extensions:MenuItemAssist.Label}" />
+                                        <Border Padding="16,8" IsVisible="{TemplateBinding shadui:MenuItemAssist.Label, Converter={x:Static ObjectConverters.IsNotNull}}">
+                                            <ContentPresenter Content="{TemplateBinding shadui:MenuItemAssist.Label}" />
                                         </Border>
                                         <ScrollViewer ClipToBounds="True">
                                             <ItemsPresenter

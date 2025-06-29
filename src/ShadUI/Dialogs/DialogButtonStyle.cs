@@ -1,4 +1,5 @@
-﻿namespace ShadUI.Dialogs;
+﻿// ReSharper disable once CheckNamespace
+namespace ShadUI;
 
 /// <summary>
 ///     Defines the style of the button in the simple dialog.

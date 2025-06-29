@@ -1,9 +1,7 @@
 ﻿<ResourceDictionary
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:contents="clr-namespace:ShadUI.Contents"
-    xmlns:converters="clr-namespace:ShadUI.Converters"
-    xmlns:extensions="clr-namespace:ShadUI.Extensions"
+    xmlns:shadui="clr-namespace:ShadUI"
     xmlns:system="clr-namespace:System;assembly=netstandard">
     <Design.PreviewWith>
         <Border
@@ -20,8 +18,8 @@
                 </ComboBox>
                 <ComboBox
                     Width="200"
-                    extensions:ControlAssist.Hint="This control is currently disabled"
-                    extensions:ControlAssist.Label="Disabled Selection"
+                    shadui:ControlAssist.Hint="This control is currently disabled"
+                    shadui:ControlAssist.Label="Disabled Selection"
                     SelectedIndex="0">
                     <DataValidationErrors.Error>
                         <system:Exception />
@@ -46,7 +44,7 @@
         <Setter Property="Background" Value="{DynamicResource SelectionColor}" />
         <Setter Property="FontSize" Value="14" />
         <Setter Property="FontWeight" Value="Medium" />
-        <Setter Property="extensions:ControlAssist.MinHeight" Value="36" />
+        <Setter Property="shadui:ControlAssist.MinHeight" Value="36" />
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
         <Setter Property="ItemsPanel">
             <ItemsPanelTemplate>
@@ -61,9 +59,9 @@
                             Name="PART_Label"
                             Margin="0,0,0,6"
                             Classes="Small"
-                            IsVisible="{TemplateBinding extensions:ControlAssist.Label,
+                            IsVisible="{TemplateBinding shadui:ControlAssist.Label,
                                                         Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
-                            Text="{TemplateBinding extensions:ControlAssist.Label}" />
+                            Text="{TemplateBinding shadui:ControlAssist.Label}" />
                         <Panel>
                             <Border
                                 Name="PART_Background"
@@ -80,8 +78,8 @@
                             </Border>
                             <Border
                                 Name="PART_Border"
-                                Height="{TemplateBinding extensions:ControlAssist.Height}"
-                                MinHeight="{TemplateBinding extensions:ControlAssist.MinHeight}"
+                                Height="{TemplateBinding shadui:ControlAssist.Height}"
+                                MinHeight="{TemplateBinding shadui:ControlAssist.MinHeight}"
                                 Padding="{TemplateBinding Padding}"
                                 Background="{TemplateBinding Background}"
                                 BorderBrush="{TemplateBinding BorderBrush}"
@@ -116,7 +114,7 @@
                                         Margin="5,0,16,0"
                                         HorizontalAlignment="Center"
                                         VerticalAlignment="Center"
-                                        Data="{x:Static contents:Icons.ChevronUpDown}"
+                                        Data="{x:Static shadui:Icons.ChevronUpDown}"
                                         Fill="{DynamicResource MutedColor}"
                                         Stretch="Uniform">
                                         <Path.Transitions>
@@ -129,9 +127,9 @@
                                         Name="PART_Popup"
                                         Grid.Column="0"
                                         MinWidth="{CompiledBinding #PART_Border.Bounds.Width,
-                                                                   Converter={x:Static converters:PopupMinWidthConverter.Instance}}"
+                                                                   Converter={x:Static shadui:PopupMinWidthConverter.Instance}}"
                                         MaxHeight="{TemplateBinding MaxDropDownHeight,
-                                                                    Converter={x:Static converters:PopupMaxDropDownHeightConverter.Instance}}"
+                                                                    Converter={x:Static shadui:PopupMaxDropDownHeightConverter.Instance}}"
                                         IsLightDismissEnabled="True"
                                         IsOpen="{TemplateBinding IsDropDownOpen,
                                                                  Mode=TwoWay}"
@@ -163,9 +161,9 @@
                         <TextBlock
                             Name="PART_Hint"
                             Classes="Caption Muted"
-                            IsVisible="{TemplateBinding extensions:ControlAssist.Hint,
+                            IsVisible="{TemplateBinding shadui:ControlAssist.Hint,
                                                         Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
-                            Text="{TemplateBinding extensions:ControlAssist.Hint}" />
+                            Text="{TemplateBinding shadui:ControlAssist.Hint}" />
                     </StackPanel>
                 </DataValidationErrors>
             </ControlTemplate>

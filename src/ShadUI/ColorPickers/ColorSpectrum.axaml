@@ -2,7 +2,7 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="using:Avalonia.Controls"
-    xmlns:conv="clr-namespace:ShadUI.Converters"
+    xmlns:shadui="clr-namespace:ShadUI"
     x:ClassModifier="internal">
     <Design.PreviewWith>
         <Panel Width="500" Height="500">
@@ -30,7 +30,7 @@
                                     VerticalAlignment="Stretch"
                                     IsHitTestVisible="False"
                                     IsVisible="{TemplateBinding Shape,
-                                                                Converter={x:Static conv:Wrapper.EnumToBoolConverter},
+                                                                Converter={x:Static shadui:Wrapper.EnumToBoolConverter},
                                                                 ConverterParameter={x:Static controls:ColorSpectrumShape.Box}}" />
                             </Border>
                             <Border ClipToBounds="True" CornerRadius="{TemplateBinding CornerRadius}">
@@ -40,7 +40,7 @@
                                     VerticalAlignment="Stretch"
                                     IsHitTestVisible="False"
                                     IsVisible="{TemplateBinding Shape,
-                                                                Converter={x:Static conv:Wrapper.EnumToBoolConverter},
+                                                                Converter={x:Static shadui:Wrapper.EnumToBoolConverter},
                                                                 ConverterParameter={x:Static controls:ColorSpectrumShape.Box}}" />
                             </Border>
                             <Ellipse
@@ -49,7 +49,7 @@
                                 VerticalAlignment="Stretch"
                                 IsHitTestVisible="False"
                                 IsVisible="{TemplateBinding Shape,
-                                                            Converter={x:Static conv:Wrapper.EnumToBoolConverter},
+                                                            Converter={x:Static shadui:Wrapper.EnumToBoolConverter},
                                                             ConverterParameter={x:Static controls:ColorSpectrumShape.Ring}}" />
                             <Ellipse
                                 x:Name="PART_SpectrumOverlayEllipse"
@@ -57,7 +57,7 @@
                                 VerticalAlignment="Stretch"
                                 IsHitTestVisible="False"
                                 IsVisible="{TemplateBinding Shape,
-                                                            Converter={x:Static conv:Wrapper.EnumToBoolConverter},
+                                                            Converter={x:Static shadui:Wrapper.EnumToBoolConverter},
                                                             ConverterParameter={x:Static controls:ColorSpectrumShape.Ring}}" />
                             <Border ClipToBounds="True" CornerRadius="{TemplateBinding CornerRadius}">
                                 <Canvas x:Name="PART_InputTarget" Background="Transparent">

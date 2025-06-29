@@ -2,7 +2,8 @@ using Avalonia;
 using Avalonia.Controls.Presenters;
 using Avalonia.Rendering.Composition;
 
-namespace ShadUI.Extensions;
+// ReSharper disable once CheckNamespace
+namespace ShadUI;
 
 /// <summary>
 ///     Useful extension methods for <see cref="Avalonia.Controls.Presenters.ItemsPresenter" />.

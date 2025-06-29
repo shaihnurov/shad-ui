@@ -1,7 +1,7 @@
 ﻿<ResourceDictionary
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:icons="clr-namespace:ShadUI.Contents">
+    xmlns:shadui="clr-namespace:ShadUI">
     <Design.PreviewWith>
         <Panel>
             <ListBox
@@ -76,7 +76,7 @@
                             Width="12"
                             Height="12"
                             Margin="4,0,0,0"
-                            Data="{x:Static icons:Icons.Check}"
+                            Data="{x:Static shadui:Icons.Check}"
                             DockPanel.Dock="Right"
                             Foreground="{DynamicResource ForegroundColor}" />
                         <ContentPresenter

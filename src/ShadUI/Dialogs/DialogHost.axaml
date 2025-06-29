@@ -1,9 +1,8 @@
 ﻿<ResourceDictionary
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:dialogs="clr-namespace:ShadUI.Dialogs"
-    xmlns:icons="clr-namespace:ShadUI.Contents">
-    <ControlTheme x:Key="DialogHostTheme" TargetType="dialogs:DialogHost">
+    xmlns:shadui="clr-namespace:ShadUI">
+    <ControlTheme x:Key="DialogHostTheme" TargetType="shadui:DialogHost">
         <Setter Property="CornerRadius" Value="{DynamicResource XlCornerRadius}" />
         <Setter Property="Template">
             <ControlTemplate>
@@ -75,7 +74,7 @@
                                 <PathIcon
                                     Width="10"
                                     Height="10"
-                                    Data="{x:Static icons:Icons.WindowClose}"
+                                    Data="{x:Static shadui:Icons.WindowClose}"
                                     Foreground="{DynamicResource ForegroundColor}" />
                             </Button>
                         </Panel>
@@ -129,7 +128,7 @@
         </Style>
     </ControlTheme>
     <ControlTheme
-        x:Key="{x:Type dialogs:DialogHost}"
+        x:Key="{x:Type shadui:DialogHost}"
         BasedOn="{StaticResource DialogHostTheme}"
-        TargetType="dialogs:DialogHost" />
+        TargetType="shadui:DialogHost" />
 </ResourceDictionary>

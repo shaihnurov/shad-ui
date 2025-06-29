@@ -1,4 +1,5 @@
-namespace ShadUI.Dialogs;
+// ReSharper disable once CheckNamespace
+namespace ShadUI;
 
 /// <summary>
 ///     Dialog options used to configure the dialog.

@@ -1,6 +1,7 @@
 ﻿using Avalonia.Controls;
 
-namespace ShadUI.Breakpoints;
+// ReSharper disable once CheckNamespace
+namespace ShadUI;
 
 /// <summary>
 ///     Container for bound content that will only be visible when the specified breakpoint is active.

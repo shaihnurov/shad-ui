@@ -3,6 +3,8 @@ using Avalonia.Controls;
 using Avalonia.Rendering.Composition;
 
 namespace ShadUI.Extensions;
+// ReSharper disable once CheckNamespace
+namespace ShadUI;
 
 /// <summary>
 ///     Useful extension methods for <see cref="Avalonia.Controls.ItemsControl" />

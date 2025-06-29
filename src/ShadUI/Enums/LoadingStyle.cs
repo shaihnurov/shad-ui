@@ -1,4 +1,5 @@
-namespace ShadUI.Enums;
+// ReSharper disable once CheckNamespace
+namespace ShadUI;
 
 /// <summary>
 ///     Styles for the loading indicator.

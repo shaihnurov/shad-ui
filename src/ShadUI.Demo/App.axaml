@@ -3,7 +3,7 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:demo="clr-namespace:ShadUI.Demo"
-    xmlns:themes="clr-namespace:ShadUI.Themes;assembly=ShadUI"
+    xmlns:shadui="clr-namespace:ShadUI;assembly=ShadUI"
     RequestedThemeVariant="Default">
     <Application.DataTemplates>
         <demo:ViewLocator />
@@ -40,7 +40,7 @@
         <x:Double x:Key="ControlContentThemeFontSize">12</x:Double>
     </Application.Resources>
     <Application.Styles>
-        <themes:ShadTheme />
+        <shadui:ShadTheme />
         <StyleInclude Source="avares://AvaloniaEdit/Themes/Fluent/AvaloniaEdit.xaml" />
         <StyleInclude Source="avares://shadui-app/Styles/Index.axaml" />
     </Application.Styles>

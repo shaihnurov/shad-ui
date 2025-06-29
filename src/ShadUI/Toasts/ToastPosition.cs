@@ -1,4 +1,5 @@
-namespace ShadUI.Toasts;
+// ReSharper disable once CheckNamespace
+namespace ShadUI;
 
 /// <summary>
 ///     Defines the position of the toast.

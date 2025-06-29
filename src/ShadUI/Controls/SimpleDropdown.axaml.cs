@@ -8,7 +8,8 @@ using Avalonia.Controls.Templates;
 using Avalonia.Input;
 using Avalonia.Interactivity;
 
-namespace ShadUI.Controls;
+// ReSharper disable once CheckNamespace
+namespace ShadUI;
 
 /// <summary>
 ///     A simple dropdown control that displays a list of items in a popup when triggered.
@@ -95,7 +96,7 @@ public class SimpleDropdown : ItemsControl
         get => GetValue(PopupVerticalOffsetProperty);
         set => SetValue(PopupVerticalOffsetProperty, value);
     }
-    
+
     /// <summary>
     ///     Defines the <see cref="PopupHorizontalOffset" /> property.
     /// </summary>

@@ -1,13 +1,12 @@
 ﻿<ResourceDictionary
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:breakpoints="clr-namespace:ShadUI.Breakpoints"
-    xmlns:converters="clr-namespace:ShadUI.Converters">
-    <ControlTheme x:Key="{x:Type breakpoints:View}" TargetType="breakpoints:View">
+    xmlns:shadui="clr-namespace:ShadUI">
+    <ControlTheme x:Key="{x:Type shadui:View}" TargetType="shadui:View">
         <Setter Property="IsVisible">
             <Setter.Value>
-                <MultiBinding Converter="{x:Static converters:WidthToVisibilityConverter.Instance}">
-                    <CompiledBinding Path="Bounds.Width" RelativeSource="{RelativeSource AncestorType={x:Type breakpoints:ViewPort}}" />
+                <MultiBinding Converter="{x:Static shadui:WidthToVisibilityConverter.Instance}">
+                    <CompiledBinding Path="Bounds.Width" RelativeSource="{RelativeSource AncestorType={x:Type shadui:ViewPort}}" />
                     <CompiledBinding Path="Breakpoint" RelativeSource="{RelativeSource Self}" />
                     <CompiledBinding Path="Invert" RelativeSource="{RelativeSource Self}" />
                 </MultiBinding>

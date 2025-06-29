@@ -1,4 +1,5 @@
-﻿namespace ShadUI.Breakpoints;
+﻿// ReSharper disable once CheckNamespace
+namespace ShadUI;
 
 /// <summary>
 ///     Represents the different breakpoints for responsive design.

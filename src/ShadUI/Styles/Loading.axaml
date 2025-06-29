@@ -1,39 +1,39 @@
 ﻿<Styles
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:controls="clr-namespace:ShadUI.Controls">
-    <Style Selector="Button controls|Loading">
+    xmlns:shadui="clr-namespace:ShadUI">
+    <Style Selector="Button shadui|Loading">
         <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
     </Style>
-    <Style Selector="Button.Primary controls|Loading">
+    <Style Selector="Button.Primary shadui|Loading">
         <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundColor}" />
     </Style>
 
-    <Style Selector="Button.Secondary controls|Loading">
+    <Style Selector="Button.Secondary shadui|Loading">
         <Setter Property="Foreground" Value="{DynamicResource SecondaryForegroundColor}" />
     </Style>
 
-    <Style Selector="Button.Destructive controls|Loading">
+    <Style Selector="Button.Destructive shadui|Loading">
         <Setter Property="Foreground" Value="{DynamicResource DestructiveForegroundColor}" />
     </Style>
 
-    <Style Selector="Button.Outline controls|Loading">
+    <Style Selector="Button.Outline shadui|Loading">
         <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
     </Style>
 
-    <Style Selector="Button.Ghost controls|Loading">
+    <Style Selector="Button.Ghost shadui|Loading">
         <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
     </Style>
 
-    <Style Selector="Button.Icon controls|Loading">
+    <Style Selector="Button.Icon shadui|Loading">
         <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
     </Style>
 
-    <Style Selector="Button.DestructiveIcon controls|Loading">
+    <Style Selector="Button.DestructiveIcon shadui|Loading">
         <Setter Property="Foreground" Value="{DynamicResource DestructiveForegroundColor}" />
     </Style>
 
-    <Style Selector="TextBox controls|Loading">
+    <Style Selector="TextBox shadui|Loading">
         <Setter Property="Foreground" Value="{DynamicResource PrimaryColor}" />
     </Style>
 </Styles>

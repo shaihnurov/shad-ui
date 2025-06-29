@@ -1,7 +1,7 @@
 ﻿<ResourceDictionary
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:extensions="clr-namespace:ShadUI.Extensions">
+    xmlns:shadui="clr-namespace:ShadUI">
     <Design.PreviewWith>
         <StackPanel
             Width="250"
@@ -9,7 +9,7 @@
             Spacing="24">
             <ToggleSwitch OffContent="Off" OnContent="On" />
             <ToggleSwitch
-                extensions:ToggleSwitchAssist.RightAlignedContent="True"
+                shadui:ToggleSwitchAssist.RightAlignedContent="True"
                 OffContent="Off"
                 OnContent="On" />
             <ToggleSwitch IsEnabled="False" />
@@ -33,7 +33,7 @@
                 <ReversibleStackPanel
                     Name="PART_Container"
                     Orientation="Horizontal"
-                    ReverseOrder="{TemplateBinding extensions:ToggleSwitchAssist.RightAlignedContent}"
+                    ReverseOrder="{TemplateBinding shadui:ToggleSwitchAssist.RightAlignedContent}"
                     Spacing="8">
                     <Panel>
                         <ContentPresenter

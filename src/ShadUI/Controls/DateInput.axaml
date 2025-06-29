@@ -1,8 +1,7 @@
 ﻿<ResourceDictionary
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:controls="clr-namespace:ShadUI.Controls"
-    xmlns:extensions="clr-namespace:ShadUI.Extensions"
+    xmlns:shadui="clr-namespace:ShadUI"
     xmlns:system="clr-namespace:System;assembly=netstandard">
     <ResourceDictionary.MergedDictionaries>
         <ResourceInclude Source="Common.axaml" />
@@ -10,22 +9,22 @@
     <Design.PreviewWith>
         <Border Height="500" Padding="24">
             <StackPanel Spacing="8">
-                <controls:DateInput
+                <shadui:DateInput
                     Width="255"
                     HorizontalAlignment="Left"
-                    extensions:ElementAssist.FocusOnLoad="True" />
-                <controls:DateInput extensions:ControlAssist.Label="Start date" />
-                <controls:DateInput extensions:ControlAssist.Hint="Set end date" extensions:ControlAssist.Label="End date" />
-                <controls:DateInput extensions:ControlAssist.Label="Disable" IsEnabled="False" />
-                <controls:DateInput Width="255">
+                    shadui:ElementAssist.FocusOnLoad="True" />
+                <shadui:DateInput shadui:ControlAssist.Label="Start date" />
+                <shadui:DateInput shadui:ControlAssist.Hint="Set end date" shadui:ControlAssist.Label="End date" />
+                <shadui:DateInput shadui:ControlAssist.Label="Disable" IsEnabled="False" />
+                <shadui:DateInput Width="255">
                     <DataValidationErrors.Error>
                         <system:Exception />
                     </DataValidationErrors.Error>
-                </controls:DateInput>
+                </shadui:DateInput>
             </StackPanel>
         </Border>
     </Design.PreviewWith>
-    <ControlTheme x:Key="{x:Type controls:DateInput}" TargetType="{x:Type controls:DateInput}">
+    <ControlTheme x:Key="{x:Type shadui:DateInput}" TargetType="{x:Type shadui:DateInput}">
         <Setter Property="Padding" Value="4" />
         <Setter Property="FontSize" Value="14" />
         <Setter Property="Background" Value="{DynamicResource SelectionColor}" />
@@ -33,7 +32,7 @@
         <Setter Property="CornerRadius" Value="{DynamicResource LgCornerRadius}" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="BorderBrush" Value="{DynamicResource BorderColor}" />
-        <Setter Property="extensions:ElementAssist.FocusOnLoad" Value="False" />
+        <Setter Property="shadui:ElementAssist.FocusOnLoad" Value="False" />
         <Setter Property="Template">
             <ControlTemplate>
                 <StackPanel Background="Transparent" Focusable="False">
@@ -41,9 +40,9 @@
                         Name="PART_Label"
                         Margin="0,0,0,6"
                         Classes="Small"
-                        IsVisible="{TemplateBinding extensions:ControlAssist.Label,
+                        IsVisible="{TemplateBinding shadui:ControlAssist.Label,
                                                     Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
-                        Text="{TemplateBinding extensions:ControlAssist.Label}" />
+                        Text="{TemplateBinding shadui:ControlAssist.Label}" />
                     <DataValidationErrors Focusable="False">
                         <StackPanel>
                             <Border
@@ -59,7 +58,7 @@
                                     <TextBox
                                         Name="PART_MonthTextBox"
                                         Grid.Column="0"
-                                        extensions:ElementAssist.FocusOnLoad="{TemplateBinding extensions:ElementAssist.FocusOnLoad}"
+                                        shadui:ElementAssist.FocusOnLoad="{TemplateBinding shadui:ElementAssist.FocusOnLoad}"
                                         Background="Transparent"
                                         Cursor="IBeam"
                                         MaxLength="2"
@@ -107,9 +106,9 @@
                                 Name="PART_Hint"
                                 Margin="0,4,0,0"
                                 Classes="Caption Muted"
-                                IsVisible="{TemplateBinding extensions:ControlAssist.Hint,
+                                IsVisible="{TemplateBinding shadui:ControlAssist.Hint,
                                                             Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
-                                Text="{TemplateBinding extensions:ControlAssist.Hint}" />
+                                Text="{TemplateBinding shadui:ControlAssist.Hint}" />
                         </StackPanel>
                     </DataValidationErrors>
                 </StackPanel>

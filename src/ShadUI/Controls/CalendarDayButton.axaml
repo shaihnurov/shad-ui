@@ -1,7 +1,7 @@
 ﻿<ResourceDictionary
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:contents="clr-namespace:ShadUI.Contents"
+    xmlns:shaui="clr-namespace:ShadUI"
     x:ClassModifier="internal">
     <Design.PreviewWith>
         <Panel Width="500" Height="500">
@@ -61,7 +61,7 @@
                         Name="BlackoutVisual"
                         Width="24"
                         Height="24"
-                        Data="{x:Static contents:Icons.Cross}"
+                        Data="{x:Static shaui:Icons.Cross}"
                         Fill="{DynamicResource ForegroundColor}"
                         IsVisible="False"
                         Opacity="0">

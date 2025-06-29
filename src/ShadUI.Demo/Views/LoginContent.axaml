@@ -3,8 +3,8 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:extensions="clr-namespace:ShadUI.Extensions;assembly=ShadUI"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:shadui="clr-namespace:ShadUI;assembly=ShadUI"
     xmlns:viewModels="clr-namespace:ShadUI.Demo.ViewModels"
     x:DataType="viewModels:LoginViewModel"
     mc:Ignorable="d">
@@ -14,13 +14,13 @@
         Spacing="16">
         <TextBlock Classes="h4" Text="Sign In" />
         <TextBox
-            extensions:ControlAssist.Label="Email"
-            extensions:ElementAssist.FocusOnLoad="True"
+            shadui:ControlAssist.Label="Email"
+            shadui:ElementAssist.FocusOnLoad="True"
             Classes="Clearable"
             Text="{Binding Email, Mode=TwoWay}"
             Watermark="user@example.com" />
         <TextBox
-            extensions:ControlAssist.Label="Password"
+            shadui:ControlAssist.Label="Password"
             Classes="PasswordReveal"
             PasswordChar="•"
             Text="{Binding Password, Mode=TwoWay}"

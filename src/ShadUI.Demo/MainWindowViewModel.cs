@@ -1,13 +1,9 @@
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
-using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using ShadUI.Demo.ViewModels;
-using ShadUI.Dialogs;
-using ShadUI.Themes;
-using ShadUI.Toasts;
 
 namespace ShadUI.Demo;
 
@@ -130,7 +126,7 @@ public sealed partial class MainWindowViewModel(
             inputViewModel.Initialize();
         }
     }
-    
+
     [RelayCommand]
     private void OpenNumerics()
     {
@@ -163,13 +159,13 @@ public sealed partial class MainWindowViewModel(
     {
         SwitchPage(colorsViewModel);
     }
-    
+
     [RelayCommand]
     private void OpenSidebar()
     {
         SwitchPage(sidebarViewModel);
     }
-    
+
     [RelayCommand]
     private void OpenSliders()
     {

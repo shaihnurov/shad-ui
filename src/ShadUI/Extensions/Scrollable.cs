@@ -1,7 +1,8 @@
 ﻿using System;
 using Avalonia.Rendering.Composition;
 
-namespace ShadUI.Extensions;
+// ReSharper disable once CheckNamespace
+namespace ShadUI;
 
 /// <summary>
 ///     Usable extension methods for making an element scrollable.
