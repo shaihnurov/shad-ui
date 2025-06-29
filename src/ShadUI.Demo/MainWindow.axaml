@@ -12,6 +12,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:shadui="clr-namespace:ShadUI;assembly=ShadUI"
     xmlns:toasts="clr-namespace:ShadUI.Toasts;assembly=ShadUI"
+    xmlns:utilities="clr-namespace:ShadUI.Utilities;assembly=ShadUI"
     x:Name="Window"
     Title="ShadUI App"
     Width="1024"
@@ -71,6 +72,9 @@
                 BorderBrush="{DynamicResource BorderColor30}"
                 BorderThickness="0,0,1,0"
                 Expanded="{Binding #Toggler.IsChecked}">
+                <shadui:Sidebar.ExpandEasing>
+                    <utilities:EaseInOutBack BounceIntensity="Strong" />
+                </shadui:Sidebar.ExpandEasing>
                 <shadui:Sidebar.Header>
                     <ToggleButton
                         Name="Toggler"

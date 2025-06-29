@@ -1,5 +1,6 @@
 ﻿using System;
 using Avalonia;
+using Avalonia.Animation.Easings;
 using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
 using ShadUI.Utilities;
@@ -106,6 +107,68 @@ public class Sidebar : ContentControl
     }
 
     /// <summary>
+    ///     Defines the <see cref="ExpandEasing" /> property.
+    /// </summary>
+    public static readonly StyledProperty<Easing> ExpandEasingProperty = AvaloniaProperty.Register<Sidebar, Easing>(
+        nameof(ExpandEasing), new EaseInOut());
+
+    /// <summary>
+    ///     Gets or sets the easing function used for the expand animation of the sidebar.
+    /// </summary>
+    public Easing ExpandEasing
+    {
+        get => GetValue(ExpandEasingProperty);
+        set => SetValue(ExpandEasingProperty, value);
+    }
+
+    /// <summary>
+    ///     Defines the <see cref="ExpandAnimationDuration" /> property.
+    /// </summary>
+    public static readonly StyledProperty<double> ExpandAnimationDurationProperty =
+        AvaloniaProperty.Register<Sidebar, double>(
+            nameof(ExpandAnimationDuration), 300);
+
+    /// <summary>
+    ///     Gets or sets the duration of the expand animation in milliseconds.
+    /// </summary>
+    public double ExpandAnimationDuration
+    {
+        get => GetValue(ExpandAnimationDurationProperty);
+        set => SetValue(ExpandAnimationDurationProperty, value);
+    }
+
+    /// <summary>
+    ///     Defines the <see cref="CollapseEasing" /> property.
+    /// </summary>
+    public static readonly StyledProperty<Easing> CollapseEasingProperty = AvaloniaProperty.Register<Sidebar, Easing>(
+        nameof(CollapseEasing), new EaseOut());
+
+    /// <summary>
+    ///     Gets or sets the easing function used for the collapse animation of the sidebar.
+    /// </summary>
+    public Easing CollapseEasing
+    {
+        get => GetValue(CollapseEasingProperty);
+        set => SetValue(CollapseEasingProperty, value);
+    }
+
+    /// <summary>
+    ///     Defines the <see cref="CollapseAnimationDuration" /> property.
+    /// </summary>
+    public static readonly StyledProperty<double> CollapseAnimationDurationProperty =
+        AvaloniaProperty.Register<Sidebar, double>(
+            nameof(CollapseAnimationDuration), 200);
+
+    /// <summary>
+    ///     Gets or sets the duration of the collapse animation in milliseconds.
+    /// </summary>
+    public double CollapseAnimationDuration
+    {
+        get => GetValue(CollapseAnimationDurationProperty);
+        set => SetValue(CollapseAnimationDurationProperty, value);
+    }
+
+    /// <summary>
     ///     Called when the template is applied to the control.
     /// </summary>
     /// <param name="e">The template applied event arguments.</param>
@@ -116,6 +179,9 @@ public class Sidebar : ContentControl
         DefaultItemsGroup = $"Group{Guid.NewGuid():N}";
     }
 
+    /// <summary>
+    ///     Stores the width of the sidebar before collapsing for animation purposes.
+    /// </summary>
     private double _width;
 
     /// <summary>
@@ -134,6 +200,10 @@ public class Sidebar : ContentControl
         }
     }
 
+    /// <summary>
+    ///     Animates the sidebar expansion or collapse with the specified easing and duration.
+    /// </summary>
+    /// <param name="toExpand">A value indicating whether to expand or collapse the sidebar.</param>
     private void AnimateOnExpand(bool toExpand)
     {
         if (!toExpand) _width = Width;
@@ -143,8 +213,8 @@ public class Sidebar : ContentControl
             this.Animate(WidthProperty)
                 .From(MinWidth)
                 .To(_width)
-                .WithEasing(new EaseInOutBack { BounceIntensity = EasingIntensity.Strong })
-                .WithDuration(TimeSpan.FromMilliseconds(300))
+                .WithEasing(ExpandEasing)
+                .WithDuration(TimeSpan.FromMilliseconds(ExpandAnimationDuration))
                 .Start();
 
             if (MinWidth == 0)
@@ -153,7 +223,7 @@ public class Sidebar : ContentControl
                     .From(0.0)
                     .To(1.0)
                     .WithEasing(new EaseInOut())
-                    .WithDuration(TimeSpan.FromMilliseconds(300))
+                    .WithDuration(TimeSpan.FromMilliseconds(ExpandAnimationDuration))
                     .Start();
             }
         }
@@ -162,8 +232,8 @@ public class Sidebar : ContentControl
             this.Animate(WidthProperty)
                 .From(_width)
                 .To(MinWidth)
-                .WithEasing(new EaseOut())
-                .WithDuration(TimeSpan.FromMilliseconds(300))
+                .WithEasing(CollapseEasing)
+                .WithDuration(TimeSpan.FromMilliseconds(CollapseAnimationDuration))
                 .Start();
 
             if (MinWidth == 0)
@@ -172,7 +242,7 @@ public class Sidebar : ContentControl
                     .From(1.0)
                     .To(0.0)
                     .WithEasing(new EaseOut())
-                    .WithDuration(TimeSpan.FromMilliseconds(300))
+                    .WithDuration(TimeSpan.FromMilliseconds(CollapseAnimationDuration))
                     .Start();
             }
         }
