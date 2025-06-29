@@ -5,7 +5,8 @@
     <Styles.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceInclude Source="avares://ShadUI/Controls/Themes.axaml" />
+                <ResourceInclude Source="avares://ShadUI/Controls/Constants.axaml" />
+                <ResourceInclude Source="avares://ShadUI/Controls/Resources.axaml" />
             </ResourceDictionary.MergedDictionaries>
             <ResourceDictionary.ThemeDictionaries>
                 <ResourceInclude x:Key="Light" Source="/Themes/Light.axaml" />
