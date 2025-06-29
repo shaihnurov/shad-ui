@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.IO;
@@ -103,16 +102,16 @@ public sealed partial class MiscellaneousViewModel : ViewModelBase
         {
             foreach (var i in selectedItems)
             {
-                if(i is not string s) continue;
+                if (i is not string s) continue;
                 if (!_selectedWebFrameworks.Contains(s)) _selectedWebFrameworks.Add(s);
             }
         }
-        
+
         if (deselectedItems.Count > 0)
         {
             foreach (var i in deselectedItems)
             {
-                if(i is not string s) continue;
+                if (i is not string s) continue;
                 _selectedWebFrameworks.Remove(s);
             }
         }

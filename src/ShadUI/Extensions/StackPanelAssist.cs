@@ -26,8 +26,10 @@ public static class StackPanelAssist
         AvaloniaPropertyChangedEventArgs args)
     {
         if (GetAnimatedScroll(interactElem))
-            interactElem.AttachedToVisualTree += (_, _) =>
-                Scrollable.MakeScrollable(ElementComposition.GetElementVisual(interactElem));
+        {
+            interactElem.AttachedToVisualTree +=
+                (_, _) => ElementComposition.GetElementVisual(interactElem).MakeScrollable();
+        }
     }
 
     /// <summary>

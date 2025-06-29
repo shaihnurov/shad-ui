@@ -53,8 +53,9 @@ public class ThemeWatcher
     ///     Retrieves the current theme colors from the application resources.
     /// </summary>
     /// <returns>A new <see cref="ThemeColors" /> instance containing all theme color values.</returns>
-    private ThemeColors GetThemeColors() =>
-        new()
+    private ThemeColors GetThemeColors()
+    {
+        return new ThemeColors
         {
             // Basic Colors
             ForegroundColor = TryGetColor("ForegroundColor"),
@@ -121,6 +122,7 @@ public class ThemeWatcher
             TabItemSelectedColor = TryGetColor("TabItemSelectedColor"),
             TabItemsBackgroundColor = TryGetColor("TabItemsBackgroundColor")
         };
+    }
 
     /// <summary>
     ///     Attempts to find a color resource by its key in the application resources.
@@ -130,7 +132,10 @@ public class ThemeWatcher
     private Color TryGetColor(string resourceKey)
     {
         if (_app.TryFindResource(resourceKey, _app.ActualThemeVariant, out var resource) && resource is Color color)
+        {
             return color;
+        }
+
         return default;
     }
 

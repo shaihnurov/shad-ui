@@ -222,7 +222,7 @@ public class Window : Avalonia.Controls.Window
     /// </summary>
     public static readonly StyledProperty<object?> RightWindowTitleBarContentProperty =
         AvaloniaProperty.Register<Window, object?>(nameof(RightWindowTitleBarContent),
-            new Avalonia.Controls.Controls());
+            new Controls());
 
     /// <summary>
     ///     Gets or sets the value of the <see cref="RightWindowTitleBarContentProperty" />.
@@ -237,13 +237,13 @@ public class Window : Avalonia.Controls.Window
     ///     These controls are displayed above all others and fill the entire window.
     ///     Useful for things like popups.
     /// </summary>
-    public static readonly StyledProperty<Avalonia.Controls.Controls> HostsProperty =
-        AvaloniaProperty.Register<Window, Avalonia.Controls.Controls>(nameof(Hosts), []);
+    public static readonly StyledProperty<Controls> HostsProperty =
+        AvaloniaProperty.Register<Window, Controls>(nameof(Hosts), []);
 
     /// <summary>
     ///     These controls are displayed above all others and fill the entire window.
     /// </summary>
-    public Avalonia.Controls.Controls Hosts
+    public Controls Hosts
     {
         get => GetValue(HostsProperty);
         set => SetValue(HostsProperty, value);

@@ -7,16 +7,15 @@ namespace ShadUI;
 /// <summary>
 ///     Usable extension methods for making an element scrollable.
 /// </summary>
-internal static class Scrollable
+internal static class ScrollableExt
 {
     /// <summary>
     ///     Makes the visual scrollable.
     /// </summary>
     /// <param name="compositionVisual"></param>
-    public static void MakeScrollable(CompositionVisual? compositionVisual)
+    public static void MakeScrollable(this CompositionVisual? compositionVisual)
     {
-        if (compositionVisual == null)
-            return;
+        if (compositionVisual == null) return;
 
         var compositor = compositionVisual.Compositor;
 

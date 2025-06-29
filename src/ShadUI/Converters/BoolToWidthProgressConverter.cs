@@ -22,10 +22,9 @@ internal class BoolToWidthProgressConverter : IValueConverter
     /// <returns></returns>
     public object Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
     {
-        if (value == null)
-            return 0;
+        if (value == null) return 0;
 
-        return (bool) value ? 24 : 0;
+        return (bool)value ? 24 : 0;
     }
 
     /// <summary>
@@ -37,8 +36,10 @@ internal class BoolToWidthProgressConverter : IValueConverter
     /// <param name="culture"></param>
     /// <returns></returns>
     /// <exception cref="NotSupportedException"></exception>
-    public object ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture) =>
+    public object ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
+    {
         throw new NotSupportedException();
+    }
 }
 
 /// <summary>
@@ -58,10 +59,9 @@ internal class BoolToInverseWidthProgressConverter : IValueConverter
     /// <returns></returns>
     public object Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
     {
-        if (value == null)
-            return 24;
+        if (value == null) return 24;
 
-        return (bool) value ? 0 : 24;
+        return (bool)value ? 0 : 24;
     }
 
     /// <summary>
@@ -73,6 +73,8 @@ internal class BoolToInverseWidthProgressConverter : IValueConverter
     /// <param name="culture"></param>
     /// <returns></returns>
     /// <exception cref="NotSupportedException"></exception>
-    public object ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture) =>
+    public object ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
+    {
         throw new NotSupportedException();
+    }
 }

@@ -26,8 +26,10 @@ public static class ItemsPresenterAssist
         AvaloniaPropertyChangedEventArgs args)
     {
         if (GetAnimatedScroll(interactElem))
+        {
             interactElem.AttachedToVisualTree += (_, _) =>
-                Scrollable.MakeScrollable(ElementComposition.GetElementVisual(interactElem));
+                ElementComposition.GetElementVisual(interactElem).MakeScrollable();
+        }
     }
 
     /// <summary>

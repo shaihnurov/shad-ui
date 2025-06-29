@@ -104,7 +104,7 @@ public sealed partial class InputViewModel : ViewModelBase
         "SolidJS",
         "Svelte",
         "SvelteKit",
-        "Vue.js",
+        "Vue.js"
     ];
 
     [ObservableProperty]

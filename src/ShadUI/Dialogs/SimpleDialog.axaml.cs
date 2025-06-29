@@ -167,7 +167,7 @@ internal class SimpleDialog : TemplatedControl
     }
 
     /// <summary>
-    ///     Sets the ID of the dialog based on its properties and options. 
+    ///     Sets the ID of the dialog based on its properties and options.
     /// </summary>
     /// <param name="options"></param>
     internal void SetId(DialogOptions options)

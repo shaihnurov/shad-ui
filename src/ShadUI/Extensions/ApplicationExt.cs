@@ -1,4 +1,5 @@
-﻿using Avalonia.Controls;
+﻿using Avalonia;
+using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.VisualTree;
 
@@ -8,7 +9,7 @@ namespace ShadUI;
 /// <summary>
 ///     Provides extension methods for <see cref="Avalonia.Application" /> class.
 /// </summary>
-internal static class Application
+internal static class ApplicationAssist
 {
     /// <summary>
     ///     Gets the top-level window or visual element from an <see cref="Avalonia.Application" />.
@@ -19,7 +20,7 @@ internal static class Application
     ///     For desktop applications, returns the main window.
     ///     For single-view applications, returns the visual root of the main view.
     /// </returns>
-    public static TopLevel? GetTopLevel(this Avalonia.Application? app)
+    public static TopLevel? GetTopLevel(this Application? app)
     {
         if (app is null) return null;
 
@@ -29,6 +30,7 @@ internal static class Application
             var visualRoot = viewApp.MainView?.GetVisualRoot();
             return visualRoot as TopLevel;
         }
+
         return null;
     }
 }

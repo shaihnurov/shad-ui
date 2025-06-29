@@ -79,7 +79,8 @@ public class TimeInput : TemplatedControl
     ///     Defines the <see cref="ClockIdentifier" /> property.
     /// </summary>
     public static readonly StyledProperty<string> ClockIdentifierProperty =
-        AvaloniaProperty.Register<TimePicker, string>(nameof(ClockIdentifier), "12HourClock", coerce: CoerceClockIdentifier);
+        AvaloniaProperty.Register<TimePicker, string>(nameof(ClockIdentifier), "12HourClock",
+            coerce: CoerceClockIdentifier);
 
     /// <summary>
     ///     Gets or sets the clock format identifier. Valid values are "12HourClock" or "24HourClock".
@@ -100,7 +101,9 @@ public class TimeInput : TemplatedControl
     private static string CoerceClockIdentifier(AvaloniaObject sender, string value)
     {
         if (!(string.IsNullOrEmpty(value) || value == "12HourClock" || value == "24HourClock"))
+        {
             throw new ArgumentException("Invalid ClockIdentifier", default(string));
+        }
 
         return value;
     }
@@ -255,14 +258,18 @@ public class TimeInput : TemplatedControl
             Value ??= new TimeSpan(12, 0, 0);
 
             if (Value is { Hours: < 12 })
+            {
                 Value = new TimeSpan(Value.Value.Hours + 12, Value.Value.Minutes, Value.Value.Seconds);
+            }
 
             if (ClockIdentifier == "12HourClock" && _hourTextBox!.Text == "00") _hourTextBox.Text = "12";
         }
         else
         {
             if (Value is { Hours: >= 12 })
+            {
                 Value = new TimeSpan(Value.Value.Hours - 12, Value.Value.Minutes, Value.Value.Seconds);
+            }
 
             if (ClockIdentifier == "12HourClock" && _hourTextBox!.Text == "12") _hourTextBox.Text = "00";
         }
@@ -337,8 +344,7 @@ public class TimeInput : TemplatedControl
     {
         var parsed = int.TryParse(args.GetNewValue<string>(), out var value);
 
-        if (!parsed || value < 0 || value > 59)
-            value = 0;
+        if (!parsed || value < 0 || value > 59) value = 0;
 
         Value = new TimeSpan(Value?.Hours ?? 0, value, Value?.Seconds ?? 0);
     }
@@ -347,8 +353,7 @@ public class TimeInput : TemplatedControl
     {
         var parsed = int.TryParse(args.GetNewValue<string>(), out var value);
 
-        if (!parsed || value < 0 || value > 59)
-            value = 0;
+        if (!parsed || value < 0 || value > 59) value = 0;
 
         Value = new TimeSpan(Value?.Hours ?? 0, Value?.Minutes ?? 0, value);
     }
@@ -363,7 +368,6 @@ public class TimeInput : TemplatedControl
     {
         base.UpdateDataValidation(property, state, error);
 
-        if (property == ValueProperty)
-            DataValidationErrors.SetError(this, error);
+        if (property == ValueProperty) DataValidationErrors.SetError(this, error);
     }
 }

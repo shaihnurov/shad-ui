@@ -1,7 +1,7 @@
 ﻿<Styles
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:converters="clr-namespace:ShadUI.Converters">
+    xmlns:shadui="clr-namespace:ShadUI">
     <Style Selector="ScrollViewer">
         <Setter Property="IsScrollInertiaEnabled" Value="True" />
         <Setter Property="Template">
@@ -80,7 +80,7 @@
         </Style>
         <Style Selector="^ /template/ Panel#InnerPanel">
             <Setter Property="OpacityMask">
-                <MultiBinding Converter="{x:Static converters:ScrollerToOpacityMask.Top}">
+                <MultiBinding Converter="{x:Static shadui:ScrollerToOpacityMask.Top}">
                     <Binding Path="$parent[Panel].Children[2].Children[0].Value" />
                     <Binding Path="$parent[Panel].Children[2].Children[0].Minimum" />
                 </MultiBinding>
@@ -88,7 +88,7 @@
         </Style>
         <Style Selector="^ /template/ ScrollContentPresenter#PART_ContentPresenter">
             <Setter Property="OpacityMask">
-                <MultiBinding Converter="{x:Static converters:ScrollerToOpacityMask.Bottom}">
+                <MultiBinding Converter="{x:Static shadui:ScrollerToOpacityMask.Bottom}">
                     <Binding Path="$parent[Panel;1].Children[2].Children[0].Value" />
                     <Binding Path="$parent[Panel;1].Children[2].Children[0].Maximum" />
                 </MultiBinding>

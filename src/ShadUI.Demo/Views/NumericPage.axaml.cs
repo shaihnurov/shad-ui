@@ -1,10 +1,8 @@
-﻿using Avalonia;
-using Avalonia.Controls;
-using Avalonia.Markup.Xaml;
+﻿using Avalonia.Controls;
 
 namespace ShadUI.Demo.Views;
 
-public partial class NumericPage : UserControl
+public sealed partial class NumericPage : UserControl
 {
     public NumericPage()
     {

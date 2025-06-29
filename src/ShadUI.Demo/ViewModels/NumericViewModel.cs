@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.IO;
 using CommunityToolkit.Mvvm.ComponentModel;
@@ -25,7 +26,7 @@ public sealed partial class NumericViewModel : ViewModelBase
         FormValidationCode = path.ExtractByLineRange(84, 107).CleanIndentation();
     }
 
-    private void OnPropertyChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e)
+    private void OnPropertyChanged(object? sender, PropertyChangedEventArgs e)
     {
         SubmitCommand.NotifyCanExecuteChanged();
     }
@@ -36,7 +37,6 @@ public sealed partial class NumericViewModel : ViewModelBase
     [ObservableProperty]
     private string _disabledCode = string.Empty;
 
-    
     [ObservableProperty]
     private string _leftAlignedCode = string.Empty;
 

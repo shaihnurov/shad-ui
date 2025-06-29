@@ -118,7 +118,8 @@ internal class Toast : ContentControl
         e.NameScope.Get<Button>("PART_ActionButton").Click += (_, _) =>
         {
             Action?.Invoke();
-            Task.Delay(500).ContinueWith(_ => _manager?.Dismiss(this), TaskScheduler.FromCurrentSynchronizationContext());
+            Task.Delay(500).ContinueWith(_ => _manager?.Dismiss(this),
+                TaskScheduler.FromCurrentSynchronizationContext());
         };
         e.NameScope.Get<Button>("PART_CloseButton").Click += (_, _) => _manager?.Dismiss(this);
     }
@@ -151,7 +152,7 @@ internal class Toast : ContentControl
             .WithDuration(TimeSpan.FromMilliseconds(500))
             .WithEasing(new CubicEaseInOut())
             .Start();
-        
+
         StartCounter();
     }
 

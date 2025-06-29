@@ -11,7 +11,6 @@ public class StringToColor : IValueConverter
 
     public object Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
     {
-
         if (value is not string colorString || string.IsNullOrEmpty(colorString))
         {
             return Colors.Transparent;
@@ -19,21 +18,20 @@ public class StringToColor : IValueConverter
 
         var namedColor = GetNamedColor(colorString);
         if (namedColor is not null) return namedColor;
-        
-            if (colorString.StartsWith("#")) colorString = colorString[1..];
 
-            if (colorString.Length == 6)
-            {
-                colorString = "FF" + colorString;
-            }
-            else if (colorString.Length != 8)
-            {
-                return Colors.Transparent;
-            }
+        if (colorString.StartsWith("#")) colorString = colorString[1..];
 
-            var argb = System.Convert.ToUInt32(colorString, 16);
-            return Color.FromUInt32(argb);
-        
+        if (colorString.Length == 6)
+        {
+            colorString = "FF" + colorString;
+        }
+        else if (colorString.Length != 8)
+        {
+            return Colors.Transparent;
+        }
+
+        var argb = System.Convert.ToUInt32(colorString, 16);
+        return Color.FromUInt32(argb);
     }
 
     public object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)

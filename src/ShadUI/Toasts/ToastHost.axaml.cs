@@ -97,7 +97,9 @@ public class ToastHost : ItemsControl
     {
         base.OnPropertyChanged(change);
         if (change.Property == PositionProperty && change.NewValue is ToastPosition loc)
+        {
             OnPositionChanged(loc);
+        }
     }
 
     private void OnPositionChanged(ToastPosition position)
@@ -128,11 +130,19 @@ public class ToastHost : ItemsControl
         AvaloniaPropertyChangedEventArgs propChanged)
     {
         if (sender is not ToastHost host)
+        {
             throw new NullReferenceException("Dependency object is not of valid type " + nameof(ToastHost));
+        }
+
         if (propChanged.OldValue is ToastManager oldManager)
+        {
             host.DetachManagerEvents(oldManager);
+        }
+
         if (propChanged.NewValue is ToastManager newManager)
+        {
             host.AttachManagerEvents(newManager);
+        }
     }
 
     private void AttachManagerEvents(ToastManager manager)
@@ -149,13 +159,17 @@ public class ToastHost : ItemsControl
         manager.OnAllToastsDismissed -= ManagerOnAllToastsDismissed;
     }
 
-    private void ManagerOnToastDismissed(object sender, Toast toast) =>
+    private void ManagerOnToastDismissed(object sender, Toast toast)
+    {
         ClearToast(toast);
+    }
 
     private void ManagerOnAllToastsDismissed(object sender, EventArgs e)
     {
         foreach (var toast in Items)
+        {
             ClearToast((Toast)toast!);
+        }
     }
 
     private void ManagerOnToastQueued(object sender, Toast toast)
@@ -163,8 +177,12 @@ public class ToastHost : ItemsControl
         if (MaxToasts <= 0) return;
 
         if (SingleToast)
+        {
             foreach (var t in Items)
+            {
                 ClearToast((Toast)t!);
+            }
+        }
 
         var position = toast.Position ?? _originalPosition;
         if (Position == position)

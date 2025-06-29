@@ -26,11 +26,9 @@ internal class WindowBackgroundToCornerRadiusConverter : IValueConverter
     /// <returns></returns>
     public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
     {
-        if (value == null)
-            return new CornerRadius(0);
+        if (value == null) return new CornerRadius(0);
 
-        if ((bool) value == false)
-            return new CornerRadius(17);
+        if ((bool)value == false) return new CornerRadius(17);
 
         return new CornerRadius(0);
     }
@@ -44,6 +42,8 @@ internal class WindowBackgroundToCornerRadiusConverter : IValueConverter
     /// <param name="culture"></param>
     /// <returns></returns>
     /// <exception cref="NotSupportedException"></exception>
-    public object ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture) =>
+    public object ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
+    {
         throw new NotSupportedException();
+    }
 }

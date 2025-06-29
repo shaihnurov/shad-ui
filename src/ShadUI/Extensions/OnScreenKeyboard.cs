@@ -23,15 +23,14 @@ internal static class OnScreenKeyboard
 
     public static void Integrate()
     {
-        if (_alreadyDone)
-            return;
+        if (_alreadyDone) return;
+
         _alreadyDone = true;
 
         Control.LoadedEvent.AddClassHandler<TopLevel>((s, _) =>
         {
             var input = s.InputPane;
-            if (input == null)
-                return;
+            if (input == null) return;
 
             TopLevelMap[input] = s;
             input.StateChanged += InputPaneStateChanged;
@@ -40,8 +39,7 @@ internal static class OnScreenKeyboard
         Control.UnloadedEvent.AddClassHandler<TopLevel>((s, _) =>
         {
             var input = s.InputPane;
-            if (input == null)
-                return;
+            if (input == null) return;
 
             input.StateChanged -= InputPaneStateChanged;
             TopLevelMap.Remove(input);
@@ -51,8 +49,7 @@ internal static class OnScreenKeyboard
 
         InputElement.PointerPressedEvent.AddClassHandler<TextBox>((t, e) =>
         {
-            if (e.Pointer.Type == PointerType.Touch)
-                QueueKeyboardEvent(t, true);
+            if (e.Pointer.Type == PointerType.Touch) QueueKeyboardEvent(t, true);
         }, handledEventsToo: true);
 
         InputElement.LostFocusEvent.AddClassHandler<TextBox>((t, _) => QueueKeyboardEvent(t, false),
@@ -80,20 +77,16 @@ internal static class OnScreenKeyboard
             _lastKeyboardEvent.TextBox = null;
         }
 
-        if (textBox == null)
-            return;
+        if (textBox == null) return;
 
         var tl = TopLevel.GetTopLevel(textBox);
-        if (tl == null)
-            return;
+        if (tl == null) return;
 
         var hwnd = tl.TryGetPlatformHandle()?.Handle ?? IntPtr.Zero;
-        if (hwnd == IntPtr.Zero)
-            return;
+        if (hwnd == IntPtr.Zero) return;
 
         var input = tl.InputPane;
-        if (input == null)
-            return;
+        if (input == null) return;
 
         if (eventState)
         {
@@ -107,11 +100,13 @@ internal static class OnScreenKeyboard
 
     private static void InputPaneStateChanged(object? sender, InputPaneStateEventArgs e)
     {
-        var inputPane = (IInputPane) sender!;
+        var inputPane = (IInputPane)sender!;
         var tl = TopLevelMap[inputPane];
 
         if (tl.FocusManager?.GetFocusedElement() is not TextBox ctrl)
+        {
             return;
+        }
 
         if (e.NewState == InputPaneState.Open)
         {
@@ -145,7 +140,7 @@ internal static class OnScreenKeyboard
         }
         catch (COMException e)
         {
-            if ((uint) e.HResult == 0x80040154)
+            if ((uint)e.HResult == 0x80040154)
             {
                 Process p = new()
                 {
@@ -166,7 +161,7 @@ internal static class OnScreenKeyboard
         }
 
         // ReSharper disable once SuspiciousTypeConversion.Global
-        ((ITipInvocation) uiHostNoLaunch).Toggle(hwnd);
+        ((ITipInvocation)uiHostNoLaunch).Toggle(hwnd);
         Marshal.ReleaseComObject(uiHostNoLaunch);
     }
 

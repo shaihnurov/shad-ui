@@ -27,7 +27,8 @@ public static class DialogBuilderExtensions
     /// <param name="callback">The method that is called once the button is clicked</param>
     /// <param name="buttonStyle">The style of the button. The default is <see cref="DialogButtonStyle.Primary" /></param>
     /// <returns>The modified <see cref="SimpleDialogBuilder" /> instance</returns>
-    public static SimpleDialogBuilder WithPrimaryButton(this SimpleDialogBuilder builder, string text, Action? callback = null,
+    public static SimpleDialogBuilder WithPrimaryButton(this SimpleDialogBuilder builder, string text,
+        Action? callback = null,
         DialogButtonStyle buttonStyle = DialogButtonStyle.Primary)
     {
         builder.PrimaryButtonText = text;
@@ -62,7 +63,8 @@ public static class DialogBuilderExtensions
     /// <param name="callback">The method that is called once the button is clicked</param>
     /// <param name="buttonStyle">The style of the button. The default is <see cref="DialogButtonStyle.Secondary" /></param>
     /// <returns>The modified <see cref="SimpleDialogBuilder" /> instance</returns>
-    public static SimpleDialogBuilder WithSecondaryButton(this SimpleDialogBuilder builder, string text, Action? callback = null,
+    public static SimpleDialogBuilder WithSecondaryButton(this SimpleDialogBuilder builder, string text,
+        Action? callback = null,
         DialogButtonStyle buttonStyle = DialogButtonStyle.Secondary)
     {
         builder.SecondaryButtonText = text;
@@ -97,7 +99,8 @@ public static class DialogBuilderExtensions
     /// <param name="callback">The method that is called once the button is clicked</param>
     /// <param name="buttonStyle">The style of the button. The default is <see cref="DialogButtonStyle.Outline" /></param>
     /// <returns>The modified <see cref="SimpleDialogBuilder" /> instance</returns>
-    public static SimpleDialogBuilder WithTertiaryButton(this SimpleDialogBuilder builder, string text, Action? callback = null,
+    public static SimpleDialogBuilder WithTertiaryButton(this SimpleDialogBuilder builder, string text,
+        Action? callback = null,
         DialogButtonStyle buttonStyle = DialogButtonStyle.Outline)
     {
         builder.TertiaryButtonText = text;
@@ -164,7 +167,8 @@ public static class DialogBuilderExtensions
     /// <param name="asyncCallback">The asynchronous method that is called once the button is clicked</param>
     /// <param name="buttonStyle">The style of the button. The default is <see cref="DialogButtonStyle.Outline" /></param>
     /// <returns>The modified <see cref="SimpleDialogBuilder" /> instance</returns>
-    public static SimpleDialogBuilder WithCancelButton(this SimpleDialogBuilder builder, string text, Func<Task>? asyncCallback,
+    public static SimpleDialogBuilder WithCancelButton(this SimpleDialogBuilder builder, string text,
+        Func<Task>? asyncCallback,
         DialogButtonStyle buttonStyle = DialogButtonStyle.Outline)
     {
         builder.CancelButtonText = text;
@@ -225,7 +229,9 @@ public static class DialogBuilderExtensions
     /// <param name="context">The dialog context</param>
     /// <returns>A new instance of <see cref="DialogBuilder{TContext}" /></returns>
     public static DialogBuilder<TContext> CreateDialog<TContext>(this DialogManager manager, TContext context)
-        => new DialogBuilder<TContext>(manager).CreateDialog(context);
+    {
+        return new DialogBuilder<TContext>(manager).CreateDialog(context);
+    }
 
     /// <summary>
     ///     Sets the success callback for the dialog.
@@ -234,7 +240,8 @@ public static class DialogBuilderExtensions
     /// <param name="builder">The <see cref="DialogBuilder{TContext}" /></param>
     /// <param name="callback">The method that is called on successful completion</param>
     /// <returns>The modified <see cref="DialogBuilder{TContext}" /> instance</returns>
-    public static DialogBuilder<TContext> WithSuccessCallback<TContext>(this DialogBuilder<TContext> builder, Action callback)
+    public static DialogBuilder<TContext> WithSuccessCallback<TContext>(this DialogBuilder<TContext> builder,
+        Action callback)
     {
         builder.OnSuccessCallback = callback;
         return builder;
@@ -247,7 +254,8 @@ public static class DialogBuilderExtensions
     /// <param name="builder">The <see cref="DialogBuilder{TContext}" /></param>
     /// <param name="callback">The asynchronous method that is called on successful completion</param>
     /// <returns>The modified <see cref="DialogBuilder{TContext}" /> instance</returns>
-    public static DialogBuilder<TContext> WithSuccessCallback<TContext>(this DialogBuilder<TContext> builder, Func<Task> callback)
+    public static DialogBuilder<TContext> WithSuccessCallback<TContext>(this DialogBuilder<TContext> builder,
+        Func<Task> callback)
     {
         builder.OnSuccessAsyncCallback = callback;
         return builder;
@@ -260,7 +268,8 @@ public static class DialogBuilderExtensions
     /// <param name="builder">The <see cref="DialogBuilder{TContext}" /></param>
     /// <param name="callback">The method that is called when the dialog is cancelled</param>
     /// <returns>The modified <see cref="DialogBuilder{TContext}" /> instance</returns>
-    public static DialogBuilder<TContext> WithCancelCallback<TContext>(this DialogBuilder<TContext> builder, Action callback)
+    public static DialogBuilder<TContext> WithCancelCallback<TContext>(this DialogBuilder<TContext> builder,
+        Action callback)
     {
         builder.OnCancelCallback = callback;
         return builder;
@@ -273,14 +282,16 @@ public static class DialogBuilderExtensions
     /// <param name="builder">The <see cref="DialogBuilder{TContext}" /></param>
     /// <param name="callback">The asynchronous method that is called when the dialog is cancelled</param>
     /// <returns>The modified <see cref="DialogBuilder{TContext}" /> instance</returns>
-    public static DialogBuilder<TContext> WithCancelCallback<TContext>(this DialogBuilder<TContext> builder, Func<Task> callback)
+    public static DialogBuilder<TContext> WithCancelCallback<TContext>(this DialogBuilder<TContext> builder,
+        Func<Task> callback)
     {
         builder.OnCancelAsyncCallback = callback;
         return builder;
     }
 
     /// <summary>
-    ///     Makes the dialog dismissible by clicking outside or pressing escape. If set to true, this will take precedence over toggling <see cref="DialogManager.PreventDismissal()"/>
+    ///     Makes the dialog dismissible by clicking outside or pressing escape. If set to true, this will take precedence over
+    ///     toggling <see cref="DialogManager.PreventDismissal()" />
     /// </summary>
     /// <typeparam name="TContext">The type of the dialog context</typeparam>
     /// <param name="builder">The <see cref="DialogBuilder{TContext}" /></param>

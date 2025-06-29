@@ -91,8 +91,7 @@ public class SmartKeyBinding : KeyBinding, ICommand
                 RoutedEvent = InputElement.KeyDownEvent
             };
             textBox.RaiseEvent(ev);
-            if (!ev.Handled && CanExecute(parameter))
-                SmartCommand.Execute(parameter);
+            if (!ev.Handled && CanExecute(parameter)) SmartCommand.Execute(parameter);
         }
         else
         {

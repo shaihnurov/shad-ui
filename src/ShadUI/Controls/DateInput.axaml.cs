@@ -148,7 +148,7 @@ public class DateInput : TemplatedControl
     private void OnTextBoxLostFocus(object sender, RoutedEventArgs e)
     {
         InputFocus = false;
-        
+
         if (sender is not TextBox textBox) return;
         var parsed = int.TryParse(textBox.Text, out var value);
 
@@ -174,6 +174,7 @@ public class DateInput : TemplatedControl
                 {
                     value = 31;
                 }
+
                 textBox.Text = value.ToString().PadLeft(2, '0');
                 break;
             case "PART_MonthTextBox":
@@ -187,6 +188,7 @@ public class DateInput : TemplatedControl
                     var maxDays = DateTime.DaysInMonth(currentYear, value);
                     if (currentDay > maxDays) _dayTextBox!.Text = maxDays.ToString().PadLeft(2, '0');
                 }
+
                 break;
             case "PART_YearTextBox":
                 if (!string.IsNullOrEmpty(textBox.Text) && textBox.Text!.Length < 4)
@@ -200,6 +202,7 @@ public class DateInput : TemplatedControl
                 {
                     value = 9999;
                 }
+
                 textBox.Text = value < 1 ? "" : value.ToString().PadLeft(4, '0');
                 // After year changes, validate day for February in leap years
                 int.TryParse(_dayTextBox?.Text, out var day);
@@ -209,6 +212,7 @@ public class DateInput : TemplatedControl
                     var maxDays = DateTime.DaysInMonth(value, 2);
                     if (day > maxDays) _dayTextBox!.Text = maxDays.ToString().PadLeft(2, '0');
                 }
+
                 break;
         }
 
@@ -222,7 +226,9 @@ public class DateInput : TemplatedControl
         if (!int.TryParse(_dayTextBox.Text, out var day) ||
             !int.TryParse(_monthTextBox.Text, out var month) ||
             !int.TryParse(_yearTextBox.Text, out var year))
+        {
             return;
+        }
 
         _updating = true;
 
@@ -296,7 +302,6 @@ public class DateInput : TemplatedControl
     {
         base.UpdateDataValidation(property, state, error);
 
-        if (property == ValueProperty)
-            DataValidationErrors.SetError(this, error);
+        if (property == ValueProperty) DataValidationErrors.SetError(this, error);
     }
 }

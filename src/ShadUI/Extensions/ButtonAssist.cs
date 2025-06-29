@@ -21,7 +21,10 @@ public static class ButtonAssist
     /// </summary>
     /// <param name="textBox"></param>
     /// <returns></returns>
-    public static bool GetShowProgress(Button textBox) => textBox.GetValue(ShowProgressProperty);
+    public static bool GetShowProgress(Button textBox)
+    {
+        return textBox.GetValue(ShowProgressProperty);
+    }
 
     /// <summary>
     ///     Set the value of the <see cref="ShowProgressProperty" />.
@@ -44,7 +47,10 @@ public static class ButtonAssist
     /// </summary>
     /// <param name="textBox"></param>
     /// <returns></returns>
-    public static object GetIcon(Button textBox) => textBox.GetValue(IconProperty);
+    public static object GetIcon(Button textBox)
+    {
+        return textBox.GetValue(IconProperty);
+    }
 
     /// <summary>
     ///     Set the value of the <see cref="IconProperty" />.
@@ -57,22 +63,28 @@ public static class ButtonAssist
     }
 
     /// <summary>
-    ///     Attached property for setting the hover background brush of a <see cref="Button"/>.
+    ///     Attached property for setting the hover background brush of a <see cref="Button" />.
     /// </summary>
     public static readonly AttachedProperty<IBrush> HoverBackgroundProperty =
         AvaloniaProperty.RegisterAttached<Button, IBrush>("HoverBackground", typeof(Button));
 
     /// <summary>
-    ///     Sets the hover background brush for the specified <see cref="Button"/>.
+    ///     Sets the hover background brush for the specified <see cref="Button" />.
     /// </summary>
     /// <param name="btn">The button to set the hover background for.</param>
     /// <param name="value">The brush to use as the hover background.</param>
-    public static void SetHoverBackground(Button btn, IBrush value) => btn.SetValue(HoverBackgroundProperty, value);
+    public static void SetHoverBackground(Button btn, IBrush value)
+    {
+        btn.SetValue(HoverBackgroundProperty, value);
+    }
 
     /// <summary>
-    ///     Gets the hover background brush for the specified <see cref="Button"/>.
+    ///     Gets the hover background brush for the specified <see cref="Button" />.
     /// </summary>
     /// <param name="btn">The button to get the hover background from.</param>
     /// <returns>The brush used as the hover background.</returns>
-    public static IBrush GetHoverBackground(Button btn) => btn.GetValue(HoverBackgroundProperty);
+    public static IBrush GetHoverBackground(Button btn)
+    {
+        return btn.GetValue(HoverBackgroundProperty);
+    }
 }

@@ -52,7 +52,9 @@ public abstract class ViewModelBase : ObservableObject, INotifyDataErrorInfo
         if (Validator.TryValidateProperty(value, validationContext, validationResults)) return;
 
         foreach (var validationResult in validationResults)
+        {
             AddError(propertyName, validationResult.ErrorMessage ?? string.Empty);
+        }
     }
 
     protected void AddError(string propertyName, string error)

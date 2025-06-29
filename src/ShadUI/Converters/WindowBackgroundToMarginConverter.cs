@@ -26,11 +26,8 @@ internal class WindowBackgroundToMarginConverter : IValueConverter
     /// <returns></returns>
     public object Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
     {
-        if (value == null)
-            return new Thickness(0);
-
-        if ((bool) value == false)
-            return new Thickness(10, 5, 0, 10);
+        if (value == null) return new Thickness(0);
+        if ((bool)value == false) return new Thickness(10, 5, 0, 10);
 
         return new Thickness(0);
     }
@@ -44,6 +41,8 @@ internal class WindowBackgroundToMarginConverter : IValueConverter
     /// <param name="culture"></param>
     /// <returns></returns>
     /// <exception cref="NotSupportedException"></exception>
-    public object ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture) =>
+    public object ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
+    {
         throw new NotSupportedException();
+    }
 }

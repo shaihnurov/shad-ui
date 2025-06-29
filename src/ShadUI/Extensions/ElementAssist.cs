@@ -1,10 +1,10 @@
-﻿using Avalonia;
+﻿using System;
+using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
 using Avalonia.Data;
 using Avalonia.Input;
 using Avalonia.Interactivity;
-using System;
 
 // ReSharper disable once CheckNamespace
 namespace ShadUI;
@@ -125,9 +125,9 @@ public class ElementAssist
     private static void HandleAttachFocusChanged(Control element, AvaloniaPropertyChangedEventArgs e)
     {
         var childName = e.NewValue as string;
-        
+
         CleanupFocusHandlers(element);
-        
+
         if (string.IsNullOrEmpty(childName)) return;
 
         var child = element.FindControl<Control>(childName);
@@ -164,7 +164,7 @@ public class ElementAssist
         child.LostFocus += HandleLostFocus;
 
         if (child.IsFocused) parent.Tag = "active";
-        
+
         return;
 
         void HandleLostFocus(object? sender, RoutedEventArgs args)
@@ -181,14 +181,15 @@ public class ElementAssist
     private static void CleanupFocusHandlers(Control? element)
     {
         var handlers = element?.GetValue(FocusHandlersProperty);
-        
-        if(handlers is null) return;
-        
+
+        if (handlers is null) return;
+
         if (handlers.Child is not null)
         {
             handlers.Child.GotFocus -= handlers.GotFocusHandler;
             handlers.Child.LostFocus -= handlers.LostFocusHandler;
         }
+
         element?.ClearValue(FocusHandlersProperty);
     }
 
