@@ -174,19 +174,6 @@
                         </shadui:SidebarItem.Icon>
                     </shadui:SidebarItem>
                     <shadui:SidebarItem
-                        Command="{Binding OpenDataGridCommand}"
-                        Content="Data Table"
-                        ToolTip.Tip="{Binding $parent[shadui:Sidebar].Expanded, Converter={x:Static converters:BooleanConverters.NullOrString}, ConverterParameter='Data Table'}">
-                        <shadui:SidebarItem.Icon>
-                            <Viewbox>
-                                <TextBlock
-                                    Classes="LucideIcon"
-                                    Foreground="{DynamicResource ForegroundColor}"
-                                    Text="&#58628;" />
-                            </Viewbox>
-                        </shadui:SidebarItem.Icon>
-                    </shadui:SidebarItem>
-                    <shadui:SidebarItem
                         Command="{Binding OpenCheckBoxesCommand}"
                         Content="CheckBox"
                         ToolTip.Tip="{Binding $parent[shadui:Sidebar].Expanded, Converter={x:Static converters:BooleanConverters.NullOrString}, ConverterParameter='CheckBox'}">
@@ -222,6 +209,19 @@
                                     Classes="LucideIcon"
                                     Foreground="{DynamicResource ForegroundColor}"
                                     Text="&#57821;" />
+                            </Viewbox>
+                        </shadui:SidebarItem.Icon>
+                    </shadui:SidebarItem>
+                    <shadui:SidebarItem
+                        Command="{Binding OpenDataGridCommand}"
+                        Content="Data Table"
+                        ToolTip.Tip="{Binding $parent[shadui:Sidebar].Expanded, Converter={x:Static converters:BooleanConverters.NullOrString}, ConverterParameter='Data Table'}">
+                        <shadui:SidebarItem.Icon>
+                            <Viewbox>
+                                <TextBlock
+                                    Classes="LucideIcon"
+                                    Foreground="{DynamicResource ForegroundColor}"
+                                    Text="&#58628;" />
                             </Viewbox>
                         </shadui:SidebarItem.Icon>
                     </shadui:SidebarItem>
@@ -265,19 +265,6 @@
                         </shadui:SidebarItem.Icon>
                     </shadui:SidebarItem>
                     <shadui:SidebarItem
-                        Command="{Binding OpenNumericsCommand}"
-                        Content="Numerics"
-                        ToolTip.Tip="{Binding $parent[shadui:Sidebar].Expanded, Converter={x:Static converters:BooleanConverters.NullOrString}, ConverterParameter='Numerics'}">
-                        <shadui:SidebarItem.Icon>
-                            <Viewbox>
-                                <TextBlock
-                                    Classes="ShadUIIcon"
-                                    Foreground="{DynamicResource ForegroundColor}"
-                                    Text="&#xe902;" />
-                            </Viewbox>
-                        </shadui:SidebarItem.Icon>
-                    </shadui:SidebarItem>
-                    <shadui:SidebarItem
                         Command="{Binding OpenMenusCommand}"
                         Content="Menus"
                         ToolTip.Tip="{Binding $parent[shadui:Sidebar].Expanded, Converter={x:Static converters:BooleanConverters.NullOrString}, ConverterParameter='Menus'}">
@@ -287,6 +274,19 @@
                                     Classes="LucideIcon"
                                     Foreground="{DynamicResource ForegroundColor}"
                                     Text="&#58456;" />
+                            </Viewbox>
+                        </shadui:SidebarItem.Icon>
+                    </shadui:SidebarItem>
+                    <shadui:SidebarItem
+                        Command="{Binding OpenNumericsCommand}"
+                        Content="Numerics"
+                        ToolTip.Tip="{Binding $parent[shadui:Sidebar].Expanded, Converter={x:Static converters:BooleanConverters.NullOrString}, ConverterParameter='Numerics'}">
+                        <shadui:SidebarItem.Icon>
+                            <Viewbox>
+                                <TextBlock
+                                    Classes="ShadUIIcon"
+                                    Foreground="{DynamicResource ForegroundColor}"
+                                    Text="&#xe902;" />
                             </Viewbox>
                         </shadui:SidebarItem.Icon>
                     </shadui:SidebarItem>
