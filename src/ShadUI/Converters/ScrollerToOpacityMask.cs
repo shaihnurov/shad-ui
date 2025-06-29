@@ -10,19 +10,19 @@ namespace ShadUI.Converters;
 /// <summary>
 ///     Converts the value of the sidebar menu scroller to an opacity mask.
 /// </summary>
-internal class SidebarMenuScrollerToOpacityMask : IMultiValueConverter
+internal class ScrollerToOpacityMask : IMultiValueConverter
 {
     private readonly Func<double, double, IBrush?> _func;
 
     /// <summary>
     ///     Top mask.
     /// </summary>
-    public static SidebarMenuScrollerToOpacityMask Top { get; } = new((x, y) => x > y ? TopBrush : Brushes.White);
+    public static ScrollerToOpacityMask Top { get; } = new((x, y) => x > y ? TopBrush : Brushes.White);
 
     /// <summary>
     ///     Bottom mask.
     /// </summary>
-    public static SidebarMenuScrollerToOpacityMask Bottom { get; } = new((x, y) => x < y ? BottomBrush : Brushes.White);
+    public static ScrollerToOpacityMask Bottom { get; } = new((x, y) => x < y ? BottomBrush : Brushes.White);
 
     private static readonly LinearGradientBrush BottomBrush = new()
     {
@@ -47,16 +47,16 @@ internal class SidebarMenuScrollerToOpacityMask : IMultiValueConverter
     };
 
     /// <summary>
-    ///     Returns the instance of the <see cref="SidebarMenuScrollerToOpacityMask" />.
+    ///     Returns the instance of the <see cref="ScrollerToOpacityMask" />.
     /// </summary>
     /// <param name="func"></param>
-    public SidebarMenuScrollerToOpacityMask(Func<double, double, IBrush?> func)
+    public ScrollerToOpacityMask(Func<double, double, IBrush?> func)
     {
         _func = func;
     }
 
     /// <summary>
-    ///     Converts the value of the sidebar menu scroller to an opacity mask.
+    ///     Converts the value of the scroller to an opacity mask.
     /// </summary>
     /// <param name="values"></param>
     /// <param name="targetType"></param>
