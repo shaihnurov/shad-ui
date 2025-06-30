@@ -10,9 +10,9 @@ using Avalonia.Controls;
 namespace ShadUI;
 
 /// <summary>
-/// Provides extension methods for managing window state persistence in Avalonia applications.
-/// This class allows windows to automatically save and restore their position, size, and state
-/// across application sessions in temporary files.
+///     Provides extension methods for managing window state persistence in Avalonia applications.
+///     This class allows windows to automatically save and restore their position, size, and state
+///     across application sessions in temporary files.
 /// </summary>
 public static class WindowExt
 {
@@ -25,13 +25,15 @@ public static class WindowExt
     private const string FilePrefix = "shadui_windowstate_";
 
     /// <summary>
-    /// Enables automatic window state management for the specified window.
-    /// The window's position, size, and state will be automatically saved when the window closes
-    /// and restored when the window is opened again.
+    ///     Enables automatic window state management for the specified window.
+    ///     The window's position, size, and state will be automatically saved when the window closes
+    ///     and restored when the window is opened again.
     /// </summary>
     /// <param name="window">The window to manage state for.</param>
-    /// <param name="key">A unique identifier for this window's state. Used to distinguish between different windows.
-    /// Defaults to "main" if not specified.</param>
+    /// <param name="key">
+    ///     A unique identifier for this window's state. Used to distinguish between different windows.
+    ///     Defaults to "main" if not specified.
+    /// </param>
     public static void ManageWindowState(this Window window, string key = "main")
     {
         if (Handlers.ContainsKey(window))
@@ -49,8 +51,8 @@ public static class WindowExt
     }
 
     /// <summary>
-    /// Disables automatic window state management for the specified window.
-    /// Removes the event handler that was previously attached by <see cref="ManageWindowState"/>.
+    ///     Disables automatic window state management for the specified window.
+    ///     Removes the event handler that was previously attached by <see cref="ManageWindowState" />.
     /// </summary>
     /// <param name="window">The window to stop managing state for.</param>
     public static void UnmanageWindowState(this Window window)
@@ -230,34 +232,34 @@ public static class WindowExt
     }
 
     /// <summary>
-    /// Represents the state of a window including its position, size, and window state.
-    /// This class is used internally to serialize and deserialize window state information
-    /// to and from temporary files.
+    ///     Represents the state of a window including its position, size, and window state.
+    ///     This class is used internally to serialize and deserialize window state information
+    ///     to and from temporary files.
     /// </summary>
     private class WindowSettings
     {
         /// <summary>
-        /// Gets or sets the X coordinate of the window's position on screen.
+        ///     Gets or sets the X coordinate of the window's position on screen.
         /// </summary>
         public int X { get; set; }
 
         /// <summary>
-        /// Gets or sets the Y coordinate of the window's position on screen.
+        ///     Gets or sets the Y coordinate of the window's position on screen.
         /// </summary>
         public int Y { get; set; }
 
         /// <summary>
-        /// Gets or sets the width of the window in pixels.
+        ///     Gets or sets the width of the window in pixels.
         /// </summary>
         public double Width { get; set; }
 
         /// <summary>
-        /// Gets or sets the height of the window in pixels.
+        ///     Gets or sets the height of the window in pixels.
         /// </summary>
         public double Height { get; set; }
 
         /// <summary>
-        /// Gets or sets the current state of the window (Normal, Minimized, Maximized).
+        ///     Gets or sets the current state of the window (Normal, Minimized, Maximized).
         /// </summary>
         public WindowState WindowState { get; set; }
     }
