@@ -89,8 +89,13 @@ public static class WindowExt
         if (state == null) return;
 
         window.Position = new PixelPoint(state.X, state.Y);
-        window.Width = state.Width;
-        window.Height = state.Height;
+
+        if (state.WindowState == WindowState.Normal)
+        {
+            window.Width = state.Width;
+            window.Height = state.Height;
+        }
+
         window.WindowState = state.WindowState == WindowState.Minimized
             ? WindowState.Normal
             : state.WindowState;
