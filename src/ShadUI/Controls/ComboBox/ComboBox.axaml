@@ -126,10 +126,8 @@
                                     <Popup
                                         Name="PART_Popup"
                                         Grid.Column="0"
-                                        MinWidth="{CompiledBinding #PART_Border.Bounds.Width,
-                                                                   Converter={x:Static shadui:PopupMinWidthConverter.Instance}}"
-                                        MaxHeight="{TemplateBinding MaxDropDownHeight,
-                                                                    Converter={x:Static shadui:PopupMaxDropDownHeightConverter.Instance}}"
+                                        MinWidth="{CompiledBinding #PART_Border.Bounds.Width}"
+                                        MaxHeight="{TemplateBinding MaxDropDownHeight}"
                                         IsLightDismissEnabled="True"
                                         IsOpen="{TemplateBinding IsDropDownOpen,
                                                                  Mode=TwoWay}"

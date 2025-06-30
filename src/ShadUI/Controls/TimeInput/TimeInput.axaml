@@ -174,7 +174,8 @@
                                         Grid.Column="5"
                                         Margin="8,0,0,0"
                                         IsVisible="{TemplateBinding ClockIdentifier,
-                                                                    Converter={x:Static shadui:ClockIdentifierToIsVisibleConverter.Instance}}"
+                                                                    Converter={x:Static shadui:StringConverters.IsMatch},
+                                                                    ConverterParameter='12HourClock'}"
                                         Theme="{StaticResource ToggleButtonTheme}" />
                                 </Grid>
                             </Border>

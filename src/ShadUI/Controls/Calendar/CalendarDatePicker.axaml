@@ -212,7 +212,6 @@
                             <Popup
                                 Name="PART_Popup"
                                 MinWidth="{CompiledBinding Bounds.Width,
-                                                           Converter={x:Static shadui:PopupMinWidthConverter.Instance},
                                                            RelativeSource={RelativeSource TemplatedParent}}"
                                 IsLightDismissEnabled="True"
                                 IsOpen="{TemplateBinding IsDropDownOpen,

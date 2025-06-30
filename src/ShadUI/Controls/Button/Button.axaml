@@ -98,7 +98,7 @@
                         CornerRadius="{TemplateBinding CornerRadius}"
                         TextElement.Foreground="{TemplateBinding Foreground}">
                         <StackPanel HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Orientation="Horizontal">
-                            <Viewbox Width="{TemplateBinding shadui:ButtonAssist.ShowProgress, Converter={x:Static shadui:BoolToWidthProgressConverter.Instance}}" Height="16">
+                            <Viewbox Width="{TemplateBinding shadui:ButtonAssist.ShowProgress, Converter={x:Static shadui:BooleanConverters.ToZeroOrDouble}, ConverterParameter='24'}" Height="16">
                                 <Viewbox.Transitions>
                                     <Transitions>
                                         <DoubleTransition Property="Width" Duration="0:0:0.10" />
@@ -108,7 +108,8 @@
                             </Viewbox>
                             <Viewbox
                                 Width="{TemplateBinding shadui:ButtonAssist.ShowProgress,
-                                                        Converter={x:Static shadui:BoolToInverseWidthProgressConverter.Instance}}"
+                                                        Converter={x:Static shadui:BooleanConverters.ToZeroOrDouble},
+                                                        ConverterParameter='24'}"
                                 IsVisible="{TemplateBinding shadui:ButtonAssist.Icon,
                                                             Converter={x:Static ObjectConverters.IsNotNull}}"
                                 Opacity="{TemplateBinding shadui:ButtonAssist.ShowProgress,

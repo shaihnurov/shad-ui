@@ -205,10 +205,8 @@
                     </DataValidationErrors>
                     <Popup
                         Name="PART_Popup"
-                        MinWidth="{CompiledBinding #PART_TextBox.Bounds.Width,
-                                                   Converter={x:Static shadui:PopupMinWidthConverter.Instance}}"
-                        MaxHeight="{TemplateBinding MaxDropDownHeight,
-                                                    Converter={x:Static shadui:PopupMaxDropDownHeightConverter.Instance}}"
+                        MinWidth="{CompiledBinding #PART_TextBox.Bounds.Width}"
+                        MaxHeight="{TemplateBinding MaxDropDownHeight}"
                         IsLightDismissEnabled="True"
                         PlacementTarget="PART_TextBox"
                         VerticalOffset="5">

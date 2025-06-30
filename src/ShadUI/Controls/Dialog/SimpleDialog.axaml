@@ -77,7 +77,7 @@
                                 Name="PART_CancelButton"
                                 MinWidth="80"
                                 shadui:ElementAssist.Classes="{TemplateBinding CancelButtonStyle,
-                                                                               Converter={x:Static shadui:DialogButtonStyleToButtonClassConverter.Instance}}"
+                                                                               Converter={x:Static shadui:DialogButtonStyleConverters.ToClass}}"
                                 Content="{TemplateBinding CancelButtonText}"
                                 IsVisible="{CompiledBinding Content,
                                                             ElementName=PART_CancelButton,
@@ -86,7 +86,7 @@
                                 Name="PART_TertiaryButton"
                                 MinWidth="80"
                                 shadui:ElementAssist.Classes="{TemplateBinding TertiaryButtonStyle,
-                                                                               Converter={x:Static shadui:DialogButtonStyleToButtonClassConverter.Instance}}"
+                                                                               Converter={x:Static shadui:DialogButtonStyleConverters.ToClass}}"
                                 Content="{TemplateBinding TertiaryButtonText}"
                                 IsVisible="{CompiledBinding Content,
                                                             ElementName=PART_TertiaryButton,
@@ -95,7 +95,7 @@
                                 Name="PART_SecondaryButton"
                                 MinWidth="80"
                                 shadui:ElementAssist.Classes="{TemplateBinding SecondaryButtonStyle,
-                                                                               Converter={x:Static shadui:DialogButtonStyleToButtonClassConverter.Instance}}"
+                                                                               Converter={x:Static shadui:DialogButtonStyleConverters.ToClass}}"
                                 Content="{TemplateBinding SecondaryButtonText}"
                                 IsVisible="{CompiledBinding Content,
                                                             ElementName=PART_SecondaryButton,
@@ -104,7 +104,7 @@
                                 Name="PART_PrimaryButton"
                                 MinWidth="80"
                                 shadui:ElementAssist.Classes="{TemplateBinding PrimaryButtonStyle,
-                                                                               Converter={x:Static shadui:DialogButtonStyleToButtonClassConverter.Instance}}"
+                                                                               Converter={x:Static shadui:DialogButtonStyleConverters.ToClass}}"
                                 shadui:ElementAssist.FocusOnLoad="True"
                                 Content="{TemplateBinding PrimaryButtonText}"
                                 IsVisible="{CompiledBinding Content,

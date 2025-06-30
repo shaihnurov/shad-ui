@@ -55,7 +55,7 @@
                                     VerticalAlignment="Top"
                                     Background="{TemplateBinding HeaderBackground}"
                                     CornerRadius="{TemplateBinding CornerRadius,
-                                                                   Converter={x:Static shadui:CornerRadiusConverter.TopOnly}}" />
+                                                                   Converter={x:Static shadui:CornerRadiusConverters.TopOnly}}" />
                                 <Button
                                     Name="PART_PreviousButton"
                                     Grid.Row="0"

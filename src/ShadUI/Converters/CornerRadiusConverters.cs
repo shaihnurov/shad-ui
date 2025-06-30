@@ -11,7 +11,7 @@ namespace ShadUI;
 ///     This class contains static converters that can be used to extract specific corner values
 ///     from a CornerRadius or create new CornerRadius instances with only specific corners.
 /// </remarks>
-public static class CornerRadiusConverter
+public static class CornerRadiusConverters
 {
     /// <summary>
     ///     Converts a CornerRadius to a new CornerRadius with only the top corners (TopLeft and TopRight).

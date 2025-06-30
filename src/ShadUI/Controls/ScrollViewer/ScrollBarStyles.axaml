@@ -72,7 +72,7 @@
                         BorderThickness="0"
                         Focusable="False">
                         <RepeatButton.IsVisible>
-                            <MultiBinding Converter="{x:Static shadui:SidebarMenuScrollerToVisibilityBool.Up}">
+                            <MultiBinding Converter="{x:Static shadui:SidebarScrollerToVisibilityBool.Up}">
                                 <CompiledBinding Path="Value" RelativeSource="{RelativeSource TemplatedParent}" />
                                 <CompiledBinding Path="Minimum" RelativeSource="{RelativeSource TemplatedParent}" />
                             </MultiBinding>
@@ -96,7 +96,7 @@
                         BorderThickness="0"
                         Focusable="False">
                         <RepeatButton.IsVisible>
-                            <MultiBinding Converter="{x:Static shadui:SideMenuScrollerToVisibilityBool.Down}">
+                            <MultiBinding Converter="{x:Static shadui:SidebarScrollerToVisibilityBool.Down}">
                                 <CompiledBinding Path="Value" RelativeSource="{RelativeSource TemplatedParent}" />
                                 <CompiledBinding Path="Maximum" RelativeSource="{RelativeSource TemplatedParent}" />
                             </MultiBinding>

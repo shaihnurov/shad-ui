@@ -211,12 +211,12 @@
         </Style>
 
         <Style x:DataType="Color" Selector="^:pointerover /template/ Border#BorderRectangle">
-            <Setter Property="BorderBrush" Value="{Binding Converter={x:Static shadui:Wrapper.ContrastBrushConverter}}" />
+            <Setter Property="BorderBrush" Value="{Binding Converter={x:Static shadui:BasicConverters.ContrastBrushConverter}}" />
             <Setter Property="Opacity" Value="0.5" />
         </Style>
 
         <Style x:DataType="Color" Selector="^:selected /template/ Border#BorderRectangle">
-            <Setter Property="BorderBrush" Value="{Binding Converter={x:Static shadui:Wrapper.ContrastBrushConverter}}" />
+            <Setter Property="BorderBrush" Value="{Binding Converter={x:Static shadui:BasicConverters.ContrastBrushConverter}}" />
             <Setter Property="Opacity" Value="1" />
         </Style>
     </ControlTheme>

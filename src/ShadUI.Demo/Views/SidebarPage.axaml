@@ -48,7 +48,7 @@
                                 Background="{DynamicResource CardBackgroundColor}"
                                 BorderThickness="0,0,1,0"
                                 CornerRadius="{CompiledBinding #Border.CornerRadius,
-                                                               Converter={x:Static shadui:CornerRadiusConverter.LeftOnly}}"
+                                                               Converter={x:Static shadui:CornerRadiusConverters.LeftOnly}}"
                                 Expanded="{Binding #Toggler.IsChecked}"
                                 ItemIconContentSpacing="12">
                                 <shadui:Sidebar.Header>

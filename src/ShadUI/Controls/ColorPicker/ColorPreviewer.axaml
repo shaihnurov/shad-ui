@@ -31,16 +31,16 @@
                                 x:Name="PART_AccentDecrement2Border"
                                 Grid.Column="0"
                                 Background="{TemplateBinding HsvColor,
-                                                             Converter={x:Static shadui:Wrapper.AccentColorConverter},
+                                                             Converter={x:Static shadui:BasicConverters.AccentColorConverter},
                                                              ConverterParameter='-2'}"
                                 CornerRadius="{TemplateBinding CornerRadius,
-                                                               Converter={x:Static shadui:CornerRadiusConverter.LeftOnly}}"
+                                                               Converter={x:Static shadui:CornerRadiusConverters.LeftOnly}}"
                                 Tag="-2" />
                             <Border
                                 x:Name="PART_AccentDecrement1Border"
                                 Grid.Column="1"
                                 Background="{TemplateBinding HsvColor,
-                                                             Converter={x:Static shadui:Wrapper.AccentColorConverter},
+                                                             Converter={x:Static shadui:BasicConverters.AccentColorConverter},
                                                              ConverterParameter='-1'}"
                                 Tag="-1" />
                         </Grid>
@@ -60,17 +60,17 @@
                                 x:Name="PART_AccentIncrement1Border"
                                 Grid.Column="0"
                                 Background="{TemplateBinding HsvColor,
-                                                             Converter={x:Static shadui:Wrapper.AccentColorConverter},
+                                                             Converter={x:Static shadui:BasicConverters.AccentColorConverter},
                                                              ConverterParameter='1'}"
                                 Tag="1" />
                             <Border
                                 x:Name="PART_AccentIncrement2Border"
                                 Grid.Column="1"
                                 Background="{TemplateBinding HsvColor,
-                                                             Converter={x:Static shadui:Wrapper.AccentColorConverter},
+                                                             Converter={x:Static shadui:BasicConverters.AccentColorConverter},
                                                              ConverterParameter='2'}"
                                 CornerRadius="{TemplateBinding CornerRadius,
-                                                               Converter={x:Static shadui:CornerRadiusConverter.RightOnly}}"
+                                                               Converter={x:Static shadui:CornerRadiusConverters.RightOnly}}"
                                 Tag="2" />
                         </Grid>
                         <Border
@@ -85,7 +85,7 @@
                                     HorizontalAlignment="Stretch"
                                     VerticalAlignment="Stretch"
                                     Background="{TemplateBinding HsvColor,
-                                                                 Converter={x:Static shadui:Wrapper.ToBrushConverter}}"
+                                                                 Converter={x:Static shadui:BasicConverters.ToBrushConverter}}"
                                     CornerRadius="{TemplateBinding CornerRadius}" />
                             </Panel>
                         </Border>
@@ -102,7 +102,7 @@
                                 HorizontalAlignment="Stretch"
                                 VerticalAlignment="Stretch"
                                 Background="{TemplateBinding HsvColor,
-                                                             Converter={x:Static shadui:Wrapper.ToBrushConverter}}"
+                                                             Converter={x:Static shadui:BasicConverters.ToBrushConverter}}"
                                 CornerRadius="{TemplateBinding CornerRadius}" />
                         </Panel>
                     </Border>
