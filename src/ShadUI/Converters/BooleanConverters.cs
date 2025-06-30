@@ -50,4 +50,22 @@ public static class BooleanConverters
             var paramValue = double.TryParse(param, out var parsedValue) ? parsedValue : 0;
             return value ? paramValue : 0;
         });
+
+    /// <summary>
+    ///     Converts a boolean value to either zero or a specified double value (inverse of ToZeroOrDouble).
+    /// </summary>
+    /// <remarks>
+    ///     This converter returns 0 when the boolean is true, and the parsed parameter value when false.
+    ///     The parameter should be a string representation of a double value.
+    ///     
+    ///     Parameters:
+    ///     - value: The boolean value to convert
+    ///     - param: A string representation of the double value to return when false
+    /// </remarks>
+    public static readonly IValueConverter ToDoubleOrZero =
+        new FuncValueConverter<bool, string, double>((value, param) =>
+        {
+            var paramValue = double.TryParse(param, out var parsedValue) ? parsedValue : 0;
+            return value ? 0 : paramValue;
+        });
 }

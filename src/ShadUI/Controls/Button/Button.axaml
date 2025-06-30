@@ -108,7 +108,7 @@
                             </Viewbox>
                             <Viewbox
                                 Width="{TemplateBinding shadui:ButtonAssist.ShowProgress,
-                                                        Converter={x:Static shadui:BooleanConverters.ToZeroOrDouble},
+                                                        Converter={x:Static shadui:BooleanConverters.ToDoubleOrZero},
                                                         ConverterParameter='24'}"
                                 IsVisible="{TemplateBinding shadui:ButtonAssist.Icon,
                                                             Converter={x:Static ObjectConverters.IsNotNull}}"
