@@ -7,13 +7,13 @@ namespace ShadUI;
 /// <summary>
 ///     Represents a view that can change its layout based on breakpoints.
 /// </summary>
-public class View : Grid
+public class BreakpointView : Grid
 {
     /// <summary>
     ///     Defines the <see cref="Breakpoint" /> property.
     /// </summary>
     public static readonly StyledProperty<Breakpoint> BreakpointProperty =
-        AvaloniaProperty.Register<ViewPort, Breakpoint>(nameof(Breakpoint));
+        AvaloniaProperty.Register<BreakpointViewPort, Breakpoint>(nameof(Breakpoint));
 
     /// <summary>
     ///     Gets or sets the breakpoint for the view.
@@ -27,7 +27,7 @@ public class View : Grid
     /// <summary>
     ///     Defines the <see cref="Invert" /> property.
     /// </summary>
-    public static readonly StyledProperty<bool> InvertProperty = AvaloniaProperty.Register<ViewPort, bool>(
+    public static readonly StyledProperty<bool> InvertProperty = AvaloniaProperty.Register<BreakpointViewPort, bool>(
         nameof(Invert));
 
     /// <summary>

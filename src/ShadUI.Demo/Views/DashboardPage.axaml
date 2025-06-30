@@ -48,8 +48,8 @@
                     <TabControl.Items>
                         <TabItem Header="Overview">
                             <StackPanel>
-                                <shadui:ViewPort>
-                                    <shadui:View Breakpoint="MdAndUp">
+                                <shadui:BreakpointViewPort>
+                                    <shadui:BreakpointView Breakpoint="MdAndUp">
                                         <UniformGrid Margin="-6,0" Columns="4">
                                             <dashboard:OverviewCard
                                                 Title="Total Revenue"
@@ -100,8 +100,8 @@
                                                 </dashboard:OverviewCard.Icon>
                                             </dashboard:OverviewCard>
                                         </UniformGrid>
-                                    </shadui:View>
-                                    <shadui:View Breakpoint="MdAndDown">
+                                    </shadui:BreakpointView>
+                                    <shadui:BreakpointView Breakpoint="MdAndDown">
                                         <UniformGrid Margin="-6,0" Columns="2">
                                             <dashboard:OverviewCard
                                                 Title="Total Revenue"
@@ -152,10 +152,10 @@
                                                 </dashboard:OverviewCard.Icon>
                                             </dashboard:OverviewCard>
                                         </UniformGrid>
-                                    </shadui:View>
-                                </shadui:ViewPort>
-                                <shadui:ViewPort>
-                                    <shadui:View Breakpoint="MdAndUp">
+                                    </shadui:BreakpointView>
+                                </shadui:BreakpointViewPort>
+                                <shadui:BreakpointViewPort>
+                                    <shadui:BreakpointView Breakpoint="MdAndUp">
                                         <Grid Margin="-8,0" ColumnDefinitions="3* 2*">
                                             <Border
                                                 Margin="8"
@@ -295,8 +295,8 @@
                                                 </DockPanel>
                                             </Border>
                                         </Grid>
-                                    </shadui:View>
-                                    <shadui:View Breakpoint="MdAndDown">
+                                    </shadui:BreakpointView>
+                                    <shadui:BreakpointView Breakpoint="MdAndDown">
                                         <Grid Margin="-8,0" RowDefinitions="* *">
                                             <Border
                                                 MinHeight="360"
@@ -437,8 +437,8 @@
                                                 </DockPanel>
                                             </Border>
                                         </Grid>
-                                    </shadui:View>
-                                </shadui:ViewPort>
+                                    </shadui:BreakpointView>
+                                </shadui:BreakpointViewPort>
                             </StackPanel>
                         </TabItem>
                         <TabItem Header="Analytics" IsEnabled="False" />
