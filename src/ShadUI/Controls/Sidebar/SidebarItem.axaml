@@ -10,6 +10,7 @@
         <Setter Property="GroupName" Value="{Binding $parent[shadui:Sidebar].DefaultItemsGroup}" />
         <Setter Property="Expanded" Value="{Binding $parent[shadui:Sidebar].Expanded}" />
         <Setter Property="Spacing" Value="{Binding $parent[shadui:Sidebar].ItemIconContentSpacing}" />
+        <Setter Property="ParentRoute" Value="{Binding $parent[shadui:Sidebar].CurrentRoute}" />
         <Setter Property="TextBlock.TextTrimming" Value="CharacterEllipsis" />
         <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
         <Setter Property="TextBlock.MaxLines" Value="2" />

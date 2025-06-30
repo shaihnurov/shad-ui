@@ -168,6 +168,29 @@ public class Sidebar : ContentControl
     }
 
     /// <summary>
+    ///     Defines the <see cref="CurrentRoute" /> property.
+    /// </summary>
+    public static readonly StyledProperty<string> CurrentRouteProperty = AvaloniaProperty.Register<Sidebar, string>(
+        nameof(CurrentRoute));
+
+    /// <summary>
+    ///     Gets or sets the current route or navigation path for the sidebar.
+    ///     This property enables navigation-aware sidebar behavior by allowing the control
+    ///     to track the current application route. It's particularly useful for:
+    ///     <list type="bullet">
+    ///         <item><description>Highlighting the currently active navigation item</description></item>
+    ///         <item><description>Implementing route-based sidebar state management</description></item>
+    ///         <item><description>Enabling automatic sidebar item selection based on the current page</description></item>
+    ///         <item><description>Supporting deep linking scenarios where the sidebar should reflect the current route</description></item>
+    ///     </list>
+    /// </summary>
+    public string CurrentRoute
+    {
+        get => GetValue(CurrentRouteProperty);
+        set => SetValue(CurrentRouteProperty, value);
+    }
+    
+    /// <summary>
     ///     Called when the template is applied to the control.
     /// </summary>
     /// <param name="e">The template applied event arguments.</param>

@@ -18,21 +18,6 @@ namespace ShadUI;
 public class SidebarItem : RadioButton
 {
     /// <summary>
-    ///     Defines the <see cref="IsSelected" /> property.
-    /// </summary>
-    public static readonly StyledProperty<bool> IsSelectedProperty = AvaloniaProperty.Register<SidebarItem, bool>(
-        nameof(IsSelected));
-
-    /// <summary>
-    ///     Gets or sets a value indicating whether the sidebar item is selected.
-    /// </summary>
-    public bool IsSelected
-    {
-        get => GetValue(IsSelectedProperty);
-        set => SetValue(IsSelectedProperty, value);
-    }
-
-    /// <summary>
     ///     Icon property.
     /// </summary>
     public static readonly StyledProperty<object?> IconProperty =
@@ -113,6 +98,43 @@ public class SidebarItem : RadioButton
     }
 
     /// <summary>
+    ///     Defines the <see cref="Route" /> property.
+    /// </summary>
+    public static readonly StyledProperty<string> RouteProperty = AvaloniaProperty.Register<SidebarItem, string>(
+        nameof(Route));
+
+    /// <summary>
+    ///     Gets or sets the route or navigation path associated with this sidebar item.
+    ///     This property is useful for:
+    ///     <list type="bullet">
+    ///         <item><description>Navigation-aware sidebar behavior where items can be highlighted based on the current route</description></item>
+    ///         <item><description>Implementing automatic selection of sidebar items when navigating to specific pages</description></item>
+    ///         <item><description>Enabling deep linking scenarios where the sidebar reflects the current application state</description></item>
+    ///         <item><description>Facilitating route-based sidebar item activation and deactivation</description></item>
+    ///     </list>
+    /// </summary>
+    public string Route
+    {
+        get => GetValue(RouteProperty);
+        set => SetValue(RouteProperty, value);
+    }
+
+    /// <summary>
+    ///     Defines the <see cref="ParentRoute" /> property.
+    /// </summary>
+    public static readonly StyledProperty<string> ParentRouteProperty = AvaloniaProperty.Register<SidebarItem, string>(
+        nameof(ParentRoute));
+
+    /// <summary>
+    ///     Gets or sets the parent route that this sidebar item belongs to.
+    /// </summary>
+    public string ParentRoute
+    {
+        get => GetValue(ParentRouteProperty);
+        internal set => SetValue(ParentRouteProperty, value);
+    }
+    
+    /// <summary>
     ///     Called when the template is applied to the control.
     /// </summary>
     /// <param name="e">The template applied event arguments.</param>
@@ -158,6 +180,17 @@ public class SidebarItem : RadioButton
         {
             HasIcon = Icon != null;
         }
+
+        if (change.Property == ParentRouteProperty)
+        {
+            UpdateCheckState(change.GetNewValue<string>());
+        }
+    }
+
+    private void UpdateCheckState(string value)
+    {
+        if (string.IsNullOrEmpty(value) || string.IsNullOrEmpty(Route)) return;
+        IsChecked = ParentRoute == Route;
     }
 
     private void AnimateExpand(bool toExpand)
