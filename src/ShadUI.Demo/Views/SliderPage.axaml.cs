@@ -2,9 +2,9 @@
 
 namespace ShadUI.Demo.Views;
 
-public partial class CardsPage : UserControl
+public partial class SliderPage : UserControl
 {
-    public CardsPage()
+    public SliderPage()
     {
         InitializeComponent();
     }

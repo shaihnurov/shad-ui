@@ -6,11 +6,11 @@ using CommunityToolkit.Mvvm.Input;
 
 namespace ShadUI.Demo.ViewModels;
 
-public sealed partial class ComboBoxesViewModel : ViewModelBase
+public sealed partial class ComboBoxViewModel : ViewModelBase
 {
-    public ComboBoxesViewModel()
+    public ComboBoxViewModel()
     {
-        var path = Path.Combine(AppContext.BaseDirectory, "views", "ComboBoxesPage.axaml");
+        var path = Path.Combine(AppContext.BaseDirectory, "views", "ComboBoxPage.axaml");
         SelectComboBoxCode = path.ExtractByLineRange(35, 51).CleanIndentation();
         SelectComboBoxDisabledCode = path.ExtractByLineRange(57, 60).CleanIndentation();
         FormValidationCode = path.ExtractByLineRange(66, 88).CleanIndentation();

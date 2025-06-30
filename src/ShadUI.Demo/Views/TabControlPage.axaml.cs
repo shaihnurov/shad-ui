@@ -2,9 +2,9 @@
 
 namespace ShadUI.Demo.Views;
 
-public partial class ToastsPage : UserControl
+public partial class TabControlPage : UserControl
 {
-    public ToastsPage()
+    public TabControlPage()
     {
         InitializeComponent();
     }

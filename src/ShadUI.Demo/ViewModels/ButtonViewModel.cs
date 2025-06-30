@@ -6,11 +6,11 @@ using CommunityToolkit.Mvvm.Input;
 
 namespace ShadUI.Demo.ViewModels;
 
-public sealed partial class ButtonsViewModel : ViewModelBase
+public sealed partial class ButtonViewModel : ViewModelBase
 {
-    public ButtonsViewModel()
+    public ButtonViewModel()
     {
-        var path = Path.Combine(AppContext.BaseDirectory, "views", "ButtonsPage.axaml");
+        var path = Path.Combine(AppContext.BaseDirectory, "views", "ButtonPage.axaml");
         PrimaryCode = path.ExtractByLineRange(30, 55).CleanIndentation();
         SecondaryCode = path.ExtractByLineRange(61, 86).CleanIndentation();
         DestructiveCode = path.ExtractByLineRange(92, 117).CleanIndentation();

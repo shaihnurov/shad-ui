@@ -1,5 +1,5 @@
 ﻿<UserControl
-    x:Class="ShadUI.Demo.Views.ColorsPage"
+    x:Class="ShadUI.Demo.Views.ColorPage"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="clr-namespace:ShadUI.Demo.Controls"
@@ -9,7 +9,7 @@
     xmlns:shadui="clr-namespace:ShadUI;assembly=ShadUI"
     xmlns:viewModels="clr-namespace:ShadUI.Demo.ViewModels"
     d:DesignWidth="800"
-    x:DataType="viewModels:ColorsViewModel"
+    x:DataType="viewModels:ColorViewModel"
     mc:Ignorable="d">
     <DockPanel LastChildFill="True">
         <StackPanel

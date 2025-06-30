@@ -2,9 +2,9 @@
 
 namespace ShadUI.Demo.Views;
 
-public partial class SlidersPage : UserControl
+public partial class DialogPage : UserControl
 {
-    public SlidersPage()
+    public DialogPage()
     {
         InitializeComponent();
     }

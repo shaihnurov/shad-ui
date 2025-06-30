@@ -4,11 +4,11 @@ using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace ShadUI.Demo.ViewModels;
 
-public sealed partial class TabsViewModel : ViewModelBase
+public sealed partial class TabControlViewModel : ViewModelBase
 {
-    public TabsViewModel()
+    public TabControlViewModel()
     {
-        var path = Path.Combine(AppContext.BaseDirectory, "views", "TabsPage.axaml");
+        var path = Path.Combine(AppContext.BaseDirectory, "views", "TabControlPage.axaml");
         BasicTabCode = path.ExtractByLineRange(33, 51).CleanIndentation();
     }
 

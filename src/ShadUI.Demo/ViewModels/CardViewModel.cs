@@ -4,11 +4,11 @@ using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace ShadUI.Demo.ViewModels;
 
-public sealed partial class CardsViewModel : ViewModelBase
+public sealed partial class CardViewModel : ViewModelBase
 {
-    public CardsViewModel()
+    public CardViewModel()
     {
-        var path = Path.Combine(AppContext.BaseDirectory, "views", "CardsPage.axaml");
+        var path = Path.Combine(AppContext.BaseDirectory, "views", "CardPage.axaml");
         UsageCode = path.ExtractByLineRange(34, 74).CleanIndentation();
     }
 

@@ -5,13 +5,13 @@ using CommunityToolkit.Mvvm.Input;
 
 namespace ShadUI.Demo.ViewModels;
 
-public sealed partial class DialogsViewModel : ViewModelBase
+public sealed partial class DialogViewModel : ViewModelBase
 {
     private readonly DialogManager _dialogManager;
     private readonly ToastManager _toastManager;
     private readonly LoginViewModel _loginViewModel;
 
-    public DialogsViewModel(DialogManager dialogManager,
+    public DialogViewModel(DialogManager dialogManager,
         ToastManager toastManager,
         LoginViewModel loginViewModel)
     {
@@ -19,7 +19,7 @@ public sealed partial class DialogsViewModel : ViewModelBase
         _toastManager = toastManager;
         _loginViewModel = loginViewModel;
 
-        var path = Path.Combine(AppContext.BaseDirectory, "viewModels", "DialogsViewModel.cs");
+        var path = Path.Combine(AppContext.BaseDirectory, "viewModels", "DialogViewModel.cs");
         AlertDialogCode = WrapCode(path.ExtractByLineRange(46, 62).CleanIndentation());
         DestructiveAlertDialogCode = WrapCode(path.ExtractByLineRange(67, 84).CleanIndentation());
         CustomDialogCode = WrapCode(path.ExtractByLineRange(89, 106).CleanIndentation());

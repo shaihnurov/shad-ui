@@ -2,9 +2,9 @@
 
 namespace ShadUI.Demo.Views;
 
-public sealed partial class ColorsPage : UserControl
+public partial class ComboBoxPage : UserControl
 {
-    public ColorsPage()
+    public ComboBoxPage()
     {
         InitializeComponent();
     }

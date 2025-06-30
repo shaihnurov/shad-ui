@@ -2,9 +2,9 @@
 
 namespace ShadUI.Demo.Views;
 
-public partial class CheckBoxesPage : UserControl
+public sealed partial class ColorPage : UserControl
 {
-    public CheckBoxesPage()
+    public ColorPage()
     {
         InitializeComponent();
     }

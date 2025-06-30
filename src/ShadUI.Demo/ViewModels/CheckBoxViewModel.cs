@@ -6,11 +6,11 @@ using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace ShadUI.Demo.ViewModels;
 
-public partial class CheckBoxesViewModel : ViewModelBase
+public partial class CheckBoxViewModel : ViewModelBase
 {
-    public CheckBoxesViewModel()
+    public CheckBoxViewModel()
     {
-        var path = Path.Combine(AppContext.BaseDirectory, "views", "CheckBoxesPage.axaml");
+        var path = Path.Combine(AppContext.BaseDirectory, "views", "CheckBoxPage.axaml");
         DefaultCode = path.ExtractByLineRange(33, 35).CleanIndentation();
         DisabledCode = path.ExtractByLineRange(41, 43).CleanIndentation();
         IndeterminateCode = path.ExtractByLineRange(49, 51).CleanIndentation();

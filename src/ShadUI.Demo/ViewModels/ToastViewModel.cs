@@ -5,14 +5,14 @@ using CommunityToolkit.Mvvm.Input;
 
 namespace ShadUI.Demo.ViewModels;
 
-public sealed partial class ToastsViewModel : ViewModelBase
+public sealed partial class ToastViewModel : ViewModelBase
 {
     private readonly ToastManager _toastManager;
 
-    public ToastsViewModel(ToastManager toastManager)
+    public ToastViewModel(ToastManager toastManager)
     {
         _toastManager = toastManager;
-        var path = Path.Combine(AppContext.BaseDirectory, "viewModels", "ToastsViewModel.cs");
+        var path = Path.Combine(AppContext.BaseDirectory, "viewModels", "ToastViewModel.cs");
         SimpleToastCode = WrapCode(path.ExtractByLineRange(40, 44).CleanIndentation());
         WithTitleToastCode = WrapCode(path.ExtractByLineRange(49, 55).CleanIndentation());
         WithActionToastCode = WrapCode(path.ExtractByLineRange(60, 67).CleanIndentation());

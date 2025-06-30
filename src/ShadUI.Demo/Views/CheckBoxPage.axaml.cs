@@ -2,9 +2,9 @@
 
 namespace ShadUI.Demo.Views;
 
-public partial class DialogsPage : UserControl
+public partial class CheckBoxPage : UserControl
 {
-    public DialogsPage()
+    public CheckBoxPage()
     {
         InitializeComponent();
     }

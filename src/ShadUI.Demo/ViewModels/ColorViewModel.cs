@@ -4,11 +4,11 @@ using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace ShadUI.Demo.ViewModels;
 
-public sealed partial class ColorsViewModel : ViewModelBase
+public sealed partial class ColorViewModel : ViewModelBase
 {
-    public ColorsViewModel()
+    public ColorViewModel()
     {
-        var path = Path.Combine(AppContext.BaseDirectory, "views", "ColorsPage.axaml");
+        var path = Path.Combine(AppContext.BaseDirectory, "views", "ColorPage.axaml");
         ColorViewCode = path.ExtractByLineRange(35, 40).CleanIndentation();
         ColorPickerCode = path.ExtractByLineRange(46, 51).CleanIndentation();
         ColorPickerDisabledCode = path.ExtractByLineRange(57, 63).CleanIndentation();

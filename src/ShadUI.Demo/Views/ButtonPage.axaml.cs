@@ -2,9 +2,9 @@
 
 namespace ShadUI.Demo.Views;
 
-public partial class ComboBoxesPage : UserControl
+public partial class ButtonPage : UserControl
 {
-    public ComboBoxesPage()
+    public ButtonPage()
     {
         InitializeComponent();
     }

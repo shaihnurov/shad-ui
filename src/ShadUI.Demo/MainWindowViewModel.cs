@@ -16,23 +16,23 @@ public sealed partial class MainWindowViewModel(
     ThemeViewModel themeViewModel,
     TypographyViewModel typographyViewModel,
     AvatarViewModel avatarViewModel,
-    ButtonsViewModel buttonsViewModel,
-    CardsViewModel cardsViewModel,
+    ButtonViewModel buttonViewModel,
+    CardViewModel cardViewModel,
     DataGridViewModel dataGridViewModel,
     DateViewModel dateViewModel,
-    CheckBoxesViewModel checkBoxesViewModel,
-    DialogsViewModel dialogsViewModel,
+    CheckBoxViewModel checkBoxViewModel,
+    DialogViewModel dialogViewModel,
     TimeViewModel timeViewModel,
     InputViewModel inputViewModel,
     NumericViewModel numericViewModel,
     MenuViewModel menuViewModel,
-    TabsViewModel tabsViewModel,
-    ColorsViewModel colorsViewModel,
-    ComboBoxesViewModel comboBoxesViewModel,
+    TabControlViewModel tabControlViewModel,
+    ColorViewModel colorViewModel,
+    ComboBoxViewModel comboBoxViewModel,
     SidebarViewModel sidebarViewModel,
-    SlidersViewModel slidersViewModel,
+    SliderViewModel sliderViewModel,
     SwitchViewModel switchViewModel,
-    ToastsViewModel toastsViewModel,
+    ToastViewModel toastViewModel,
     ToggleViewModel toggleViewModel,
     ToolTipViewModel toolTipViewModel,
     MiscellaneousViewModel miscellaneousViewModel)
@@ -79,7 +79,7 @@ public sealed partial class MainWindowViewModel(
     [RelayCommand]
     private void OpenButtons()
     {
-        SwitchPage(buttonsViewModel);
+        SwitchPage(buttonViewModel);
     }
 
     [RelayCommand]
@@ -91,7 +91,7 @@ public sealed partial class MainWindowViewModel(
     [RelayCommand]
     private void OpenCards()
     {
-        SwitchPage(cardsViewModel);
+        SwitchPage(cardViewModel);
     }
 
     [RelayCommand]
@@ -109,13 +109,13 @@ public sealed partial class MainWindowViewModel(
     [RelayCommand]
     private void OpenCheckBoxes()
     {
-        SwitchPage(checkBoxesViewModel);
+        SwitchPage(checkBoxViewModel);
     }
 
     [RelayCommand]
     private void OpenDialogs()
     {
-        SwitchPage(dialogsViewModel);
+        SwitchPage(dialogViewModel);
     }
 
     [RelayCommand]
@@ -145,19 +145,19 @@ public sealed partial class MainWindowViewModel(
     [RelayCommand]
     private void OpenTabs()
     {
-        SwitchPage(tabsViewModel);
+        SwitchPage(tabControlViewModel);
     }
 
     [RelayCommand]
     private void OpenComboBoxes()
     {
-        SwitchPage(comboBoxesViewModel);
+        SwitchPage(comboBoxViewModel);
     }
 
     [RelayCommand]
     private void OpenColors()
     {
-        SwitchPage(colorsViewModel);
+        SwitchPage(colorViewModel);
     }
 
     [RelayCommand]
@@ -169,7 +169,7 @@ public sealed partial class MainWindowViewModel(
     [RelayCommand]
     private void OpenSliders()
     {
-        SwitchPage(slidersViewModel);
+        SwitchPage(sliderViewModel);
     }
 
     [RelayCommand]
@@ -187,7 +187,7 @@ public sealed partial class MainWindowViewModel(
     [RelayCommand]
     private void OpenToast()
     {
-        SwitchPage(toastsViewModel);
+        SwitchPage(toastViewModel);
     }
 
     [RelayCommand]

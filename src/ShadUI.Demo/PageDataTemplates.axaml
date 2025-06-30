@@ -15,11 +15,11 @@
     <DataTemplate DataType="{x:Type viewModels:AvatarViewModel}">
         <views:AvatarPage />
     </DataTemplate>
-    <DataTemplate DataType="{x:Type viewModels:ButtonsViewModel}">
-        <views:ButtonsPage />
+    <DataTemplate DataType="{x:Type viewModels:ButtonViewModel}">
+        <views:ButtonPage />
     </DataTemplate>
-    <DataTemplate DataType="{x:Type viewModels:CardsViewModel}">
-        <views:CardsPage />
+    <DataTemplate DataType="{x:Type viewModels:CardViewModel}">
+        <views:CardPage />
     </DataTemplate>
     <DataTemplate DataType="{x:Type viewModels:DataGridViewModel}">
         <views:DataGridPage />
@@ -27,11 +27,11 @@
     <DataTemplate DataType="{x:Type viewModels:DateViewModel}">
         <views:DatePage />
     </DataTemplate>
-    <DataTemplate DataType="{x:Type viewModels:CheckBoxesViewModel}">
-        <views:CheckBoxesPage />
+    <DataTemplate DataType="{x:Type viewModels:CheckBoxViewModel}">
+        <views:CheckBoxPage />
     </DataTemplate>
-    <DataTemplate DataType="{x:Type viewModels:DialogsViewModel}">
-        <views:DialogsPage />
+    <DataTemplate DataType="{x:Type viewModels:DialogViewModel}">
+        <views:DialogPage />
     </DataTemplate>
     <DataTemplate DataType="{x:Type viewModels:InputViewModel}">
         <views:InputPage />
@@ -39,14 +39,14 @@
     <DataTemplate DataType="{x:Type viewModels:MenuViewModel}">
         <views:MenuPage />
     </DataTemplate>
-    <DataTemplate DataType="{x:Type viewModels:TabsViewModel}">
-        <views:TabsPage />
+    <DataTemplate DataType="{x:Type viewModels:TabControlViewModel}">
+        <views:TabControlPage />
     </DataTemplate>
-    <DataTemplate DataType="{x:Type viewModels:ComboBoxesViewModel}">
-        <views:ComboBoxesPage />
+    <DataTemplate DataType="{x:Type viewModels:ComboBoxViewModel}">
+        <views:ComboBoxPage />
     </DataTemplate>
-    <DataTemplate DataType="{x:Type viewModels:SlidersViewModel}">
-        <views:SlidersPage />
+    <DataTemplate DataType="{x:Type viewModels:SliderViewModel}">
+        <views:SliderPage />
     </DataTemplate>
     <DataTemplate DataType="{x:Type viewModels:SwitchViewModel}">
         <views:SwitchPage />
@@ -54,8 +54,8 @@
     <DataTemplate DataType="{x:Type viewModels:TimeViewModel}">
         <views:TimePage />
     </DataTemplate>
-    <DataTemplate DataType="{x:Type viewModels:ToastsViewModel}">
-        <views:ToastsPage />
+    <DataTemplate DataType="{x:Type viewModels:ToastViewModel}">
+        <views:ToastPage />
     </DataTemplate>
     <DataTemplate DataType="{x:Type viewModels:ToggleViewModel}">
         <views:TogglePage />
