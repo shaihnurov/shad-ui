@@ -1,4 +1,5 @@
 using System.Linq;
+using System.Threading;
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Data.Core.Plugins;
@@ -8,6 +9,9 @@ namespace ShadUI.Demo;
 
 public class App : Application
 {
+    // ReSharper disable once NotAccessedField.Local
+    private static Mutex? _appMutex;
+
     public override void Initialize()
     {
         AvaloniaXamlLoader.Load(this);
@@ -17,8 +21,15 @@ public class App : Application
     {
         if (ApplicationLifetime is not IClassicDesktopStyleApplicationLifetime desktop) return;
 
-        DisableAvaloniaDataAnnotationValidation();
+        _appMutex = new Mutex(true, "ShadUISingleInstanceMutex", out var createdNew);
+        if (!createdNew)
+        {
+            var instanceDialog = new InstanceDialog();
+            instanceDialog.Show();
+            return;
+        }
 
+        DisableAvaloniaDataAnnotationValidation();
         var provider = new ServiceProvider().RegisterDialogs();
 
         var themeWatcher = provider.GetService<ThemeWatcher>();
