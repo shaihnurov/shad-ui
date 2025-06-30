@@ -62,7 +62,7 @@
                     </Border>
                     <Panel>
                         <Border
-                            Name="BorderContainer"
+                            Name="PART_BorderContainer"
                             Background="Transparent"
                             ClipToBounds="True"
                             CornerRadius="{TemplateBinding CornerRadius}">
@@ -86,6 +86,7 @@
                             </ContentPresenter>
                         </Border>
                         <Popup
+                            Name="PART_Popup"
                             Width="{TemplateBinding PopupWidth}"
                             HorizontalOffset="{TemplateBinding PopupHorizontalOffset}"
                             IsLightDismissEnabled="True"
@@ -111,7 +112,10 @@
                                             <ContentPresenter Content="{TemplateBinding MenuLabel}" FontFamily="{TemplateBinding FontFamily}" />
                                         </Border>
                                         <ScrollViewer Margin="0,2">
-                                            <ItemsPresenter Grid.IsSharedSizeScope="True" ItemsPanel="{TemplateBinding ItemsPanel}" />
+                                            <ItemsPresenter
+                                                Name="PART_ItemsPresenter"
+                                                Grid.IsSharedSizeScope="True"
+                                                ItemsPanel="{TemplateBinding ItemsPanel}" />
                                         </ScrollViewer>
                                     </StackPanel>
                                 </Border>

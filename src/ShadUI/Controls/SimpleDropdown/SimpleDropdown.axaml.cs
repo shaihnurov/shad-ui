@@ -15,6 +15,9 @@ namespace ShadUI;
 ///     A simple dropdown control that displays a list of items in a popup when triggered.
 /// </summary>
 [PseudoClasses(":open", ":pressed")]
+[TemplatePart("PART_BorderContainer", typeof(Border))]
+[TemplatePart("PART_ItemsPresenter", typeof(ItemsPresenter))]
+[TemplatePart("PART_Border", typeof(Border))]
 public class SimpleDropdown : ItemsControl
 {
     /// <summary>
@@ -153,11 +156,6 @@ public class SimpleDropdown : ItemsControl
         {
             itemsPresenter.AttachedToVisualTree += OnItemsPresenterAttached;
         }
-
-        if (nameScope.Find<Border>("PART_Border") is { } popupBorder)
-        {
-            popupBorder.PointerPressed += OnPopupBorderPressed;
-        }
     }
 
     private void DetachEventHandlers()
@@ -173,11 +171,6 @@ public class SimpleDropdown : ItemsControl
             itemsPresenter)
         {
             itemsPresenter.AttachedToVisualTree -= OnItemsPresenterAttached;
-        }
-
-        if (this.GetTemplateChildren().FirstOrDefault(x => x.Name == "PART_Border") is Border popupBorder)
-        {
-            popupBorder.PointerPressed -= OnPopupBorderPressed;
         }
 
         // Remove click handlers from all items
