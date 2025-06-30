@@ -56,7 +56,9 @@ public class TextBoxAssist
     /// <param name="element">The TextBox element to get the format from.</param>
     /// <returns>The format string applied to the TextBox.</returns>
     public static string GetFormatNumber(AvaloniaObject element)
-        => element.GetValue(FormatNumberProperty);
+    {
+        return element.GetValue(FormatNumberProperty);
+    }
 
     private static void HandleFormatNumberChanged(AvaloniaObject element, AvaloniaPropertyChangedEventArgs args)
     {
