@@ -46,21 +46,17 @@
                             VerticalScrollBarVisibility="Auto" />
                         <Button
                             Name="PART_ClipBoardButton"
-                            Width="36"
-                            Height="36"
                             Margin="8"
-                            Padding="6"
+                            Padding="8"
                             HorizontalAlignment="Right"
                             VerticalAlignment="Top"
                             shadui:ButtonAssist.HoverBackground="{DynamicResource CodeForegroundColor50}">
-                            <shadui:ButtonAssist.Icon>
+                            <Viewbox Width="16" Height="16">
                                 <PathIcon
                                     Name="PART_ClipBoardIcon"
-                                    Width="8"
-                                    Height="12"
                                     Data="{x:Static shadui:Icons.ClipBoard}"
                                     Foreground="#FAFAFA" />
-                            </shadui:ButtonAssist.Icon>
+                            </Viewbox>
                         </Button>
                     </Panel>
                 </Border>
