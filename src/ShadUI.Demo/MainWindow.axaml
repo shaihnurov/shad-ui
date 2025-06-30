@@ -14,7 +14,9 @@
     d:DesignWidth="800"
     x:DataType="demo:MainWindowViewModel"
     Icon="/Assets/favicon.ico"
+    SaveWindowState="True"
     TitleFontWeight="SemiBold"
+    WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
     <shadui:Window.LogoContent>
         <PathIcon

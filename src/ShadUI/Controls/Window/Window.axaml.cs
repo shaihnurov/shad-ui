@@ -256,6 +256,21 @@ public class Window : Avalonia.Controls.Window
     }
 
     /// <summary>
+    ///     Whether to save and restore the window state (position, size, etc.) between application sessions.
+    /// </summary>
+    public static readonly StyledProperty<bool> SaveWindowStateProperty = AvaloniaProperty.Register<Window, bool>(
+        nameof(SaveWindowState));
+
+    /// <summary>
+    ///     Gets or sets the value of the <see cref="SaveWindowStateProperty" />.
+    /// </summary>
+    public bool SaveWindowState
+    {
+        get => GetValue(SaveWindowStateProperty);
+        set => SetValue(SaveWindowStateProperty, value);
+    }
+
+    /// <summary>
     ///     Initializes a new instance of the <see cref="Window" /> class.
     /// </summary>
     protected Window()
@@ -290,6 +305,19 @@ public class Window : Avalonia.Controls.Window
         {
             _lastState = oldState;
             OnWindowStateChanged(newState);
+        }
+
+        if (change.Property == SaveWindowStateProperty)
+        {
+            var saveState = change.GetNewValue<bool>();
+            if (saveState)
+            {
+                this.ManageWindowState();
+            }
+            else
+            {
+                this.UnmanageWindowState();
+            }
         }
     }
 
