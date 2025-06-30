@@ -99,3 +99,12 @@ public abstract class ViewModelBase : ObservableObject, INotifyDataErrorInfo
         }
     }
 }
+
+public interface INavigable
+{
+    public string Route { get; }
+
+    public void Initialize()
+    {
+    }
+}

@@ -3,26 +3,41 @@ using System.ComponentModel.DataAnnotations;
 using System.IO;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
 using ShadUI.Demo.Validators;
 
 namespace ShadUI.Demo.ViewModels;
 
-public sealed partial class TimeViewModel : ViewModelBase
+public sealed partial class TimeViewModel : ViewModelBase, INavigable
 {
+    private readonly IMessenger _messenger;
     private readonly ToastManager _toastManager;
 
-    public TimeViewModel(ToastManager toastManager)
+    public TimeViewModel(IMessenger messenger, ToastManager toastManager)
     {
+        _messenger = messenger;
         _toastManager = toastManager;
         var path = Path.Combine(AppContext.BaseDirectory, "views", "TimePage.axaml");
-        Hour12ClockTimePickerCode = path.ExtractByLineRange(35, 37).CleanIndentation();
-        Hour24ClockTimePickerCode = path.ExtractByLineRange(45, 46).CleanIndentation();
-        DisabledTimePickerCode = path.ExtractByLineRange(52, 54).CleanIndentation();
-        FormTimePickerCode = path.ExtractByLineRange(60, 83).CleanIndentation();
-        Hour12ClockTimeInputCode = path.ExtractByLineRange(89, 91).CleanIndentation();
-        Hour24ClockTimeInputCode = path.ExtractByLineRange(97, 100).CleanIndentation();
-        DisabledTimeInputCode = path.ExtractByLineRange(106, 108).CleanIndentation();
-        FormTimeInputCode = path.ExtractByLineRange(114, 137).CleanIndentation();
+        Hour12ClockTimePickerCode = path.ExtractByLineRange(62, 64).CleanIndentation();
+        Hour24ClockTimePickerCode = path.ExtractByLineRange(70, 73).CleanIndentation();
+        DisabledTimePickerCode = path.ExtractByLineRange(79, 81).CleanIndentation();
+        FormTimePickerCode = path.ExtractByLineRange(87, 110).CleanIndentation();
+        Hour12ClockTimeInputCode = path.ExtractByLineRange(116, 118).CleanIndentation();
+        Hour24ClockTimeInputCode = path.ExtractByLineRange(124, 127).CleanIndentation();
+        DisabledTimeInputCode = path.ExtractByLineRange(133, 135).CleanIndentation();
+        FormTimeInputCode = path.ExtractByLineRange(141, 164).CleanIndentation();
+    }
+
+    [RelayCommand]
+    private void BackPage()
+    {
+        _messenger.Send(new PageChangedMessage { PageType = typeof(TabControlViewModel) });
+    }
+
+    [RelayCommand]
+    private void NextPage()
+    {
+        _messenger.Send(new PageChangedMessage { PageType = typeof(ToastViewModel) });
     }
 
     [ObservableProperty]
@@ -91,4 +106,6 @@ public sealed partial class TimeViewModel : ViewModelBase
 
     [ObservableProperty]
     private string _formTimeInputCode = string.Empty;
+
+    public string Route => "time";
 }

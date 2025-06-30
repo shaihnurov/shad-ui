@@ -2,25 +2,40 @@
 using System.IO;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
 
 namespace ShadUI.Demo.ViewModels;
 
-public sealed partial class ToastViewModel : ViewModelBase
+public sealed partial class ToastViewModel : ViewModelBase, INavigable
 {
+    private readonly IMessenger _messenger;
     private readonly ToastManager _toastManager;
 
-    public ToastViewModel(ToastManager toastManager)
+    public ToastViewModel(IMessenger messenger, ToastManager toastManager)
     {
+        _messenger = messenger;
         _toastManager = toastManager;
         var path = Path.Combine(AppContext.BaseDirectory, "viewModels", "ToastViewModel.cs");
-        SimpleToastCode = WrapCode(path.ExtractByLineRange(40, 44).CleanIndentation());
-        WithTitleToastCode = WrapCode(path.ExtractByLineRange(49, 55).CleanIndentation());
-        WithActionToastCode = WrapCode(path.ExtractByLineRange(60, 67).CleanIndentation());
-        WithDelayToastCode = WrapCode(path.ExtractByLineRange(72, 79).CleanIndentation());
-        InfoToastCode = WrapCode(path.ExtractByLineRange(84, 91).CleanIndentation());
-        SuccessToastCode = WrapCode(path.ExtractByLineRange(96, 103).CleanIndentation());
-        WarningToastCode = WrapCode(path.ExtractByLineRange(108, 115).CleanIndentation());
-        ErrorToastCode = WrapCode(path.ExtractByLineRange(120, 127).CleanIndentation());
+        SimpleToastCode = WrapCode(path.ExtractByLineRange(54, 58).CleanIndentation());
+        WithTitleToastCode = WrapCode(path.ExtractByLineRange(63, 69).CleanIndentation());
+        WithActionToastCode = WrapCode(path.ExtractByLineRange(74, 81).CleanIndentation());
+        WithDelayToastCode = WrapCode(path.ExtractByLineRange(86, 93).CleanIndentation());
+        InfoToastCode = WrapCode(path.ExtractByLineRange(98, 105).CleanIndentation());
+        SuccessToastCode = WrapCode(path.ExtractByLineRange(110, 117).CleanIndentation());
+        WarningToastCode = WrapCode(path.ExtractByLineRange(122, 129).CleanIndentation());
+        ErrorToastCode = WrapCode(path.ExtractByLineRange(134, 141).CleanIndentation());
+    }
+
+    [RelayCommand]
+    private void BackPage()
+    {
+        _messenger.Send(new PageChangedMessage { PageType = typeof(TimeViewModel) });
+    }
+
+    [RelayCommand]
+    private void NextPage()
+    {
+        _messenger.Send(new PageChangedMessage { PageType = typeof(ToggleViewModel) });
     }
 
     private string WrapCode(string code)
@@ -127,4 +142,6 @@ public sealed partial class ToastViewModel : ViewModelBase
 
     [ObservableProperty]
     private string _errorToastCode = string.Empty;
+
+    public string Route => "toast";
 }

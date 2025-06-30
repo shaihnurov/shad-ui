@@ -3,26 +3,41 @@ using System.ComponentModel.DataAnnotations;
 using System.IO;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
 using ShadUI.Demo.Validators;
 
 namespace ShadUI.Demo.ViewModels;
 
-public sealed partial class DateViewModel : ViewModelBase
+public sealed partial class DateViewModel : ViewModelBase, INavigable
 {
+    private readonly IMessenger _messenger;
     private readonly ToastManager _toastManager;
 
-    public DateViewModel(ToastManager toastManager)
+    public DateViewModel(IMessenger messenger, ToastManager toastManager)
     {
+        _messenger = messenger;
         _toastManager = toastManager;
 
         var path = Path.Combine(AppContext.BaseDirectory, "views", "DatePage.axaml");
-        CalendarCode = path.ExtractByLineRange(35, 37).CleanIndentation();
-        DatePickerCode = path.ExtractByLineRange(43, 46).CleanIndentation();
-        ReadOnlyDatePickerCode = path.ExtractByLineRange(52, 56).CleanIndentation();
-        DatePickerFormValidationCode = path.ExtractByLineRange(62, 76).CleanIndentation();
-        DateInputCode = path.ExtractByLineRange(82, 84).CleanIndentation();
-        DisabledDateInputCode = path.ExtractByLineRange(90, 92).CleanIndentation();
-        DateInputFormCode = path.ExtractByLineRange(98, 121).CleanIndentation();
+        CalendarCode = path.ExtractByLineRange(62, 64).CleanIndentation();
+        DatePickerCode = path.ExtractByLineRange(70, 73).CleanIndentation();
+        ReadOnlyDatePickerCode = path.ExtractByLineRange(79, 83).CleanIndentation();
+        DatePickerFormValidationCode = path.ExtractByLineRange(89, 103).CleanIndentation();
+        DateInputCode = path.ExtractByLineRange(109, 111).CleanIndentation();
+        DisabledDateInputCode = path.ExtractByLineRange(117, 119).CleanIndentation();
+        DateInputFormCode = path.ExtractByLineRange(125, 148).CleanIndentation();
+    }
+
+    [RelayCommand]
+    private void BackPage()
+    {
+        _messenger.Send(new PageChangedMessage { PageType = typeof(DataTableViewModel) });
+    }
+
+    [RelayCommand]
+    private void NextPage()
+    {
+        _messenger.Send(new PageChangedMessage { PageType = typeof(DialogViewModel) });
     }
 
     [ObservableProperty]
@@ -111,4 +126,6 @@ public sealed partial class DateViewModel : ViewModelBase
 
     [ObservableProperty]
     private string _dateInputFormCode = string.Empty;
+
+    public string Route => "date";
 }

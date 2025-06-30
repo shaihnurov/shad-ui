@@ -2,9 +2,9 @@
 
 namespace ShadUI.Demo.Views;
 
-public partial class DataGridPage : UserControl
+public partial class DataTablePage : UserControl
 {
-    public DataGridPage()
+    public DataTablePage()
     {
         InitializeComponent();
     }

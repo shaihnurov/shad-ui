@@ -3,21 +3,38 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
 
 namespace ShadUI.Demo.ViewModels;
 
-public partial class CheckBoxViewModel : ViewModelBase
+public partial class CheckBoxViewModel : ViewModelBase, INavigable
 {
-    public CheckBoxViewModel()
+    private readonly IMessenger _messenger;
+
+    public CheckBoxViewModel(IMessenger messenger)
     {
+        _messenger = messenger;
         var path = Path.Combine(AppContext.BaseDirectory, "views", "CheckBoxPage.axaml");
-        DefaultCode = path.ExtractByLineRange(33, 35).CleanIndentation();
-        DisabledCode = path.ExtractByLineRange(41, 43).CleanIndentation();
-        IndeterminateCode = path.ExtractByLineRange(49, 51).CleanIndentation();
-        MultipleCode = path.ExtractByLineRange(57, 76).CleanIndentation();
+        DefaultCode = path.ExtractByLineRange(61, 63).CleanIndentation();
+        DisabledCode = path.ExtractByLineRange(69, 71).CleanIndentation();
+        IndeterminateCode = path.ExtractByLineRange(77, 79).CleanIndentation();
+        MultipleCode = path.ExtractByLineRange(85, 104).CleanIndentation();
 
         Items.CollectionChanged += (_, _) => UpdateSelectAllState();
         foreach (var item in Items) item.PropertyChanged += (_, _) => UpdateSelectAllState();
+    }
+
+    [RelayCommand]
+    private void BackPage()
+    {
+        _messenger.Send(new PageChangedMessage { PageType = typeof(CardViewModel) });
+    }
+
+    [RelayCommand]
+    private void NextPage()
+    {
+        _messenger.Send(new PageChangedMessage { PageType = typeof(ColorViewModel) });
     }
 
     [ObservableProperty]
@@ -61,6 +78,8 @@ public partial class CheckBoxViewModel : ViewModelBase
         new() { IsChecked = false, Text = "Downloads" },
         new() { IsChecked = false, Text = "Documents" }
     ];
+
+    public string Route => "checkbox";
 }
 
 public partial class CheckBoxItem : ObservableObject

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using Avalonia;
+using CommunityToolkit.Mvvm.Messaging;
 using Jab;
 using Serilog;
 using ShadUI.Demo.ViewModels;
@@ -12,7 +13,7 @@ namespace ShadUI.Demo;
 [Transient<AvatarViewModel>]
 [Transient<ButtonViewModel>]
 [Transient<CardViewModel>]
-[Transient<DataGridViewModel>]
+[Transient<DataTableViewModel>]
 [Transient<DateViewModel>]
 [Transient<CheckBoxViewModel>]
 [Transient<ComboBoxViewModel>]
@@ -36,6 +37,7 @@ namespace ShadUI.Demo;
 [Transient<TypographyViewModel>]
 [Transient<MainWindowViewModel>]
 [Import<IUtilitiesModule>]
+[Singleton<IMessenger, WeakReferenceMessenger>]
 [Singleton(typeof(ThemeWatcher), Factory = nameof(ThemeWatcherFactory))]
 [Singleton(typeof(ILogger), Factory = nameof(LoggerFactory))]
 public partial class ServiceProvider

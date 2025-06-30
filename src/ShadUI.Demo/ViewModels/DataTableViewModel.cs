@@ -10,11 +10,14 @@ using Avalonia.Threading;
 using AvaloniaEdit.Utils;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
 
 namespace ShadUI.Demo.ViewModels;
 
-public sealed partial class DataGridViewModel : ViewModelBase
+public sealed partial class DataTableViewModel : ViewModelBase, INavigable
 {
+    private readonly IMessenger _messenger;
+
     private readonly List<DataGridItem> _originalItems =
     [
         new() { Status = Status.Success, Email = "abe45@example.com", Amount = 242 },
@@ -26,10 +29,11 @@ public sealed partial class DataGridViewModel : ViewModelBase
 
     private readonly Timer? _searchTimer;
 
-    public DataGridViewModel()
+    public DataTableViewModel(IMessenger messenger)
     {
-        var path = Path.Combine(AppContext.BaseDirectory, "views", "DataGridPage.axaml");
-        Code = path.ExtractByLineRange(36, 184).CleanIndentation();
+        _messenger = messenger;
+        var path = Path.Combine(AppContext.BaseDirectory, "views", "DataTablePage.axaml");
+        Code = path.ExtractByLineRange(62, 211).CleanIndentation();
 
         _searchTimer = new Timer(500); // 500ms debounce
         _searchTimer.Elapsed += SearchTimerElapsed;
@@ -39,6 +43,18 @@ public sealed partial class DataGridViewModel : ViewModelBase
 
         foreach (var i in _originalItems) i.PropertyChanged += OnItemsChanged;
         Items = new ObservableCollection<DataGridItem>(_originalItems);
+    }
+
+    [RelayCommand]
+    private void BackPage()
+    {
+        _messenger.Send(new PageChangedMessage { PageType = typeof(ComboBoxViewModel) });
+    }
+
+    [RelayCommand]
+    private void NextPage()
+    {
+        _messenger.Send(new PageChangedMessage { PageType = typeof(DateViewModel) });
     }
 
     private void OnPropertyChanged(object? sender, PropertyChangedEventArgs e)
@@ -162,6 +178,8 @@ public sealed partial class DataGridViewModel : ViewModelBase
 
     [ObservableProperty]
     private string _code = string.Empty;
+
+    public string Route => "data-table";
 }
 
 public sealed partial class DataGridItem : ObservableValidator

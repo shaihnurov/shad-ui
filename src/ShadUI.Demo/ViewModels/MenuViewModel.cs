@@ -1,17 +1,34 @@
 ﻿using System;
 using System.IO;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
 
 namespace ShadUI.Demo.ViewModels;
 
-public sealed partial class MenuViewModel : ViewModelBase
+public sealed partial class MenuViewModel : ViewModelBase, INavigable
 {
-    public MenuViewModel()
+    private readonly IMessenger _messenger;
+
+    public MenuViewModel(IMessenger messenger)
     {
+        _messenger = messenger;
         var path = Path.Combine(AppContext.BaseDirectory, "views", "MenuPage.axaml");
-        SimpleDropdownCode = path.ExtractByLineRange(35, 166).CleanIndentation();
-        MenuBarCode = path.ExtractByLineRange(172, 248).CleanIndentation();
-        DropDownCode = path.ExtractByLineRange(255, 425).CleanIndentation();
+        SimpleDropdownCode = path.ExtractByLineRange(61, 192).CleanIndentation();
+        MenuBarCode = path.ExtractByLineRange(198, 273).CleanIndentation();
+        DropDownCode = path.ExtractByLineRange(280, 450).CleanIndentation();
+    }
+
+    [RelayCommand]
+    private void BackPage()
+    {
+        _messenger.Send(new PageChangedMessage { PageType = typeof(InputViewModel) });
+    }
+
+    [RelayCommand]
+    private void NextPage()
+    {
+        _messenger.Send(new PageChangedMessage { PageType = typeof(NumericViewModel) });
     }
 
     [ObservableProperty]
@@ -22,4 +39,6 @@ public sealed partial class MenuViewModel : ViewModelBase
 
     [ObservableProperty]
     private string _dropDownCode = string.Empty;
+
+    public string Route => "menu";
 }

@@ -7,20 +7,30 @@ using Avalonia.Controls;
 using Avalonia.Controls.Selection;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
 
 namespace ShadUI.Demo.ViewModels;
 
-public sealed partial class MiscellaneousViewModel : ViewModelBase
+public sealed partial class MiscellaneousViewModel : ViewModelBase, INavigable
 {
-    public MiscellaneousViewModel()
+    private readonly IMessenger _messenger;
+
+    public MiscellaneousViewModel(IMessenger messenger)
     {
+        _messenger = messenger;
         var path = Path.Combine(AppContext.BaseDirectory, "views", "MiscellaneousPage.axaml");
-        BusyAreaCode = path.ExtractByLineRange(35, 50).CleanIndentation();
-        ListBoxCode = path.ExtractByLineRange(56, 82).CleanIndentation();
-        SkeletonCode = path.ExtractByLineRange(88, 107).CleanIndentation();
+        BusyAreaCode = path.ExtractByLineRange(50, 65).CleanIndentation();
+        ListBoxCode = path.ExtractByLineRange(71, 97).CleanIndentation();
+        SkeletonCode = path.ExtractByLineRange(103, 122).CleanIndentation();
 
         WebFrameworksSelectionModel.SelectionChanged += SelectedWebFrameworksChanged;
         _selectedWebFrameworks.CollectionChanged += OnSelectedWebFrameworksOnCollectionChanged;
+    }
+
+    [RelayCommand]
+    private void BackPage()
+    {
+        _messenger.Send(new PageChangedMessage { PageType = typeof(ToolTipViewModel) });
     }
 
     [ObservableProperty]
@@ -119,4 +129,6 @@ public sealed partial class MiscellaneousViewModel : ViewModelBase
 
     [ObservableProperty]
     private string _skeletonCode = string.Empty;
+
+    public string Route => "miscellaneous";
 }

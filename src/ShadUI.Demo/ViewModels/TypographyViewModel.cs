@@ -1,13 +1,18 @@
 using System;
 using System.IO;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
 
 namespace ShadUI.Demo.ViewModels;
 
-public sealed partial class TypographyViewModel : ViewModelBase
+public sealed partial class TypographyViewModel : ViewModelBase, INavigable
 {
-    public TypographyViewModel()
+    private readonly IMessenger _messenger;
+
+    public TypographyViewModel(IMessenger messenger)
     {
+        _messenger = messenger;
         var path = Path.Combine(AppContext.BaseDirectory, "views", "TypographyPage.axaml");
         H1Code = path.ExtractByLineRange(29, 32).CleanIndentation();
         H2Code = path.ExtractByLineRange(38, 41).CleanIndentation();
@@ -20,6 +25,18 @@ public sealed partial class TypographyViewModel : ViewModelBase
         CaptionCode = path.ExtractByLineRange(101, 104).CleanIndentation();
         MutedCode = path.ExtractByLineRange(110, 113).CleanIndentation();
         ErrorCode = path.ExtractByLineRange(119, 122).CleanIndentation();
+    }
+
+    [RelayCommand]
+    private void BackPage()
+    {
+        _messenger.Send(new PageChangedMessage { PageType = typeof(ThemeViewModel) });
+    }
+
+    [RelayCommand]
+    private void NextPage()
+    {
+        _messenger.Send(new PageChangedMessage { PageType = typeof(AvatarViewModel) });
     }
 
     [ObservableProperty]
@@ -54,4 +71,6 @@ public sealed partial class TypographyViewModel : ViewModelBase
 
     [ObservableProperty]
     private string _errorCode = string.Empty;
+
+    public string Route => "typography";
 }

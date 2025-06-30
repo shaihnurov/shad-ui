@@ -3,17 +3,33 @@ using System.ComponentModel.DataAnnotations;
 using System.IO;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
 
 namespace ShadUI.Demo.ViewModels;
 
-public sealed partial class ComboBoxViewModel : ViewModelBase
+public sealed partial class ComboBoxViewModel : ViewModelBase, INavigable
 {
-    public ComboBoxViewModel()
+    private readonly IMessenger _messenger;
+
+    public ComboBoxViewModel(IMessenger messenger)
     {
+        _messenger = messenger;
         var path = Path.Combine(AppContext.BaseDirectory, "views", "ComboBoxPage.axaml");
-        SelectComboBoxCode = path.ExtractByLineRange(35, 51).CleanIndentation();
-        SelectComboBoxDisabledCode = path.ExtractByLineRange(57, 60).CleanIndentation();
-        FormValidationCode = path.ExtractByLineRange(66, 88).CleanIndentation();
+        SelectComboBoxCode = path.ExtractByLineRange(62, 78).CleanIndentation();
+        SelectComboBoxDisabledCode = path.ExtractByLineRange(84, 87).CleanIndentation();
+        FormValidationCode = path.ExtractByLineRange(93, 115).CleanIndentation();
+    }
+
+    [RelayCommand]
+    private void BackPage()
+    {
+        _messenger.Send(new PageChangedMessage { PageType = typeof(ColorViewModel) });
+    }
+
+    [RelayCommand]
+    private void NextPage()
+    {
+        _messenger.Send(new PageChangedMessage { PageType = typeof(DataTableViewModel) });
     }
 
     [ObservableProperty]
@@ -57,4 +73,6 @@ public sealed partial class ComboBoxViewModel : ViewModelBase
     {
         SelectedItem = null;
     }
+
+    public string Route => "combobox";
 }

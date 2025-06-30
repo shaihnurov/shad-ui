@@ -2,27 +2,44 @@
 using System.IO;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
 
 namespace ShadUI.Demo.ViewModels;
 
-public sealed partial class DialogViewModel : ViewModelBase
+public sealed partial class DialogViewModel : ViewModelBase, INavigable
 {
+    private readonly IMessenger _messenger;
     private readonly DialogManager _dialogManager;
     private readonly ToastManager _toastManager;
     private readonly LoginViewModel _loginViewModel;
 
-    public DialogViewModel(DialogManager dialogManager,
+    public DialogViewModel(
+        IMessenger messenger,
+        DialogManager dialogManager,
         ToastManager toastManager,
         LoginViewModel loginViewModel)
     {
+        _messenger = messenger;
         _dialogManager = dialogManager;
         _toastManager = toastManager;
         _loginViewModel = loginViewModel;
 
         var path = Path.Combine(AppContext.BaseDirectory, "viewModels", "DialogViewModel.cs");
-        AlertDialogCode = WrapCode(path.ExtractByLineRange(46, 62).CleanIndentation());
-        DestructiveAlertDialogCode = WrapCode(path.ExtractByLineRange(67, 84).CleanIndentation());
-        CustomDialogCode = WrapCode(path.ExtractByLineRange(89, 106).CleanIndentation());
+        AlertDialogCode = WrapCode(path.ExtractByLineRange(62, 78).CleanIndentation());
+        DestructiveAlertDialogCode = WrapCode(path.ExtractByLineRange(83, 100).CleanIndentation());
+        CustomDialogCode = WrapCode(path.ExtractByLineRange(105, 122).CleanIndentation());
+    }
+
+    [RelayCommand]
+    private void BackPage()
+    {
+        _messenger.Send(new PageChangedMessage { PageType = typeof(DateViewModel) });
+    }
+
+    [RelayCommand]
+    private void NextPage()
+    {
+        _messenger.Send(new PageChangedMessage { PageType = typeof(InputViewModel) });
     }
 
     private string WrapCode(string code)
@@ -35,6 +52,7 @@ public sealed partial class DialogViewModel : ViewModelBase
                 {code}
 
                 //..rest of the code
+                
                 """;
     }
 
@@ -102,4 +120,6 @@ public sealed partial class DialogViewModel : ViewModelBase
                     .ShowWarning())
             .Show();
     }
+
+    public string Route => "dialog";
 }

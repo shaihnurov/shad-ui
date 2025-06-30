@@ -2,6 +2,8 @@
 using Avalonia.Media;
 using Avalonia.Platform;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
 using LiveChartsCore;
 using LiveChartsCore.SkiaSharpView;
 using LiveChartsCore.SkiaSharpView.Painting;
@@ -9,8 +11,9 @@ using SkiaSharp;
 
 namespace ShadUI.Demo.ViewModels;
 
-public sealed partial class DashboardViewModel : ViewModelBase
+public sealed partial class DashboardViewModel : ViewModelBase, INavigable
 {
+    private readonly IMessenger _messenger;
     public ThemeWatcher ThemeWatcher { get; }
 
     private readonly SKTypeface _typeface;
@@ -18,8 +21,9 @@ public sealed partial class DashboardViewModel : ViewModelBase
     [ObservableProperty]
     private static SolidColorPaint _tooltipTextPaint = null!;
 
-    public DashboardViewModel(ThemeWatcher themeWatcher)
+    public DashboardViewModel(IMessenger messenger, ThemeWatcher themeWatcher)
     {
+        _messenger = messenger;
         ThemeWatcher = themeWatcher;
         ThemeWatcher.ThemeChanged += (_, colors) =>
         {
@@ -63,11 +67,10 @@ public sealed partial class DashboardViewModel : ViewModelBase
         ];
     }
 
-    public void Initialize()
+    [RelayCommand]
+    private void NextPage()
     {
-        ((ColumnSeries<double>)Series[0]).Values = GenerateRandomValues();
-        var primary = ThemeWatcher.ThemeColors.PrimaryColor;
-        UpdateSeriesFill(primary);
+        _messenger.Send(new PageChangedMessage { PageType = typeof(ThemeViewModel) });
     }
 
     private void UpdateSeriesFill(Color primary)
@@ -119,4 +122,13 @@ public sealed partial class DashboardViewModel : ViewModelBase
     public Axis[] XAxes { get; set; }
 
     public Axis[] YAxes { get; set; }
+
+    public void Initialize()
+    {
+        ((ColumnSeries<double>)Series[0]).Values = GenerateRandomValues();
+        var primary = ThemeWatcher.ThemeColors.PrimaryColor;
+        UpdateSeriesFill(primary);
+    }
+
+    public string Route => "dashboard";
 }

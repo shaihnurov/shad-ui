@@ -3,21 +3,37 @@ using System.IO;
 using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
 
 namespace ShadUI.Demo.ViewModels;
 
-public sealed partial class ButtonViewModel : ViewModelBase
+public sealed partial class ButtonViewModel : ViewModelBase, INavigable
 {
-    public ButtonViewModel()
+    private readonly IMessenger _messenger;
+
+    public ButtonViewModel(IMessenger messenger)
     {
+        _messenger = messenger;
         var path = Path.Combine(AppContext.BaseDirectory, "views", "ButtonPage.axaml");
-        PrimaryCode = path.ExtractByLineRange(30, 55).CleanIndentation();
-        SecondaryCode = path.ExtractByLineRange(61, 86).CleanIndentation();
-        DestructiveCode = path.ExtractByLineRange(92, 117).CleanIndentation();
-        OutlineCode = path.ExtractByLineRange(123, 148).CleanIndentation();
-        GhostCode = path.ExtractByLineRange(154, 179).CleanIndentation();
-        IconCode = path.ExtractByLineRange(185, 212).CleanIndentation();
-        DestructiveIconCode = path.ExtractByLineRange(218, 241).CleanIndentation();
+        PrimaryCode = path.ExtractByLineRange(61, 86).CleanIndentation();
+        SecondaryCode = path.ExtractByLineRange(92, 117).CleanIndentation();
+        DestructiveCode = path.ExtractByLineRange(123, 148).CleanIndentation();
+        OutlineCode = path.ExtractByLineRange(154, 179).CleanIndentation();
+        GhostCode = path.ExtractByLineRange(185, 212).CleanIndentation();
+        IconCode = path.ExtractByLineRange(216, 243).CleanIndentation();
+        DestructiveIconCode = path.ExtractByLineRange(249, 272).CleanIndentation();
+    }
+
+    [RelayCommand]
+    private void BackPage()
+    {
+        _messenger.Send(new PageChangedMessage { PageType = typeof(AvatarViewModel) });
+    }
+
+    [RelayCommand]
+    private void NextPage()
+    {
+        _messenger.Send(new PageChangedMessage { PageType = typeof(CardViewModel) });
     }
 
     [ObservableProperty]
@@ -51,4 +67,6 @@ public sealed partial class ButtonViewModel : ViewModelBase
 
     [ObservableProperty]
     private string _destructiveIconCode = string.Empty;
+
+    public string Route => "button";
 }

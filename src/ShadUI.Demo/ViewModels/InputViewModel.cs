@@ -6,17 +6,20 @@ using System.Timers;
 using Avalonia.Threading;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
 using ShadUI.Demo.Validators;
 
 namespace ShadUI.Demo.ViewModels;
 
-public sealed partial class InputViewModel : ViewModelBase
+public sealed partial class InputViewModel : ViewModelBase, INavigable
 {
+    private readonly IMessenger _messenger;
     private readonly ToastManager _toastManager;
     private readonly Timer? _searchTimer;
 
-    public InputViewModel(ToastManager toastManager)
+    public InputViewModel(IMessenger messenger, ToastManager toastManager)
     {
+        _messenger = messenger;
         _toastManager = toastManager;
         PropertyChanged += OnPropertyChanged;
         ErrorsChanged += (_, _) => SubmitCommand.NotifyCanExecuteChanged();
@@ -26,14 +29,26 @@ public sealed partial class InputViewModel : ViewModelBase
         _searchTimer.AutoReset = false;
 
         var path = Path.Combine(AppContext.BaseDirectory, "views", "InputPage.axaml");
-        DefaultInputCode = path.ExtractByLineRange(35, 37).CleanIndentation();
-        DisabledCode = path.ExtractByLineRange(43, 46).CleanIndentation();
-        WithLabelCode = path.ExtractByLineRange(52, 56).CleanIndentation();
-        WithCustomLabelCode = path.ExtractByLineRange(62, 66).CleanIndentation();
-        SearchBoxCode = path.ExtractByLineRange(72, 84).CleanIndentation();
-        AutoCompleteBoxCode = path.ExtractByLineRange(90, 105).CleanIndentation();
-        TextAreaCode = path.ExtractByLineRange(111, 116).CleanIndentation();
-        FormValidationCode = path.ExtractByLineRange(122, 157).CleanIndentation();
+        DefaultInputCode = path.ExtractByLineRange(61, 63).CleanIndentation();
+        DisabledCode = path.ExtractByLineRange(69, 72).CleanIndentation();
+        WithLabelCode = path.ExtractByLineRange(78, 82).CleanIndentation();
+        WithCustomLabelCode = path.ExtractByLineRange(88, 92).CleanIndentation();
+        SearchBoxCode = path.ExtractByLineRange(98, 110).CleanIndentation();
+        AutoCompleteBoxCode = path.ExtractByLineRange(116, 131).CleanIndentation();
+        TextAreaCode = path.ExtractByLineRange(137, 142).CleanIndentation();
+        FormValidationCode = path.ExtractByLineRange(148, 183).CleanIndentation();
+    }
+
+    [RelayCommand]
+    private void BackPage()
+    {
+        _messenger.Send(new PageChangedMessage { PageType = typeof(DialogViewModel) });
+    }
+
+    [RelayCommand]
+    private void NextPage()
+    {
+        _messenger.Send(new PageChangedMessage { PageType = typeof(MenuViewModel) });
     }
 
     private void OnPropertyChanged(object? sender, PropertyChangedEventArgs e)
@@ -167,4 +182,6 @@ public sealed partial class InputViewModel : ViewModelBase
 
         ClearAllErrors();
     }
+
+    public string Route => "input";
 }

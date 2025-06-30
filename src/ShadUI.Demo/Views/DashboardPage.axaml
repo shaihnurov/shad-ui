@@ -14,12 +14,27 @@
     x:DataType="viewModels:DashboardViewModel"
     mc:Ignorable="d">
     <DockPanel LastChildFill="True">
-        <StackPanel
+        <Grid
             MaxWidth="{StaticResource PageMaxWidth}"
             Margin="{StaticResource PageMargin}"
+            ColumnDefinitions="* Auto"
             DockPanel.Dock="Top">
-            <TextBlock Classes="h2" Text="Dashboard" />
-        </StackPanel>
+            <TextBlock
+                Grid.Column="0"
+                Classes="h2"
+                Text="Dashboard" />
+            <Button
+                Grid.Column="1"
+                Width="28"
+                Height="28"
+                Background="{DynamicResource GhostHoverColor}"
+                Classes="Icon"
+                Command="{Binding NextPageCommand}">
+                <Viewbox Margin="6">
+                    <TextBlock Classes="LucideIcon" Text="&#57421;" />
+                </Viewbox>
+            </Button>
+        </Grid>
         <ScrollViewer>
             <StackPanel
                 MaxWidth="{StaticResource PageMaxWidth}"

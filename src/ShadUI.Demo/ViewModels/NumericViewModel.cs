@@ -4,26 +4,41 @@ using System.ComponentModel.DataAnnotations;
 using System.IO;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
 
 namespace ShadUI.Demo.ViewModels;
 
-public sealed partial class NumericViewModel : ViewModelBase
+public sealed partial class NumericViewModel : ViewModelBase, INavigable
 {
+    private readonly IMessenger _messenger;
     private readonly ToastManager _toastManager;
 
-    public NumericViewModel(ToastManager toastManager)
+    public NumericViewModel(IMessenger messenger, ToastManager toastManager)
     {
+        _messenger = messenger;
         _toastManager = toastManager;
         PropertyChanged += OnPropertyChanged;
         ErrorsChanged += (_, _) => SubmitCommand.NotifyCanExecuteChanged();
 
         var path = Path.Combine(AppContext.BaseDirectory, "views", "NumericPage.axaml");
-        DefaultNumericCode = path.ExtractByLineRange(34, 36).CleanIndentation();
-        DisabledCode = path.ExtractByLineRange(42, 44).CleanIndentation();
-        LeftAlignedCode = path.ExtractByLineRange(50, 52).CleanIndentation();
-        WithLabelCode = path.ExtractByLineRange(58, 61).CleanIndentation();
-        WithCustomLabelCode = path.ExtractByLineRange(67, 78).CleanIndentation();
-        FormValidationCode = path.ExtractByLineRange(84, 107).CleanIndentation();
+        DefaultNumericCode = path.ExtractByLineRange(61, 63).CleanIndentation();
+        DisabledCode = path.ExtractByLineRange(69, 71).CleanIndentation();
+        LeftAlignedCode = path.ExtractByLineRange(77, 79).CleanIndentation();
+        WithLabelCode = path.ExtractByLineRange(85, 88).CleanIndentation();
+        WithCustomLabelCode = path.ExtractByLineRange(94, 105).CleanIndentation();
+        FormValidationCode = path.ExtractByLineRange(111, 134).CleanIndentation();
+    }
+
+    [RelayCommand]
+    private void BackPage()
+    {
+        _messenger.Send(new PageChangedMessage { PageType = typeof(MenuViewModel) });
+    }
+
+    [RelayCommand]
+    private void NextPage()
+    {
+        _messenger.Send(new PageChangedMessage { PageType = typeof(SidebarViewModel) });
     }
 
     private void OnPropertyChanged(object? sender, PropertyChangedEventArgs e)
@@ -77,4 +92,6 @@ public sealed partial class NumericViewModel : ViewModelBase
         Age = 0;
         ClearAllErrors();
     }
+
+    public string Route => "numeric";
 }

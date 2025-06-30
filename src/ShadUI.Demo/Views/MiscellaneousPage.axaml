@@ -16,7 +16,23 @@
             MaxWidth="{StaticResource PageMaxWidth}"
             Margin="{StaticResource PageMargin}"
             DockPanel.Dock="Top">
-            <TextBlock Classes="h2" Text="Miscellaneous" />
+            <Grid ColumnDefinitions="* Auto">
+                <TextBlock
+                    Grid.Column="0"
+                    Classes="h2"
+                    Text="Miscellaneous" />
+                <Button
+                    Grid.Column="1"
+                    Width="28"
+                    Height="28"
+                    Background="{DynamicResource GhostHoverColor}"
+                    Classes="Icon"
+                    Command="{Binding BackPageCommand}">
+                    <Viewbox Margin="6">
+                        <TextBlock Classes="LucideIcon" Text="&#57420;" />
+                    </Viewbox>
+                </Button>
+            </Grid>
             <TextBlock
                 Classes="p"
                 Text="A collection of miscellaneous controls that don't fit into any specific category"
