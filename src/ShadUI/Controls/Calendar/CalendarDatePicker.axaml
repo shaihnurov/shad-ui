@@ -48,7 +48,6 @@
             <ControlTemplate>
                 <StackPanel Background="Transparent" Focusable="False">
                     <Border
-                        Name="PART_Border"
                         Height="{TemplateBinding shadui:ControlAssist.Height}"
                         MinHeight="{TemplateBinding shadui:ControlAssist.MinHeight}"
                         Background="{TemplateBinding Background}"
@@ -64,7 +63,6 @@
                                 VerticalAlignment="Center"
                                 Content="{TemplateBinding InnerLeftContent}" />
                             <ScrollViewer
-                                Name="PART_ScrollViewer"
                                 Grid.Column="1"
                                 AllowAutoHide="{TemplateBinding (ScrollViewer.AllowAutoHide)}"
                                 BringIntoViewOnFocusChange="{TemplateBinding (ScrollViewer.BringIntoViewOnFocusChange)}"

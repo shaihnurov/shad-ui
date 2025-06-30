@@ -4,11 +4,16 @@ using System.Text;
 using System.Threading.Tasks;
 using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Controls.Metadata;
 using Avalonia.Controls.Primitives;
 
 // ReSharper disable once CheckNamespace
 namespace ShadUI;
 
+[TemplatePart("PART_PrimaryButton", typeof(Button))]
+[TemplatePart("PART_SecondaryButton", typeof(Button))]
+[TemplatePart("PART_TertiaryButton", typeof(Button))]
+[TemplatePart("PART_CancelButton", typeof(Button))]
 internal class SimpleDialog : TemplatedControl
 {
     private readonly DialogManager? _manager;

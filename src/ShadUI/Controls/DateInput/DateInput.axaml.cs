@@ -1,6 +1,7 @@
 using System;
 using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Controls.Metadata;
 using Avalonia.Controls.Primitives;
 using Avalonia.Data;
 using Avalonia.Interactivity;
@@ -11,6 +12,9 @@ namespace ShadUI;
 /// <summary>
 ///     A control that allows users to input and display date values in day, month, and year format.
 /// </summary>
+[TemplatePart("PART_DayTextBox", typeof(TextBox))]
+[TemplatePart("PART_MonthTextBox", typeof(TextBox))]
+[TemplatePart("PART_YearTextBox", typeof(TextBox))]
 public class DateInput : TemplatedControl
 {
     /// <summary>

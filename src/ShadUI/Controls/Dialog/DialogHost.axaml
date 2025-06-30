@@ -27,7 +27,7 @@
                         Background="Transparent"
                         IsVisible="False" />
                     <Border
-                        Name="PART_DialogContent"
+                        Name="DialogContent"
                         MinWidth="{TemplateBinding DialogMinWidth}"
                         MaxWidth="{TemplateBinding DialogMaxWidth}"
                         HorizontalAlignment="Center"
@@ -91,7 +91,7 @@
                 <Setter Property="IsVisible" Value="True" />
                 <Setter Property="IsHitTestVisible" Value="True" />
             </Style>
-            <Style Selector="^/template/ Border#PART_DialogContent">
+            <Style Selector="^/template/ Border#DialogContent">
                 <Setter Property="Margin" Value="0" />
                 <Setter Property="Opacity" Value="1" />
                 <Setter Property="IsHitTestVisible" Value="True" />
@@ -116,7 +116,7 @@
                 <Setter Property="IsHitTestVisible" Value="False" />
                 <Setter Property="IsVisible" Value="False" />
             </Style>
-            <Style Selector="^/template/ Border#PART_DialogContent">
+            <Style Selector="^/template/ Border#DialogContent">
                 <Setter Property="Opacity" Value="0" />
                 <Setter Property="IsHitTestVisible" Value="False" />
                 <Setter Property="RenderTransform" Value="scale(0.70)" />

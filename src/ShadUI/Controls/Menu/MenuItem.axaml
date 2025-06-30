@@ -24,7 +24,7 @@
             <ControlTemplate>
                 <Panel>
                     <Border
-                        Name="PART_BaseBackground"
+                        Name="BaseBackground"
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
@@ -37,7 +37,7 @@
                         </Border.Transitions>
                     </Border>
                     <Border
-                        Name="PART_HoverBackground"
+                        Name="HoverBackground"
                         Background="{DynamicResource GhostColor}"
                         CornerRadius="{TemplateBinding CornerRadius}"
                         Opacity="0">
@@ -49,7 +49,7 @@
                     </Border>
                     <Panel>
                         <Border
-                            Name="PART_BorderContainer"
+                            Name="BorderContainer"
                             Background="Transparent"
                             ClipToBounds="True"
                             CornerRadius="{TemplateBinding CornerRadius}">
@@ -61,7 +61,7 @@
                                     <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
                                 <ContentPresenter
-                                    Name="PART_Icon"
+                                    Name="Icon"
                                     Height="8"
                                     Margin="0,0,8,0"
                                     HorizontalAlignment="Center"
@@ -70,7 +70,7 @@
                                     IsVisible="{TemplateBinding Icon,
                                                                 Converter={x:Static ObjectConverters.IsNotNull}}" />
                                 <ContentPresenter
-                                    Name="PART_HeaderPresenter"
+                                    Name="HeaderPresenter"
                                     Grid.Column="1"
                                     HorizontalAlignment="Left"
                                     VerticalAlignment="Center"
@@ -85,7 +85,7 @@
                                     </ContentPresenter.DataTemplates>
                                 </ContentPresenter>
                                 <PathIcon
-                                    Name="PART_RightArrow"
+                                    Name="RightArrow"
                                     Grid.Column="2"
                                     Width="10"
                                     Height="10"
@@ -96,7 +96,7 @@
                                     DockPanel.Dock="Right"
                                     Foreground="{DynamicResource ForegroundColor}" />
                                 <TextBlock
-                                    Name="PART_InputGestureText"
+                                    Name="InputGestureText"
                                     Grid.Column="3"
                                     Margin="8,0,0,0"
                                     VerticalAlignment="Center"
@@ -117,7 +117,7 @@
                             Opacity="0"
                             OverlayInputPassThroughElement="{CompiledBinding $parent[Menu]}"
                             Placement="RightEdgeAlignedTop">
-                            <LayoutTransformControl Name="PART_LayoutTransform" RenderTransformOrigin="0%, 0%">
+                            <LayoutTransformControl Name="LayoutTransform" RenderTransformOrigin="0%, 0%">
                                 <Border
                                     Margin="24,0,2,4"
                                     Background="{DynamicResource CardBackgroundColor}"
@@ -131,7 +131,7 @@
                                         </Border>
                                         <ScrollViewer ClipToBounds="True">
                                             <ItemsPresenter
-                                                Name="PART_ItemsPresenter"
+                                                Name="ItemsPresenter"
                                                 Grid.IsSharedSizeScope="True"
                                                 ItemsPanel="{TemplateBinding ItemsPanel}" />
                                         </ScrollViewer>
@@ -150,26 +150,26 @@
         <Style Selector="^:not(.Menu):disabled">
             <Setter Property="Opacity" Value="0.56" />
         </Style>
-        <Style Selector="^:empty /template/ PathIcon#PART_RightArrow">
+        <Style Selector="^:empty /template/ PathIcon#RightArrow">
             <Setter Property="IsVisible" Value="False" />
         </Style>
-        <Style Selector="^[FlowDirection=RightToLeft] /template/ Popup#PART_Popup">
+        <Style Selector="^[FlowDirection=RightToLeft] /template/ Popup#Popup">
             <Setter Property="HorizontalOffset" Value="25" />
         </Style>
-        <Style Selector="^:pointerover /template/ Border#PART_HoverBackground">
+        <Style Selector="^:pointerover /template/ Border#HoverBackground">
             <Setter Property="Opacity" Value="1" />
         </Style>
-        <Style Selector="^:pointerover /template/ Border#PART_BaseBackground">
+        <Style Selector="^:pointerover /template/ Border#BaseBackground">
             <Setter Property="Opacity" Value="0" />
         </Style>
-        <Style Selector="^:open /template/ Border#PART_HoverBackground">
+        <Style Selector="^:open /template/ Border#HoverBackground">
             <Setter Property="Opacity" Value="1" />
         </Style>
-        <Style Selector="^:open /template/ Border#PART_BaseBackground">
+        <Style Selector="^:open /template/ Border#BaseBackground">
             <Setter Property="Opacity" Value="0" />
         </Style>
 
-        <Style Selector="^:open /template/ LayoutTransformControl#PART_LayoutTransform">
+        <Style Selector="^:open /template/ LayoutTransformControl#LayoutTransform">
             <Style.Animations>
                 <Animation
                     Easing="SineEaseInOut"
@@ -191,7 +191,7 @@
 
         <Style Selector="^.Destructive">
             <Setter Property="Foreground" Value="{DynamicResource DestructiveColor}" />
-            <Style Selector="^ /template/ Border#PART_HoverBackground">
+            <Style Selector="^ /template/ Border#HoverBackground">
                 <Setter Property="Background" Value="{DynamicResource DestructiveColor10}" />
             </Style>
         </Style>

@@ -20,7 +20,7 @@
             <ControlTemplate TargetType="{x:Type ColorView}">
                 <Grid RowDefinitions="Auto,Auto">
                     <TabControl
-                        x:Name="PART_TabControl"
+                        Name="PART_TabControl"
                         Grid.Row="0"
                         Width="350"
                         Height="338"
@@ -52,7 +52,7 @@
                                     <ColumnDefinition Width="Auto" MinWidth="32" />
                                 </Grid.ColumnDefinitions>
                                 <primitives:ColorSlider
-                                    x:Name="ColorSpectrumThirdComponentSlider"
+                                    Name="ColorSpectrumThirdComponentSlider"
                                     Grid.Column="0"
                                     Margin="0,0,12,0"
                                     HorizontalAlignment="Center"
@@ -66,7 +66,7 @@
                                     IsVisible="{TemplateBinding IsColorSpectrumSliderVisible}"
                                     Orientation="Vertical" />
                                 <primitives:ColorSpectrum
-                                    x:Name="ColorSpectrum"
+                                    Name="ColorSpectrum"
                                     Grid.Column="1"
                                     HorizontalAlignment="Stretch"
                                     VerticalAlignment="Stretch"
@@ -80,7 +80,7 @@
                                     MinValue="{TemplateBinding MinValue}"
                                     Shape="{TemplateBinding ColorSpectrumShape}" />
                                 <primitives:ColorSlider
-                                    x:Name="ColorSpectrumAlphaSlider"
+                                    Name="ColorSpectrumAlphaSlider"
                                     Grid.Column="2"
                                     Margin="12,0,0,0"
                                     HorizontalAlignment="Center"
@@ -156,7 +156,7 @@
                                         CornerRadius="{DynamicResource LgCornerRadius}">
                                         <StackPanel IsVisible="{TemplateBinding IsColorModelVisible}" Orientation="Horizontal">
                                             <RadioButton
-                                                x:Name="RgbRadioButton"
+                                                Name="RgbRadioButton"
                                                 Height="{Binding ElementName=PART_HexTextBox, Path=Bounds.Height}"
                                                 Content="RGB"
                                                 IsChecked="{TemplateBinding ColorModel,
@@ -165,7 +165,7 @@
                                                                             Mode=TwoWay}"
                                                 Theme="{StaticResource ColorViewColorModelRadioButtonTheme}" />
                                             <RadioButton
-                                                x:Name="HsvRadioButton"
+                                                Name="HsvRadioButton"
                                                 Height="{Binding ElementName=PART_HexTextBox, Path=Bounds.Height}"
                                                 Content="HSV"
                                                 IsChecked="{TemplateBinding ColorModel,
@@ -176,7 +176,7 @@
                                         </StackPanel>
                                     </Border>
                                     <TextBox
-                                        x:Name="PART_HexTextBox"
+                                        Name="PART_HexTextBox"
                                         HorizontalAlignment="Stretch"
                                         VerticalContentAlignment="Center"
                                         AutomationProperties.Name="Hexadecimal Color"
@@ -207,7 +207,7 @@
                                             </NumericUpDown.InnerLeftContent>
                                         </NumericUpDown>
                                         <primitives:ColorSlider
-                                            x:Name="Component1Slider"
+                                            Name="Component1Slider"
                                             HorizontalAlignment="Stretch"
                                             VerticalAlignment="Center"
                                             ColorComponent="Component1"
@@ -240,7 +240,7 @@
                                             </NumericUpDown.InnerLeftContent>
                                         </NumericUpDown>
                                         <primitives:ColorSlider
-                                            x:Name="Component2Slider"
+                                            Name="Component2Slider"
                                             HorizontalAlignment="Stretch"
                                             VerticalAlignment="Center"
                                             ColorComponent="Component2"
@@ -273,7 +273,7 @@
                                             </NumericUpDown.InnerLeftContent>
                                         </NumericUpDown>
                                         <primitives:ColorSlider
-                                            x:Name="Component3Slider"
+                                            Name="Component3Slider"
                                             HorizontalAlignment="Stretch"
                                             VerticalAlignment="Center"
                                             ColorComponent="Component3"
@@ -309,7 +309,7 @@
                                             </NumericUpDown.InnerLeftContent>
                                         </NumericUpDown>
                                         <primitives:ColorSlider
-                                            x:Name="AlphaComponentSlider"
+                                            Name="AlphaComponentSlider"
                                             HorizontalAlignment="Stretch"
                                             VerticalAlignment="Center"
                                             ColorComponent="Alpha"

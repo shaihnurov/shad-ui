@@ -22,7 +22,6 @@
                     CornerRadius="{TemplateBinding CornerRadius}">
                     <ScrollViewer HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}" VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
                         <ItemsPresenter
-                            Name="PART_ItemsPresenter"
                             Margin="{TemplateBinding Padding}"
                             Grid.IsSharedSizeScope="True"
                             ItemsPanel="{TemplateBinding ItemsPanel}"

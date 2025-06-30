@@ -11,7 +11,7 @@
             <ControlTemplate>
                 <Panel>
                     <Border
-                        Name="PART_BaseBackground"
+                        Name="BaseBackground"
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
@@ -24,7 +24,7 @@
                         </Border.Transitions>
                     </Border>
                     <Border
-                        Name="PART_HoverBackground"
+                        Name="HoverBackground"
                         Background="{DynamicResource GhostHoverColor}"
                         CornerRadius="{TemplateBinding CornerRadius}"
                         Opacity="0">
@@ -35,7 +35,7 @@
                         </Border.Transitions>
                     </Border>
                     <ContentPresenter
-                        Name="PART_ContentPresenter"
+                        Name="ContentPresenter"
                         Margin="{TemplateBinding Padding}"
                         HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                         VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
@@ -53,13 +53,13 @@
         <Style Selector="^:disabled">
             <Setter Property="Opacity" Value="0.5" />
         </Style>
-        <Style Selector="^:pointerover /template/ Border#PART_HoverBackground">
+        <Style Selector="^:pointerover /template/ Border#HoverBackground">
             <Setter Property="Opacity" Value="1" />
         </Style>
-        <Style Selector="^:pointerover /template/ Border#PART_BaseBackground">
+        <Style Selector="^:pointerover /template/ Border#BaseBackground">
             <Setter Property="Opacity" Value="0" />
         </Style>
-        <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
+        <Style Selector="^:pressed /template/ ContentPresenter#ContentPresenter">
             <Setter Property="RenderTransform" Value="scale(0.95, 0.95)" />
         </Style>
     </ControlTheme>
@@ -86,7 +86,7 @@
                         <Border ClipToBounds="True" CornerRadius="{TemplateBinding CornerRadius}">
                             <DockPanel>
                                 <StackPanel
-                                    Name="PART_SpinnerPanel"
+                                    Name="SpinnerPanel"
                                     DockPanel.Dock="Right"
                                     IsVisible="{TemplateBinding ShowButtonSpinner}"
                                     Orientation="Horizontal"
@@ -97,7 +97,7 @@
                                         HorizontalAlignment="Center"
                                         Fill="{DynamicResource BorderColor}" />
                                     <RepeatButton
-                                        Name="PART_IncreaseButton"
+                                        Name="IncreaseButton"
                                         IsTabStop="{TemplateBinding IsTabStop}"
                                         Theme="{StaticResource SpinnerRepeatButton}">
                                         <Path
@@ -114,7 +114,7 @@
                                         HorizontalAlignment="Center"
                                         Fill="{DynamicResource BorderColor}" />
                                     <RepeatButton
-                                        Name="PART_DecreaseButton"
+                                        Name="DecreaseButton"
                                         IsTabStop="{TemplateBinding IsTabStop}"
                                         Theme="{StaticResource SpinnerRepeatButton}">
                                         <Path
@@ -133,7 +133,7 @@
                                         Fill="{DynamicResource BorderColor}" />
                                 </StackPanel>
                                 <ContentPresenter
-                                    Name="PART_ContentPresenter"
+                                    Name="ContentPresenter"
                                     Padding="{TemplateBinding Padding}"
                                     HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                     VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
@@ -147,7 +147,7 @@
             </ControlTemplate>
         </Setter>
         <Style Selector="^:left">
-            <Style Selector="^ /template/ StackPanel#PART_SpinnerPanel">
+            <Style Selector="^ /template/ StackPanel#SpinnerPanel">
                 <Setter Property="DockPanel.Dock" Value="Left" />
             </Style>
             <Style Selector="^ /template/ Rectangle#LeftBorder">
@@ -158,7 +158,7 @@
             </Style>
         </Style>
         <Style Selector="^:right">
-            <Style Selector="^ /template/ StackPanel#PART_SpinnerPanel">
+            <Style Selector="^ /template/ StackPanel#SpinnerPanel">
                 <Setter Property="DockPanel.Dock" Value="Right" />
             </Style>
             <Style Selector="^ /template/ Rectangle#LeftBorder">

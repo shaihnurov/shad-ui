@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
+using Avalonia.Controls.Metadata;
 using Avalonia.Controls.Primitives;
 using Avalonia.Input;
 using Avalonia.Interactivity;
@@ -15,6 +16,9 @@ namespace ShadUI;
 /// <summary>
 ///     Dialog host control that manages the display and lifecycle of dialogs within a window.
 /// </summary>
+[TemplatePart("PART_DialogBackground", typeof(Border))]
+[TemplatePart("PART_TitleBar", typeof(Border))]
+[TemplatePart("PART_CloseButton", typeof(Button))]
 public class DialogHost : TemplatedControl
 {
     /// <summary>

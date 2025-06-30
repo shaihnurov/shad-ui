@@ -7,12 +7,10 @@
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <Border
-                        x:Name="PART_ButtonLayoutBorder"
                         Padding="4"
                         Background="Transparent"
                         BorderThickness="{TemplateBinding BorderThickness}">
                         <Path
-                            x:Name="PART_GlyphElement"
                             Width="10"
                             Height="10"
                             HorizontalAlignment="Center"
@@ -80,7 +78,7 @@
                                 </TextBlock.IsVisible>
                             </TextBlock>
                             <TextPresenter
-                                x:Name="PART_TextPresenter"
+                                Name="PART_TextPresenter"
                                 HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                 VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                 CaretBlinkInterval="{TemplateBinding CaretBlinkInterval}"

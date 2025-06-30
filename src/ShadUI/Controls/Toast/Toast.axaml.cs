@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Avalonia;
 using Avalonia.Animation.Easings;
 using Avalonia.Controls;
+using Avalonia.Controls.Metadata;
 using Avalonia.Controls.Primitives;
 using Avalonia.Input;
 using Avalonia.Threading;
@@ -10,6 +11,9 @@ using Avalonia.Threading;
 // ReSharper disable once CheckNamespace
 namespace ShadUI;
 
+[TemplatePart("PART_ToastCard", typeof(Border))]
+[TemplatePart("PART_ActionButton", typeof(Button))]
+[TemplatePart("PART_CloseButton", typeof(Button))]
 internal class Toast : ContentControl
 {
     /// <summary>

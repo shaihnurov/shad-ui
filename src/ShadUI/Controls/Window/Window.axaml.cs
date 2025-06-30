@@ -3,6 +3,7 @@ using System.Runtime.InteropServices;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
+using Avalonia.Controls.Metadata;
 using Avalonia.Controls.Primitives;
 using Avalonia.Input;
 using Avalonia.Interactivity;
@@ -15,6 +16,11 @@ namespace ShadUI;
 /// <summary>
 ///     A modern window with a customizable title bar.
 /// </summary>
+[TemplatePart("PART_Root", typeof(Panel))]
+[TemplatePart("PART_TitleBarBackground", typeof(Control))]
+[TemplatePart("PART_MaximizeButton", typeof(Button))]
+[TemplatePart("PART_MinimizeButton", typeof(Button))]
+[TemplatePart("PART_CloseButton", typeof(Button))]
 public class Window : Avalonia.Controls.Window
 {
     /// <summary>

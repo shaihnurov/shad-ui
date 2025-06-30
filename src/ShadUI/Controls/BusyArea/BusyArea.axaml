@@ -17,7 +17,7 @@
             <ControlTemplate>
                 <Panel>
                     <Border
-                        Name="PART_AreaBackground"
+                        Name="AreaBackground"
                         Width="{TemplateBinding Width}"
                         Height="{TemplateBinding Height}"
                         Background="{DynamicResource BusyAreaOverlayColor}"
@@ -30,7 +30,7 @@
                         </Border.Transitions>
                     </Border>
                     <StackPanel
-                        Name="PART_Content"
+                        Name="Content"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center">
                         <StackPanel.Transitions>
@@ -45,11 +45,11 @@
                     </StackPanel>
                     <Panel.Styles>
                         <Style Selector="shadui|BusyArea[IsBusy=True]">
-                            <Style Selector="^ Border#PART_AreaBackground">
+                            <Style Selector="^ Border#AreaBackground">
                                 <Setter Property="Opacity" Value="0.80" />
                                 <Setter Property="IsHitTestVisible" Value="True" />
                             </Style>
-                            <Style Selector="^ StackPanel#PART_Content">
+                            <Style Selector="^ StackPanel#Content">
                                 <Setter Property="Opacity" Value="1" />
                                 <Setter Property="IsVisible" Value="True" />
                                 <Setter Property="IsHitTestVisible" Value="True" />
@@ -57,11 +57,11 @@
                             </Style>
                         </Style>
                         <Style Selector="shadui|BusyArea[IsBusy=False]">
-                            <Style Selector="^ Border#PART_AreaBackground">
+                            <Style Selector="^ Border#AreaBackground">
                                 <Setter Property="Opacity" Value="0" />
                                 <Setter Property="IsHitTestVisible" Value="False" />
                             </Style>
-                            <Style Selector="^ StackPanel#PART_Content">
+                            <Style Selector="^ StackPanel#Content">
                                 <Setter Property="Opacity" Value="0" />
                                 <Setter Property="IsHitTestVisible" Value="False" />
                                 <Setter Property="RenderTransform" Value="scale(0.70)" />

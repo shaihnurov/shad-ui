@@ -85,7 +85,7 @@
                         ClipToBounds="True"
                         CornerRadius="{TemplateBinding CornerRadius}">
                         <ContentPresenter
-                            Name="PART_ContentPresenter"
+                            Name="ContentPresenter"
                             Padding="{TemplateBinding Padding}"
                             HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                             VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
@@ -106,11 +106,11 @@
                 </Panel>
             </ControlTemplate>
         </Setter>
-        <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
+        <Style Selector="^:disabled /template/ ContentPresenter#ContentPresenter">
             <Setter Property="Opacity" Value="0.50" />
         </Style>
         <Style Selector="^[IsSelected=False]">
-            <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+            <Style Selector="^ /template/ ContentPresenter#ContentPresenter">
                 <Setter Property="Opacity" Value="0.75" />
             </Style>
             <Style Selector="^ /template/ Border#SelectedBorder">
@@ -121,7 +121,7 @@
             <Style Selector="^ /template/ Border#SelectedBorder">
                 <Setter Property="Opacity" Value="1" />
             </Style>
-            <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+            <Style Selector="^ /template/ ContentPresenter#ContentPresenter">
                 <Setter Property="Opacity" Value="1" />
             </Style>
         </Style>

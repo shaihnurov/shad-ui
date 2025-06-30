@@ -80,7 +80,6 @@
                             DockPanel.Dock="Right"
                             Foreground="{DynamicResource ForegroundColor}" />
                         <ContentPresenter
-                            Name="PART_ContentPresenter"
                             HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                             VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                             Background="Transparent"

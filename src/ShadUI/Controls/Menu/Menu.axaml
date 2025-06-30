@@ -21,7 +21,7 @@
                         </Transitions>
                     </Panel.Transitions>
                     <Border
-                        Name="PART_BaseBackground"
+                        Name="BaseBackground"
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
@@ -34,7 +34,7 @@
                         </Border.Transitions>
                     </Border>
                     <Border
-                        Name="PART_HoverBackground"
+                        Name="HoverBackground"
                         Background="{DynamicResource GhostColor}"
                         CornerRadius="{TemplateBinding CornerRadius}"
                         Opacity="0">
@@ -46,12 +46,12 @@
                     </Border>
                     <Panel>
                         <Border
-                            Name="PART_BorderContainer"
+                            Name="BorderContainer"
                             Background="Transparent"
                             ClipToBounds="True"
                             CornerRadius="{TemplateBinding CornerRadius}">
                             <ContentPresenter
-                                Name="PART_HeaderPresenter"
+                                Name="HeaderPresenter"
                                 Margin="{TemplateBinding Padding}"
                                 HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
                                 VerticalAlignment="{TemplateBinding VerticalAlignment}"
@@ -60,7 +60,7 @@
                                 <ContentPresenter.DataTemplates>
                                     <DataTemplate DataType="system:String">
                                         <TextBlock
-                                            Name="PART_HeaderText"
+                                            Name="HeaderText"
                                             FontSize="14"
                                             FontWeight="Medium"
                                             Text="{CompiledBinding}" />
@@ -79,7 +79,7 @@
                             Placement="{TemplateBinding shadui:MenuItemAssist.PopupPlacement}"
                             VerticalOffset="{TemplateBinding shadui:MenuItemAssist.PopupVerticalOffset}">
                             <LayoutTransformControl
-                                Name="PART_LayoutTransform"
+                                Name="LayoutTransform"
                                 Margin="-1,0,0,0"
                                 RenderTransformOrigin="50%, 0%">
                                 <Border
@@ -96,7 +96,7 @@
                                         </Border>
                                         <ScrollViewer>
                                             <ItemsPresenter
-                                                Name="PART_ItemsPresenter"
+                                                Name="ItemsPresenter"
                                                 Grid.IsSharedSizeScope="True"
                                                 ItemsPanel="{TemplateBinding ItemsPanel}" />
                                         </ScrollViewer>
@@ -111,19 +111,19 @@
         <Style Selector="^:disabled">
             <Setter Property="Opacity" Value="0.5" />
         </Style>
-        <Style Selector="^:pointerover /template/ Border#PART_HoverBackground">
+        <Style Selector="^:pointerover /template/ Border#HoverBackground">
             <Setter Property="Opacity" Value="1" />
         </Style>
-        <Style Selector="^:pointerover /template/ Border#PART_BaseBackground">
+        <Style Selector="^:pointerover /template/ Border#BaseBackground">
             <Setter Property="Opacity" Value="0" />
         </Style>
-        <Style Selector="^:open /template/ Border#PART_HoverBackground">
+        <Style Selector="^:open /template/ Border#HoverBackground">
             <Setter Property="Opacity" Value="1" />
         </Style>
-        <Style Selector="^:open /template/ Border#PART_BaseBackground">
+        <Style Selector="^:open /template/ Border#BaseBackground">
             <Setter Property="Opacity" Value="0" />
         </Style>
-        <Style Selector="^:open /template/ LayoutTransformControl#PART_LayoutTransform">
+        <Style Selector="^:open /template/ LayoutTransformControl#LayoutTransform">
             <Style.Animations>
                 <Animation
                     Easing="SineEaseInOut"
@@ -154,16 +154,16 @@
             <Style Selector="^ /template/ TextBlock">
                 <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundColor}" />
             </Style>
-            <Style Selector="^ /template/ ContentPresenter#PART_HeaderPresenter">
+            <Style Selector="^ /template/ ContentPresenter#HeaderPresenter">
                 <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundColor}" />
             </Style>
-            <Style Selector="^ /template/ Border#PART_BorderContainer:pointerover">
+            <Style Selector="^ /template/ Border#BorderContainer:pointerover">
                 <Setter Property="Cursor" Value="Hand" />
             </Style>
             <Style Selector="^:pressed /template/ Panel#RootPanel">
                 <Setter Property="RenderTransform" Value="scale(0.95, 0.95)" />
             </Style>
-            <Style Selector="^ /template/ Border#PART_HoverBackground">
+            <Style Selector="^ /template/ Border#HoverBackground">
                 <Setter Property="Background" Value="{DynamicResource PrimaryColor50}" />
             </Style>
             <Style Selector="^.NoPressedAnimation">
@@ -184,16 +184,16 @@
             <Style Selector="^ /template/ TextBlock">
                 <Setter Property="Foreground" Value="{DynamicResource SecondaryForegroundColor}" />
             </Style>
-            <Style Selector="^ /template/ ContentPresenter#PART_HeaderPresenter">
+            <Style Selector="^ /template/ ContentPresenter#HeaderPresenter">
                 <Setter Property="Foreground" Value="{DynamicResource SecondaryForegroundColor}" />
             </Style>
-            <Style Selector="^ /template/ Border#PART_BorderContainer:pointerover">
+            <Style Selector="^ /template/ Border#BorderContainer:pointerover">
                 <Setter Property="Cursor" Value="Hand" />
             </Style>
             <Style Selector="^:pressed /template/ Panel#RootPanel">
                 <Setter Property="RenderTransform" Value="scale(0.95, 0.95)" />
             </Style>
-            <Style Selector="^ /template/ Border#PART_HoverBackground">
+            <Style Selector="^ /template/ Border#HoverBackground">
                 <Setter Property="Background" Value="{DynamicResource SecondaryColor50}" />
             </Style>
             <Style Selector="^.NoPressedAnimation">
@@ -215,16 +215,16 @@
             <Style Selector="^ /template/ TextBlock">
                 <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
             </Style>
-            <Style Selector="^ /template/ ContentPresenter#PART_HeaderPresenter">
+            <Style Selector="^ /template/ ContentPresenter#HeaderPresenter">
                 <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
             </Style>
-            <Style Selector="^ /template/ Border#PART_BorderContainer:pointerover">
+            <Style Selector="^ /template/ Border#BorderContainer:pointerover">
                 <Setter Property="Cursor" Value="Hand" />
             </Style>
             <Style Selector="^:pressed /template/ Panel#RootPanel">
                 <Setter Property="RenderTransform" Value="scale(0.95, 0.95)" />
             </Style>
-            <Style Selector="^ /template/ Border#PART_HoverBackground">
+            <Style Selector="^ /template/ Border#HoverBackground">
                 <Setter Property="Background" Value="{DynamicResource OutlineColor}" />
             </Style>
             <Style Selector="^.NoPressedAnimation">
@@ -243,10 +243,10 @@
             <Style Selector="^:pressed /template/ Panel#RootPanel">
                 <Setter Property="RenderTransform" Value="scale(0.95, 0.95)" />
             </Style>
-            <Style Selector="^ /template/ Border#PART_HoverBackground">
+            <Style Selector="^ /template/ Border#HoverBackground">
                 <Setter Property="Background" Value="{DynamicResource GhostHoverColor}" />
             </Style>
-            <Style Selector="^ /template/ Border#PART_BorderContainer:pointerover">
+            <Style Selector="^ /template/ Border#BorderContainer:pointerover">
                 <Setter Property="Cursor" Value="Hand" />
             </Style>
             <Style Selector="^.NoPressedAnimation">
@@ -265,10 +265,10 @@
             <Style Selector="^:pressed /template/ Panel#RootPanel">
                 <Setter Property="RenderTransform" Value="scale(0.95, 0.95)" />
             </Style>
-            <Style Selector="^ /template/ Border#PART_HoverBackground">
+            <Style Selector="^ /template/ Border#HoverBackground">
                 <Setter Property="Background" Value="{DynamicResource GhostColor}" />
             </Style>
-            <Style Selector="^ /template/ Border#PART_BorderContainer:pointerover">
+            <Style Selector="^ /template/ Border#BorderContainer:pointerover">
                 <Setter Property="Cursor" Value="Hand" />
             </Style>
             <Style Selector="^.NoPressedAnimation">
@@ -285,7 +285,7 @@
         <Setter Property="ItemContainerTheme" Value="{StaticResource TopLevelMenuItem}" />
         <Setter Property="Template">
             <ControlTemplate>
-                <LayoutTransformControl Name="PART_LayoutTransform" RenderTransformOrigin="50%, 0%">
+                <LayoutTransformControl Name="LayoutTransform" RenderTransformOrigin="50%, 0%">
                     <Border
                         Height="{TemplateBinding Height}"
                         Padding="{TemplateBinding Padding}"
@@ -294,7 +294,7 @@
                         ClipToBounds="True"
                         CornerRadius="{TemplateBinding CornerRadius}">
                         <ItemsPresenter
-                            Name="PART_ItemsPresenter"
+                            Name="ItemsPresenter"
                             Grid.IsSharedSizeScope="True"
                             ItemsPanel="{TemplateBinding ItemsPanel}"
                             KeyboardNavigation.TabNavigation="Continue" />
@@ -302,7 +302,7 @@
                 </LayoutTransformControl>
             </ControlTemplate>
         </Setter>
-        <Style Selector="^[IsEnabled=True] /template/ LayoutTransformControl#PART_LayoutTransform">
+        <Style Selector="^[IsEnabled=True] /template/ LayoutTransformControl#LayoutTransform">
             <Style.Animations>
                 <Animation
                     Easing="SineEaseInOut"
@@ -322,7 +322,7 @@
                 </Animation>
             </Style.Animations>
         </Style>
-        <Style Selector="^[IsEnabled=False] /template/ LayoutTransformControl#PART_LayoutTransform">
+        <Style Selector="^[IsEnabled=False] /template/ LayoutTransformControl#LayoutTransform">
             <Style.Animations>
                 <Animation
                     Easing="SineEaseInOut"

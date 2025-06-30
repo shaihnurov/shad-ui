@@ -22,7 +22,7 @@
         </Setter>
         <Setter Property="Template">
             <ControlTemplate>
-                <Border Name="PART_Container" Background="{TemplateBinding Background}">
+                <Border Background="{TemplateBinding Background}">
                     <ContentPresenter
                         Width="{TemplateBinding Width}"
                         Height="{TemplateBinding Height}"
@@ -69,7 +69,7 @@
                     CornerRadius="{OnPlatform '0',
                                               Linux='10',
                                               x:TypeArguments=CornerRadius}">
-                    <VisualLayerManager Name="PART_VisualLayerManager" IsHitTestVisible="True">
+                    <VisualLayerManager IsHitTestVisible="True">
                         <VisualLayerManager.ChromeOverlayLayer>
                             <ItemsControl ItemsSource="{CompiledBinding Hosts, RelativeSource={RelativeSource AncestorType={x:Type shadui:Window}}}">
                                 <ItemsControl.ItemsPanel>
@@ -79,19 +79,19 @@
                                 </ItemsControl.ItemsPanel>
                             </ItemsControl>
                         </VisualLayerManager.ChromeOverlayLayer>
-                        <Panel x:Name="PART_Root">
+                        <Panel Name="PART_Root">
                             <DockPanel LastChildFill="True">
                                 <Panel DockPanel.Dock="Top">
                                     <Panel.Styles>
-                                        <Style Selector="shadui|Window[ShowBottomBorder=True] /template/ Border#PART_BottomBorder">
+                                        <Style Selector="shadui|Window[ShowBottomBorder=True] /template/ Border#BottomBorder">
                                             <Setter Property="BorderThickness" Value="0,0,0,1" />
                                         </Style>
-                                        <Style Selector="shadui|Window[ShowBottomBorder=False] /template/ Border#PART_BottomBorder">
+                                        <Style Selector="shadui|Window[ShowBottomBorder=False] /template/ Border#BottomBorder">
                                             <Setter Property="BorderThickness" Value="0,0,0,0" />
                                         </Style>
                                     </Panel.Styles>
                                     <StackPanel>
-                                        <LayoutTransformControl Name="PART_LayoutTransform" RenderTransformOrigin="0%,0%">
+                                        <LayoutTransformControl Name="LayoutTransform" RenderTransformOrigin="0%,0%">
                                             <Panel Margin="0,-1,0,0">
                                                 <Border Name="PART_TitleBarBackground" IsVisible="{TemplateBinding ShowTitlebarBackground}" />
                                                 <DockPanel LastChildFill="True">
@@ -106,10 +106,10 @@
                                                             </Style>
                                                         </StackPanel.Styles>
                                                         <ContentPresenter
-                                                            Name="PART_RightButtons"
+                                                            Name="RightButtons"
                                                             Margin="0,3,0,2"
                                                             Content="{TemplateBinding RightWindowTitleBarContent}" />
-                                                        <StackPanel Name="PART_ButtonsPanel" Orientation="Horizontal">
+                                                        <StackPanel Name="ButtonsPanel" Orientation="Horizontal">
                                                             <Button
                                                                 Name="PART_MinimizeButton"
                                                                 Margin="0,0,0,1"
@@ -169,11 +169,10 @@
                                                 Margin="8,0,8,4"
                                                 Content="{TemplateBinding MenuBarContent}" />
                                         </Panel>
-                                        <Border Name="PART_BottomBorder" BorderBrush="{DynamicResource BorderColor30}" />
+                                        <Border Name="BottomBorder" BorderBrush="{DynamicResource BorderColor30}" />
                                     </StackPanel>
                                 </Panel>
                                 <ContentPresenter
-                                    x:Name="PART_ContentPresenter"
                                     HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                     VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                                     Content="{TemplateBinding Content}"
@@ -198,7 +197,7 @@
         </Style>
         <Style Selector="^[IsTitleBarVisible=True]">
             <Style Selector="^[TitleBarAnimationEnabled=True]">
-                <Style Selector="^ /template/ LayoutTransformControl#PART_LayoutTransform">
+                <Style Selector="^ /template/ LayoutTransformControl#LayoutTransform">
                     <Style.Animations>
                         <Animation
                             Easing="CircularEaseOut"
@@ -243,12 +242,12 @@
                 <Style Selector="^ StackPanel#AppTitlePanel">
                     <Setter Property="Opacity" Value="0.60" />
                 </Style>
-                <Style Selector="^ ContentPresenter#PART_RightButtons">
+                <Style Selector="^ ContentPresenter#RightButtons">
                     <Setter Property="Opacity" Value="0.60" />
                 </Style>
             </Style>
             <Style Selector="^[TitleBarAnimationEnabled=False]">
-                <Style Selector="^ /template/ LayoutTransformControl#PART_LayoutTransform">
+                <Style Selector="^ /template/ LayoutTransformControl#LayoutTransform">
                     <Setter Property="IsVisible" Value="True" />
                 </Style>
             </Style>
@@ -263,7 +262,7 @@
         </Style>
         <Style Selector="^[IsTitleBarVisible=False]">
             <Style Selector="^[TitleBarAnimationEnabled=True]">
-                <Style Selector="^ /template/ LayoutTransformControl#PART_LayoutTransform">
+                <Style Selector="^ /template/ LayoutTransformControl#LayoutTransform">
                     <Style.Animations>
                         <Animation
                             Easing="CircularEaseOut"
@@ -281,7 +280,7 @@
                 </Style>
             </Style>
             <Style Selector="^[TitleBarAnimationEnabled=False]">
-                <Style Selector="^ /template/ LayoutTransformControl#PART_LayoutTransform">
+                <Style Selector="^ /template/ LayoutTransformControl#LayoutTransform">
                     <Setter Property="IsVisible" Value="False" />
                 </Style>
             </Style>
@@ -291,7 +290,7 @@
             <Setter Property="MinHeight" Value="32" />
             <Setter Property="Background" Value="{DynamicResource TitleBarBackgroundColor}" />
         </Style>
-        <Style Selector="^ /template/ StackPanel#PART_ButtonsPanel">
+        <Style Selector="^ /template/ StackPanel#ButtonsPanel">
             <Setter Property="MinHeight" Value="32" />
         </Style>
     </ControlTheme>

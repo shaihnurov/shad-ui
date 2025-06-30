@@ -110,7 +110,7 @@
             <ControlTemplate>
                 <StackPanel Background="Transparent" Focusable="False">
                     <TextBlock
-                        Name="PART_Label"
+                        Name="Label"
                         Margin="0,0,0,6"
                         Classes="Small"
                         IsVisible="{TemplateBinding shadui:ControlAssist.Label,
@@ -119,7 +119,7 @@
                     <DataValidationErrors Focusable="False">
                         <StackPanel>
                             <Border
-                                Name="PART_Container"
+                                Name="Container"
                                 Padding="{TemplateBinding Padding}"
                                 HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
                                 VerticalAlignment="{TemplateBinding VerticalAlignment}"
@@ -180,7 +180,6 @@
                                 </Grid>
                             </Border>
                             <TextBlock
-                                Name="PART_Hint"
                                 Margin="0,4,0,0"
                                 Classes="Caption Muted"
                                 IsVisible="{TemplateBinding shadui:ControlAssist.Hint,
@@ -197,7 +196,7 @@
         <Style Selector="^[InputFocus=True]">
             <Setter Property="BorderBrush" Value="{DynamicResource PrimaryColor}" />
         </Style>
-        <Style Selector="^:focus /template/ Border#PART_Container">
+        <Style Selector="^:focus /template/ Border#Container">
             <Setter Property="Transitions">
                 <Transitions>
                     <BrushTransition Property="BorderBrush" Duration="0:0:0.20" />
@@ -210,7 +209,7 @@
             <Setter Property="CaretBrush" Value="{DynamicResource PrimaryForegroundColor}" />
             <Setter Property="SelectionBrush" Value="{DynamicResource MutedColor}" />
         </Style>
-        <Style Selector="^:pointerover /template/ Border#PART_Container">
+        <Style Selector="^:pointerover /template/ Border#Container">
             <Setter Property="Transitions">
                 <Transitions>
                     <BrushTransition Property="BorderBrush" Duration="0:0:0.20" />
@@ -219,15 +218,15 @@
             <Setter Property="BorderBrush" Value="{DynamicResource PrimaryColor}" />
         </Style>
         <Style Selector="^:error">
-            <Style Selector="^/template/ Border#PART_Container">
+            <Style Selector="^/template/ Border#Container">
                 <Setter Property="BorderBrush" Value="{DynamicResource ErrorColor}" />
             </Style>
-            <Style Selector="^/template/ TextBlock#PART_Label">
+            <Style Selector="^/template/ TextBlock#Label">
                 <Setter Property="Foreground" Value="{DynamicResource ErrorColor}" />
             </Style>
         </Style>
 
-        <Style Selector="^:disabled /template/ Border#PART_Container">
+        <Style Selector="^:disabled /template/ Border#Container">
             <Setter Property="Opacity" Value="0.5" />
         </Style>
     </ControlTheme>

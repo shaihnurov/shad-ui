@@ -1,6 +1,7 @@
 ﻿using System;
 using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Controls.Metadata;
 using Avalonia.Controls.Primitives;
 using Avalonia.Data;
 using Avalonia.Interactivity;
@@ -12,6 +13,10 @@ namespace ShadUI;
 ///     A control that allows users to input and display time values in hours, minutes, and optionally seconds.
 ///     Supports both 12-hour and 24-hour time formats.
 /// </summary>
+[TemplatePart("PART_HourTextBox", typeof(TextBox))]
+[TemplatePart("PART_MinuteTextBox", typeof(TextBox))]
+[TemplatePart("PART_SecondTextBox", typeof(TextBox))]
+[TemplatePart("PART_ToggleButton", typeof(ToggleButton))]
 public class TimeInput : TemplatedControl
 {
     /// <summary>

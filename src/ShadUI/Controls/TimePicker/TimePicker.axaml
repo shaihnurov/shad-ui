@@ -24,7 +24,7 @@
     <x:Double x:Key="TimePickerThemeMinWidth">242</x:Double>
     <x:Double x:Key="TimePickerThemeMaxWidth">456</x:Double>
 
-    <ControlTheme x:Key="SimpleTimePickerFlyoutButton" TargetType="Button">
+    <ControlTheme x:Key="TimePickerFlyoutButton" TargetType="Button">
         <Setter Property="RenderTransform" Value="none" />
         <Setter Property="Template">
             <ControlTemplate>
@@ -74,7 +74,7 @@
                 <DataValidationErrors Focusable="False">
                     <StackPanel Focusable="False">
                         <TextBlock
-                            Name="PART_Label"
+                            Name="Label"
                             Margin="0,0,0,6"
                             Classes="Small"
                             IsVisible="{TemplateBinding shadui:ControlAssist.Label,
@@ -93,7 +93,7 @@
                                 </Border.Transitions>
                             </Border>
                             <Border
-                                Name="PART_Border"
+                                Name="Border"
                                 Height="{TemplateBinding shadui:ControlAssist.Height}"
                                 MinHeight="{TemplateBinding shadui:ControlAssist.MinHeight}"
                                 Padding="{TemplateBinding Padding}"
@@ -102,7 +102,7 @@
                                 BorderThickness="{TemplateBinding BorderThickness}"
                                 CornerRadius="{TemplateBinding CornerRadius}">
                                 <Button
-                                    x:Name="PART_FlyoutButton"
+                                    Name="PART_FlyoutButton"
                                     MinWidth="{DynamicResource TimePickerThemeMinWidth}"
                                     MaxWidth="{DynamicResource TimePickerThemeMaxWidth}"
                                     HorizontalAlignment="Stretch"
@@ -112,7 +112,7 @@
                                     CornerRadius="{TemplateBinding CornerRadius}"
                                     Foreground="{TemplateBinding Foreground}"
                                     IsEnabled="{TemplateBinding IsEnabled}"
-                                    Theme="{StaticResource SimpleTimePickerFlyoutButton}">
+                                    Theme="{StaticResource TimePickerFlyoutButton}">
                                     <DockPanel Margin="{TemplateBinding Padding}" Background="Transparent">
                                         <PathIcon
                                             Name="PART_Icon"
@@ -125,13 +125,13 @@
                                             Foreground="{DynamicResource MutedColor}" />
                                         <Grid Name="PART_FlyoutButtonContentGrid" ColumnDefinitions="Auto Auto Auto Auto Auto Auto Auto">
                                             <Border
-                                                x:Name="PART_FirstPickerHost"
+                                                Name="PART_FirstPickerHost"
                                                 Grid.Column="0"
                                                 HorizontalAlignment="Stretch"
                                                 VerticalAlignment="Stretch"
                                                 Background="Transparent">
                                                 <TextBlock
-                                                    x:Name="PART_HourTextBlock"
+                                                    Name="PART_HourTextBlock"
                                                     HorizontalAlignment="Center"
                                                     VerticalAlignment="Center"
                                                     FontSize="{TemplateBinding FontSize}"
@@ -146,13 +146,13 @@
                                                 HorizontalAlignment="Center"
                                                 Fill="{TemplateBinding BorderBrush}" />
                                             <Border
-                                                x:Name="PART_SecondPickerHost"
+                                                Name="PART_SecondPickerHost"
                                                 Grid.Column="2"
                                                 HorizontalAlignment="Stretch"
                                                 VerticalAlignment="Stretch"
                                                 Background="Transparent">
                                                 <TextBlock
-                                                    x:Name="PART_MinuteTextBlock"
+                                                    Name="PART_MinuteTextBlock"
                                                     HorizontalAlignment="Center"
                                                     VerticalAlignment="Center"
                                                     FontSize="{TemplateBinding FontSize}"
@@ -167,13 +167,13 @@
                                                 HorizontalAlignment="Center"
                                                 Fill="{TemplateBinding BorderBrush}" />
                                             <Border
-                                                x:Name="PART_ThirdPickerHost"
+                                                Name="PART_ThirdPickerHost"
                                                 Grid.Column="4"
                                                 HorizontalAlignment="Stretch"
                                                 VerticalAlignment="Stretch"
                                                 Background="Transparent">
                                                 <TextBlock
-                                                    x:Name="PART_SecondTextBlock"
+                                                    Name="PART_SecondTextBlock"
                                                     HorizontalAlignment="Center"
                                                     VerticalAlignment="Center"
                                                     FontSize="{TemplateBinding FontSize}"
@@ -188,13 +188,13 @@
                                                 HorizontalAlignment="Center"
                                                 Fill="{TemplateBinding BorderBrush}" />
                                             <Border
-                                                x:Name="PART_FourthPickerHost"
+                                                Name="PART_FourthPickerHost"
                                                 Grid.Column="6"
                                                 HorizontalAlignment="Stretch"
                                                 VerticalAlignment="Stretch"
                                                 Background="Transparent">
                                                 <TextBlock
-                                                    x:Name="PART_PeriodTextBlock"
+                                                    Name="PART_PeriodTextBlock"
                                                     HorizontalAlignment="Center"
                                                     VerticalAlignment="Center"
                                                     FontSize="{TemplateBinding FontSize}"
@@ -223,7 +223,6 @@
                             </Popup>
                         </Panel>
                         <TextBlock
-                            Name="PART_Hint"
                             Margin="0,4,0,0"
                             Classes="Caption Muted"
                             IsVisible="{TemplateBinding shadui:ControlAssist.Hint,
@@ -254,20 +253,20 @@
         </Style>
 
         <Style Selector="^:error">
-            <Style Selector="^/template/ Border#PART_Border">
+            <Style Selector="^/template/ Border#Border">
                 <Setter Property="BorderBrush" Value="{DynamicResource ErrorColor}" />
             </Style>
             <Style Selector="^/template/ PathIcon#PART_Icon">
                 <Setter Property="Foreground" Value="{DynamicResource ErrorColor}" />
             </Style>
-            <Style Selector="^/template/ TextBlock#PART_Label">
+            <Style Selector="^/template/ TextBlock#Label">
                 <Setter Property="Foreground" Value="{DynamicResource ErrorColor}" />
             </Style>
         </Style>
     </ControlTheme>
 
     <!--  to override the default RepeatButton  -->
-    <ControlTheme x:Key="SimpleDateTimePickerUpButton" TargetType="RepeatButton">
+    <ControlTheme x:Key="DateTimePickerUpButton" TargetType="RepeatButton">
         <Setter Property="Height" Value="36" />
     </ControlTheme>
     <ControlTheme x:Key="SimpleDateTimePickerDownButton" TargetType="RepeatButton">
@@ -364,7 +363,7 @@
                                         PanelType="Hour"
                                         ShouldLoop="True" />
                                 </ScrollViewer>
-                                <RepeatButton Name="PART_HourUpButton" Theme="{StaticResource SimpleDateTimePickerUpButton}" />
+                                <RepeatButton Name="PART_HourUpButton" Theme="{StaticResource DateTimePickerUpButton}" />
                                 <RepeatButton Name="PART_HourDownButton" Theme="{StaticResource SimpleDateTimePickerDownButton}" />
                             </Panel>
 
@@ -376,7 +375,7 @@
                                         PanelType="Minute"
                                         ShouldLoop="True" />
                                 </ScrollViewer>
-                                <RepeatButton Name="PART_MinuteUpButton" Theme="{StaticResource SimpleDateTimePickerUpButton}" />
+                                <RepeatButton Name="PART_MinuteUpButton" Theme="{StaticResource DateTimePickerUpButton}" />
                                 <RepeatButton Name="PART_MinuteDownButton" Theme="{StaticResource SimpleDateTimePickerDownButton}" />
                             </Panel>
 
@@ -388,7 +387,7 @@
                                         PanelType="Second"
                                         ShouldLoop="True" />
                                 </ScrollViewer>
-                                <RepeatButton Name="PART_SecondUpButton" Theme="{StaticResource SimpleDateTimePickerUpButton}" />
+                                <RepeatButton Name="PART_SecondUpButton" Theme="{StaticResource DateTimePickerUpButton}" />
                                 <RepeatButton Name="PART_SecondDownButton" Theme="{StaticResource SimpleDateTimePickerDownButton}" />
                             </Panel>
 
@@ -400,11 +399,11 @@
                                         PanelType="TimePeriod"
                                         ShouldLoop="False" />
                                 </ScrollViewer>
-                                <RepeatButton Name="PART_PeriodUpButton" Theme="{StaticResource SimpleDateTimePickerUpButton}" />
+                                <RepeatButton Name="PART_PeriodUpButton" Theme="{StaticResource DateTimePickerUpButton}" />
                                 <RepeatButton Name="PART_PeriodDownButton" Theme="{StaticResource SimpleDateTimePickerDownButton}" />
                             </Panel>
                             <Border
-                                x:Name="HighlightRect"
+                                Name="HighlightRect"
                                 Grid.Column="0"
                                 Grid.ColumnSpan="7"
                                 Height="40"

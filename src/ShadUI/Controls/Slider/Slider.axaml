@@ -66,7 +66,7 @@
         </Border>
     </Design.PreviewWith>
 
-    <ControlTheme x:Key="FluentSliderHorizontalRepeatButton" TargetType="RepeatButton">
+    <ControlTheme x:Key="SliderHorizontalRepeatButton" TargetType="RepeatButton">
         <Setter Property="Template">
             <ControlTemplate>
                 <Grid>
@@ -85,7 +85,7 @@
         </Setter>
     </ControlTheme>
 
-    <ControlTheme x:Key="FluentSliderVerticalRepeatButton" TargetType="RepeatButton">
+    <ControlTheme x:Key="SliderVerticalRepeatButton" TargetType="RepeatButton">
         <Setter Property="Template">
             <ControlTemplate>
                 <Grid>
@@ -104,7 +104,7 @@
         </Setter>
     </ControlTheme>
 
-    <ControlTheme x:Key="FluentSliderThumbTheme" TargetType="Thumb">
+    <ControlTheme x:Key="SliderThumbTheme" TargetType="Thumb">
         <Setter Property="Template">
             <ControlTemplate>
                 <Border
@@ -196,7 +196,7 @@
                                             Background="{DynamicResource PrimaryColor}"
                                             CornerRadius="3"
                                             Focusable="False"
-                                            Theme="{StaticResource FluentSliderHorizontalRepeatButton}" />
+                                            Theme="{StaticResource SliderHorizontalRepeatButton}" />
                                     </Track.DecreaseButton>
                                     <Track.IncreaseButton>
                                         <RepeatButton
@@ -205,15 +205,15 @@
                                             Background="{DynamicResource PrimaryColor10}"
                                             CornerRadius="3"
                                             Focusable="False"
-                                            Theme="{StaticResource FluentSliderHorizontalRepeatButton}" />
+                                            Theme="{StaticResource SliderHorizontalRepeatButton}" />
                                     </Track.IncreaseButton>
                                     <Thumb
-                                        Name="thumb"
+                                        Name="Thumb"
                                         Width="16"
                                         Height="16"
                                         Padding="0"
                                         DataContext="{TemplateBinding Value}"
-                                        Theme="{StaticResource FluentSliderThumbTheme}" />
+                                        Theme="{StaticResource SliderThumbTheme}" />
                                 </Track>
                             </Grid>
                         </Grid>
@@ -291,7 +291,7 @@
                                                 Background="{DynamicResource PrimaryColor}"
                                                 CornerRadius="3"
                                                 Focusable="False"
-                                                Theme="{StaticResource FluentSliderVerticalRepeatButton}" />
+                                                Theme="{StaticResource SliderVerticalRepeatButton}" />
                                         </Track.DecreaseButton>
                                         <Track.IncreaseButton>
                                             <RepeatButton
@@ -300,15 +300,14 @@
                                                 Background="{DynamicResource PrimaryColor10}"
                                                 CornerRadius="3"
                                                 Focusable="False"
-                                                Theme="{StaticResource FluentSliderVerticalRepeatButton}" />
+                                                Theme="{StaticResource SliderVerticalRepeatButton}" />
                                         </Track.IncreaseButton>
                                         <Thumb
-                                            Name="thumb"
                                             Width="16"
                                             Height="16"
                                             Padding="0"
                                             DataContext="{TemplateBinding Value}"
-                                            Theme="{StaticResource FluentSliderThumbTheme}" />
+                                            Theme="{StaticResource SliderThumbTheme}" />
                                     </Track>
                                 </Grid>
                             </Grid>

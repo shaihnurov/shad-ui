@@ -55,12 +55,12 @@
             <Setter.Value>
                 <ControlTemplate>
                     <Border
-                        Name="PART_OuterBorder"
+                        Name="OuterBorder"
                         Width="{TemplateBinding Width}"
                         Height="{TemplateBinding Height}"
                         Margin="{TemplateBinding Margin}">
                         <Border
-                            Name="PART_Container"
+                            Name="Container"
                             Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
@@ -91,10 +91,10 @@
             </Setter.Value>
         </Setter>
         <Style Selector="^[HasShadow=True]">
-            <Style Selector="^ /template/ Border#PART_Container">
+            <Style Selector="^ /template/ Border#Container">
                 <Setter Property="BoxShadow" Value="{DynamicResource Shadow}" />
             </Style>
-            <Style Selector="^ /template/ Border#PART_OuterBorder">
+            <Style Selector="^ /template/ Border#OuterBorder">
                 <Setter Property="Padding" Value="2,0,2,4" />
             </Style>
         </Style>

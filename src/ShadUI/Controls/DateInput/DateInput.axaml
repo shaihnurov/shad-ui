@@ -37,7 +37,7 @@
             <ControlTemplate>
                 <StackPanel Background="Transparent" Focusable="False">
                     <TextBlock
-                        Name="PART_Label"
+                        Name="Label"
                         Margin="0,0,0,6"
                         Classes="Small"
                         IsVisible="{TemplateBinding shadui:ControlAssist.Label,
@@ -46,7 +46,7 @@
                     <DataValidationErrors Focusable="False">
                         <StackPanel>
                             <Border
-                                Name="PART_Container"
+                                Name="Container"
                                 Padding="{TemplateBinding Padding}"
                                 HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
                                 VerticalAlignment="{TemplateBinding VerticalAlignment}"
@@ -124,7 +124,7 @@
             </Setter>
             <Setter Property="BorderBrush" Value="{DynamicResource PrimaryColor}" />
         </Style>
-        <Style Selector="^:focus /template/ Border#PART_Container">
+        <Style Selector="^:focus /template/ Border#Container">
             <Setter Property="Transitions">
                 <Setter.Value>
                     <Transitions>
@@ -139,18 +139,18 @@
             <Setter Property="CaretBrush" Value="{DynamicResource PrimaryForegroundColor}" />
             <Setter Property="SelectionBrush" Value="{DynamicResource MutedColor}" />
         </Style>
-        <Style Selector="^:pointerover /template/ Border#PART_Container">
+        <Style Selector="^:pointerover /template/ Border#Container">
             <Setter Property="BorderBrush" Value="{DynamicResource PrimaryColor}" />
         </Style>
         <Style Selector="^:error">
-            <Style Selector="^/template/ Border#PART_Container">
+            <Style Selector="^/template/ Border#Container">
                 <Setter Property="BorderBrush" Value="{DynamicResource ErrorColor}" />
             </Style>
-            <Style Selector="^/template/ TextBlock#PART_Label">
+            <Style Selector="^/template/ TextBlock#Label">
                 <Setter Property="Foreground" Value="{DynamicResource ErrorColor}" />
             </Style>
         </Style>
-        <Style Selector="^:disabled /template/ Border#PART_Container">
+        <Style Selector="^:disabled /template/ Border#Container">
             <Setter Property="Opacity" Value="0.5" />
         </Style>
     </ControlTheme>

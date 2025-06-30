@@ -24,7 +24,7 @@
             <ControlTemplate>
                 <Panel>
                     <Border
-                        Name="PART_BaseBackground"
+                        Name="BaseBackground"
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
@@ -37,7 +37,7 @@
                         </Border.Transitions>
                     </Border>
                     <Border
-                        Name="PART_HoverBackground"
+                        Name="HoverBackground"
                         Background="{DynamicResource GhostColor}"
                         CornerRadius="{TemplateBinding CornerRadius}"
                         Opacity="0">
@@ -48,7 +48,7 @@
                         </Border.Transitions>
                     </Border>
                     <ContentPresenter
-                        Name="PART_ContentPresenter"
+                        Name="ContentPresenter"
                         Margin="{TemplateBinding Padding}"
                         HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                         VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
@@ -74,44 +74,44 @@
                 </Panel>
             </ControlTemplate>
         </Setter>
-        <Style Selector="^:pointerover /template/ Border#PART_HoverBackground">
+        <Style Selector="^:pointerover /template/ Border#HoverBackground">
             <Setter Property="Opacity" Value="1" />
         </Style>
-        <Style Selector="^:pointerover /template/ Border#PART_BaseBackground">
+        <Style Selector="^:pointerover /template/ Border#BaseBackground">
             <Setter Property="Opacity" Value="0" />
         </Style>
         <Style Selector="^:selected">
             <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundColor}" />
             <Setter Property="Background" Value="{DynamicResource PrimaryColor}" />
-            <Style Selector="^ /template/ Border#PART_BaseBackground">
+            <Style Selector="^ /template/ Border#BaseBackground">
                 <Setter Property="Opacity" Value="1" />
             </Style>
-            <Style Selector="^ /template/ Border#PART_HoverBackground">
+            <Style Selector="^ /template/ Border#HoverBackground">
                 <Setter Property="Opacity" Value="0" />
             </Style>
         </Style>
 
         <Style Selector="^:dayfocused">
-            <Style Selector="^ /template/ Border#PART_BaseBackground">
+            <Style Selector="^ /template/ Border#BaseBackground">
                 <Setter Property="Background" Value="{DynamicResource OutlineColor}" />
                 <Setter Property="Opacity" Value="1" />
             </Style>
-            <Style Selector="^ /template/ Border#PART_HoverBackground">
+            <Style Selector="^ /template/ Border#HoverBackground">
                 <Setter Property="Opacity" Value="0" />
             </Style>
         </Style>
 
         <Style Selector="^:today:not(:selected)">
-            <Style Selector="^ /template/ Border#PART_BaseBackground">
+            <Style Selector="^ /template/ Border#BaseBackground">
                 <Setter Property="Background" Value="{DynamicResource PrimaryColor10}" />
                 <Setter Property="Opacity" Value="1" />
             </Style>
-            <Style Selector="^ /template/ Border#PART_HoverBackground">
+            <Style Selector="^ /template/ Border#HoverBackground">
                 <Setter Property="Opacity" Value="0" />
             </Style>
         </Style>
 
-        <Style Selector="^:inactive /template/ ContentPresenter#PART_ContentPresenter">
+        <Style Selector="^:inactive /template/ ContentPresenter#ContentPresenter">
             <Setter Property="Opacity" Value="0.50" />
         </Style>
 

@@ -28,16 +28,16 @@
                         VerticalAlignment="Center"
                         Content="{TemplateBinding InnerLeftContent}" />
                     <ScrollViewer
-                        Name="PART_ScrollViewer"
+                        Name="ScrollViewer"
                         Grid.Column="1"
                         AllowAutoHide="{TemplateBinding (ScrollViewer.AllowAutoHide)}"
                         BringIntoViewOnFocusChange="{TemplateBinding (ScrollViewer.BringIntoViewOnFocusChange)}"
                         HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
                         IsScrollChainingEnabled="{TemplateBinding (ScrollViewer.IsScrollChainingEnabled)}"
                         VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
-                        <Panel Name="PART_TextContainer">
+                        <Panel Name="TextContainer">
                             <TextBlock
-                                Name="watermark"
+                                Name="Watermark"
                                 Margin="{TemplateBinding Padding}"
                                 HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                 VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
@@ -79,7 +79,7 @@
                                 TextWrapping="{TemplateBinding TextWrapping}" />
                         </Panel>
                         <ScrollViewer.Styles>
-                            <Style Selector="ScrollContentPresenter#PART_ContentPresenter">
+                            <Style Selector="ScrollContentPresenter#ContentPresenter">
                                 <Setter Property="Cursor" Value="IBeam" />
                             </Style>
                         </ScrollViewer.Styles>
@@ -89,7 +89,7 @@
                         VerticalAlignment="Center"
                         Content="{TemplateBinding InnerRightContent}" />
                     <ContentPresenter
-                        Name="PART_ClearButton"
+                        Name="ClearButton"
                         Grid.Column="2"
                         Margin="0,4,12,4"
                         VerticalAlignment="Center" />
@@ -100,11 +100,11 @@
             <Setter Property="CaretBrush" Value="Transparent" />
         </Style>
         <Style Selector="^[IsReadOnly=False][(shadui|TextBoxAssist.Clearable)=True]:focus:not(TextBox:empty)">
-            <Style Selector="^ /template/ ContentPresenter#PART_InnerRightContent">
+            <Style Selector="^ /template/ ContentPresenter#InnerRightContent">
                 <Setter Property="IsVisible" Value="False" />
                 <Setter Property="IsHitTestVisible" Value="False" />
             </Style>
-            <Style Selector="^ /template/ ContentPresenter#PART_ClearButton">
+            <Style Selector="^ /template/ ContentPresenter#ClearButton">
                 <Setter Property="Content">
                     <Template>
                         <Button
@@ -123,7 +123,7 @@
         <Setter Property="CornerRadius" Value="{DynamicResource LgCornerRadius}" />
 
         <!--  setting this to prevent focus issues with the TextBox inside ButtonSpinner  -->
-        <Setter Property="shadui:ElementAssist.AttachFocus" Value="PART_TextBox" />
+        <Setter Property="shadui:ElementAssist.AttachFocus" Value="TextBox" />
 
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="Padding" Value="12,7" />
@@ -131,7 +131,7 @@
             <ControlTemplate>
                 <StackPanel Background="Transparent" Focusable="False">
                     <TextBlock
-                        Name="PART_Label"
+                        Name="Label"
                         Margin="0,0,0,6"
                         Classes="Small"
                         IsVisible="{TemplateBinding shadui:ControlAssist.Label,
@@ -171,7 +171,6 @@
                                     Watermark="{TemplateBinding Watermark}" />
                             </ButtonSpinner>
                             <TextBlock
-                                Name="PART_Hint"
                                 Margin="0,4,0,0"
                                 Classes="Caption Muted"
                                 Cursor="Arrow"
@@ -187,7 +186,7 @@
             <Setter Property="BorderBrush" Value="{DynamicResource PrimaryColor}" />
         </Style>
         <Style Selector="^:error">
-            <Style Selector="^/template/ TextBlock#PART_Label">
+            <Style Selector="^/template/ TextBlock#Label">
                 <Setter Property="Foreground" Value="{DynamicResource ErrorColor}" />
             </Style>
         </Style>

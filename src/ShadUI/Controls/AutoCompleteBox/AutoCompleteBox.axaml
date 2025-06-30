@@ -56,13 +56,12 @@
     </Design.PreviewWith>
 
     <StreamGeometry x:Key="TextBoxClearButtonData">M13.71,12.29c.39.39.39,1.03,0,1.42-.2.19-.45.29-.71.29s-.51-.1-.71-.29l-5.29-5.29L1.71,13.71c-.2.19-.45.29-.71.29s-.51-.1-.71-.29c-.39-.39-.39-1.03,0-1.42l5.29-5.29L.29,1.71C-.1,1.32-.1.68.29.29.68-.1,1.32-.1,1.71.29l5.29,5.29L12.29.29c.39-.39,1.03-.39,1.42,0,.39.39.39,1.03,0,1.42l-5.29,5.29,5.29,5.29Z</StreamGeometry>
-    <ControlTheme x:Key="SimpleTextBoxClearButtonTheme" TargetType="Button">
+    <ControlTheme x:Key="ClearButtonTheme" TargetType="Button">
         <Setter Property="Cursor" Value="Arrow" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <Border
-                        x:Name="PART_ButtonLayoutBorder"
                         Padding="4"
                         Background="Transparent"
                         BorderThickness="{TemplateBinding BorderThickness}">
@@ -116,7 +115,6 @@
                         CornerRadius="{TemplateBinding CornerRadius}"
                         Opacity="0" />
                     <ContentPresenter
-                        Name="PART_ContentPresenter"
                         Margin="{TemplateBinding Padding}"
                         HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                         VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
@@ -167,7 +165,7 @@
                     <DataValidationErrors>
                         <StackPanel>
                             <TextBlock
-                                Name="PART_Label"
+                                Name="Label"
                                 Margin="0,0,0,6"
                                 Classes="Small"
                                 Cursor="Arrow"
@@ -194,7 +192,6 @@
                                 InnerRightContent="{TemplateBinding InnerRightContent}"
                                 Watermark="{TemplateBinding Watermark}" />
                             <TextBlock
-                                Name="PART_Hint"
                                 Margin="0,4,0,0"
                                 Classes="Caption Muted"
                                 Cursor="Arrow"
@@ -210,7 +207,7 @@
                         IsLightDismissEnabled="True"
                         PlacementTarget="PART_TextBox"
                         VerticalOffset="5">
-                        <LayoutTransformControl Name="PART_LayoutTransform" RenderTransformOrigin="50%, 0%">
+                        <LayoutTransformControl Name="LayoutTransform" RenderTransformOrigin="50%, 0%">
                             <Border
                                 MinWidth="{CompiledBinding #PART_TextBox.Bounds.Width}"
                                 Margin="2,0,2,4"
@@ -268,7 +265,7 @@
             <Style Selector="^/template/ TextBox#PART_TextBox">
                 <Setter Property="BorderBrush" Value="{DynamicResource ErrorColor}" />
             </Style>
-            <Style Selector="^/template/ TextBlock#PART_Label">
+            <Style Selector="^/template/ TextBlock#Label">
                 <Setter Property="Foreground" Value="{DynamicResource ErrorColor}" />
             </Style>
         </Style>
@@ -279,7 +276,7 @@
             <Setter Property="Opacity" Value="0.5" />
         </Style>
         <Style Selector="^:dropdownopen">
-            <Style Selector="^ /template/ LayoutTransformControl#PART_LayoutTransform">
+            <Style Selector="^ /template/ LayoutTransformControl#LayoutTransform">
                 <Style.Animations>
                     <Animation
                         Easing="SineEaseInOut"

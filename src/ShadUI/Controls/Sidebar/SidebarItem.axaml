@@ -78,14 +78,8 @@
                                 <ColumnDefinition Width="Auto" />
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
-                            <ContentControl
-                                Name="Icon"
-                                Grid.Column="0"
-                                Content="{TemplateBinding Icon}" />
-                            <Panel
-                                Name="Spacer"
-                                Grid.Column="1"
-                                Width="{TemplateBinding Spacing}">
+                            <ContentControl Grid.Column="0" Content="{TemplateBinding Icon}" />
+                            <Panel Grid.Column="1" Width="{TemplateBinding Spacing}">
                                 <Panel.IsVisible>
                                     <MultiBinding Converter="{x:Static BoolConverters.And}">
                                         <Binding Converter="{x:Static ObjectConverters.IsNotNull}" Path="#PART_ContentPresenter.Content" />
