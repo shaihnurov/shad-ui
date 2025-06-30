@@ -108,7 +108,9 @@
                                                         <ContentPresenter
                                                             Name="RightButtons"
                                                             Margin="0,3,0,2"
-                                                            Content="{TemplateBinding RightWindowTitleBarContent}" />
+                                                            Content="{TemplateBinding RightWindowTitleBarContent}"
+                                                            IsVisible="{TemplateBinding RightWindowTitleBarContent,
+                                                                                        Converter={x:Static ObjectConverters.IsNotNull}}" />
                                                         <StackPanel Name="ButtonsPanel" Orientation="Horizontal">
                                                             <Button
                                                                 Name="PART_MinimizeButton"

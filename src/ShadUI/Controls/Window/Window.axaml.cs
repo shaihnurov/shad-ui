@@ -227,8 +227,7 @@ public class Window : Avalonia.Controls.Window
     ///     The controls on the right side of the title bar.
     /// </summary>
     public static readonly StyledProperty<object?> RightWindowTitleBarContentProperty =
-        AvaloniaProperty.Register<Window, object?>(nameof(RightWindowTitleBarContent),
-            new Controls());
+        AvaloniaProperty.Register<Window, object?>(nameof(RightWindowTitleBarContent));
 
     /// <summary>
     ///     Gets or sets the value of the <see cref="RightWindowTitleBarContentProperty" />.
