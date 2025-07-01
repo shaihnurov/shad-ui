@@ -21,9 +21,6 @@ public static class WindowExt
     private static readonly Dictionary<string, CancellationTokenSource> SaveTokens = new();
     private static readonly object CacheLock = new();
 
-    private const string FileExtension = ".txt";
-    private const string FilePrefix = "shadui_windowstate_";
-
     /// <summary>
     ///     Enables automatic window state management for the specified window.
     ///     The window's position, size, and state will be automatically saved when the window closes
@@ -36,16 +33,12 @@ public static class WindowExt
     /// </param>
     public static void ManageWindowState(this Window window, string key = "main")
     {
-        if (Handlers.ContainsKey(window))
-        {
-            return;
-        }
+        if (Handlers.ContainsKey(window)) return;
 
-        var file = GetSettingsFilePath(key);
-
+        var file = Path.Combine(Path.GetTempPath(), $"shadui_{key}.txt");
         RestoreWindowState(window, file);
 
-        EventHandler<WindowClosingEventArgs> handler = (_, __) => SaveWindowState(window, file);
+        EventHandler<WindowClosingEventArgs> handler = (_, _) => SaveWindowState(window, file);
         window.Closing += handler;
         Handlers[window] = handler;
     }
@@ -124,7 +117,7 @@ public static class WindowExt
             Cache[file] = current;
         }
 
-        // Debounce saves to avoid excessive file I/O
+        // prevents multiple unnecessary file writes
         if (SaveTokens.TryGetValue(file, out var existingToken))
         {
             existingToken.Cancel();
@@ -154,24 +147,6 @@ public static class WindowExt
                 }
             }
         }, cts.Token);
-    }
-
-    private static string GetSettingsFilePath(string key)
-    {
-        var invalidChars = Path.GetInvalidFileNameChars();
-        var keySpan = key.AsSpan();
-        var result = new List<char>(key.Length + FilePrefix.Length + FileExtension.Length);
-
-        result.AddRange(FilePrefix);
-
-        foreach (var c in keySpan)
-        {
-            result.Add(Array.IndexOf(invalidChars, c) >= 0 ? '_' : c);
-        }
-
-        result.AddRange(FileExtension);
-
-        return Path.Combine(Path.GetTempPath(), new string(result.ToArray()));
     }
 
     private static WindowSettings? LoadWindowSettings(string file)
