@@ -15,6 +15,7 @@ namespace ShadUI.Demo;
 [Transient<ButtonViewModel>]
 [Transient<CardViewModel>]
 [Transient<DataTableViewModel>]
+[Transient<BasicDataTableViewModel>]
 [Transient<GroupedDataTableViewModel>]
 [Transient<DateViewModel>]
 [Transient<CheckBoxViewModel>]

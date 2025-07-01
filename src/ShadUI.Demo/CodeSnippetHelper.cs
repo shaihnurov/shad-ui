@@ -12,9 +12,16 @@ public static class CodeSnippetHelper
     /// </summary>
     public static string ExtractByLineRange(this string filePath, int startLine, int endLine)
     {
-        var lines = File.ReadAllLines(filePath);
-        return string.Join(Environment.NewLine,
-            lines.Skip(startLine - 1).Take(endLine - startLine + 1));
+        try
+        {
+            var lines = File.ReadAllLines(filePath);
+            return string.Join(Environment.NewLine,
+                lines.Skip(startLine - 1).Take(endLine - startLine + 1));
+        }
+        catch (Exception)
+        {
+            return string.Empty;
+        }
     }
 
     public static string CleanIndentation(this string input)
