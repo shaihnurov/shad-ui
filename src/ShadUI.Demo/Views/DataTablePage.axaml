@@ -57,7 +57,7 @@
                 Spacing="32">
                 <controls:ControlBlock
                     Title="Usage"
-                    Code="{Binding Code}"
+                    Code="{Binding BasicCode}"
                     Language="xaml">
                     <ScrollViewer HorizontalScrollBarVisibility="Auto">
                         <StackPanel
@@ -209,6 +209,12 @@
                             </Grid>
                         </StackPanel>
                     </ScrollViewer>
+                </controls:ControlBlock>
+                <controls:ControlBlock
+                    Title="Grouped"
+                    Code="{Binding GroupedDataTable.Code}"
+                    Language="xaml">
+                    <ContentControl Content="{Binding GroupedDataTable}" />
                 </controls:ControlBlock>
             </StackPanel>
         </ScrollViewer>

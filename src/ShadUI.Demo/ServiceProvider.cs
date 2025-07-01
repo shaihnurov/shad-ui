@@ -5,6 +5,7 @@ using CommunityToolkit.Mvvm.Messaging;
 using Jab;
 using Serilog;
 using ShadUI.Demo.ViewModels;
+using ShadUI.Demo.ViewModels.Examples.DataTable;
 
 namespace ShadUI.Demo;
 
@@ -14,6 +15,7 @@ namespace ShadUI.Demo;
 [Transient<ButtonViewModel>]
 [Transient<CardViewModel>]
 [Transient<DataTableViewModel>]
+[Transient<GroupedDataTableViewModel>]
 [Transient<DateViewModel>]
 [Transient<CheckBoxViewModel>]
 [Transient<ComboBoxViewModel>]

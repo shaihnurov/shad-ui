@@ -11,6 +11,7 @@ using AvaloniaEdit.Utils;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
+using ShadUI.Demo.ViewModels.Examples.DataTable;
 
 namespace ShadUI.Demo.ViewModels;
 
@@ -29,11 +30,15 @@ public sealed partial class DataTableViewModel : ViewModelBase, INavigable
 
     private readonly Timer? _searchTimer;
 
-    public DataTableViewModel(IMessenger messenger)
+    public DataTableViewModel(
+        IMessenger messenger,
+        GroupedDataTableViewModel grouped)
     {
         _messenger = messenger;
-        var path = Path.Combine(AppContext.BaseDirectory, "views", "DataTablePage.axaml");
-        Code = path.ExtractByLineRange(62, 211).CleanIndentation();
+        GroupedDataTable = grouped;
+
+        var basicCodePath = Path.Combine(AppContext.BaseDirectory, "views", "DataTablePage.axaml");
+        BasicCode = basicCodePath.ExtractByLineRange(62, 211).CleanIndentation();
 
         _searchTimer = new Timer(500); // 500ms debounce
         _searchTimer.Elapsed += SearchTimerElapsed;
@@ -177,7 +182,12 @@ public sealed partial class DataTableViewModel : ViewModelBase, INavigable
     }
 
     [ObservableProperty]
-    private string _code = string.Empty;
+    private string _basicCode = string.Empty;
+
+    [ObservableProperty]
+    private string _groupedCode = string.Empty;
+
+    public GroupedDataTableViewModel GroupedDataTable { get; }
 
     public string Route => "data-table";
 }
