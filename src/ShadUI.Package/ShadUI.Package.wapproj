@@ -114,11 +114,11 @@
     
     <!-- Include views and viewModels folders -->
     <Content Include="..\ShadUI.Demo\bin\$(Platform)\$(Configuration)\net9.0\win-$(Platform)\views\**\*">
-      <Link>ShadUI.Demo\views\%(RecursiveDir)%(Filename)%(Extension)</Link>
+      <Link>ShadUI.Demo\views\%(RecursiveDir)%(Filename).axaml</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\ShadUI.Demo\bin\$(Platform)\$(Configuration)\net9.0\win-$(Platform)\viewModels\**\*">
-      <Link>ShadUI.Demo\viewModels\%(RecursiveDir)%(Filename)%(Extension)</Link>
+      <Link>ShadUI.Demo\viewModels\%(RecursiveDir)%(Filename).cs</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

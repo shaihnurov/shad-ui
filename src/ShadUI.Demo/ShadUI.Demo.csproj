@@ -47,21 +47,21 @@
 
     <Target Name="GenerateXamlTextCopies" BeforeTargets="PrepareForRun">
         <ItemGroup>
-            <XamlFiles Include="Views\*.axaml"/>
+            <XamlFiles Include="Views\**\*.axaml"/>
         </ItemGroup>
 
         <Copy SourceFiles="@(XamlFiles)"
-              DestinationFiles="@(XamlFiles->'$(OutDir)%(RecursiveDir)/views/%(Filename).axaml')"
+              DestinationFiles="@(XamlFiles->'$(OutDir)views/%(RecursiveDir)%(Filename).axaml')"
               SkipUnchangedFiles="true"/>
     </Target>
 
     <Target Name="GenerateCSharpTextCopies" BeforeTargets="PrepareForRun">
         <ItemGroup>
-            <CSharpFiles Include="ViewModels\*.cs" Exclude="ViewModels\ViewModelBase.cs"/>
+            <CSharpFiles Include="ViewModels\**\*.cs" Exclude="ViewModels\ViewModelBase.cs"/>
         </ItemGroup>
 
         <Copy SourceFiles="@(CSharpFiles)"
-              DestinationFiles="@(CSharpFiles->'$(OutDir)%(RecursiveDir)/viewModels/%(Filename).cs')"
+              DestinationFiles="@(CSharpFiles->'$(OutDir)viewModels/%(RecursiveDir)%(Filename).cs')"
               SkipUnchangedFiles="true"/>
     </Target>
 </Project>
