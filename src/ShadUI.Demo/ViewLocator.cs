@@ -26,14 +26,21 @@ public class ViewLocator : IDataTemplate
         {
             var nameSpace = type.Namespace;
             if (nameSpace is null) return null;
-
+                
             var name = type.Name;
             var viewNameSpace = nameSpace.Replace("ViewModel", "View", StringComparison.Ordinal);
-
+            
             var viewName = name.Replace("ViewModel", "Page", StringComparison.Ordinal);
             var fullName = $"{viewNameSpace}.{viewName}";
+            
+            var view = CurrentAssembly.GetType(fullName);
 
-            return CurrentAssembly.GetType(fullName);
+            if (view is not null) return view;
+            
+            viewName = name.Replace("ViewModel", "Content", StringComparison.Ordinal);
+            view = CurrentAssembly.GetType($"{viewNameSpace}.{viewName}");
+
+            return view;
         });
 
         if (viewType is null) return new TextBlock { Text = "View not found: " + viewModelType.FullName };
