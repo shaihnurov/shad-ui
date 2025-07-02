@@ -131,9 +131,13 @@ We extend our heartfelt gratitude to these amazing platforms and tools that make
     <img src="https://github.com/dotnet/brand/blob/main/logo/dotnet-logo.png?raw=true" alt=".NET" width="48" height="48"/>
   </a>
   &nbsp;&nbsp;&nbsp;&nbsp;
-  <img width="48px" src="https://resources.jetbrains.com/storage/products/company/brand/logos/jb_beam.png" alt="JetBrains logo">
+  <a href="https://www.jetbrains.com/">
+    <img width="48px" src="https://resources.jetbrains.com/storage/products/company/brand/logos/jb_beam.png" alt="JetBrains logo">
   &nbsp;&nbsp;&nbsp;&nbsp;
-  <img width="48px" src="https://avatars.githubusercontent.com/u/139895814?s=48&v=4" alt="shadcn/ui logo">
+  </a> 
+  <a href="https://ui.shadcn.com/">
+    <img width="48px" src="https://avatars.githubusercontent.com/u/139895814?s=48&v=4" alt="shadcn/ui logo">
+  </a>
 </div>
 
 - **.NET**: For providing the powerful C# language and cross-platform runtime that powers our applications
