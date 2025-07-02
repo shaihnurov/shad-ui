@@ -7,5 +7,4 @@
     <StyleInclude Source="avares://ShadUI/Controls/SelectableTextBlock/SelectableTextBlockStyles.axaml" />
     <StyleInclude Source="avares://ShadUI/Controls/Separator/SeparatorStyles.axaml" />
     <StyleInclude Source="avares://ShadUI/Controls/SimpleDropdown/SimpleDropdownStyles.axaml" />
-    <StyleInclude Source="avares://ShadUI/Controls/TextBlock/TextBlockStyles.axaml" />
 </Styles>
