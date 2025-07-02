@@ -61,34 +61,11 @@
                         </Panel>
                     </Border>
                 </controls:ControlBlock>
-                <controls:ControlBlock Title="ListBox" Xaml="{Binding ListBoxCode}">
-                    <shadui:Card
-                        Width="350"
-                        HorizontalAlignment="Center"
-                        HasShadow="True">
-                        <shadui:Card.Header>
-                            <StackPanel Spacing="4">
-                                <shadui:CardTitle FontSize="18">Favorite Web Framework</shadui:CardTitle>
-                                <shadui:CardDescription>Select your best ever web framework</shadui:CardDescription>
-                                <ComboBox
-                                    Width="164"
-                                    Margin="0,16,0,0"
-                                    HorizontalAlignment="Left"
-                                    shadui:ControlAssist.Label="Selection Mode"
-                                    ItemsSource="{Binding SelectionModes}"
-                                    PlaceholderText="Select a mode"
-                                    SelectedValue="{Binding SelectionMode}" />
-                            </StackPanel>
-                        </shadui:Card.Header>
-                        <ListBox
-                            Height="256"
-                            ItemsSource="{Binding WebFrameworks}"
-                            Selection="{Binding WebFrameworksSelectionModel}"
-                            SelectionMode="{Binding SelectionMode}" />
-                        <shadui:Card.Footer>
-                            <TextBlock Classes="Small Muted" Text="{Binding SelectedWebFrameworkCount}" />
-                        </shadui:Card.Footer>
-                    </shadui:Card>
+                <controls:ControlBlock
+                    Title="ListBox"
+                    CSharp="{Binding ListBox.CSharpCode}"
+                    Xaml="{Binding ListBox.XamlCode}">
+                    <ContentControl Content="{Binding ListBox}" />
                 </controls:ControlBlock>
                 <controls:ControlBlock Title="Skeleton" Xaml="{Binding SkeletonCode}">
                     <StackPanel

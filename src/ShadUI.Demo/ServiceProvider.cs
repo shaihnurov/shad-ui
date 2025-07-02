@@ -9,6 +9,7 @@ using ShadUI.Demo.ViewModels.Examples.ComboBox;
 using ShadUI.Demo.ViewModels.Examples.DataTable;
 using ShadUI.Demo.ViewModels.Examples.Date;
 using ShadUI.Demo.ViewModels.Examples.Input;
+using ShadUI.Demo.ViewModels.Examples.ListBox;
 using ShadUI.Demo.ViewModels.Examples.Numeric;
 using ShadUI.Demo.ViewModels.Examples.Time;
 using ShadUI.Demo.ViewModels.Examples.Typography;
@@ -39,6 +40,7 @@ namespace ShadUI.Demo;
 [Transient<LoginViewModel>]
 [Transient<MenuViewModel>]
 [Transient<MiscellaneousViewModel>]
+[Transient<ListBoxViewModel>]
 [Transient<SidebarViewModel>]
 [Transient<SliderViewModel>]
 [Transient<SwitchViewModel>]
