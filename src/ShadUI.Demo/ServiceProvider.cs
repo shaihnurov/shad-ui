@@ -11,6 +11,7 @@ using ShadUI.Demo.ViewModels.Examples.Date;
 using ShadUI.Demo.ViewModels.Examples.Input;
 using ShadUI.Demo.ViewModels.Examples.Numeric;
 using ShadUI.Demo.ViewModels.Examples.Time;
+using ShadUI.Demo.ViewModels.Examples.Typography;
 
 namespace ShadUI.Demo;
 
@@ -50,6 +51,9 @@ namespace ShadUI.Demo;
 [Transient<ToggleViewModel>]
 [Transient<ToolTipViewModel>]
 [Transient<TypographyViewModel>]
+[Transient<TextBlockViewModel>]
+[Transient<SelectableTextBlockViewModel>]
+[Transient<LabelViewModel>]
 [Transient<MainWindowViewModel>]
 [Import<IUtilitiesModule>]
 [Singleton<IMessenger, WeakReferenceMessenger>]
