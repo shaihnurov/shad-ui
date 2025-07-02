@@ -5,7 +5,6 @@
     xmlns:controls="clr-namespace:ShadUI.Demo.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:shadui="clr-namespace:ShadUI;assembly=ShadUI"
     xmlns:viewModels="clr-namespace:ShadUI.Demo.ViewModels"
     d:DesignHeight="450"
     d:DesignWidth="800"
@@ -55,10 +54,7 @@
                 MaxWidth="{StaticResource PageMaxWidth}"
                 Margin="{StaticResource PageMargin}"
                 Spacing="32">
-                <controls:ControlBlock
-                    Title="Select"
-                    Code="{Binding SelectComboBoxCode}"
-                    Language="xaml">
+                <controls:ControlBlock Title="Select" Xaml="{Binding SelectComboBoxCode}">
                     <StackPanel Spacing="8">
                         <ComboBox Width="255" SelectedIndex="0">
                             <ComboBoxItem>Angular</ComboBoxItem>
@@ -77,10 +73,7 @@
                         </ComboBox>
                     </StackPanel>
                 </controls:ControlBlock>
-                <controls:ControlBlock
-                    Title="Disabled"
-                    Code="{Binding SelectComboBoxDisabledCode}"
-                    Language="xaml">
+                <controls:ControlBlock Title="Disabled" Xaml="{Binding SelectComboBoxDisabledCode}">
                     <ComboBox
                         Width="255"
                         IsEnabled="False"
@@ -88,31 +81,9 @@
                 </controls:ControlBlock>
                 <controls:ControlBlock
                     Title="Form Validation"
-                    Code="{Binding FormValidationCode}"
-                    Language="xaml">
-                    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-                        <shadui:Card HorizontalAlignment="Center" HasShadow="True">
-                            <shadui:Card.Header>
-                                <shadui:CardTitle>Framework Form</shadui:CardTitle>
-                            </shadui:Card.Header>
-                            <StackPanel Spacing="16">
-                                <ComboBox
-                                    Width="255"
-                                    shadui:ControlAssist.Hint="Your favorite web framework"
-                                    shadui:ControlAssist.Label="Select a framework"
-                                    ItemsSource="{Binding Items}"
-                                    SelectedItem="{Binding SelectedItem, Mode=TwoWay}" />
-                            </StackPanel>
-                            <shadui:Card.Footer>
-                                <Button
-                                    HorizontalAlignment="Right"
-                                    Classes="Outline"
-                                    Command="{Binding ClearCommand}">
-                                    Clear
-                                </Button>
-                            </shadui:Card.Footer>
-                        </shadui:Card>
-                    </ScrollViewer>
+                    CSharp="{Binding Form.CSharpCode}"
+                    Xaml="{Binding Form.XamlCode}">
+                    <ContentControl Content="{Binding Form}" />
                 </controls:ControlBlock>
             </StackPanel>
         </ScrollViewer>

@@ -14,7 +14,7 @@ public sealed partial class CardViewModel : ViewModelBase, INavigable
     {
         _messenger = messenger;
         var path = Path.Combine(AppContext.BaseDirectory, "views", "CardPage.axaml");
-        UsageCode = path.ExtractByLineRange(61, 101).CleanIndentation();
+        UsageCode = path.ExtractByLineRange(58, 98).CleanIndentation();
     }
     
     [RelayCommand]

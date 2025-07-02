@@ -56,14 +56,14 @@
                 Spacing="32">
                 <controls:ControlBlock
                     Title="Usage"
-                    Code="{Binding BasicDataTable.Code}"
-                    Language="xaml">
+                    CSharp="{Binding BasicDataTable.CSharpCode}"
+                    Xaml="{Binding BasicDataTable.XamlCode}">
                     <ContentControl Content="{Binding BasicDataTable}" />
                 </controls:ControlBlock>
                 <controls:ControlBlock
                     Title="Grouped"
-                    Code="{Binding GroupedDataTable.Code}"
-                    Language="xaml">
+                    CSharp="{Binding GroupedDataTable.CSharpCode}"
+                    Xaml="{Binding GroupedDataTable.XamlCode}">
                     <ContentControl Content="{Binding GroupedDataTable}" />
                 </controls:ControlBlock>
             </StackPanel>

@@ -14,10 +14,10 @@ public sealed partial class ToggleViewModel : ViewModelBase, INavigable
     {
         _messenger = messenger;
         var path = Path.Combine(AppContext.BaseDirectory, "views", "TogglePage.axaml");
-        DefaultCode = path.ExtractByLineRange(61, 66).CleanIndentation();
-        OutlineCode = path.ExtractByLineRange(72, 77).CleanIndentation();
-        WithTextCode = path.ExtractByLineRange(83, 91).CleanIndentation();
-        DisableCode = path.ExtractByLineRange(97, 103).CleanIndentation();
+        DefaultCode = path.ExtractByLineRange(58, 63).CleanIndentation();
+        OutlineCode = path.ExtractByLineRange(66, 71).CleanIndentation();
+        WithTextCode = path.ExtractByLineRange(74, 82).CleanIndentation();
+        DisableCode = path.ExtractByLineRange(85, 91).CleanIndentation();
     }
 
     [RelayCommand]

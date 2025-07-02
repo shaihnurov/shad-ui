@@ -14,7 +14,7 @@ public sealed partial class ToolTipViewModel : ViewModelBase, INavigable
     {
         _messenger = messenger;
         var path = Path.Combine(AppContext.BaseDirectory, "views", "ToolTipPage.axaml");
-        UsageCode = path.ExtractByLineRange(61, 68).CleanIndentation();
+        UsageCode = path.ExtractByLineRange(58, 65).CleanIndentation();
     }
 
     [RelayCommand]

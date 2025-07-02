@@ -54,10 +54,7 @@
                 MaxWidth="{StaticResource PageMaxWidth}"
                 Margin="{StaticResource PageMargin}"
                 Spacing="32">
-                <controls:ControlBlock
-                    Title="Default"
-                    Code="{Binding EnableCode}"
-                    Language="xaml">
+                <controls:ControlBlock Title="Default" Xaml="{Binding EnableCode}">
                     <StackPanel
                         HorizontalAlignment="Center"
                         Orientation="Horizontal"
@@ -78,10 +75,7 @@
                         </ToggleSwitch>
                     </StackPanel>
                 </controls:ControlBlock>
-                <controls:ControlBlock
-                    Title="Disabled"
-                    Code="{Binding DisableCode}"
-                    Language="xaml">
+                <controls:ControlBlock Title="Disabled" Xaml="{Binding DisableCode}">
                     <StackPanel
                         HorizontalAlignment="Center"
                         Orientation="Horizontal"
@@ -102,10 +96,7 @@
                         </ToggleSwitch>
                     </StackPanel>
                 </controls:ControlBlock>
-                <controls:ControlBlock
-                    Title="Right Aligned Content"
-                    Code="{Binding RightAlignedCode}"
-                    Language="xaml">
+                <controls:ControlBlock Title="Right Aligned Content" Xaml="{Binding RightAlignedCode}">
                     <StackPanel
                         HorizontalAlignment="Center"
                         Orientation="Horizontal"

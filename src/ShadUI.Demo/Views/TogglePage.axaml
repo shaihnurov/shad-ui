@@ -54,10 +54,7 @@
                 MaxWidth="{StaticResource PageMaxWidth}"
                 Margin="{StaticResource PageMargin}"
                 Spacing="32">
-                <controls:ControlBlock
-                    Title="Default"
-                    Code="{Binding DefaultCode}"
-                    Language="xaml">
+                <controls:ControlBlock Title="Default" Xaml="{Binding DefaultCode}">
                     <ToggleButton
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
@@ -65,10 +62,7 @@
                         <TextBlock Classes="LucideIcon" Text="&#57441;" />
                     </ToggleButton>
                 </controls:ControlBlock>
-                <controls:ControlBlock
-                    Title="Outline"
-                    Code="{Binding OutlineCode}"
-                    Language="xaml">
+                <controls:ControlBlock Title="Outline" Xaml="{Binding OutlineCode}">
                     <ToggleButton
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
@@ -76,10 +70,7 @@
                         <TextBlock Classes="LucideIcon" Text="&#57441;" />
                     </ToggleButton>
                 </controls:ControlBlock>
-                <controls:ControlBlock
-                    Title="With Text"
-                    Code="{Binding WithTextCode}"
-                    Language="xaml">
+                <controls:ControlBlock Title="With Text" Xaml="{Binding WithTextCode}">
                     <ToggleButton
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
@@ -90,10 +81,7 @@
                         </StackPanel>
                     </ToggleButton>
                 </controls:ControlBlock>
-                <controls:ControlBlock
-                    Title="Disable"
-                    Code="{Binding DisableCode}"
-                    Language="xaml">
+                <controls:ControlBlock Title="Disable" Xaml="{Binding DisableCode}">
                     <ToggleButton
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"

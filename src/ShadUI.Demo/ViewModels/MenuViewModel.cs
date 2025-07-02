@@ -14,9 +14,9 @@ public sealed partial class MenuViewModel : ViewModelBase, INavigable
     {
         _messenger = messenger;
         var path = Path.Combine(AppContext.BaseDirectory, "views", "MenuPage.axaml");
-        SimpleDropdownCode = path.ExtractByLineRange(61, 192).CleanIndentation();
-        MenuBarCode = path.ExtractByLineRange(198, 273).CleanIndentation();
-        DropDownCode = path.ExtractByLineRange(280, 450).CleanIndentation();
+        SimpleDropdownCode = path.ExtractByLineRange(58, 189).CleanIndentation();
+        MenuBarCode = path.ExtractByLineRange(192, 267).CleanIndentation();
+        DropDownCode = path.ExtractByLineRange(271, 434).CleanIndentation();
     }
 
     [RelayCommand]

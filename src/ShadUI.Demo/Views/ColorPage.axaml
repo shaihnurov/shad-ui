@@ -55,10 +55,7 @@
                 MaxWidth="{StaticResource PageMaxWidth}"
                 Margin="{StaticResource PageMargin}"
                 Spacing="32">
-                <controls:ControlBlock
-                    Title="Color View"
-                    Code="{Binding ColorViewCode}"
-                    Language="xaml">
+                <controls:ControlBlock Title="Color View" Xaml="{Binding ColorViewCode}">
                     <shadui:Card
                         Padding="0"
                         HorizontalAlignment="Center"
@@ -66,10 +63,7 @@
                         <ColorView Color="{Binding SelectedColor, Converter={x:Static converters:StringToColor.Instance}, Mode=TwoWay}" />
                     </shadui:Card>
                 </controls:ControlBlock>
-                <controls:ControlBlock
-                    Title="Color Picker"
-                    Code="{Binding ColorPickerCode}"
-                    Language="xaml">
+                <controls:ControlBlock Title="Color Picker" Xaml="{Binding ColorPickerCode}">
                     <ColorPicker
                         Width="255"
                         HorizontalAlignment="Center"
@@ -77,10 +71,7 @@
                         shadui:ControlAssist.Label="Select a color"
                         Color="{Binding SelectedColor, Converter={x:Static converters:StringToColor.Instance}, Mode=TwoWay}" />
                 </controls:ControlBlock>
-                <controls:ControlBlock
-                    Title="Disabled Color Picker"
-                    Code="{Binding ColorPickerDisabledCode}"
-                    Language="xaml">
+                <controls:ControlBlock Title="Disabled Color Picker" Xaml="{Binding ColorPickerDisabledCode}">
                     <ColorPicker
                         Width="255"
                         HorizontalAlignment="Center"

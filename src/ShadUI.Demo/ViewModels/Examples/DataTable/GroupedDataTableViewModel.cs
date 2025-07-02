@@ -10,10 +10,14 @@ public sealed partial class GroupedDataTableViewModel : ViewModelBase
 {
     public GroupedDataTableViewModel()
     {
-        var path = Path.Combine(AppContext.BaseDirectory, "views", "Examples", "DataTable",
+        var xamlPath = Path.Combine(AppContext.BaseDirectory, "views", "Examples", "DataTable",
             "GroupedDataTableContent.axaml");
-        Code = path.ExtractByLineRange(1, 58).CleanIndentation();
-        
+        XamlCode = xamlPath.ExtractByLineRange(1, 58).CleanIndentation();
+
+        var csharpPath = Path.Combine(AppContext.BaseDirectory, "viewModels", "Examples", "DataTable",
+            "GroupedDataTableViewModel.cs");
+        CSharpCode = csharpPath.ExtractWithSkipRanges((31, 36), (48, 53)).CleanIndentation();
+
         var people = new List<Person>
         {
             new() { FirstName = "Emily", LastName = "Johnson", Age = 28, State = "California", City = "Los Angeles" },
@@ -48,10 +52,13 @@ public sealed partial class GroupedDataTableViewModel : ViewModelBase
     }
 
     [ObservableProperty]
-    private DataGridCollectionView _groupedPeople;
-    
+    private string _xamlCode = string.Empty;
+
     [ObservableProperty]
-    private string  _code = string.Empty;
+    private string _cSharpCode = string.Empty;
+
+    [ObservableProperty]
+    private DataGridCollectionView _groupedPeople;
 }
 
 public class Person

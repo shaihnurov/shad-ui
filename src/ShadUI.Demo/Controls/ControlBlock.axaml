@@ -5,7 +5,7 @@
     xmlns:shadui="clr-namespace:ShadUI;assembly=ShadUI">
     <Design.PreviewWith>
         <StackPanel Spacing="32">
-            <controls:ControlBlock Title="Basic Tab" Language="xaml">
+            <controls:ControlBlock Title="Basic Tab">
                 <TabControl>
                     <TabControl.Items>
                         <TabItem Header="Preview">
@@ -17,7 +17,7 @@
                             </shadui:Card>
                         </TabItem>
                         <TabItem Header="Code">
-                            <controls:CodeTextBlock Language="xaml">
+                            <controls:CodeTextBlock>
                                 <Run Text="&lt;TextBlock TextWrapping=&quot;Wrap&quot; Classes=&quot;h&quot;" />
                                 <LineBreak />
                                 <Run Text="           Text=&quot;Taxing Laughter: The Joke Tax Chronicles&quot;/&gt;" />
@@ -186,8 +186,19 @@
                                     <ContentPresenter Content="{TemplateBinding Content}" />
                                 </shadui:Card>
                             </TabItem>
-                            <TabItem Header="Code" Theme="{StaticResource TabItemTheme}">
-                                <controls:CodeTextBlock Language="{TemplateBinding Language}" Text="{TemplateBinding Code}" />
+                            <TabItem
+                                Header="XAML"
+                                IsVisible="{TemplateBinding Xaml,
+                                                            Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
+                                Theme="{StaticResource TabItemTheme}">
+                                <controls:CodeTextBlock Language="xml" Text="{TemplateBinding Xaml}" />
+                            </TabItem>
+                            <TabItem
+                                Header="C#"
+                                IsVisible="{TemplateBinding CSharp,
+                                                            Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
+                                Theme="{StaticResource TabItemTheme}">
+                                <controls:CodeTextBlock Language="cs" Text="{TemplateBinding CSharp}" />
                             </TabItem>
                         </TabControl.Items>
                     </TabControl>

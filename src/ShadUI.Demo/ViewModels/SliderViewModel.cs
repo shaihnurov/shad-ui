@@ -14,9 +14,9 @@ public sealed partial class SliderViewModel : ViewModelBase, INavigable
     {
         _messenger = messenger;
         var path = Path.Combine(AppContext.BaseDirectory, "views", "SliderPage.axaml");
-        DefaultSliderCode = path.ExtractByLineRange(61, 65).CleanIndentation();
-        DisabledSliderCode = path.ExtractByLineRange(71, 76).CleanIndentation();
-        TickEnabledSliderCode = path.ExtractByLineRange(82, 88).CleanIndentation();
+        DefaultSliderCode = path.ExtractByLineRange(58, 62).CleanIndentation();
+        DisabledSliderCode = path.ExtractByLineRange(65, 70).CleanIndentation();
+        TickEnabledSliderCode = path.ExtractByLineRange(73, 79).CleanIndentation();
     }
 
     [RelayCommand]

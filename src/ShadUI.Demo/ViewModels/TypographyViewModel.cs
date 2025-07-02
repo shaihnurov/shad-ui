@@ -14,17 +14,17 @@ public sealed partial class TypographyViewModel : ViewModelBase, INavigable
     {
         _messenger = messenger;
         var path = Path.Combine(AppContext.BaseDirectory, "views", "TypographyPage.axaml");
-        H1Code = path.ExtractByLineRange(29, 32).CleanIndentation();
-        H2Code = path.ExtractByLineRange(38, 41).CleanIndentation();
-        H3Code = path.ExtractByLineRange(47, 50).CleanIndentation();
-        H4Code = path.ExtractByLineRange(56, 59).CleanIndentation();
-        PCode = path.ExtractByLineRange(65, 68).CleanIndentation();
-        LeadCode = path.ExtractByLineRange(74, 77).CleanIndentation();
-        LargeCode = path.ExtractByLineRange(83, 86).CleanIndentation();
-        SmallCode = path.ExtractByLineRange(92, 95).CleanIndentation();
-        CaptionCode = path.ExtractByLineRange(101, 104).CleanIndentation();
-        MutedCode = path.ExtractByLineRange(110, 113).CleanIndentation();
-        ErrorCode = path.ExtractByLineRange(119, 122).CleanIndentation();
+        H1Code = path.ExtractByLineRange(57, 60).CleanIndentation();
+        H2Code = path.ExtractByLineRange(63, 66).CleanIndentation();
+        H3Code = path.ExtractByLineRange(69, 72).CleanIndentation();
+        H4Code = path.ExtractByLineRange(75, 78).CleanIndentation();
+        PCode = path.ExtractByLineRange(81, 84).CleanIndentation();
+        LeadCode = path.ExtractByLineRange(87, 90).CleanIndentation();
+        LargeCode = path.ExtractByLineRange(93, 96).CleanIndentation();
+        SmallCode = path.ExtractByLineRange(99, 102).CleanIndentation();
+        CaptionCode = path.ExtractByLineRange(105, 108).CleanIndentation();
+        MutedCode = path.ExtractByLineRange(111, 114).CleanIndentation();
+        ErrorCode = path.ExtractByLineRange(117, 120).CleanIndentation();
     }
 
     [RelayCommand]

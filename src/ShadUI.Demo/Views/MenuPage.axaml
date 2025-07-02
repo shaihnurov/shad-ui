@@ -54,10 +54,7 @@
                 MaxWidth="{StaticResource PageMaxWidth}"
                 Margin="{StaticResource PageMargin}"
                 Spacing="32">
-                <controls:ControlBlock
-                    Title="Simple Dropdown"
-                    Code="{Binding SimpleDropdownCode}"
-                    Language="xaml">
+                <controls:ControlBlock Title="Simple Dropdown" Xaml="{Binding SimpleDropdownCode}">
                     <StackPanel
                         HorizontalAlignment="Center"
                         Orientation="Horizontal"
@@ -191,10 +188,7 @@
                         </shadui:SimpleDropdown>
                     </StackPanel>
                 </controls:ControlBlock>
-                <controls:ControlBlock
-                    Title="Menu Bar"
-                    Code="{Binding MenuBarCode}"
-                    Language="xaml">
+                <controls:ControlBlock Title="Menu Bar" Xaml="{Binding MenuBarCode}">
                     <Border
                         Padding="4"
                         HorizontalAlignment="Center"
@@ -273,181 +267,171 @@
                     </Border>
                 </controls:ControlBlock>
                 <StackPanel>
-                    <controls:ControlBlock
-                        Title="Dropdown Menu"
-                        Code="{Binding DropDownCode}"
-                        Language="xaml">
-                        <StackPanel
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
-                            Orientation="Horizontal"
-                            Spacing="16">
-                            <StackPanel.Resources />
-                            <Menu>
+                    <controls:ControlBlock Title="Dropdown Menu" Xaml="{Binding DropDownCode}">
+                        <Menu HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <MenuItem
+                                Margin="8,0"
+                                shadui:MenuItemAssist.PopupPlacement="Bottom"
+                                Classes="Primary"
+                                Header="Primary">
+                                <shadui:MenuItemAssist.Label>
+                                    <TextBlock Classes="Caption Muted" Text="My Account" />
+                                </shadui:MenuItemAssist.Label>
                                 <MenuItem
-                                    Margin="12,0"
-                                    shadui:MenuItemAssist.PopupPlacement="Bottom"
-                                    Classes="Primary"
-                                    Header="Primary">
-                                    <shadui:MenuItemAssist.Label>
-                                        <TextBlock Classes="Caption Muted" Text="My Account" />
-                                    </shadui:MenuItemAssist.Label>
-                                    <MenuItem
-                                        Width="224"
-                                        Header="Profile"
-                                        InputGesture="Ctrl + Shift + P" />
-                                    <MenuItem Header="Billing" InputGesture="Ctrl + B" />
-                                    <MenuItem Header="Settings" InputGesture="Ctrl + S" />
-                                    <MenuItem Header="Keyboard shortcuts" InputGesture="Ctrl + K" />
-                                    <Separator />
-                                    <MenuItem Header="Team" />
-                                    <MenuItem Header="Invite users">
-                                        <MenuItem Width="128" Header="Email" />
-                                        <MenuItem Header="Message" />
-                                        <MenuItem Header="More..." />
-                                    </MenuItem>
-                                    <MenuItem Header="New Team" InputGesture="Ctrl + T" />
-                                    <Separator />
-                                    <MenuItem Header="Github" />
-                                    <MenuItem Header="Support" />
-                                    <MenuItem Header="API" IsEnabled="False" />
-                                    <Separator />
-                                    <MenuItem Header="Log out" InputGesture="Ctrl + Shift + Q" />
-                                    <Separator />
-                                    <MenuItem Classes="Destructive" Header="Delete Account" />
+                                    Width="224"
+                                    Header="Profile"
+                                    InputGesture="Ctrl + Shift + P" />
+                                <MenuItem Header="Billing" InputGesture="Ctrl + B" />
+                                <MenuItem Header="Settings" InputGesture="Ctrl + S" />
+                                <MenuItem Header="Keyboard shortcuts" InputGesture="Ctrl + K" />
+                                <Separator />
+                                <MenuItem Header="Team" />
+                                <MenuItem Header="Invite users">
+                                    <MenuItem Width="128" Header="Email" />
+                                    <MenuItem Header="Message" />
+                                    <MenuItem Header="More..." />
                                 </MenuItem>
+                                <MenuItem Header="New Team" InputGesture="Ctrl + T" />
+                                <Separator />
+                                <MenuItem Header="Github" />
+                                <MenuItem Header="Support" />
+                                <MenuItem Header="API" IsEnabled="False" />
+                                <Separator />
+                                <MenuItem Header="Log out" InputGesture="Ctrl + Shift + Q" />
+                                <Separator />
+                                <MenuItem Classes="Destructive" Header="Delete Account" />
+                            </MenuItem>
+                            <MenuItem
+                                Margin="8,0"
+                                shadui:MenuItemAssist.PopupPlacement="Bottom"
+                                Classes="Secondary"
+                                Header="Secondary">
+                                <shadui:MenuItemAssist.Label>
+                                    <TextBlock Classes="Caption Muted" Text="My Account" />
+                                </shadui:MenuItemAssist.Label>
                                 <MenuItem
-                                    Margin="12,0"
-                                    shadui:MenuItemAssist.PopupPlacement="Bottom"
-                                    Classes="Secondary"
-                                    Header="Secondary">
-                                    <shadui:MenuItemAssist.Label>
-                                        <TextBlock Classes="Caption Muted" Text="My Account" />
-                                    </shadui:MenuItemAssist.Label>
-                                    <MenuItem
-                                        Width="224"
-                                        Header="Profile"
-                                        InputGesture="Ctrl + Shift + P" />
-                                    <MenuItem Header="Billing" InputGesture="Ctrl + B" />
-                                    <MenuItem Header="Settings" InputGesture="Ctrl + S" />
-                                    <MenuItem Header="Keyboard shortcuts" InputGesture="Ctrl + K" />
-                                    <Separator />
-                                    <MenuItem Header="Team" />
-                                    <MenuItem Header="Invite users">
-                                        <MenuItem Width="128" Header="Email" />
-                                        <MenuItem Header="Message" />
-                                        <MenuItem Header="More..." />
-                                    </MenuItem>
-                                    <MenuItem Header="New Team" InputGesture="Ctrl + T" />
-                                    <Separator />
-                                    <MenuItem Header="Github" />
-                                    <MenuItem Header="Support" />
-                                    <MenuItem Header="API" IsEnabled="False" />
-                                    <Separator />
-                                    <MenuItem Header="Log out" InputGesture="Ctrl + Shift + Q" />
-                                    <Separator />
-                                    <MenuItem Classes="Destructive" Header="Delete Account" />
+                                    Width="224"
+                                    Header="Profile"
+                                    InputGesture="Ctrl + Shift + P" />
+                                <MenuItem Header="Billing" InputGesture="Ctrl + B" />
+                                <MenuItem Header="Settings" InputGesture="Ctrl + S" />
+                                <MenuItem Header="Keyboard shortcuts" InputGesture="Ctrl + K" />
+                                <Separator />
+                                <MenuItem Header="Team" />
+                                <MenuItem Header="Invite users">
+                                    <MenuItem Width="128" Header="Email" />
+                                    <MenuItem Header="Message" />
+                                    <MenuItem Header="More..." />
                                 </MenuItem>
+                                <MenuItem Header="New Team" InputGesture="Ctrl + T" />
+                                <Separator />
+                                <MenuItem Header="Github" />
+                                <MenuItem Header="Support" />
+                                <MenuItem Header="API" IsEnabled="False" />
+                                <Separator />
+                                <MenuItem Header="Log out" InputGesture="Ctrl + Shift + Q" />
+                                <Separator />
+                                <MenuItem Classes="Destructive" Header="Delete Account" />
+                            </MenuItem>
+                            <MenuItem
+                                Margin="8,0"
+                                shadui:MenuItemAssist.PopupPlacement="Bottom"
+                                Classes="Outline"
+                                Header="Outline">
+                                <shadui:MenuItemAssist.Label>
+                                    <TextBlock Classes="Caption Muted" Text="My Account" />
+                                </shadui:MenuItemAssist.Label>
                                 <MenuItem
-                                    Margin="12,0"
-                                    shadui:MenuItemAssist.PopupPlacement="Bottom"
-                                    Classes="Outline"
-                                    Header="Outline">
-                                    <shadui:MenuItemAssist.Label>
-                                        <TextBlock Classes="Caption Muted" Text="My Account" />
-                                    </shadui:MenuItemAssist.Label>
-                                    <MenuItem
-                                        Width="224"
-                                        Header="Profile"
-                                        InputGesture="Ctrl + Shift + P" />
-                                    <MenuItem Header="Billing" InputGesture="Ctrl + B" />
-                                    <MenuItem Header="Settings" InputGesture="Ctrl + S" />
-                                    <MenuItem Header="Keyboard shortcuts" InputGesture="Ctrl + K" />
-                                    <Separator />
-                                    <MenuItem Header="Team" />
-                                    <MenuItem Header="Invite users">
-                                        <MenuItem Width="128" Header="Email" />
-                                        <MenuItem Header="Message" />
-                                        <MenuItem Header="More..." />
-                                    </MenuItem>
-                                    <MenuItem Header="New Team" InputGesture="Ctrl + T" />
-                                    <Separator />
-                                    <MenuItem Header="Github" />
-                                    <MenuItem Header="Support" />
-                                    <MenuItem Header="API" IsEnabled="False" />
-                                    <Separator />
-                                    <MenuItem Header="Log out" InputGesture="Ctrl + Shift + Q" />
-                                    <Separator />
-                                    <MenuItem Classes="Destructive" Header="Delete Account" />
+                                    Width="224"
+                                    Header="Profile"
+                                    InputGesture="Ctrl + Shift + P" />
+                                <MenuItem Header="Billing" InputGesture="Ctrl + B" />
+                                <MenuItem Header="Settings" InputGesture="Ctrl + S" />
+                                <MenuItem Header="Keyboard shortcuts" InputGesture="Ctrl + K" />
+                                <Separator />
+                                <MenuItem Header="Team" />
+                                <MenuItem Header="Invite users">
+                                    <MenuItem Width="128" Header="Email" />
+                                    <MenuItem Header="Message" />
+                                    <MenuItem Header="More..." />
                                 </MenuItem>
+                                <MenuItem Header="New Team" InputGesture="Ctrl + T" />
+                                <Separator />
+                                <MenuItem Header="Github" />
+                                <MenuItem Header="Support" />
+                                <MenuItem Header="API" IsEnabled="False" />
+                                <Separator />
+                                <MenuItem Header="Log out" InputGesture="Ctrl + Shift + Q" />
+                                <Separator />
+                                <MenuItem Classes="Destructive" Header="Delete Account" />
+                            </MenuItem>
+                            <MenuItem
+                                Margin="8,0"
+                                shadui:MenuItemAssist.PopupPlacement="Bottom"
+                                Classes="Ghost"
+                                Header="Ghost">
+                                <shadui:MenuItemAssist.Label>
+                                    <TextBlock Classes="Caption Muted" Text="My Account" />
+                                </shadui:MenuItemAssist.Label>
                                 <MenuItem
-                                    Margin="12,0"
-                                    shadui:MenuItemAssist.PopupPlacement="Bottom"
-                                    Classes="Ghost"
-                                    Header="Ghost">
-                                    <shadui:MenuItemAssist.Label>
-                                        <TextBlock Classes="Caption Muted" Text="My Account" />
-                                    </shadui:MenuItemAssist.Label>
-                                    <MenuItem
-                                        Width="224"
-                                        Header="Profile"
-                                        InputGesture="Ctrl + Shift + P" />
-                                    <MenuItem Header="Billing" InputGesture="Ctrl + B" />
-                                    <MenuItem Header="Settings" InputGesture="Ctrl + S" />
-                                    <MenuItem Header="Keyboard shortcuts" InputGesture="Ctrl + K" />
-                                    <Separator />
-                                    <MenuItem Header="Team" />
-                                    <MenuItem Header="Invite users">
-                                        <MenuItem Width="128" Header="Email" />
-                                        <MenuItem Header="Message" />
-                                        <MenuItem Header="More..." />
-                                    </MenuItem>
-                                    <MenuItem Header="New Team" InputGesture="Ctrl + T" />
-                                    <Separator />
-                                    <MenuItem Header="Github" />
-                                    <MenuItem Header="Support" />
-                                    <MenuItem Header="API" IsEnabled="False" />
-                                    <Separator />
-                                    <MenuItem Header="Log out" InputGesture="Ctrl + Shift + Q" />
-                                    <Separator />
-                                    <MenuItem Classes="Destructive" Header="Delete Account" />
+                                    Width="224"
+                                    Header="Profile"
+                                    InputGesture="Ctrl + Shift + P" />
+                                <MenuItem Header="Billing" InputGesture="Ctrl + B" />
+                                <MenuItem Header="Settings" InputGesture="Ctrl + S" />
+                                <MenuItem Header="Keyboard shortcuts" InputGesture="Ctrl + K" />
+                                <Separator />
+                                <MenuItem Header="Team" />
+                                <MenuItem Header="Invite users">
+                                    <MenuItem Width="128" Header="Email" />
+                                    <MenuItem Header="Message" />
+                                    <MenuItem Header="More..." />
                                 </MenuItem>
+                                <MenuItem Header="New Team" InputGesture="Ctrl + T" />
+                                <Separator />
+                                <MenuItem Header="Github" />
+                                <MenuItem Header="Support" />
+                                <MenuItem Header="API" IsEnabled="False" />
+                                <Separator />
+                                <MenuItem Header="Log out" InputGesture="Ctrl + Shift + Q" />
+                                <Separator />
+                                <MenuItem Classes="Destructive" Header="Delete Account" />
+                            </MenuItem>
+                            <MenuItem
+                                Margin="8"
+                                shadui:MenuItemAssist.PopupPlacement="Bottom"
+                                Classes="Icon">
+                                <MenuItem.Header>
+                                    <TextBlock Classes="LucideIcon" Text="&#57530;" />
+                                </MenuItem.Header>
+                                <shadui:MenuItemAssist.Label>
+                                    <TextBlock Classes="Caption Muted" Text="My Account" />
+                                </shadui:MenuItemAssist.Label>
                                 <MenuItem
-                                    Margin="12,0"
-                                    shadui:MenuItemAssist.PopupPlacement="Bottom"
-                                    Classes="Icon">
-                                    <MenuItem.Header>
-                                        <TextBlock Classes="LucideIcon" Text="&#57530;" />
-                                    </MenuItem.Header>
-                                    <shadui:MenuItemAssist.Label>
-                                        <TextBlock Classes="Caption Muted" Text="My Account" />
-                                    </shadui:MenuItemAssist.Label>
-                                    <MenuItem
-                                        Width="224"
-                                        Header="Profile"
-                                        InputGesture="Ctrl + Shift + P" />
-                                    <MenuItem Header="Billing" InputGesture="Ctrl + B" />
-                                    <MenuItem Header="Settings" InputGesture="Ctrl + S" />
-                                    <MenuItem Header="Keyboard shortcuts" InputGesture="Ctrl + K" />
-                                    <Separator />
-                                    <MenuItem Header="Team" />
-                                    <MenuItem Header="Invite users">
-                                        <MenuItem Width="128" Header="Email" />
-                                        <MenuItem Header="Message" />
-                                        <MenuItem Header="More..." />
-                                    </MenuItem>
-                                    <MenuItem Header="New Team" InputGesture="Ctrl + T" />
-                                    <Separator />
-                                    <MenuItem Header="Github" />
-                                    <MenuItem Header="Support" />
-                                    <MenuItem Header="API" IsEnabled="False" />
-                                    <Separator />
-                                    <MenuItem Header="Log out" InputGesture="Ctrl + Shift + Q" />
-                                    <Separator />
-                                    <MenuItem Classes="Destructive" Header="Delete Account" />
+                                    Width="224"
+                                    Header="Profile"
+                                    InputGesture="Ctrl + Shift + P" />
+                                <MenuItem Header="Billing" InputGesture="Ctrl + B" />
+                                <MenuItem Header="Settings" InputGesture="Ctrl + S" />
+                                <MenuItem Header="Keyboard shortcuts" InputGesture="Ctrl + K" />
+                                <Separator />
+                                <MenuItem Header="Team" />
+                                <MenuItem Header="Invite users">
+                                    <MenuItem Width="128" Header="Email" />
+                                    <MenuItem Header="Message" />
+                                    <MenuItem Header="More..." />
                                 </MenuItem>
-                            </Menu>
-                        </StackPanel>
+                                <MenuItem Header="New Team" InputGesture="Ctrl + T" />
+                                <Separator />
+                                <MenuItem Header="Github" />
+                                <MenuItem Header="Support" />
+                                <MenuItem Header="API" IsEnabled="False" />
+                                <Separator />
+                                <MenuItem Header="Log out" InputGesture="Ctrl + Shift + Q" />
+                                <Separator />
+                                <MenuItem Classes="Destructive" Header="Delete Account" />
+                            </MenuItem>
+                        </Menu>
                     </controls:ControlBlock>
                     <Grid ColumnDefinitions="Auto *">
                         <PathIcon

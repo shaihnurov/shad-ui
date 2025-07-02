@@ -15,13 +15,13 @@ public sealed partial class ButtonViewModel : ViewModelBase, INavigable
     {
         _messenger = messenger;
         var path = Path.Combine(AppContext.BaseDirectory, "views", "ButtonPage.axaml");
-        PrimaryCode = path.ExtractByLineRange(61, 86).CleanIndentation();
-        SecondaryCode = path.ExtractByLineRange(92, 117).CleanIndentation();
-        DestructiveCode = path.ExtractByLineRange(123, 148).CleanIndentation();
-        OutlineCode = path.ExtractByLineRange(154, 179).CleanIndentation();
-        GhostCode = path.ExtractByLineRange(185, 212).CleanIndentation();
-        IconCode = path.ExtractByLineRange(216, 243).CleanIndentation();
-        DestructiveIconCode = path.ExtractByLineRange(249, 272).CleanIndentation();
+        PrimaryCode = path.ExtractByLineRange(58, 83).CleanIndentation();
+        SecondaryCode = path.ExtractByLineRange(86, 111).CleanIndentation();
+        DestructiveCode = path.ExtractByLineRange(114, 139).CleanIndentation();
+        OutlineCode = path.ExtractByLineRange(142, 167).CleanIndentation();
+        GhostCode = path.ExtractByLineRange(170, 195).CleanIndentation();
+        IconCode = path.ExtractByLineRange(198, 225).CleanIndentation();
+        DestructiveIconCode = path.ExtractByLineRange(228, 251).CleanIndentation();
     }
 
     [RelayCommand]

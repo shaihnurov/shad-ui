@@ -54,20 +54,14 @@
                 MaxWidth="{StaticResource PageMaxWidth}"
                 Margin="{StaticResource PageMargin}"
                 Spacing="32">
-                <controls:ControlBlock
-                    Title="Default"
-                    Code="{Binding DefaultSliderCode}"
-                    Language="xaml">
+                <controls:ControlBlock Title="Default" Xaml="{Binding DefaultSliderCode}">
                     <Slider
                         Width="375"
                         Maximum="10"
                         TickFrequency="1"
                         Value="5" />
                 </controls:ControlBlock>
-                <controls:ControlBlock
-                    Title="Disabled"
-                    Code="{Binding DisabledSliderCode}"
-                    Language="xaml">
+                <controls:ControlBlock Title="Disabled" Xaml="{Binding DisabledSliderCode}">
                     <Slider
                         Width="375"
                         IsEnabled="False"
@@ -75,10 +69,7 @@
                         TickFrequency="1"
                         Value="5" />
                 </controls:ControlBlock>
-                <controls:ControlBlock
-                    Title="Tick Enabled"
-                    Code="{Binding TickEnabledSliderCode}"
-                    Language="xaml">
+                <controls:ControlBlock Title="Tick Enabled" Xaml="{Binding TickEnabledSliderCode}">
                     <Slider
                         Width="375"
                         IsSnapToTickEnabled="True"

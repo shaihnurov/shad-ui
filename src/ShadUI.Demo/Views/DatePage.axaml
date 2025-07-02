@@ -55,27 +55,18 @@
                 MaxWidth="{StaticResource PageMaxWidth}"
                 Margin="{StaticResource PageMargin}"
                 Spacing="32">
-                <controls:ControlBlock
-                    Title="Calendar"
-                    Code="{Binding CalendarCode}"
-                    Language="xaml">
+                <controls:ControlBlock Title="Calendar" Xaml="{Binding CalendarCode}">
                     <StackPanel>
                         <Calendar HorizontalAlignment="Center" VerticalAlignment="Center" />
                     </StackPanel>
                 </controls:ControlBlock>
-                <controls:ControlBlock
-                    Title="Date Picker"
-                    Code="{Binding DatePickerCode}"
-                    Language="xaml">
+                <controls:ControlBlock Title="Date Picker" Xaml="{Binding DatePickerCode}">
                     <CalendarDatePicker
                         Width="240"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center" />
                 </controls:ControlBlock>
-                <controls:ControlBlock
-                    Title="Read-only Date Picker"
-                    Code="{Binding ReadOnlyDatePickerCode}"
-                    Language="xaml">
+                <controls:ControlBlock Title="Read-only Date Picker" Xaml="{Binding ReadOnlyDatePickerCode}">
                     <CalendarDatePicker
                         Width="240"
                         HorizontalAlignment="Center"
@@ -84,68 +75,25 @@
                 </controls:ControlBlock>
                 <controls:ControlBlock
                     Title="Date Picker Form Validation"
-                    Code="{Binding DatePickerFormValidationCode}"
-                    Language="xaml">
-                    <shadui:Card HorizontalAlignment="Center" HasShadow="True">
-                        <shadui:Card.Header>
-                            <shadui:CardTitle>Add Birthday</shadui:CardTitle>
-                        </shadui:Card.Header>
-                        <CalendarDatePicker
-                            Width="240"
-                            shadui:ControlAssist.Hint="Your date of birth is used to calculate your age."
-                            shadui:ControlAssist.Label="Date of birth"
-                            SelectedDate="{Binding SelectedDate}" />
-                        <shadui:Card.Footer>
-                            <Button Classes="Primary" Command="{Binding SubmitBirthdayCommand}">
-                                Submit
-                            </Button>
-                        </shadui:Card.Footer>
-                    </shadui:Card>
+                    CSharp="{Binding DatePickerForm.CSharpCode}"
+                    Xaml="{Binding DatePickerForm.XamlCode}">
+                    <ContentControl Content="{Binding DatePickerForm}" />
                 </controls:ControlBlock>
-                <controls:ControlBlock
-                    Title="Date Input"
-                    Code="{Binding DateInputCode}"
-                    Language="xaml">
+                <controls:ControlBlock Title="Date Input" Xaml="{Binding DateInputCode}">
                     <StackPanel>
                         <shadui:DateInput HorizontalAlignment="Center" />
                     </StackPanel>
                 </controls:ControlBlock>
-                <controls:ControlBlock
-                    Title="Disabled Date Input"
-                    Code="{Binding DisabledDateInputCode}"
-                    Language="xaml">
+                <controls:ControlBlock Title="Disabled Date Input" Xaml="{Binding DisabledDateInputCode}">
                     <StackPanel>
                         <shadui:DateInput HorizontalAlignment="Center" IsEnabled="False" />
                     </StackPanel>
                 </controls:ControlBlock>
                 <controls:ControlBlock
                     Title="Date Input Form Validation"
-                    Code="{Binding DateInputFormCode}"
-                    Language="xaml">
-                    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-                        <shadui:Card HorizontalAlignment="Center" HasShadow="True">
-                            <shadui:Card.Header>
-                                <shadui:CardTitle>Create a schedule</shadui:CardTitle>
-                            </shadui:Card.Header>
-                            <StackPanel Spacing="16">
-                                <shadui:DateInput
-                                    Width="255"
-                                    shadui:ControlAssist.Hint="Set the starting date"
-                                    shadui:ControlAssist.Label="Start date"
-                                    Value="{Binding StartDate, Converter={x:Static converters:DateOnlyToDateTimeOffsetConverter.Instance}}" />
-                                <shadui:DateInput
-                                    Width="255"
-                                    shadui:ControlAssist.Hint="Set the cut-off date"
-                                    shadui:ControlAssist.Label="End date"
-                                    Value="{Binding EndDate, Converter={x:Static converters:DateOnlyToDateTimeOffsetConverter.Instance}}" />
-                            </StackPanel>
-                            <shadui:Card.Footer>
-                                <Button Classes="Primary" Command="{Binding SubmitDateFormCommand}">
-                                    Submit
-                                </Button>
-                            </shadui:Card.Footer>
-                        </shadui:Card>
-                    </ScrollViewer>
+                    CSharp="{Binding DateInputForm.CSharpCode}"
+                    Xaml="{Binding DateInputForm.XamlCode}">
+                    <ContentControl Content="{Binding DateInputForm}" />
                 </controls:ControlBlock>
             </StackPanel>
         </ScrollViewer>

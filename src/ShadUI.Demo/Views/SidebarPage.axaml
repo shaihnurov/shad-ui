@@ -56,10 +56,7 @@
                 MaxWidth="{StaticResource PageMaxWidth}"
                 Margin="{StaticResource PageMargin}"
                 Spacing="32">
-                <controls:ControlBlock
-                    Title="Default"
-                    Code="{Binding DefaultCode}"
-                    Language="xaml">
+                <controls:ControlBlock Title="Default" Xaml="{Binding DefaultCode}">
                     <Border
                         Name="Border"
                         BorderBrush="{DynamicResource BorderColor}"

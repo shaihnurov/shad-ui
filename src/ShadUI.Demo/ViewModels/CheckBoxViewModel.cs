@@ -16,10 +16,10 @@ public partial class CheckBoxViewModel : ViewModelBase, INavigable
     {
         _messenger = messenger;
         var path = Path.Combine(AppContext.BaseDirectory, "views", "CheckBoxPage.axaml");
-        DefaultCode = path.ExtractByLineRange(61, 63).CleanIndentation();
-        DisabledCode = path.ExtractByLineRange(69, 71).CleanIndentation();
-        IndeterminateCode = path.ExtractByLineRange(77, 79).CleanIndentation();
-        MultipleCode = path.ExtractByLineRange(85, 104).CleanIndentation();
+        DefaultCode = path.ExtractByLineRange(58, 60).CleanIndentation();
+        DisabledCode = path.ExtractByLineRange(63, 65).CleanIndentation();
+        IndeterminateCode = path.ExtractByLineRange(68, 70).CleanIndentation();
+        MultipleCode = path.ExtractByLineRange(73, 92).CleanIndentation();
 
         Items.CollectionChanged += (_, _) => UpdateSelectAllState();
         foreach (var item in Items) item.PropertyChanged += (_, _) => UpdateSelectAllState();

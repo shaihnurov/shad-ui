@@ -14,9 +14,9 @@ public sealed partial class SwitchViewModel : ViewModelBase, INavigable
     {
         _messenger = messenger;
         var path = Path.Combine(AppContext.BaseDirectory, "views", "SwitchPage.axaml");
-        EnableCode = path.ExtractByLineRange(61, 79).CleanIndentation();
-        DisableCode = path.ExtractByLineRange(85, 103).CleanIndentation();
-        RightAlignedCode = path.ExtractByLineRange(109, 127).CleanIndentation();
+        EnableCode = path.ExtractByLineRange(58, 76).CleanIndentation();
+        DisableCode = path.ExtractByLineRange(79, 97).CleanIndentation();
+        RightAlignedCode = path.ExtractByLineRange(100, 118).CleanIndentation();
     }
 
     [RelayCommand]

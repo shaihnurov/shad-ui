@@ -14,9 +14,9 @@ public sealed partial class ColorViewModel : ViewModelBase, INavigable
     {
         _messenger = messenger;
         var path = Path.Combine(AppContext.BaseDirectory, "views", "ColorPage.axaml");
-        ColorViewCode = path.ExtractByLineRange(62, 67).CleanIndentation();
-        ColorPickerCode = path.ExtractByLineRange(73, 78).CleanIndentation();
-        ColorPickerDisabledCode = path.ExtractByLineRange(84, 90).CleanIndentation();
+        ColorViewCode = path.ExtractByLineRange(59, 64).CleanIndentation();
+        ColorPickerCode = path.ExtractByLineRange(67, 72).CleanIndentation();
+        ColorPickerDisabledCode = path.ExtractByLineRange(75, 81).CleanIndentation();
     }
 
     [RelayCommand]

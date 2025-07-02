@@ -131,10 +131,7 @@
                         <Run Text="}" />
                     </controls:CodeTextBlock>
                 </StackPanel>
-                <controls:ControlBlock
-                    Title="Alert Dialog"
-                    Code="{Binding AlertDialogCode}"
-                    Language="cs">
+                <controls:ControlBlock Title="Alert Dialog" CSharp="{Binding AlertDialogCode}">
                     <StackPanel>
                         <Button
                             HorizontalAlignment="Center"
@@ -143,10 +140,7 @@
                             Content="Show Dialog" />
                     </StackPanel>
                 </controls:ControlBlock>
-                <controls:ControlBlock
-                    Title="Destructive Style Dialog"
-                    Code="{Binding DestructiveAlertDialogCode}"
-                    Language="cs">
+                <controls:ControlBlock Title="Destructive Style Dialog" CSharp="{Binding DestructiveAlertDialogCode}">
                     <StackPanel>
                         <Button
                             HorizontalAlignment="Center"
@@ -155,10 +149,7 @@
                             Content="Show Dialog" />
                     </StackPanel>
                 </controls:ControlBlock>
-                <controls:ControlBlock
-                    Title="Custom Dialog"
-                    Code="{Binding CustomDialogCode}"
-                    Language="cs">
+                <controls:ControlBlock Title="Custom Dialog" CSharp="{Binding CustomDialogCode}">
                     <StackPanel>
                         <Button
                             HorizontalAlignment="Center"

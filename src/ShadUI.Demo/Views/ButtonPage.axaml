@@ -54,10 +54,7 @@
                 MaxWidth="{StaticResource PageMaxWidth}"
                 Margin="{StaticResource PageMargin}"
                 Spacing="32">
-                <controls:ControlBlock
-                    Title="Primary"
-                    Code="{Binding PrimaryCode}"
-                    Language="xaml">
+                <controls:ControlBlock Title="Primary" Xaml="{Binding PrimaryCode}">
                     <StackPanel
                         HorizontalAlignment="Center"
                         Orientation="Horizontal"
@@ -85,10 +82,7 @@
                             IsEnabled="False" />
                     </StackPanel>
                 </controls:ControlBlock>
-                <controls:ControlBlock
-                    Title="Secondary"
-                    Code="{Binding SecondaryCode}"
-                    Language="xaml">
+                <controls:ControlBlock Title="Secondary" Xaml="{Binding SecondaryCode}">
                     <StackPanel
                         HorizontalAlignment="Center"
                         Orientation="Horizontal"
@@ -116,10 +110,7 @@
                             IsEnabled="False" />
                     </StackPanel>
                 </controls:ControlBlock>
-                <controls:ControlBlock
-                    Title="Destructive"
-                    Code="{Binding DestructiveCode}"
-                    Language="xaml">
+                <controls:ControlBlock Title="Destructive" Xaml="{Binding DestructiveCode}">
                     <StackPanel
                         HorizontalAlignment="Center"
                         Orientation="Horizontal"
@@ -147,10 +138,7 @@
                             IsEnabled="False" />
                     </StackPanel>
                 </controls:ControlBlock>
-                <controls:ControlBlock
-                    Title="Outline"
-                    Code="{Binding OutlineCode}"
-                    Language="xaml">
+                <controls:ControlBlock Title="Outline" Xaml="{Binding OutlineCode}">
                     <StackPanel
                         HorizontalAlignment="Center"
                         Orientation="Horizontal"
@@ -178,10 +166,7 @@
                             IsEnabled="False" />
                     </StackPanel>
                 </controls:ControlBlock>
-                <controls:ControlBlock
-                    Title="Ghost"
-                    Code="{Binding GhostCode}"
-                    Language="xaml">
+                <controls:ControlBlock Title="Ghost" Xaml="{Binding GhostCode}">
                     <StackPanel
                         HorizontalAlignment="Center"
                         Orientation="Horizontal"
@@ -209,10 +194,7 @@
                             IsEnabled="False" />
                     </StackPanel>
                 </controls:ControlBlock>
-                <controls:ControlBlock
-                    Title="Icon"
-                    Code="{Binding IconCode}"
-                    Language="xaml">
+                <controls:ControlBlock Title="Icon" Xaml="{Binding IconCode}">
                     <StackPanel
                         HorizontalAlignment="Center"
                         Orientation="Horizontal"
@@ -242,10 +224,7 @@
                         </Button>
                     </StackPanel>
                 </controls:ControlBlock>
-                <controls:ControlBlock
-                    Title="Destructive Icon"
-                    Code="{Binding DestructiveIconCode}"
-                    Language="xaml">
+                <controls:ControlBlock Title="Destructive Icon" Xaml="{Binding DestructiveIconCode}">
                     <StackPanel
                         HorizontalAlignment="Center"
                         Orientation="Horizontal"

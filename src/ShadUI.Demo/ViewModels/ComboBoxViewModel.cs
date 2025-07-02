@@ -1,9 +1,9 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
 using System.IO;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
+using ShadUI.Demo.ViewModels.Examples.ComboBox;
 
 namespace ShadUI.Demo.ViewModels;
 
@@ -11,13 +11,14 @@ public sealed partial class ComboBoxViewModel : ViewModelBase, INavigable
 {
     private readonly IMessenger _messenger;
 
-    public ComboBoxViewModel(IMessenger messenger)
+    public ComboBoxViewModel(IMessenger messenger, FormComboBoxViewModel form)
     {
         _messenger = messenger;
-        var path = Path.Combine(AppContext.BaseDirectory, "views", "ComboBoxPage.axaml");
-        SelectComboBoxCode = path.ExtractByLineRange(62, 78).CleanIndentation();
-        SelectComboBoxDisabledCode = path.ExtractByLineRange(84, 87).CleanIndentation();
-        FormValidationCode = path.ExtractByLineRange(93, 115).CleanIndentation();
+        Form = form;
+
+        var xamlPath = Path.Combine(AppContext.BaseDirectory, "views", "ComboBoxPage.axaml");
+        SelectComboBoxCode = xamlPath.ExtractByLineRange(58, 74).CleanIndentation();
+        SelectComboBoxDisabledCode = xamlPath.ExtractByLineRange(77, 80).CleanIndentation();
     }
 
     [RelayCommand]
@@ -39,40 +40,7 @@ public sealed partial class ComboBoxViewModel : ViewModelBase, INavigable
     private string _selectComboBoxDisabledCode = string.Empty;
 
     [ObservableProperty]
-    private string _formValidationCode = string.Empty;
-
-    [ObservableProperty]
-    private string[] _items =
-    [
-        "Angular",
-        "Astro",
-        "Lit",
-        "Next.js",
-        "Nuxt.js",
-        "Preact",
-        "Qwik",
-        "React",
-        "Remix",
-        "SolidJS",
-        "Svelte",
-        "SvelteKit",
-        "Vue.js"
-    ];
-
-    private string? _selectedItem = "Next.js";
-
-    [Required(ErrorMessage = "Please select an item.")]
-    public string? SelectedItem
-    {
-        get => _selectedItem;
-        set => SetProperty(ref _selectedItem, value, true);
-    }
-
-    [RelayCommand]
-    private void Clear()
-    {
-        SelectedItem = null;
-    }
+    private FormComboBoxViewModel _form;
 
     public string Route => "combobox";
 }

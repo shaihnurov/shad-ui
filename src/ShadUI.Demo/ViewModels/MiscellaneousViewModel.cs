@@ -19,9 +19,9 @@ public sealed partial class MiscellaneousViewModel : ViewModelBase, INavigable
     {
         _messenger = messenger;
         var path = Path.Combine(AppContext.BaseDirectory, "views", "MiscellaneousPage.axaml");
-        BusyAreaCode = path.ExtractByLineRange(50, 65).CleanIndentation();
-        ListBoxCode = path.ExtractByLineRange(71, 97).CleanIndentation();
-        SkeletonCode = path.ExtractByLineRange(103, 122).CleanIndentation();
+        BusyAreaCode = path.ExtractByLineRange(47, 62).CleanIndentation();
+        ListBoxCode = path.ExtractByLineRange(65, 91).CleanIndentation();
+        SkeletonCode = path.ExtractByLineRange(94, 113).CleanIndentation();
 
         WebFrameworksSelectionModel.SelectionChanged += SelectedWebFrameworksChanged;
         _selectedWebFrameworks.CollectionChanged += OnSelectedWebFrameworksOnCollectionChanged;

@@ -14,7 +14,7 @@ public sealed partial class AvatarViewModel : ViewModelBase, INavigable
     {
         _messenger = messenger;
         var path = Path.Combine(AppContext.BaseDirectory, "views", "AvatarPage.axaml");
-        UsageCode = path.ExtractByLineRange(62, 66).CleanIndentation();
+        UsageCode = path.ExtractByLineRange(59, 63).CleanIndentation();
     }
 
     [RelayCommand]

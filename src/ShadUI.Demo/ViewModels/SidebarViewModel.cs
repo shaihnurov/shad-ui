@@ -14,7 +14,7 @@ public sealed partial class SidebarViewModel : ViewModelBase, INavigable
     {
         _messenger = messenger;
         var path = Path.Combine(AppContext.BaseDirectory, "views", "SidebarPage.axaml");
-        DefaultCode = path.ExtractByLineRange(63, 477).CleanIndentation();
+        DefaultCode = path.ExtractByLineRange(60, 474).CleanIndentation();
     }
 
     [RelayCommand]

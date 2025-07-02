@@ -54,34 +54,22 @@
                 MaxWidth="{StaticResource PageMaxWidth}"
                 Margin="{StaticResource PageMargin}"
                 Spacing="32">
-                <controls:ControlBlock
-                    Title="Default"
-                    Code="{Binding DefaultCode}"
-                    Language="xaml">
+                <controls:ControlBlock Title="Default" Xaml="{Binding DefaultCode}">
                     <StackPanel Spacing="8">
                         <CheckBox HorizontalAlignment="Center">Accept terms and conditions</CheckBox>
                     </StackPanel>
                 </controls:ControlBlock>
-                <controls:ControlBlock
-                    Title="Disabled"
-                    Code="{Binding DisabledCode}"
-                    Language="xaml">
+                <controls:ControlBlock Title="Disabled" Xaml="{Binding DisabledCode}">
                     <StackPanel Spacing="8">
                         <CheckBox HorizontalAlignment="Center" IsEnabled="False">Accept terms and conditions</CheckBox>
                     </StackPanel>
                 </controls:ControlBlock>
-                <controls:ControlBlock
-                    Title="Indeterminate"
-                    Code="{Binding IndeterminateCode}"
-                    Language="xaml">
+                <controls:ControlBlock Title="Indeterminate" Xaml="{Binding IndeterminateCode}">
                     <StackPanel Spacing="8">
                         <CheckBox HorizontalAlignment="Center" IsChecked="{x:Null}">Accept terms and conditions</CheckBox>
                     </StackPanel>
                 </controls:ControlBlock>
-                <controls:ControlBlock
-                    Title="Multiple"
-                    Code="{Binding MultipleCode}"
-                    Language="xaml">
+                <controls:ControlBlock Title="Multiple" Xaml="{Binding MultipleCode}">
                     <StackPanel HorizontalAlignment="Center" Spacing="8">
                         <StackPanel>
                             <TextBlock

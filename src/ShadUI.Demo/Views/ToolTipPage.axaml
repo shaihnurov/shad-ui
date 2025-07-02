@@ -54,10 +54,7 @@
                 MaxWidth="{StaticResource PageMaxWidth}"
                 Margin="{StaticResource PageMargin}"
                 Spacing="32">
-                <controls:ControlBlock
-                    Title="Usage"
-                    Code="{Binding UsageCode}"
-                    Language="xaml">
+                <controls:ControlBlock Title="Usage" Xaml="{Binding UsageCode}">
                     <Button
                         HorizontalAlignment="Center"
                         Classes="Outline"

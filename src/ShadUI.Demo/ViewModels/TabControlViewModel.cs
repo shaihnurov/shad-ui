@@ -14,7 +14,7 @@ public sealed partial class TabControlViewModel : ViewModelBase, INavigable
     {
         _messenger = messenger;
         var path = Path.Combine(AppContext.BaseDirectory, "views", "TabControlPage.axaml");
-        BasicTabCode = path.ExtractByLineRange(61, 79).CleanIndentation();
+        BasicTabCode = path.ExtractByLineRange(58, 76).CleanIndentation();
     }
 
     [RelayCommand]

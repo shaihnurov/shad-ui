@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,57 @@ public static class CodeSnippetHelper
         {
             return string.Empty;
         }
+    }
+
+    /// <summary>
+    ///     Extracts lines from a file while skipping specified ranges of lines.
+    /// </summary>
+    /// <param name="filePath">Path to the file to extract lines from.</param>
+    /// <param name="skipRanges">Ranges of lines to skip (inclusive, 1-based).</param>
+    /// <returns>Extracted lines with specified ranges skipped.</returns>
+    public static string ExtractWithSkipRanges(this string filePath, params Range[] skipRanges)
+    {
+        try
+        {
+            var lines = File.ReadAllLines(filePath);
+            var result = new List<string>();
+
+            for (var i = 0; i < lines.Length; i++)
+            {
+                var lineNumber = i + 1;
+                var shouldSkip = skipRanges.Any(range => 
+                {
+                    var start = range.Start.IsFromEnd ? lines.Length - range.Start.Value : range.Start.Value;
+                    var end = range.End.IsFromEnd ? lines.Length - range.End.Value : range.End.Value;
+                    
+                    var rangeStart = start + 1;
+                    return lineNumber >= rangeStart && lineNumber <= end;
+                });
+                
+                if (!shouldSkip)
+                {
+                    result.Add(lines[i]);
+                }
+            }
+
+            return string.Join(Environment.NewLine, result);
+        }
+        catch (Exception)
+        {
+            return string.Empty;
+        }
+    }
+
+    /// <summary>
+    ///     Extracts lines from a file while skipping specified ranges of lines.
+    /// </summary>
+    /// <param name="filePath">Path to the file to extract lines from.</param>
+    /// <param name="skipRanges">Ranges of lines to skip as tuples (start, end) - inclusive, 1-based.</param>
+    /// <returns>Extracted lines with specified ranges skipped.</returns>
+    public static string ExtractWithSkipRanges(this string filePath, params (int start, int end)[] skipRanges)
+    {
+        var ranges = skipRanges.Select(tuple => new Range(tuple.start - 1, tuple.end)).ToArray();
+        return ExtractWithSkipRanges(filePath, ranges);
     }
 
     public static string CleanIndentation(this string input)

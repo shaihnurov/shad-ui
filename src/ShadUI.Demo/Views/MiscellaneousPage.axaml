@@ -43,10 +43,7 @@
                 MaxWidth="{StaticResource PageMaxWidth}"
                 Margin="{StaticResource PageMargin}"
                 Spacing="32">
-                <controls:ControlBlock
-                    Title="Busy Area"
-                    Code="{Binding BusyAreaCode}"
-                    Language="xaml">
+                <controls:ControlBlock Title="Busy Area" Xaml="{Binding BusyAreaCode}">
                     <Border
                         Height="400"
                         BorderBrush="{DynamicResource BorderColor}"
@@ -64,10 +61,7 @@
                         </Panel>
                     </Border>
                 </controls:ControlBlock>
-                <controls:ControlBlock
-                    Title="ListBox"
-                    Code="{Binding ListBoxCode}"
-                    Language="xaml">
+                <controls:ControlBlock Title="ListBox" Xaml="{Binding ListBoxCode}">
                     <shadui:Card
                         Width="350"
                         HorizontalAlignment="Center"
@@ -96,10 +90,7 @@
                         </shadui:Card.Footer>
                     </shadui:Card>
                 </controls:ControlBlock>
-                <controls:ControlBlock
-                    Title="Skeleton"
-                    Code="{Binding SkeletonCode}"
-                    Language="xaml">
+                <controls:ControlBlock Title="Skeleton" Xaml="{Binding SkeletonCode}">
                     <StackPanel
                         Margin="24"
                         HorizontalAlignment="Center"

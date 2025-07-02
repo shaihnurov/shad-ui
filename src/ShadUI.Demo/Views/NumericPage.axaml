@@ -54,43 +54,28 @@
                 MaxWidth="{StaticResource PageMaxWidth}"
                 Margin="{StaticResource PageMargin}"
                 Spacing="32">
-                <controls:ControlBlock
-                    Title="Default"
-                    Code="{Binding DefaultNumericCode}"
-                    Language="xaml">
+                <controls:ControlBlock Title="Default" Xaml="{Binding DefaultNumericCode}">
                     <StackPanel>
                         <NumericUpDown Width="225" />
                     </StackPanel>
                 </controls:ControlBlock>
-                <controls:ControlBlock
-                    Title="Disabled"
-                    Code="{Binding DisabledCode}"
-                    Language="xaml">
+                <controls:ControlBlock Title="Disabled" Xaml="{Binding DisabledCode}">
                     <StackPanel>
                         <NumericUpDown Width="225" IsEnabled="False" />
                     </StackPanel>
                 </controls:ControlBlock>
-                <controls:ControlBlock
-                    Title="Left Aligned"
-                    Code="{Binding WithLabelCode}"
-                    Language="xaml">
+                <controls:ControlBlock Title="Left Aligned" Xaml="{Binding WithLabelCode}">
                     <StackPanel>
                         <NumericUpDown Width="225" ButtonSpinnerLocation="Left" />
                     </StackPanel>
                 </controls:ControlBlock>
-                <controls:ControlBlock
-                    Title="With Label"
-                    Code="{Binding WithLabelCode}"
-                    Language="xaml">
+                <controls:ControlBlock Title="With Label" Xaml="{Binding WithLabelCode}">
                     <NumericUpDown
                         Width="225"
                         shadui:ControlAssist.Label="Quantity"
                         Watermark="Enter quantity" />
                 </controls:ControlBlock>
-                <controls:ControlBlock
-                    Title="With Custom Label"
-                    Code="{Binding WithCustomLabelCode}"
-                    Language="xaml">
+                <controls:ControlBlock Title="With Custom Label" Xaml="{Binding WithCustomLabelCode}">
                     <NumericUpDown
                         Width="225"
                         shadui:ControlAssist.Hint="Enter the product price"
@@ -106,32 +91,9 @@
                 </controls:ControlBlock>
                 <controls:ControlBlock
                     Title="Form Validation"
-                    Code="{Binding FormValidationCode}"
-                    Language="xaml">
-                    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-                        <shadui:Card
-                            Width="350"
-                            HorizontalAlignment="Center"
-                            HasShadow="True">
-                            <shadui:Card.Header>
-                                <StackPanel Spacing="4">
-                                    <shadui:CardTitle FontSize="18">Age Verification</shadui:CardTitle>
-                                    <shadui:CardDescription>Please enter your age to continue</shadui:CardDescription>
-                                </StackPanel>
-                            </shadui:Card.Header>
-                            <StackPanel Margin="0,0,0,36" Spacing="16">
-                                <NumericUpDown
-                                    shadui:ControlAssist.Hint="You must be at least 18 years old."
-                                    shadui:ControlAssist.Label="Age"
-                                    FormatString="N0"
-                                    Watermark="Enter your age"
-                                    Value="{Binding Age, Mode=TwoWay}" />
-                            </StackPanel>
-                            <shadui:Card.Footer>
-                                <Button Classes="Primary" Command="{Binding SubmitCommand}">Submit</Button>
-                            </shadui:Card.Footer>
-                        </shadui:Card>
-                    </ScrollViewer>
+                    CSharp="{Binding Form.CSharpCode}"
+                    Xaml="{Binding Form.XamlCode}">
+                    <ContentControl Content="{Binding Form}" />
                 </controls:ControlBlock>
             </StackPanel>
         </ScrollViewer>

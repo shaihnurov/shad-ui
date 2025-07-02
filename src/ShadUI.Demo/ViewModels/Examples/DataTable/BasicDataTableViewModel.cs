@@ -28,8 +28,13 @@ public sealed partial class BasicDataTableViewModel : ViewModelBase
 
     public BasicDataTableViewModel()
     {
-        var path = Path.Combine(AppContext.BaseDirectory, "views", "Examples", "DataTable", "BasicDataTableContent.axaml");
-        Code = path.ExtractByLineRange(1, 163).CleanIndentation();
+        var xamlPath = Path.Combine(AppContext.BaseDirectory, "views", "Examples", "DataTable",
+            "BasicDataTableContent.axaml");
+        XamlCode = xamlPath.ExtractByLineRange(1, 163).CleanIndentation();
+
+        var csharpPath = Path.Combine(AppContext.BaseDirectory, "viewModels", "Examples", "DataTable",
+            "BasicDataTableViewModel.cs");
+        CSharpCode = csharpPath.ExtractWithSkipRanges((31, 36), (48, 53)).CleanIndentation();
 
         _searchTimer = new Timer(500); // 500ms debounce
         _searchTimer.Elapsed += SearchTimerElapsed;
@@ -40,6 +45,12 @@ public sealed partial class BasicDataTableViewModel : ViewModelBase
         foreach (var i in _originalItems) i.PropertyChanged += OnItemsChanged;
         Items = new ObservableCollection<DataGridItem>(_originalItems);
     }
+
+    [ObservableProperty]
+    private string _xamlCode = string.Empty;
+
+    [ObservableProperty]
+    private string _cSharpCode = string.Empty;
 
     private void OnPropertyChanged(object? sender, PropertyChangedEventArgs e)
     {
@@ -159,9 +170,6 @@ public sealed partial class BasicDataTableViewModel : ViewModelBase
     {
         ShowAmountColumn = !ShowAmountColumn;
     }
-
-    [ObservableProperty]
-    private string _code = string.Empty;
 }
 
 public sealed partial class DataGridItem : ObservableValidator

@@ -54,47 +54,32 @@
                 MaxWidth="{StaticResource PageMaxWidth}"
                 Margin="{StaticResource PageMargin}"
                 Spacing="32">
-                <controls:ControlBlock
-                    Title="Default"
-                    Code="{Binding DefaultInputCode}"
-                    Language="xaml">
+                <controls:ControlBlock Title="Default" Xaml="{Binding DefaultInputCode}">
                     <StackPanel>
                         <TextBox Width="225" Watermark="Email" />
                     </StackPanel>
                 </controls:ControlBlock>
-                <controls:ControlBlock
-                    Title="Disabled"
-                    Code="{Binding DisabledCode}"
-                    Language="xaml">
+                <controls:ControlBlock Title="Disabled" Xaml="{Binding DisabledCode}">
                     <TextBox
                         Width="225"
                         IsEnabled="False"
                         Watermark="Email" />
                 </controls:ControlBlock>
-                <controls:ControlBlock
-                    Title="With Label"
-                    Code="{Binding WithLabelCode}"
-                    Language="xaml">
+                <controls:ControlBlock Title="With Label" Xaml="{Binding WithLabelCode}">
                     <TextBox
                         Width="225"
                         Classes="Clearable"
                         UseFloatingWatermark="True"
                         Watermark="Email" />
                 </controls:ControlBlock>
-                <controls:ControlBlock
-                    Title="With Custom Label"
-                    Code="{Binding WithCustomLabelCode}"
-                    Language="xaml">
+                <controls:ControlBlock Title="With Custom Label" Xaml="{Binding WithCustomLabelCode}">
                     <TextBox
                         Width="225"
                         shadui:ControlAssist.Label="Email"
                         Classes="Clearable"
                         Watermark="user@example.com" />
                 </controls:ControlBlock>
-                <controls:ControlBlock
-                    Title="Search Box"
-                    Code="{Binding SearchBoxCode}"
-                    Language="xaml">
+                <controls:ControlBlock Title="Search Box" Xaml="{Binding SearchBoxCode}">
                     <TextBox
                         Width="225"
                         shadui:ControlAssist.ShowProgress="{Binding IsSearching}"
@@ -109,10 +94,7 @@
                         </TextBox.InnerRightContent>
                     </TextBox>
                 </controls:ControlBlock>
-                <controls:ControlBlock
-                    Title="Auto Complete Box"
-                    Code="{Binding AutoCompleteBoxCode}"
-                    Language="xaml">
+                <controls:ControlBlock Title="Auto Complete Box" Xaml="{Binding AutoCompleteBoxCode}">
                     <AutoCompleteBox
                         Width="225"
                         shadui:ControlAssist.Hint="Your favorite web framework"
@@ -130,10 +112,7 @@
                         </AutoCompleteBox.InnerRightContent>
                     </AutoCompleteBox>
                 </controls:ControlBlock>
-                <controls:ControlBlock
-                    Title="Text Area"
-                    Code="{Binding TextAreaCode}"
-                    Language="xaml">
+                <controls:ControlBlock Title="Text Area" Xaml="{Binding TextAreaCode}">
                     <TextBox
                         Width="225"
                         shadui:ControlAssist.Height="300"
@@ -143,44 +122,9 @@
                 </controls:ControlBlock>
                 <controls:ControlBlock
                     Title="Form Validation"
-                    Code="{Binding FormValidationCode}"
-                    Language="xaml">
-                    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-                        <shadui:Card
-                            Width="350"
-                            HorizontalAlignment="Center"
-                            HasShadow="True">
-                            <shadui:Card.Header>
-                                <StackPanel Spacing="4">
-                                    <shadui:CardTitle FontSize="18">Create new account</shadui:CardTitle>
-                                    <shadui:CardDescription>Enter your account details</shadui:CardDescription>
-                                </StackPanel>
-                            </shadui:Card.Header>
-                            <StackPanel Spacing="16">
-                                <TextBox
-                                    shadui:ControlAssist.Hint="This is your public display name."
-                                    shadui:ControlAssist.Label="Email"
-                                    Classes="Clearable"
-                                    Text="{Binding Email, Mode=TwoWay}"
-                                    Watermark="user@example.com" />
-                                <TextBox
-                                    shadui:ControlAssist.Label="Password"
-                                    Classes="PasswordReveal"
-                                    PasswordChar="•"
-                                    Text="{Binding Password, Mode=TwoWay}"
-                                    Watermark="Enter password" />
-                                <TextBox
-                                    shadui:ControlAssist.Label="Confirm"
-                                    Classes="PasswordReveal"
-                                    PasswordChar="•"
-                                    Text="{Binding ConfirmPassword, Mode=TwoWay}"
-                                    Watermark="Confirm password" />
-                            </StackPanel>
-                            <shadui:Card.Footer>
-                                <Button Classes="Primary" Command="{Binding SubmitCommand}">Submit</Button>
-                            </shadui:Card.Footer>
-                        </shadui:Card>
-                    </ScrollViewer>
+                    CSharp="{Binding InputForm.CSharpCode}"
+                    Xaml="{Binding InputForm.XamlCode}">
+                    <ContentControl Content="{Binding InputForm}" />
                 </controls:ControlBlock>
             </StackPanel>
         </ScrollViewer>

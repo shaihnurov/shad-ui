@@ -5,7 +5,12 @@ using CommunityToolkit.Mvvm.Messaging;
 using Jab;
 using Serilog;
 using ShadUI.Demo.ViewModels;
+using ShadUI.Demo.ViewModels.Examples.ComboBox;
 using ShadUI.Demo.ViewModels.Examples.DataTable;
+using ShadUI.Demo.ViewModels.Examples.Date;
+using ShadUI.Demo.ViewModels.Examples.Input;
+using ShadUI.Demo.ViewModels.Examples.Numeric;
+using ShadUI.Demo.ViewModels.Examples.Time;
 
 namespace ShadUI.Demo;
 
@@ -18,13 +23,18 @@ namespace ShadUI.Demo;
 [Transient<BasicDataTableViewModel>]
 [Transient<GroupedDataTableViewModel>]
 [Transient<DateViewModel>]
+[Transient<FormDateInputViewModel>]
+[Transient<FormDatePickerViewModel>]
 [Transient<CheckBoxViewModel>]
 [Transient<ComboBoxViewModel>]
+[Transient<FormComboBoxViewModel>]
 [Transient<ColorViewModel>]
 [Transient<DashboardViewModel>]
 [Transient<DialogViewModel>]
 [Transient<InputViewModel>]
+[Transient<FormInputViewModel>]
 [Transient<NumericViewModel>]
+[Transient<FormNumericViewModel>]
 [Transient<LoginViewModel>]
 [Transient<MenuViewModel>]
 [Transient<MiscellaneousViewModel>]
@@ -33,6 +43,8 @@ namespace ShadUI.Demo;
 [Transient<SwitchViewModel>]
 [Transient<TabControlViewModel>]
 [Transient<TimeViewModel>]
+[Transient<FormTimeInputViewModel>]
+[Transient<FormTimePickerViewModel>]
 [Transient<ThemeViewModel>]
 [Transient<ToastViewModel>]
 [Transient<ToggleViewModel>]

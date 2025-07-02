@@ -71,7 +71,7 @@
                         Classes="Small"
                         Text="Resolve ToastManager using dependency injection framework for easy access. Make sure to have only one instance of ToastManager."
                         TextWrapping="Wrap" />
-                    <controls:CodeTextBlock Language="cs">
+                    <controls:CodeTextBlock>
                         <Run Text="public static void AddServices(this IServiceCollection collection)" />
                         <LineBreak />
                         <Run Text="\{" />
@@ -85,10 +85,7 @@
                         <Run Text="}" />
                     </controls:CodeTextBlock>
                 </StackPanel>
-                <controls:ControlBlock
-                    Title="Simple"
-                    Code="{Binding SimpleToastCode}"
-                    Language="cs">
+                <controls:ControlBlock Title="Simple" CSharp="{Binding SimpleToastCode}">
                     <StackPanel
                         HorizontalAlignment="Center"
                         Orientation="Horizontal"
@@ -100,10 +97,7 @@
                             Content="Show Toast" />
                     </StackPanel>
                 </controls:ControlBlock>
-                <controls:ControlBlock
-                    Title="With Title"
-                    Code="{Binding WithTitleToastCode}"
-                    Language="cs">
+                <controls:ControlBlock Title="With Title" CSharp="{Binding WithTitleToastCode}">
                     <StackPanel
                         HorizontalAlignment="Center"
                         Orientation="Horizontal"
@@ -115,10 +109,7 @@
                             Content="Show Toast" />
                     </StackPanel>
                 </controls:ControlBlock>
-                <controls:ControlBlock
-                    Title="With Action"
-                    Code="{Binding WithActionToastCode}"
-                    Language="cs">
+                <controls:ControlBlock Title="With Action" CSharp="{Binding WithActionToastCode}">
                     <StackPanel
                         HorizontalAlignment="Center"
                         Orientation="Horizontal"
@@ -130,10 +121,7 @@
                             Content="Show Toast" />
                     </StackPanel>
                 </controls:ControlBlock>
-                <controls:ControlBlock
-                    Title="With Custom Delay"
-                    Code="{Binding WithDelayToastCode}"
-                    Language="cs">
+                <controls:ControlBlock Title="With Custom Delay" CSharp="{Binding WithDelayToastCode}">
                     <StackPanel
                         HorizontalAlignment="Center"
                         Orientation="Horizontal"
@@ -145,10 +133,7 @@
                             Content="Show Toast" />
                     </StackPanel>
                 </controls:ControlBlock>
-                <controls:ControlBlock
-                    Title="Info Toast"
-                    Code="{Binding InfoToastCode}"
-                    Language="cs">
+                <controls:ControlBlock Title="Info Toast" CSharp="{Binding InfoToastCode}">
                     <StackPanel
                         HorizontalAlignment="Center"
                         Orientation="Horizontal"
@@ -160,10 +145,7 @@
                             Content="Show Toast" />
                     </StackPanel>
                 </controls:ControlBlock>
-                <controls:ControlBlock
-                    Title="Success Toast"
-                    Code="{Binding SuccessToastCode}"
-                    Language="cs">
+                <controls:ControlBlock Title="Success Toast" CSharp="{Binding SuccessToastCode}">
                     <StackPanel
                         HorizontalAlignment="Center"
                         Orientation="Horizontal"
@@ -175,10 +157,7 @@
                             Content="Show Toast" />
                     </StackPanel>
                 </controls:ControlBlock>
-                <controls:ControlBlock
-                    Title="Warning Toast"
-                    Code="{Binding WarningToastCode}"
-                    Language="cs">
+                <controls:ControlBlock Title="Warning Toast" CSharp="{Binding WarningToastCode}">
                     <StackPanel
                         HorizontalAlignment="Center"
                         Orientation="Horizontal"
@@ -190,10 +169,7 @@
                             Content="Show Toast" />
                     </StackPanel>
                 </controls:ControlBlock>
-                <controls:ControlBlock
-                    Title="Error Toast"
-                    Code="{Binding ErrorToastCode}"
-                    Language="cs">
+                <controls:ControlBlock Title="Error Toast" CSharp="{Binding ErrorToastCode}">
                     <StackPanel
                         HorizontalAlignment="Center"
                         Orientation="Horizontal"

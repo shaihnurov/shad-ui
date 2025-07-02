@@ -54,10 +54,7 @@
                 MaxWidth="{StaticResource PageMaxWidth}"
                 Margin="{StaticResource PageMargin}"
                 Spacing="32">
-                <controls:ControlBlock
-                    Title="Basic Tab"
-                    Code="{Binding BasicTabCode}"
-                    Language="xaml">
+                <controls:ControlBlock Title="Basic Tab" Xaml="{Binding BasicTabCode}">
                     <TabControl>
                         <TabControl.Items>
                             <TabItem Header="Preview">
