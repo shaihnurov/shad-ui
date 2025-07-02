@@ -116,8 +116,9 @@ ShadUI wouldn't be possible without the inspiration and contributions of the fol
 
 
 Thank you to all the amazing contributors who have helped make ShadUI what it is today!
+
 <a href="https://github.com/accntech/shad-ui/graphs/contributors">
-  <img width="200" src="https://contrib.rocks/image?repo=accntech/shad-ui" />
+  <img width="150" src="https://contrib.rocks/image?repo=accntech/shad-ui" />
 </a>
 
 ---
