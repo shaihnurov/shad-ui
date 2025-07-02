@@ -97,7 +97,7 @@
                                         HorizontalAlignment="Center"
                                         Fill="{DynamicResource BorderColor}" />
                                     <RepeatButton
-                                        Name="IncreaseButton"
+                                        Name="PART_IncreaseButton"
                                         IsTabStop="{TemplateBinding IsTabStop}"
                                         Theme="{StaticResource SpinnerRepeatButton}">
                                         <Path
@@ -114,7 +114,7 @@
                                         HorizontalAlignment="Center"
                                         Fill="{DynamicResource BorderColor}" />
                                     <RepeatButton
-                                        Name="DecreaseButton"
+                                        Name="PART_DecreaseButton"
                                         IsTabStop="{TemplateBinding IsTabStop}"
                                         Theme="{StaticResource SpinnerRepeatButton}">
                                         <Path
