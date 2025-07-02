@@ -128,17 +128,11 @@ Thank you to all the amazing contributors who have helped make ShadUI what it is
 We extend our heartfelt gratitude to these amazing platforms and tools that make ShadUI possible:
 
 <div align="center">
-  <a href="https://dotnet.microsoft.com/">
-    <img src="https://github.com/dotnet/brand/blob/main/logo/dotnet-logo.png?raw=true" alt=".NET" width="48" height="48"/>
-  </a>
+  <img src="https://github.com/dotnet/brand/blob/main/logo/dotnet-logo.png?raw=true" alt=".NET" height="48"/>
   &nbsp;&nbsp;&nbsp;&nbsp;
-  <a href="https://www.jetbrains.com/">
-    <img width="48px" src="https://resources.jetbrains.com/storage/products/company/brand/logos/jb_beam.png" alt="JetBrains logo">
+  <img height="48px" src="https://resources.jetbrains.com/storage/products/company/brand/logos/jb_beam.png" alt="JetBrains">
   &nbsp;&nbsp;&nbsp;&nbsp;
-  </a> 
-  <a href="https://ui.shadcn.com/">
-    <img width="48px" src="https://avatars.githubusercontent.com/u/139895814?s=48&v=4" alt="shadcn/ui logo">
-  </a>
+  <img height="48px" src="https://avatars.githubusercontent.com/u/139895814?s=48&v=4" alt="shadcn/ui logo">
 </div>
 
 - **.NET**: For providing the powerful C# language and cross-platform runtime that powers our applications
