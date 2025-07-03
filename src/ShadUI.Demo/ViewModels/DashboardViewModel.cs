@@ -3,7 +3,6 @@ using Avalonia.Media;
 using Avalonia.Platform;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using CommunityToolkit.Mvvm.Messaging;
 using LiveChartsCore;
 using LiveChartsCore.SkiaSharpView;
 using LiveChartsCore.SkiaSharpView.Painting;
@@ -11,9 +10,10 @@ using SkiaSharp;
 
 namespace ShadUI.Demo.ViewModels;
 
+[Page("dashboard")]
 public sealed partial class DashboardViewModel : ViewModelBase, INavigable
 {
-    private readonly IMessenger _messenger;
+    private readonly PageManager _pageManager;
     public ThemeWatcher ThemeWatcher { get; }
 
     private readonly SKTypeface _typeface;
@@ -21,9 +21,9 @@ public sealed partial class DashboardViewModel : ViewModelBase, INavigable
     [ObservableProperty]
     private static SolidColorPaint _tooltipTextPaint = null!;
 
-    public DashboardViewModel(IMessenger messenger, ThemeWatcher themeWatcher)
+    public DashboardViewModel(PageManager pageManager, ThemeWatcher themeWatcher)
     {
-        _messenger = messenger;
+        _pageManager = pageManager;
         ThemeWatcher = themeWatcher;
         ThemeWatcher.ThemeChanged += (_, colors) =>
         {
@@ -70,7 +70,7 @@ public sealed partial class DashboardViewModel : ViewModelBase, INavigable
     [RelayCommand]
     private void NextPage()
     {
-        _messenger.Send(new PageChangedMessage { PageType = typeof(ThemeViewModel) });
+        _pageManager.Navigate<ThemeViewModel>();
     }
 
     private void UpdateSeriesFill(Color primary)
@@ -129,6 +129,4 @@ public sealed partial class DashboardViewModel : ViewModelBase, INavigable
         var primary = ThemeWatcher.ThemeColors.PrimaryColor;
         UpdateSeriesFill(primary);
     }
-
-    public string Route => "dashboard";
 }

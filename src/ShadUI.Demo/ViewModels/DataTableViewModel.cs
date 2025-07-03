@@ -1,11 +1,11 @@
 ﻿using CommunityToolkit.Mvvm.Input;
-using CommunityToolkit.Mvvm.Messaging;
 using ShadUI.Demo.ViewModels.Examples.DataTable;
 
 namespace ShadUI.Demo.ViewModels;
 
+[Page("data-table")]
 public sealed partial class DataTableViewModel(
-    IMessenger messenger,
+    PageManager pageManager,
     BasicDataTableViewModel basic,
     GroupedDataTableViewModel grouped)
     : ViewModelBase, INavigable
@@ -13,17 +13,15 @@ public sealed partial class DataTableViewModel(
     [RelayCommand]
     private void BackPage()
     {
-        messenger.Send(new PageChangedMessage { PageType = typeof(ComboBoxViewModel) });
+        pageManager.Navigate<ComboBoxViewModel>();
     }
 
     [RelayCommand]
     private void NextPage()
     {
-        messenger.Send(new PageChangedMessage { PageType = typeof(DateViewModel) });
+        pageManager.Navigate<DateViewModel>();
     }
 
     public BasicDataTableViewModel BasicDataTable { get; } = basic;
     public GroupedDataTableViewModel GroupedDataTable { get; } = grouped;
-
-    public string Route => "data-table";
 }

@@ -4,11 +4,11 @@ using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace ShadUI.Demo.ViewModels.Examples.Typography;
 
-public sealed partial class LabelViewModel: ViewModelBase
+public sealed partial class LabelViewModel : ViewModelBase
 {
     public LabelViewModel()
     {
-        var path = Path.Combine(AppContext.BaseDirectory, "views","Examples","Typography", "LabelContent.axaml");
+        var path = Path.Combine(AppContext.BaseDirectory, "views", "Examples", "Typography", "LabelContent.axaml");
         H1Code = path.ExtractByLineRange(18, 20).CleanIndentation();
         H2Code = path.ExtractByLineRange(23, 25).CleanIndentation();
         H3Code = path.ExtractByLineRange(28, 30).CleanIndentation();
@@ -21,6 +21,7 @@ public sealed partial class LabelViewModel: ViewModelBase
         MutedCode = path.ExtractByLineRange(63, 65).CleanIndentation();
         ErrorCode = path.ExtractByLineRange(68, 70).CleanIndentation();
     }
+
     [ObservableProperty]
     private string _h1Code = string.Empty;
 

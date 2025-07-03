@@ -4,11 +4,11 @@ using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace ShadUI.Demo.ViewModels.Examples.Typography;
 
-public sealed partial class TextBlockViewModel: ViewModelBase
+public sealed partial class TextBlockViewModel : ViewModelBase
 {
     public TextBlockViewModel()
     {
-        var path = Path.Combine(AppContext.BaseDirectory, "views","Examples","Typography", "TextBlockContent.axaml");
+        var path = Path.Combine(AppContext.BaseDirectory, "views", "Examples", "Typography", "TextBlockContent.axaml");
         H1Code = path.ExtractByLineRange(18, 21).CleanIndentation();
         H2Code = path.ExtractByLineRange(24, 27).CleanIndentation();
         H3Code = path.ExtractByLineRange(30, 33).CleanIndentation();
@@ -21,6 +21,7 @@ public sealed partial class TextBlockViewModel: ViewModelBase
         MutedCode = path.ExtractByLineRange(72, 75).CleanIndentation();
         ErrorCode = path.ExtractByLineRange(78, 81).CleanIndentation();
     }
+
     [ObservableProperty]
     private string _h1Code = string.Empty;
 

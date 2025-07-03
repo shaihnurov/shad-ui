@@ -21,7 +21,7 @@ public sealed partial class FormDateInputViewModel : ViewModelBase
 
         var csharpPath = Path.Combine(AppContext.BaseDirectory, "viewModels", "Examples", "Date",
             "FormDateInputViewModel.cs");
-        CSharpCode = csharpPath.ExtractWithSkipRanges((17, 24),(26,31)).CleanIndentation();
+        CSharpCode = csharpPath.ExtractWithSkipRanges((17, 24), (26, 31)).CleanIndentation();
     }
 
     [ObservableProperty]
@@ -68,7 +68,8 @@ public sealed partial class FormDateInputViewModel : ViewModelBase
         if (HasErrors) return;
 
         _toastManager.CreateToast("Submission Successful")
-            .WithContent($"Your schedule has been created successfully! The start date is {StartDate:MMM dd, yyyy} and the end date is {EndDate:MMM dd, yyyy}.")
+            .WithContent(
+                $"Your schedule has been created successfully! The start date is {StartDate:MMM dd, yyyy} and the end date is {EndDate:MMM dd, yyyy}.")
             .DismissOnClick()
             .ShowSuccess();
     }

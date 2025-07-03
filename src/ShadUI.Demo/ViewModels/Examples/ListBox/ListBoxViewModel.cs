@@ -18,7 +18,7 @@ public sealed partial class ListBoxViewModel : ViewModelBase
         var csharpPath = Path.Combine(AppContext.BaseDirectory, "viewModels", "Examples", "ListBox",
             "ListBoxViewModel.cs");
         CSharpCode = csharpPath.ExtractWithSkipRanges((14, 21), (25, 30)).CleanIndentation();
-        
+
         _selectedItems.CollectionChanged += OnSelectedItemsOnCollectionChanged;
         SelectionModel.SelectionChanged += SelectedWebFrameworksChanged;
     }
@@ -28,7 +28,7 @@ public sealed partial class ListBoxViewModel : ViewModelBase
 
     [ObservableProperty]
     private string _cSharpCode = string.Empty;
-    
+
     private string _selectionMode = "Single";
 
     public string SelectionMode

@@ -2,17 +2,17 @@
 using System.IO;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using CommunityToolkit.Mvvm.Messaging;
 
 namespace ShadUI.Demo.ViewModels;
 
+[Page("switch")]
 public sealed partial class SwitchViewModel : ViewModelBase, INavigable
 {
-    private readonly IMessenger _messenger;
+    private readonly PageManager _pageManager;
 
-    public SwitchViewModel(IMessenger messenger)
+    public SwitchViewModel(PageManager pageManager)
     {
-        _messenger = messenger;
+        _pageManager = pageManager;
         var path = Path.Combine(AppContext.BaseDirectory, "views", "SwitchPage.axaml");
         EnableCode = path.ExtractByLineRange(58, 76).CleanIndentation();
         DisableCode = path.ExtractByLineRange(79, 97).CleanIndentation();
@@ -22,13 +22,13 @@ public sealed partial class SwitchViewModel : ViewModelBase, INavigable
     [RelayCommand]
     private void BackPage()
     {
-        _messenger.Send(new PageChangedMessage { PageType = typeof(SliderViewModel) });
+        _pageManager.Navigate<SliderViewModel>();
     }
 
     [RelayCommand]
     private void NextPage()
     {
-        _messenger.Send(new PageChangedMessage { PageType = typeof(TabControlViewModel) });
+        _pageManager.Navigate<TabControlViewModel>();
     }
 
     [ObservableProperty]
@@ -39,6 +39,4 @@ public sealed partial class SwitchViewModel : ViewModelBase, INavigable
 
     [ObservableProperty]
     private string _rightAlignedCode = string.Empty;
-
-    public string Route => "switch";
 }

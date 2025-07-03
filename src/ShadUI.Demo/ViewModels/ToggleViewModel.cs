@@ -6,13 +6,14 @@ using CommunityToolkit.Mvvm.Messaging;
 
 namespace ShadUI.Demo.ViewModels;
 
+[Page("toggle")]
 public sealed partial class ToggleViewModel : ViewModelBase, INavigable
 {
-    private readonly IMessenger _messenger;
+    private readonly PageManager _pageManager;
 
-    public ToggleViewModel(IMessenger messenger)
+    public ToggleViewModel(PageManager pageManager)
     {
-        _messenger = messenger;
+        _pageManager = pageManager;
         var path = Path.Combine(AppContext.BaseDirectory, "views", "TogglePage.axaml");
         DefaultCode = path.ExtractByLineRange(58, 63).CleanIndentation();
         OutlineCode = path.ExtractByLineRange(66, 71).CleanIndentation();
@@ -23,13 +24,13 @@ public sealed partial class ToggleViewModel : ViewModelBase, INavigable
     [RelayCommand]
     private void BackPage()
     {
-        _messenger.Send(new PageChangedMessage { PageType = typeof(ToastViewModel) });
+        _pageManager.Navigate<ToastViewModel>();
     }
 
     [RelayCommand]
     private void NextPage()
     {
-        _messenger.Send(new PageChangedMessage { PageType = typeof(ToolTipViewModel) });
+        _pageManager.Navigate<ToolTipViewModel>();
     }
 
     [ObservableProperty]
@@ -43,6 +44,4 @@ public sealed partial class ToggleViewModel : ViewModelBase, INavigable
 
     [ObservableProperty]
     private string _disableCode = string.Empty;
-
-    public string Route => "toggle";
 }

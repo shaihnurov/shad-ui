@@ -20,7 +20,7 @@ public sealed partial class FormDatePickerViewModel : ViewModelBase
 
         var csharpPath = Path.Combine(AppContext.BaseDirectory, "viewModels", "Examples", "Date",
             "FormDatePickerViewModel.cs");
-        CSharpCode = csharpPath.ExtractWithSkipRanges((16, 23),(25,30)).CleanIndentation();
+        CSharpCode = csharpPath.ExtractWithSkipRanges((16, 23), (25, 30)).CleanIndentation();
     }
 
     [ObservableProperty]

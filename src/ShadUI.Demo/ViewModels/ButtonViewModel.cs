@@ -3,17 +3,17 @@ using System.IO;
 using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using CommunityToolkit.Mvvm.Messaging;
 
 namespace ShadUI.Demo.ViewModels;
 
+[Page("button")]
 public sealed partial class ButtonViewModel : ViewModelBase, INavigable
 {
-    private readonly IMessenger _messenger;
+    private readonly PageManager _pageManager;
 
-    public ButtonViewModel(IMessenger messenger)
+    public ButtonViewModel(PageManager pageManager)
     {
-        _messenger = messenger;
+        _pageManager = pageManager;
         var path = Path.Combine(AppContext.BaseDirectory, "views", "ButtonPage.axaml");
         PrimaryCode = path.ExtractByLineRange(58, 83).CleanIndentation();
         SecondaryCode = path.ExtractByLineRange(86, 111).CleanIndentation();
@@ -27,13 +27,13 @@ public sealed partial class ButtonViewModel : ViewModelBase, INavigable
     [RelayCommand]
     private void BackPage()
     {
-        _messenger.Send(new PageChangedMessage { PageType = typeof(AvatarViewModel) });
+        _pageManager.Navigate<AvatarViewModel>();
     }
 
     [RelayCommand]
     private void NextPage()
     {
-        _messenger.Send(new PageChangedMessage { PageType = typeof(CardViewModel) });
+        _pageManager.Navigate<CardViewModel>();
     }
 
     [ObservableProperty]
@@ -67,6 +67,4 @@ public sealed partial class ButtonViewModel : ViewModelBase, INavigable
 
     [ObservableProperty]
     private string _destructiveIconCode = string.Empty;
-
-    public string Route => "button";
 }

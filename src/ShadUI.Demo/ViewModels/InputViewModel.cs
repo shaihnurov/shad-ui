@@ -4,21 +4,19 @@ using System.Timers;
 using Avalonia.Threading;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using CommunityToolkit.Mvvm.Messaging;
 using ShadUI.Demo.ViewModels.Examples.Input;
 
 namespace ShadUI.Demo.ViewModels;
 
+[Page("input")]
 public sealed partial class InputViewModel : ViewModelBase, INavigable
 {
-    private readonly IMessenger _messenger;
+    private readonly PageManager _pageManager;
     private readonly Timer? _searchTimer;
 
-    public InputViewModel(
-        IMessenger messenger,
-        FormInputViewModel inputForm)
+    public InputViewModel(PageManager pageManager, FormInputViewModel inputForm)
     {
-        _messenger = messenger;
+        _pageManager = pageManager;
         InputForm = inputForm;
 
         _searchTimer = new Timer(500); // 500ms debounce
@@ -39,13 +37,13 @@ public sealed partial class InputViewModel : ViewModelBase, INavigable
     [RelayCommand]
     private void BackPage()
     {
-        _messenger.Send(new PageChangedMessage { PageType = typeof(DialogViewModel) });
+        _pageManager.Navigate<DialogViewModel>();
     }
 
     [RelayCommand]
     private void NextPage()
     {
-        _messenger.Send(new PageChangedMessage { PageType = typeof(MenuViewModel) });
+        _pageManager.Navigate<MenuViewModel>();
     }
 
     private void SearchTimerElapsed(object? sender, ElapsedEventArgs e)
@@ -112,6 +110,4 @@ public sealed partial class InputViewModel : ViewModelBase, INavigable
     {
         InputForm.Initialize();
     }
-
-    public string Route => "input";
 }

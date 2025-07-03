@@ -2,24 +2,24 @@
 using System.IO;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using CommunityToolkit.Mvvm.Messaging;
 
 namespace ShadUI.Demo.ViewModels;
 
+[Page("dialog")]
 public sealed partial class DialogViewModel : ViewModelBase, INavigable
 {
-    private readonly IMessenger _messenger;
+    private readonly PageManager _pageManager;
     private readonly DialogManager _dialogManager;
     private readonly ToastManager _toastManager;
     private readonly LoginViewModel _loginViewModel;
 
     public DialogViewModel(
-        IMessenger messenger,
+        PageManager pageManager,
         DialogManager dialogManager,
         ToastManager toastManager,
         LoginViewModel loginViewModel)
     {
-        _messenger = messenger;
+        _pageManager = pageManager;
         _dialogManager = dialogManager;
         _toastManager = toastManager;
         _loginViewModel = loginViewModel;
@@ -33,13 +33,13 @@ public sealed partial class DialogViewModel : ViewModelBase, INavigable
     [RelayCommand]
     private void BackPage()
     {
-        _messenger.Send(new PageChangedMessage { PageType = typeof(DateViewModel) });
+        _pageManager.Navigate<DateViewModel>();
     }
 
     [RelayCommand]
     private void NextPage()
     {
-        _messenger.Send(new PageChangedMessage { PageType = typeof(InputViewModel) });
+        _pageManager.Navigate<InputViewModel>();
     }
 
     private string WrapCode(string code)
@@ -52,7 +52,7 @@ public sealed partial class DialogViewModel : ViewModelBase, INavigable
                 {code}
 
                 //..rest of the code
-                
+
                 """;
     }
 
@@ -120,6 +120,4 @@ public sealed partial class DialogViewModel : ViewModelBase, INavigable
                     .ShowWarning())
             .Show();
     }
-
-    public string Route => "dialog";
 }

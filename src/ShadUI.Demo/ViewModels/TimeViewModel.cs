@@ -2,21 +2,21 @@
 using System.IO;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using CommunityToolkit.Mvvm.Messaging;
 using ShadUI.Demo.ViewModels.Examples.Time;
 
 namespace ShadUI.Demo.ViewModels;
 
+[Page("time")]
 public sealed partial class TimeViewModel : ViewModelBase, INavigable
 {
-    private readonly IMessenger _messenger;
+    private readonly PageManager _pageManager;
 
     public TimeViewModel(
-        IMessenger messenger,
+        PageManager pageManager,
         FormTimePickerViewModel pickerForm,
         FormTimeInputViewModel inputForm)
     {
-        _messenger = messenger;
+        _pageManager = pageManager;
         PickerForm = pickerForm;
         InputForm = inputForm;
 
@@ -32,13 +32,13 @@ public sealed partial class TimeViewModel : ViewModelBase, INavigable
     [RelayCommand]
     private void BackPage()
     {
-        _messenger.Send(new PageChangedMessage { PageType = typeof(TabControlViewModel) });
+        _pageManager.Navigate<TabControlViewModel>();
     }
 
     [RelayCommand]
     private void NextPage()
     {
-        _messenger.Send(new PageChangedMessage { PageType = typeof(ToastViewModel) });
+        _pageManager.Navigate<ToastViewModel>();
     }
 
     [ObservableProperty]
@@ -64,6 +64,4 @@ public sealed partial class TimeViewModel : ViewModelBase, INavigable
 
     [ObservableProperty]
     private FormTimeInputViewModel _inputForm;
-
-    public string Route => "time";
 }

@@ -14,7 +14,8 @@ public sealed partial class FormComboBoxViewModel : ViewModelBase
     {
         _toastManager = toastManager;
 
-        var xamlPath = Path.Combine(AppContext.BaseDirectory, "views", "Examples", "ComboBox", "FormComboBoxContent.axaml");
+        var xamlPath = Path.Combine(AppContext.BaseDirectory, "views", "Examples", "ComboBox",
+            "FormComboBoxContent.axaml");
         XamlCode = xamlPath.ExtractByLineRange(1, 47).CleanIndentation();
 
         var csharpPath = Path.Combine(AppContext.BaseDirectory, "viewModels", "Examples", "ComboBox",

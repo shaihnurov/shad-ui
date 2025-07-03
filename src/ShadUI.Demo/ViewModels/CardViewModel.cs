@@ -2,35 +2,33 @@
 using System.IO;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using CommunityToolkit.Mvvm.Messaging;
 
 namespace ShadUI.Demo.ViewModels;
 
+[Page("card")]
 public sealed partial class CardViewModel : ViewModelBase, INavigable
 {
-    private readonly IMessenger _messenger;
+    private readonly PageManager _pageManager;
 
-    public CardViewModel(IMessenger messenger)
+    public CardViewModel(PageManager pageManager)
     {
-        _messenger = messenger;
+        _pageManager = pageManager;
         var path = Path.Combine(AppContext.BaseDirectory, "views", "CardPage.axaml");
         UsageCode = path.ExtractByLineRange(58, 98).CleanIndentation();
     }
-    
+
     [RelayCommand]
     private void BackPage()
     {
-        _messenger.Send(new PageChangedMessage { PageType = typeof(ButtonViewModel) });
+        _pageManager.Navigate<ButtonViewModel>();
     }
 
     [RelayCommand]
     private void NextPage()
     {
-        _messenger.Send(new PageChangedMessage { PageType = typeof(CheckBoxViewModel) });
+        _pageManager.Navigate<CheckBoxViewModel>();
     }
 
     [ObservableProperty]
     private string _usageCode = string.Empty;
-
-    public string Route => "card";
 }

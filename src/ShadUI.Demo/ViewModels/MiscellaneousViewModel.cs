@@ -3,18 +3,18 @@ using System.IO;
 using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using CommunityToolkit.Mvvm.Messaging;
 using ShadUI.Demo.ViewModels.Examples.ListBox;
 
 namespace ShadUI.Demo.ViewModels;
 
+[Page("miscellaneous")]
 public sealed partial class MiscellaneousViewModel : ViewModelBase, INavigable
 {
-    private readonly IMessenger _messenger;
+    private readonly PageManager _pageManager;
 
-    public MiscellaneousViewModel(IMessenger messenger, ListBoxViewModel listBox)
+    public MiscellaneousViewModel(PageManager pageManager, ListBoxViewModel listBox)
     {
-        _messenger = messenger;
+        _pageManager = pageManager;
         ListBox = listBox;
 
         var path = Path.Combine(AppContext.BaseDirectory, "views", "MiscellaneousPage.axaml");
@@ -25,7 +25,7 @@ public sealed partial class MiscellaneousViewModel : ViewModelBase, INavigable
     [RelayCommand]
     private void BackPage()
     {
-        _messenger.Send(new PageChangedMessage { PageType = typeof(ToolTipViewModel) });
+        _pageManager.Navigate<ToolTipViewModel>();
     }
 
     [ObservableProperty]
@@ -47,6 +47,4 @@ public sealed partial class MiscellaneousViewModel : ViewModelBase, INavigable
 
     [ObservableProperty]
     private string _skeletonCode = string.Empty;
-
-    public string Route => "miscellaneous";
 }

@@ -2,17 +2,17 @@
 using System.IO;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using CommunityToolkit.Mvvm.Messaging;
 
 namespace ShadUI.Demo.ViewModels;
 
+[Page("sidebar")]
 public sealed partial class SidebarViewModel : ViewModelBase, INavigable
 {
-    private readonly IMessenger _messenger;
+    private readonly PageManager _pageManager;
 
-    public SidebarViewModel(IMessenger messenger)
+    public SidebarViewModel(PageManager pageManager)
     {
-        _messenger = messenger;
+        _pageManager = pageManager;
         var path = Path.Combine(AppContext.BaseDirectory, "views", "SidebarPage.axaml");
         DefaultCode = path.ExtractByLineRange(60, 474).CleanIndentation();
     }
@@ -20,17 +20,15 @@ public sealed partial class SidebarViewModel : ViewModelBase, INavigable
     [RelayCommand]
     private void BackPage()
     {
-        _messenger.Send(new PageChangedMessage { PageType = typeof(NumericViewModel) });
+        _pageManager.Navigate<NumericViewModel>();
     }
 
     [RelayCommand]
     private void NextPage()
     {
-        _messenger.Send(new PageChangedMessage { PageType = typeof(SliderViewModel) });
+        _pageManager.Navigate<SliderViewModel>();
     }
 
     [ObservableProperty]
     private string _defaultCode = string.Empty;
-
-    public string Route => "sidebar";
 }

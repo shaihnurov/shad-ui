@@ -14,7 +14,7 @@ public sealed partial class FormInputViewModel : ViewModelBase
     public FormInputViewModel(ToastManager toastManager)
     {
         _toastManager = toastManager;
-        
+
         var xamlPath = Path.Combine(AppContext.BaseDirectory, "views", "Examples", "Input",
             "FormInputContent.axaml");
         XamlCode = xamlPath.ExtractByLineRange(1, 47).CleanIndentation();
@@ -23,13 +23,13 @@ public sealed partial class FormInputViewModel : ViewModelBase
             "FormInputViewModel.cs");
         CSharpCode = csharpPath.ExtractWithSkipRanges((17, 24), (26, 31)).CleanIndentation();
     }
-    
+
     [ObservableProperty]
     private string _xamlCode = string.Empty;
 
     [ObservableProperty]
     private string _cSharpCode = string.Empty;
-    
+
     private string _email = string.Empty;
 
     [Required(ErrorMessage = "Email is required")]

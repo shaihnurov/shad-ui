@@ -4,17 +4,17 @@ using System.IO;
 using System.Linq;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using CommunityToolkit.Mvvm.Messaging;
 
 namespace ShadUI.Demo.ViewModels;
 
+[Page("checkbox")]
 public partial class CheckBoxViewModel : ViewModelBase, INavigable
 {
-    private readonly IMessenger _messenger;
+    private readonly PageManager _pageManager;
 
-    public CheckBoxViewModel(IMessenger messenger)
+    public CheckBoxViewModel(PageManager pageManager)
     {
-        _messenger = messenger;
+        _pageManager = pageManager;
         var path = Path.Combine(AppContext.BaseDirectory, "views", "CheckBoxPage.axaml");
         DefaultCode = path.ExtractByLineRange(58, 60).CleanIndentation();
         DisabledCode = path.ExtractByLineRange(63, 65).CleanIndentation();
@@ -28,13 +28,13 @@ public partial class CheckBoxViewModel : ViewModelBase, INavigable
     [RelayCommand]
     private void BackPage()
     {
-        _messenger.Send(new PageChangedMessage { PageType = typeof(CardViewModel) });
+        _pageManager.Navigate<CardViewModel>();
     }
 
     [RelayCommand]
     private void NextPage()
     {
-        _messenger.Send(new PageChangedMessage { PageType = typeof(ColorViewModel) });
+        _pageManager.Navigate<ColorViewModel>();
     }
 
     [ObservableProperty]
@@ -78,8 +78,6 @@ public partial class CheckBoxViewModel : ViewModelBase, INavigable
         new() { IsChecked = false, Text = "Downloads" },
         new() { IsChecked = false, Text = "Documents" }
     ];
-
-    public string Route => "checkbox";
 }
 
 public partial class CheckBoxItem : ObservableObject

@@ -61,6 +61,7 @@ namespace ShadUI.Demo;
 [Singleton<IMessenger, WeakReferenceMessenger>]
 [Singleton(typeof(ThemeWatcher), Factory = nameof(ThemeWatcherFactory))]
 [Singleton(typeof(ILogger), Factory = nameof(LoggerFactory))]
+[Singleton(typeof(PageManager), Factory = nameof(PageManagerFactory))]
 public partial class ServiceProvider
 {
     public ILogger LoggerFactory()
@@ -85,5 +86,10 @@ public partial class ServiceProvider
     public ThemeWatcher ThemeWatcherFactory()
     {
         return new ThemeWatcher(Application.Current!);
+    }
+
+    public PageManager PageManagerFactory()
+    {
+        return new PageManager(this);
     }
 }

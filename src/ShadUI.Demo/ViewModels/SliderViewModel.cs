@@ -2,17 +2,17 @@
 using System.IO;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using CommunityToolkit.Mvvm.Messaging;
 
 namespace ShadUI.Demo.ViewModels;
 
+[Page("slider")]
 public sealed partial class SliderViewModel : ViewModelBase, INavigable
 {
-    private readonly IMessenger _messenger;
+    private readonly PageManager _pageManager;
 
-    public SliderViewModel(IMessenger messenger)
+    public SliderViewModel(PageManager pageManager)
     {
-        _messenger = messenger;
+        _pageManager = pageManager;
         var path = Path.Combine(AppContext.BaseDirectory, "views", "SliderPage.axaml");
         DefaultSliderCode = path.ExtractByLineRange(58, 62).CleanIndentation();
         DisabledSliderCode = path.ExtractByLineRange(65, 70).CleanIndentation();
@@ -22,13 +22,13 @@ public sealed partial class SliderViewModel : ViewModelBase, INavigable
     [RelayCommand]
     private void BackPage()
     {
-        _messenger.Send(new PageChangedMessage { PageType = typeof(SidebarViewModel) });
+        _pageManager.Navigate<SidebarViewModel>();
     }
 
     [RelayCommand]
     private void NextPage()
     {
-        _messenger.Send(new PageChangedMessage { PageType = typeof(SwitchViewModel) });
+        _pageManager.Navigate<SwitchViewModel>();
     }
 
     [ObservableProperty]
@@ -39,6 +39,4 @@ public sealed partial class SliderViewModel : ViewModelBase, INavigable
 
     [ObservableProperty]
     private string _tickEnabledSliderCode = string.Empty;
-
-    public string Route => "slider";
 }

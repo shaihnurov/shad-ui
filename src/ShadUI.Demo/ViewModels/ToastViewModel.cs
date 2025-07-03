@@ -2,18 +2,18 @@
 using System.IO;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using CommunityToolkit.Mvvm.Messaging;
 
 namespace ShadUI.Demo.ViewModels;
 
+[Page("toast")]
 public sealed partial class ToastViewModel : ViewModelBase, INavigable
 {
-    private readonly IMessenger _messenger;
+    private readonly PageManager _pageManager;
     private readonly ToastManager _toastManager;
 
-    public ToastViewModel(IMessenger messenger, ToastManager toastManager)
+    public ToastViewModel(PageManager pageManager, ToastManager toastManager)
     {
-        _messenger = messenger;
+        _pageManager = pageManager;
         _toastManager = toastManager;
         var path = Path.Combine(AppContext.BaseDirectory, "viewModels", "ToastViewModel.cs");
         SimpleToastCode = WrapCode(path.ExtractByLineRange(54, 58).CleanIndentation());
@@ -29,13 +29,13 @@ public sealed partial class ToastViewModel : ViewModelBase, INavigable
     [RelayCommand]
     private void BackPage()
     {
-        _messenger.Send(new PageChangedMessage { PageType = typeof(TimeViewModel) });
+        _pageManager.Navigate<TimeViewModel>();
     }
 
     [RelayCommand]
     private void NextPage()
     {
-        _messenger.Send(new PageChangedMessage { PageType = typeof(ToggleViewModel) });
+        _pageManager.Navigate<ToggleViewModel>();
     }
 
     private string WrapCode(string code)
@@ -142,6 +142,4 @@ public sealed partial class ToastViewModel : ViewModelBase, INavigable
 
     [ObservableProperty]
     private string _errorToastCode = string.Empty;
-
-    public string Route => "toast";
 }

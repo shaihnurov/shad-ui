@@ -6,13 +6,14 @@ using CommunityToolkit.Mvvm.Messaging;
 
 namespace ShadUI.Demo.ViewModels;
 
+[Page("tooltip")]
 public sealed partial class ToolTipViewModel : ViewModelBase, INavigable
 {
-    private readonly IMessenger _messenger;
+    private readonly PageManager _pageManager;
 
-    public ToolTipViewModel(IMessenger messenger)
+    public ToolTipViewModel(IMessenger messenger, PageManager pageManager)
     {
-        _messenger = messenger;
+        _pageManager = pageManager;
         var path = Path.Combine(AppContext.BaseDirectory, "views", "ToolTipPage.axaml");
         UsageCode = path.ExtractByLineRange(58, 65).CleanIndentation();
     }
@@ -20,17 +21,15 @@ public sealed partial class ToolTipViewModel : ViewModelBase, INavigable
     [RelayCommand]
     private void BackPage()
     {
-        _messenger.Send(new PageChangedMessage { PageType = typeof(ToggleViewModel) });
+        _pageManager.Navigate<ToggleViewModel>();
     }
 
     [RelayCommand]
     private void NextPage()
     {
-        _messenger.Send(new PageChangedMessage { PageType = typeof(MiscellaneousViewModel) });
+        _pageManager.Navigate<MiscellaneousViewModel>();
     }
-    
+
     [ObservableProperty]
     private string _usageCode = string.Empty;
-
-    public string Route => "tooltip";
 }

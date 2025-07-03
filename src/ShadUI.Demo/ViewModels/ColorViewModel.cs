@@ -2,17 +2,17 @@
 using System.IO;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using CommunityToolkit.Mvvm.Messaging;
 
 namespace ShadUI.Demo.ViewModels;
 
+[Page("color")]
 public sealed partial class ColorViewModel : ViewModelBase, INavigable
 {
-    private readonly IMessenger _messenger;
+    private readonly PageManager _pageManager;
 
-    public ColorViewModel(IMessenger messenger)
+    public ColorViewModel(PageManager pageManager)
     {
-        _messenger = messenger;
+        _pageManager = pageManager;
         var path = Path.Combine(AppContext.BaseDirectory, "views", "ColorPage.axaml");
         ColorViewCode = path.ExtractByLineRange(59, 64).CleanIndentation();
         ColorPickerCode = path.ExtractByLineRange(67, 72).CleanIndentation();
@@ -22,13 +22,13 @@ public sealed partial class ColorViewModel : ViewModelBase, INavigable
     [RelayCommand]
     private void BackPage()
     {
-        _messenger.Send(new PageChangedMessage { PageType = typeof(CheckBoxViewModel) });
+        _pageManager.Navigate<CheckBoxViewModel>();
     }
 
     [RelayCommand]
     private void NextPage()
     {
-        _messenger.Send(new PageChangedMessage { PageType = typeof(ComboBoxViewModel) });
+        _pageManager.Navigate<ComboBoxViewModel>();
     }
 
     [ObservableProperty]
@@ -42,6 +42,4 @@ public sealed partial class ColorViewModel : ViewModelBase, INavigable
 
     [ObservableProperty]
     private string _colorPickerDisabledCode = string.Empty;
-
-    public string Route => "color";
 }

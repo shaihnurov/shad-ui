@@ -1,10 +1,9 @@
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using CommunityToolkit.Mvvm.Messaging;
 using ShadUI.Demo.ViewModels;
 
 namespace ShadUI.Demo;
@@ -39,7 +38,7 @@ public sealed partial class MainWindowViewModel : ViewModelBase
     private readonly MiscellaneousViewModel _miscellaneousViewModel;
 
     public MainWindowViewModel(
-        IMessenger messenger,
+        PageManager pageManager,
         DialogManager dialogManager,
         ToastManager toastManager,
         ThemeWatcher themeWatcher,
@@ -98,45 +97,11 @@ public sealed partial class MainWindowViewModel : ViewModelBase
         _toolTipViewModel = toolTipViewModel;
         _miscellaneousViewModel = miscellaneousViewModel;
 
-        messenger.Register<PageChangedMessage>(this, OnPageChanged);
-    }
-
-    private Dictionary<Type, INavigable> Pages => new()
-    {
-        { typeof(DashboardViewModel), _dashboardViewModel },
-        { typeof(ThemeViewModel), _themeViewModel },
-        { typeof(TypographyViewModel), _typographyViewModel },
-        { typeof(AvatarViewModel), _avatarViewModel },
-        { typeof(ButtonViewModel), _buttonViewModel },
-        { typeof(CardViewModel), _cardViewModel },
-        { typeof(DataTableViewModel), _dataTableViewModel },
-        { typeof(DateViewModel), _dateViewModel },
-        { typeof(CheckBoxViewModel), _checkBoxViewModel },
-        { typeof(DialogViewModel), _dialogViewModel },
-        { typeof(InputViewModel), _inputViewModel },
-        { typeof(NumericViewModel), _numericViewModel },
-        { typeof(MenuViewModel), _menuViewModel },
-        { typeof(TabControlViewModel), _tabControlViewModel },
-        { typeof(ColorViewModel), _colorViewModel },
-        { typeof(ComboBoxViewModel), _comboBoxViewModel },
-        { typeof(SidebarViewModel), _sidebarViewModel },
-        { typeof(SliderViewModel), _sliderViewModel },
-        { typeof(SwitchViewModel), _switchViewModel },
-        { typeof(TimeViewModel), _timeViewModel },
-        { typeof(ToastViewModel), _toastViewModel },
-        { typeof(ToggleViewModel), _toggleViewModel },
-        { typeof(ToolTipViewModel), _toolTipViewModel },
-        { typeof(MiscellaneousViewModel), _miscellaneousViewModel }
-    };
-
-    private void OnPageChanged(object recipient, PageChangedMessage message)
-    {
-        var page = Pages[message.PageType];
-        SwitchPage(page);
+        pageManager.OnNavigate = SwitchPage;
     }
 
     [ObservableProperty]
-    private string _currentRoute = "Dashboard";
+    private string _currentRoute = "dashboard";
 
     [ObservableProperty]
     private DialogManager _dialogManager;
@@ -147,11 +112,15 @@ public sealed partial class MainWindowViewModel : ViewModelBase
     [ObservableProperty]
     private object? _selectedPage;
 
-    private void SwitchPage(INavigable page)
+    private void SwitchPage(INavigable page, string route = "")
     {
+        var pageType = page.GetType();
+        if (string.IsNullOrEmpty(route)) route = pageType.GetCustomAttribute<PageAttribute>()?.Route ?? "dashboard";
+        CurrentRoute = route;
+
         if (SelectedPage == page) return;
         SelectedPage = page;
-        CurrentRoute = page.Route;
+        CurrentRoute = route;
         page.Initialize();
     }
 
@@ -318,7 +287,7 @@ public sealed partial class MainWindowViewModel : ViewModelBase
 
     public void Initialize()
     {
-       SwitchPage(_dashboardViewModel);
+        SwitchPage(_dashboardViewModel);
     }
 
     [RelayCommand]

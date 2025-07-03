@@ -2,18 +2,18 @@
 using System.IO;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using CommunityToolkit.Mvvm.Messaging;
 using ShadUI.Demo.ViewModels.Examples.Numeric;
 
 namespace ShadUI.Demo.ViewModels;
 
+[Page("numeric")]
 public sealed partial class NumericViewModel : ViewModelBase, INavigable
 {
-    private readonly IMessenger _messenger;
+    private readonly PageManager _pageManager;
 
-    public NumericViewModel(IMessenger messenger, FormNumericViewModel form)
+    public NumericViewModel(PageManager pageManager, FormNumericViewModel form)
     {
-        _messenger = messenger;
+        _pageManager = pageManager;
         Form = form;
 
         var path = Path.Combine(AppContext.BaseDirectory, "views", "NumericPage.axaml");
@@ -27,13 +27,13 @@ public sealed partial class NumericViewModel : ViewModelBase, INavigable
     [RelayCommand]
     private void BackPage()
     {
-        _messenger.Send(new PageChangedMessage { PageType = typeof(MenuViewModel) });
+        _pageManager.Navigate<MenuViewModel>();
     }
 
     [RelayCommand]
     private void NextPage()
     {
-        _messenger.Send(new PageChangedMessage { PageType = typeof(SidebarViewModel) });
+        _pageManager.Navigate<SidebarViewModel>();
     }
 
     [ObservableProperty]
@@ -58,6 +58,4 @@ public sealed partial class NumericViewModel : ViewModelBase, INavigable
     {
         Form.Initialize();
     }
-
-    public string Route => "numeric";
 }

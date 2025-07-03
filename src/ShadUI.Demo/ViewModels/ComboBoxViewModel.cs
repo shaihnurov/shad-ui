@@ -2,18 +2,18 @@
 using System.IO;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using CommunityToolkit.Mvvm.Messaging;
 using ShadUI.Demo.ViewModels.Examples.ComboBox;
 
 namespace ShadUI.Demo.ViewModels;
 
+[Page("combobox")]
 public sealed partial class ComboBoxViewModel : ViewModelBase, INavigable
 {
-    private readonly IMessenger _messenger;
+    private readonly PageManager _pageManager;
 
-    public ComboBoxViewModel(IMessenger messenger, FormComboBoxViewModel form)
+    public ComboBoxViewModel(PageManager pageManager, FormComboBoxViewModel form)
     {
-        _messenger = messenger;
+        _pageManager = pageManager;
         Form = form;
 
         var xamlPath = Path.Combine(AppContext.BaseDirectory, "views", "ComboBoxPage.axaml");
@@ -24,13 +24,13 @@ public sealed partial class ComboBoxViewModel : ViewModelBase, INavigable
     [RelayCommand]
     private void BackPage()
     {
-        _messenger.Send(new PageChangedMessage { PageType = typeof(ColorViewModel) });
+        _pageManager.Navigate<ColorViewModel>();
     }
 
     [RelayCommand]
     private void NextPage()
     {
-        _messenger.Send(new PageChangedMessage { PageType = typeof(DataTableViewModel) });
+        _pageManager.Navigate<DataTableViewModel>();
     }
 
     [ObservableProperty]
@@ -41,6 +41,4 @@ public sealed partial class ComboBoxViewModel : ViewModelBase, INavigable
 
     [ObservableProperty]
     private FormComboBoxViewModel _form;
-
-    public string Route => "combobox";
 }

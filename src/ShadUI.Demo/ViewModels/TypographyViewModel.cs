@@ -1,25 +1,25 @@
 using System.ComponentModel;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using CommunityToolkit.Mvvm.Messaging;
 using ShadUI.Demo.ViewModels.Examples.Typography;
 
 namespace ShadUI.Demo.ViewModels;
 
+[Page("typography")]
 public sealed partial class TypographyViewModel : ViewModelBase, INavigable
 {
-    private readonly IMessenger _messenger;
+    private readonly PageManager _pageManager;
     private readonly TextBlockViewModel _textBlock;
     private readonly SelectableTextBlockViewModel _selectableTextBlock;
     private readonly LabelViewModel _label;
 
     public TypographyViewModel(
-        IMessenger messenger,
+        PageManager pageManager,
         TextBlockViewModel textBlock,
         SelectableTextBlockViewModel selectableTextBlock,
         LabelViewModel label)
     {
-        _messenger = messenger;
+        _pageManager = pageManager;
         _textBlock = textBlock;
         _selectableTextBlock = selectableTextBlock;
         _label = label;
@@ -61,17 +61,15 @@ public sealed partial class TypographyViewModel : ViewModelBase, INavigable
     [RelayCommand]
     private void BackPage()
     {
-        _messenger.Send(new PageChangedMessage { PageType = typeof(ThemeViewModel) });
+        _pageManager.Navigate<ThemeViewModel>();
     }
 
     [RelayCommand]
     private void NextPage()
     {
-        _messenger.Send(new PageChangedMessage { PageType = typeof(AvatarViewModel) });
+        _pageManager.Navigate<AvatarViewModel>();
     }
 
     [ObservableProperty]
     private object _content = null!;
-
-    public string Route => "typography";
 }

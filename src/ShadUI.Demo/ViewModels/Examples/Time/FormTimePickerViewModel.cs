@@ -7,7 +7,7 @@ using ShadUI.Demo.Validators;
 
 namespace ShadUI.Demo.ViewModels.Examples.Time;
 
-public sealed partial class FormTimePickerViewModel: ViewModelBase
+public sealed partial class FormTimePickerViewModel : ViewModelBase
 {
     private readonly ToastManager _toastManager;
 
@@ -21,7 +21,7 @@ public sealed partial class FormTimePickerViewModel: ViewModelBase
 
         var csharpPath = Path.Combine(AppContext.BaseDirectory, "viewModels", "Examples", "Time",
             "FormTimePickerViewModel.cs");
-        CSharpCode = csharpPath.ExtractWithSkipRanges((17, 24),(26,31)).CleanIndentation();
+        CSharpCode = csharpPath.ExtractWithSkipRanges((17, 24), (26, 31)).CleanIndentation();
     }
 
     [ObservableProperty]
@@ -29,7 +29,7 @@ public sealed partial class FormTimePickerViewModel: ViewModelBase
 
     [ObservableProperty]
     private string _cSharpCode = string.Empty;
-    
+
     private TimeOnly? _startTime;
 
     [Required(ErrorMessage = "Start time is required.")]
@@ -68,7 +68,8 @@ public sealed partial class FormTimePickerViewModel: ViewModelBase
         if (HasErrors) return;
 
         _toastManager.CreateToast("Submission Successful")
-            .WithContent($"Your schedule has been created successfully! The start time is {StartTime:hh:mm tt} and the end time is {EndTime:hh:mm tt}.")
+            .WithContent(
+                $"Your schedule has been created successfully! The start time is {StartTime:hh:mm tt} and the end time is {EndTime:hh:mm tt}.")
             .DismissOnClick()
             .ShowSuccess();
     }

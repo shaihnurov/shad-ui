@@ -2,21 +2,21 @@
 using System.IO;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using CommunityToolkit.Mvvm.Messaging;
 using ShadUI.Demo.ViewModels.Examples.Date;
 
 namespace ShadUI.Demo.ViewModels;
 
+[Page("date")]
 public sealed partial class DateViewModel : ViewModelBase, INavigable
 {
-    private readonly IMessenger _messenger;
+    private readonly PageManager _pageManager;
 
     public DateViewModel(
-        IMessenger messenger,
+        PageManager pageManager,
         FormDatePickerViewModel datePickerForm,
         FormDateInputViewModel formDateInput)
     {
-        _messenger = messenger;
+        _pageManager = pageManager;
         DatePickerForm = datePickerForm;
         DateInputForm = formDateInput;
 
@@ -31,13 +31,13 @@ public sealed partial class DateViewModel : ViewModelBase, INavigable
     [RelayCommand]
     private void BackPage()
     {
-        _messenger.Send(new PageChangedMessage { PageType = typeof(DataTableViewModel) });
+        _pageManager.Navigate<DataTableViewModel>();
     }
 
     [RelayCommand]
     private void NextPage()
     {
-        _messenger.Send(new PageChangedMessage { PageType = typeof(DialogViewModel) });
+        _pageManager.Navigate<DialogViewModel>();
     }
 
     [ObservableProperty]
@@ -60,6 +60,4 @@ public sealed partial class DateViewModel : ViewModelBase, INavigable
 
     [ObservableProperty]
     private string _disabledDateInputCode = string.Empty;
-
-    public string Route => "date";
 }
