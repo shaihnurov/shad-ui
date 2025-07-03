@@ -46,7 +46,7 @@
                     shadui:ControlAssist.Label="Description"
                     AcceptsReturn="True"
                     Watermark="Description" />
-                <TextBox>
+                <TextBox shadui:ControlAssist.Label="Error">
                     <DataValidationErrors.Error>
                         <system:Exception />
                     </DataValidationErrors.Error>
@@ -134,7 +134,7 @@
             <ControlTemplate>
                 <StackPanel Background="Transparent" Focusable="False">
                     <TextBlock
-                        Name="Label"
+                        Name="PART_Label"
                         Margin="0,0,0,6"
                         Classes="Small"
                         Cursor="Arrow"
@@ -278,7 +278,7 @@
             <Style Selector="^/template/ Border#Border">
                 <Setter Property="BorderBrush" Value="{DynamicResource ErrorColor}" />
             </Style>
-            <Style Selector="^/template/ TextBlock#Label">
+            <Style Selector="^/template/ TextBlock#PART_Label">
                 <Setter Property="Foreground" Value="{DynamicResource ErrorColor}" />
             </Style>
         </Style>
