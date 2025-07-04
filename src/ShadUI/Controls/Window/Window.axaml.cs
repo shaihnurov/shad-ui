@@ -1,4 +1,5 @@
 using System;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using Avalonia;
 using Avalonia.Controls;
@@ -311,7 +312,8 @@ public class Window : Avalonia.Controls.Window
             var saveState = change.GetNewValue<bool>();
             if (saveState)
             {
-                this.ManageWindowState();
+                var assembly = Assembly.GetEntryAssembly();
+                this.ManageWindowState(assembly?.GetName().Name ?? "main");
             }
             else
             {

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Threading;
 using System.Threading.Tasks;
 using Avalonia;
 using Avalonia.Controls;
@@ -18,7 +17,6 @@ public static class WindowExt
 {
     private static readonly Dictionary<Window, EventHandler<WindowClosingEventArgs>> Handlers = new();
     private static readonly Dictionary<string, WindowSettings?> Cache = new();
-    private static readonly Dictionary<string, CancellationTokenSource> SaveTokens = new();
     private static readonly object CacheLock = new();
 
     /// <summary>
@@ -38,7 +36,26 @@ public static class WindowExt
         var file = Path.Combine(Path.GetTempPath(), $"shadui_{key}.txt");
         RestoreWindowState(window, file);
 
-        EventHandler<WindowClosingEventArgs> handler = (_, _) => SaveWindowState(window, file);
+        EventHandler<WindowClosingEventArgs> handler = async void (_, _) =>
+        {
+            try
+            {
+                var current = new WindowSettings
+                {
+                    X = window.Position.X,
+                    Y = window.Position.Y,
+                    Width = window.Width,
+                    Height = window.Height,
+                    WindowState = window.WindowState
+                };
+
+                await SaveWindowSettingsAsync(current, file);
+            }
+            catch (Exception)
+            {
+                //ignore
+            }
+        };
         window.Closing += handler;
         Handlers[window] = handler;
     }
@@ -96,59 +113,6 @@ public static class WindowExt
             : state.WindowState;
     }
 
-    private static void SaveWindowState(Window window, string file)
-    {
-        var current = new WindowSettings
-        {
-            X = window.Position.X,
-            Y = window.Position.Y,
-            Width = window.Width,
-            Height = window.Height,
-            WindowState = window.WindowState
-        };
-
-        lock (CacheLock)
-        {
-            if (Cache.TryGetValue(file, out var previous) && current.Equals(previous))
-            {
-                return;
-            }
-
-            Cache[file] = current;
-        }
-
-        // prevents multiple unnecessary file writes
-        if (SaveTokens.TryGetValue(file, out var existingToken))
-        {
-            existingToken.Cancel();
-        }
-
-        var cts = new CancellationTokenSource();
-        SaveTokens[file] = cts;
-
-        _ = Task.Delay(100, cts.Token).ContinueWith(_ =>
-        {
-            if (!cts.Token.IsCancellationRequested)
-            {
-                try
-                {
-                    SaveWindowSettings(current, file);
-                }
-                catch
-                {
-                    //ignore
-                }
-                finally
-                {
-                    lock (CacheLock)
-                    {
-                        SaveTokens.Remove(file);
-                    }
-                }
-            }
-        }, cts.Token);
-    }
-
     private static WindowSettings? LoadWindowSettings(string file)
     {
         if (!File.Exists(file))
@@ -194,7 +158,7 @@ public static class WindowExt
         return settings;
     }
 
-    private static void SaveWindowSettings(WindowSettings settings, string file)
+    private static async Task SaveWindowSettingsAsync(WindowSettings settings, string file)
     {
         var lines = new string[5];
         lines[0] = $"X={settings.X}";
@@ -203,7 +167,7 @@ public static class WindowExt
         lines[3] = $"Height={settings.Height}";
         lines[4] = $"WindowState={settings.WindowState}";
 
-        File.WriteAllLines(file, lines);
+        await File.WriteAllLinesAsync(file, lines);
     }
 
     /// <summary>
