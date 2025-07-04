@@ -199,12 +199,13 @@ public class Sidebar : ContentControl
         base.OnApplyTemplate(e);
         DefaultItemsSharedSizeGroup = $"Shared{Guid.NewGuid():N}";
         DefaultItemsGroup = $"Group{Guid.NewGuid():N}";
+        _cacheWidth = Width;
     }
 
     /// <summary>
     ///     Stores the width of the sidebar before collapsing for animation purposes.
     /// </summary>
-    private double _width;
+    private double _cacheWidth;
 
     /// <summary>
     ///     Called when a property value changes.
@@ -228,13 +229,13 @@ public class Sidebar : ContentControl
     /// <param name="toExpand">A value indicating whether to expand or collapse the sidebar.</param>
     private void AnimateOnExpand(bool toExpand)
     {
-        if (!toExpand) _width = Width;
+        if (!toExpand) _cacheWidth = Width;
 
         if (toExpand)
         {
             this.Animate(WidthProperty)
                 .From(MinWidth)
-                .To(_width)
+                .To(_cacheWidth)
                 .WithEasing(ExpandEasing)
                 .WithDuration(TimeSpan.FromMilliseconds(ExpandAnimationDuration))
                 .Start();
@@ -252,7 +253,7 @@ public class Sidebar : ContentControl
         else
         {
             this.Animate(WidthProperty)
-                .From(_width)
+                .From(_cacheWidth)
                 .To(MinWidth)
                 .WithEasing(CollapseEasing)
                 .WithDuration(TimeSpan.FromMilliseconds(CollapseAnimationDuration))
