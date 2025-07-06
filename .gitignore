@@ -1,0 +1,27 @@
+# IDE
+.vs/
+*.user
+*.suo
+
+# Build output
+bin/
+obj/
+*.exe
+*.dll
+*.pdb
+
+# Avalonia/MAUI/VS tooling cache
+*.db
+*.cache
+*.log
+
+# Rider
+.idea/
+
+# Windows
+Thumbs.db
+desktop.ini
+
+# Misc
+*.wapproj.user
+*.assets.cache
