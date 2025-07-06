@@ -44,6 +44,9 @@
                 <Setter Property="Foreground" Value="#FFFFFF" />
             </Style>
         </Style>
+        <Style Selector="^:disabled">
+            <Setter Property="Opacity" Value="0.50" />
+        </Style>
     </ControlTheme>
 
     <ControlTheme x:Key="WindowTheme" TargetType="shadui:Window">
@@ -124,6 +127,12 @@
                                                                 Margin="0,0,0,1"
                                                                 IsVisible="{TemplateBinding CanMaximize}"
                                                                 Theme="{StaticResource WindowButtonStyle}">
+                                                                <Button.IsEnabled>
+                                                                    <MultiBinding Converter="{x:Static BoolConverters.And}">
+                                                                        <Binding Path="$parent[shadui:Window].CanResize" />
+                                                                        <Binding Path="$parent[shadui:Window].CanMaximize" />
+                                                                    </MultiBinding>
+                                                                </Button.IsEnabled>
                                                                 <PathIcon
                                                                     Name="MaximizeIcon"
                                                                     Data="{x:Static shadui:Icons.WindowMaximize}"

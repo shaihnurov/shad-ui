@@ -371,7 +371,7 @@ public class Window : Avalonia.Controls.Window
 
     private void OnMaximizeButtonClicked(object? sender, RoutedEventArgs args)
     {
-        if (!CanMaximize || WindowState == WindowState.FullScreen) return;
+        if (!CanMaximize || !CanResize || WindowState == WindowState.FullScreen) return;
         WindowState = WindowState == WindowState.Maximized
             ? WindowState.Normal
             : WindowState.Maximized;
@@ -393,7 +393,6 @@ public class Window : Avalonia.Controls.Window
             {
                 case 533:
                     if (!pointerOnMaxButton) break;
-                    if (!CanMaximize) break;
                     WindowState = WindowState == WindowState.Maximized
                         ? WindowState.Normal
                         : WindowState.Maximized;
@@ -420,7 +419,6 @@ public class Window : Avalonia.Controls.Window
                         handled = true;
                         return (IntPtr)9;
                     }
-
                     pointerOnMaxButton = false;
                     setter?.SetValue(maximize, false);
                     break;
@@ -441,7 +439,7 @@ public class Window : Avalonia.Controls.Window
 
     private void OnWindowStateChanged(WindowState state)
     {
-        _snapLayoutEnabled = WindowState != WindowState.FullScreen && CanMaximize;
+        _snapLayoutEnabled = WindowState != WindowState.FullScreen && CanMaximize && CanResize;
         switch (state)
         {
             case WindowState.FullScreen:
