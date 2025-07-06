@@ -212,8 +212,28 @@ public class DialogHost : TemplatedControl
 
         IsDialogOpen = false;
 
-        Manager?.RemoveLast();
-        Manager?.OpenLast();
+        if (Manager is null || Dialog is not Control dialogControl) return;
+
+        var context = dialogControl.DataContext;
+        if (context is not null)
+        {
+            // Completes the TaskCompletionSource associated with the dialog context,
+            // triggers success or cancellation callbacks,
+            // and removes the dialog from the open dialogs collection.
+            Manager.Close(context, new CloseDialogOptions
+            {
+                Success = false,
+                Result = default
+            });
+        }
+        else
+        {
+            // Fallback to legacy behavior:
+            // removes the last opened dialog and reopens the previous one,
+            // to avoid UI deadlocks or orphan dialogs when no context is available.
+            Manager.RemoveLast();
+            Manager.OpenLast();
+        }
 
         if (Owner is not null) Owner.HasOpenDialog = false;
     }

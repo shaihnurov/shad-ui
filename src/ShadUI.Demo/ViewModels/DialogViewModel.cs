@@ -1,7 +1,8 @@
-﻿using System;
-using System.IO;
-using CommunityToolkit.Mvvm.ComponentModel;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using System;
+using System.IO;
+using System.Threading.Tasks;
 
 namespace ShadUI.Demo.ViewModels;
 
@@ -28,6 +29,7 @@ public sealed partial class DialogViewModel : ViewModelBase, INavigable
         AlertDialogCode = WrapCode(path.ExtractByLineRange(62, 78).CleanIndentation());
         DestructiveAlertDialogCode = WrapCode(path.ExtractByLineRange(83, 100).CleanIndentation());
         CustomDialogCode = WrapCode(path.ExtractByLineRange(105, 122).CleanIndentation());
+        CustomDialogCodeWithResult = WrapCode(path.ExtractByLineRange(126, 154).CleanIndentation());
     }
 
     [RelayCommand]
@@ -119,5 +121,35 @@ public sealed partial class DialogViewModel : ViewModelBase, INavigable
                     .DismissOnClick()
                     .ShowWarning())
             .Show();
+    }
+
+    [ObservableProperty]
+    private string _customDialogCodeWithResult = string.Empty;
+
+    [RelayCommand]
+    private async Task ShowCustomDialogWithResult()
+    {
+        _loginViewModel.Initialize();
+
+        var result = await _dialogManager.CreateDialog(_loginViewModel)
+            .Dismissible()
+            .WithSuccessCallback(() =>
+                _toastManager.CreateToast("Sign in successful")
+                    .WithContent("Welcome back!")
+                    .DismissOnClick()
+                    .ShowSuccess())
+            .WithCancelCallback(() =>
+                _toastManager.CreateToast("Sign in cancelled")
+                    .WithContent("Please sign in to continue.")
+                    .DismissOnClick()
+                    .ShowWarning())
+            .ShowDialogAsync<string>();
+
+
+        if (result != null)
+            _toastManager.CreateToast($"Respose")
+            .WithContent($"{result}")
+            .DismissOnClick()
+            .ShowSuccess();
     }
 }
