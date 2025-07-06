@@ -46,7 +46,14 @@ public sealed partial class LoginViewModel(DialogManager dialogManager) : ViewMo
         ValidateAllProperties();
 
         if (HasErrors) return;
-        dialogManager.Close(this, new CloseDialogOptions { Success = true });
+
+        var options = new CloseDialogOptions
+        {
+            Success = true,
+            Result = $"Hello - {Email}"
+        };
+
+        dialogManager.Close(this, options);
     }
 
     [RelayCommand]

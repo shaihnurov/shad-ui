@@ -1,6 +1,7 @@
-using System;
-using System.Threading.Tasks;
 using Avalonia.Controls;
+using System;
+using System.Threading;
+using System.Threading.Tasks;
 
 // ReSharper disable once CheckNamespace
 namespace ShadUI;
@@ -12,6 +13,14 @@ namespace ShadUI;
 public sealed class DialogBuilder<TContext>
 {
     private readonly DialogManager _manager;
+
+    /// <summary>
+    ///     Gets the dialog context (DataContext of the dialog control).
+    /// </summary>
+    /// <exception cref="InvalidOperationException">
+    ///     Thrown if the dialog control has not been created or set.
+    /// </exception>
+    private TContext Context => (TContext)((_control?.DataContext) ?? throw new InvalidOperationException("Dialog control is not set."));
 
     internal DialogBuilder(DialogManager manager)
     {
@@ -66,5 +75,36 @@ public sealed class DialogBuilder<TContext>
         }
 
         _manager.Show(_control, Options);
+    }
+
+    /// <summary>
+    ///     Shows the dialog and returns the result asynchronously.
+    /// </summary>
+    /// <typeparam name="TResult">The type of the result returned from the dialog.</typeparam>
+    /// <returns>
+    ///     A <see cref="Task{TResult}"/> representing the asynchronous operation,
+    ///     containing the result of type <typeparamref name="TResult"/> or <c>null</c>.
+    /// </returns>
+    public Task<TResult?> ShowDialogAsync<TResult>()
+    {
+        var context = Context;
+        Show(); // automatic call Show
+        return _manager.ShowDialogAsync<TResult, TContext>(context);
+    }
+
+    /// <summary>
+    ///     Shows the dialog with support for cancellation and returns the result asynchronously.
+    /// </summary>
+    /// <typeparam name="TResult">The type of the result returned from the dialog.</typeparam>
+    /// <param name="cancellationToken">A token to observe while waiting for the task to complete.</param>
+    /// <returns>
+    ///     A <see cref="Task{TResult}"/> representing the asynchronous operation,
+    ///     containing the result of type <typeparamref name="TResult"/> or <c>null</c>.
+    /// </returns>
+    public Task<TResult?> ShowDialogAsync<TResult>(CancellationToken cancellationToken)
+    {
+        var context = Context;
+        Show(); // automatic call Show
+        return _manager.ShowDialogAsync<TResult, TContext>(context, cancellationToken);
     }
 }

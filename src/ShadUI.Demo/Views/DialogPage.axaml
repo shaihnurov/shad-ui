@@ -158,6 +158,15 @@
                             Content="Show Dialog" />
                     </StackPanel>
                 </controls:ControlBlock>
+                <controls:ControlBlock Title="Custom Dialog With Result" CSharp="{Binding CustomDialogCodeWithResult}">
+                  <StackPanel>
+                    <Button
+                        HorizontalAlignment="Center"
+                        Classes="Outline"
+                        Command="{Binding ShowCustomDialogWithResultCommand}"
+                        Content="Show Dialog" />
+                  </StackPanel>
+                </controls:ControlBlock>
             </StackPanel>
         </ScrollViewer>
     </DockPanel>
