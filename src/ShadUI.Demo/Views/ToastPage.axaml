@@ -5,6 +5,7 @@
     xmlns:controls="clr-namespace:ShadUI.Demo.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:shadui="clr-namespace:ShadUI;assembly=ShadUI"
     xmlns:viewModels="clr-namespace:ShadUI.Demo.ViewModels"
     d:DesignHeight="450"
     d:DesignWidth="800"
@@ -61,7 +62,7 @@
                         Classes="Small"
                         Text="Place ToastHost to any part of the application, preferably in main content of the MainWindow and should be on top of other elements."
                         TextWrapping="Wrap" />
-                    <controls:CodeTextBlock Language="xaml">
+                    <controls:CodeTextBlock>
                         <Run Text="    &lt;!-- rest of the codes --&gt;" />
                         <LineBreak />
                         <Run Text="    &lt;toasts:ToastHost Manager=&quot;{Binding ToastManager}&quot; /&gt;" />
@@ -71,7 +72,7 @@
                         Classes="Small"
                         Text="Resolve ToastManager using dependency injection framework for easy access. Make sure to have only one instance of ToastManager."
                         TextWrapping="Wrap" />
-                    <controls:CodeTextBlock>
+                    <controls:CodeTextBlock Language="cs">
                         <Run Text="public static void AddServices(this IServiceCollection collection)" />
                         <LineBreak />
                         <Run Text="\{" />
@@ -181,19 +182,27 @@
                             Content="Show Toast" />
                     </StackPanel>
                 </controls:ControlBlock>
-                <controls:ControlBlock Title="With Selected NotificationType Toast" CSharp="{Binding CustomTypeToastCode}">
-                  <StackPanel
-                      HorizontalAlignment="Center"
-                      Orientation="Horizontal"
-                      Spacing="8">
-                    <ComboBox Width="255" ItemsSource="{Binding NotificationsCollection, Mode=OneWay}"
-                              SelectedItem="{Binding SelectedNotification, Mode=TwoWay}"/>
-                    <Button
-                        HorizontalAlignment="Center"
-                        Classes="Outline"
-                        Command="{Binding ShowToastWithTypeCommand}"
-                        Content="Show Toast" />
-                  </StackPanel>
+                <controls:ControlBlock Title="Dynamic Toast" CSharp="{Binding DynamicToastCode}">
+                    <shadui:Card HorizontalAlignment="Center">
+                        <shadui:Card.Header>
+                            <StackPanel>
+                                <shadui:CardTitle>Notification</shadui:CardTitle>
+                                <shadui:CardDescription>Send a notification to the client</shadui:CardDescription>
+                            </StackPanel>
+                        </shadui:Card.Header>
+                        <ComboBox
+                            Width="225"
+                            shadui:ControlAssist.Label="Selected Notification"
+                            ItemsSource="{Binding NotificationsCollection, Mode=OneWay}"
+                            SelectedItem="{Binding SelectedNotification, Mode=TwoWay}" />
+                        <shadui:Card.Footer>
+                            <Button
+                                HorizontalAlignment="Right"
+                                Classes="Primary"
+                                Command="{Binding ShowToastWithTypeCommand}"
+                                Content="Submit" />
+                        </shadui:Card.Footer>
+                    </shadui:Card>
                 </controls:ControlBlock>
             </StackPanel>
         </ScrollViewer>
