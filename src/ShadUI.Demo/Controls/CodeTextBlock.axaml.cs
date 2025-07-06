@@ -14,7 +14,7 @@ using TextMateSharp.Grammars;
 
 namespace ShadUI.Demo.Controls;
 
-public class CodeTextBlock : UserControl
+public class CodeTextBlock : TemplatedControl
 {
     private readonly DispatcherTimer _timer;
     private InlineCollection? _inlines = new();
