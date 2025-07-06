@@ -193,4 +193,15 @@ public static class ToastBuilderExtensions
         builder.Notification = Notification.Error;
         builder.Show();
     }
+
+    /// <summary>
+    ///     Shows a toast notification in the specified style.
+    /// </summary>
+    /// <param name="builder"></param>
+    /// <param name="type">Notification type sent</param>
+    public static void ShowType(this ToastBuilder builder, Notification type)
+    {
+        builder.Notification = type;
+        builder.Show();
+    }
 }

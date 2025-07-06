@@ -1,7 +1,8 @@
-﻿using System;
-using System.IO;
-using CommunityToolkit.Mvvm.ComponentModel;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using System;
+using System.Collections.ObjectModel;
+using System.IO;
 
 namespace ShadUI.Demo.ViewModels;
 
@@ -24,6 +25,7 @@ public sealed partial class ToastViewModel : ViewModelBase, INavigable
         SuccessToastCode = WrapCode(path.ExtractByLineRange(110, 117).CleanIndentation());
         WarningToastCode = WrapCode(path.ExtractByLineRange(122, 129).CleanIndentation());
         ErrorToastCode = WrapCode(path.ExtractByLineRange(134, 141).CleanIndentation());
+        CustomTypeToastCode = WrapCode(path.ExtractByLineRange(145, 173).CleanIndentation());
     }
 
     [RelayCommand]
@@ -142,4 +144,31 @@ public sealed partial class ToastViewModel : ViewModelBase, INavigable
 
     [ObservableProperty]
     private string _errorToastCode = string.Empty;
+
+    [ObservableProperty]
+    private ObservableCollection<Notification> _notificationsCollection =
+    [
+        Notification.Basic,
+            Notification.Info,
+            Notification.Success,
+            Notification.Warning,
+            Notification.Error
+    ];
+
+    [ObservableProperty]
+    private Notification _selectedNotification;
+
+    [ObservableProperty]
+    private string _customTypeToastCode = string.Empty;
+
+    [RelayCommand]
+    private void ShowToastWithType()
+    {
+        _toastManager.CreateToast("Your message has been sent.")
+            .WithContent($"{DateTime.Now:dddd, MMMM d 'at' h:mm tt}")
+            .WithAction("Retry", () => _toastManager.CreateToast("Retry clicked")
+            .ShowType(Notification.Success))
+            .DismissOnClick()
+            .ShowType(SelectedNotification);
+    }
 }

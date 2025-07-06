@@ -181,6 +181,20 @@
                             Content="Show Toast" />
                     </StackPanel>
                 </controls:ControlBlock>
+                <controls:ControlBlock Title="With Selected NotificationType Toast" CSharp="{Binding CustomTypeToastCode}">
+                  <StackPanel
+                      HorizontalAlignment="Center"
+                      Orientation="Horizontal"
+                      Spacing="8">
+                    <ComboBox Width="255" ItemsSource="{Binding NotificationsCollection, Mode=OneWay}"
+                              SelectedItem="{Binding SelectedNotification, Mode=TwoWay}"/>
+                    <Button
+                        HorizontalAlignment="Center"
+                        Classes="Outline"
+                        Command="{Binding ShowToastWithTypeCommand}"
+                        Content="Show Toast" />
+                  </StackPanel>
+                </controls:ControlBlock>
             </StackPanel>
         </ScrollViewer>
     </DockPanel>
