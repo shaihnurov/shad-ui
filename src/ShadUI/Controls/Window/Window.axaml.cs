@@ -472,7 +472,7 @@ public class Window : Avalonia.Controls.Window
     private void OnTitleBarPointerPressed(object? sender, PointerPressedEventArgs e)
     {
         base.OnPointerPressed(e);
-        if (WindowState != WindowState.FullScreen) BeginMoveDrag(e);
+        if (CanMove && WindowState != WindowState.FullScreen) BeginMoveDrag(e);
     }
 
     /// <summary>

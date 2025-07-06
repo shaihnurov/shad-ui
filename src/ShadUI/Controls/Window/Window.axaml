@@ -118,6 +118,7 @@
                                                             <Button
                                                                 Name="PART_MinimizeButton"
                                                                 Margin="0,0,0,1"
+                                                                IsEnabled="{TemplateBinding CanMinimize}"
                                                                 IsVisible="{TemplateBinding CanMinimize}"
                                                                 Theme="{StaticResource WindowButtonStyle}">
                                                                 <PathIcon Name="MinimizeIcon" Data="{x:Static shadui:Icons.WindowMinimize}" />
