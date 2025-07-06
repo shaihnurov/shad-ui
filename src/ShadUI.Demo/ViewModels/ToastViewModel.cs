@@ -167,8 +167,8 @@ public sealed partial class ToastViewModel : ViewModelBase, INavigable
         _toastManager.CreateToast("Your message has been sent.")
             .WithContent($"{DateTime.Now:dddd, MMMM d 'at' h:mm tt}")
             .WithAction("Retry", () => _toastManager.CreateToast("Retry clicked")
-            .ShowType(Notification.Success))
+            .Show(Notification.Success))
             .DismissOnClick()
-            .ShowType(SelectedNotification);
+            .Show(SelectedNotification);
     }
 }
