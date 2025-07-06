@@ -21,7 +21,9 @@ public sealed class DialogBuilder<TContext>
     internal Action? OnCancelCallback { get; set; }
     internal Func<Task>? OnCancelAsyncCallback { get; set; }
     internal Action? OnSuccessCallback { get; set; }
+    internal Action<object>? OnSuccessWithContextCallback { get; set; }
     internal Func<Task>? OnSuccessAsyncCallback { get; set; }
+    internal Func<object, Task>? OnSuccessWithContextAsyncCallback { get; set; }
     internal DialogOptions Options { get; } = new();
 
     private Control? _control;
@@ -50,9 +52,19 @@ public sealed class DialogBuilder<TContext>
             _manager.OnSuccessCallbacks.TryAdd(typeof(TContext), OnSuccessCallback);
         }
 
+        if (OnSuccessWithContextCallback != null)
+        {
+            _manager.OnSuccessWithContextCallbacks.TryAdd(typeof(TContext), OnSuccessWithContextCallback);
+        }
+
         if (OnSuccessAsyncCallback != null)
         {
             _manager.OnSuccessAsyncCallbacks.TryAdd(typeof(TContext), OnSuccessAsyncCallback);
+        }
+
+        if (OnSuccessWithContextAsyncCallback != null)
+        {
+            _manager.OnSuccessWithContextAsyncCallbacks.TryAdd(typeof(TContext), OnSuccessWithContextAsyncCallback);
         }
 
         if (OnCancelCallback != null)

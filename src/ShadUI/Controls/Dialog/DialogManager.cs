@@ -55,10 +55,10 @@ public sealed class DialogManager
         Dialogs.Remove(control);
 
         OnDialogClosed?.Invoke(this, new DialogClosedEventArgs
-            {
-                ReplaceExisting = Dialogs.Count > 0,
-                Control = control
-            }
+        {
+            ReplaceExisting = Dialogs.Count > 0,
+            Control = control
+        }
         );
     }
 
@@ -77,8 +77,9 @@ public sealed class DialogManager
         var lastDialog = Dialogs.Last();
         CloseDialog(lastDialog.Key);
 
-        var contextType = lastDialog.Key.DataContext?.GetType();
-        if (contextType is not null) InvokeCallBacks(contextType, false);
+        var context = lastDialog.Key.DataContext;
+        var contextType = context?.GetType();
+        if (contextType is not null) InvokeCallBacks(context, contextType, false);
     }
 
     internal readonly Dictionary<Type, Type> CustomDialogs = [];
@@ -98,18 +99,30 @@ public sealed class DialogManager
     internal readonly Dictionary<Type, Action> OnCancelCallbacks = [];
     internal readonly Dictionary<Type, Func<Task>> OnCancelAsyncCallbacks = [];
     internal readonly Dictionary<Type, Action> OnSuccessCallbacks = [];
+    internal readonly Dictionary<Type, Action<object>> OnSuccessWithContextCallbacks = [];
     internal readonly Dictionary<Type, Func<Task>> OnSuccessAsyncCallbacks = [];
+    internal readonly Dictionary<Type, Func<object, Task>> OnSuccessWithContextAsyncCallbacks = [];
 
-    private void InvokeCallBacks(Type type, bool success)
+    private void InvokeCallBacks(object? context, Type type, bool success)
     {
         if (OnSuccessCallbacks.Remove(type, out var successCallback) && success)
         {
             successCallback?.Invoke();
         }
 
+        if (OnSuccessWithContextCallbacks.Remove(type, out var successWithContextCallback) && success)
+        {
+            if(context is not null) successWithContextCallback?.Invoke(context);
+        }
+
         if (OnSuccessAsyncCallbacks.Remove(type, out var successAsyncCallback) && success)
         {
             successAsyncCallback?.Invoke();
+        }
+
+        if (OnSuccessWithContextAsyncCallbacks.Remove(type, out var successWithContextAsyncCallback) && success)
+        {
+            if(context is not null) successWithContextAsyncCallback?.Invoke(context);
         }
 
         if (OnCancelCallbacks.Remove(type, out var cancelCallback) && !success)
@@ -139,7 +152,7 @@ public sealed class DialogManager
         foreach (var dialog in dialogs) CloseDialog(dialog.Key);
 
         var success = options?.Success ?? false;
-        InvokeCallBacks(typeof(TContext), success);
+        InvokeCallBacks(context, typeof(TContext), success);
 
         if (!clearAll) OpenLast();
     }

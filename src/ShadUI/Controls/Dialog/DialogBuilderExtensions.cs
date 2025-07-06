@@ -248,6 +248,20 @@ public static class DialogBuilderExtensions
     }
 
     /// <summary>
+    ///     Sets the success callback for the dialog with context parameter.
+    /// </summary>
+    /// <typeparam name="TContext">The type of the dialog context</typeparam>
+    /// <param name="builder">The <see cref="DialogBuilder{TContext}" /></param>
+    /// <param name="callback">The method that is called on successful completion, receiving the dialog context as a parameter</param>
+    /// <returns>The modified <see cref="DialogBuilder{TContext}" /> instance</returns>
+    public static DialogBuilder<TContext> WithSuccessCallback<TContext>(this DialogBuilder<TContext> builder,
+        Action<TContext> callback)
+    {
+        builder.OnSuccessWithContextCallback = ctx => callback((TContext)ctx);
+        return builder;
+    }
+
+    /// <summary>
     ///     Sets the success callback for the dialog with an asynchronous callback.
     /// </summary>
     /// <typeparam name="TContext">The type of the dialog context</typeparam>
@@ -258,6 +272,23 @@ public static class DialogBuilderExtensions
         Func<Task> callback)
     {
         builder.OnSuccessAsyncCallback = callback;
+        return builder;
+    }
+
+    /// <summary>
+    ///     Sets the success callback for the dialog with an asynchronous callback that receives the dialog context.
+    /// </summary>
+    /// <typeparam name="TContext">The type of the dialog context</typeparam>
+    /// <param name="builder">The <see cref="DialogBuilder{TContext}" /></param>
+    /// <param name="callback">
+    ///     The asynchronous method that is called on successful completion, receiving the dialog context as
+    ///     a parameter
+    /// </param>
+    /// <returns>The modified <see cref="DialogBuilder{TContext}" /> instance</returns>
+    public static DialogBuilder<TContext> WithSuccessCallback<TContext>(this DialogBuilder<TContext> builder,
+        Func<TContext, Task> callback)
+    {
+        builder.OnSuccessWithContextAsyncCallback = ctx => callback((TContext)ctx);
         return builder;
     }
 

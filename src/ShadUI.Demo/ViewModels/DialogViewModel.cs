@@ -108,9 +108,9 @@ public sealed partial class DialogViewModel : ViewModelBase, INavigable
         _loginViewModel.Initialize();
         _dialogManager.CreateDialog(_loginViewModel)
             .Dismissible()
-            .WithSuccessCallback(() =>
+            .WithSuccessCallback(vm =>
                 _toastManager.CreateToast("Sign in successful")
-                    .WithContent("Welcome back!")
+                    .WithContent($"Hi {vm.Email}, welcome back!")
                     .DismissOnClick()
                     .ShowSuccess())
             .WithCancelCallback(() =>
