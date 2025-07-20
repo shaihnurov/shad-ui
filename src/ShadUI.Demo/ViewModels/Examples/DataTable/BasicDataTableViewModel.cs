@@ -34,7 +34,7 @@ public sealed partial class BasicDataTableViewModel : ViewModelBase
 
         var csharpPath = Path.Combine(AppContext.BaseDirectory, "viewModels", "Examples", "DataTable",
             "BasicDataTableViewModel.cs");
-        CSharpCode = csharpPath.ExtractWithSkipRanges((31, 36), (48, 53)).CleanIndentation();
+        CSharpCode = csharpPath.ExtractWithSkipRanges((31, 37), (48, 54)).CleanIndentation();
 
         _searchTimer = new Timer(500); // 500ms debounce
         _searchTimer.Elapsed += SearchTimerElapsed;
