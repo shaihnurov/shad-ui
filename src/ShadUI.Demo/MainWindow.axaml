@@ -159,7 +159,7 @@
                                 <TextBlock
                                     Classes="LucideIcon"
                                     Foreground="{DynamicResource ForegroundColor}"
-                                    Text="&#58411;" />
+                                    Text="&#58416;" />
                             </Viewbox>
                         </shadui:SidebarItem.Icon>
                     </shadui:SidebarItem>
