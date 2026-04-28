@@ -49,6 +49,7 @@
         <ResourceInclude Source="avares://ShadUI/Controls/TabControl/TabItem.axaml" />
         <ResourceInclude Source="avares://ShadUI/Controls/TextBox/TextBox.axaml" />
         <ResourceInclude Source="avares://ShadUI/Controls/TextBlock/TextBlock.axaml" />
+        <ResourceInclude Source="avares://ShadUI/Controls/MarqueeTextBlock/MarqueeTextBlock.axaml"/>
         <ResourceInclude Source="avares://ShadUI/Controls/TimeInput/TimeInput.axaml" />
         <ResourceInclude Source="avares://ShadUI/Controls/TimePicker/TimePicker.axaml" />
         <ResourceInclude Source="avares://ShadUI/Controls/Toast/Toast.axaml" />

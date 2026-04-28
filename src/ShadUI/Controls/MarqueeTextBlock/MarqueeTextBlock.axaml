@@ -1,0 +1,18 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:shadui="clr-namespace:ShadUI">
+
+    <ControlTheme x:Key="typeof(shadui:MarqueeTextBlock)"
+                  TargetType="shadui:MarqueeTextBlock">
+        <Setter Property="Template">
+            <ControlTemplate TargetType="shadui:MarqueeTextBlock">
+                <Border ClipToBounds="True">
+                    <Canvas x:Name="PART_Canvas">
+                        <TextBlock x:Name="PART_Text"/>
+                    </Canvas>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+
+</ResourceDictionary>
