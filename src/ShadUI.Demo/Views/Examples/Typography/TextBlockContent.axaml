@@ -82,9 +82,11 @@
                 TextWrapping="Wrap" />
         </controls:ControlBlock>
 
-        <controls:ControlBlock Title="Marquee" Xaml="{Binding}">
-            <shadui:MarqueeTextBlock TextValue="testtesttesttest"
-                                     MinHeight="30"/>
+        <controls:ControlBlock Title="Marquee" Xaml="{Binding MarqueeCode}">
+            <shadui:MarqueeTextBlock 
+                TextValue="ShadUI ShadUI ShadUI ShadUI ShadUI"
+                Width="150" 
+                HorizontalAlignment="Left"/>
         </controls:ControlBlock>
     </StackPanel>
 </UserControl>

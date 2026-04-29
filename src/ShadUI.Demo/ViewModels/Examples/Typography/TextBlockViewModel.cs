@@ -20,6 +20,7 @@ public sealed partial class TextBlockViewModel : ViewModelBase
         CaptionCode = path.ExtractByLineRange(66, 69).CleanIndentation();
         MutedCode = path.ExtractByLineRange(72, 75).CleanIndentation();
         ErrorCode = path.ExtractByLineRange(78, 81).CleanIndentation();
+        MarqueeCode = path.ExtractByLineRange(85, 90).CleanIndentation();
     }
 
     [ObservableProperty]
@@ -54,4 +55,7 @@ public sealed partial class TextBlockViewModel : ViewModelBase
 
     [ObservableProperty]
     private string _errorCode = string.Empty;
+
+    [ObservableProperty]
+    private string _marqueeCode = string.Empty;
 }
