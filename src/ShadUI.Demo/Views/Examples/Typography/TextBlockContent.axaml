@@ -1,5 +1,5 @@
 ﻿<UserControl
-    d:DesignHeight="3850"
+    d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d"
     x:Class="ShadUI.Demo.Views.Examples.Typography.TextBlockContent"
