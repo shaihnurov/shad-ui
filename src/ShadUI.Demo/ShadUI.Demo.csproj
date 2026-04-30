@@ -57,9 +57,8 @@
             <XamlFiles Include="Views\**\*.axaml"/>
         </ItemGroup>
 
-        <Copy SourceFiles="@(XamlFiles)" 
-              
-              DestinationFiles="@(XamlFiles->'$(OutDir)views/%(RecursiveDir)%(Filename).axaml')" 
+        <Copy SourceFiles="@(XamlFiles)"
+              DestinationFiles="@(XamlFiles->'$(OutDir)views/%(RecursiveDir)%(Filename).axaml')"
               SkipUnchangedFiles="true"/>
     </Target>
 
@@ -68,9 +67,8 @@
             <CSharpFiles Include="ViewModels\**\*.cs" Exclude="ViewModels\ViewModelBase.cs"/>
         </ItemGroup>
 
-        <Copy SourceFiles="@(CSharpFiles)" 
-              
-              DestinationFiles="@(CSharpFiles->'$(OutDir)viewModels/%(RecursiveDir)%(Filename).cs')" 
+        <Copy SourceFiles="@(CSharpFiles)"
+              DestinationFiles="@(CSharpFiles->'$(OutDir)viewModels/%(RecursiveDir)%(Filename).cs')"
               SkipUnchangedFiles="true"/>
     </Target>
 </Project>

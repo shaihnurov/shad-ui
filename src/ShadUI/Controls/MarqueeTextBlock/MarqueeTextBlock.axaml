@@ -6,7 +6,6 @@
                   TargetType="shadui:MarqueeTextBlock">
         <Setter Property="Template">
             <ControlTemplate TargetType="shadui:MarqueeTextBlock">
-                <!-- ClipToBounds здесь — единственный механизм обрезки -->
                 <Border ClipToBounds="True"
                         HorizontalAlignment="Stretch"
                         VerticalAlignment="Stretch">
@@ -19,5 +18,4 @@
             </ControlTemplate>
         </Setter>
     </ControlTheme>
-
 </ResourceDictionary>

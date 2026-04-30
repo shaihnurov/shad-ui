@@ -85,7 +85,7 @@
         <controls:ControlBlock Title="Marquee" Xaml="{Binding MarqueeCode}">
             <shadui:MarqueeTextBlock 
                 TextValue="ShadUI ShadUI ShadUI ShadUI ShadUI"
-                Width="100" 
+                Width="100" Classes="Small"
                 HorizontalAlignment="Left"/>
         </controls:ControlBlock>
     </StackPanel>

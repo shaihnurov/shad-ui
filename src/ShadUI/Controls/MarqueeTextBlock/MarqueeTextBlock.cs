@@ -37,7 +37,7 @@ public class MarqueeTextBlock : TemplatedControl
     /// Scrolling speed in pixels per second
     /// Duration is derived from this so speed stays constant regardless of text length
     /// </summary>
-    private const double ScrollSpeedPxPerSecond = 80.0;
+    private const double ScrollSpeedPxPerSecond = 100.0;
 
     private TextBlock? _textBlock;
     private Canvas? _canvas;
